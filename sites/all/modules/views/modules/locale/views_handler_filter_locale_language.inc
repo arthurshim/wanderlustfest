@@ -1,0 +1,20 @@
+<?php
+<<<<<<< HEAD
+=======
+// $Id: views_handler_filter_locale_language.inc,v 1.1 2009/02/20 23:02:09 merlinofchaos Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+/**
+ * Filter by language.
+ */
+class views_handler_filter_locale_language extends views_handler_filter_in_operator {
+  function get_value_options() {
+    if (!isset($this->value_options)) {
+      $this->value_title = t('Language');
+      $languages = array('***CURRENT_LANGUAGE***' => t("Current user's language"), '***DEFAULT_LANGUAGE***' => t("Default site language"), '***NO_LANGUAGE***' => t('No language'));
+      $languages = array_merge($languages, locale_language_list());
+      $this->value_options = $languages;
+    }
+  }
+}
+

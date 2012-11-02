@@ -1,0 +1,6 @@
+; $Id$
+name = "Sites Clone"
+description = "Clone a site as well as all of its nodes and menus."
+package = "Sites"
+dependencies[] = sites
+core = "6.x"

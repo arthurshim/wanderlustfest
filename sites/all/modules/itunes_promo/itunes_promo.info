@@ -1,0 +1,5 @@
+; $Id$
+name = Itunes Promo module 
+description = Allows users to retrieve iTunes promo codes 
+package = Custom
+core = 6.x

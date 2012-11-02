@@ -1,0 +1,7 @@
+; $Id$
+name = WanderFB
+description = Add 'Drupal for Facebook' tie-ins for Wanderlust site.
+core = 6.x
+dependencies[] = fb
+dependencies[] = comment
+package = "Malkine Interactive Drupal Modules"

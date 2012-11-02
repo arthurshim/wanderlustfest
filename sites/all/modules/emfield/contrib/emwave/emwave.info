@@ -1,0 +1,27 @@
+<<<<<<< HEAD
+name = Embedded Wave Field
+description = Defines a field type for displaying waves from third party providers, such as Google or ...
+dependencies[] = emfield
+package = Media
+core = 6.x
+
+; Information added by drupal.org packaging script on 2011-05-06
+version = "6.x-2.5"
+core = "6.x"
+project = "emfield"
+datestamp = "1304705515"
+=======
+; $Id: emwave.info,v 1.1.2.1 2009/10/13 13:26:44 aaron Exp $
+name = Embedded Wave Field
+description = Defines a field type for displaying waves from third party providers, such as Google or ...
+dependencies[] = emfield
+package = CCK
+core = 6.x
+
+; Information added by drupal.org packaging script on 2010-09-22
+version = "6.x-1.25"
+core = "6.x"
+project = "emfield"
+datestamp = "1285164662"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

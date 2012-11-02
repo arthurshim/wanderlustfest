@@ -1,0 +1,13 @@
+; $Id:
+
+name = "ExactTarget API"
+description = "Provides abstraction of the ExactTarget XML API for use by other modules."
+package = Other
+core = 6.x
+
+; Information added by drupal.org packaging script on 2011-06-04
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "exact_target_api"
+datestamp = "1307146295"
+

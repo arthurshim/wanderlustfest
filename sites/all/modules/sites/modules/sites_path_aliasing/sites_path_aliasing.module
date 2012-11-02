@@ -1,0 +1,626 @@
+<?php
+
+// $Id$
+
+require_once 'sites_path_aliasing.helpers.inc';
+require_once 'shared_path.inc';
+require_once 'sites_path_aliasing.maintenance.inc';
+
+/**
+ * Implementation of hook_boot().
+ */
+function sites_path_aliasing_boot() {
+//  if ($_GET['destination']) {
+    // @@TODO: remove 'sites:' prefix (is this where this should be done?  does it even need to be done?)
+    //sites_path_aliasing_remove_sites_prefix($_GET['destination']);
+//  }
+}
+
+function sites_path_aliasing_init() {
+  // @@TODO: remove this and create an interface
+  if ($_GET['rebuild_prefixes'] == '1') {
+    sites_path_aliasing_rebuild_prefixes();
+  }
+}
+
+/**
+ * Implementation of hook_url_alter_inbound().
+ *
+ * Rewrites an incoming drupal path (&$result) by checking the 'sites:' prefix,
+ * ensuring that the path is being accessed via one of the sites on which it exists,
+ * and then quietly directing the user straight to the system URL to prevent the path
+ * module from revealing the URL with the ugly prefix.
+ */
+function sites_path_aliasing_url_inbound_alter(&$result, $path, $path_language) {
+  if (purl_inited() && substr($result, 0, 6) != 'sites:') {
+    $processor = purl_get_processor('subdomain');
+    $value = $processor->detect($adjusted[$q]);
+    $elements = purl_parse($processor, $value);
+    foreach ($elements as $value => $purl_path_element) {
+      if ($purl_path_element->provider == 'sites') {
+        $sid = $purl_path_element->id;
+        
+        if ($p = sites_path_aliasing_get_normal_path($sid, $result)) {
+          $result = $p;
+        }
+        return; // do not rewrite url if alias does not exist
+      }
+    }
+  }
+}
+
+/**
+ * Implementation of hook_url_alter_outbound().
+ *
+ * Rewrites outgoing paths (&$result) by checking the 'sites:' prefix,
+ * ensuring that the path is being accessed via one of the sites on which it exists,
+ * and then quietly directing the user straight to the system URL to prevent the path
+ * module from revealing the URL with the ugly prefix.
+ */
+function sites_path_aliasing_url_outbound_alter(&$path, &$options, $original_path) {
+  static $counter = 0;
+  static $current_sid = NULL;
+  static $sites_method = NULL;
+  
+  if ($current_sid === NULL) {
+    // find the current site SID and the PURL method that Sites is set up to use
+    foreach (purl_active()->get() as $method => $items) {
+      foreach ($items as $item) {
+        if ($item->provider == 'sites') {
+          $sites_method = $method;
+          $current_sid = $item->id;
+          break;  // there can only be a single active site at any given time, so break here and use this sid
+        }
+      }
+      if ($current_sid) {
+        break;
+      }
+    }
+    if ($current_sid === NULL) { // @@TODO: test this and make sure it doesn't break lots of links when outbound_alter is called before purl is initialized
+      $current_sid = FALSE; // we're not on any site at all 
+    }
+  }
+  
+  //preg_match('/sites:(?<sites>[\d,]+)\//', $path, $matches);
+  $prefix = sites_path_aliasing_extract_sites_prefix($path);
+  if (!empty($prefix)) { // sites prefix encountered, contains site IDs
+    $sids = explode(',', $prefix);
+    if (!in_array($current_sid, $sids) && count($sids) > 0) {
+      // if the link is to content that isn't a part of the current site, ensure that the url points
+      // to one of the sites that the content belongs to (this code chooses the first in the list).
+      // this shouldn't really ever happen, as content creators and site admins should be sure to use
+      // absolute links for content on other sites, but it's better to have SOME kind of fallback than
+      // none at all. -bb
+      $purl_options = array('provider' => 'sites', 'id' => $sids[0]);
+      if ($e = purl_generate_rewrite_elements($purl_options)) {
+        $options = $options + array('purl' => $purl_options);
+        $e->processor->rewrite($path, $options, $e);
+      }
+    }
+    
+    // remove 'sites:' prefix
+    sites_path_aliasing_remove_sites_prefix($path);
+  }
+}
+
+/**
+ * Simulate pathauto's process of finding which pattern to use for a given node.
+ */
+function sites_path_aliasing_get_pathauto_pattern($node) {
+  _pathauto_include();
+  // Get the specific pattern or the default
+  if (variable_get('language_content_type_'. $node->type, 0)) {
+    $pattern = trim(variable_get('pathauto_node_'. $node->type .'_'. $node->language .'_pattern', FALSE));
+  }
+  if (empty($pattern)) {
+    $pattern = trim(variable_get('pathauto_node_'. $node->type .'_pattern', FALSE));
+    if (empty($pattern)) {
+      $pattern = trim(variable_get('pathauto_node_pattern', FALSE));
+    }
+  }
+  return $pattern;
+}
+
+/**
+ * Determine whether pathauto will act on this node at various stages of the content editing process.
+ *
+ * @param $node
+ *   Node object.
+ *
+ * @param $op
+ *   If $hook = 'nodeapi', $op should be whatever $op that hook_nodeapi is currently processing.
+ *
+ * @param $hook
+ *   Which hook is currently firing ('nodeapi' or 'form_alter').
+ */
+function sites_path_aliasing_pathauto_will_act($node, $op, $hook = 'nodeapi') {
+  if (!module_exists('pathauto')) {
+    return FALSE;
+  }
+  
+  if ($hook == 'nodeapi') {
+    switch ($op) {
+      case 'validate':
+      case 'presave':
+        $pattern = sites_path_aliasing_get_pathauto_pattern($node);
+        if ($pattern) {
+          if (!isset($node->pathauto_perform_alias) || $node->pathauto_perform_alias) {
+            return TRUE;
+          }
+        }
+        break;
+    
+      default:
+        break;
+    }
+  }
+  /*else if ($hook == 'form_alter') {
+    $pattern = sites_path_aliasing_get_pathauto_pattern($node);
+    if ($pattern) {
+      if (!isset($node->pathauto_perform_alias)) {
+        if (!empty($node->nid)) {
+          // If this is not a new node, compare its current alias to the
+          // alias that would be genereted by pathauto. If they are the same,
+          // then keep the automatic alias enabled.
+          _pathauto_include();
+          $placeholders = pathauto_get_placeholders('node', $node);
+          $pathauto_alias = pathauto_create_alias('node', 'return', $placeholders, "node/{$node->nid}", $node->nid, $node->type, $node->language);
+          return isset($node->path) && $node->path == $pathauto_alias;
+        }
+        else {
+          // If this is a new node, enable the automatic alias.
+          return TRUE;
+        }
+      }
+    }
+  }*/
+  return FALSE;
+}
+
+/**
+ * Determine whether path will act on this node.
+ */
+function sites_path_aliasing_path_will_act($node, $op) {
+  if (!empty($node->path)) {
+    return TRUE;
+  }
+  return FALSE;
+}
+
+/**
+ * Determine which pathauto pattern is going to be used and then add the sites prefix to it.
+ */
+function sites_path_aliasing_add_prefix_to_pathauto_pattern($node, $prefix) {
+  global $conf;
+  $pattern = '';
+  if (variable_get('language_content_type_'. $node->type, 0)) {
+    $pattern = trim(variable_get('pathauto_node_'. $node->type .'_'. $node->language .'_pattern', FALSE));
+    if ($pattern) {
+      $conf['pathauto_node_'. $node->type .'_'. $node->language .'_pattern'] = $prefix . '/' . $pattern;
+    }
+  }
+  if (empty($pattern)) {
+    $pattern = trim(variable_get('pathauto_node_'. $node->type .'_pattern', FALSE));
+    if ($pattern) {
+      $conf['pathauto_node_'. $node->type .'_pattern'] = $prefix . '/' . $pattern;
+    }
+    else if (empty($pattern)) {
+      $pattern = trim(variable_get('pathauto_node_pattern', FALSE));
+      if ($pattern) {
+        $conf['pathauto_node_pattern'] = $prefix . '/' . $pattern;
+      }
+    }
+  }
+}
+
+/**
+ * Make sure no other nodes which share at least one site with the given node are using the same alias.
+ */
+function sites_path_aliasing_alias_in_use($check_alias, $node) {
+  if (empty($node->nid) && !empty($node->vid)) {
+    $nid = db_result(db_query("SELECT nid FROM {node_revisions} WHERE vid = %d", $node->vid));
+    if ($nid) {
+      $node->nid = $nid;
+    }
+  }
+  sites_path_aliasing_remove_sites_prefix($check_alias); // wipe any existing prefix
+  $q = "SELECT DISTINCT(ss.sid) FROM {sites_shared_paths} ssp
+          JOIN {url_alias} u ON u.pid = ssp.pid
+          JOIN {sites_sid_spid} ss ON ss.spid = ssp.spid
+          WHERE ssp.alias = '%s' AND u.src != 'node/%d'";
+  $res = db_query($q, $check_alias, $node->nid);
+  $sids_with_this_alias = array();
+  while ($row = db_result($res)) {
+    $sids_with_this_alias[] = $row;
+    //$sids = explode(',', $row['sites']);
+    //foreach($sids as $sid) {
+    //  $sids_with_this_alias[$sid] = 1;
+    //}
+  }
+  //$sids_with_this_alias = array_keys($sids_with_this_alias);
+  if (count(array_intersect($sids_with_this_alias, $node->sites)) > 0) {
+    $q = "SELECT u.src FROM {sites_shared_paths} ssp JOIN {url_alias} u ON u.pid = ssp.pid WHERE ssp.alias = '%s'";
+    $res = db_query($q, $check_alias);
+    $src = db_result($res);
+    if ($nid = (int)substr($src, 5)) {
+      return $nid;
+    }
+    return TRUE; // make sure we indicate that this is in use in the ssp tables, whether or not the url_alias table correlates
+  }
+  return FALSE;
+}
+
+function sites_path_aliasing_get_spid_by_nid($nid) {
+  static $spids = array();
+  if (isset($spids[$nid])) {
+    return $spids[$nid];
+  }
+  
+  $q = "SELECT ssp.spid FROM {sites_shared_paths} ssp
+          JOIN {url_alias} u on u.pid = ssp.pid
+          WHERE u.src = '%s'";
+    
+  $res = db_query($q, 'node/' . $nid);
+  $spids[$nid] = db_result($res);
+  return $spids[$nid];
+}
+
+/**
+ * Delete a shared path record by nid or spid.
+ *
+ * @param $id
+ *   Either the nid, spid or pid associated with the record to delete.
+ *
+ * @param $id_type
+ *   'pid' or 'spid'
+ */
+function sites_path_aliasing_remove_shared_path_record($id, $id_type) {
+  sites_invoke_siteapi($id, 'before delete shared alias', $id_type);
+  if ($id) {
+    switch ($id_type) {
+      case 'pid':
+        $spid = db_result(db_query("SELECT spid FROM {sites_shared_paths} WHERE pid = %d", $id));
+        if ($spid) {
+          db_query("DELETE FROM {sites_shared_paths} WHERE spid = %d", $spid);
+          db_query("DELETE FROM {sites_sid_spid} WHERE spid = %d", $spid);
+        }
+        sites_invoke_siteapi($spid, 'after delete shared alias');
+        return;
+        break;
+      
+      case 'nid':
+        $spid = sites_path_aliasing_get_spid_by_nid($id);
+        break;
+      
+      case 'spid':
+        $spid = $id;
+        break;
+        
+      default:
+        return FALSE;
+    }
+    
+    db_query("DELETE FROM {sites_shared_paths} WHERE spid = %d", $spid);
+    db_query("DELETE FROM {sites_sid_spid} WHERE spid = %d", $spid);
+    sites_invoke_siteapi($spid, 'after delete shared alias');
+  }
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function sites_path_aliasing_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
+  $prefix = sites_path_aliasing_make_prefix($node);
+  
+  switch ($op) {
+    case 'delete':
+      sites_path_aliasing_remove_shared_path_record($node->nid, 'nid');
+      _sites_path_aliasing_cache_ready(FALSE); // invalidate cache
+      break;
+      
+    case 'validate':
+      if (!$prefix || !isset($node->allow_shared_alias) || $node->allow_shared_alias == FALSE) {
+        sites_path_aliasing_remove_sites_prefix($node->path); // make sure there's no prefix
+        return; // bail out before doing any processing
+      }
+      
+      $check_alias = '';
+      // if pathauto is going to make an alias, make sure the alias it creates won't clash with that of an existing node on one of the sites this node is attached to
+      if (sites_path_aliasing_pathauto_will_act($node, $op)) {
+        $placeholders = pathauto_get_placeholders('node', $node);
+        $src = "node/$node->nid";
+        $check_alias = pathauto_create_alias('node', 'return', $placeholders, $src, $node->nid, $node->type, $node->language); // $op = 'return'
+      }
+      else if (sites_path_aliasing_path_will_act($node, $op)) {
+        $check_alias = $node->path;
+        $node->path = $prefix . '/' . $node->path; // add $prefix to $node->path so the path module validates the url correctly
+      }
+      
+      // if path module is active and a path is specified, throw our own error if the path clashes with any existing site
+      if (!empty($check_alias)) { // only act if a prefix actually needs to be added and there's an alias to validate
+        if (sites_path_aliasing_alias_in_use($check_alias, $node)) {
+          form_set_error('path', t('This shared URL alias is already being used by a node on one of the sites that this node is attached to.'));
+        }
+      }
+      break;
+      
+    case 'presave':
+      if (!$prefix || !isset($node->allow_shared_alias) || $node->allow_shared_alias == FALSE) {
+        return; // bail out before doing any processing
+      }
+      
+      global $conf;
+      $conf['path_redirect_auto_redirect'] = 0; // don't allow the path_redirect module to create a redirect from the old path (which didn't have the 'sites:' prefix)
+      
+      $pattern = NULL;
+      // preempt pathauto and add the sites prefix to the active pattern only for the duration of the current page request
+      // note: can't use pathauto_alias_alter because it doesn't pass the node object with the new set of sites attached
+      if (sites_path_aliasing_pathauto_will_act($node, $op)) { // pathauto is active
+        sites_path_aliasing_add_prefix_to_pathauto_pattern($node, $prefix);
+      }
+      else { // sometimes we enter nodeapi without passing through the validate step (when cloning or importing sites, for example).  in that case,
+             // this is the first point at which we can ensure that $node->path is prefixed (otherwise it'll be saved as a normal path).
+        sites_path_aliasing_remove_sites_prefix($node->path);
+        $node->path = $prefix . '/' . $node->path;
+      }
+      break;
+      
+    case 'insert':
+    case 'update':
+      // record the previous pid in the event that we are deleting the alias and therefore need to delete the sites_shared_paths record
+      $res = db_query("SELECT u.pid FROM {url_alias} u WHERE u.src = 'node/%d'", $node->nid);
+      if ($row = db_fetch_array($res)) {
+        $node->old_pid = $row['pid'];
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function sites_path_aliasing_form_alter(&$form, $form_state, $form_id) {
+  if (!is_array($form['#submit'])) {
+    if (is_string($form['#submit'])) {
+      $form['#submit'] = array((string)$form['#submit']);
+    }
+    else {
+      $form['#submit'] = array();
+    }
+  }
+  $form['#submit'][] = 'sites_path_aliasing_process_submitted_form_remove_prefix_from_redirect';
+  array_unshift($form['#submit'], 'sites_path_aliasing_process_submitted_form_add_prefix');
+  
+<<<<<<< HEAD
+  if (isset($form['#node'])) {
+	  $node = (object)$form['#node']; // create a copy so we don't change it
+	  
+	  // if the node is sites-prefixed, add the prefix to the active pattern so that pathauto perceives
+	  // the prefixed url alias as being identical to what it would generate, thereby ensuring that the
+	  // "automatic alias" checkbox on the node form is checked when it ought to be
+	  if (sites_path_aliasing_extract_sites_prefix($node->path) && module_exists('pathauto')) {
+	    sites_path_aliasing_add_prefix_to_pathauto_pattern($node, sites_path_aliasing_make_prefix($node));
+	  }
+=======
+  $node = (object)$form['#node']; // create a copy so we don't change it
+  
+  // if the node is sites-prefixed, add the prefix to the active pattern so that pathauto perceives
+  // the prefixed url alias as being identical to what it would generate, thereby ensuring that the
+  // "automatic alias" checkbox on the node form is checked when it ought to be
+  if (sites_path_aliasing_extract_sites_prefix($node->path) && module_exists('pathauto')) {
+    sites_path_aliasing_add_prefix_to_pathauto_pattern($node, sites_path_aliasing_make_prefix($node));
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+  }
+}
+
+/**
+ * Submit hook that should be run first by any node form which adds the sites prefix to the form_values
+ */
+function sites_path_aliasing_process_submitted_form_add_prefix($form, &$form_state) {
+  $node = new stdClass;
+  $node->sites = $form_state['values']['sites'];
+  $node->path = $form_state['values']['path'];
+  
+  // if only the path module is active (not pathauto), add the prefix to the path so the path module will save it for us
+  if ($form_state['values']['allow_shared_alias'] && sites_path_aliasing_path_will_act($node) && !$form_state['values']['pathauto_perform_alias']) {
+    sites_path_aliasing_remove_sites_prefix($form_state['values']['path']); // remove old prefix if it's there
+    $form_state['values']['path'] = sites_path_aliasing_make_prefix($node) . '/' . $form_state['values']['path']; // add new one
+  }
+}
+
+/**
+ * Submit hook that should be run last by any node form which removes the sites prefix from form redirect paths
+ */
+function sites_path_aliasing_process_submitted_form_remove_prefix_from_redirect($form, &$form_state) {
+  // does this need to be done or does hook_url_outbound_alter take care of this?
+  //sites_path_aliasing_remove_sites_prefix($form_state['redirect']);
+}
+
+/**
+ * Create a sites prefix for a given node in the form 'sites:x,y,x' where
+ * x, y, and z are the unique IDs of sites to which the node belongs.
+ *
+ * @param $node
+ *   A node object.
+ *
+ * @return
+ *   String containing the sites prefix but no trailing slash.
+ */
+function sites_path_aliasing_make_prefix($node) {
+  if (sites_node_has_sites($node)) {
+    return 'sites:' . implode(',', $node->sites);
+  }
+  return NULL;
+}
+
+/**
+ * Implementation of hook_sites_clone_node_alter (see sites_clone.module).
+ */
+function sites_path_aliasing_sites_clone_node_alter(&$node, $original_node) {
+  dsm(array('node' => $node, 'orig' => $original_node), "!!spa clone node alter begin");
+  // if not using path aliases, don't bother with any of this
+  if (isset($original_node->path) && strlen(trim($original_node->path)) > 0) {
+    // if the original node isn't sites-prefixed, resave it with the prefix
+    $already_shared_alias = (sites_path_aliasing_extract_sites_prefix($original_node->path) == NULL ? FALSE : TRUE);
+    if (!$already_shared_alias && sites_node_has_sites($original_node)) {
+      $original_node->allow_shared_alias = TRUE;
+      $original_node->pathauto_perform_alias = FALSE;
+      $original_node->path = sites_path_aliasing_make_prefix($original_node) . '/' . $original_node->path;
+      $original_node->pid = db_result(db_query("SELECT pid FROM {url_alias} WHERE src = '%s' AND language = '%s'", 'node/' . $original_node->nid, $original_node->language));
+      node_save($original_node);
+      drupal_set_message("Converting path alias for original node (nid: {$original_node->nid}) to a shared alias ({$original_node->path})");
+      sites_clone_modify_active_clone_record('add message', "Converting path alias for original node (nid: {$original_node->nid}) to a shared alias ({$original_node->path})");
+    }
+  
+    $node->pathauto_perform_alias = FALSE;
+    $node->allow_shared_alias = TRUE;
+    if ($prefix = sites_path_aliasing_make_prefix($node)) {
+      sites_path_aliasing_remove_sites_prefix($node->path);
+      $node->path = $prefix . '/' . $node->path;
+    }
+    
+    _sites_path_aliasing_cache_ready(FALSE);
+  }
+  dsm(array('node' => $node, 'orig' => $original_node), "!!spa clone node alter end");
+}
+
+/**
+ * Retrieve the internal Drupal path referred to by a given shared
+ * alias on a given site and cache the result.
+ *
+ * @param $sid
+ *   Site id.
+ *
+ * @param $shared_alias
+ *   The alias, without any sites prefix (i.e. the alias as the user sees it).
+ *
+ * @return
+ *   The internal Drupal path or FALSE if $shared_alias is not a shared alias.
+ */
+function sites_path_aliasing_get_normal_path($sid, $shared_alias) {
+  if (strlen(trim((string)$shared_alias)) <= 0 || empty($sid)) {
+    return FALSE;
+  }
+  
+  if (!_sites_path_aliasing_cache_ready()) {
+    _sites_path_aliasing_regenerate_cache();
+  }
+  
+  static $normal_paths = array();
+  if (isset($normal_paths["$sid : $shared_alias"])) {
+    return $normal_paths["$sid : $shared_alias"];
+  }
+  
+  if (($p = cache_get("$sid : $shared_alias", 'cache_sites_shared_paths')) != 0) {
+    if (is_object($p) && is_string($p->data) && strlen($p->data) > 0) {
+      $normal_paths["$sid : $shared_alias"] = $p->data;
+      return $p->data;
+    }
+  }
+  
+  return FALSE;
+}
+
+function _sites_path_aliasing_regenerate_cache() {
+  db_query("DELETE FROM {cache_sites_shared_paths}");
+  
+  $res = db_query("SELECT ssp.alias, sss.sid, u.src FROM {sites_shared_paths} ssp
+              JOIN {sites_sid_spid} sss ON sss.spid = ssp.spid
+              JOIN {url_alias} u ON ssp.pid = u.pid");
+              
+  while ($row = db_fetch_object($res)) {
+    cache_set("{$row->sid} : {$row->alias}", $row->src, 'cache_sites_shared_paths');
+  }
+  
+  _sites_path_aliasing_cache_ready(TRUE);
+}
+
+function _sites_path_aliasing_cache_ready($_ready = NULL) {
+  static $ready = NULL;
+  if ($_ready !== NULL) {
+    $ready = $_ready;
+    cache_set('cache ready', (int)$ready, 'cache_sites_shared_paths');
+  }
+  if ($ready === NULL) {
+    $cache = cache_get('cache ready', 'cache_sites_shared_paths');
+    if ($cache == 0) {
+      $ready = FALSE;
+      cache_set('cache ready', '0');
+    }
+    else {
+      if (strlen($cache->data) > 0) {
+        $ready = (bool)$cache->data;
+      }
+    }
+  }
+  
+  return $ready;
+}
+
+
+
+
+/*
+
+sites_sid_spid
+SID   SPID
+===   ====
+1     1
+2     1
+1     2
+3     2
+
+sites_shared_paths
+ALIAS     SITES     PID       SPID
+====      =====     ======    ====
+blog      1,2       3         1
+forum     1,3       554       2
+videos    3,6       49        3
+
+SELECT u.src FROM sid_spid
+JOIN shared_paths sp ON sp.spid = sid_spid.spid
+JOIN url_alias u ON u.pid = sid_spid.pid
+WHERE shared_paths.alias = $result AND sid_spid.sid = $sid
+
+$result = u.src
+
+TODO: if alias exists but is not active on the current site, find a way to throw a 404
+
+
+
+
+
+
+ALIAS               SITES     ACTUAL            
+====                =====     ======
+sites:1,2/blog      1,2       squaw-blog
+sites:1,3/forum     1,3       node/30
+sites:3,6/videos    3,6       taxonomy/4
+
+PID   SITES
+===   =====
+54    1
+392   1,2
+
+
+
+SID   PID   
+===   ===   
+1     54    
+1     392   
+2     392
+
+PID   SRC       DST
+===   ===       ===
+54    node/45   sites:1/blog  
+392   my-view   sites:1,2/forum
+
+
+<<<<<<< HEAD
+*/
+=======
+*/
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

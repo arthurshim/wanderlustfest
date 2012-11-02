@@ -1,0 +1,5 @@
+; $Id$
+name = WL_Payment_Processing
+description = Various payment processing pages for Wanderlust site.
+core = 6.x
+package = "Malkine Interactive Drupal Modules"

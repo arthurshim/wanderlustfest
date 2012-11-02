@@ -1,0 +1,329 @@
+<?php
+
+/**
+ * @file
+ *   LABjs module
+ */
+
+define('LABJS_EXCLUDE', '// LABjs exclusion');
+
+/**
+ * Implementation of hook_menu().
+ */
+function labjs_menu() {
+  $items = array();
+  $file_path = drupal_get_path('module', 'labjs') . '/includes';
+
+  $items['admin/settings/performance/labjs'] = array(
+    'title' => 'LABjs',
+    'description' => 'Configure the settings used to wrap JS blocks.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('labjs_admin_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'file path' => $file_path,
+    'file' => 'labjs.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_theme_registry_alter().
+ *
+ * Make LABjs's page preprocess function run *after* everything else's,
+ * so that a theme can't call drupal_get_js() and mess everything up,
+ * and other JS/CSS replacement modules can work with LABjs.
+ */
+function labjs_theme_registry_alter(&$theme_registry) {
+  if (isset($theme_registry['page'])) {
+    if (count($theme_registry['page']['preprocess functions']) > 0) {
+      // If labjs's preprocess function is there already, remove it.
+      if ($key = array_search('labjs_preprocess_page', $theme_registry['page']['preprocess functions'])) {
+        unset($theme_registry['page']['preprocess functions'][$key]);
+      }
+    }
+    // Now tack it on at the end so it runs after everything else.
+    $theme_registry['page']['preprocess functions'][] = 'labjs_preprocess_page';
+  }
+
+  $theme_registry['closure']['function'] = 'labjs_closure';
+}
+
+/**
+ * Implements hook_advagg_js_pre_alter.
+ */
+function labjs_advagg_js_pre_alter(&$javascript) {
+  global $conf;
+  if (labjs_suppress() || empty($javascript)) {
+    return;
+  }
+
+  _labjs_patch_core($javascript);
+  module_load_include('inc', 'labjs', 'includes/labjs.advagg');
+  $conf['advagg_js_render_function'] = 'labjs_advagg_js_builder';
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function labjs_preprocess_page(&$variables) {
+  if (labjs_suppress() || empty($variables['scripts'])) {
+    return;
+  }
+
+  // Init some variables.
+  $javascript = '';
+  $out = '';
+  $exception_mode = variable_get('labjs_exception_mode', 'whitelist') == 'whitelist' ? 'whitelist' : 'blacklist';
+  $list = explode("\n", str_replace(array("\r\n", "\r"), "\n", variable_get('labjs_exception_' . $exception_mode, '')));
+  $list = array_flip(array_filter(array_map('trim', $list)));
+
+  // If advagg is enabled, this happens in hook_advagg_js_pre_alter().
+  if (!module_exists('advagg') || !variable_get('advagg_enabled', ADVAGG_ENABLED)) {
+    // Get an array of all the JavaScript files loaded by Drupal on this page.
+    $types = drupal_add_js(NULL, NULL, NULL);
+    _labjs_patch_core($types['header']);
+    _labjs_patch_core($types['footer']);
+    $variables['scripts'] = drupal_get_js('header', $types['header']);
+  }
+
+  // If advagg is enabled, this happens in labjs_advagg_js_builder().
+  if (!module_exists('advagg') || !variable_get('advagg_enabled', ADVAGG_ENABLED) || (isset($_GET['advagg']) && $_GET['advagg'] == -1)) {
+    // Now everything is ok, wrap JS with LABjs.
+    $javascript = labjs_rewrite_js($variables['scripts']);
+    $javascript_closure = labjs_rewrite_js(drupal_get_js('footer', $types['footer']));
+    $out = _labjs_prepare_required_js();
+    $variables['scripts'] = '';
+  }
+
+  // Replace any inline scripts.
+  foreach ($variables as $key => &$value) {
+    if (!empty($value) && is_string($value) && ($exception_mode == 'whitelist') === isset($list[$key])) {
+      labjs_rewrite_js($value);
+    }
+  }
+
+  // Modify scripts in the header.
+  $scripts = _labjs_rewrite_js();
+  if (!empty($scripts)) {
+    $out .= '<script type="text/javascript">' . "\n" . '<!--//--><![CDATA[//><!--' . "\n";
+    $out .= "\$L = \$L.script([" . implode(",\n", $scripts) . "]);\n//--><!]]>\n</script>\n";
+  }
+  $variables['scripts'] .= $out . $javascript;
+
+  // Add triger to end of closure.
+  $variables['closure'] .= $javascript_closure . '<script type="text/javascript">' . "\n"
+    . '<!--//--><![CDATA[//><!--' . "\n"
+    . LABJS_EXCLUDE ."\n"
+    . '$L = $L.wait(function() {Drupal.scriptsready=true;jQuery(document).trigger(\'scripts-ready\');});' . "\n"
+    . "//--><!]]>\n"
+    . "</script>\n";
+}
+
+/**
+ * Rewrites <script> tag to use LABjs.
+ *
+ * @param $javascript
+ *   String including <script> tag
+ * @return
+ *   Input string is modified and returned
+ */
+function labjs_rewrite_js(&$javascript) {
+  $javascript = preg_replace_callback('#<script .+?</script>\s*#s', '_labjs_rewrite_js', $javascript);
+  return $javascript;
+}
+
+/**
+ * Given path output uri to that file. CDN aware.
+ *
+ * @param $filename_md5
+ *   md5 of filename.
+ * @param $data
+ *   data to store.
+ */
+function labjs_build_uri($path) {
+  // CDN Support.
+  if (module_exists('cdn')) {
+    $status = variable_get(CDN_STATUS_VARIABLE, CDN_DISABLED);
+    if (($status == CDN_ENABLED || ($status == CDN_TESTING && user_access(CDN_PERM_ACCESS_TESTING))) && variable_get(CDN_THEME_LAYER_FALLBACK_VARIABLE, FALSE) == FALSE) {
+      return file_create_url($path);
+    }
+  }
+  return base_path() . $path;
+}
+
+/**
+ * Overrides theme_closure().
+ *
+ * We don't add script in footer if:
+ * - LABjs is enabled;
+ * - or both AdvAgg and advagg_closure are enabled.
+ */
+function labjs_closure($main = 0) {
+  $footer = implode("\n", module_invoke_all('footer', $main));
+  if (labjs_suppress() || (!(module_exists('advagg') && variable_get('advagg_enabled', ADVAGG_ENABLED) && variable_get('advagg_closure', ADVAGG_CLOSURE)))) {
+    $footer .= drupal_get_js('footer');
+  }
+  return $footer;
+}
+
+/**
+ * Disable LABjs for the current page.
+ *
+ * This function should be called from within another module's page callback
+ * (preferably using module_invoke()) when the taskbar should not be enabled.
+ * This is useful for modules that implement popup pages or other special
+ * pages where LABjs could break the layout.
+ *
+ * @param $set
+ *   If FALSE is passed, the suppression state is returned.
+ */
+function labjs_suppress($set = FALSE) {
+  static $suppress;
+
+  if ($set) {
+    $suppress = TRUE;
+  }
+  elseif (!isset($suppress)) {
+    // First, check the global enable settings and the maintenance mode,
+    // we should disable LABjs in those cases.
+    $suppress = !variable_get('labjs_enabled', TRUE) || defined('MAINTENANCE_MODE');
+
+    // Match path if necessary
+    if (!$suppress && $pages = variable_get('labjs_pages_list', '')) {
+      $path = drupal_get_path_alias($_GET['q']);
+      // Compare with the internal and path alias (if any).
+      $page_match = drupal_match_path($path, $pages);
+      if ($path != $_GET['q']) {
+        $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+      }
+      $suppress = (variable_get('labjs_pages_choice', 0) xor $page_match);
+    }
+  }
+
+  return $suppress;  
+}
+
+/**
+ * Replace core JavaScripts with LABjs-aware version.
+ *
+ * @param $javascript
+ *   associative array from drupal_add_js()
+ * @return
+ *   Nothing. Input array is modified.
+ */
+function _labjs_patch_core(&$javascript) {
+  $patches = array();
+  if (isset($javascript['core']['misc/drupal.js'])) {
+    // Replace drupal.js with our patched version
+    $patches[] = array(
+      'region' => 'core',
+      'old' => 'misc/drupal.js',
+      'new' => drupal_get_path('module', 'labjs') .'/drupal.modified.js',
+    );
+  }
+
+  // Support for jquery_update:
+  // We copy what jquery_update does in its preprocess_page.
+  if (module_exists('jquery_update') && variable_get('jquery_update_replace', TRUE)) {
+    $patches[] = array(
+      'region' => 'core',
+      'old' => 'misc/jquery.js',
+      'new' => jquery_update_jquery_path(),
+    );
+
+    // Loop through each of the required replacements.
+    foreach (jquery_update_get_replacements() as $type => $replacements) {
+      foreach ($replacements as $find => $replace) {
+        $patches[] = array(
+          'region' => $type,
+          'old' => $find,
+          'new' => JQUERY_UPDATE_REPLACE_PATH .'/' . $replace,
+        );
+      }
+    }
+  }
+  _labjs_replace_javascript($javascript, $patches);
+}
+
+/**
+ * Replace JavaScripts in $javascript.
+ *
+ * @param array $replacement
+ *   Each element is a keyed array with 3 values: region, old, new.
+ *
+ * Example: to replace the core misc/drupal.js
+ *   _labjs_replace_javascript($javascript, array(array('region' => 'core', 'old' => 'misc/drupal.js', 'new' => 'myscript.js')));
+ */
+function _labjs_replace_javascript(&$javascript, $replacement) {
+  foreach ($replacement as $item) {
+    if (isset($javascript[$item['region']][$item['old']])) {
+      $keys = array_keys($javascript[$item['region']]);
+      $values = array_values($javascript[$item['region']]);
+      $position = array_search($item['old'], array_keys($javascript[$item['region']]));
+      $keys[$position] = $item['new'];
+      $javascript[$item['region']] = array_combine($keys, $values);// PHP5
+    }
+  }
+}
+
+/**
+ * Callback function for labjs_rewrite_js().
+ *
+ * When called without parameter, returns an array containing all processed scripts.
+ */
+function _labjs_rewrite_js($matches = NULL) {
+  // We store all processed scripts in the $scripts array.
+  static $scripts = array();
+  if (!$matches) {
+    return $scripts;
+  }
+  else {
+    $exception = (strpos($matches[0], 'rpxnow.com') !== FALSE);
+
+    // If this is an inline script, we remove and add the src to $scripts array.
+    // If not, we try to wrap it with $LAB.wait()
+    if (preg_match('#type="text/javascript" (defer="defer" |)src="(.+?)"#', $matches[0], $match)) {
+      if (strpos($matches[0], 'tinymce/jscripts/tiny_mce/tiny_mce.js') == FALSE) {
+        $scripts[] = "\"{$match[2]}\"";
+        return '';
+      }
+      else {
+        return $matches[0];
+      }
+    }
+    else {
+      if (strpos($matches[0], LABJS_EXCLUDE) !== FALSE || $exception) {
+        return $matches[0];
+      }
+      $output = str_replace(
+        array("<!--//--><![CDATA[//><!--", "//--><!]]>"),
+        array("<!--//--><![CDATA[//><!--\n\$L = \$L.wait(function() {", "});\n//--><!]]>"),
+        $matches[0]);
+      // If this JS is not CDATA-escaped, we try to rewrite anyway if demanded.
+      if (strpos($matches[0], "<!--//--><![CDATA[//><!--") === FALSE && variable_get('labjs_no_cdata', FALSE)) {
+        $output = preg_replace('#(<script.+?>)(.+?)(</script>)\s*#s', '\1$L = $L.wait(function() {\2});\3', $matches[0]);
+      }
+      return $output;
+    }
+  }
+}
+
+/**
+ * Returns the path to the LAB JS loader
+ */
+function _labjs_get_path() {
+  return drupal_get_path('module', 'labjs') . '/labjs.min.js';
+}
+
+/**
+ * Returns the required code to be inserted into page header.
+ */
+function _labjs_prepare_required_js() {
+  return '<script type="text/javascript" src="' . labjs_build_uri(_labjs_get_path()) . '"></script>' . "\n"
+    . '<script type="text/javascript">' . "\n"
+    . '<!--//--><![CDATA[//><!--' . "\n"
+    . "var \$L = \$LAB.setGlobalDefaults({AlwaysPreserveOrder:true});\n"
+    . "//--><!]]>\n"
+    . "</script>\n";
+}

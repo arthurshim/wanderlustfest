@@ -1,0 +1,306 @@
+<?php
+/**
+ * @file
+ * Main module for the Webform ExactTarget integration.  
+ * 
+ * This file implements hooks used to tie the ExactTarget API module into the 
+ * Webforms module to allow forms to subscrivbe users to ExactTarget 
+ * marketing lists.
+ */
+
+// Constants for use throughout module
+define('WFET_CFG_VAR', 'wf_exact_target_api_cfg');
+define('WFET_CFG_MAPPINGS', 'mappings');
+define('WFET_LIST_GROUPS', 'wfet_list_groups');
+define('WFET_LIST_NAME', 'wfet_list_name');
+define('WFET_LIST_LABEL', 'wfet_list_label');
+
+// Schema definition names
+define('WFET_TABLE_MAPPINGS', 'wfet_mappings');
+define('WFET_COL_NID', 'nid');
+define('WFET_COL_VID', 'vid');
+define('WFET_COL_LISTIDS', 'listid');
+define('WFET_COL_MAPPINGS', 'mappings');
+
+/*******************************************************************
+ * Start of Drupal hook implementations
+ *******************************************************************/
+
+/*
+ * Implementation of hook_init
+ */
+function webform_exact_target_init() {
+
+}
+
+/*
+ * Implementation of hook_menu
+ */
+function webform_exact_target_menu() {
+  $items = array();
+  
+  $items['node/%webform_menu/webform/exact-target'] = array(
+    'title' => 'ExactTarget settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('webform_exact_target_configure_form', 1),
+    'access callback' => 'node_access',
+    'access arguments' => array('update', 1),
+    'file' => 'webform_exact_target.admin.inc',
+    'weight' => 2,
+    'type' => MENU_LOCAL_TASK,
+  );
+
+  return $items;
+}
+
+/*
+ * Implementation of hook_theme
+ */
+function webform_exact_target_theme($existing, $type, $theme, $path) {
+  return array(
+    'webform_exact_target_configure_form' => array(
+      'arguments' => array('form' => NULL),
+    ),
+  );  
+}
+
+/*
+ * Implementation of hook_form_alter
+ */
+function webform_exact_target_form_alter(&$form, $form_state, $form_id) {
+  // This is more for tracking down which form we want to hook specifically using hook_form_FORM_ID_alter
+  //drupal_set_message("Form ID is : " . $form_id);
+}
+
+/*
+ * Implementation of hook_nodeapi
+ */
+function webform_exact_target_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  // We're only interested in nodes of type 'webform'
+  if ('webform' == $node->type) {
+    switch ($op) {
+      // Delete a single revision's mappings
+      case 'delete revision':
+        _webform_exact_target_delete_mappings($node);
+        break;
+        
+      // Delete all mappings related to this node
+      case 'delete':
+        _webform_exact_target_delete_mappings($node, TRUE);
+        break;
+    }
+  }
+}
+
+
+/*******************************************************************
+ * Start of Drupal Webform 3.x hook implementations
+ *******************************************************************/
+
+/*
+ * Implementation of hook_webform_submission_insert
+ */
+function webform_exact_target_webform_submission_insert($node, $submission) {
+  $form_cfg = _webform_exact_target_get_mappings($node);
+  $mappings = (!empty($form_cfg[WFET_COL_MAPPINGS])) ? $form_cfg[WFET_COL_MAPPINGS] : NULL;
+  $listids = (!empty($form_cfg[WFET_COL_LISTIDS])) ? $form_cfg[WFET_COL_LISTIDS] : NULL;
+  
+  // Make sure we have the mappings and target list ID
+  if ($mappings && $listids) {
+    // Build xref for Webform components keyed to the field name:
+    $wf_fields = array();
+    foreach ($node->webform['components'] as $idx => $field) {
+      $wf_fields[$field['form_key']] = $idx; 
+    }
+    
+    // Build field array for subscription
+    $sub_fields = array();
+    foreach ($mappings as $et_field => $wf_field) {
+      $sub_fields[$et_field] = $submission->data[$wf_fields[$wf_field]]['value'][0];
+    }
+    
+    // Now call subscribe API for each list
+    foreach ($listids as $listid) {
+      $result = exact_target_api_add_subscriber($listid, $sub_fields);
+    }
+  }
+}
+
+/*
+ * Implementation of hook_webform_select_options_info
+ * See webform/webform_hooks.php for imp details
+ */
+function webform_exact_target_webform_select_options_info() {
+  $items = array();
+
+  // Add selected mailing lists
+  $items['wfet_lists'] = array(
+    'title' => t('ExactTarget: Available subscription lists'),
+    'options callback' => 'webform_exact_target_webform_select_options_lists',
+    'file' => drupal_get_path('module', 'webform_exact_target') . '/webform_exact_target.module',
+  );
+  
+  $attrs = exact_target_api_get_attributes();
+  //return $items;
+  foreach ($attrs as $name => $attr) {
+    // Only show the option lists for fields that have select lists
+    if (!empty($attr['values'])) {
+      $items['wfet_' . $name] = array(
+        'title' => t('ExactTarget: @name', array('@name' => $attr['name'])),
+        'options callback' => 'webform_exact_target_webform_select_options_values',
+        'options arguments' => array($name),
+        'file' => drupal_get_path('module', 'webform_exact_target') . '/webform_exact_target.module',
+      );
+    }
+  }
+
+  return $items;
+}
+
+/*
+ * Callback for specific dropdown list, referenced by 
+ * webform_exact_target_webform_select_options_info
+ */
+function webform_exact_target_webform_select_options_values($component, $flat, $filter, $arguments) {
+  $options = array();
+  $name = $arguments[0];
+  
+  $attrs = exact_target_api_get_attributes();
+  if (!empty($attrs[$name]['values'])) {
+    foreach ($attrs[$name]['values'] as $key => $val) {
+      $options[$val] = $val;
+    }
+  }
+  
+  return $options;
+}
+
+/*
+ * Callback for specific dropdown list, referenced by 
+ * webform_exact_target_webform_select_options_info
+ */
+function webform_exact_target_webform_select_options_lists($component, $flat, $filter, $arguments) {
+  $nid = (!empty($component['nid'])) ? $component['nid'] : arg(3); 
+  //$args = arg();
+  //watchdog('wfet_options_lists', 'component<pre>' . print_r($component, TRUE) . '</pre>');
+  //watchdog('wfet_options_lists', 'args<pre>' . print_r($args, TRUE) . '</pre>');
+  $form_cfg = _webform_exact_target_get_mappings($nid);
+  $def_listids = (!empty($form_cfg[WFET_COL_LISTIDS])) ? $form_cfg[WFET_COL_LISTIDS] : array();
+  $options = array();
+  
+  // Get all selected ET lists and build option list:
+  foreach ($def_listids as $listid) {
+    $list_info = exact_target_api_get_list_info($listid);
+    $options[$listid] = t('Subscribe to emails from %listname', array('%listname' => $list_info['list_name']));
+  }
+  asort($options);
+
+  return $options;
+}
+
+/*******************************************************************
+ * Start of "private" utility functions for this module
+ *******************************************************************/
+
+/*
+ * Helper function for minimizing DB queries to retrieve config info
+ */
+function _webform_exact_target_get_config($node = NULL) {
+  static $cfg = array();
+  
+  if (empty($cfg)) {
+    $cfg_raw = variable_get(WFET_CFG_VAR, array());
+    $tmp_cfg = (!is_array($cfg_raw)) ? unserialize($cfg_raw) : $cfg_raw;
+    if ($tmp_cfg) {
+      $cfg = $tmp_cfg;
+    }
+  }
+  
+  return $cfg;
+}
+
+/*
+ * Helper function for minimizing DB queries to retrieve config info
+ */
+function _webform_exact_target_set_config($cfg) {
+  if (is_array($cfg)) {
+    variable_set(WFET_CFG_VAR, serialize($cfg));
+  }
+}
+
+/*
+ * Helper function to retrieve field mappings for this form (node)
+ */
+function _webform_exact_target_get_mappings($node) {
+  static $cfg = array();
+  if (!is_object($node)) {
+    $node = node_load($node);
+  }
+  if (!$node || empty($node->nid)) {
+    return;
+  }
+  $nid = $node->nid;
+  $vid = (!empty($node->vid)) ? $node->vid : 0;
+  
+  if (empty($cfg[$nid][$vid])) {
+    $cfg[$nid][$vid] = array();
+    $sql = "select * from {" . WFET_TABLE_MAPPINGS . "} where " . WFET_COL_NID . " = %d and " . WFET_COL_VID . " = %d";
+    $result = db_query($sql, $nid, $vid);
+    if ($result && ($row = db_fetch_array($result))) {
+      $tmp = unserialize($row[WFET_COL_MAPPINGS]);
+      if ($tmp) {
+        $cfg[$nid][$vid][WFET_COL_MAPPINGS] = $tmp;
+      }
+      
+      $tmp = unserialize($row[WFET_COL_LISTIDS]);
+      if ($tmp) {
+        $cfg[$nid][$vid][WFET_COL_LISTIDS] = $tmp;
+      }
+    }
+  }
+  
+  return $cfg[$nid][$vid];
+}
+
+/*
+ * Helper function to set field mappings for this form (node)
+ */
+function _webform_exact_target_set_mappings($node, $form_cfg) {
+  if (!is_object($node)) {
+    $node = node_load($node);
+  }
+  if (!$node || empty($node->nid)) {
+    return;
+  }
+  $nid = $node->nid;
+  $vid = (!empty($node->vid)) ? $node->vid : 0;
+  $map_data = serialize($form_cfg[WFET_COL_MAPPINGS]);
+  $listids = serialize($form_cfg[WFET_COL_LISTIDS]);
+  
+  $sql = "replace into {" . WFET_TABLE_MAPPINGS . "} set " . WFET_COL_NID . " = %d, " . WFET_COL_VID . " = %d, " . WFET_COL_MAPPINGS . " = '%s', " . WFET_COL_LISTIDS . " = '%s'";
+  $result = db_query($sql, $nid, $vid, $map_data, $listids);
+  return $result;
+}
+
+/*
+ * Helper function to delete field mappings for this form (node) when it is deleted
+ */
+function _webform_exact_target_delete_mappings($node, $all_revs = FALSE) {
+  if (!is_object($node)) {
+    $node = node_load($node);
+  }
+  if (!$node || empty($node->nid)) {
+    return;
+  }
+  $nid = $node->nid;
+  $vid = (!empty($node->vid)) ? $node->vid : 0;
+  $map_data = serialize($mappings);
+  
+  $sql = "delete from {" . WFET_TABLE_MAPPINGS . "} where " . WFET_COL_NID . " = %d";
+  if (!$all_revs) {
+    $sql .= " and " . WFET_COL_VID . " = %d";
+  } 
+  $result = db_query($sql, $nid, $vid);
+  return $result;
+}
+

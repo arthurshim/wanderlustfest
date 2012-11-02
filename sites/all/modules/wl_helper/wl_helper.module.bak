@@ -1,0 +1,360 @@
+<?php
+
+$GLOBALS['_artist_node_twitter_field'] = 'field_twitter_username';
+require_once 'wl_helper.blocks.inc';
+require_once 'wl_helper.base_domain.inc';
+
+function wl_helper_boot() {
+  // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
+  global $user;
+  $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+  $subdomain = strtolower(trim($url[0]));
+  if ($subdomain == 'wanderfest' && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
+    $sid = sites_get_most_recent_visited_site_sid();
+
+    if (!empty($sid)) {
+      $prev_site = _sites_get_site($sid);
+      drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '');
+    }
+  }
+  else {
+    $arr = array(
+      'squaw' => 1,
+      'stratton' => 3,
+      'cosmo' => 7,
+      'standard' => 8,
+      'colorado' => 21,
+      'whistler' => 22,      
+    );
+    
+    @sites_set_current_site(_sites_get_site($arr[$subdomain]));
+    sites_set_current_site_cookie();
+  }
+}
+
+function wl_helper_init() {
+  drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
+  drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper.js'); 
+  global $user;
+  $site = sites_get_current_site();
+  // If current site is disabled, redirect to default site.
+  if (!empty($site) && $user->uid != 1 && $user->uid != 4482) {
+	$disabled = array();
+    $disabled = wl_helper_disabled_sites();
+    if (in_array($site->sid, $disabled)) {
+      drupal_goto('http://whistler.' . wl_get_base_domain());
+    }
+  }
+  
+  
+  if (isset($_GET['set_purl_base_domain']) && $_GET['set_purl_base_domain'] == '1') {
+    variable_set('purl_base_domain', 'http://' . wl_get_base_domain());
+  }
+
+  // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
+  if ($_GET['q'] != 'live-events-list.json') {
+    global $user;
+    if ((!($site)) && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
+      $sid = sites_get_most_recent_visited_site_sid();
+
+      if (!empty($sid)) {
+        $prev_site = _sites_get_site($sid);
+        drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain());
+      //  drupal_goto('http://cosmopolitan.' . wl_get_base_domain() . '/home');
+
+      }
+      else {
+       drupal_goto('http://whistler.' . wl_get_base_domain() . '/home');
+      }
+    }
+  }
+  /*$msg = variable_get('wl_messages', 'NO MESSAGES');
+  if ($msg != 'NO MESSAGES') {
+    $msg = unserialize($msg);
+  }
+  //dsm($msg, 'MESSAGES!');*/
+}
+
+
+
+
+function wl_helper_sites_node_access_alter(&$permitted, $node) {
+  global $user;
+  if ($user->uid > 1 && $user->uid != 4482) {
+    $site = sites_get_current_site();
+    if ($site) {
+      if ($site->extra_fields->field_event_hide[0]['value'] == 'disabled') {
+        $permitted = FALSE;
+      }
+    }
+  }
+
+  if (stristr($_SERVER['HTTP_USER_AGENT'], 'facebookexternalhit')) { // allow facebook bot to see all nodes so that comments can be shared across all sites
+    $permitted = TRUE;
+  }
+}
+
+
+
+function wl_helper_cron() {
+  // Update cached Twitter statuses for all stored Twitter usernames
+  $field = content_fields($GLOBALS['_artist_node_twitter_field']);
+  $db_info = content_database_info($field);
+  $result = db_query("SELECT DISTINCT(cck_tw." . $db_info['columns']['value']['column'] . ") AS username FROM {". $db_info['table'] ."} cck_tw");
+  if (!function_exists('twitter_fetch_timeline')) {
+    module_load_include('inc', 'twitter');
+  }
+
+  $names = variable_get('wl_remaining_twitter_accts', NULL);
+  if (!$names) {
+    $names = array();
+    while($row = db_fetch_object($result)) {
+      $names[] = $row->username;
+    }
+  }
+  else {
+    if (!is_array($names)) {
+      $names = unserialize($names);
+    }
+    //dsm($names, 'remaining');
+  }
+
+  $i = 0;
+  while ($i < 10 && count($names) > 0) {
+    $name = array_shift($names);
+    //dsm(twitter_fetch_timeline($name), 'twitter_fetch_timeline ' . $name);
+    $i++;
+    //dsm('updating twitter status for ' . $name);
+  }
+  variable_set('wl_remaining_twitter_accts', serialize($names));
+}
+
+
+
+
+
+function wl_helper_nodeapi(&$node, $op, $teaser, $page) {
+  // expose twitter username for views_arg_context on artist nodes
+  if($node->type == 'artists') {
+    context_set('wl_current_node', 'twitter_username', $node->{$GLOBALS['_artist_node_twitter_field']}[0]['value']);
+  }
+}
+
+
+
+
+function wl_msg($title, $message = NULL) {
+  static $page_load_id = NULL;
+  if (!$page_load_id) {
+    $page_load_id = date('G:i:s:u');
+  }
+
+  $msg = variable_get('wl_messages', '');
+  $msg = unserialize($msg);
+  if (!is_array($msg)) {
+    $msg = array();
+  }
+  if (!isset($msg[$page_load_id])) {
+    $msg[$page_load_id] = array();
+  }
+  $msg[$page_load_id][] = array($title => ($message ? $message : $title));
+  variable_set('wl_messages', serialize($msg));
+}
+
+function wl_helper_menu() {
+  $items['home'] = array(
+    'title' => 'Wanderlust Festival: Home',
+    'description' => '',
+    'page callback' => 'wl_page_home',
+    'access callback' => TRUE,
+  );
+
+  $items['front-splash'] = array(
+    'title' => 'Wanderlust Festival: All events splash page',
+    'description' => '',
+    'page callback' => 'wl_page_splash',
+    'access callback' => TRUE,
+  );
+  
+  $items['live-events-list.json'] = array(
+    'title' => '',
+    'description' => '',
+    'page callback' => 'wl_feed_live_events_list',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+function wl_feed_live_events_list() {
+  $live = array();
+  foreach (_sites_get_sites() as $site) {
+    if ($site->extra_fields->field_event_hide[0]['value'] != 'disabled') {
+      $live[] = $site;
+    }
+  }
+  drupal_set_header('Content-Type: text/javascript; charset=utf-8');
+  echo json_encode($live);
+  exit;
+}
+
+function wl_page_home() {
+  return '';
+}
+
+function wl_page_splash() {
+  if (function_exists('front_page')) {
+    front_page();
+  }
+  else {
+    drupal_goto('home');
+  }
+}
+
+
+
+
+
+function wl_helper_block($op = 'list', $delta = 0, $edit = array())  {
+  switch ($op) {
+    case 'list':
+      $blocks = array();
+      $blocks['home_page_photos_tab'] = array(
+        'info' => t('WL: Home page "Photos & videos" tab'),
+      );
+      $blocks['home_page_connect_tab'] = array(
+        'info' => t('WL: Home page "Connect" tab'),
+      );
+      $blocks['lineup_copy'] = array(
+        'info' => t('WL: Lineup copy'),
+      );
+      /*$blocks['smart_menu'] = array(
+        'info' => t('WL: Smart 2nd level menu block'),
+      );*/
+      return $blocks;
+      break;
+
+
+    case 'configure':
+      $function = 'wl_helper_blocks_'. $delta .'_configure';
+      if (function_exists($function)) {
+        return $function();
+      }
+      break;
+
+    case 'save':
+      $function = 'wl_helper_blocks_'. $delta .'_save';
+      if (function_exists($function)) {
+        return $function($edit);
+      }
+      break;
+
+
+    case 'view':
+      $function = 'wl_helper_blocks_'. $delta;
+      $block = function_exists($function) ? $function() : array();
+      return $block;
+      break;
+  }
+}
+
+// set front page title
+function wl_helper_page_title_alter(&$title) {
+  $site = sites_get_current_site();
+
+  if ($_GET['q'] == 'home') {
+    if ($site->extra_fields) {
+      $date_start = strtotime($site->extra_fields->field_event_date[0]['value']);
+      $event_date = date('F j', $date_start);
+      if ($site->extra_fields->field_event_date[0]['value2'] != $site->extra_fields->field_event_date[0]['value']) {
+        $date_end = strtotime($site->extra_fields->field_event_date[0]['value2']);
+        $event_date .= '-' . date('j, Y', $date_end);
+      }
+      $fields = array('Wanderlust Festival',
+                      $event_date,
+                      $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'],
+                      'Yoga, Music, Nature');
+
+      $title = implode(' ~ ', $fields);
+    }
+  }
+  else {
+    $title = $site->title . ' | ' . $title;
+  }
+}
+
+
+
+function wl_helper_get_fbook_app_id() {
+  $ids = array(
+    'wanderlustfestival.com' => '321576251186267',
+    'wanderfest.com' => '170029253037850',
+    'rusticovertonesmusic.com' => '202279093186680',
+  );
+
+  return $ids[wl_get_base_domain()];
+}
+
+
+function wl_helper_views_pre_render(&$view) {
+  if ($view->name == 'artist_landing') {
+    if (count($view->result) <= 1) {
+      $view->result = array();
+    }
+  }
+}
+
+
+/**
+ * Implementation of hook_form_FORM_ID_alter()
+ */
+function wl_helper_form_views_exposed_form_alter(&$form, &$form_state) {
+  $sites = _sites_get_sites();
+  foreach ($sites as $site) {
+    $sids[$site->tid] = $site->sid;
+  }
+  
+  $field_name = 'field_event_hide';
+  $field = content_fields($field_name);
+  $db_info = content_database_info($field);
+  $options = $form['tid_1']['#options'];
+  unset($form['tid_1']['#options'][33]);
+  unset($options['All']);
+  unset($options[33]);
+  
+  
+  foreach ($options as $tid => $value) {
+    $nid = sites_extra_fields_get_associated_nid($sids[$tid]);
+    $vid = db_result(db_query("SELECT n.vid FROM {node} n WHERE n.nid = %d", $nid));
+    $status = db_result(db_query("SELECT %s FROM {%s} WHERE vid=%d", $db_info['columns']['value']['column'], $db_info['table'], $vid));
+    if ($status == 'disabled') unset($form['tid_1']['#options'][$tid]);
+  }
+}
+
+
+/**
+ * Get array of disabled sites
+ */
+function wl_helper_disabled_sites() {
+  $sites = _sites_get_sites();
+  foreach ($sites as $site) {
+    $sids[] = $site->sid;
+  }
+  
+  $field_name = 'field_event_hide';
+  $field = content_fields($field_name);
+  $db_info = content_database_info($field);
+  
+  $disabled = array();
+  if(!empty($sids)):
+  foreach ($sids as $sid) {
+    $nid = sites_extra_fields_get_associated_nid($sid);
+    $vid = db_result(db_query("SELECT n.vid FROM {node} n WHERE n.nid = %d", $nid));
+    $status = db_result(db_query("SELECT %s FROM {%s} WHERE vid=%d", $db_info['columns']['value']['column'], $db_info['table'], $vid));
+    if ($status == 'disabled') $disabled[] = $sid;
+  }
+  endif;
+  
+  return $disabled;
+}
+

@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+=======
+; $Id: features.info,v 1.1.2.1 2009/06/21 21:03:34 yhahn Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+name = "Features"
+description = "Provides feature management for Drupal."
+core = 6.x
+package = "Features"
+
+<<<<<<< HEAD
+; Information added by drupal.org packaging script on 2011-07-14
+version = "6.x-1.1"
+core = "6.x"
+project = "features"
+datestamp = "1310653316"
+=======
+; Information added by drupal.org packaging script on 2010-08-23
+version = "6.x-1.0"
+core = "6.x"
+project = "features"
+datestamp = "1282573607"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

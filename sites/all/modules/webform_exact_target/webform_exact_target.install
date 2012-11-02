@@ -1,0 +1,64 @@
+<?php
+/**
+ * @file
+ * Install, update and uninstall functions for the Webform ExactTarget module.
+ */
+
+// Include main module file so we can get to constants
+require_once(drupal_get_path('module', 'webform_exact_target') . '/webform_exact_target.module');
+
+/**
+ * @file
+ * Implementation of hook_install().
+ */
+function webform_exact_target_install() {
+  drupal_install_schema('webform_exact_target');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function webform_exact_target_uninstall() {
+  variable_del(WFET_CFG_VAR);
+  drupal_uninstall_schema('webform_exact_target');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function webform_exact_target_schema() {
+  $schema = array();
+
+  // Define mapping storage for each webform
+  $schema[WFET_TABLE_MAPPINGS] = array(
+    'description' => 'Table containing mappings for Webform fields to ET fields per node', 
+    'fields' => array(
+      WFET_COL_NID => array(
+        'description' => 'Node ID of Webform', 
+        'type' => 'int', 
+        'unsigned' => TRUE, 
+        'not null' => TRUE,
+      ),
+      WFET_COL_VID => array(
+        'description' => 'Version ID of Webform node', 
+        'type' => 'int', 
+        'unsigned' => TRUE, 
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      WFET_COL_LISTIDS => array(
+        'description' => 'ET Subscription list ID(s) for this form', 
+        'type' => 'text',
+        'size' => 'medium', 
+      ),
+      WFET_COL_MAPPINGS => array(
+        'description' => 'Mapping for fields', 
+        'type' => 'text',
+        'size' => 'medium', 
+      ),
+    ), // fields
+    'primary key' => array(WFET_COL_NID),
+  );
+   
+  return $schema;
+}

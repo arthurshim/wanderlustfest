@@ -1,0 +1,134 @@
+/* NAV 
+----------------------------------*/	
+
+#nav{
+	width: 972px;
+	clear: both;
+	position: absolute;
+	top: 101px;
+	z-index: 99;
+	}
+
+ul.nice-menu{
+ 	width: 100%;
+	margin: 0 0 0 10px;
+ 	display: block !important;
+	padding: 0;
+ 	}
+ 
+ul.nice-menu li{
+ 	border: none;
+   	float: left;
+ 	height: 45px;
+ 	}
+
+ul.nice-menu ul{
+	background: url('../images/nav-bg.jpg') repeat;
+ 	top: 35px;
+	padding: 10px;
+	width: 205px;
+	}
+
+.smartwater ul.nice-menu ul{
+	background: url('../images/sw_nav-bg.jpg') repeat;
+ 	top: 40px;
+	width: 205px;
+	}
+
+ul.nice-menu,
+ul.nice-menu ul {
+  	list-style: none;
+  	z-index: 999 !important;
+	}
+
+
+/* MENU LINKS
+----------------------------------*/	
+
+.menu-456 a{
+	width: 130px;
+	}
+ 
+/* PARENT ITEMS
+----------------------------------*/	
+
+ul.nice-menu li a{
+  display: block;
+ 	float: left;    
+ 	height: 30px;
+ 	font-size: 20px;
+ 	font-weight: bold;
+ 	font-family: arial;
+ 	text-transform: uppercase;
+	color: #ffffff;
+	padding-left: 25px;
+	background: url('../images/nav-divider.gif') right 16px no-repeat;
+	padding-right: 25px;
+	padding-top: 9px;
+  	}
+
+ 
+ul.nice-menu li.first > a{
+	padding-left: 15px;
+	}
+
+ul.nice-menu ul li.last a{
+	background: none;
+	border: none;
+	}
+
+ul.nice-menu li a:hover{
+	opacity: 0.8;
+	}
+ 
+
+/* CHILD ITEMS
+----------------------------------*/	
+
+ul.nice-menu ul {
+	top: 41px;
+	left: 0px;
+	border: 0;
+	margin-right: 0;
+	padding: 0;
+ 	}
+
+ul.nice-menu ul li{
+	background: none !important;
+	margin-right: 0;
+	padding-right: 0;
+	display: block;
+	float: none !important;
+	clear: left;
+ 	height: auto !important;
+ 	}
+
+
+ 
+ul.nice-menu ul li a{
+ 	width: 185px !important;
+	height: 15px !important;
+	background: none !important;
+ 	color: #fff;
+	overflow: visible;
+	font-size: 12px;
+	clear: left;
+	float: left;
+	border-bottom: 1px solid #273528;
+	padding: 10px 0px !important;
+	margin: 0 10px;
+   	}
+
+ul.nice-menu li ul li.first a,
+ul.nice-menu li.first li a{
+	padding-left: 0px !important;
+ 	}
+
+ul.nice-menu ul li a:hover{
+ 	color: #000 !important;
+ 	}
+	
+ul.nice-menu ul li:hover{
+ 	background: #fff !important;
+  	}
+ 	

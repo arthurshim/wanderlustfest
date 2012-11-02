@@ -1,0 +1,29 @@
+<<<<<<< HEAD
+
+name = Embedded Video Field
+description = Defines a field type for displaying third party videos, such as YouTube and Google Video.
+core = 6.x
+dependencies[] = emfield
+package = Media
+; Information added by drupal.org packaging script on 2011-05-06
+version = "6.x-2.5"
+core = "6.x"
+project = "emfield"
+datestamp = "1304705515"
+=======
+; $Id: emvideo.info,v 1.1.2.2 2008/07/25 11:45:51 alexua Exp $
+
+name = Embedded Video Field
+description = Defines a field type for displaying third party videos, such as YouTube and Google Video.
+
+core = 6.x
+dependencies[] = emfield
+package = CCK
+
+; Information added by drupal.org packaging script on 2010-09-22
+version = "6.x-1.25"
+core = "6.x"
+project = "emfield"
+datestamp = "1285164662"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

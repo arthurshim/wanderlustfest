@@ -1,0 +1,363 @@
+<?php
+// $Id$
+/**
+ * @file unified_login.module
+ * Correlates login with SourceSpring ticketing and scheduling service.
+ * Important: Admin users are configured with disabled SourceSpring services by default.
+ */
+
+if(stripos($_SERVER['HTTP_HOST'],'wanderlustfestival.com')===FALSE){
+
+	//  dev site settings
+	define('UL_LOGIN_MODE', 'ss'); // dev or ss
+	define('UL_EVENT_ID','wanderlust-preview');
+	define('UL_API_KEY', 'RlVXSU9yR2ktVk50WDlwRmxIaWdKcmdKTXFUUVRJdlM=');
+	define('UL_USER_URL', 'preview.schedulegrid.info'); // test.remote
+	define('UL_LOGIN_URL', 'preview.schedulegrid.info'); // test.remote
+
+} elseif(stripos($_SERVER['HTTP_HOST'],'staging')!==FALSE){
+
+	//  staging site settings
+	define('UL_LOGIN_MODE', 'ss'); // dev or ss
+	define('UL_API_KEY', 'RlVXSU9yR2ktVk50WDlwRmxIaWdKcmdKTXFUUVRJdlM=');
+	define('UL_EVENT_ID','wanderlust-staging');
+	define('UL_USER_URL', 'www.schedulegrid.info');
+	define('UL_LOGIN_URL', 'www.schedulegrid.info');
+
+} else {
+
+	//  production site settings
+	define('UL_LOGIN_MODE', 'ss'); // dev or ss
+	define('UL_API_KEY', 'OFdBdE9JRHBUZEF3aXJ1QzFzd1UyM2lGbF9aS0JOSzM=');
+	define('UL_EVENT_ID','wanderlust-2010');
+	define('UL_USER_URL', 'www.schedulegrid.info');
+	define('UL_LOGIN_URL', 'www.schedulegrid.info');
+
+}
+
+
+function generate_key($length=9, $level=2){
+	list($usec, $sec) = explode(' ', microtime());
+	srand((float) $sec + ((float) $usec * 100000));	
+	$validchars[1] = "0123456789abcdfghjkmnpqrstvwxyz";
+	$validchars[2] = "0123456789abcdfghjkmnpqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	$validchars[3] = "0123456789_!@#$%&*()-=+/abcdfghjkmnpqrstvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_!@#$%&*()-=+/";
+	$key  = "";
+	$counter   = 0;
+	while ($counter < $length) {
+		$actChar = substr($validchars[$level], rand(0, strlen($validchars[$level])-1), 1);
+		// All character must be different
+		if (!strstr($key, $actChar)) {
+			$key .= $actChar;
+			$counter++;
+		}
+	}
+	return $key;
+}
+
+/** Example of menu addition
+ *
+ * Implmentation of hook_menu().
+ */
+function unified_login_menu() {
+	$items['admin/settings/unified_login'] = array(
+		'title' => 'Unified Login settings',
+		'description' => 'Manage Unified Login settings.',
+		'page callback' => 'drupal_get_form',
+		'page arguments' => array('unified_login_admin_settings'),
+		'access arguments' => array('administer site configuration'),
+		'type' => MENU_NORMAL_ITEM,
+		'file' => 'unified_login.admin.inc',
+	);
+	return $items;
+}
+
+/**
+ * Implementation of hook_user().
+ *
+ * op is the operation, edit is the form data, account is the account being edited
+ *
+ */
+function unified_login_user($op, &$edit, &$account, $category = NULL) {
+
+	global $user;
+
+	if (empty($account->roles) || !in_array('administrator', array_values($account->roles))) {
+
+		
+		// NEW USER CREATED
+		if($op=='insert'){
+			error_log('user insert ==================');
+
+
+			$new_serial_num = generate_key(16,2);
+			$countrows = db_result(db_query("SELECT count(*) as totalExisting FROM {unified_login} WHERE serial_num = '%s'", $new_serial_num));
+			while($countrows>0){
+				error_log('Found existing serial_num in unified_login table.');
+				$new_serial_num = generate_key(16,2);
+				$countrows = db_result(db_query("SELECT count(*) as totalExisting FROM {unified_login} WHERE serial_num = '%s'", $new_serial_num));
+			}
+
+			$user_data = user_load($account->uid);
+			//error_log(print_r($user_data,TRUE));
+
+			// Create new unified_login record
+			db_query("INSERT INTO {unified_login} (uid, serial_num) VALUES ( %d, '%s' )", $account->uid, $new_serial_num);
+
+			// Tell sourcespring about this new user
+			if(UL_LOGIN_MODE == 'dev'){
+				$result = xmlrpc( 'http://'.UL_USER_URL.'/create_user.php', 'user.Create', UL_API_KEY, $user_data->profile_first_name, $user_data->profile_last_name, $user_data->mail, $new_serial_num );
+			} elseif (UL_LOGIN_MODE == 'ss'){
+				$new_user_uri = "http://".UL_USER_URL."/".UL_EVENT_ID."/api";
+				error_log('Sent user.Create request to: '.$new_user_uri);
+				$result = xmlrpc( $new_user_uri, 'user.Create', UL_API_KEY, $user_data->profile_first_name, $user_data->profile_last_name, $user_data->mail, $new_serial_num );				
+			}
+			
+			// Send Email Report
+			/*
+			$message = array(
+			  'id' => 'ul_user_create_report',
+			  'to' => 'support@malkine.com, jesse@thesourcespring.com',
+			  'subject' => 'user.Create called from '.$_SERVER['HTTP_HOST'],
+			  'body' => $_SERVER['HTTP_HOST']." user.Create call to ".$new_user_uri." with following data: \n\n  '".UL_API_KEY."', '".$new_serial_num."', '".$user_data->profile_first_name."', '".$user_data->profile_last_name."', '".$user_data->mail."'\n\n ...produced the following result (blank indicates no error): \n\n".print_r($result,TRUE),
+			  'headers' => array('From' => 'support@malkine.com'),
+			);
+			drupal_mail_send($message);
+			*/
+			
+			// error_log($user_data->profile_first_name." - ".$user_data->profile_last_name." - ".$user_data->mail." - ".$new_serial_num);
+
+			if($error = xmlrpc_error()){
+				if($error->code <= 0){
+					$error->message = 'Outgoing HTTP request failed because the socket could not be opened.';
+				}
+				$error_message = 'Could not create remote user because remote site gave an error: '.$error->message.' ('.$error->code.')';
+				error_log($error_message);
+				$message = array(
+				  'id' => 'ul_user_create_error',
+				  'to' => 'support@malkine.com, jesse@thesourcespring.com',
+				  'subject' => 'user.Create error on '.$_SERVER['HTTP_HOST'],
+				  'body' => $_SERVER['HTTP_HOST']." user.Create call to ".$new_user_uri." with following data: \n\n'".UL_API_KEY."', '".$user_data->profile_first_name."', '".$user_data->profile_last_name."', '".$user_data->mail."', '".$new_serial_num."'\n\n...produced the following error: \n\n".$error_message,
+				  'headers' => array('From' => 'support@malkine.com'),
+				);
+				drupal_mail_send($message);
+				
+			} else {
+				if(is_object($result) || is_array($result)){
+					error_log("create_user result: \n".print_r($result,TRUE));
+				} elseif(!empty($result)) {
+					error_log("create_user result: ".$result);
+				}
+
+				// Mark that it was completed
+				db_query("UPDATE {unified_login} SET external_acct_created = %d WHERE uid = %d", 1, $account->uid);
+				
+				error_log('No error found: assuming SourceSpring create user was successful.');
+				
+			}
+			
+		}
+		
+		
+		// USER UPDATED
+		if($op=='update'){
+
+			error_log('user update ==================');
+			error_log('category: '.$category);
+			//error_log("ACCOUNT: ".print_r($account,TRUE));
+			//error_log("EDIT: ".print_r($edit,TRUE));
+
+			$okCategories = array('account','Personal Info');
+			if(in_array($category,$okCategories)){
+				
+				$user_data = user_load($account->uid);
+
+				// Look up unified_login record
+				$serial_num = db_result(db_query("SELECT serial_num FROM {unified_login} WHERE uid =  %d", $account->uid));
+
+				// Gather email from and name from
+				if($category == "account"){
+					
+					$first_name = $account->profile_first_name;
+					$last_name = $account->profile_last_name;
+					$email = $edit['mail'];
+					
+				} elseif($category == "Personal Info") {
+				
+					$profile_data = (object) array('uid' => $account->uid);
+					profile_load_profile($profile_data);
+					//error_log(print_r($profile_data,TRUE));
+					
+					$first_name = $profile_data->profile_first_name;
+					$last_name = $profile_data->profile_last_name;
+					$email = $account->mail;
+					
+				}
+				
+				error_log('first_name: '.$first_name.', last_name: '.$last_name.', email: '.$email);
+							
+				// Tell sourcespring about this user update
+				if(UL_LOGIN_MODE == 'dev'){
+					$result = xmlrpc( 'http://'.UL_USER_URL.'/update_user.php', 'user.Update', UL_API_KEY, $serial_num, $first_name, $last_name, $email);
+				} elseif (UL_LOGIN_MODE == 'ss'){
+					$update_user_uri = "http://".UL_USER_URL."/".UL_EVENT_ID."/api";
+					//error_log('Sent user.Update request to: '.$update_user_uri);
+					$result = xmlrpc( $update_user_uri, 'user.Update', UL_API_KEY, $serial_num, $first_name, $last_name, $email);
+				}
+							
+				// Send Email Report
+				/*
+				$message = array(
+				  'id' => 'ul_user_update_report',
+				  'to' => 'support@malkine.com, jesse@thesourcespring.com',
+				  'subject' => 'user.Update called from '.$_SERVER['HTTP_HOST'],
+				  'body' => $_SERVER['HTTP_HOST']." user.Update call to ".$update_user_uri." with following data: \n\n  '".UL_API_KEY."', '".$serial_num."', '".$first_name."', '".$last_name."', '".$email."'\n\n ...produced the following result (blank indicates no error): \n\n".print_r($result,TRUE),
+				  'headers' => array('From' => 'support@malkine.com'),
+				);
+				drupal_mail_send($message);
+				*/
+
+				if($error = xmlrpc_error()){
+					if($error->code <= 0){
+						$error->message = 'Outgoing HTTP request failed because the socket could not be opened.';
+					}
+					$error_message = 'Could not update remote user because remote site gave an error: '.$error->message.' ('.$error->code.')';
+					error_log($error_message);
+					$message = array(
+					  'id' => 'ul_user_update_error',
+					  'to' => 'support@malkine.com, jesse@thesourcespring.com',
+					  'subject' => 'user.Update error on '.$_SERVER['HTTP_HOST'],
+					  'body' => $_SERVER['HTTP_HOST']." user.Update call to ".$update_user_uri." with following data: \n\n'".UL_API_KEY."', '".$serial_num."', '".$first_name."', '".$last_name."', '".$email."'\n\n...produced the following error: \n\n".$error_message,
+					  'headers' => array('From' => 'support@malkine.com'),
+					);
+					drupal_mail_send($message);
+					
+				} else {
+					if(is_object($result) || is_array($result)){
+						error_log("update_user result: \n".print_r($result,TRUE));
+					} elseif(!empty($result)) {
+						error_log("update_user result: ".$result);
+					}
+					//error_log('No error found: assuming SourceSpring update user was successful.');
+				}
+				
+			}
+
+		}
+
+		// USER LOGIN
+		if($op=='login'){
+		
+			error_log('user login ==================');
+			
+			if (!in_array('administrator', array_values($user->roles))) {
+			
+				$token = generate_key(16,2); 		//error_log('key: '.$key);
+				$token_expires = time()+(5 * 60);	//error_log('expires: '.$key_expires." (".date('m/d/Y h:i:s',$key_expires).")");
+				$token_consumed = 0;				//error_log('consumed: '.$key_consumed);
+				
+				db_query("UPDATE {unified_login} SET token = '%s', token_expires = %d, token_consumed = %d WHERE uid = %d ", $token, $token_expires, 0, $account->uid );
+				
+				//error_log($token." - ".$token_expires." - 0 - ".$account->uid);
+				
+				// TODO: replace destination with original requested page
+				if(UL_LOGIN_MODE == 'dev'){
+					header("Location: http://".UL_LOGIN_URL."/remote_login.php?token=".$token."&destURL=".urlencode('http://'.$_SERVER['HTTP_HOST'].'/user/'.$account->uid)); // $_SERVER['REQUEST_URI']
+				} elseif (UL_LOGIN_MODE == 'ss'){
+					header("Location: http://".UL_LOGIN_URL."/".UL_EVENT_ID."/user/authenticate/".$token."/".base64_encode('http://'.$_SERVER['HTTP_HOST'].'/user/'.$account->uid)); // $_SERVER['REQUEST_URI']
+				}
+				exit();
+
+			}
+			
+		}
+
+	}
+	
+}
+
+/**
+ * Implemetation of hook_xmlrpc().
+ * Maps external names of XML-RPC methods to PHP callback functions.
+ */
+function unified_login_xmlrpc(){
+	$methods ['token.Check'] = 'xmls_unified_login_token_check';
+	$methods ['ticket.Assign'] = 'xmls_unified_login_ticket_assign';
+	return $methods;
+}
+
+function xmls_unified_login_token_check($api_key, $token){
+
+	global $user;
+	error_log('token.Check called ==================');
+
+	// PERFORM CHECK
+	if(empty($api_key) || strcmp($api_key, UL_API_KEY)!=0){
+		return xmlrpc_error(1, t('Not authorized.'));
+	} elseif(empty($token)) {
+		return xmlrpc_error(2, t('No token provided.'));
+	} else {
+	
+		//error_log('token.Check 2');
+	
+		// check database for user record with a matching key that is unconsumed, unexpired.
+
+		//error_log("token: ".$token." time: ".time());
+		
+		$token_info = db_query("SELECT uid, serial_num FROM {unified_login} WHERE token = '%s' AND token_consumed = 0 AND token_expires > %d ", $token, time() );		
+				
+		error_log("num_rows for token_info: ".db_affected_rows($token_info));
+		$token_check_result = db_fetch_object($token_info);
+		
+		//error_log("contents of token_info: ".print_r($token_check_result,TRUE));
+
+		if(db_affected_rows($token_info) > 0){
+
+			//error_log('token.Check 3');
+		
+			$match_info = $token_check_result;
+			
+			//error_log(print_r($match_info,TRUE));
+			
+			db_query("UPDATE {unified_login} SET token_consumed = %d WHERE uid = %d ", 1, $match_info->uid );
+
+			error_log($match_info->serial_num);
+			
+			return $match_info->serial_num;
+			
+		}
+		
+		error_log('No valid key found');
+		return xmlrpc_error(3, t('Invalid token.'));
+	}
+
+}
+
+function xmls_unified_login_ticket_assign($api_key, $serial_num, $ticket_id){
+
+	global $user;
+	error_log('ticket.Assign called ==================');
+	
+	// PERFORM CHECK
+	if(empty($api_key) || strcmp($api_key, UL_API_KEY)!=0){
+		return xmlrpc_error(1, t('Not authorized.'));
+	} elseif(empty($serial_num)) {
+		return xmlrpc_error(2, t('No serial_num provided.'));
+	} elseif(empty($ticket_id)) {
+		return xmlrpc_error(2, t('No ticket_id provided.'));
+	} elseif(!is_integer($ticket_id)) {
+		return xmlrpc_error(2, t('Provided ticket_id was not an integer.'));
+	} else {
+		
+		$user_info = db_query("SELECT ulid FROM {unified_login} WHERE serial_num = '%s'", $serial_num);
+		if($user_info->num_rows <= 0){
+			return xmlrpc_error(3, t('User not found.'));
+		} else {
+			$data = db_fetch_object($user_info);
+			db_query("UPDATE {unified_login} SET ticket_id = %d WHERE ulid = %d", (int)$ticket_id, $data->ulid);
+			return t('Success');
+		}
+		
+	}
+	
+}

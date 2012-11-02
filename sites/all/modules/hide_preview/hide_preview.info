@@ -1,0 +1,4 @@
+name = Hide Preview
+description = Hides the preview button for all content type editing forms.
+package = Other
+core = 6.x

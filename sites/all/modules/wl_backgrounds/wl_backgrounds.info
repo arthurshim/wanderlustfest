@@ -1,0 +1,5 @@
+; $Id$
+name = "WL: Backgrounds"
+description = "Choose different page backgrounds for different URLs."
+package = "Wanderlust"
+core = "6.x"

@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+=======
+; $Id: menu.info,v 1.4 2007/06/08 05:50:55 dries Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+name = Menu
+description = Allows administrators to customize the site navigation menu.
+package = Core - optional
+version = VERSION
+core = 6.x
+
+<<<<<<< HEAD
+; Information added by drupal.org packaging script on 2011-05-25
+version = "6.22"
+project = "drupal"
+datestamp = "1306357015"
+=======
+; Information added by drupal.org packaging script on 2010-08-11
+version = "6.19"
+project = "drupal"
+datestamp = "1281559292"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

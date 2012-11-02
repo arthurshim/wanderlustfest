@@ -1,0 +1,30 @@
+<<<<<<< HEAD
+
+name = Embedded Media Field
+description = Provides an engine for modules to integrate various 3rd party media content providers.
+core = 6.x
+dependencies[] = content
+package = Media
+php = 5.2
+
+; Information added by drupal.org packaging script on 2011-05-06
+version = "6.x-2.5"
+core = "6.x"
+project = "emfield"
+datestamp = "1304705515"
+=======
+; $Id: emfield.info,v 1.1.6.5 2008/07/25 11:45:51 alexua Exp $
+
+name = Embedded Media Field
+description = Provides an engine for modules to integrate various 3rd party content providers, such as Video Neighborhood, Image Neighborhood, and Audio Neighborhood.
+core = 6.x
+dependencies[] = content
+package = CCK
+
+; Information added by drupal.org packaging script on 2010-09-22
+version = "6.x-1.25"
+core = "6.x"
+project = "emfield"
+datestamp = "1285164662"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

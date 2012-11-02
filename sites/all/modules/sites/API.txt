@@ -1,0 +1,42 @@
+$Id$
+
+<?php
+
+// @@TODO: document all hooks
+
+function HOOK_siteapi(&$alter, $op, $a3) {
+  switch($op) {
+    case 'access node':
+      $permitted = &$alter;
+      $node = $a1;
+      global $user;
+      if ($user->uid == 1 && $_GET['sites_non_admin'] != '1') { // @@TODO: find better way to select admins
+        $permitted = TRUE;
+      }
+      if (isset($node->sites) && count($node->sites)) {
+        $permitted = in_array(sites_get_current_site()->sid, $node->sites);
+      }
+      else {
+        // allow nodes without a defined site to be accessed freely
+        $permitted = TRUE;
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
+function HOOK_sites_node_access_alter(&$permitted, $node) {
+  if ($node->some_variable == FALSE) {
+    $permitted = FALSE;
+  }
+  else {
+    $permitted = TRUE;
+  }
+}
+
+
+function HOOK_sites_cookie_domain_alter($cookie_domain, $site) {
+  
+}

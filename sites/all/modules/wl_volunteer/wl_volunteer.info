@@ -1,0 +1,5 @@
+; $Id$
+name = WL_Volunteer
+description = Volunteer form and database storage for Wanderlust site.
+core = 6.x
+package = "Malkine Interactive Drupal Modules"

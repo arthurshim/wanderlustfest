@@ -1,0 +1,247 @@
+<?php
+
+/**
+ * @file
+ * Profiling module schema.
+ */
+
+/**
+ * Set weight for profiling modules.
+ */
+function _profiling_set_weight() {
+  $ret = array();
+  $ret[] = update_sql("UPDATE {system} SET weight = -66666666 WHERE name = 'profiling'");
+  $ret[] = update_sql("UPDATE {system} SET weight = 66666666 WHERE name = 'profiling_late'");
+  return $ret;
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function profiling_schema() {
+  $schema = array();
+  $schema['profiling_request'] = array(
+    'fields' => array(
+      'time_start' => array(
+        'description' => 'Microtime when it started, for some specific charts needs.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'duration' => array(
+        'description' => 'Timer duration, as float, in seconds, with quite large precision, raw value.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'memory' => array(
+        'description' => 'Memory consumption, raw number in bytes.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'identifier' => array(
+        'description' => 'Some unique HTTP request identifier, to save timers per lot.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => "Current logged user while timing.",
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'path' => array(
+        'description' => 'Path on which the user did hit while timing.',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => ''
+      ),
+      'created' => array(
+        'description' => 'The Unix timestamp when the object was created.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'theme' => array(
+        'description' => 'Theme used while timing.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'query_count' => array(
+        'description' => 'Query count during this timer lifetime.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('identifier'),
+    'indexes' => array(
+      'profiling_timers_duration_idx' => array('duration'),
+      'profiling_timers_created_idx' => array('created'),
+      'profiling_timers_path_idx' => array('path'),
+      'profiling_timers_memory_idx' => array('memory'),
+      'profiling_timers_query_count_idx' => array('query_count'),
+    ),
+  );
+  $schema['profiling_timers'] = array(
+    'fields' => array(
+      'name' => array(
+        'description' => 'Timer name.',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ),
+      'delta' => array(
+        'description' => 'Timer delta amond the same page execution, this allow to profile the same timer more than once in the same page.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'collection' => array(
+        'description' => 'Timer group name.',
+        'type' => 'varchar',
+        'length' => 128,
+      ),
+      'time_start' => array(
+        'description' => 'The Unix timestamp when the timer started.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'time_stop' => array(
+        'description' => 'The Unix timestamp when the timer stopped.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'duration' => array(
+        'description' => 'Timer duration, as float, in seconds, with quite large precision, raw value.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'memory' => array(
+        'description' => 'Memory consumption, raw number in bytes.',
+        'type' => 'float',
+        'size' => 'big',
+        'not null' => TRUE,
+      ),
+      'identifier' => array(
+        'description' => 'Some unique HTTP request identifier, to save timers per lot.',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+      ),
+      'query_count' => array(
+        'description' => 'Query count during this timer lifetime.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'finished' => array(
+        'description' => 'Set a flag to alert if this timer as been correctly stopped or not.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('name', 'identifier', 'delta'),
+    'indexes' => array(
+      'profiling_timers_collection_idx' => array('duration'),
+      'profiling_timers_duration_idx' => array('duration'),
+      'profiling_timers_memory_idx' => array('memory'),
+      'profiling_timers_query_count_idx' => array('query_count'),
+    ),
+  );
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function profiling_install() {
+  drupal_install_schema('profiling');
+  _profiling_set_weight();
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function profiling_uninstall() {
+  drupal_uninstall_schema('profiling');
+}
+
+/**
+ * Add the memory consumption parameter and support for timer delta.
+ */
+function profiling_update_6001() {
+  $ret = array();
+  db_add_field($ret, 'profiling_timers', 'memory', array(
+    'description' => 'Memory consumption, raw number in bytes.',
+    'type' => 'float',
+    'size' => 'big',
+    'not null' => TRUE,
+  ));
+  db_add_field($ret, 'profiling_timers', 'delta', array(
+    'description' => 'Timer delta amond the same page execution, this allow to profile the same timer more than once in the same page.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+  db_add_index($ret, 'profiling_timers', 'profiling_timers_memory_idx', array('memory'));
+  db_drop_primary_key($ret, 'profiling_timers');
+  db_add_primary_key($ret, 'profiling_timers', array('name', 'identifier', 'delta'));
+  return $ret;
+}
+
+/**
+ * Add the query count field.
+ */
+function profiling_update_6002() {
+  $ret = array();
+  db_add_field($ret, 'profiling_timers', 'query_count', array(
+    'description' => 'Query count during this timer lifetime.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+  return $ret;
+}
+
+/**
+ * Add the finished field.
+ */
+function profiling_update_6003() {
+  $ret = array();
+  db_add_field($ret, 'profiling_timers', 'finished', array(
+    'description' => 'Set a flag to alert if this timer as been correctly stopped or not.',
+    'type' => 'int',
+    'not null' => TRUE,
+    'default' => 0,
+  ));
+  return $ret;
+}
+
+/**
+ * Enable the profiling_late module and set module weights.
+ */
+function profiling_update_6004() {
+  module_enable(array('profiling_late'));
+  $ret = _profiling_set_weight();
+  return $ret;
+}
+
+/**
+ * Install the new schema.
+ */
+function profiling_update_6005() {
+  $ret = array();
+  db_drop_table($ret, 'profiling_request');
+  db_drop_table($ret, 'profiling_timers');
+  $ret = array_merge($ret, drupal_install_schema('profiling'));
+  return $ret;
+}

@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+=======
+/* $Id: menu-block-admin.css,v 1.5 2010/03/22 19:58:31 johnalbin Exp $ */
+
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+#edit-admin-title-wrapper,
+#edit-parent-wrapper,
+#edit-depth-wrapper {
+  margin-bottom: 2.5em;
+}
+
+#edit-parent-menu-wrapper {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#edit-parent-menu-wrapper label,
+label#item-label {
+  font-weight: normal;
+}
+
+#edit-depth-wrapper {
+  margin-top: 2.5em;
+}

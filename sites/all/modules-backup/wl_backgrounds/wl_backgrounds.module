@@ -1,0 +1,233 @@
+<?php
+
+define(DEFAULT_BG_IMG_DIR, 'files/page_backgrounds');
+define(NODE_PAGE_BG_FIELD, 'field_page_background');
+
+function wl_backgrounds_menu() {
+  $items['admin/settings/backgrounds'] = array(
+    'title' => 'WL Page Backgrounds',
+    'description' => 'Manage the different sites utilizing this Drupal codebase.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('wl_bg_admin_form'),
+    'access arguments' => array('administer WL page backgrounds'),
+  );
+  
+  return $items;
+}
+
+function wl_backgrounds_perm() {
+  return array('administer WL page backgrounds');
+}
+
+
+
+
+function wl_bg_admin_form() {
+  $form = array();
+  $dir = DEFAULT_BG_IMG_DIR;
+  $options = array('0' => '<none>');
+  if ($handle = opendir(DEFAULT_BG_IMG_DIR)) {
+    while (false !== ($file = readdir($handle))) {
+      if ($file != '.' && $file != '..') {
+        $options[$file] = $file;
+      }
+    }
+    closedir($handle);
+  }
+  ksort($options);
+  
+  $desc = <<<EOT
+One entry per line.  Each entry should be of the format: 'sites:1/some-section/page-path  >  background-filename.jpg' (the image
+file is expected to be in the $dir directory).  You may specify a default background by entering <default> instead of a path for one of
+the entries.  You may use wildcards in paths (? to match single characters, * to match any group of characters).
+EOT;
+
+  $form['wl_bg_default'] = array(
+    '#title' => 'Default background image (located in "' . DEFAULT_BG_IMG_DIR . '")',
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' => variable_get('wl_bg_default', ''),
+  );
+  
+  $form['wl_bg_settings_node'] = array(
+    '#title' => 'Default background for all nodes',
+    '#type' => 'select',
+    '#options' => $options,
+    '#default_value' => variable_get('wl_bg_settings_node', ''),
+  );
+  
+  $types = node_get_types();
+  foreach ($types as $type) {
+    $type = $type->type;
+    $form['wl_bg_settings_nodetype_' . $type] = array(
+      '#title' => 'Default background for ' . $type . ' nodes',
+      '#type' => 'select',
+      '#options' => $options,
+      '#default_value' => variable_get('wl_bg_settings_nodetype_' . $type, ''),
+    );
+  }
+  
+  $form['wl_bg_settings_paths'] = array(
+    '#title' => 'Individual path overrides',
+    '#description' => $desc,
+    '#type' => 'textarea',
+    '#rows' => 20,
+    '#default_value' => variable_get('wl_bg_settings_paths', ''),
+  );
+  
+  $form['#redirect'] = 'admin/settings/backgrounds';
+  $form['#submit'][] = 'wl_bg_admin_form_submit';
+  
+  return system_settings_form($form);
+}
+
+// remove '<none>' entries so we don't have to do more complex processing when reading settings
+function wl_bg_admin_form_submit($form, &$form_state) {
+  cache_set('wl_backgrounds', NULL);
+  foreach ($form_state['values'] as $k => &$value) {
+    if ($value == '<none>') {
+      //unset($form_state['values'][$k]);
+    }
+  }
+}
+
+
+function _wl_bg_set_bg($filename = NULL) {
+  static $wl_bg = '';
+  if ($filename != NULL) {
+    $wl_bg = $filename;
+  }
+  return $wl_bg;
+}
+
+function _wl_bg_get_bg() {
+  return _wl_bg_set_bg();
+}
+
+
+function _wl_bg_try($variable, $default) {
+  $setting = variable_get($variable, '');
+  if ($setting === '' || $setting == '<none>') {
+    return $default;
+  }
+  return $setting;
+}
+
+/**
+ * Retrieve the correct bg image for a given path.
+ *
+ * $path comes in already normalized to the Drupal internal path because of
+ * sites_path_aliasing's hook_url_inbound_alter().
+ */
+function wl_bg_background_for_path($path) {
+  $wl_bg = _wl_bg_get_bg();
+  // if this has already been run for this page, used the cached setting
+  if (strlen($wl_bg) > 0) {
+    return $wl_bg;
+  }
+  
+  // read and parse path settings if not yet read
+  static $settings;
+  if ($settings == NULL) {
+    $data = cache_get('wl_backgrounds');
+    if (!empty($data) && !empty($data->data) && $_GET['recache_backgrounds'] != '1') {
+      $settings = $data->data;
+    }
+    else {
+      $settings = array();
+      $path_overrides = variable_get('wl_bg_settings_paths', '');
+      $path_overrides = explode("\n", $path_overrides);
+
+      $purl = purl_modifiers('subdomain'); // used inside the foreach loop, don't want to repeatedly query
+
+      foreach ($path_overrides as $line) {
+        $sites = $_path = $image = NULL;
+        $result = preg_split('/[> \[\]]+/', $line, NULL, PREG_SPLIT_NO_EMPTY);
+        if (count($result) == 3) {
+          $sites = array_shift($result);
+        }
+        
+        if (count($result) > 1) {
+          $_path = $result[0];
+          $image = $result[1];
+        }
+      
+        if (!empty($_path) && !empty($image)) {
+          if ($sites) {
+            $sids = array();
+            foreach ($purl as $subdomain => $site) {
+              if ($site['provider'] == 'sites') {
+                $sids[$subdomain] = $site['id'];
+              }
+            }
+            foreach (explode(',', $sites) as $subdomain) {
+              $path_for_this_site = $_path;
+              if ($p = sites_path_aliasing_get_normal_path($sids[$subdomain], $_path)) { // check if there's a shared alias
+                $path_for_this_site = $p;
+              }
+              else if ($p = drupal_get_normal_path($_path)) {
+                $path_for_this_site = $p;
+              }
+              $settings[$subdomain][$path_for_this_site] = $image;
+            }
+          }
+          else { // if no sites specified
+            if ($p = drupal_get_normal_path($_path)) { // attempt to store by internal drupal path
+              $_path = $p;
+            }
+            $settings['__all sites'][$_path] = $image;
+          }
+        }
+      }
+      cache_set('wl_backgrounds', $settings);
+    }
+  }
+  
+  // start with the default setting
+  $wl_bg = _wl_bg_try('wl_bg_default', '');
+  
+  $node_with_own_image = FALSE;
+  
+  // use node setting if path is to a node
+  if (substr($path, 0, 5) == 'node/') {
+    $nid = substr($path, 5);
+    $node = node_load($nid);
+    $wl_bg = _wl_bg_try('wl_bg_settings_node', $wl_bg); // default for all nodes
+    $wl_bg = _wl_bg_try('wl_bg_settings_nodetype_' . $node->type, $wl_bg); // default for this node type
+    $field = NODE_PAGE_BG_FIELD;
+    
+    if (isset($node->$field)) {
+      $f = $node->$field;
+      if (strlen($f[0]['filename']) > 0) { // specific file uploaded to node
+        $wl_bg = $f[0]['filename'];
+        $node_with_own_image = TRUE; // this should override the paths/patterns below
+      }
+    }
+  }
+  
+  // finally, override with specific paths/patterns
+  if (!$node_with_own_image) {
+    // check global path overrides
+    foreach ((array)($settings['__all sites']) as $pattern => $image) {
+      if (fnmatch($pattern, $path) && strlen($image) > 0) {
+        $wl_bg = $image;
+      }
+    }
+    
+    // if we're on a site, check site-specific path overrides
+    if ($current_site = sites_get_current_site()) {
+      foreach ((array)($settings[$current_site->purl_prefix]) as $pattern => $image) {
+        if (fnmatch($pattern, $path) && strlen($image) > 0) {
+          $wl_bg = $image;
+        }
+      }
+    }
+  }
+  
+  // if we found a setting for this path, cache it
+  if ($wl_bg !== '') {
+    _wl_bg_set_bg('/' . DEFAULT_BG_IMG_DIR . '/' . $wl_bg);
+  }
+  
+  return _wl_bg_get_bg();
+}

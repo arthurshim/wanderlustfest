@@ -1,0 +1,12 @@
+diff --git a/sites/all/modules/contrib/devel/devel_themer.module b/sites/all/modules/contrib/devel/devel_themer.module
+index 187c0a4..f33b865 100644
+--- a/sites/all/modules/contrib/devel/devel_themer.module
++++ b/sites/all/modules/contrib/devel/devel_themer.module
+@@ -105,7 +105,6 @@ function devel_themer_init() {
+     if (module_exists('jquery_ui'))
+     {
+       jquery_ui_add('ui.core');
+-      jquery_ui_add('ui.mouse');
+       jquery_ui_add('ui.draggable');
+     }
+     else

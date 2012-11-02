@@ -1,0 +1,39 @@
+<?php
+<<<<<<< HEAD
+=======
+// $Id: views_handler_argument_node_type.inc,v 1.2 2009/06/02 17:57:48 merlinofchaos Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+/**
+ * Argument handler to accept a node type.
+ */
+class views_handler_argument_node_type extends views_handler_argument {
+  function construct() {
+    parent::construct('type');
+  }
+
+  /**
+   * Override the behavior of summary_name(). Get the user friendly version
+   * of the node type.
+   */
+  function summary_name($data) {
+    return $this->node_type($data->{$this->name_alias});
+  }
+
+  /**
+   * Override the behavior of title(). Get the user friendly version of the
+   * node type.
+   */
+  function title() {
+    return $this->node_type($this->argument);
+  }
+
+  function node_type($type) {
+    $output = node_get_types('name', $type);
+    if (empty($output)) {
+      return t('Unknown node type');
+    }
+    else {
+      return check_plain(t($output));
+    }
+  }
+}

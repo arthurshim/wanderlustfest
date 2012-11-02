@@ -1,0 +1,4 @@
+; $Id;
+name = Drop Down Menu Custom
+core = 6.x
+description = "Helper module to display dropdown menu as needed"

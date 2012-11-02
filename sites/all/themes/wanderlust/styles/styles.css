@@ -1,0 +1,26 @@
+ 
+
+/*
+** Formatting for administration page
+**
+** The admin panel styles are a mess. IE has problems with this so this is
+** only a temporary fix. This should be fixed in core.
+*/
+div.admin-panel {
+  padding: 0;
+}
+
+div.admin-panel .body {
+  padding: 0 !important;
+}
+
+div.admin .left,
+div.admin .right {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.admin .right .admin-panel {
+  margin-left: 10px;
+}

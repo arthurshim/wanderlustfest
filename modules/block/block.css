@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+=======
+/* $Id: block.css,v 1.6 2007/11/14 09:49:30 dries Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+#blocks td.region {
+  font-weight: bold;
+}
+#blocks tr.region-message {
+  font-weight: normal;
+  color: #999;
+}
+#blocks tr.region-populated {
+  display: none;
+}
+.block-region {
+  background-color: #ff6;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 3px;
+}

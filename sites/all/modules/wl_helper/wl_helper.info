@@ -1,0 +1,5 @@
+; $Id$
+name = "WL: Helper"
+description = "General helper module."
+package = "Wanderlust"
+core = "6.x"

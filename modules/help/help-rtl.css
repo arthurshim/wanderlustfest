@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+=======
+/* $Id: help-rtl.css,v 1.2 2007/11/27 12:09:26 goba Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+.help-items {
+  float: right;
+  padding-right: 0;
+  padding-left: 3%;
+}
+.help-items-last {
+  padding-right: 0;
+  padding-left: 0;
+}

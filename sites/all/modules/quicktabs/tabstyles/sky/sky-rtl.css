@@ -1,0 +1,13 @@
+<<<<<<< HEAD
+=======
+/* $Id: sky-rtl.css,v 1.1.2.1 2008/12/12 17:02:37 pasqualle Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+ul.quicktabs_tabs.quicktabs-style-sky li {
+  float: right;
+}
+
+ul.quicktabs_tabs.quicktabs-style-sky li a,
+ul.quicktabs_tabs.quicktabs-style-sky li a:visited {
+  float: right;
+}

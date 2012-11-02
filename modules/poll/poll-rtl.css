@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+=======
+/* $Id: poll-rtl.css,v 1.2 2007/05/30 18:28:13 goba Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+.poll .bar .foreground {
+  float: right;
+}
+.poll .percent {
+  text-align: left;
+}
+.poll .vote-form .choices {
+  text-align: right;
+}

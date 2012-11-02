@@ -1,0 +1,9 @@
+; $Id$
+name = "Sites Path Aliasing"
+description = "Allows different sites to share the same URL path, but each site or group of sites can have its own version of the node pointed to by that path."
+package = "Sites"
+dependencies[] = path
+dependencies[] = url_alter
+dependencies[] = sites
+dependencies[] = sites_path_aliasing_helper
+core = "6.x"

@@ -1,0 +1,25 @@
+<<<<<<< HEAD
+=======
+; $Id$
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+name = Views Carousel
+description = Provide Views Style plugin for jCarousel.
+package = Views
+core = 6.x
+dependencies[] = views
+dependencies[] = jcarousel
+
+<<<<<<< HEAD
+; Information added by drupal.org packaging script on 2011-02-25
+version = "6.x-2.x-dev"
+core = "6.x"
+project = "viewscarousel"
+datestamp = "1298620635"
+=======
+; Information added by drupal.org packaging script on 2010-07-11
+version = "6.x-2.x-dev"
+core = "6.x"
+project = "viewscarousel"
+datestamp = "1278836269"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

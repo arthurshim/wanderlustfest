@@ -1,0 +1,7 @@
+; $Id$
+name = "Sites Taxonomy"
+description = "Allows taxonomy terms to be associated with sites so that nodes are considered members of a site only when they possess a given term."
+package = "Sites"
+dependencies[] = taxonomy
+dependencies[] = sites
+core = "6.x"

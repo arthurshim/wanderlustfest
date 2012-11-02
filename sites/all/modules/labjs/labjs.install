@@ -1,0 +1,55 @@
+<?php
+
+/**
+ * @file
+ * LABjs install file
+ */
+
+/**
+ * Implementation of hook_install().
+ */
+function labjs_install() {
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function labjs_uninstall() {
+  variable_del('labjs_enabled');
+  variable_del('labjs_no_cdata');
+  variable_del('labjs_exception_mode');
+  variable_del('labjs_exception_blacklist');
+  variable_del('labjs_exception_whitelist');
+  variable_del('labjs_pages_choice');
+  variable_del('labjs_pages_list');
+}
+
+/**
+ * Implementation of hook_enable().
+ */
+function labjs_enable() {
+  // This module should run after all, to alter the content.
+  $max_weight = db_result(db_query("SELECT MAX(weight) FROM {system} WHERE name <> 'labjs'"));
+  $current_weight = db_result(db_query("SELECT weight FROM {system} WHERE name='labjs'"));
+  if ($current_weight <= $max_weight) {
+    db_query("UPDATE {system} SET weight=%d WHERE name='labjs'", $max_weight + 1);
+    drupal_set_message(t('LABjs module weight has been adjusted.'));
+  }
+}
+
+/**
+ * Increase the module weight, for current enabled users
+ */
+function labjs_update_6100() {
+  labjs_enable();
+  return array();
+}
+
+/**
+ * Remove old variables
+ */
+function labjs_update_6101() {
+  variable_del('labjs_content');
+  variable_del('labjs_closure');
+  return array();
+}

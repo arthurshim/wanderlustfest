@@ -1,0 +1,24 @@
+<<<<<<< HEAD
+=======
+; $Id: image_fupload_image.info,v 1.1 2008/07/19 14:45:08 grandcat Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+name = Image FUpload (image)
+description = "Allows uploading several images all at once to image module"
+core = 6.x
+package = Image
+dependencies[] = image_fupload
+dependencies[] = image
+<<<<<<< HEAD
+; Information added by drupal.org packaging script on 2011-09-01
+version = "6.x-3.x-dev"
+core = "6.x"
+project = "image_fupload"
+datestamp = "1314836968"
+=======
+; Information added by drupal.org packaging script on 2009-04-08
+version = "6.x-3.0-rc2"
+core = "6.x"
+project = "image_fupload"
+datestamp = "1239195044"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

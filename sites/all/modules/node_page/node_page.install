@@ -1,0 +1,58 @@
+<?php
+// $Id: node_page.install,v 1.1 2009/08/31 18:35:49 denraf Exp $
+
+/**
+ * @file
+ * Install, update and schema functions for the node_page module.
+ */
+
+
+/**
+ * Implementation of hook_schema().
+ */
+function node_page_schema() {
+
+  $schema = array();
+
+  $schema['node_page'] = array(
+    'description' => t('TODO: please describe this table!'),
+    'fields' => array(
+      'id' => array(
+        'description' => t('TODO: please describe this field!'),
+        'type' => 'serial',
+        'not null' => TRUE,
+      ),
+      'nid' => array(
+        'description' => t('TODO: please describe this field!'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'template' => array(
+        'description' => t('TODO: please describe this field!'),
+        'type' => 'varchar',
+        'length' => '255',
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_install().
+ */
+function node_page_install() {
+
+  drupal_install_schema('node_page');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function node_page_uninstall() {
+
+  drupal_uninstall_schema('node_page');
+}

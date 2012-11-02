@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+=======
+/* $Id: openwysiwyg.css,v 1.1 2009/06/06 05:20:09 sun Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+/**
+ * openWYSIWYG.
+ */
+table.tableTextareaEditor, table.tableTextareaEditor table {
+  margin: 0;
+  border-collapse: separate;
+}
+table.tableTextareaEditor td {
+  padding: 0;
+}

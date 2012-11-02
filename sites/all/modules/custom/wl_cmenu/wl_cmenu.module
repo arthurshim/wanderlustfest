@@ -1,0 +1,103 @@
+<?php
+global $site_link;
+function wl_cmenu_setvar() {
+  static $sitevar;
+  $sitevar = $sitelink;
+  
+  return $sitevar;
+}
+/**
+ * Implementation of hook_block()
+ */
+function wl_cmenu_block($op = 'list', $delta = 0, $edit = array()) {
+	
+  switch ($op) {
+    case 'list':
+        $block[0] = array(
+          'info' => t('WL: Custom Menu'),
+        );
+        return $block;
+      break;
+       $block[1] = array(
+          'info' => t('WL: Custom Menu1'),
+        );
+        return $block;
+      break;
+    case 'view':
+      if ($delta == 0) {
+			$blocks['content'] = wl_cmenu_get_items();
+	  }
+      elseif ($delta == 1) {
+			$blocks['content'] = wl_cmenu_get_items();
+	  }
+        return $blocks;
+      break;
+  }
+}
+
+/**
+ * Function wl_cmenu_get_items()
+ * Returns appropriate menu items considering current site and selected menu item.
+ */
+function wl_cmenu_get_items() {
+  $currentSite = sites_get_current_site();
+ // watchdog('current_site', '<pre>'.print_r($currentSite, TRUE).'</pre>');
+  global $site_link;
+  $site_link = $currentSite;
+  $menu = menu_tree_all_data($currentSite->menu_primary_links);
+  $node = menu_get_object();
+  $exceptions = array('Plan', 'Media', 'Connect'); // These search terms require a diff algo.
+  $paths = explode('/', drupal_get_path_alias($_GET['q']));
+  $search = (strstr($paths[0], 'sites:')) ? ucwords($paths[1]) : ucwords($paths[0]);
+  
+  if (in_array($search, $exceptions)) {
+    foreach ($menu as $subtree_key => $subtree_data) {
+      if (strstr($subtree_key, $search)) { //
+      $subtree = $subtree_data['below']; // get the subtree branching from that entry
+      $title = $subtree_data['link']['title'];
+      break; // take first match and stop looking
+     }
+    }
+  }
+  else {
+    $break = FALSE;
+    foreach ($menu as $subtree_key => $subtree_data) {
+      foreach ($subtree_data['below'] as $sub_sub_key => $sub_sub_data) {
+        if (strstr($sub_sub_key, $search)) { //
+          $subtree = $subtree_data['below']; // get the subtree branching from that entry
+          $title = $subtree_data['link']['title'];
+          $break = TRUE;
+          break; // take first match and stop looking
+        }
+      }
+      if ($break) break;
+    }
+  }
+  if (!empty($subtree)) {
+    return '<h2>' . $title . '</h2>' . menu_tree_output($subtree);
+  }
+  
+  // Handle Pages not in the menu
+  if ($node->type == 'page') {
+    $search = 'Experience';
+  }
+  elseif ($node->type == 'video' || $node->type == 'photo') {
+    $search = 'Media';
+  }
+  elseif ($node->type == 'news' || $node->type == 'blog') {
+    $search = 'Connect';
+  }
+  else {
+    return;
+  }
+    
+  foreach ($menu as $subtree_key => $subtree_data) {
+    if (strstr($subtree_key, $search)) { //
+    $subtree = $subtree_data['below']; // get the subtree branching from that entry
+    $title = $subtree_data['link']['title'];
+    break; // take first match and stop looking
+   }
+  }
+  
+  return '<h2>' . $title . '</h2>' . menu_tree_output($subtree);
+}

@@ -1,0 +1,23 @@
+Index: image_fupload.module
+===================================================================
+RCS file: /cvs/drupal-contrib/contributions/modules/image_fupload/image_fupload.module,v
+retrieving revision 1.33
+diff -u -p -r1.33 image_fupload.module
+--- image_fupload.module	6 Apr 2009 21:15:41 -0000	1.33
++++ image_fupload.module	7 Nov 2009 20:48:05 -0000
+@@ -130,6 +130,8 @@ function image_fupload_theme() {
+ function fupload_filetransfer() {
+   // huh.. swfUpload sends some data...let's see
+   global $user;
++  $cache_lifetime = variable_get('cache_lifetime', '');
++  variable_set('cache_lifetime', '');
+   $sid = $_POST['PHPSESSID'];
+   $node_type = check_plain($_POST['nodetype']);
+   $field_name = check_plain($_POST['fieldname']);  
+@@ -388,4 +390,4 @@ function _fupload_imagepreview_settings(
+       break;
+     
+   }
+-}
+\ No newline at end of file
++}

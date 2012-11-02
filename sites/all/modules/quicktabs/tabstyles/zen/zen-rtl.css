@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+=======
+/* $Id: zen-rtl.css,v 1.1.2.2 2008/12/07 17:22:03 pasqualle Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+/* RTL support */
+
+ul.quicktabs_tabs.quicktabs-style-zen li{
+  float: right;
+}

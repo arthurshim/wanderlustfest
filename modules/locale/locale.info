@@ -1,0 +1,22 @@
+<<<<<<< HEAD
+=======
+; $Id: locale.info,v 1.6 2007/11/05 08:43:48 goba Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+name = Locale
+description = Adds language handling functionality and enables the translation of the user interface to languages other than English.
+package = Core - optional
+version = VERSION
+core = 6.x
+
+<<<<<<< HEAD
+; Information added by drupal.org packaging script on 2011-05-25
+version = "6.22"
+project = "drupal"
+datestamp = "1306357015"
+=======
+; Information added by drupal.org packaging script on 2010-08-11
+version = "6.19"
+project = "drupal"
+datestamp = "1281559292"
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

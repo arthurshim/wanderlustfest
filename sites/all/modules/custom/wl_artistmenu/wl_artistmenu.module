@@ -1,0 +1,78 @@
+<?php
+
+/**
+ * @file
+ * WL: Artist menu - a module to show the displays of the artist_landing view as a menu.
+ */
+
+
+/**
+ * Implementation of hook_block().
+ */
+function wl_artistmenu_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+        $block[0]['info'] = t('WL: Artist Menu');
+      break;
+    
+    case 'view':
+        $block['content'] = wl_artistmenu_get_data();
+      break;
+  }
+  
+  return $block;
+}// function wl_artistmenu_block().
+
+
+/**
+ * Build menu of artist_landing displays.
+ */
+function wl_artistmenu_get_data() {
+  global $base_path;
+  $node = node_load(arg(1));
+  $terms = taxonomy_node_get_terms_by_vocabulary($node, 1, 'name');
+  $artist_type = array_shift(array_keys($terms));
+  
+  $view = views_get_view('artist_landing2');
+  $empty = !(bool) count($view->result);
+  $settings = variable_get('viewsdisplaytabs_settings', array());
+  $show = ( $empty ? $empty && $settings['view_show_empty'][$view->name] == 1 : true );
+
+  if ($settings['view_enabled'][$view->name] == 1 && $show) {
+    $selected_displays = $settings['view_displays'][$view->name];
+
+    // Collect displays and build grouping array
+    // If no displays are selected, include all displays
+    foreach ($view->display as $display_name => $display_data) {
+      if (!$selected_displays || !count($selected_displays) || in_array($display_name, $selected_displays)) {
+
+        // Allow grouping of tabs with grouping separator in titles/names: group[sep]title
+        // If the separator is at position 0 or does not exist it all, do not group
+        $sep = $settings['view_group_separator'][$view->name];
+        if ($sep && strpos($display_data->display_title, $sep)) {
+          list($group, $title) = explode($sep, $display_data->display_title);
+        }
+        else {
+          $title = $display_data->display_title;
+          $group = 0;
+        }
+
+        // Set current tab as active based on artist type
+        $active = ( $display_data->display_title == $artist_type );
+
+        // Build a grouping array for later
+        // @TODO: Pass the path of the display as well, provided it has been set
+        // (true for page displays).
+        $displays[$group][] = theme('viewsdisplaytabs_tab', $title, 'lineup/artists', $view->name, $display_name, $active);
+      }
+    }
+
+    // Build header, exclude displays that are attachments (or we'll end up
+    // with two sets of tabs)
+    if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
+      $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
+    }
+  }
+  
+  return $header;
+}// function wl_artistmenu_get_data().

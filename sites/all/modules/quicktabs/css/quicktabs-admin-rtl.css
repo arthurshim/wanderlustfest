@@ -1,0 +1,23 @@
+<<<<<<< HEAD
+=======
+/* $Id: quicktabs-admin-rtl.css,v 1.1.2.3 2010/07/01 09:52:35 pasqualle Exp $ */
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
+/* RTL support */
+#qt-tablist-table label {
+  float: right;
+  clear: right;
+}
+
+#quicktabs-form #add-more-tabs-button{
+  float: right;
+}
+
+#quicktabs-settings .quicktabs-tabstyles .form-item {
+  float: right;
+  margin: 0 0 10px 10px;
+}
+#quicktabs-settings .quicktabs-tabstyles .form-item .option .form-radio {
+  margin-left: 5px;
+  float: right;
+}

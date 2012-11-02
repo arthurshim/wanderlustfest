@@ -1,0 +1,7 @@
+; $Id$
+name = "Sites Path Aliasing (Helper)"
+description = "Provides helper functionality to Sites Path Aliasing.  Does nothing on its own.  Only enable when sites_path_aliasing is enabled."
+package = "Sites"
+dependencies[] = path
+dependencies[] = sites
+core = "6.x"

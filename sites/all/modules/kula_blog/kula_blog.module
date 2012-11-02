@@ -1,0 +1,3 @@
+<?php
+
+include_once('kula_blog.features.inc');

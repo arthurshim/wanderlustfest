@@ -1,0 +1,30 @@
+<?php
+
+// $Id$
+
+/**
+ * Implementaton of hook_enable().
+ *
+ * This module's form_alter must occur after the path module's form_alter.
+ */
+function sites_path_aliasing_helper_enable() {
+  
+  $weight = db_result(db_query("SELECT weight FROM {system} WHERE name = 'pathauto'"));
+  if ($weight !== NULL) { // pathauto is active, this module should be heavier than it
+    $weight++;
+    db_query("UPDATE {system} SET weight = %d WHERE name = 'sites_path_aliasing_helper' AND type = 'module'", $weight);
+  }
+  else {
+    $weight = db_result(db_query("SELECT weight FROM {system} WHERE name = 'path'"));
+    if ($weight !== NULL) { // path is active
+      $weight++;
+      db_query("UPDATE {system} SET weight = %d WHERE name = 'sites_path_aliasing_helper' AND type = 'module'", $weight);
+    }
+    else {
+      // default weight is 2, although this should never happen because it means path module isn't enable
+      db_query("UPDATE {system} SET weight = 2 WHERE name = 'sites_path_aliasing_helper' AND type = 'module'", $weight);
+    }
+  }
+  
+  
+}

@@ -1,0 +1,175 @@
+<?php
+<<<<<<< HEAD
+// $Id: image.inc,v 1.1.2.8 2010/01/11 06:07:16 deciphered Exp $
+=======
+// $Id: image.inc,v 1.1.2.3 2009/06/18 04:31:54 deciphered Exp $
+
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+/**
+ * @file
+ * Provides FileField Paths integration with the Image module.
+ */
+
+/**
+<<<<<<< HEAD
+ * Implements hook_filefield_paths_form_alter().
+ */
+function image_filefield_paths_form_alter(&$form, &$ffp) {
+  if (isset($form['#id']) && $form['#id'] == 'image-admin-settings') {
+=======
+ * Implementation of hook_filefield_paths_form_alter().
+ */
+function image_filefield_paths_form_alter(&$form, &$ffp) {
+  if ($form['#id'] == 'image-admin-settings') {
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+    $ffp['image'] = array(
+      'type' => 'image',
+      'form_path' => &$form['files']['ffp_image'],
+      'file_path_default' => $form['files']['image_default_path']['#default_value']
+    );
+
+    // Create path settings fieldset
+    $ffp['image']['form_path'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Image Path settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#weight' => 0,
+    );
+
+    $ffp['image']['form_path']['file_path'] = $form['files']['image_default_path'];
+    $ffp['image']['form_path']['file_path']['#title'] = t('File path');
+    $form['files']['image_default_path']['#access'] = FALSE;
+  }
+}
+
+/**
+<<<<<<< HEAD
+ * Implements hook_filefield_paths_form_submit().
+ */
+function image_filefield_paths_form_submit(&$form_state, &$ffp) {
+  if (isset($form_state['values']['ffp_image'])) {
+    $ffp['image'] = array(
+      'type' => 'image',
+    );
+  }
+}
+
+/**
+ * Implements hook_filefield_paths_get_fields().
+ */
+function image_filefield_paths_get_fields(&$node, &$ffp) {
+  if ($node->type == 'image') {
+    $info = $origname = array();
+
+    $result = db_query('SELECT i.*, f.origname FROM {image} i JOIN {files} f ON i.fid = f.fid  WHERE i.nid = %d', $node->nid);
+    while ($data = db_fetch_object($result)) {
+      $info[$data->image_size] = $data->fid;
+      $origname[$data->image_size] = $data->origname;
+=======
+ * Implementation of hook_filefield_paths_form_submit().
+ */
+function image_filefield_paths_form_submit(&$form_state, &$ffp) {
+  $ffp['image'] = array(
+    'type' => 'image',
+  );
+}
+
+/**
+ * Implementation of hook_filefield_paths_get_fields().
+ */
+function image_filefield_paths_get_fields(&$node, &$ffp) {
+  if ($node->type == 'image') {
+    $info = array();
+
+    $result = db_query('SELECT * FROM {image} WHERE nid = %d', $node->nid);
+    while ($data = db_fetch_object($result)) {
+      $info[$data->image_size] = $data->fid;
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+    }
+
+    foreach ($node->images as $name => &$file) {
+      if (isset($info[$name])) {
+        $file_info = pathinfo($file);
+<<<<<<< HEAD
+
+=======
+  
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+        $ffp['#files'][] = array(
+          'field' => array(
+            'filepath' => &$file,
+            'filename' => $file_info['basename'],
+            'fid' => $info[$name],
+<<<<<<< HEAD
+            'type' => $name,
+            'origname' => $origname[$name],
+          ),
+          'module' => 'image',
+          'name' => 'image',
+          'new' => $node->new_file || $node->rebuild_images,
+        );
+
+=======
+            'type' => $name
+          ),
+          'module' => 'image',
+          'name' => 'image',
+          'new' => $node->new_file
+        );
+  
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+        $ffp['#types']['image'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+<<<<<<< HEAD
+ * Implements hook_filefield_paths_batch_update().
+ */
+function image_filefield_paths_batch_update($field, $type, &$objects) {
+  $result = db_query("SELECT nid FROM {node} WHERE type = '%s'", 'image');
+
+  // Build array of Node IDs.
+  while ($node = db_fetch_object($result)) {
+    $objects[] = $node->nid;
+=======
+ * Implementation of hook_filefield_paths_batch_update().
+ */
+function image_filefield_paths_batch_update($field_name, $type_name, &$objects) {
+  if (empty($field_name) && empty($field_name)) {
+    $result = db_query("SELECT nid FROM {node} WHERE type = '%s'", 'image');
+
+    // Build array of Node IDs.
+    while ($node = db_fetch_object($result)) {
+      $objects[] = $node->nid;
+    }
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+  }
+}
+
+/**
+<<<<<<< HEAD
+ * Implements hook_filefield_paths_update().
+ */
+function image_filefield_paths_update($oid, $field) {
+  $node = node_load($oid);
+
+  if (isset($node->images)) {
+=======
+ * Implementation of hook_filefield_paths_update().
+ */
+function image_filefield_paths_update($oid, $field_name) {
+  if (empty($field_name)) {
+    $node = node_load($oid);
+
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+    // Flag files for update.
+    $node->new_file = TRUE;
+
+    // Process Node.
+    filefield_paths_nodeapi($node, 'update', NULL, NULL);
+  }
+}

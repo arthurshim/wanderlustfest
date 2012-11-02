@@ -1,0 +1,37 @@
+<?php
+<<<<<<< HEAD
+=======
+// $Id: views_plugin_row_search_view.inc,v 1.1 2008/09/03 19:21:30 merlinofchaos Exp $
+>>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+/**
+ * @file
+ * Contains the search row style plugin.
+ */
+
+/**
+ * Plugin which performs a node_view on the resulting object.
+ */
+class views_plugin_row_search_view extends views_plugin_row {
+  function option_definition() {
+    $options = parent::option_definition();
+
+    $options['score'] = array('default' => TRUE);
+
+    return $options;
+  }
+
+  function options_form(&$form, &$form_state) {
+    $form['score'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Display score'),
+      '#default_value' => $this->options['score'],
+    );
+  }
+
+  /**
+   * Override the behavior of the render() function.
+   */
+  function render($row) {
+    return theme($this->theme_functions(), $this->view, $this->options, $row);
+  }
+}
