@@ -2,6 +2,13 @@
 
 Please open a ticket or a basecamp todo if you have trouble setting this up.
 
+## Setup Howto
+* Clone this repo
+* Create a mysql database called wl_prod, check default/settings.php for username and passwords
+* Import wl_prod.sql in the database
+* Create a directory called fiels in the foler which has index.php
+* Use the Apache2 VirtualHost settings provided below and modify it for your DocumentRoot
+
 ## Apache2 VirtualHost settings
 ````
 <VirtualHost *:80>
@@ -15,7 +22,7 @@ Please open a ticket or a basecamp todo if you have trouble setting this up.
         </Directory>
         <Directory /home/wanderlust/Wanderlust>
                 Options Indexes FollowSymLinks MultiViews
-                AllowOverride None
+                AllowOverride All
                 Order allow,deny
                 allow from all
         </Directory>
