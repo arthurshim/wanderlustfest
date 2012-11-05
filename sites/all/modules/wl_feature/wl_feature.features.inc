@@ -18,3 +18,24 @@ function wl_feature_views_api() {
     'api' => '2',
   );
 }
+
+
+/**
+ * Implementation of hook_siteapi()
+ */
+
+/*
+function wl_feature_siteapi(&$obj, $op, $a1, $a2) {
+  global $user;
+
+  switch ($op) {
+
+
+    case 'after set current site':
+      if($user->uid == 1) {
+	  drupal_set_message('<pre>' . print_r($obj, 1) . '</pre>');
+      }
+      break;
+
+  }
+}*/

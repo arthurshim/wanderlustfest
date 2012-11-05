@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: destinations.browser.inc,v 1.1.2.1.2.6 2009/07/06 04:02:48 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**

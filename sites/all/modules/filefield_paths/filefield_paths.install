@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 // $Id: filefield_paths.install,v 1.6.2.6 2010/01/11 06:07:16 deciphered Exp $
 /**
  * @file
@@ -8,16 +7,6 @@
 
 /**
  * Implements hook_schema().
-=======
-// $Id: filefield_paths.install,v 1.6.2.3 2009/05/22 03:28:14 deciphered Exp $
-
-/**
- * @file
- */
-
-/**
- * Implementation of hook_schema().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function filefield_paths_schema() {
   $schema['filefield_paths'] = array(
@@ -36,11 +25,7 @@ function filefield_paths_schema() {
 }
 
 /**
-<<<<<<< HEAD
  * Implements hook_schema_alter().
-=======
- * Implementation of hook_schema_alter().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  * @param $schema
  *   The system-wide schema
@@ -56,11 +41,7 @@ function filefield_paths_schema_alter(&$schema) {
 }
 
 /**
-<<<<<<< HEAD
  * Implements hook_install().
-=======
- * Implementation of hook_install().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function filefield_paths_install() {
   drupal_install_schema('filefield_paths');
@@ -75,11 +56,7 @@ function filefield_paths_install() {
 }
 
 /**
-<<<<<<< HEAD
  * Implements hook_uninstall().
-=======
- * Implementation of hook_uninstall().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function filefield_paths_uninstall() {
   drupal_uninstall_schema('filefield_paths');
@@ -89,11 +66,7 @@ function filefield_paths_uninstall() {
 }
 
 /**
-<<<<<<< HEAD
  * Implements hook_update_N().
-=======
- * Implementation of hook_update_N().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function filefield_paths_update_6100() {
   $ret = array();
@@ -139,11 +112,7 @@ function filefield_paths_update_6100() {
   $result = db_query("SELECT * FROM {variable} WHERE name LIKE 'filefield_paths_%'");
 
   while ($variable = db_fetch_object($result)) {
-<<<<<<< HEAD
     $pattern = '/filefield_paths_(' . $types . ')_(' . $fields . ')_(file_name|file_path)_?(.*)/';
-=======
-    $pattern = '/filefield_paths_('. $types .')_('. $fields .')_(file_name|file_path)_?(.*)/';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     if (preg_match($pattern, $variable->name, $results)) {
       if (empty($results[4])) {

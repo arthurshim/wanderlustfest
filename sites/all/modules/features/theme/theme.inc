@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: theme.inc,v 1.1.2.24 2010/08/10 21:25:57 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Display feature component info

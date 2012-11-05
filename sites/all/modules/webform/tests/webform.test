@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id$
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -15,22 +11,7 @@ class WebformTestCase extends DrupalWebTestCase {
   public $webform_users;
 
   /**
-<<<<<<< HEAD
    * Implements setUp().
-=======
-   * Implementation of getInfo().
-   */
-  public static function getInfo() {
-    return array(
-      'name' => t('Webform'),
-      'description' => t('Parent test suite used to setup Webform tests.'),
-      'group' => t('Webform'),
-    );
-  }
-
-  /**
-   * Implementation of setUp().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    */
   function setUp() {
     // Enable Webform.
@@ -54,34 +35,20 @@ class WebformTestCase extends DrupalWebTestCase {
     // Create a webform editor to test creating and editing own content.
     $permissions['editor'] = array(
       'access content',
-<<<<<<< HEAD
       'create webform content',
       'edit own webform content',
       'access all webform results',
-=======
-      'create webforms',
-      'edit own webforms',
-      'access webform results',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     // Create a webform admin that will do all node creation.
     $permissions['admin'] = array(
       'access content',
       'administer nodes',
-<<<<<<< HEAD
       'create webform content',
       'edit any webform content',
       'access all webform results',
       'edit all webform submissions',
       'delete all webform submissions',
-=======
-      'create webforms',
-      'edit webforms',
-      'edit webform submissions',
-      'access webform results',
-      'clear webform results',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     foreach ($permissions as $user_key => $role_permissions) {
@@ -134,17 +101,6 @@ class WebformTestCase extends DrupalWebTestCase {
       return $this->_webform_components;
     }
 
-<<<<<<< HEAD
-=======
-    // Time components use a lot of conversion factors, generate a list of times
-    // equal to 10:30pm (the default value used as a sample).
-    $timestamp = strtotime('10:30pm');
-    $site_hour12 = gmdate('g', $timestamp + (int)variable_get('date_default_timezone', 0));
-    $site_hour24 = gmdate('G', $timestamp + (int)variable_get('date_default_timezone', 0));
-    $site_minute = gmdate('i', $timestamp + (int)variable_get('date_default_timezone', 0));
-    $site_ampm = gmdate('a', $timestamp + (int)variable_get('date_default_timezone', 0));
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $this->_webform_components = array(
       // Test date components.
       'date' => array(
@@ -155,13 +111,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'value' => '19 Nov 1978',
           'extra' => array(
             'timezone' => 'site',
-<<<<<<< HEAD
             'start_date' => '-100 years',
             'end_date' => '+2 years',
-=======
-            'year_start' => '1950',
-            'year_end' => '2020',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           ),
           'mandatory' => '0',
           'email' => '1',
@@ -170,13 +121,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'page_num' => 1,
         ),
         'sample values' => array('day' => '30', 'month' => '9', 'year' => '1982'),
-<<<<<<< HEAD
         'database values' => array('1982-09-30'),
         'database default values' => array('1978-11-19'),
-=======
-        'database values' => array('9', '30', '1982'),
-        'database default values' => array('11', '19', '1978'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
 
       // Test grid components.
@@ -187,13 +133,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'type' => 'grid',
           'value' => '',
           'extra' => array(
-<<<<<<< HEAD
             'questions' => "0|Ålphå\n1|ıé†å\n2|Îé¬†å", // Left side
             'options' => "0|øne\n1|twö\n2|ǼBƇ\n3|€Euro", // Top
-=======
-            'questions' => "Ålphå\nıé†å\nÎé¬†å", // Left side
-            'options' => "øne\ntwö\nǼBƇ\n€Euro", // Top
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           ),
           'mandatory' => '0',
           'email' => '1',
@@ -201,13 +142,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '-19',
           'page_num' => 1,
         ),
-<<<<<<< HEAD
         'sample values' => array('0' => '0', '1' => '1', '2' => '2'),
         'database values' => array('0' => '0', '1' => '1', '2' => '2'),
-=======
-        'sample values' => array('Ålphå' => 'øne', 'ıé†å' => 'twö', 'Îé¬†å' => 'ǼBƇ'),
-        'database values' => array('øne', 'twö', 'ǼBƇ'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'database default values' => array('', '', ''),
       ),
       'grid_keyed' => array(
@@ -217,12 +153,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'type' => 'grid',
           'value' => '',
           'extra' => array(
-<<<<<<< HEAD
             'questions' => "one|What's your option?\ntwo|Agåin?\nthree|One more time!", // Left side.
             'options' => "one|Option one\ntwo|Option 2\nthree| Three is me", // Top
-=======
-            'questions' => "What's your option?\nAgåin?\nOne more time!", // Left side.
-            'options' => "one|Option one\ntwo|Option 2\nthree| Three is me", // Top
           ),
           'mandatory' => '0',
           'email' => '1',
@@ -230,68 +162,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '-15',
           'page_num' => 1,
         ),
-        'sample values' => array(
-          'Whats your option?' => 'one', // Quotes removed from values.
-          'Agåin?' => 'two',
-          'One more time!' => 'three',
-        ),
-        'database values' => array('one', 'two', 'three'),
-        'database default values' => array('', '', ''),
-      ),
-      'grid_mixed' => array(
-        'component' => array(
-          'form_key' => 'grid_mixed',
-          'name' => 'Grid Mixed',
-          'type' => 'grid',
-          'value' => '',
-          'extra' => array(
-            'questions' => "Ålphå\nıé†å\nÎé¬†å", // Left side
-            'options' => "øne\ntwö\nǼBƇ\n€Euro", // Top
-            'optrand' => 1,
-            'qrand' => 1,
-          ),
-          'mandatory' => '0',
-          'email' => '1',
-          'pid' => '2',
-          'weight' => '-19',
-          'page_num' => 1,
-        ),
-        'sample values' => array('Ålphå' => 'øne', 'ıé†å' => 'twö', 'Îé¬†å' => 'ǼBƇ'),
-        'database values' => array('øne', 'twö', 'ǼBƇ'),
-        'database default values' => array('', '', ''),
-      ),
-      'grid_keyed_mixed' => array(
-        'component' => array(
-          'form_key' => 'grid_keyed_mixed',
-          'name' => 'Grid Keyed',
-          'type' => 'grid',
-          'value' => '',
-          'extra' => array(
-            'questions' => "What's your option?\nAgåin?\nOne more time!", // Left side.
-            'options' => "one|Option one\ntwo|Option 2\nthree| Three is me", // Top
-            'optrand' => 1,
-            'qrand' => 1,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
-          ),
-          'mandatory' => '0',
-          'email' => '1',
-          'pid' => '0',
-          'weight' => '-15',
-          'page_num' => 1,
-        ),
-<<<<<<< HEAD
         'sample values' => array('one' => 'one', 'two' => 'two', 'three' => 'three'),
         'database values' => array('one' => 'one', 'two' => 'two', 'three' => 'three'),
         'database default values' => array('one' => '', 'two' => '', 'three' => ''),
-=======
-        'sample values' => array(
-          'Whats your option?' => 'one', // Quotes removed from values.
-          'Agåin?' => 'two',
-          'One more time!' => 'three',
-        ),
-        'database values' => array('one', 'two', 'three'),
-        'database default values' => array('', '', ''),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
 
       // Test select components.
@@ -302,13 +175,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'type' => 'select',
           'value' => 'two',
           'extra' => array(
-<<<<<<< HEAD
             'items' => "one|one\ntwo|two\nthree|three",
             'multiple' => 1,
-=======
-            'items' => "one\ntwo\nthree",
-            'multiple' => 'Y',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '0',
@@ -321,7 +189,6 @@ class WebformTestCase extends DrupalWebTestCase {
         'database values' => array('one', 'three'),
         'database default values' => array('two'),
       ),
-<<<<<<< HEAD
       'checkboxes_zero' => array(
         'component' => array(
           'form_key' => 'checkboxes_zero',
@@ -343,8 +210,6 @@ class WebformTestCase extends DrupalWebTestCase {
         'database values' => array('0'),
         'database default values' => array('0'),
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'radios' => array(
         'component' => array(
           'form_key' => 'radios',
@@ -352,11 +217,7 @@ class WebformTestCase extends DrupalWebTestCase {
           'type' => 'select',
           'value' => 'two',
           'extra' => array(
-<<<<<<< HEAD
             'items' => "one|one\ntwo|two\nthree|three",
-=======
-            'items' => "one\ntwo\nthree",
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '1',
@@ -372,11 +233,7 @@ class WebformTestCase extends DrupalWebTestCase {
       'radios_zero' => array(
         'component' => array(
           'form_key' => 'radios_zero',
-<<<<<<< HEAD
           'name' => 'Radios zero',
-=======
-          'name' => 'Radios',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           'type' => 'select',
           'value' => '0',
           'extra' => array(
@@ -401,13 +258,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'value' => 'one',
           'extra' => array(
             'description' => '<p>Description here</p>',
-<<<<<<< HEAD
             'items' => "one|one\ntwo|two\nthree|three\nfour|four\nfive|five\nsix|six",
             'aslist' => 1,
-=======
-            'items' => "one\ntwo\nthree\nfour\nfive\nsix",
-            'aslist' => 'Y',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '1',
@@ -423,21 +275,13 @@ class WebformTestCase extends DrupalWebTestCase {
       'select_zero' => array(
         'component' => array(
           'form_key' => 'select_zero',
-<<<<<<< HEAD
           'name' => 'Select zero',
-=======
-          'name' => 'Select',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           'type' => 'select',
           'value' => '0',
           'extra' => array(
             'description' => '<p>Tests saving zero as a value.</p>',
             'items' => "0|zero\n1|one\n2|two",
-<<<<<<< HEAD
             'aslist' => 1,
-=======
-            'aslist' => 'Y',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '1',
@@ -450,7 +294,6 @@ class WebformTestCase extends DrupalWebTestCase {
         'database values' => array('0'),
         'database default values' => array('0'),
       ),
-<<<<<<< HEAD
       'select_no_default' => array(
         'component' => array(
           'form_key' => 'select_no_default',
@@ -495,8 +338,6 @@ class WebformTestCase extends DrupalWebTestCase {
         'database values' => array('0'),
         'database default values' => array(''),
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'select_optgroup' => array(
         'component' => array(
           'form_key' => 'select_optgroup',
@@ -505,13 +346,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'value' => 'option 1-2',
           'extra' => array(
             'description' => '<p>Tests saving zero as a value.</p>',
-<<<<<<< HEAD
             'items' => "<Group 1>\noption 1-1|option 1-1\noption 1-2|option 1-2\noption 1-3|option 1-3\n<Group 2>\noption 2-1|option 2-1\noption 2-2|option 2-2\noption 2-3|option 2-3",
             'aslist' => 1,
-=======
-            'items' => "<Group 1>\noption 1-1\noption 1-2\noption 1-3\n<Group 2>\noption 2-1\noption 2-2\noption 2-3",
-            'aslist' => 'Y',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '1',
@@ -529,15 +365,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'form_key' => 'select_email',
           'name' => 'Select e-mails',
           'type' => 'select',
-<<<<<<< HEAD
           'value' => 'nate@localhost.localhost',
           'extra' => array(
             'items' => "nate@localhost.localhost|one\nadmin@localhost.localhost|two",
-=======
-          'value' => 'nate@localhost',
-          'extra' => array(
-            'items' => "nate@localhost|one\nadmin@localhost|two",
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 3,
           ),
           'mandatory' => '0',
@@ -546,15 +376,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '-17',
           'page_num' => 1,
         ),
-<<<<<<< HEAD
         'sample values' => 'admin@localhost.localhost',
         'database values' => array('admin@localhost.localhost'),
         'database default values' => array('nate@localhost.localhost'),
-=======
-        'sample values' => 'admin@localhost',
-        'database values' => array('admin@localhost'),
-        'database default values' => array('nate@localhost'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
       'select_multiple' => array(
         'component' => array(
@@ -563,15 +387,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'type' => 'select',
           'value' => 'one,two',
           'extra' => array(
-<<<<<<< HEAD
             'items' => "one|one\ntwo|two\nthree|three",
             'multiple' => 1,
             'aslist' => 1,
-=======
-            'items' => "one\ntwo\nthree",
-            'multiple' => 'Y',
-            'aslist' => 'Y',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'email' => 0,
           ),
           'mandatory' => '0',
@@ -595,13 +413,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'value' => 'Nov 19 1978',
           'extra' => array(
             'timezone' => 'site',
-<<<<<<< HEAD
             'start_date' => '-100 years',
             'end_date' => '+2 years',
-=======
-            'year_start' => '1900',
-            'year_end' => '2050',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             'year_textfield' => 1,
           ),
           'mandatory' => '1',
@@ -611,13 +424,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'page_num' => 1,
         ),
         'sample values' => array('day' => '30', 'month' => '9', 'year' => '1982'),
-<<<<<<< HEAD
         'database values' => array('1982-09-30'),
         'database default values' => array('1978-11-19'),
-=======
-        'database values' => array('9', '30', '1982'),
-        'database default values' => array('11', '19', '1978'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
 
       // Test email components.
@@ -636,13 +444,8 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '-5',
           'page_num' => 1,
         ),
-<<<<<<< HEAD
         'sample values' => 'admin@localhost.localhost',
         'database values' => array('admin@localhost.localhost'),
-=======
-        'sample values' => 'admin@localhost',
-        'database values' => array('admin@localhost'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'database default values' => array($this->webform_users['admin']->mail),
       ),
 
@@ -743,15 +546,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '16',
           'page_num' => 1,
         ),
-<<<<<<< HEAD
         'sample values' => array('hour' => '5', 'minute' => '0', 'ampm' => 'am'),
         'database values' => array('05:00:00'),
         'database default values' => array('22:30:00'),
-=======
-        'sample values' => array('hour' => '5', 'minute' => '00', 'ampm' => 'am'),
-        'database values' => array('5', '00', 'am'),
-        'database default values' => array($site_hour12, $site_minute, $site_ampm),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
       'time_24h' => array(
         'component' => array(
@@ -769,15 +566,9 @@ class WebformTestCase extends DrupalWebTestCase {
           'weight' => '17',
           'page_num' => 1,
         ),
-<<<<<<< HEAD
         'sample values' => array('hour' => '5', 'minute' => '0'),
         'database values' => array('05:00:00'),
         'database default values' => array('22:30:00'),
-=======
-        'sample values' => array('hour' => '5', 'minute' => '00'),
-        'database values' => array('5', '00'),
-        'database default values' => array($site_hour24, $site_minute),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
     );
 
@@ -806,7 +597,6 @@ class WebformTestCase extends DrupalWebTestCase {
      'format' => '1',
      'webform' => array(
         'confirmation' => 'Thanks!',
-<<<<<<< HEAD
         'confirmation_format' => FILTER_FORMAT_DEFAULT,
         'redirect_url' => '<confirmation>',
         'teaser' => '0',
@@ -818,21 +608,6 @@ class WebformTestCase extends DrupalWebTestCase {
         'roles' => array('1', '2'),
         'components' => array(),
         'emails' => array(),
-=======
-        'teaser' => '0',
-        'submit_text' => '',
-        'submit_limit' => '-1',
-        'submit_interval' => '-1',
-        'email' => 'nate@localhost',
-        'email_from_name' => 'default',
-        'email_from_address' => 'default',
-        'email_subject' => 'default',
-        'additional_validate' => '',
-        'additional_submit' => '',
-        'roles' => array('1', '2'),
-        'components' => array(),
-        'additional_emails' => array(),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
     );
 
@@ -872,7 +647,6 @@ class WebformTestCase extends DrupalWebTestCase {
    * Utility function to print out the current page being tested.
    */
   function webformPrintPage() {
-<<<<<<< HEAD
     $this->verbose($this->drupalGetContent());
   }
 }
@@ -958,9 +732,3 @@ class WebformGeneralTestCase extends WebformTestCase {
     return (bool) db_result(db_query("SELECT nid FROM {webform} WHERE nid = %d", $nid));
   }
 }
-=======
-    debug($this->drupalGetContent());
-  }
-}
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

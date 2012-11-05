@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 //$Id: date_popup.install,v 1.5.6.10 2010/12/21 12:21:16 karens Exp $
-=======
-//$Id: date_popup.install,v 1.5.6.7 2010/02/28 14:23:04 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementation of hook_requirements().
@@ -101,7 +97,6 @@ function date_popup_disable() {
     }
     content_clear_type_cache(TRUE);
   }
-<<<<<<< HEAD
 }
 
 /**
@@ -124,6 +119,3 @@ function date_popup_update_6001() {
   }
   return $ret;
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

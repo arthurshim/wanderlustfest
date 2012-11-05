@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
   $path = explode('sites:3', $node->path);
   $path = isset($path[1]) ? $path[1] : '';
@@ -32,53 +31,3 @@
 
 
  
-=======
- 
-<div id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clear-block">
-
-<?php print $picture ?>
-
-<?php if (!$page): ?>
-  <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
-<?php endif; ?>
-
- 
-
-  <div class="content">
-	<?php print $body;?>
-	
-	<?php if ($field_page_file[0]['filepath']): ?>
-
-	<div id="download-file">
-		<div id="download-icon">
-			<a href="<?php print $field_page_file[0]['filepath']; ?>"><img src="/sites/all/themes/wanderlust/images/grafix/pdf.gif"></a>
-	 	</div>
-		<div id="download-link">
-			<?php print '<a href="/'.$field_page_file[0]['filepath'].'">'.$field_page_file[0]['data']['description'].'</a>'; ?> 
-		</div>
-		<div class="download-meta">
-			<?php 
-				function formatBytes($bytes, $precision = 2) {
-				    $units = array('B', 'KB', 'MB', 'GB', 'TB');
-	 			    $bytes = max($bytes, 0);
-				    $pow = floor(($bytes ? log($bytes) : 0) / log(1024));
-				    $pow = min($pow, count($units) - 1);
-	 			    $bytes /= pow(1024, $pow);
-	 			    return round($bytes, $precision) . ' ' . $units[$pow];
-				} 
-				print formatBytes($field_page_file[0]['filesize'],1);
-			?>
-			| Uploaded
-			<?php 
-				print date("m/d/y h:ma",$field_page_file[0]['timestamp']);
-			?>
-		</div>
-	</div>
-	<?php endif; ?>
-
-  </div>
-
- 
-  <?php print $links; ?>
-</div>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

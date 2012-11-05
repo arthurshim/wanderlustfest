@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: statistics.admin.inc,v 1.6.2.2 2010/06/02 12:14:48 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -85,11 +81,7 @@ function statistics_top_visitors() {
     array('data' => t('Operations'))
   );
 
-<<<<<<< HEAD
   $sql = "SELECT COUNT(a.uid) AS hits, a.uid, u.name, a.hostname, SUM(a.timer) AS total, ac.aid FROM {accesslog} a LEFT JOIN {access} ac ON ac.type = 'host' AND a.hostname LIKE (ac.mask) LEFT JOIN {users} u ON a.uid = u.uid GROUP BY a.hostname, a.uid, u.name, ac.aid". tablesort_sql($header);
-=======
-  $sql = "SELECT COUNT(a.uid) AS hits, a.uid, u.name, a.hostname, SUM(a.timer) AS total, ac.aid FROM {accesslog} a LEFT JOIN {access} ac ON ac.type = 'host' AND LOWER(a.hostname) LIKE (ac.mask) LEFT JOIN {users} u ON a.uid = u.uid GROUP BY a.hostname, a.uid, u.name, ac.aid". tablesort_sql($header);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $sql_cnt = "SELECT COUNT(*) FROM (SELECT DISTINCT uid, hostname FROM {accesslog}) AS unique_visits";
   $result = pager_query($sql, 30, 0, $sql_cnt);
 

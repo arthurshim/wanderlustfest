@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_user_roles.inc,v 1.2 2009/07/01 23:07:14 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Field handler to provide a list of roles.
  */

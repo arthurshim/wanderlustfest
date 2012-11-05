@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_row_node_view.inc,v 1.3 2009/04/08 20:54:58 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the node view row style plugin.

@@ -4,16 +4,11 @@ This requires some webserver specific setup.
 Apache2 + mod_rewrite
   Works out of the box.
 
-<<<<<<< HEAD
 LightHTTPD pre-1.4.24:
   http://nordisch.org/2007/2/6/drupal-on-lighttpd-with-clean-urls
   
 LightHTTPD 1.4.24 and later:
   https://veracium.com/content/imagecache-lighttpd-witho
-=======
-LightHTTPD:
-  http://nordisch.org/2007/2/6/drupal-on-lighttpd-with-clean-urls
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 IIS 6:
   add an error404.asp that passed everything to drupal.

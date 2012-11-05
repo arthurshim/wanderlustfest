@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: user.admin.inc,v 1.18.2.2 2010/03/01 11:15:38 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file

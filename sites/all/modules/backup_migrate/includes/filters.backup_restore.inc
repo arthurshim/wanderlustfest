@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filters.backup_restore.inc,v 1.1.2.2 2010/03/24 04:02:58 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -36,16 +32,10 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
    * Get the default backup settings for this filter.
    */
   function backup_settings_default() {
-<<<<<<< HEAD
     backup_migrate_include('destinations');
     $out = array();
     foreach (backup_migrate_get_destinations('source') as $destination) {
       $out['destinations'][$destination->get_id()] = $destination->backup_settings_default();
-=======
-    $out = array();
-    foreach ($this->_get_destination_types() as $destination) {
-      $out += $destination->backup_settings_default();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $out;
   }
@@ -83,7 +73,6 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
    * Get the form for the backup settings for this filter.
    */
   function backup_settings_form($settings) {
-<<<<<<< HEAD
     backup_migrate_include('destinations');
     $out = array('destinations' => array(
       '#tree' => TRUE,
@@ -103,13 +92,6 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
       }
     }
     return $out;
-=======
-    $form = array();
-    foreach ($this->_get_destination_types() as $destination) {
-      $destination->backup_settings_form($form, $settings);
-    }
-    return $form;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -139,12 +121,9 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
    */
   function backup($file, &$settings) {
     if ($source = $settings->get_source()) {
-<<<<<<< HEAD
       if (!empty($settings->filters['destinations'][$source->get_id()])) {
         $settings->filters = (array)($settings->filters['destinations'][$source->get_id()]) + $settings->filters;
       }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $file = $source->backup_to_file($file, $settings);
       return $file;
     }
@@ -157,12 +136,9 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
    */
   function restore($file, &$settings) {
     if ($source = $settings->get_source()) {
-<<<<<<< HEAD
       if (!empty($settings->filters['destinations'][$source->get_id()])) {
         $settings->filters = (array)($settings->filters['destinations'][$source->get_id()]) + $settings->filters;
       }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $num = $source->restore_from_file($file, $settings);
       return $num ? $file : FALSE;
     }
@@ -190,8 +166,4 @@ class backup_migrate_filter_backup_restore extends backup_migrate_filter {
     }
     return $destinations;
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

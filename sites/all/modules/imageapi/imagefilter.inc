@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagefilter.inc,v 1.3.4.2 2010/10/17 17:58:07 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 //Made by Chao Xu(Mgccl) 3/1/07
 //www.webdevlogs.com

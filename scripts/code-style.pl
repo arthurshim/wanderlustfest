@@ -1,8 +1,4 @@
 #!/usr/bin/perl -w
-<<<<<<< HEAD
-=======
-# $Id: code-style.pl,v 1.14 2007/02/15 11:40:19 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 use Pod::Usage;
 use Getopt::Long qw(GetOptions);

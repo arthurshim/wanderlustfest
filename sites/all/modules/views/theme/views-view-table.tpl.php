@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-view-table.tpl.php,v 1.8 2009/01/28 00:43:43 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-view-table.tpl.php
  * Template to display a view as a table.
@@ -18,11 +14,7 @@
  * @ingroup views_templates
  */
 ?>
-<<<<<<< HEAD
 <table class="<?php print $class; ?>"<?php print $attributes; ?>>
-=======
-<table class="<?php print $class; ?>">
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   <?php if (!empty($title)) : ?>
     <caption><?php print $title; ?></caption>
   <?php endif; ?>

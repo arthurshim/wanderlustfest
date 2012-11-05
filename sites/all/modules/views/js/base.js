@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: base.js,v 1.11.2.1 2010/03/10 20:08:58 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file base.js
  *
@@ -67,19 +63,12 @@ Drupal.Views.parseQueryString = function (query) {
   }
   var pairs = query.split('&');
   for(var i in pairs) {
-<<<<<<< HEAD
     if (typeof(pairs[i]) == 'string') {
       var pair = pairs[i].split('=');
       // Ignore the 'q' path argument, if present.
       if (pair[0] != 'q' && pair[1]) {
         args[pair[0]] = decodeURIComponent(pair[1].replace(/\+/g, ' '));
       }
-=======
-    var pair = pairs[i].split('=');
-    // Ignore the 'q' path argument, if present.
-    if (pair[0] != 'q' && pair[1]) {
-      args[pair[0]] = decodeURIComponent(pair[1].replace(/\+/g, ' '));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   return args;

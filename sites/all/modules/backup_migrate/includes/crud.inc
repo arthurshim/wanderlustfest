@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: crud.inc,v 1.1.2.11 2010/03/25 03:55:03 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -69,11 +65,7 @@ function backup_migrate_crud_menu() {
  * Page callback to create a new item.
  */
 function backup_migrate_crud_ui_create() {
-<<<<<<< HEAD
   if ($type = backup_migrate_crud_type_load(arg(BACKUP_MIGRATE_MENU_DEPTH))) {
-=======
-  if ($type = backup_migrate_crud_type_load(arg(3))) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $item = $type->create(array());
     return drupal_get_form('backup_migrate_crud_edit_form', $item);
   }
@@ -84,11 +76,7 @@ function backup_migrate_crud_ui_create() {
  */
 function backup_migrate_crud_ui_list() {
   $out = '';
-<<<<<<< HEAD
   if ($type = backup_migrate_crud_type_load(arg(BACKUP_MIGRATE_MENU_DEPTH))) {
-=======
-  if ($type = backup_migrate_crud_type_load(arg(3))) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $out = $type->get_list();
   }
   return $out;
@@ -98,19 +86,11 @@ function backup_migrate_crud_ui_list() {
  * Page callback to edit an item.
  */
 function backup_migrate_crud_ui_edit($item_id = NULL) {
-<<<<<<< HEAD
   if ($type = backup_migrate_crud_type_load(arg(BACKUP_MIGRATE_MENU_DEPTH))) {
     if ($item_id && $item = $type->item($item_id)) {
       return drupal_get_form('backup_migrate_crud_edit_form', $item);
     }
     drupal_goto(BACKUP_MIGRATE_MENU_PATH. '/' . arg(BACKUP_MIGRATE_MENU_DEPTH));
-=======
-  if ($type = backup_migrate_crud_type_load(arg(3))) {
-    if ($item_id && $item = $type->item($item_id)) {
-      return drupal_get_form('backup_migrate_crud_edit_form', $item);
-    }
-    drupal_goto('admin/content/backup_migrate/'. arg(3));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -125,10 +105,7 @@ function backup_migrate_crud_edit_form($form_state, $item) {
   );
   $form['#validate'][]  = 'backup_migrate_crud_edit_form_validate';
   $form['#submit'][]    = 'backup_migrate_crud_edit_form_submit';
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $form;
 }
 
@@ -147,11 +124,7 @@ function backup_migrate_crud_edit_form_submit($form, &$form_state) {
   $item = $form_state['values']['item'];
   $item->edit_form_submit($form, $form_state);
   if (empty($form_state['redirect'])) {
-<<<<<<< HEAD
     $form_state['redirect'] = BACKUP_MIGRATE_MENU_PATH . '/'. $item->type_name;
-=======
-    $form_state['redirect'] = 'admin/content/backup_migrate/'. $item->type_name;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -160,19 +133,11 @@ function backup_migrate_crud_edit_form_submit($form, &$form_state) {
  * Page callback to delete an item.
  */
 function backup_migrate_crud_ui_delete($item_id = NULL) {
-<<<<<<< HEAD
   if ($type = backup_migrate_crud_type_load(arg(BACKUP_MIGRATE_MENU_DEPTH))) {
     if ($item_id && $item = $type->item($item_id)) {
       return drupal_get_form('backup_migrate_crud_delete_confirm_form', $item);
     }
     drupal_goto('admin/content/backup_migrate/'. arg(BACKUP_MIGRATE_MENU_DEPTH));
-=======
-  if ($type = backup_migrate_crud_type_load(arg(3))) {
-    if ($item_id && $item = $type->item($item_id)) {
-      return drupal_get_form('backup_migrate_crud_delete_confirm_form', $item);
-    }
-    drupal_goto('admin/content/backup_migrate/'. arg(3));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -185,11 +150,7 @@ function backup_migrate_crud_delete_confirm_form(&$form_state, $item) {
     '#value' => $item,
   );
   $message = $item->delete_confirm_message();
-<<<<<<< HEAD
   return confirm_form($form, t('Are you sure?'), BACKUP_MIGRATE_MENU_PATH . '/'. $item->type_name, $message, t('Delete'), t('Cancel'));
-=======
-  return confirm_form($form, t('Are you sure?'), 'admin/content/backup_migrate/'. $item->type_name, $message, t('Delete'), t('Cancel'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -200,30 +161,18 @@ function backup_migrate_crud_delete_confirm_form_submit($form, &$form_state) {
     $item = $form_state['values']['item'];
     $item->delete();
   }
-<<<<<<< HEAD
   $form_state['redirect'] = BACKUP_MIGRATE_MENU_PATH . "/". $item->type_name;
-=======
-  $form_state['redirect'] = "admin/content/backup_migrate/". $item->type_name;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Export an item.
  */
 function backup_migrate_crud_ui_export($item_id = NULL) {
-<<<<<<< HEAD
   if ($type = backup_migrate_crud_type_load(arg(BACKUP_MIGRATE_MENU_DEPTH))) {
     if ($item_id && $item = $type->item($item_id)) {
       return drupal_get_form('backup_migrate_crud_export_form', $item->export());
     }
     drupal_goto(BACKUP_MIGRATE_MENU_PATH . '/' . arg(BACKUP_MIGRATE_MENU_DEPTH));
-=======
-  if ($type = backup_migrate_crud_type_load(arg(3))) {
-    if ($item_id && $item = $type->item($item_id)) {
-      return drupal_get_form('backup_migrate_crud_export_form', $item->export());
-    }
-    drupal_goto('admin/content/backup_migrate/'. arg(3));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -283,7 +232,6 @@ class backup_migrate_item {
    * Constructor, set the basic info pulled from the db or generated programatically.
    */
   function __construct($params = array()) {
-<<<<<<< HEAD
     $this->from_array($this->_merge_defaults((array)$params, (array)$this->get_default_values()));
   }
 
@@ -302,9 +250,6 @@ class backup_migrate_item {
       }
     }
     return $params;
-=======
-    $this->from_array((array)$params + (array)$this->get_default_values());
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -387,7 +332,6 @@ class backup_migrate_item {
     $this->from_array($params);
   }
 
-<<<<<<< HEAD
 
   /**
    * Decode a loaded db row (unserialize necessary fields).
@@ -402,8 +346,6 @@ class backup_migrate_item {
     return $params;
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   /**
    * Return the fields which must be serialized before saving to the db.
    */
@@ -489,7 +431,6 @@ class backup_migrate_item {
     $item_id = $this->get_id();
 
     if (@$this->storage == BACKUP_MIGRATE_STORAGE_DB || @$this->storage == BACKUP_MIGRATE_STORAGE_OVERRIDEN) {
-<<<<<<< HEAD
       $out['edit'] = l(t("edit"), BACKUP_MIGRATE_MENU_PATH . "/$this->type_name/list/edit/$item_id");
     }
     else if (@$this->storage == BACKUP_MIGRATE_STORAGE_NONE) {
@@ -504,22 +445,6 @@ class backup_migrate_item {
 
     // Export link disabled until we have an import function.
     //$out['export'] = l(t("export"), BACKUP_MIGRATE_MENU_PATH . "/$this->type_name/list/export/$item_id");
-=======
-      $out['edit'] = l(t("edit"), "admin/content/backup_migrate/$this->type_name/list/edit/$item_id");
-    }
-    else if (@$this->storage == BACKUP_MIGRATE_STORAGE_NONE) {
-      $out['edit'] = l(t("override"), "admin/content/backup_migrate/$this->type_name/list/edit/$item_id");
-    }
-    if (@$this->storage == BACKUP_MIGRATE_STORAGE_DB) {
-      $out['delete'] = l(t("delete"), "admin/content/backup_migrate/$this->type_name/list/delete/$item_id");
-    }
-    else if (@$this->storage == BACKUP_MIGRATE_STORAGE_OVERRIDEN) {
-      $out['delete'] = l(t("revert"), "admin/content/backup_migrate/$this->type_name/list/delete/$item_id");
-    }
-
-    // Export link disabled until we have an import function.
-    //$out['export'] = l(t("export"), "admin/content/backup_migrate/$this->type_name/list/export/$item_id");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $out;
   }
@@ -542,11 +467,7 @@ class backup_migrate_item {
       $out = t('There are no !items to display.', array('!items' => $this->plural));
     }
     if (user_access('administer backup and migrate')) {
-<<<<<<< HEAD
       $out .= ' '. l(t('Create a new !item', array('!item' => $this->singular)), 'admin/content/backup_migrate/'. $this->type_name .'/list/add');
-=======
-      $out .= ' '. l(t('Create a new !item', array('!item' => $this->singular)), 'admin/content/backup_migrate/'. $this->type_name .'/add');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $out;
   }
@@ -605,11 +526,7 @@ class backup_migrate_item {
     );
     $form['actions'] = array('#prefix' => '<div class="container-inline">', '#suffix' => '</div>', '#weight' => 99);
     $form['actions']['submit'] = array('#type' => 'submit', '#value' => t('Save !type', array('!type' => t($this->singular))));
-<<<<<<< HEAD
     $form['actions']['cancel'] = array('#value' => l(t('Cancel'), BACKUP_MIGRATE_MENU_PATH . '/destination'));
-=======
-    $form['actions']['cancel'] = array('#value' => l(t('Cancel'), 'admin/content/backup_migrate/destination'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $form;
   }
 
@@ -654,11 +571,7 @@ class backup_migrate_item {
    */
   function get_menu_items() {
     $type = $this->type_name;
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => ucwords($this->plural),
       'page callback' => 'backup_migrate_menu_callback',
       'page arguments' => array('crud', 'backup_migrate_crud_ui_list', TRUE),
@@ -666,21 +579,13 @@ class backup_migrate_item {
       'weight' => 2,
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type .'/list'] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type .'/list'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'List !type',
       'title arguments' => array('!type' => t(ucwords($this->plural))),
       'weight' => 1,
       'type' => MENU_DEFAULT_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type .'/list/add'] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type .'/add'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Create !type',
       'title arguments' => array('!type' => t(ucwords($this->singular))),
       'page callback' => 'backup_migrate_menu_callback',
@@ -689,11 +594,7 @@ class backup_migrate_item {
       'weight' => 2,
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type .'/list/delete'] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type .'/list/delete'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Delete !type',
       'title arguments' => array('!type' => t(ucwords($this->singular))),
       'page callback' => 'backup_migrate_menu_callback',
@@ -701,11 +602,7 @@ class backup_migrate_item {
       'access arguments' => array('administer backup and migrate'),
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type .'/list/edit'] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type .'/list/edit'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Edit !type',
       'title arguments' => array('!type' => t(ucwords($this->singular))),
       'page callback' => 'backup_migrate_menu_callback',
@@ -713,11 +610,7 @@ class backup_migrate_item {
       'access arguments' => array('administer backup and migrate'),
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/' . $type .'/list/export'] = array(
-=======
-    $items['admin/content/backup_migrate/'. $type .'/list/export'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Export !type',
       'title arguments' => array('!type' => t(ucwords($this->singular))),
       'page callback' => 'backup_migrate_menu_callback',
@@ -757,13 +650,8 @@ class backup_migrate_item {
     // Get the items from the db.
     $result = db_query("SELECT * FROM {{$this->db_table}}");
     while ($info = db_fetch_array($result)) {
-<<<<<<< HEAD
       $info = $this->decode_db_row($info);
       if ($item = $this->create($info)) {
-=======
-      if ($item = $this->create($info)) {
-        $item->load_row($info);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $item->storage = empty($items[$item->get_id()]) ? BACKUP_MIGRATE_STORAGE_DB : BACKUP_MIGRATE_STORAGE_OVERRIDEN;
         $items[$item->get_id()] = $item;
       }

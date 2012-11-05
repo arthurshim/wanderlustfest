@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: ajax_view.js,v 1.19.2.5 2010/03/25 18:25:28 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file ajaxView.js
@@ -50,7 +46,6 @@ Drupal.behaviors.ViewsAjaxView = function() {
       ajax_path = ajax_path[0];
     }
     $.each(Drupal.settings.views.ajaxViews, function(i, settings) {
-<<<<<<< HEAD
       if (settings.view_dom_id) {
         var view = '.view-dom-id-' + settings.view_dom_id;
         if (!$(view).size()) {
@@ -59,14 +54,6 @@ Drupal.behaviors.ViewsAjaxView = function() {
           // locating the view:
           view = '.view-id-' + settings.view_name + '.view-display-id-' + settings.view_display_id;
         }
-=======
-      var view = '.view-dom-id-' + settings.view_dom_id;
-      if (!$(view).size()) {
-        // Backward compatibility: if 'views-view.tpl.php' is old and doesn't
-        // contain the 'view-dom-id-#' class, we fall back to the old way of
-        // locating the view:
-        view = '.view-id-' + settings.view_name + '.view-display-id-' + settings.view_display_id;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
 
 

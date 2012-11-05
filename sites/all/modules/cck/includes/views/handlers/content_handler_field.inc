@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: content_handler_field.inc,v 1.1.2.21 2011/01/07 13:33:55 yched Exp $
-=======
-// $Id: content_handler_field.inc,v 1.1.2.18 2010/01/25 23:13:40 markuspetrux Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -141,7 +137,6 @@ class content_handler_field extends views_handler_field_node {
   /**
    * Return DIV or SPAN based upon the field's element type.
    */
-<<<<<<< HEAD
   function element_type($none_supported = FALSE, $default_empty = FALSE) {
     // The 'element_type' property denotes Views 3.x ('semantic views'
     // functionnality). If the property is set, and not set to '' ("default"),
@@ -158,12 +153,6 @@ class content_handler_field extends views_handler_field_node {
       return $this->definition['element type'];
     }
 
-=======
-  function element_type() {
-    if (isset($this->definition['element type'])) {
-      return $this->definition['element type'];
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // TODO Figure out exactly when to return a div or a <span>. Any field
     // that ever needs to be shown inline in Views UI. It needs to return
     // a div for textareas to prevent wrapping a <span> around a <p>.
@@ -195,7 +184,6 @@ class content_handler_field extends views_handler_field_node {
     // We're down to a single node here, so we can retrieve the actual field
     // definition for the node type being considered.
     $field = content_fields($this->content_field['field_name'], $values->{$this->aliases['type']});
-<<<<<<< HEAD
 
     // If the field does not appear in the node type, then we have no value
     // to display, and can just return.
@@ -203,8 +191,6 @@ class content_handler_field extends views_handler_field_node {
       return '';
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $options = $this->options;
     $db_info = content_database_info($field);
 
@@ -240,8 +226,4 @@ class content_handler_field extends views_handler_field_node {
     return '';
   }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_numeric.inc,v 1.6 2009/07/02 00:13:12 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Render a field as a numeric value
  *
@@ -20,12 +16,9 @@ class views_handler_field_numeric extends views_handler_field {
     $options['precision'] = array('default' => 0);
     $options['decimal'] = array('default' => '.', 'translatable' => TRUE);
     $options['separator'] = array('default' => ',', 'translatable' => TRUE);
-<<<<<<< HEAD
     $options['format_plural'] = array('default' => FALSE);
     $options['format_plural_singular'] = array('default' => '1');
     $options['format_plural_plural'] = array('default' => '@count');
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $options['prefix'] = array('default' => '', 'translatable' => TRUE);
     $options['suffix'] = array('default' => '', 'translatable' => TRUE);
 
@@ -66,7 +59,6 @@ class views_handler_field_numeric extends views_handler_field {
       '#description' => t('What single character to use as the thousands separator.'),
       '#size' => 2,
     );
-<<<<<<< HEAD
     $form['format_plural'] = array(
       '#type' => 'checkbox',
       '#title' => t('Format plural'),
@@ -89,8 +81,6 @@ class views_handler_field_numeric extends views_handler_field {
       '#process' => array('views_process_dependency'),
       '#dependency' => array('edit-options-format-plural' => array(TRUE)),
     );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['prefix'] = array(
       '#type' => 'textfield',
       '#title' => t('Prefix'),
@@ -125,15 +115,11 @@ class views_handler_field_numeric extends views_handler_field {
       return '';
     }
 
-<<<<<<< HEAD
     // Should we format as a plural.
     if (!empty($this->options['format_plural'])) {
       $value = format_plural($value, $this->options['format_plural_singular'], $this->options['format_plural_plural']);
     }
 
     return filter_xss($this->options['prefix']) . check_plain($value) . filter_xss($this->options['suffix']);
-=======
-    return check_plain($this->options['prefix'] . $value . $this->options['suffix']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }

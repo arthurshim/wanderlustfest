@@ -69,11 +69,7 @@ $plugin = array(
   'add finish' => 'settings',
 
   'required forms' => array(
-<<<<<<< HEAD
      'settings' => t('HTTP Response settings'),
-=======
-    'settings' => t('Panel settings'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   ),
 
   'edit forms' => array(
@@ -120,15 +116,9 @@ function page_manager_http_response_admin_summary($handler, $task, $subtask, $pa
   $task_name = page_manager_make_task_name($task['name'], $subtask['name']);
   $output = '';
 
-<<<<<<< HEAD
 /*  $display = panels_panel_context_get_display($handler);
 
   ctools_include('plugins', 'panels');*/
-=======
-  $display = panels_panel_context_get_display($handler);
-
-  ctools_include('plugins', 'panels');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   ctools_include('context');
   ctools_include('context-task-handler');
 
@@ -140,7 +130,6 @@ function page_manager_http_response_admin_summary($handler, $task, $subtask, $pa
   $args = array('handlers', $handler->name, 'actions');
   $rendered_operations = page_manager_render_operations($page, $operations, array(), array('class' => 'actions'), 'actions', $args);
 
-<<<<<<< HEAD
  /* $layout = panels_get_layout($display->layout);
 
   $plugin = page_manager_get_task_handler($handler->handler);*/
@@ -152,25 +141,11 @@ function page_manager_http_response_admin_summary($handler, $task, $subtask, $pa
 //  $access = ctools_access_group_summary(!empty($handler->conf['access']) ? $handler->conf['access'] : array(), $display->context);
   $access = ctools_access_group_summary(!empty($handler->conf['access']) ? $handler->conf['access'] : array(), $context);
   
-=======
-  $layout = panels_get_layout($display->layout);
-
-  $plugin = page_manager_get_task_handler($handler->handler);
-
-  $object = ctools_context_handler_get_task_object($task, $subtask, $handler);
-  $display->context = ctools_context_load_contexts($object, TRUE);
-
-  $access = ctools_access_group_summary(!empty($handler->conf['access']) ? $handler->conf['access'] : array(), $display->context);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($access) {
     $access = t('This panel will be selected if @conditions.', array('@conditions' => $access));
   }
   else {
-<<<<<<< HEAD
    $access = t('This task will always be selected.');
-=======
-    $access = t('This panel will always be selected.');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   $rows = array();
@@ -215,13 +190,8 @@ function page_manager_http_response_admin_summary($handler, $task, $subtask, $pa
   $info = theme('table', array(), $rows, array('class' => 'page-manager-handler-summary'));
 
   $title = $handler->conf['title'];
-<<<<<<< HEAD
   if ($title != t('HTTP Response')) {
     $title = t('HTTP Response: @title', array('@title' => $title));
-=======
-  if ($title != t('Panel')) {
-    $title = t('Panel: @title', array('@title' => $title));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   $output .= '<div class="clear-block">';
@@ -239,11 +209,7 @@ function page_manager_http_response_admin_summary($handler, $task, $subtask, $pa
 }
 
 /**
-<<<<<<< HEAD
  * Set up a title for the handler based upon the selection rules.
-=======
- * Set up a title for the panel based upon the selection rules.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function page_manager_http_response_title($handler, $task, $subtask) {
   if (isset($handler->conf['title'])) {
@@ -255,11 +221,7 @@ function page_manager_http_response_title($handler, $task, $subtask) {
 }
 
 /**
-<<<<<<< HEAD
  * General settings for the handler
-=======
- * General settings for the panel
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function page_manager_http_response_edit_settings(&$form, &$form_state) {
   $conf = $form_state['handler']->conf;
@@ -298,11 +260,7 @@ function page_manager_http_response_render($handler, $base_contexts, $args, $tes
   // Go through arguments and see if they match.
   ctools_include('context');
   ctools_include('context-task-handler');
-<<<<<<< HEAD
   //ctools_include('plugins', 'panels');
-=======
-  ctools_include('plugins', 'panels');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Add my contexts
   $contexts = ctools_context_handler_get_handler_contexts($base_contexts, $handler);

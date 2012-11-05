@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_display_default.inc,v 1.1 2008/09/03 19:21:30 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the default display plugin.

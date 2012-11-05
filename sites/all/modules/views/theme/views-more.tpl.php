@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-more.tpl.php,v 1.3 2009/06/02 20:35:52 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-more.tpl.php
  * Theme the more link

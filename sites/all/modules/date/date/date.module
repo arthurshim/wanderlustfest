@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date.module,v 1.61.2.4.2.74 2010/11/29 18:22:00 karens Exp $
-=======
-// $Id: date.module,v 1.61.2.4.2.70 2010/08/12 20:19:50 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -19,10 +15,7 @@ function date_init() {
     require_once('./'. drupal_get_path('module', 'date') .'/date_token.inc');
   }
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Implementation of hook_menu().
  */
@@ -865,7 +858,6 @@ function date_formatter_get_settings($field_name, $type_name, $context) {
   $options['multiple']['multiple_to'] = variable_get($value .'_multiple_to', '');
   $options['fromto']['fromto'] = variable_get($value .'_fromto', 'both');  
   return $options;
-<<<<<<< HEAD
 }
 
 /**
@@ -893,6 +885,4 @@ function date_field_all_day($field, $date1, $date2 = NULL) {
   $date2 = date_format($date2, DATE_FORMAT_DATETIME);
   return date_is_all_day($date1, $date2, $granularity, $increment);
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

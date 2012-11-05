@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_row_node_rss.inc,v 1.7.2.1 2010/04/29 18:31:33 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the node RSS row style plugin.

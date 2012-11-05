@@ -1,15 +1,10 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: googleanalytics.install,v 1.6.2.13 2010/05/28 18:22:20 hass Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
  * Installation file for Google Analytics module.
  */
 
-<<<<<<< HEAD
 function googleanalytics_uninstall() {
   variable_del('googleanalytics_account');
   variable_del('googleanalytics_custom_var');
@@ -19,28 +14,6 @@ function googleanalytics_uninstall() {
   variable_del('googleanalytics_segmentation');
   variable_del('googleanalytics_trackoutgoing');
   variable_del('googleanalytics_trackoutboundaspageview');
-=======
-function googleanalytics_install() {
-  variable_set('googleanalytics_visibility', 0);
-
-  // Remove tracking from all administrative pages, see http://drupal.org/node/34970.
-  $pages = array(
-    'admin',
-    'admin/*',
-    'user/*/*',
-    'node/add*',
-    'node/*/*',
-  );
-  variable_set('googleanalytics_pages', implode("\n", $pages));
-}
-
-function googleanalytics_uninstall() {
-  variable_del('googleanalytics_account');
-  variable_del('googleanalytics_codesnippet_before');
-  variable_del('googleanalytics_codesnippet_after');
-  variable_del('googleanalytics_segmentation');
-  variable_del('googleanalytics_trackoutgoing');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   variable_del('googleanalytics_trackmailto');
   variable_del('googleanalytics_trackfiles');
   variable_del('googleanalytics_trackfiles_extensions');
@@ -52,7 +25,6 @@ function googleanalytics_uninstall() {
   variable_del('googleanalytics_custom');
   variable_del('googleanalytics_roles');
   variable_del('googleanalytics_visibility');
-<<<<<<< HEAD
   variable_del('googleanalytics_visibility_roles');
   variable_del('googleanalytics_pages');
   variable_del('googleanalytics_tracker_anonymizeip');
@@ -62,25 +34,13 @@ function googleanalytics_uninstall() {
   // Remove backup variables if exits. Remove this code in D8.
   variable_del('googleanalytics_codesnippet_before_backup_6300');
   variable_del('googleanalytics_codesnippet_after_backup_6300');
-=======
-  variable_del('googleanalytics_pages');
-  variable_del('googleanalytics_translation_set');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Remove cache directory if module is disabled (or uninstalled).
  */
 function googleanalytics_disable() {
-<<<<<<< HEAD
   googleanalytics_clear_js_cache();
-=======
-  $path = file_directory_path() .'/googleanalytics';
-  if (file_exists($path)) {
-    file_delete($path .'/ga.js');
-    rmdir($path);
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -94,11 +54,7 @@ function googleanalytics_requirements($phase) {
     if (!preg_match('/^UA-\d{4,}-\d+$/', variable_get('googleanalytics_account', 'UA-'))) {
       $requirements['googleanalytics'] = array(
         'title' => t('Google Analytics module'),
-<<<<<<< HEAD
         'description' => t('Google Analytics module has not been configured yet. Please configure its settings from the <a href="@url">Google Analytics settings page</a>.', array('@url' => url('admin/settings/googleanalytics'))),
-=======
-        'description' => t('Google Analytics module has not been configured yet. Please configure its settings from the <a href="@url">Google Analytics settings page</a>.', array('@url' => url('admin/config/system/googleanalytics'))),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'severity' => REQUIREMENT_ERROR,
         'value' => t('Not configured'),
       );
@@ -330,7 +286,6 @@ function googleanalytics_update_6201() {
 
   return $ret;
 }
-<<<<<<< HEAD
 
 /**
  * Try to update Google Analytics custom code snippet to async version.
@@ -433,5 +388,3 @@ function googleanalytics_update_6302() {
 
   return $ret;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

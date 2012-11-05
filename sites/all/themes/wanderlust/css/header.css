@@ -192,6 +192,10 @@ td.dropdown-column, .dropdown-column-div {
     height: 163px;
   }
   
+ .oahu #header{
+    height: 156px;
+  }
+  
 #header #block-block-37 {
     font-size: 15px;
     font-family:Helvetica Neue,Helvetica,Arial,sans-serif;

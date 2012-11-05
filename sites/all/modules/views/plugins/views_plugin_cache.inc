@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_cache.inc,v 1.5.2.1 2010/01/05 01:12:38 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * The base plugin to handle caching.
@@ -62,7 +58,6 @@ class views_plugin_cache extends views_plugin {
    *   The cache type, either 'query', 'result' or 'output'.
    */
    function cache_expire($type) { }
-<<<<<<< HEAD
    
    /**
     * Determine expiration time in the cache table of the cache type
@@ -77,8 +72,6 @@ class views_plugin_cache extends views_plugin {
     return CACHE_PERMANENT;
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   /**
    * Save data to the cache.
@@ -96,20 +89,12 @@ class views_plugin_cache extends views_plugin {
           'total_rows' => $this->view->total_rows,
           'pager' => $this->view->pager,
         );
-<<<<<<< HEAD
         cache_set($this->get_results_key(), $data, $this->table, $this->cache_set_expire($type));
-=======
-        cache_set($this->get_results_key(), $data, $this->table);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         break;
       case 'output':
         $this->gather_headers();
         $this->storage['output'] = $this->view->display_handler->output;
-<<<<<<< HEAD
         cache_set($this->get_output_key(), $this->storage, $this->table, $this->cache_set_expire($type));
-=======
-        cache_set($this->get_output_key(), $this->storage, $this->table);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         break;
     }
   }

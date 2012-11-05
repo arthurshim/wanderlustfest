@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_vocabulary_vid.inc,v 1.3 2009/06/10 22:04:58 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Filter by vocabulary id

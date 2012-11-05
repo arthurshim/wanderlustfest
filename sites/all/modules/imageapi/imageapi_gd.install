@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imageapi_gd.install,v 1.8.2.3 2010/10/17 18:09:22 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 function imageapi_gd_requirements($phase) {
   $requirements = array();

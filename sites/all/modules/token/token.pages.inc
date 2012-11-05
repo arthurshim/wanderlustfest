@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: token.pages.inc,v 1.7.2.7 2010/09/30 18:30:08 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -31,11 +27,7 @@ function theme_token_help($types = 'all', $prefix = TOKEN_PREFIX, $suffix = TOKE
   $headers = array(t('Token'), t('Replacement value'));
   $rows = array();
   foreach ($full_list as $key => $category) {
-<<<<<<< HEAD
     $rows[] = array(array('data' => t('@type tokens', array('@type' => drupal_ucfirst($key))), 'class' => 'region', 'colspan' => 2));
-=======
-    $rows[] = array(array('data' => drupal_ucfirst($key) .' '. t('tokens'), 'class' => 'region', 'colspan' => 2));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     foreach ($category as $token => $description) {
       $row = array();
       $row[] = $prefix . $token . $suffix;
@@ -153,11 +145,7 @@ function _token_token_tree_format_row($token, $token_info = array(), $is_group =
 }
 
 function _token_clean_css_identifier($id) {
-<<<<<<< HEAD
   return 'token-' . rtrim(str_replace(array('][', '_', ' ', ':'), '-', trim($id, '[]')), '-');
-=======
-  return 'token-' . str_replace(array('][', '_', ' ', ':'), '-', trim($id, '[]'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: jquery.js,v 1.12.2.3 2008/06/25 09:38:39 goba Exp $ 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*
  * jQuery 1.2.6 - New Wave Javascript

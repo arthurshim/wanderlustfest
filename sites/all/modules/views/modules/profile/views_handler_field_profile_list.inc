@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_profile_list.inc,v 1.4.2.1 2010/03/22 19:28:29 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Field handler display a profile list item.
  */

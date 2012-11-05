@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: pathauto.test,v 1.1.2.11 2010/09/27 15:52:58 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -15,7 +11,6 @@
  * Helper test class with some added functions for testing.
  */
 class PathautoTestHelper extends DrupalWebTestCase {
-<<<<<<< HEAD
   function setUp(array $modules = array()) {
     $modules[] = 'path';
     $modules[] = 'token';
@@ -34,27 +29,6 @@ class PathautoTestHelper extends DrupalWebTestCase {
     foreach ($tokens as $token => $expected) {
       $this->assertIdentical($values[$token], $expected, t("Token value for [@token] was '@actual', expected value '@expected'.", array('@token' => $token, '@actual' => $values[$token], '@expected' => $expected)));
     }
-=======
-  function setUp() {
-    $args = func_get_args();
-
-    // Call parent::setUp() allowing test cases to pass further modules.
-    $modules = array('path', 'token', 'pathauto');
-    if (isset($args[0]) && is_array($args[0])) {
-      $modules = array_merge($modules, $args[0]);
-    }
-
-    $parent_callback = 'parent::setUp';
-    if (version_compare(PHP_VERSION, '5.3.0', '<')) {
-      $parent_callback = array($this, 'parent::setUp');
-    }
-    call_user_func_array($parent_callback, $modules);
-  }
-
-  function assertToken($type, $object, $token, $expected) {
-    $tokens = pathauto_get_placeholders($type, $object);
-    $this->assertEqual($tokens['values'][$token], $expected, t("Token value for [@token] was '!actual', expected value '!expected'.", array('@token' => $token, '!actual' => $tokens['values'][$token], '!expected' => $expected)));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function saveAlias($source, $alias, $language = '') {
@@ -191,7 +165,6 @@ class PathautoTestHelper extends DrupalWebTestCase {
     taxonomy_save_term($term);
     return (object) $term;
   }
-<<<<<<< HEAD
 
   function addNodeType(array $type) {
     if (!isset($type['name'])) {
@@ -230,8 +203,6 @@ class PathautoTestHelper extends DrupalWebTestCase {
     }
     $this->assertIdentical($expected, $pattern);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -247,13 +218,8 @@ class PathautoUnitTestCase extends PathautoTestHelper {
     );
   }
 
-<<<<<<< HEAD
   function setUp(array $modules = array()) {
     parent::setUp($modules);
-=======
-  function setUp() {
-    parent::setUp();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     module_load_include('inc', 'pathauto');
   }
 
@@ -280,13 +246,10 @@ class PathautoUnitTestCase extends PathautoTestHelper {
     // Test length truncation and duplicate separator removal.
     $tests[' - Pathauto is the greatest - module ever in Drupal history - '] = 'pathauto-greatest-module-ever-drupa';
 
-<<<<<<< HEAD
     // Test that HTML tags are removed.
     $tests['This <span class="text">text</span> has <br /><a href="http://example.com"><strong>HTML tags</strong></a>.'] = 'text-has-html-tags';
     $tests[check_plain('This <span class="text">text</span> has <br /><a href="http://example.com"><strong>HTML tags</strong></a>.')] = 'text-has-html-tags';
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     foreach ($tests as $input => $expected) {
       $output = pathauto_cleanstring($input);
       $this->assertEqual($output, $expected, t("pathauto_cleanstring('@input') expected '@expected', actual '@output'", array('@input' => $input, '@expected' => $expected, '@output' => $output)));
@@ -397,7 +360,6 @@ class PathautoUnitTestCase extends PathautoTestHelper {
    */
   //function testPathTokens() {
   //}
-<<<<<<< HEAD
 
   function testEntityBundleRenamingDeleting() {
     // Create a vocabulary type.
@@ -456,8 +418,6 @@ class PathautoUnitTestCase extends PathautoTestHelper {
     node_save($node);
     $this->assertEntityAlias('node', $node, 'safe-value');
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -466,18 +426,7 @@ class PathautoUnitTestCase extends PathautoTestHelper {
 class PathautoFunctionalTestHelper extends PathautoTestHelper {
   protected $admin_user;
 
-<<<<<<< HEAD
   function setUp(array $modules = array()) {
-=======
-  function setUp() {
-    $args = func_get_args();
-
-    // Call parent::setUp() allowing test cases to pass further modules.
-    $modules = array();
-    if (isset($args[0]) && is_array($args[0])) {
-      $modules = array_merge($modules, $args[0]);
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     parent::setUp($modules);
 
     // Set pathauto settings we assume to be as-is in this test.
@@ -491,10 +440,7 @@ class PathautoFunctionalTestHelper extends PathautoTestHelper {
       'administer nodes',
       'administer users',
     );
-<<<<<<< HEAD
     $args = func_get_args();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (isset($args[1]) && is_array($args[1])) {
       $permissions = array_merge($permissions, $args[1]);
     }
@@ -513,10 +459,7 @@ class PathautoFunctionalTestCase extends PathautoFunctionalTestHelper {
       'name' => 'Pathauto basic tests',
       'description' => 'Test basic pathauto functionality.',
       'group' => 'Pathauto',
-<<<<<<< HEAD
       'dependencies' => array('token'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
   }
 
@@ -658,7 +601,6 @@ class PathautoLocaleTestCase extends PathautoFunctionalTestHelper {
       'name' => 'Pathauto localization tests',
       'description' => 'Test pathauto functionality with localization and translation.',
       'group' => 'Pathauto',
-<<<<<<< HEAD
       'dependencies' => array('token'),
     );
   }
@@ -667,13 +609,6 @@ class PathautoLocaleTestCase extends PathautoFunctionalTestHelper {
     $modules[] = 'locale';
     $modules[] = 'translation';
     parent::setUp($modules, array('administer languages'));
-=======
-    );
-  }
-
-  function setUp() {
-    parent::setUp(array('locale', 'translation'), array('administer languages'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Add predefined French language and reset the locale cache.
     require_once './includes/locale.inc';
@@ -725,7 +660,6 @@ class PathautoBookTokenTestCase extends PathautoTestHelper {
       'name' => 'Pathauto book tokens',
       'description' => 'Unit tests for the book tokens provided by Pathauto.',
       'group' => 'Pathauto',
-<<<<<<< HEAD
       'dependencies' => array('token'),
     );
   }
@@ -734,13 +668,6 @@ class PathautoBookTokenTestCase extends PathautoTestHelper {
     $modules[] = 'book';
     parent::setUp($modules);
 
-=======
-    );
-  }
-
-  function setUp() {
-    parent::setUp(array('book'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     variable_set('book_allowed_types', array('book', 'page'));
     variable_set('pathauto_node_book_pattern', '[bookpathalias]/[title-raw]');
   }
@@ -751,7 +678,6 @@ class PathautoBookTokenTestCase extends PathautoTestHelper {
     $this->assertToken('node', $non_book_node, 'bookpathalias', '');
 
     // Add a root book page.
-<<<<<<< HEAD
     $parent_node = $this->drupalCreateNode(array(
       'type' => 'book',
       'title' => 'Root',
@@ -803,22 +729,6 @@ class PathautoBookTokenTestCase extends PathautoTestHelper {
       'bookpathalias' => 'root/sub-page1',
     );
     $this->assertTokens('node', $sub_child_node1, $tokens);
-=======
-    $parent_node = $this->drupalCreateNode(array('type' => 'book', 'title' => 'Root', 'book' => array('bid' => 'new')));
-    $this->assertToken('node', $parent_node, 'bookpathalias', '');
-
-    // Add a first child page.
-    $child_node1 = $this->drupalCreateNode(array('type' => 'book', 'title' => 'Sub page1', 'book' => array('bid' => $parent_node->book['bid'], 'plid' => $parent_node->book['mlid'])));
-    $this->assertToken('node', $child_node1, 'bookpathalias', 'root');
-
-    // Add a second child page.
-    $child_node2 = $this->drupalCreateNode(array('type' => 'book', 'title' => 'Sub page2', 'book' => array('bid' => $parent_node->book['bid'], 'plid' => $parent_node->book['mlid'])));
-    $this->assertToken('node', $child_node2, 'bookpathalias', 'root');
-
-    // Add a child page on an existing child page.
-    $sub_child_node1 = $this->drupalCreateNode(array('type' => 'book', 'title' => 'Sub-sub Page1', 'book' => array('bid' => $parent_node->book['bid'], 'plid' => $child_node1->book['mlid'])));
-    $this->assertToken('node', $sub_child_node1, 'bookpathalias', 'root/sub-page1');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Test that path tokens should not be altered.
     $this->saveEntityAlias('node', $child_node1, 'My Crazy/Alias/');
@@ -838,7 +748,6 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
       'name' => 'Pathauto taxonomy tokens',
       'description' => 'Unit tests for the taxonomy tokens provided by Pathauto.',
       'group' => 'Pathauto',
-<<<<<<< HEAD
       'dependencies' => array('token'),
     );
   }
@@ -847,13 +756,6 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
     $modules[] = 'taxonomy';
     parent::setUp($modules);
 
-=======
-    );
-  }
-
-  function setUp() {
-    parent::setUp(array('taxonomy'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     variable_set('pathauto_taxonomy_pattern', 'category/[vocab-raw]/[cat-raw]');
     // Reset the static taxonomy.module caches.
     taxonomy_vocabulary_load(0, TRUE);
@@ -866,16 +768,11 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
    */
   function testCatTokens() {
     $term1 = $this->addTerm($this->vocab);
-<<<<<<< HEAD
     $tokens = array(
       'catpath' => $term1->name,
       'catalias' => "category/{$this->vocab->name}/{$term1->name}",
     );
     $this->assertTokens('taxonomy', $term1, $tokens);
-=======
-    $this->assertToken('taxonomy', $term1, 'catpath', $term1->name);
-    $this->assertToken('taxonomy', $term1, 'catalias', "category/{$this->vocab->name}/{$term1->name}");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Change the term name to check that the alias is also changed.
     // Regression test for http://drupal.org/node/822174.
@@ -883,7 +780,6 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
     $term1->name = drupal_strtolower($this->randomName());
     $form_values = (array) $term1;
     taxonomy_save_term($form_values);
-<<<<<<< HEAD
     $tokens = array(
       'catpath' => $term1->name,
     );
@@ -902,17 +798,6 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
       'catalias' => "category/{$this->vocab->name}/foobar-ferzle",
     );
     $this->assertTokens('taxonomy', $term3, $tokens);
-=======
-    $this->assertToken('taxonomy', $term1, 'catpath', $term1->name);
-
-    $term2 = $this->addTerm($this->vocab, array('parent' => $term1->tid));
-    $this->assertToken('taxonomy', $term2, 'catpath', "{$term1->name}/{$term2->name}");
-    $this->assertToken('taxonomy', $term2, 'catalias', "category/{$this->vocab->name}/{$term2->name}");
-
-    $term3 = $this->addTerm($this->vocab, array('parent' => $term2->tid, 'name' => ' foo/bar fer|zle '));
-    $this->assertToken('taxonomy', $term3, 'catpath', "{$term1->name}/{$term2->name}/foobar-ferzle");
-    $this->assertToken('taxonomy', $term3, 'catalias', "category/{$this->vocab->name}/foobar-ferzle");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -927,27 +812,19 @@ class PathautoTaxonomyTokenTestCase extends PathautoFunctionalTestHelper {
       'type' => 'story',
       'taxonomy' => array($term1->tid, $term2->tid, $term3->tid),
     ));
-<<<<<<< HEAD
     $tokens = array(
       'termpath' => $term2->name,
       'termalias' => "category/{$this->vocab->name}/{$term2->name}",
     );
     $this->assertTokens('node', $node, $tokens);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $this->assertToken('node', $node, 'termpath', $term2->name);
     $this->assertToken('node', $node, 'termalias', "category/{$this->vocab->name}/{$term2->name}");
 
     $non_term_node = $this->drupalCreateNode(array('type' => 'story'));
-<<<<<<< HEAD
     $tokens = array(
       'termpath' => '',
       'termalias' => '',
     );
     $this->assertTokens('node', $non_term_node, $tokens);
-=======
-    $this->assertToken('node', $non_term_node, 'termpath', '');
-    $this->assertToken('node', $non_term_node, 'termalias', '');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: search-result.tpl.php,v 1.1.2.1 2008/08/28 08:21:44 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file search-result.tpl.php

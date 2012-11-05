@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: user.pages.inc,v 1.11.2.3 2010/06/02 12:03:07 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -15,11 +11,7 @@
 function user_autocomplete($string = '') {
   $matches = array();
   if ($string) {
-<<<<<<< HEAD
     $result = db_query_range("SELECT name FROM {users} WHERE name LIKE '%s%%'", $string, 0, 10);
-=======
-    $result = db_query_range("SELECT name FROM {users} WHERE LOWER(name) LIKE LOWER('%s%%')", $string, 0, 10);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     while ($user = db_fetch_object($result)) {
       $matches[$user->name] = check_plain($user->name);
     }
@@ -155,21 +147,13 @@ function user_logout() {
 
   watchdog('user', 'Session closed for %name.', array('%name' => $user->name));
 
-<<<<<<< HEAD
-=======
-  // Destroy the current session:
-  session_destroy();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Only variables can be passed by reference workaround.
   $null = NULL;
   user_module_invoke('logout', $null, $user);
 
-<<<<<<< HEAD
   // Destroy the current session, and reset $user to the anonymous user.
   drupal_session_destroy();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Load the anonymous user
   $user = drupal_anonymous_user();
 

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-/* $Id: weight-view-weight-form.tpl.php,v 1.3.2.2 2009/01/26 00:28:54 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Views template for Weight module.
@@ -24,11 +20,7 @@
   <tbody>
 	  <?php  if (count($rows)): ?>
       <?php  foreach ($rows as $count => $row): ?>
-<<<<<<< HEAD
         <tr class="<?php print (($count + 1) % 2 == 0) ? 'even' : 'odd';?> draggable">
-=======
-        <tr class="<?php print ($count % 2 == 0) ? 'even' : 'odd';?> draggable">
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           <?php foreach ($row as $field => $content): ?>
             <td class="views-field views-field-<?php print isset($fields[$field]) ? $fields[$field] : '' ?>">
               <?php print $content; ?>

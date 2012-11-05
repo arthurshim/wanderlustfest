@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: book-navigation.tpl.php,v 1.1 2007/11/04 14:29:09 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file book-navigation.tpl.php

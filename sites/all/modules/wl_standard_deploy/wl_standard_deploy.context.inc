@@ -5,10 +5,7 @@
  */
 function wl_standard_deploy_context_default_contexts() {
   $export = array();
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -36,13 +33,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['healers_landing'] = $context;
 
-=======
-
-  $export['healers_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -70,13 +62,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['meditation_landing'] = $context;
 
-=======
-
-  $export['meditation_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -104,13 +91,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['music_landing'] = $context;
 
-=======
-
-  $export['music_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -138,13 +120,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['performer_landing'] = $context;
 
-=======
-
-  $export['performer_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -172,13 +149,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['presenter_landing'] = $context;
 
-=======
-
-  $export['presenter_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -206,13 +178,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['speakers_landing'] = $context;
 
-=======
-
-  $export['speakers_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -239,13 +206,8 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['standard-site'] = $context;
 
-=======
-
-  $export['standard-site'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $context = new stdClass;
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
@@ -273,12 +235,7 @@ function wl_standard_deploy_context_default_contexts() {
     ),
   );
   $context->condition_mode = 0;
-<<<<<<< HEAD
   $export['yoga_landing'] = $context;
 
-=======
-
-  $export['yoga_landing'] = $context;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $export;
 }

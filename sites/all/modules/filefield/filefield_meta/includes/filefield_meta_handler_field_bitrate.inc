@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filefield_meta_handler_field_bitrate.inc,v 1.1 2010/04/24 06:28:03 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file

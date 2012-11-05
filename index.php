@@ -1,11 +1,6 @@
 <?php
-<<<<<<< HEAD
 ini_set("display_errors", TRUE);
 error_reporting(E_ALL);
-=======
-// $Id: index.php,v 1.94 2007/12/26 08:46:48 dries Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * The PHP page that serves all page requests on a Drupal installation.

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: weight.admin.inc,v 1.1.2.2 2009/04/25 16:08:45 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * This module uses the sticky column of the node table
@@ -15,16 +11,11 @@ function weight_settings_form() {
   $types = node_get_types('names');
 
   $form['weight_range'] = array(
-<<<<<<< HEAD
     '#type' => 'radios',
-=======
-    '#type' => 'select',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#title' => t('Node Weight Range'),
     '#default_value' => variable_get('weight_range', 20),
     '#options' => array(5 => 5, 10 => 10, 20 => 20, 30 => 30, 40 => 40, 50 => 50, 60 => 60, 70 => 70, 80 => 80, 90 => 90),
     '#description' => '<p>'. t('This will be the +/- range for node weight.') .'</p>',
-<<<<<<< HEAD
     '#attributes' => array('class' => 'container-inline'),
     );
 
@@ -46,18 +37,6 @@ function weight_settings_form() {
     );
 
   $form['node']['weight_position'] = array(
-=======
-    );
-
-  $form['weight_use_menu'] = array(
-    '#type' => 'checkbox',
-    '#title' => t('Use Menu Weight'),
-    '#default_value' => variable_get('weight_use_menu', FALSE),
-    '#description' => '<p>'. t('If the node has not been weighted, should we use the menu item weight?') .'</p>',
-    );
-
-  $form['weight_position'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'weight',
     '#delta' => 10,
     '#title' => t('Weight selector position weight'),
@@ -65,7 +44,6 @@ function weight_settings_form() {
     '#description' => '<p>'. t('This controls where the selection for node weight goes on the node edit form. If the position is 10 and the user has "administer nodes" permission, it will be added into the "Workflow options."') .'</p>',
     );
 
-<<<<<<< HEAD
   $form['node']['weight_label'] = array(
     '#type' => 'textfield',
     '#maxlength' => 64,
@@ -75,8 +53,6 @@ function weight_settings_form() {
     '#description' => '<p>'. t('This determines the legend that is used on the field set. (Maximum length is 64 characters.)') .'</p>',
     );
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['weight_node_types'] = array(
     '#type' => 'checkboxes',
     '#title' => t('Display On'),
@@ -89,10 +65,7 @@ function weight_settings_form() {
       <a href="@posts_page">content page</a> before unsetting any node types.',
       array('@posts_page' => url('admin/content/node'))
       ) .'</p>',
-<<<<<<< HEAD
     '#attributes' => array('class' => 'container-inline'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
   $form['weight_default'] = array(
@@ -115,11 +88,8 @@ function weight_settings_form_submit($form, &$form_state) {
   variable_set('weight_range', $form_state['values']['weight_range']);
   variable_set('weight_position', $form_state['values']['weight_position']);
   variable_set('weight_default', $form_state['values']['weight_default']);
-<<<<<<< HEAD
   variable_set('weight_use_menu', $form_state['values']['weight_use_menu']);
   variable_set('weight_label', $form_state['values']['weight_label']);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Check for changes in the list.
   $before = array_filter(variable_get('weight_node_types', array()));

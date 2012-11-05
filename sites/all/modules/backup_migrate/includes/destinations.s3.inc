@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: destinations.s3.inc,v 1.1.2.3 2009/07/06 04:02:49 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -17,30 +13,19 @@
  */
 class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
   var $supported_ops = array('scheduled backup', 'manual backup', 'restore', 'list files', 'configure', 'delete');
-<<<<<<< HEAD
   var $s3 = NULL;
   var $cache_files = TRUE;
 
-=======
-  var $s3 = NULL; 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   /**
    * Save to to the s3 destination.
    */
-<<<<<<< HEAD
   function _save_file($file, $settings) {
     if ($s3 = $this->s3_object()) {
       $path = $file->filename();
       if ($s3->putObject($s3->inputFile($file->filepath(), FALSE), $this->get_bucket(), $this->remote_path($file->filename()), S3::ACL_PRIVATE)) {
         return $file;
       }
-=======
-  function save_file($file, $settings) {
-    $s3 = $this->s3_object();
-    if ($s3->putObject($s3->inputFile($file->filepath(), FALSE), $this->dest_url['path'], $file->filename(), S3::ACL_PRIVATE)) {
-      return $file;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return FALSE;
   }
@@ -51,18 +36,11 @@ class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
   function load_file($file_id) {
     backup_migrate_include('files');
     $file = new backup_file(array('filename' => $file_id));
-<<<<<<< HEAD
     if ($s3 = $this->s3_object()) {
       $data = $s3->getObject($this->get_bucket(), $this->remote_path($file_id), $file->filepath());
       if (!$data->error) {
         return $file;
       }
-=======
-    $s3 = $this->s3_object();
-    $data = $s3->getObject($this->dest_url['path'], $file_id, $file->filepath());
-    if (!$data->error) {
-      return $file;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return NULL;
   }
@@ -70,22 +48,15 @@ class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
   /**
    * Delete from the s3 destination.
    */
-<<<<<<< HEAD
   function _delete_file($file_id) {
     if ($s3 = $this->s3_object()) {
       $s3->deleteObject($this->get_bucket(), $this->remote_path($file_id));
     }
-=======
-  function delete_file($file_id) {
-    $s3 = $this->s3_object();
-    $s3->deleteObject($this->dest_url['path'], $file_id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
    * List all files from the s3 destination.
    */
-<<<<<<< HEAD
   function _list_files() {
     backup_migrate_include('files');
     $files = array();
@@ -99,20 +70,6 @@ class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
         );
         $files[$info['filename']] = new backup_file($info);
       }
-=======
-  function list_files() {
-    backup_migrate_include('files');
-    $files = array();
-    $s3 = $this->s3_object();
-    $s3_files = $s3->getBucket($this->dest_url['path']);
-    foreach ((array)$s3_files as $id => $file) {
-      $info = array(
-        'filename' => $file['name'],
-        'filesize' => $file['size'],
-        'filetime' => $file['time'],
-      );
-      $files[$id] = new backup_file($info);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $files;
   }
@@ -121,18 +78,14 @@ class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
    * Get the form for the settings for this filter.
    */
   function edit_form() {
-<<<<<<< HEAD
     // Check for the library.
     $this->s3_object();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form = parent::edit_form();
     $form['scheme']['#type'] = 'value';
     $form['scheme']['#value'] = 'https';
     $form['host']['#type'] = 'value';
     $form['host']['#value'] = 's3.amazonaws.com';
-<<<<<<< HEAD
 
     $form['path']['#title'] = 'S3 Bucket';
     $form['path']['#default_value'] = $this->get_bucket();
@@ -229,22 +182,3 @@ class backup_migrate_destination_s3 extends backup_migrate_destination_remote {
     return NULL;
   }
 }
-=======
-    $form['path']['#title'] = 'S3 Bucket';
-    $form['path']['#description'] = 'This bucket must already exist. It will not be created for you.';
-    $form['user']['#title'] = 'Access Key ID';
-    $form['pass']['#title'] = 'Secret Access Key';
-    return $form;
-  }
-
-  function s3_object() {
-    require_once './'. drupal_get_path('module', 'backup_migrate') .'/includes/S3.php';
-    if (!$this->s3) {
-      $this->s3 = new S3($this->dest_url['user'], $this->dest_url['pass']);
-    }
-    return $this->s3;
-  }
-}
-
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

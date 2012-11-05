@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views.views.inc,v 1.7 2009/06/02 17:29:26 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers that aren't tied to any other module.
@@ -46,11 +42,7 @@ function views_views_data() {
       'handler' => 'views_handler_field_custom',
     ),
   );
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $data['views']['counter'] = array(
     'title' => t('View result counter'),
     'help' => t('Displays the actual position of the view result'),
@@ -59,7 +51,6 @@ function views_views_data() {
     ),
   );
 
-<<<<<<< HEAD
   if (module_invoke('ctools', 'api_version', '1.7.1')) {
     $data['views']['expression'] = array(
       'title' => t('Math expression'),
@@ -70,8 +61,6 @@ function views_views_data() {
     );
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $data;
 }
 

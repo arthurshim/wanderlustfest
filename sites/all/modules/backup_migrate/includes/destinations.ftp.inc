@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: destinations.ftp.inc,v 1.1.2.6 2010/09/13 02:41:49 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -22,11 +18,7 @@ class backup_migrate_destination_ftp extends backup_migrate_destination_remote {
   /**
    * Save to the ftp destination.
    */
-<<<<<<< HEAD
   function _save_file($file, $settings) {
-=======
-  function save_file($file, $settings) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $ftp = $this->ftp_object();
     if (drupal_ftp_file_to_ftp($file->filepath(), $file->filename(), '.', $ftp)) {
       return $file;
@@ -50,20 +42,12 @@ class backup_migrate_destination_ftp extends backup_migrate_destination_remote {
   /**
    * Delete from the ftp destination.
    */
-<<<<<<< HEAD
   function _delete_file($file_id) {
-=======
-  function delete_file($file_id) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $this->ftp_object();
     drupal_ftp_delete_file($file_id, $this->ftp);
   }
 
-<<<<<<< HEAD
   function _list_files() {
-=======
-  function list_files() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     backup_migrate_include('files');
     $files = array();
     $this->ftp_object();
@@ -87,7 +71,6 @@ class backup_migrate_destination_ftp extends backup_migrate_destination_remote {
       "#default_value" => @$this->dest_url['port'] ? $this->dest_url['port'] : '21',
       "#weight" => 15,
     );
-<<<<<<< HEAD
     $form['pasv'] = array(
       '#type' => 'checkbox',
       '#title' => t('Use PASV transfers'),
@@ -110,15 +93,6 @@ class backup_migrate_destination_ftp extends backup_migrate_destination_remote {
       $this->dest_url['port'] = empty($this->dest_url['port']) ? '21' : $this->dest_url['port'];
       $this->dest_url['pasv'] = $this->get_pasv();
       $this->ftp = drupal_ftp_ftp_object($this->dest_url['host'], $this->dest_url['port'], $this->dest_url['user'], $this->dest_url['pass'], $this->dest_url['path'], $this->dest_url['pasv']);
-=======
-    return $form;
-  }
-
-  function ftp_object() {
-    if (!$this->ftp) {
-      $this->dest_url['port'] = empty($this->dest_url['port']) ? '21' : $this->dest_url['port'];
-      $this->ftp = drupal_ftp_ftp_object($this->dest_url['host'], $this->dest_url['port'], $this->dest_url['user'], $this->dest_url['pass'], $this->dest_url['path']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $this->ftp;
   }
@@ -136,11 +110,7 @@ define('DRUPAL_FTP_FT_FILE', 1);
 /**
  *  creates a new ftp object. if any elements of ftp_map are missing, they'll be filled with the server defaults.
  */
-<<<<<<< HEAD
 function drupal_ftp_ftp_object($server, $port, $user, $pass, $dir, $pasv) {
-=======
-function drupal_ftp_ftp_object($server, $port, $user, $pass, $dir) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $ftp = new stdClass();
 
   $ftp->__server = $server;
@@ -148,10 +118,7 @@ function drupal_ftp_ftp_object($server, $port, $user, $pass, $dir) {
   $ftp->__user = $user;
   $ftp->__password = $pass;
   $ftp->__directory = $dir;
-<<<<<<< HEAD
   $ftp->__pasv = $pasv;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $ftp;
 }
@@ -190,7 +157,6 @@ function drupal_ftp_connect(&$ftp) {
       _backup_migrate_message('FTP Error: Couldn\'t change into the @directory directory', array('@directory' => $ftp->__directory), 'error');
       return FALSE;
     }
-<<<<<<< HEAD
 
     // Set PASV - if needed
     if ($ftp->__pasv) {
@@ -200,8 +166,6 @@ function drupal_ftp_connect(&$ftp) {
         return FALSE;
       }
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   // Everything worked OK, return TRUE
@@ -265,11 +229,8 @@ function drupal_ftp_ftp_to_file($file, $filename, $directory, &$ftp) {
     _backup_migrate_message('FTP Error: Unable to download file: @filename from @directory', array('@filename' => $filename, '@directory' => $directory), 'error');
     return FALSE;
   }
-<<<<<<< HEAD
   
   return TRUE;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**

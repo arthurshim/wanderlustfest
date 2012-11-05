@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_ui.module,v 1.109.4.1 2010/04/07 23:40:35 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views_ui.module
  * Provide structure for the administrative interface to Views.
@@ -132,13 +128,10 @@ function views_ui_menu() {
     'page callback' => 'views_ui_add_display',
     'page arguments' => array(3, 5),
   );
-<<<<<<< HEAD
     $items['admin/build/views/%views_ui_js/clone-display/%views_ui_cache'] = $callback + array(
     'page callback' => 'views_ui_clone_display',
     'page arguments' => array(3, 5, 6),
   );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Live preview
   $items['admin/build/views/%views_ui_js/preview/%views_ui_cache'] = $callback + array(
     'page callback' => 'views_ui_preview',

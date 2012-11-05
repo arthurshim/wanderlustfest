@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emimage.theme.inc,v 1.1.2.8 2010/07/19 17:16:26 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  *  @file
@@ -13,12 +9,8 @@
  *  Helper theme for various emimage themes.
  */
 function theme_emimage_image($field, $item, $formatter, $node, $code, $width = NULL, $height = NULL, $title = '', $link = NULL, $options = array()) {
-<<<<<<< HEAD
   $url = emimage_image_url($field, $item, $formatter, $node, $code, $width, $height, $options);
 
-=======
-  $url = module_invoke('emfield', 'include_invoke', 'emimage', $item['provider'], 'image_url', $code, $width, $height, $formatter, $field, $item, $node);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $attributes = array();
   if ($width) {
     $attributes['width'] = $width;
@@ -45,11 +37,7 @@ function theme_emimage_image($field, $item, $formatter, $node, $code, $width = N
       $attributes['width'] = $width ? $width : NULL;
       $attributes['height'] = $height ? $height : NULL;
     }
-<<<<<<< HEAD
   }
-=======
-	}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($item['class']) {
       $attributes['class'] = $item['class'];
   }
@@ -122,14 +110,11 @@ function theme_emimage_image_full($field, $item, $formatter, $node, $options = a
   return $output;
 }
 
-<<<<<<< HEAD
 function theme_emimage_formatter_image_link($element) {
   $field = content_fields($element['#field_name'], $element['#type_name']);
   return module_invoke('emimage', 'field_formatter', $field, $element['#item'], $element['#formatter'], $element['#node']);
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  *  Format the image using the Default (Full Image) preset.
  */
@@ -137,13 +122,10 @@ function theme_emimage_default($field, $item, $formatter, $node, $options = arra
   return theme('emimage_image_full', $field, $item, $formatter, $node, $options);
 }
 
-<<<<<<< HEAD
 function theme_emimage_image_link($field, $item, $formatter, $node, $options = array()) {
   return module_invoke('emimage', $item['provider'] .'_embedded_link', $item['value']);
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  *  Format the image using the Preview Image preset.
  */

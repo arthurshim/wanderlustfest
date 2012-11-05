@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emthumb.theme.inc,v 1.1.2.1 2009/10/21 16:25:20 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -106,7 +102,6 @@ function theme_emthumb_imagecache_formatter_preview($element) {
 }
 
 /**
-<<<<<<< HEAD
  *  Returns the imagecache image linked to a modal colorbox.
  */
 function theme_emthumb_imagecache_formatter_colorbox($element) {
@@ -119,8 +114,6 @@ function theme_emthumb_imagecache_formatter_colorbox($element) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *  Returns the imagecache image linked to a modal thickbox.
  */
 function theme_emthumb_imagecache_formatter_thickbox($element) {
@@ -164,7 +157,6 @@ function _emthumb_imagecache_formatter_default($element, $options = NULL) {
   if (!isset($options)) {
     $options = _emthumb_formatter_theme_helper($element);
   }
-<<<<<<< HEAD
   if ($options['item']['value']) {
     if ($thumbnail = emthumb_thumbnail_path($options['item'])) {
       return theme('imagecache', $options['presetname'], $thumbnail);
@@ -179,20 +171,6 @@ function _emthumb_imagecache_formatter_default($element, $options = NULL) {
         }
         return theme('image', $thumbnail);
     }
-=======
-  if ($thumbnail = emthumb_thumbnail_path($options['item'])) {
-    return theme('imagecache', $options['presetname'], $thumbnail);
-  }
-  switch ($options['module']) {
-    case 'emvideo':
-      // Look for a local file first for imagecaching.
-      $options['return_url'] = $options['raw'] = TRUE;
-      $thumbnail = theme('emvideo_video_thumbnail', $options['field'], $options['item'], $options['formatter'], $options['node'], TRUE, $options);
-      if (url($thumbnail) != url($thumbnail, array('absolute' => TRUE))) {
-        return theme('imagecache', $options['presetname'], $thumbnail);
-      }
-      return theme('image', $thumbnail);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 

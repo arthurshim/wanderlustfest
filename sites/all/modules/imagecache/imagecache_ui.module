@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagecache_ui.module,v 1.32 2009/05/03 16:31:43 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Administrative interface to imagecache.

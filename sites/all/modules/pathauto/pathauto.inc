@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: pathauto.inc,v 1.45.2.29 2010/09/27 15:52:58 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -56,21 +52,14 @@ function _pathauto_alias_exists($alias, $source, $language = '') {
  *   - alias: The URL alias.
  */
 function _pathauto_existing_alias_data($source, $language = '') {
-<<<<<<< HEAD
   return db_fetch_array(db_query_range("SELECT pid, dst AS alias, language FROM {url_alias} WHERE src = '%s' AND language IN ('%s', '') ORDER BY language DESC, pid DESC", $source, $language, 0, 1));
-=======
-  return db_fetch_array(db_query_range("SELECT pid, dst AS alias FROM {url_alias} WHERE src = '%s' AND language IN ('%s', '') ORDER BY language DESC, pid DESC", $source, $language, 0, 1));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Clean up a string segment to be used in an URL alias.
  *
  * Performs the following possible alterations:
-<<<<<<< HEAD
  * - Remove all HTML tags.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * - Process the string through the transliteration module.
  * - Replace or remove punctuation with the separator character.
  * - Remove back-slashes.
@@ -90,7 +79,6 @@ function _pathauto_existing_alias_data($source, $language = '') {
  *   The cleaned string.
  */
 function pathauto_cleanstring($string) {
-<<<<<<< HEAD
   static $strings = array();
 
   // Empty strings do not need any proccessing.
@@ -106,9 +94,6 @@ function pathauto_cleanstring($string) {
 
   // Remove all HTML tags from the string.
   $output = strip_tags(decode_entities($string));
-=======
-  $output = $string;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Optionally remove accents and transliterate
   if (variable_get('pathauto_transliterate', FALSE)) {
@@ -187,12 +172,9 @@ function pathauto_cleanstring($string) {
   $maxlength = min(variable_get('pathauto_max_component_length', 100), _pathauto_get_schema_alias_maxlength());
   $output = drupal_substr($output, 0, $maxlength);
 
-<<<<<<< HEAD
   // Cache this result in the static array.
   $strings[$string] = $output;
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $output;
 }
 
@@ -397,11 +379,7 @@ function pathauto_create_alias($module, $op, $placeholders, $source, $entity_id,
     'alias' => $alias,
     'language' => $language,
   );
-<<<<<<< HEAD
   $success = _pathauto_set_alias($path, $existing_alias, $op);
-=======
-  _pathauto_set_alias($path, $existing_alias, $op);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Also create a related feed alias if requested and supported.
   $feedappend = trim(variable_get('pathauto_' . $module . '_applytofeeds', ''));
@@ -421,11 +399,7 @@ function pathauto_create_alias($module, $op, $placeholders, $source, $entity_id,
     _pathauto_set_alias($path, $existing_alias, $op);
   }
 
-<<<<<<< HEAD
   return $success ? $alias : NULL;
-=======
-  return $alias;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -443,15 +417,12 @@ function _pathauto_path_is_callback($path) {
   if (isset($menu['path']) && $menu['path'] == $path) {
     return TRUE;
   }
-<<<<<<< HEAD
   elseif (is_file('./' . $path) || is_dir('./' . $path)) {
     // Do not allow existing files or directories to get assigned an automatic
     // alias. Note that we do not need to use is_link() to check for symbolic
     // links since this returns TRUE for either is_file() or is_dir() already.
     return TRUE;
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return FALSE;
 }
 
@@ -513,10 +484,7 @@ function _pathauto_set_alias($path, $existing_alias = NULL, $op = NULL) {
           if (module_exists('path_redirect') && function_exists('path_redirect_save')) {
             $redirect = array(
               'source' => $existing_alias['alias'],
-<<<<<<< HEAD
               'language' => $existing_alias['language'],
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
               'redirect' => $path['source'],
             );
             path_redirect_save($redirect);

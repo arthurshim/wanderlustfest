@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: ib_wysiwyg_init.js,v 1.1.2.4 2010/05/07 05:34:33 blixxxa Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file ib_wysiwyg_init.js

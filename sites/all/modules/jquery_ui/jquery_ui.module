@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: jquery_ui.module,v 1.6.2.2 2009/06/21 03:43:03 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -14,23 +10,6 @@
  */
 
 /**
-<<<<<<< HEAD
-=======
- * Path to jQuery UI library.
- *
- * During site installation, JQUERY_UI_PATH is the absolute path to the
- * jQuery UI library.  At all other times JQUERY_UI_PATH is relative, and
- * safe for use in URLs.
- */
-if (defined('MAINTENANCE_MODE') && MAINTENANCE_MODE == 'install') {
-  define('JQUERY_UI_PATH', dirname(__FILE__) . '/jquery.ui');
-}
-else {
-  define('JQUERY_UI_PATH', drupal_get_path('module', 'jquery_ui') . '/jquery.ui');
-}
-
-/**
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Add the specified jQuery UI library files to this page.
  *
  * The ui.core file is always included automatically, as well as the
@@ -42,16 +21,12 @@ else {
  */
 function jquery_ui_add($files = array()) {
   static $loaded_files, $ui_core, $effects_core;
-<<<<<<< HEAD
 
   $jquery_ui_path = jquery_ui_get_path();
   if ($jquery_ui_path === FALSE) {
     return FALSE;
   }
   $jquery_ui_path .= '/ui';
-=======
-  $jquery_ui_path = JQUERY_UI_PATH . '/ui';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $compression = variable_get('jquery_update_compression_type', 'mini');
 
   // Convert file to an array if it's not one already, to compensate for
@@ -98,7 +73,6 @@ function jquery_ui_add($files = array()) {
 }
 
 /**
-<<<<<<< HEAD
  * Returns the path to the jQuery UI library or FALSE if not found.
  */
 function jquery_ui_get_path() {
@@ -143,14 +117,11 @@ function jquery_ui_get_path() {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Return the version of jQuery UI installed.
  */
 function jquery_ui_get_version() {
   $version = 0;
 
-<<<<<<< HEAD
   $path = jquery_ui_get_path();
   if ($path === FALSE) {
     return $version;
@@ -158,10 +129,6 @@ function jquery_ui_get_version() {
   $file = $path . '/version.txt';
   if (file_exists($file)) {
     $version = file_get_contents($file);
-=======
-  if (file_exists(JQUERY_UI_PATH . '/version.txt')) {
-    $version = file_get_contents(JQUERY_UI_PATH . '/version.txt');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return $version;

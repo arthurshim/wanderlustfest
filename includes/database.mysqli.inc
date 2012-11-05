@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: database.mysqli.inc,v 1.54.2.2 2010/02/01 16:32:10 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -82,7 +78,6 @@ function db_connect($url) {
     _db_error_page(mysqli_connect_error());
   }
 
-<<<<<<< HEAD
   // Force MySQL to use the UTF-8 character set. Also set the collation, if a
   // certain one has been set; otherwise, MySQL defaults to 'utf8_general_ci'
   // for UTF-8.
@@ -92,10 +87,6 @@ function db_connect($url) {
   else {
     mysqli_query($connection, 'SET NAMES utf8');
   }
-=======
-  // Force UTF-8.
-  mysqli_query($connection, 'SET NAMES "utf8"');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $connection;
 }
@@ -103,13 +94,8 @@ function db_connect($url) {
 /**
  * Helper function for db_query().
  */
-<<<<<<< HEAD
 function _db_query($query, $debug = 0, $slave = FALSE) {
   global $active_db, $active_slave_db, $queries, $user;
-=======
-function _db_query($query, $debug = 0) {
-  global $active_db, $queries, $user;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   if (variable_get('dev_query', 0)) {
     list($usec, $sec) = explode(' ', microtime());
@@ -125,7 +111,6 @@ function _db_query($query, $debug = 0) {
     $query = '/* '. $name .' : '. $bt[2]['function'] .' */ '. $query;
   }
 
-<<<<<<< HEAD
   $sent_to_slave = FALSE;
   if (isset($active_slave_db) && $slave) {
     $result = mysqli_query($active_slave_db, $query);
@@ -134,16 +119,12 @@ function _db_query($query, $debug = 0) {
   else {
     $result = mysqli_query($active_db, $query);
   }
-=======
-  $result = mysqli_query($active_db, $query);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   if (variable_get('dev_query', 0)) {
     $query = $bt[2]['function'] ."\n". $query;
     list($usec, $sec) = explode(' ', microtime());
     $stop = (float)$usec + (float)$sec;
     $diff = $stop - $timer;
-<<<<<<< HEAD
     $queries[] = array($query, $diff, $sent_to_slave);
   }
 
@@ -151,30 +132,19 @@ function _db_query($query, $debug = 0) {
     $active_last_db = $active_db;
   } else {
     $active_last_db = $active_slave_db;
-=======
-    $queries[] = array($query, $diff);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   if ($debug) {
     print '<p>query: '. $query .'<br />error:'. mysqli_error($active_db) .'</p>';
   }
 
-<<<<<<< HEAD
   if (!mysqli_errno($active_last_db)) {
-=======
-  if (!mysqli_errno($active_db)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $result;
   }
   else {
     // Indicate to drupal_error_handler that this is a database error.
     ${DB_ERROR} = TRUE;
-<<<<<<< HEAD
     trigger_error(check_plain(mysqli_error($active_last_db) ."\nquery: ". $query), E_USER_WARNING);
-=======
-    trigger_error(check_plain(mysqli_error($active_db) ."\nquery: ". $query), E_USER_WARNING);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return FALSE;
   }
 }
@@ -293,7 +263,6 @@ function db_query_range($query) {
   return _db_query($query);
 }
 
-<<<<<<< HEAD
 
 /**
  * Runs a limited-range query in the active slave database.
@@ -340,8 +309,6 @@ function db_query_range_slave($query) {
 }
 
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Runs a SELECT query and stores its results in a temporary table.
  *
@@ -437,15 +404,12 @@ function db_unlock_tables() {
 
 /**
  * Check if a table exists.
-<<<<<<< HEAD
  *
  * @param $table
  *   The name of the table.
  *
  * @return
  *   TRUE if the table exists, and FALSE if the table does not exist.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function db_table_exists($table) {
   return (bool) db_fetch_object(db_query("SHOW TABLES LIKE '{". db_escape_table($table) ."}'"));
@@ -453,7 +417,6 @@ function db_table_exists($table) {
 
 /**
  * Check if a column exists in the given table.
-<<<<<<< HEAD
  *
  * @param $table
  *   The name of the table.
@@ -462,8 +425,6 @@ function db_table_exists($table) {
  *
  * @return
  *   TRUE if the column exists, and FALSE if the column does not exist.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function db_column_exists($table, $column) {
   return (bool) db_fetch_object(db_query("SHOW COLUMNS FROM {". db_escape_table($table) ."} LIKE '". db_escape_table($column) ."'"));

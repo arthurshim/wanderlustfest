@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: field_file.inc,v 1.37 2010/06/29 19:14:16 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -45,15 +41,10 @@ function field_file_load($fid, $reset = NULL) {
     }
 
     foreach (module_implements('file_load') as $module) {
-<<<<<<< HEAD
       if ($module != 'field') {
         $function = $module .'_file_load';
         $function($file);
       }
-=======
-      $function = $module .'_file_load';
-      $function($file);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Cache the fully loaded file for later use.
@@ -166,14 +157,10 @@ function field_file_save_file($filepath, $validators = array(), $dest = FALSE, $
   // Call the validation functions.
   $errors = array();
   foreach ($validators as $function => $args) {
-<<<<<<< HEAD
       // Add the $file variable to the list of arguments and pass it by
       // reference (required for PHP 5.3 and higher).
     array_unshift($args, NULL);
     $args[0] = &$file;
-=======
-    array_unshift($args, $file);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $errors = array_merge($errors, call_user_func_array($function, $args));
   }
 
@@ -390,7 +377,6 @@ function field_file_strip_path($path) {
 }
 
 /**
-<<<<<<< HEAD
  * Encode a file path in a way that is compatible with file_create_url().
  *
  * This function should be used on the $file->filepath property before any call
@@ -419,8 +405,6 @@ function field_file_urlencode_path($path) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Return a count of the references to a file by all modules.
  */
 function field_file_references($file) {

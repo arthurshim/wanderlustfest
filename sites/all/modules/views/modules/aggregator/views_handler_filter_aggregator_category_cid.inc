@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_aggregator_category_cid.inc,v 1.2 2009/06/10 22:04:57 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Filter by aggregator category cid

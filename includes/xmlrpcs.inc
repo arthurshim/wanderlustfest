@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: xmlrpcs.inc,v 1.24.2.4 2010/06/02 12:52:07 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * The main entry point for XML-RPC requests.

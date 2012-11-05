@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: fileprogress.js,v 1.2 2008/08/23 21:35:26 grandcat Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*
 	File: fileprogress.js

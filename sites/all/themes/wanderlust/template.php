@@ -1,5 +1,4 @@
 <?php
-<<<<<<< HEAD
 /**
  * Sets the body-tag class attribute.
  */
@@ -158,352 +157,11 @@ function wonderlust_menu_local_tasks() {
   }
   if ($secondary) {
     $output .= '<ul class="tabs secondary clearfix">' . $secondary . '</ul>';
-=======
-// $Id: template.php,v 1.1.2.3 2009/07/18 17:48:55 dvessel Exp $
-
-
-//drupal_add_js('sites/all/themes/wanderlust/JS/customSelect.jquery.js');
-drupal_add_js('sites/all/themes/wanderlust/JS/jquery.dd.js');
-
-
-/**
- * Preprocessor for page.tpl.php template file.
- */
-function ninesixty_preprocess_page(&$vars, $hook) {
-  // For easy printing of variables.
-  $vars['logo_img']         = $vars['logo'] ? theme('image', substr($vars['logo'], strlen(base_path())), t('Home'), t('Home')) : '';
-  $vars['linked_logo_img']  = $vars['logo_img'] ? l($vars['logo_img'], '<front>', array('attributes' => array('rel' => 'home'), 'title' => t('Home'), 'html' => TRUE)) : '';
-  $vars['linked_site_name'] = $vars['site_name'] ? l($vars['site_name'], '<front>', array('attributes' => array('rel' => 'home'), 'title' => t('Home'))) : '';
-  $vars['main_menu_links']      = theme('links', $vars['primary_links'], array('class' => 'links main-menu'));
-  $vars['secondary_menu_links'] = theme('links', $vars['secondary_links'], array('class' => 'links secondary-menu'));
-
-  // Make sure framework styles are placed above all others.
-  $vars['css_alt'] = ninesixty_css_reorder($vars['css']);
-  $vars['styles'] = drupal_get_css($vars['css_alt']);
-}
-
-/**
- * Contextually adds 960 Grid System classes.
- *
- * The first parameter passed is the *default class*. All other parameters must
- * be set in pairs like so: "$variable, 3". The variable can be anything available
- * within a template file and the integer is the width set for the adjacent box
- * containing that variable.
- *
- *  class="<?php print ns('grid-16', $var_a, 6); ?>"
- *
- * If $var_a contains data, the next parameter (integer) will be subtracted from
- * the default class. See the README.txt file.
- */
-function ns() {
-  $args = func_get_args();
-  $default = array_shift($args);
-  // Get the type of class, i.e., 'grid', 'pull', 'push', etc.
-  // Also get the default unit for the type to be procesed and returned.
-  list($type, $return_unit) = explode('-', $default);
-
-  // Process the conditions.
-  $flip_states = array('var' => 'int', 'int' => 'var');
-  $state = 'var';
-  foreach ($args as $arg) {
-    if ($state == 'var') {
-      $var_state = !empty($arg);
-    }
-    elseif ($var_state) {
-      $return_unit = $return_unit - $arg;
-    }
-    $state = $flip_states[$state];
-  }
-
-  $output = '';
-  // Anything below a value of 1 is not needed.
-  if ($return_unit > 0) {
-    $output = $type . '-' . $return_unit;
-  }
-  return $output;
-}
-
-/**
- * This rearranges how the style sheets are included so the framework styles
- * are included first.
- *
- * Sub-themes can override the framework styles when it contains css files with
- * the same name as a framework style. This can be removed once Drupal supports
- * weighted styles.
- */
-function ninesixty_css_reorder($css) {
-  global $theme_info, $base_theme_info;
-
-  // Dig into the framework .info data.
-  $framework = !empty($base_theme_info) ? $base_theme_info[0]->info : $theme_info->info;
-
-  // Pull framework styles from the themes .info file and place them above all stylesheets.
-  if (isset($framework['stylesheets'])) {
-    foreach ($framework['stylesheets'] as $media => $styles_from_960) {
-      // Setup framework group.
-      if (isset($css[$media])) {
-        $css[$media] = array_merge(array('framework' => array()), $css[$media]);
-      }
-      else {
-        $css[$media]['framework'] = array();
-      }
-      foreach ($styles_from_960 as $style_from_960) {
-        // Force framework styles to come first.
-        if (strpos($style_from_960, 'framework') !== FALSE) {
-          $framework_shift = $style_from_960;
-          $remove_styles = array($style_from_960);
-          // Handle styles that may be overridden from sub-themes.
-          foreach ($css[$media]['theme'] as $style_from_var => $preprocess) {
-            if ($style_from_960 != $style_from_var && basename($style_from_960) == basename($style_from_var)) {
-              $framework_shift = $style_from_var;
-              $remove_styles[] = $style_from_var;
-              break;
-            }
-          }
-          $css[$media]['framework'][$framework_shift] = TRUE;
-          foreach ($remove_styles as $remove_style) {
-            unset($css[$media]['theme'][$remove_style]);
-          }
-        }
-      }
-    }
-  }
-
-  return $css;
-}
-
-
-
-function _phptemplate_variables($hook, $vars = array()) {
-  switch ($hook) {
-    case 'page':
-      $vars['body_class'] = '';
-
-      // Set body class for formatting based on content type
-      // if the node exists, i.e., if a node is the focus of the page.
-      $vars['body_class'] = isset($vars['node']) ? 'type_' . $vars['node']->type .' ' : '';
-
-      //Allows specific theming for taxonomy listings
-      if (arg(0) == 'taxonomy') {
-          $vars['body_class'] = 'taxonomy_list';
-      }
-
-      /*
-       * The following lines replace the phptemplate_body_class found in Garland
-       * These are only necessary if you are still using the sidebar classes in the Garland theme
-       */
-      $layout = '';
-      //Is there a left sidebar?
-      if ($vars['sidebar_left'] != '') {
-          $layout = 'sidebar-left';
-      }
-      //Is there a right sidebar?
-      if ($vars['sidebar_right'] != '') {
-           $layout = ($layout == 'sidebar-left') ? 'sidebars' : 'sidebar-right';
-      }
-      //Put layout into body_class
-      if ($layout != ''){
-         $vars['body_class'] .= ' ' . $layout;
-      }
-      //End Garland-specific classes
-
-      //Add additional class if this is the front page (for home page specific theming)
-      if (drupal_is_front_page()) {
-         $vars['body_class'] .= ' home';
-      }
-
-      break;
-  }
-  return $vars;
-}
-
-
-
-function wanderlust_preprocess_page(&$vars, $hook) {
-  date_default_timezone_set('America/New_York'); // used by strtotime() below
-  // site-specific header text
-  $site = sites_get_current_site();
-  $date_start = strtotime($site->extra_fields->field_event_date[0]['value']);
-
-  $event_date = date('F j', $date_start);
-  if ($site->extra_fields->field_event_date[0]['value2'] != $site->extra_fields->field_event_date[0]['value']) {
-    $date_end = strtotime($site->extra_fields->field_event_date[0]['value2']);
-    $event_date .= '-' . date('j', $date_end);
-  }
-  $event_date .= date(', Y', $date_start);
-
-  $fields = array(//$event_date,
-                  strtoupper($site->extra_fields->field_event_venue[0]['value']),
-                  strtoupper($site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value']));
-  $vars['event_info'] = implode(' • ', $fields);
-
-// add sites selector dropdown (used in header.php)
-//  $events = array();
-  $vars['sites_selector'] = array();
-  require_once drupal_get_path('module', 'sites') . '/sites.core.inc';
-  $sites = _sites_get_sites();
-  while (count($sites) > 0) {
-    $earliest = NULL;
-    $earliest_i = NULL;
-    foreach ($sites as $i => $site) {
-      if ($site->extra_fields->field_event_hide[0]['value'] == 'disabled') {
-        unset($sites[$i]);
-        continue 2;
-      }
-      else {
-        if ($earliest == NULL) {
-          $earliest = $site;
-          $earliest_i = $i;
-          continue;
-        }
-      
-        $site_time = strtotime($site->extra_fields->field_event_date[0]['value']);
-        $earliest_time = strtotime($earliest->extra_fields->field_event_date[0]['value']);
-        if ($site_time < $earliest_time) {
-          $earliest = $site;
-          $earliest_i = $i;
-        }
-      }
-    }
-    
-    $vars['sites_selector'][$earliest->purl_prefix] = $earliest->name;
-    //$events[] = array('name' => $earliest->name, 'subdomain' => $earliest->purl_prefix);
-    unset($sites[$earliest_i]);
-  }
-//  ksort($events);
-//  $vars['sites_selector'] = array();
-//  foreach ($events as $event) {
-//   $vars['sites_selector'][$event['subdomain']] = $event['name'];
-//  }
-
-  $current = sites_get_current_site();
-  $vars['current_site'] = $current;
-  $vars['current_subdomain'] = $current->purl_prefix;
-
-
-  // per-path bg image
-  $vars['bg_image'] = wl_bg_background_for_path($_GET['q']);
-
-  if ($_GET['q'] == 'home') {
-    $vars['body_classes'] = str_replace('not-front', 'front', $vars['body_classes']);
-    $vars['template_files'] = array('page-front');
-  }
-
-  $path = drupal_get_path_alias($_GET['q']);
-  $vars['classes_array'][] = drupal_html_class('page-' . $path);
-  // Add unique class for each website section.
-  list($section, ) = explode('/', $path, 2);
-  if (arg(0) == 'node') {
-    if (arg(1) == 'add') {
-      $section = 'node-add';
-    }
-    elseif (is_numeric(arg(1)) && (arg(2) == 'edit' || arg(2) == 'delete')) {
-      $section = 'node-' . arg(2);
-    }
-  }
-  $vars['classes_array'][] = drupal_html_class('section-' . $section);
-  $vars['body_classes'] = implode(' ', $vars['classes_array']) . ' ' . $vars['body_classes'];
-
-
-  if (($current->purl_prefix == 'phoenix') || ($current->purl_prefix == 'dallas') || ($current->purl_prefix == 'atlanta') || ($current->purl_prefix == 'nyc') || ($current->purl_prefix == 'santamonica') || ($current->purl_prefix == 'chicago') || ($current->purl_prefix == 'seattle')){
-    $vars['smartwater_class'] = 'smartwater';    
- 	}
-
-}
-
-
-function wanderlust_preprocess_views_view_field__field_event_date_value(&$vars, $hook) {
-  $row = $vars['row'];
-  $date_start = strtotime($row->node_data_field_event_hide_field_event_date_value);
-  $event_date = date('F j', $date_start);
-  if ($row->node_data_field_event_hide_field_event_date_value2 != $row->node_data_field_event_hide_field_event_date_value) {
-    $date_end = strtotime($row->node_data_field_event_hide_field_event_date_value2);
-    $event_date .= '-' . date('j', $date_end);
-  }
-  $event_date .= date(', Y', $date_start);
-  $vars['output'] = $event_date;
-}
-
-
-function wanderlust_preprocess_node(&$vars, $hook) {
-
-  if (($current_subdomain == 'phoenix') || ($current_subdomain == 'dallas') || ($current_subdomain == 'atlanta') || ($current_subdomain == 'nyc') || ($current_subdomain == 'santamonica') || ($current_subdomain == 'chicago') || ($current_subdomain == 'seattle')){
-    $vars['smartwater_class'] = 'smartwater';    
- 	}
-  
-	$vars['bloggerinfo'] = theme('blocks', 'bloggerinfo');
-
- 	// fbook comments
- 	$_facebook_app_id = wl_helper_get_fbook_app_id();
- 	$_page_url = urlencode(wl_get_base_domain() . '/node/' . $vars['node']->nid);
- 	$_num_comments = 10;
- 	$_width = 500;
- 	$vars['facebook_comments'] = <<<EOT
-    <div class="facebook-comments">
-      <div id="fb-root"></div>
-      <script>
-            window.fbAsyncInit = function() {
-              FB.init({
-                appId: '$_facebook_app_id',
-                status: true,
-                cookie: true,
-                xfbml: true});
-            };
-            (function() {
-              var e = document.createElement('script');
-              e.type = 'text/javascript';
-              e.src = document.location.protocol +
-                '//connect.facebook.net/en_US/all.js';
-              e.async = true;
-              document.getElementById('fb-root').appendChild(e);
-            }());
-          </script>
-      <fb:comments href="$_page_url" numposts="$_num_comments" width="$_width" publish_feed="true"></fb:comments>
-    </div>
-EOT;
-}
-
-/* GET RID OF 'NOT VERIFIED' TEXT ON COMMENTS */
-function wanderlust_username($object) {
-
-  if ($object->uid && $object->name) {
-    if (drupal_strlen($object->name) > 20) {
-      $name = drupal_substr($object->name, 0, 15) .'...';
-    }
-    else {
-      $name = $object->name;
-    }
-
-    if (user_access('access user profiles')) {
-      $output = l($name, 'user/'. $object->uid, array('attributes' => array('title' => t('View user profile.'))));
-    }
-    else {
-      $output = check_plain($name);
-    }
-  }
-  else if ($object->name) {
-    if (!empty($object->homepage)) {
-      $output = l($object->name, $object->homepage, array('attributes' => array('rel' => 'nofollow')));
-    }
-    else {
-      $output = check_plain($object->name);
-    }
-
-    /**
-     * HERE I've commented out the next line, which is the line that was adding
-     * the unwanted text to our author names!
-     */
-    // $output .= ' ('. t('not verified') .')';
-  }
-  else {
-    $output = variable_get('anonymous', t('Anonymous'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return $output;
 }
 
-<<<<<<< HEAD
 /**
  * Override or insert variables into the block templates.
  *
@@ -549,9 +207,21 @@ function wanderlust_preprocess_node(&$vars, $hook) {
 function wanderlust_preprocess_page(&$vars, $hook) {
   if (isset($_SERVER['HTTP_HOST'])) {
     $domain = preg_replace('`^www.`', '', $_SERVER['HTTP_HOST']);
+    
     if ($subdomain = array_shift(explode('.', $domain))) {
       $vars['body_classes'] .= ' '. $subdomain;
     }
+    /*
+   if($subdomain == 'oahu') {	
+	
+	$vars['template_file'] = 'page-oahu';
+    }
+*/
+   if($subdomain == 'chile') {	
+	
+	$vars['template_file'] = 'page-chile';
+    }    
+    
   }
 }
 
@@ -571,7 +241,7 @@ function wanderlust_menu_item($link, $has_children, $menu = '', $in_active_trail
   
   return '<li class="' . $class . '">' . $link . $menu . "</li>\n";
 }
-
+//add google analytics code to outbound links
 function wanderlust_menu_item_link($link) {
     if (empty($link['localized_options'])) {
       $link['localized_options'] = array();
@@ -586,83 +256,15 @@ function wanderlust_menu_item_link($link) {
 	'menu-santamonica-primary-links',
 	'menu-squaw-links',
 	'menu-standard-links',
-	'menu-whistler-primary-links',
+	'menu-whistler-primary-links',//add more primary links here
     );
-    $titles = array('Purchase', 'Lineup', 'Schedule', 'Experience');
+    $titles = array('Schedule');
     if(in_array($link['menu_name'], $states)){
         $attributes = array();    
 	if(in_array($link['title'], $titles)) {   
-	     $attributes['onlick'] = "recordOutboundLink(this, 'Outbound Links', '$link[href]');return false;";
+	     $attributes['onlick'] = "_gaq.push(['_link', '$link[href]']);return false;";
 	     $link['localized_options']['attributes'] = $attributes;
 	}   
    }
     return l($link['title'], $link['href'], $link['localized_options']);
 }
-=======
-function phptemplate_preprocess_node(&$vars) {
-  if (arg(0) == 'taxonomy') {
-    $suggestions = array(
-      'node-taxonomy'
-    );
-    $vars['template_files'] = array_merge($vars['template_files'], $suggestions);
-  }
-}
-
-
-if (!function_exists('drupal_html_class')) {
-  /**
-   * Prepare a string for use as a valid class name.
-   *
-   * Do not pass one string containing multiple classes as they will be
-   * incorrectly concatenated with dashes, i.e. "one two" will become "one-two".
-   *
-   * @param $class
-   *   The class name to clean.
-   * @return
-   *   The cleaned class name.
-   */
-  function drupal_html_class($class) {
-    // By default, we filter using Drupal's coding standards.
-    $class = strtr(drupal_strtolower($class), array(' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => ''));
-
-    // http://www.w3.org/TR/CSS21/syndata.html#characters shows the syntax for valid
-    // CSS identifiers (including element names, classes, and IDs in selectors.)
-    //
-    // Valid characters in a CSS identifier are:
-    // - the hyphen (U+002D)
-    // - a-z (U+0030 - U+0039)
-    // - A-Z (U+0041 - U+005A)
-    // - the underscore (U+005F)
-    // - 0-9 (U+0061 - U+007A)
-    // - ISO 10646 characters U+00A1 and higher
-    // We strip out any character not in the above list.
-    $class = preg_replace('/[^\x{002D}\x{0030}-\x{0039}\x{0041}-\x{005A}\x{005F}\x{0061}-\x{007A}\x{00A1}-\x{FFFF}]/u', '', $class);
-
-    return $class;
-  }
-} /* End of drupal_html_class conditional definition. */
-
-if (!function_exists('drupal_html_id')) {
-  /**
-   * Prepare a string for use as a valid HTML ID and guarantee uniqueness.
-   *
-   * @param $id
-   *   The ID to clean.
-   * @return
-   *   The cleaned ID.
-   */
-  function drupal_html_id($id) {
-    $id = strtr(drupal_strtolower($id), array(' ' => '-', '_' => '-', '[' => '-', ']' => ''));
-
-    // As defined in http://www.w3.org/TR/html4/types.html#type-name, HTML IDs can
-    // only contain letters, digits ([0-9]), hyphens ("-"), underscores ("_"),
-    // colons (":"), and periods ("."). We strip out any character not in that
-    // list. Note that the CSS spec doesn't allow colons or periods in identifiers
-    // (http://www.w3.org/TR/CSS21/syndata.html#characters), so we strip those two
-    // characters as well.
-    $id = preg_replace('/[^A-Za-z0-9\-_]/', '', $id);
-
-    return $id;
-  }
-} /* End of drupal_html_id conditional definition. */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

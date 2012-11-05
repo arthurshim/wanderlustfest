@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: weight.module,v 1.23.2.8 2009/04/25 15:11:36 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * This module uses the sticky column of the node table
@@ -63,7 +59,6 @@ function weight_menu() {
   return $items;
 }
 
-<<<<<<< HEAD
 /**
  * Implementation of hook_theme_registry_alter().
  *
@@ -81,11 +76,6 @@ function weight_theme_registry_alter(&$theme_registry) {
 function weight_nodeapi(&$node, $op) {
   $weight_node_types = variable_get('weight_node_types', array_flip(node_get_types('names')));
   if (in_array($node->type, $weight_node_types)) {
-=======
-function weight_nodeapi(&$node, $op) {
-	$weight_node_types = variable_get('weight_node_types', array_flip(node_get_types('names')));
-	if (in_array($node->type, $weight_node_types)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     switch ($op) {
       case 'presave':
         // Non-weighted nodes have a weight of zero.
@@ -110,7 +100,6 @@ function weight_nodeapi(&$node, $op) {
 }
 
 /**
-<<<<<<< HEAD
  * Theme node administration overview.
  * Mostly copied from node.admin.inc.
  *
@@ -210,8 +199,6 @@ function weight_node_selector($nid) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Implementation of hook_form_alter().
  *
  * This is where we tweak the admin/content/node to include our weight
@@ -221,7 +208,6 @@ function weight_node_selector($nid) {
 function weight_form_alter(&$form, $form_state, $form_id) {
   $weight_node_types = variable_get('weight_node_types', array_flip(node_get_types('names')));
 
-<<<<<<< HEAD
   // Node edit page weight selector.
   if (isset($form['type']) && $form['type']['#value'] .'_node_form' == $form_id) {
     $node = $form['#node'];
@@ -230,94 +216,34 @@ function weight_form_alter(&$form, $form_state, $form_id) {
         $range = variable_get('weight_range', 20);
         $position = variable_get('weight_position', 0);
         $default = variable_get('weight_default', 0);
-=======
-  $weight_node_type_names = array();
-  foreach ($weight_node_types as $type) {
-    $weight_node_type_names[] = node_get_types('name', $type);
-  }
-
-  if ($form_id == 'node_admin_content') {
-  // The admin node page does not use the nodeapi for getting lists of nodes, so
-  // I never have a chance to convert the sticky flag to 0/1. and trying to
-  // filter on that field will not work. Therefore, I am going to hide the
-  // 'filter on sticky status' altogether when weight_module is enabled
-    unset($form['filters']['status']['status']['#options']['sticky-1']);
-    unset($form['filters']['status']['status']['#options']['sticky-0']);
-
-    // I can't add a table header for weight, so instead I'm going to explain
-    // the weight dropdown to the user. Also, to position my help text
-    // appropriately, I'm using this '#suffix' hack rather than adding
-    // a form property as i'd like to do.
-    $form['admin']['options']['#suffix'] .= t('<strong>Weight:</strong> To change the weight of a node, select a value from the corresponding dropdown box under <i>Operations</i>. Node weights are submitted immediately. Selectors are only available for node types configured on the <a href="@weight_admin">weight admin page</a>.',
-      array('@weight_admin' => url('admin/settings/weight'))
-      );
-
-    // Add weight selector under the operations section of the admin node
-    // overview page (admin/content/node).
-    if (!empty($form['admin']['operations'])) {
-      foreach ($form['admin']['operations'] as $nid => $title) {
-        // only add weight selector if weight is enabled for this node type
-        if (in_array($form['admin']['name'][$nid]['#value'], $weight_node_type_names) ) {
-          $selector = weight_node_selector($nid);
-          $form['admin']['operations'][$nid]['#value'] .= ' '. $selector['selector'];
-          $form['admin']['status'][$nid]['#value'] .=  $selector['status'];
-        }
-      }
-    }
-  }
-
-  // Node edit page weight selector.
-  if (isset($form['type']) && $form['type']['#value'] .'_node_form' == $form_id) {
-    if (user_access('assign node weight') || user_access('administer nodes')) {
-      $node = $form['#node'];
-      if (in_array($node->type, $weight_node_types)) {
-        $range = variable_get('weight_range', 20);
-        $position = variable_get('weight_position', 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $where = 'weight_form';
 
         if ($position == 10 &&  user_access('administer nodes')) {
           // We will add it to the Workflow fieldset.
           $where = 'options';
-<<<<<<< HEAD
           $form['options']['#collapsed'] = (isset($node->node_weight) ? ($node->node_weight == 0) : FALSE);
-=======
-          $form['options']['#collapsed'] = ($node->node_weight == 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
         else {
           // Add the node weight selector fieldset.
           $form['weight_form'] = array(
             '#type' => 'fieldset',
-<<<<<<< HEAD
             '#title' => variable_get('weight_label', t('Node Weight')),
             '#collapsible' => TRUE,
             '#collapsed' => (isset($node->node_weight) ? ($node->node_weight == 0) : FALSE),
             '#group' => 'additional_settings',
             '#weight' => $position,
-=======
-            '#title' => t('Node Weight'),    
-            '#collapsible' => TRUE,    
-            '#collapsed' => ($node->node_weight == 0),    
-            '#weight' => $position,    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             );
         }
 
         $form[$where]['node_weight'] = array(
           '#type' => 'weight',
           '#title' => t('Weight'),
-<<<<<<< HEAD
           '#default_value' => (isset($node->node_weight) ? (int)$node->node_weight : $default),
-=======
-          '#default_value' => (int)$node->node_weight,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           '#delta' => $range,
           '#description' => t('In a node list context (such as the front page or term pages), list items (e.g. "teasers") will be ordered by "stickiness" then by "node weight" then by "authored on" datestamp. Items with a lower (lighter) node weight value will appear above those with a higher (heavier) value.'),
           );
 
         if (variable_get('weight_use_menu', FALSE)) {
-<<<<<<< HEAD
           $form[$where]['node_weight']['#description'] .= '<br /> '. t('<strong>Note</strong>: If this node is used in a menu, then this weight will be ignored.');
         }
       }
@@ -328,17 +254,10 @@ function weight_form_alter(&$form, $form_state, $form_id) {
         '#value' => (int)$node->node_weight,
         );
     }
-=======
-          $form['weight_form']['node_weight']['#description'] .= '<br /> '. t('<strong>Note</strong>: If this node is used in a menu, then this weight will be ignored.');
-        }
-      }
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_form_FORM_ID_alter().
  */
 function weight_form_node_admin_content_alter(&$form, $form_state) {
@@ -384,59 +303,11 @@ function weight_form_node_admin_content_alter(&$form, $form_state) {
       $form['admin']['weight'][$nid]['#value'] = '';
     }
   }
-=======
- * Generate JS code for selecting individual node weights on admin page
- */
-function weight_node_selector($nid) {
-  static $js_included;
-
-  if (!$js_included) {
-    $path = drupal_get_path('module', 'weight');
-    drupal_add_js($path .'/httpRequest.js', 'module', 'header', TRUE);
-    $js_included = TRUE;
-    drupal_add_css($path .'/weight.css');
-  }
-
-  $selector_template = "\n"."<select style=\"margin: 0;\"
-    onchange='httpRequest(\"GET\", \"" . base_path() .
-    "?q=admin/node/weight/_weight_change/\" + [NID] + \"/\" +
-    this.options[this.selectedIndex].value,true)' >";
-
-  $node = node_load($nid);
-
-  // Convert to our weight range.
-  $weight = $node->node_weight;
-
-  // ugly bit of javascript we use for each dropdown to submit weight changes
-  // in the background. Relies on even uglier httpRequest.js file that comes
-  // with this module. Ironically, Ajax makes me feel dirty.
-
-  $weight_range = variable_get('weight_range', 20);
-  for ($i = 0 - $weight_range; $i <= $weight_range; ++$i) {
-    $selector_template .= "<option value='$i'>$i</option>";
-  }
-  $selector_template .= '</select>';
-
-  $weight_selector = preg_replace("/(value='$weight')/", "$1 selected='selected'", $selector_template);
-  $weight_selector = preg_replace("/\[NID\]/", $nid, $weight_selector);
-
-  $status = NULL;
-  $status .= $node->sticky ? '<br />'. t('sticky') : NULL;
-  $status .= $node->promote ? '<br />'. t('promoted') : NULL;
-  $status .= $node->translate ? '<br />'. t('translate') : NULL;
-  $status .= $node->moderate ? '<br />'. t('moderated') : NULL;
-
-  return array(
-    'selector' => '<div class="weight-selector">'. $weight_selector .'</div>',
-    'status' => $status,
-    );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Ajax callback for weight manager page.
  */
-<<<<<<< HEAD
 function _weight_change($nid) {
   $form_state = array('storage' => NULL, 'rebuild' => TRUE);
   $form_build_id = $_POST['form_build_id'];
@@ -461,13 +332,6 @@ function _weight_change($nid) {
   $output = $form_state['post']['weight'][$nid];
   // Final rendering callback.
   drupal_json(array('status' => TRUE, 'data' => $output));
-=======
-function _weight_change($nid, $weight) {
-  // Doing it this way preserves the revision information.
-  $node = node_load($nid);
-  $node->node_weight = $weight;
-  node_save($node);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -478,22 +342,14 @@ function _weight_change($nid, $weight) {
  * unweighted sticky nodes will have a value of 100.
  */
 function _weight_encode(&$node) {
-<<<<<<< HEAD
   if ($node->sticky == 1) {
-=======
-  if ($node->sticky) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $node->sticky = 100 - $node->node_weight;
   }
   // Unweighted non-sticky nodes will have a value of -100.
   else {
-<<<<<<< HEAD
     if ($node->sticky == 0) {
       $node->sticky = -($node->node_weight + 100);
     }
-=======
-    $node->sticky = -($node->node_weight + 100);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -505,11 +361,7 @@ function _weight_decode(&$node) {
     $node->node_weight = 0;
     return;
   }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($node->sticky > 0) {
     $node->node_weight = 100 - $node->sticky;
     $node->sticky = 1;
@@ -528,11 +380,7 @@ function weight_views_api() {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_theme().
-=======
- * Implementation of hook_theme()
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function weight_theme() {
   return array(
@@ -540,7 +388,6 @@ function weight_theme() {
       'arguments' => array('form' => NULL),
       'template' => 'weight-view-weight-form',
     ),
-<<<<<<< HEAD
     'weight_node_admin_nodes' => array(
       'arguments' => array('form' => NULL),
     ),
@@ -548,12 +395,6 @@ function weight_theme() {
 }
 
 /**
-=======
-  );
-}
-
-/** 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Prepare the weight form for its template file.
  */
 function template_preprocess_weight_view_weight_form(&$vars) {
@@ -564,13 +405,8 @@ function template_preprocess_weight_view_weight_form(&$vars) {
   foreach ($vars['form']['rows'] as $count => $item) {
     if (is_numeric($count)) {
       foreach ($item as $field => $value) {
-<<<<<<< HEAD
         if (drupal_substr($field, 0, 1) != '#') {
           if (drupal_substr($field, 0, 6) == 'weight') {
-=======
-        if (substr($field, 0, 1) != '#') {
-          if (substr($field, 0, 6) == 'weight') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             $value['#attributes']['class'] = 'weight_dragger';
           }
           $vars['rows'][$count][$field] = drupal_render($value);
@@ -580,8 +416,4 @@ function template_preprocess_weight_view_weight_form(&$vars) {
   }
   unset($vars['form']['rows']);
   $vars['submit'] = drupal_render($vars['form']);
-<<<<<<< HEAD
 }
-=======
- }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

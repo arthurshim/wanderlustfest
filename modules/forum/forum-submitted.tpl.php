@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: forum-submitted.tpl.php,v 1.3 2007/08/07 08:39:35 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file forum-submitted.tpl.php

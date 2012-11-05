@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: devel_generate.drush.inc,v 1.1.2.14 2010/07/07 16:46:37 weitzman Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -108,11 +104,7 @@ function drush_devel_generate_generate_content($num_nodes = NULL, $max_comments 
   $add_language = drush_get_option('languages');
   if (!empty($add_language)) {
     $add_language = explode(',', str_replace(' ', '', $add_language));
-<<<<<<< HEAD
     // Intersect with the enabled languages to make sure the language args
-=======
-    // Intersect with the enabled languages to make sure the language args 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // passed are actually enabled.
     $values['values']['add_language'] = array_flip(array_intersect($add_language, array_keys(locale_language_list())));
   }
@@ -124,13 +116,8 @@ function drush_devel_generate_generate_content($num_nodes = NULL, $max_comments 
 
   session_save_session(FALSE);
   drush_generate_include_devel();
-<<<<<<< HEAD
 
   $values['values']['kill_content'] = drush_get_option('kill', FALSE);
-=======
-  
-  if (drush_get_option('kill')) $values['values']['kill_content'] = 1;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $values['values']['title_length'] = '8';
   $values['values']['num_nodes'] = $num_nodes;
   $values['values']['max_comments'] = $max_comments;

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagefield_file.inc,v 1.19 2010/02/28 16:21:01 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -28,7 +24,6 @@ function imagefield_file_delete($file) {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_file_references().
  */
 function imagefield_file_references($file) {
@@ -53,8 +48,6 @@ function imagefield_file_references($file) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Simple utility function to check if a file is an image.
  */
 function imagefield_file_is_image($file) {

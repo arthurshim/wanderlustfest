@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: session.inc,v 1.44.2.7 2010/03/04 00:15:28 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -20,12 +16,8 @@ function sess_close() {
 function sess_read($key) {
   global $user;
 
-<<<<<<< HEAD
   // Write and Close handlers are called after destructing objects
   // since PHP 5.0.5.
-=======
-  // Write and Close handlers are called after destructing objects since PHP 5.0.5
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Thus destructors can use sessions but session handler can't use objects.
   // So we are moving session closure before destructing objects.
   register_shutdown_function('session_write_close');
@@ -66,18 +58,10 @@ function sess_read($key) {
 function sess_write($key, $value) {
   global $user;
 
-<<<<<<< HEAD
   // If saving of session data is disabled, or if a new empty anonymous session
   // has been started, do nothing. This keeps anonymous users, including
   // crawlers, out of the session table, unless they actually have something
   // stored in $_SESSION.
-=======
-  // If saving of session data is disabled or if the client doesn't have a session,
-  // and one isn't being created ($value), do nothing. This keeps crawlers out of
-  // the session table. This reduces memory and server load, and gives more useful
-  // statistics. We can't eliminate anonymous session table rows without breaking
-  // the throttle module and the "Who's Online" block.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!session_save_session() || ($user->uid == 0 && empty($_COOKIE[session_name()]) && empty($value))) {
     return TRUE;
   }
@@ -101,31 +85,12 @@ function sess_write($key, $value) {
 
 /**
  * Called when an anonymous user becomes authenticated or vice-versa.
-<<<<<<< HEAD
  *
  * This backport obsoletes this function, but a call to the new function
  * is kept here to maximize API consistency.
  */
 function sess_regenerate() {
   drupal_session_regenerate();
-=======
- */
-function sess_regenerate() {
-  $old_session_id = session_id();
-
-  // We code around http://bugs.php.net/bug.php?id=32802 by destroying
-  // the session cookie by setting expiration in the past (a negative
-  // value).  This issue only arises in PHP versions before 4.4.0,
-  // regardless of the Drupal configuration.
-  // TODO: remove this when we require at least PHP 4.4.0
-  if (isset($_COOKIE[session_name()])) {
-    setcookie(session_name(), '', time() - 42000, '/');
-  }
-
-  session_regenerate_id();
-
-  db_query("UPDATE {sessions} SET sid = '%s' WHERE sid = '%s'", session_id(), $old_session_id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -152,7 +117,6 @@ function sess_count($timestamp = 0, $anonymous = true) {
  *   the session id
  */
 function sess_destroy_sid($sid) {
-<<<<<<< HEAD
   // Delete session data.
   db_query("DELETE FROM {sessions} WHERE sid = '%s'", $sid);
 
@@ -179,9 +143,6 @@ function sess_destroy_sid($sid) {
       unset($_COOKIE[session_name()]);
     }
   }
-=======
-  db_query("DELETE FROM {sessions} WHERE sid = '%s'", $sid);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -206,28 +167,8 @@ function sess_gc($lifetime) {
 }
 
 /**
-<<<<<<< HEAD
  * Renamed to drupal_save_session(). Stub kept here for API compatibility.
  */
 function session_save_session($status = NULL) {
   return drupal_save_session($status);
-=======
- * Determine whether to save session data of the current request.
- *
- * This function allows the caller to temporarily disable writing of session data,
- * should the request end while performing potentially dangerous operations, such as
- * manipulating the global $user object.  See http://drupal.org/node/218104 for usage
- *
- * @param $status
- *   Disables writing of session data when FALSE, (re-)enables writing when TRUE.
- * @return
- *   FALSE if writing session data has been disabled. Otherwise, TRUE.
- */
-function session_save_session($status = NULL) {
-  static $save_session = TRUE;
-  if (isset($status)) {
-    $save_session = $status;
-  }
-  return ($save_session);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

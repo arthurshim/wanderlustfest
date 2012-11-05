@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_style_rss.inc,v 1.2 2008/12/02 00:02:06 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the RSS style plugin.
@@ -53,11 +49,8 @@ class views_plugin_style_rss extends views_plugin_style {
   }
 
   function options_form(&$form, &$form_state) {
-<<<<<<< HEAD
     parent::options_form($form, $form_state);
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['mission_description'] = array(
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['mission_description']),
@@ -103,7 +96,6 @@ class views_plugin_style_rss extends views_plugin_style {
       }
     }
 
-<<<<<<< HEAD
     foreach ($this->view->result as $row_index => $row) {
       $this->view->row_index = $row_index;
       $rows .= $this->row_plugin->render($row);
@@ -113,12 +105,5 @@ class views_plugin_style_rss extends views_plugin_style {
     unset($this->view->row_index);
 
     return $output;
-=======
-    foreach ($this->view->result as $row) {
-      $rows .= $this->row_plugin->render($row);
-    }
-
-    return theme($this->theme_functions(), $this->view, $this->options, $rows);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }

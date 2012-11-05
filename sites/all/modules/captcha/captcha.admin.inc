@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
 // $Id: captcha.admin.inc,v 1.32.2.4 2010/12/01 00:14:55 soxofaan Exp $
 
 /**
  * @file
  * Functionality and helper functions for CAPTCHA administration.
  */
-=======
-// $Id: captcha.admin.inc,v 1.32 2009/10/27 16:11:17 soxofaan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Return an array with the available CAPTCHA types, for use as options array
@@ -41,11 +37,7 @@ function _captcha_available_challenge_types($add_special_options=TRUE) {
 /**
  * Form builder function for the general CAPTCHA configuration
  */
-<<<<<<< HEAD
 function captcha_admin_settings(&$form_state) {
-=======
-function captcha_admin_settings() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   module_load_include('inc', 'captcha');
 
   // Use javascript for some added usability on admin form.
@@ -82,15 +74,9 @@ function captcha_admin_settings() {
     );
     // Select widget for CAPTCHA type.
     if (isset($captcha_point->module) && $captcha_point->module) {
-<<<<<<< HEAD
       $captcha_type = $captcha_point->module .'/'. $captcha_point->captcha_type;
     }
     elseif ($captcha_point->captcha_type == 'default') {
-=======
-      $captcha_type = $captcha_point->module .'/'. $captcha_point->type;
-    }
-    elseif ($captcha_point->type == 'default') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $captcha_type = 'default';
     }
     else {
@@ -138,7 +124,6 @@ function captcha_admin_settings() {
     '#description' => t('This option makes it possible to add CAPTCHAs to forms on administrative pages. CAPTCHAs are disabled by default on administrative pages (which shouldn\'t be accessible to untrusted users normally) to avoid the related overhead. In some situations, e.g. in the case of demo sites, it can be usefull to allow CAPTCHAs on administrative pages.'),
   );
 
-<<<<<<< HEAD
   // Button for flushing the CAPTCHA placement cache.
   $form['captcha_form_protection']['captcha_placement_caching'] = array(
     '#type' => 'item',
@@ -159,8 +144,6 @@ function captcha_admin_settings() {
   }
 
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Configuration option for adding a CAPTCHA description.
   $form['captcha_add_captcha_description'] = array(
     '#type' => 'checkbox',
@@ -210,7 +193,6 @@ function captcha_admin_settings() {
   );
 
   // Field for CAPTCHA persistence.
-<<<<<<< HEAD
   // TODO for D7: Rethink/simplify the explanation and UI strings.
   $form['captcha_persistence'] = array(
     '#type' => 'radios',
@@ -227,18 +209,6 @@ function captcha_admin_settings() {
         t('Omit challenges on all forms once the user successfully responds to any challenge on the site.'),
     ),
     '#description' => t('Define if challenges should be omitted during the rest of a session once the user successfully responds to a challenge.'),
-=======
-  $form['captcha_persistence'] = array(
-    '#type' => 'radios',
-    '#title' => t('Persistence'),
-    '#default_value' => variable_get('captcha_persistence', CAPTCHA_PERSISTENCE_SHOW_ALWAYS),
-    '#options' => array(
-      CAPTCHA_PERSISTENCE_SHOW_ALWAYS => t('Always add a challenge.'),
-      CAPTCHA_PERSISTENCE_SKIP_ONCE_SUCCESSFUL_PER_FORM => t('Omit challenges for a form once the user has successfully responded to a challenge for that form.'),
-      CAPTCHA_PERSISTENCE_SKIP_ONCE_SUCCESSFUL => t('Omit challenges for all forms once the user has successfully responded to a challenge.'),
-    ),
-    '#description' => t('Define if challenges should be omitted during the rest of a session once the user successfully responses to a challenge.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   // Option for logging wrong responses.
@@ -388,11 +358,7 @@ function captcha_point_admin_form($form_state, $captcha_point_form_id=NULL) {
     );
     $captcha_point = captcha_get_form_id_setting($captcha_point_form_id);
     if ($captcha_point) {
-<<<<<<< HEAD
       $default_captcha_type = "{$captcha_point->module}/{$captcha_point->captcha_type}";
-=======
-      $default_captcha_type = "{$captcha_point->module}/{$captcha_point->type}";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   else {

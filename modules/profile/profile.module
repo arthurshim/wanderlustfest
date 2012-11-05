@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: profile.module,v 1.236.2.3 2009/01/12 10:09:19 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -568,11 +564,7 @@ function _profile_get_fields($category, $register = FALSE) {
   }
   else {
     // Use LOWER('%s') instead of PHP's strtolower() to avoid UTF-8 conversion issues.
-<<<<<<< HEAD
     $filters[] = "category = '%s'";
-=======
-    $filters[] = "LOWER(category) = LOWER('%s')";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $args[] = $category;
   }
   if (!user_access('administer users')) {

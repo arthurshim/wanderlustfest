@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: color.js,v 1.6 2007/09/12 18:29:32 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.behaviors.color = function (context) {
   // This behavior attaches by ID, so is only valid once on a page.

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: batch.inc,v 1.14.2.1 2010/08/06 11:52:19 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file Batch processing API for processes to run in multiple HTTP requests.
@@ -248,11 +244,7 @@ function _batch_process() {
       '@percentage' => $percentage,
       );
     $message = strtr($progress_message, $values) .'<br/>';
-<<<<<<< HEAD
     $message .= $task_message ? $task_message : '&nbsp;';
-=======
-    $message .= $task_message ? $task_message : '&nbsp';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return array($percentage, $message);
   }

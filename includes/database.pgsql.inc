@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: database.pgsql.inc,v 1.68.2.9 2010/05/28 15:02:16 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -131,20 +127,14 @@ function db_query($query) {
 /**
  * Helper function for db_query().
  */
-<<<<<<< HEAD
 function _db_query($query, $debug = 0, $slave = FALSE) {
   global $active_db, $active_slave_db, $last_result, $queries;
-=======
-function _db_query($query, $debug = 0) {
-  global $active_db, $last_result, $queries;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   if (variable_get('dev_query', 0)) {
     list($usec, $sec) = explode(' ', microtime());
     $timer = (float)$usec + (float)$sec;
   }
 
-<<<<<<< HEAD
   $sent_to_slave = FALSE;
   if (isset($active_slave_db) && $slave) {
     $last_result = pg_query($active_slave_db, $query);
@@ -153,9 +143,6 @@ function _db_query($query, $debug = 0) {
   else {
     $last_result = pg_query($active_db, $query);
   }
-=======
-  $last_result = pg_query($active_db, $query);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   if (variable_get('dev_query', 0)) {
     $bt = debug_backtrace();
@@ -163,7 +150,6 @@ function _db_query($query, $debug = 0) {
     list($usec, $sec) = explode(' ', microtime());
     $stop = (float)$usec + (float)$sec;
     $diff = $stop - $timer;
-<<<<<<< HEAD
     $queries[] = array($query, $diff, $sent_to_slave);
   }
 
@@ -175,13 +161,6 @@ function _db_query($query, $debug = 0) {
 
   if ($debug) {
     print '<p>query: '. $query .'<br />error:'. pg_last_error($active_last_db) .'</p>';
-=======
-    $queries[] = array($query, $diff);
-  }
-
-  if ($debug) {
-    print '<p>query: '. $query .'<br />error:'. pg_last_error($active_db) .'</p>';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   if ($last_result !== FALSE) {
@@ -190,11 +169,7 @@ function _db_query($query, $debug = 0) {
   else {
     // Indicate to drupal_error_handler that this is a database error.
     ${DB_ERROR} = TRUE;
-<<<<<<< HEAD
     trigger_error(check_plain(pg_last_error($active_last_db) ."\nquery: ". $query), E_USER_WARNING);
-=======
-    trigger_error(check_plain(pg_last_error($active_db) ."\nquery: ". $query), E_USER_WARNING);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return FALSE;
   }
 }
@@ -323,7 +298,6 @@ function db_query_range($query) {
 }
 
 /**
-<<<<<<< HEAD
  * Runs a limited-range query in the active slave database.
  *
  * Use this as a substitute for db_query_slave() when a subset of the query
@@ -369,8 +343,6 @@ function db_query_range_slave($query) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Runs a SELECT query and stores its results in a temporary table.
  *
  * Use this as a substitute for db_query() when the results need to stored
@@ -468,15 +440,12 @@ function db_unlock_tables() {
 
 /**
  * Check if a table exists.
-<<<<<<< HEAD
  *
  * @param $table
  *   The name of the table.
  *
  * @return
  *   TRUE if the table exists, and FALSE if the table does not exist.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function db_table_exists($table) {
   return (bool) db_result(db_query("SELECT COUNT(*) FROM pg_class WHERE relname = '{". db_escape_table($table) ."}'"));
@@ -484,7 +453,6 @@ function db_table_exists($table) {
 
 /**
  * Check if a column exists in the given table.
-<<<<<<< HEAD
  *
  * @param $table
  *   The name of the table.
@@ -493,8 +461,6 @@ function db_table_exists($table) {
  *
  * @return
  *   TRUE if the column exists, and FALSE if the column does not exist.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function db_column_exists($table, $column) {
   return (bool) db_result(db_query("SELECT COUNT(pg_attribute.attname) FROM pg_class, pg_attribute WHERE pg_attribute.attrelid = pg_class.oid AND pg_class.relname = '{". db_escape_table($table) ."}' AND attname = '". db_escape_table($column) ."'"));
@@ -748,20 +714,12 @@ function db_drop_table(&$ret, $table) {
  *   created field will be set to the value of the key in all rows.
  *   This is most useful for creating NOT NULL columns with no default
  *   value in existing tables.
-<<<<<<< HEAD
  * @param $new_keys
-=======
- * @param $keys_new
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   Optional keys and indexes specification to be created on the
  *   table along with adding the field. The format is the same as a
  *   table specification but without the 'fields' element.  If you are
  *   adding a type 'serial' field, you MUST specify at least one key
-<<<<<<< HEAD
  *   or index including it in this array. See db_change_field() for more
-=======
- *   or index including it in this array. @see db_change_field for more
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   explanation why.
  */
 function db_add_field(&$ret, $table, $field, $spec, $new_keys = array()) {

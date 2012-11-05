@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_equality.inc,v 1.2 2008/09/10 01:08:06 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Simple filter to handle equal to / not equal to filters
  */

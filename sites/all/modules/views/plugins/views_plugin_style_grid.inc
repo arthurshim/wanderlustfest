@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_style_grid.inc,v 1.1.4.1 2010/06/16 19:18:24 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the grid style plugin.
@@ -23,10 +19,7 @@ class views_plugin_style_grid extends views_plugin_style {
     $options['columns'] = array('default' => '4');
     $options['alignment'] = array('default' => 'horizontal');
     $options['fill_single_line'] = array('default' => TRUE);
-<<<<<<< HEAD
     $options['summary'] = array('default' => '');
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $options;
   }
@@ -55,7 +48,6 @@ class views_plugin_style_grid extends views_plugin_style {
       '#description' => t('If you disable this option a grid with only one row will have the amount of items as tds. If you disable it this can cause problems with your css.'),
       '#default_value' => !empty($this->options['fill_single_line']),
     );
-<<<<<<< HEAD
 
     $form['summary'] = array(
       '#type' => 'textfield',
@@ -63,8 +55,6 @@ class views_plugin_style_grid extends views_plugin_style {
       '#description' => t('This value will be displayed as table-summary attribute in the html. Set this for better accessiblity of your site.'),
       '#default_value' => $this->options['summary'],
     );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 

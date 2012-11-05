@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: devel_generate_batch.inc,v 1.1.2.5 2009/02/02 21:00:52 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Devel Generate batch handling functions using the BatchAPI

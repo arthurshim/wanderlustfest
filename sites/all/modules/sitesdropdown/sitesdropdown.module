@@ -1,7 +1,12 @@
 <?php
 
 function sitesdropdown_init() {
-  
+  /*global $user;
+   if($user->uid == 1) {
+   $current_site = sites_get_current_site();
+    drupal_set_message('<pre>' . print_r($current_site->sid, 1) . '</pre>');
+      
+ }*/
 }
 /*
  * Implementation of hook_block
@@ -130,16 +135,23 @@ function sitesdropdown_create_menu($reset = FALSE) {
   endif;
   
  //if(function_exists('sites_get_current_site')) {
-   $current_site = sites_get_current_site();
+ //  $current_site = sites_get_current_site();
 //  }
   
   //Sort sites by event date
   
   $sites = sitesdropdown_quicksort($sites);
+ 
+
   
   foreach($sites as $site) {
+
+
    if($site['extra_fields']['field_event_date'][0]['value'] && $site['status'] == 1 && $site['extra_fields']['field_event_hide'][0]['value'] == 'enabled'):
-	$item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';
+  
+
+  
+        $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
 	$item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
 	$item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_venue'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
 	$data[] = $item;
@@ -282,8 +294,10 @@ function sitesdropdown_site_id() {
 	  
 	// 
       $site = sitesdropdown_objectsIntoArray($node_res);
-	 //  print '<pre>'.print_r($site, TRUE).',/pre>';
-	  if($site['field_event_date'][0]['value']){
+      $current_site = sites_get_current_site();
+   
+	 
+		  if($site['field_event_date'][0]['value']){
 	   $item = '<div class="event-item">';
 	   $item .= '<div class="event-item-title">'.$site['title'].'</div>';
 	   $item .= '<div class="event-right"><div class="item-date">';
@@ -292,7 +306,19 @@ function sitesdropdown_site_id() {
 	   $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div>';
 	  }   
 	  else {
-	    $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div>';
+	    
+	    
+
+	    
+	    if($current_site->sid == 23) {
+	      
+	         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div>';
+	    }
+	    else {
+	       $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div>';
+	    }
+		 
+		 
 	   } 
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' <br /> '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
 	 }
@@ -318,7 +344,7 @@ function sitesdropdown_site_id() {
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' &middot; '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
 	 */
-	 return $item;
+	// return $item;
 	//}
 //  }	
 }
@@ -386,9 +412,14 @@ function sitesdropdown_menutop($reset = FALSE) {
 
 function sitesdropdown_menucreate($node) {
      
-	 
+	 	/*      global $user;
+		if($user->uid == 1) {
+	       
+		 print '<pre>' . print_r($node, 1) . '</pre>';
+		   
+	      }*/
 	  //$site = sitesdropdown_objectsIntoArray($node);
-	 
+	    $current_site = sites_get_current_site();
 	 //  print '<pre>'.print_r($site, TRUE).',/pre>';
 	  if($node->field_event_date[0]['value']  && $node->status == 1){
 	   $item = '<div class="event-item">';
@@ -402,7 +433,13 @@ function sitesdropdown_menucreate($node) {
 	   $item .= date('F j, Y', strtotime($node->field_event_date[0]['value'])).'</div>';
 	  }   
 	  else {
-	    $item .= date('F j -', strtotime($node->field_event_date[0]['value'])).' '.date('j, Y', strtotime($node->field_event_date[0]['value2'])).'</div>';
+	    
+	    if(in_array(23, $node->sites)) {
+              $item .= date('F j -', strtotime($node->field_event_date[0]['value'])).' '.date('F j', strtotime($node->field_event_date[0]['value2'])).'</div>';
+	      }
+            else {
+	     $item .= date('F j -', strtotime($node->field_event_date[0]['value'])).' '.date('j Y', strtotime($node->field_event_date[0]['value2'])).'</div>';
+             }
 	   } 
 	//   $item .= '<div class="event-item-address">'.$node->field_event_venue[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></div></a></div>';
 	   $item .= '<div class="event-item-address">'.$node->field_event_venue[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></div></a></div>';
@@ -421,38 +458,34 @@ function sitesdropdown_menucreate($node) {
 
 function sitesdropdown_homepage($reset = TRUE) {
   static $query0, $query3;
+	global $user;
   $current_site = sites_get_current_site();
   $sids = sites_taxonomy_get_tids_by_sid($current_site->sid);
   if (isset($_GET['demott'])) {
     echo "<pre>"; print_r($sids); die;
   }
   $sids = implode(',', $sids);
- if(isset($sid)) { 
-  if(!isset($query1) || $reset) {
-	  if (!$reset && ($cache = cache_get('sitesdd_query1'))) {
-		  $news_array = $cache->data;
-		  $query0 = $news_array;
-	  }
-	  else {
-  		$result1 = db_query("SELECT node.nid AS nid FROM node node LEFT JOIN content_field_feature_date cff ON node.nid = cff.nid LEFT JOIN term_node site ON site.nid = node.nid WHERE (node.type in ('news', 'videos', 'photos', 'blog')) AND node.status = 1 AND (cff.field_feature_date_value > NOW() || cff.field_feature_date_value IS NULL) AND (tid IN ($sids) OR tid = 33) 
- 					 ORDER BY cff.field_feature_date_value ASC, node.created DESC, RAND() LIMIT 0,12");
-        while($items = db_fetch_array($result1)) {
-	      $news[] = $items['nid'];  
+/*	if($user->uid == 1) {
+		print_r($sids);
+	}*/
+ //if(isset($sid)) { 
+  //if(!isset($query1) || $reset) {
+			
+			//removed from query: (tid IN ($sids) OR tid = 33)  and (cff.field_feature_date_value > NOW() || cff.field_feature_date_value IS NULL) AND
+  		$result1 = db_query("SELECT DISTINCT(node.nid) AS nid FROM node node LEFT JOIN content_field_feature_date cff ON node.nid = cff.nid LEFT JOIN term_node site ON site.nid = node.nid WHERE (node.type in ('news', 'videos', 'photos', 'blog')) AND node.status = 1 AND (site.tid IN ($sids) OR site.tid = 33) ORDER BY node.created DESC LIMIT 0,8");
+				
+      while($items = db_fetch_array($result1)) {
+			  $news[] = $items['nid'];  
   		}
 	   	foreach($news as $n) {
-		  $news_array[] = node_load($n);  
+		    $news_array[] = node_load($n);  
    		 }
   		cache_set('sitesdd_query1', $news_array);
 		$query0 = $news_array;
-      }
-    }
-  if(!isset($query3) || $reset) {
-    if (!$reset && ($cache = cache_get('sitesdd_query2'))) {
-	  $ad_array = $cache->data;
-	  $query3 = $ad_array;
-	}
-	else {
-      $result2 = db_query("SELECT node.nid AS nid, node_weight.sticky AS node_weight_sticky FROM node node  LEFT JOIN node node_weight ON node.nid = node_weight.nid LEFT JOIN term_node site ON site.nid = node.nid WHERE node.type in ('callouts')  AND node.status = 1 AND (tid IN($sids) OR tid = 33) ORDER BY node_weight_sticky DESC LIMIT 0,2;", $sids);
+     // }
+  //  }
+ //removed from query:  AND (tid IN($sids) OR tid = 33)
+      $result2 = db_query("SELECT node.nid AS nid, node_weight.sticky AS node_weight_sticky FROM node node  LEFT JOIN node node_weight ON node.nid = node_weight.nid LEFT JOIN term_node site ON site.nid = node.nid WHERE node.type in ('callouts')  AND node.status = 1 ORDER BY node_weight_sticky DESC LIMIT 0,2;", $sids);
       while($item = db_fetch_array($result2)) {
 	    $ads[] = $item['nid'];  
      }
@@ -463,9 +496,8 @@ function sitesdropdown_homepage($reset = TRUE) {
 	    cache_set('sitesdd_query2', $ad_array);
 	    $query3 = $ad_array;
 	    }
-      }
-	}
-}	
+  //    }
+	
 	$news_array = $query0;
     for($x = 0; $x < count($ad_array); $x++) {
 	  array_pop($news_array);  

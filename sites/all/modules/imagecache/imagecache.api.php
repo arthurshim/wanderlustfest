@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagecache.api.php,v 1.2 2009/02/17 21:36:18 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -65,7 +61,6 @@ function hook_imagecache_default_presets() {
     ),
   );
   return $presets;
-<<<<<<< HEAD
 }
 
 /**
@@ -105,6 +100,3 @@ function hook_imagecache_image_flush($derivative_path, $preset, $original_path) 
  */
 function hook_imagecache_preset_flush($presetdir, $preset) {
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

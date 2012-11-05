@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_boolean_operator.inc,v 1.6.2.2 2010/03/13 00:51:00 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Simple filter to handle matching of boolean values
  *
@@ -12,10 +8,7 @@
  *    - true-false: True/false (this is the default)
  *    - yes-no: Yes/No
  *    - on-off: On/Off
-<<<<<<< HEAD
  * - accept null: Treat a NULL value as false.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 class views_handler_filter_boolean_operator extends views_handler_filter {
   // exposed filter options
@@ -30,14 +23,10 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
     if (isset($this->definition['label'])) {
       $this->value_value = $this->definition['label'];
     }
-<<<<<<< HEAD
     if (isset($this->definition['accept null'])) {
       $this->accept_null = (bool) $this->definition['accept null'];
     }
     else if (isset($this->definition['accept_null'])) {
-=======
-    if (isset($this->definition['accept_null'])) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $this->accept_null = (bool) $this->definition['accept_null'];
     }
     $this->value_options = NULL;
@@ -109,7 +98,6 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
         $form_state['input'][$identifier] = $this->value;
       }
       // If we're configuring an exposed filter, add an <Any> option.
-<<<<<<< HEAD
       if (empty($form_state['exposed']) || !empty($this->options['optional'])) {
         $any_label = variable_get('views_exposed_filter_any_label', 'old_any') == 'old_any' ? '<Any>' : t('- Any -');
         if ($form['value']['#type'] != 'select') {
@@ -117,13 +105,6 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
         }
         $form['value']['#options'] = array('All' => $any_label) + $form['value']['#options'];
       }
-=======
-      $any_label = variable_get('views_exposed_filter_any_label', 'old_any') == 'old_any' ? '<Any>' : t('- Any -');
-      if ($form['value']['#type'] != 'select') {
-        $any_label = check_plain($any_label);
-      }
-      $form['value']['#options'] = array('All' => $any_label) + $form['value']['#options'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
@@ -166,16 +147,12 @@ class views_handler_filter_boolean_operator extends views_handler_filter {
       }
     }
     else {
-<<<<<<< HEAD
       if (!empty($this->definition['use equal'])) {
         $where .= '= 1';
       }
       else {
         $where .= '<> 0';
       }
-=======
-      $where .= '<> 0';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     $this->query->add_where($this->options['group'], $where);
   }

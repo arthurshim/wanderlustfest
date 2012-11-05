@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: token.rules.inc,v 1.1.2.5 2010/06/09 00:48:56 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Rules integration for the token module.
@@ -41,12 +37,9 @@ function token_rules_input_evaluator_prepare($string, $variables) {
       $used_vars[] = $name;
     }
   }
-<<<<<<< HEAD
   // Using ':global' instead of 'global' to avoid potential namespace conflicts
   // See http://drupal.org/node/932460#comment-3884866
   $used_vars[] = ':global';
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $used_vars ? $used_vars : NULL;
 }
 
@@ -64,7 +57,6 @@ function token_rules_input_evaluator_apply($text, $used_vars, &$state) {
   static $token_cache = array();
 
   if ($used_vars) {
-<<<<<<< HEAD
     $vars = rules_get_variables(drupal_map_assoc(array_diff($used_vars, array(':global'))), $state);
     if ($vars === FALSE) {
       //there not all needed variables available!
@@ -74,26 +66,12 @@ function token_rules_input_evaluator_apply($text, $used_vars, &$state) {
 
     foreach ($used_vars as $name) {
       $type = ($name == ':global') ? 'global' : _token_rules_map_type($state['variables'][$name]->info['type']);
-=======
-    $vars = rules_get_variables(drupal_map_assoc($used_vars), $state);
-    if (!$vars) {
-      //there not all needed variables available!
-      return FALSE;
-    }
-
-    foreach ($used_vars as $name) {
-      $type = _token_rules_map_type($state['variables'][$name]->info['type']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if ($type) {
         $token_id = _token_get_id($type, $vars[$name]);
         if (isset($token_cache[$token_id]) && $token_cache[$token_id] != $name) {
           // this is the same variable in another state
           // so we need to flush the token cache to get the fresh values
-<<<<<<< HEAD
           token_get_values('reset');
-=======
-          token_get_values('global', NULL, TRUE);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
 
         $text = token_replace($text, $type, $vars[$name], TOKEN_PREFIX. $name .':', TOKEN_SUFFIX);
@@ -122,11 +100,8 @@ function _token_rules_map_type($type) {
  */
 function token_rules_input_evaluator_help($variables) {
 
-<<<<<<< HEAD
   $variables[':global'] = array('type' => 'global', 'label' => t('global token'),);
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   foreach ($variables as $name => $info) {
     $type = _token_rules_map_type($info['type']);
     if ($type) {

@@ -1,24 +1,12 @@
-<<<<<<< HEAD
-=======
-; $Id: filefield.info,v 1.9 2009/04/01 08:57:49 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 name = FileField
 description = Defines a file field type.
 dependencies[] = content
 package = CCK
 core = 6.x
 php = 5.0
-<<<<<<< HEAD
 ; Information added by drupal.org packaging script on 2011-04-28
 version = "6.x-3.10"
 core = "6.x"
 project = "filefield"
 datestamp = "1303970816"
-=======
-; Information added by drupal.org packaging script on 2010-07-01
-version = "6.x-3.7"
-core = "6.x"
-project = "filefield"
-datestamp = "1277943012"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 

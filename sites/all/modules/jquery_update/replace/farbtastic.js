@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // $Id: farbtastic.js,v 1.2 2008/11/19 03:12:46 mfer Exp $
-=======
-// $Id: farbtastic.js,v 1.1 2008/06/15 04:07:15 webchick Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 // Farbtastic 1.2
 
 jQuery.fn.farbtastic = function (callback) {
@@ -105,59 +101,8 @@ jQuery._farbtastic = function (container, callback) {
    * of the widget.
    */
   fb.widgetCoords = function (event) {
-<<<<<<< HEAD
     var offset = $(fb.wheel).offset();
     return { x: (event.pageX - offset.left) - fb.width / 2, y: (event.pageY - offset.top) - fb.width / 2 };
-=======
-    var x, y;
-    var el = event.target || event.srcElement;
-    var reference = fb.wheel;
-    
-    // If the offset from the relative element is undefined calculate it.
-    if ( typeof event.offsetX == 'undefined' && typeof event.offsetY == 'undefined' ) {
-      var offset = $(event.target).offset(false);
-      event.offsetX = event.pageX - offset.left;
-      event.offsetY = event.pageY - offset.top;
-    }
-    
-    // Use offset coordinates and find common offsetParent
-    var pos = { x: event.offsetX, y: event.offsetY };
-
-    // Send the coordinates upwards through the offsetParent chain.
-    var e = el;
-    while (e) {
-      e.mouseX = pos.x;
-      e.mouseY = pos.y;
-      pos.x += e.offsetLeft;
-      pos.y += e.offsetTop;
-      e = e.offsetParent;
-    }
-
-    // Look for the coordinates starting from the wheel widget.
-    var e = reference;
-    var offset = { x: 0, y: 0 };
-    while (e) {
-      if (typeof e.mouseX != 'undefined') {
-        x = e.mouseX - offset.x;
-        y = e.mouseY - offset.y;
-        break;
-      }
-      offset.x += e.offsetLeft;
-      offset.y += e.offsetTop;
-      e = e.offsetParent;
-    }
-
-    // Reset stored coordinates
-    e = el;
-    while (e) {
-      e.mouseX = undefined;
-      e.mouseY = undefined;
-      e = e.offsetParent;
-    }
-
-    // Subtract distance to middle
-    return { x: x - fb.width / 2, y: y - fb.width / 2 };
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   };
 
   /**
@@ -321,8 +266,4 @@ jQuery._farbtastic = function (container, callback) {
   if (callback) {
     fb.linkTo(callback);
   }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

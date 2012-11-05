@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_argument.inc,v 1.9.2.2 2010/03/12 21:25:33 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @defgroup views_argument_handlers Handlers for arguments
@@ -200,11 +196,7 @@ class views_handler_argument extends views_handler {
       '#default_value' => $this->options['validate_type'],
     );
 
-<<<<<<< HEAD
     $validate_types = array('none' => t('- Basic validation -'));
-=======
-    $validate_types = array('none' => t('<Basic validation>'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $plugins = views_fetch_plugin_data('argument validator');
     foreach ($plugins as $id => $info) {
       if (!empty($info['no ui'])) {

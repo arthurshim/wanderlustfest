@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Hungarian translation of Date (6.x-2.6)
 # Copyright (c) 2010 by the Hungarian translation team
 #
@@ -7,16 +6,6 @@ msgstr ""
 "Project-Id-Version: Date (6.x-2.6)\n"
 "POT-Creation-Date: 2010-10-11 14:15+0000\n"
 "PO-Revision-Date: 2010-10-11 14:12+0000\n"
-=======
-# Hungarian translation of Date (6.x-2.4)
-# Copyright (c) 2009 by the Hungarian translation team
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Date (6.x-2.4)\n"
-"POT-Creation-Date: 2009-11-10 14:25+0000\n"
-"PO-Revision-Date: 2009-11-05 15:36+0000\n"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -110,19 +99,11 @@ msgstr "Érvénytelen naptárfájl."
 msgid "!day-name Sunday|Monday|Tuesday|Wednesday|Thursday|Friday|Saturday"
 msgstr "!day-name vasárnap|hétfő|kedd|szerda|csütörtök|péntek|szombat"
 msgid "!day-abbreviation Sun|Mon|Tue|Wed|Thu|Fri|Sat"
-<<<<<<< HEAD
 msgstr "!day-abbreviation vas.|hét.|ked.|sze.|csü.|pén.|szo."
 msgid "!day-abbreviation S|M|T|W|T|F|S"
 msgstr "!day-abbreviation V|H|K|SZ|CS|P|SZ"
 msgid "!day-abbreviation SU|MO|TU|WE|TH|FR|SA"
 msgstr "!day-abbreviation V|H|K|SZE|CS|P|SZO"
-=======
-msgstr "!day-abbreviation Vas.|Hét.|Ked.|Sze.|Csü.|Pén.|Szo."
-msgid "!day-abbreviation S|M|T|W|T|F|S"
-msgstr "!day-abbreviation V|H|K|SZ|CS|P|SZ"
-msgid "!day-abbreviation SU|MO|TU|WE|TH|FR|SA"
-msgstr "!day-abbreviation VA|HÉ|KE|SZE|CS|PÉ|SZO"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "!ampm-abbreviation am|pm|AM|PM"
 msgstr "!ampm-abbreviation de.|du.|DE.|DU."
 msgid "!datetime Year|Month|Day|Week|Hour|Minute|Second|All Day|All day"
@@ -150,11 +131,7 @@ msgstr ""
 msgid "!month-abbreviation |Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
 msgstr ""
 "!month-abbreviation "
-<<<<<<< HEAD
 "|Jan|Feb|Már|Ápr|Máj|Jún|Júl|Aug|Szep|Okt|Nov|Dec"
-=======
-"|jan.|feb.|már.|ápr.|máj.|jún.|júl.|aug.|szept.|okt.|nov.|dec."
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Allow users to configure date formats"
 msgstr ""
 "Lehetővé teszi a felhasználók számára a dátumformátumok "
@@ -206,7 +183,6 @@ msgid ""
 msgstr ""
 "A <em>Date API</em> modulhoz szükséges a <a href=\"@link\"><em>Date "
 "PHP4</em> modul</a> az 5.2 alatti PHP változatoknál."
-<<<<<<< HEAD
 msgid "Use ISO-8601 week numbers"
 msgstr "A hetek számozása ISO-8601 szerint"
 msgid "IMPORTANT! If checked, First day of week MUST be set to Monday"
@@ -219,5 +195,3 @@ msgid ""
 msgstr ""
 "Ha a hetek számozása ISO-8601 szerint történik, akkor a hét első "
 "napját hétfőre kell állítani."
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: weight.install,v 1.2.2.1 2009/01/26 00:28:54 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 // Author: Harry Slaughter <harry@devbee.com>
 /**
  * @file

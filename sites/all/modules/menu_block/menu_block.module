@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu_block.module,v 1.69.2.1 2010/03/24 12:13:01 johnalbin Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provides configurable blocks of menu items.
@@ -131,7 +126,6 @@ function menu_block_get_all_menus() {
   static $all_menus;
 
   if (!$all_menus) {
-<<<<<<< HEAD
     if ($cached = cache_get('menu_block_menus', 'cache_menu')) {
       $all_menus = $cached->data;
     }
@@ -149,18 +143,6 @@ function menu_block_get_all_menus() {
       asort($all_menus);
       cache_set('menu_block_menus', $all_menus, 'cache_menu');
     }
-=======
-    // Include book support.
-    if (module_exists('book')) {
-      module_load_include('inc', 'menu_block', 'menu_block.book');
-    }
-    // We're generalizing menu's menu_get_menus() by making it into a hook.
-    // Retrieve all the menu names provided by hook_get_menus().
-    $all_menus = module_invoke_all('get_menus');
-    // Add an option to use the menu for the active menu item.
-    $all_menus[MENU_TREE__CURRENT_PAGE_MENU] = '<' . t('the menu selected by the page') . '>';
-    asort($all_menus);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   return $all_menus;
 }
@@ -263,7 +245,6 @@ function menu_tree_build($config) {
     // Retrieve the list of available menus.
     $menu_order = variable_get('menu_block_menu_order', array('primary-links' => '', 'secondary-links' => ''));
 
-<<<<<<< HEAD
     // Check for regular expressions as menu keys.
     $patterns = array();
     foreach (array_keys($menu_order) as $pattern) {
@@ -272,8 +253,6 @@ function menu_tree_build($config) {
       }
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Retrieve all the menus containing a link to the current page.
     $result = db_query("SELECT menu_name FROM {menu_links} WHERE link_path = '%s'", $_GET['q'] ? $_GET['q'] : '<front>');
     while ($item = db_fetch_array($result)) {
@@ -282,7 +261,6 @@ function menu_tree_build($config) {
         // Mark the menu.
         $menu_order[$item['menu_name']] = MENU_TREE__CURRENT_PAGE_MENU;
       }
-<<<<<<< HEAD
       else {
         // Check if the menu matches one of the available patterns.
         foreach (array_keys($patterns) as $pattern) {
@@ -301,11 +279,6 @@ function menu_tree_build($config) {
     if (!empty($patterns[$config['menu_name']])) {
       $config['menu_name'] = $patterns[$config['menu_name']];
     }
-=======
-    }
-    // Find the first marked menu.
-    $config['menu_name'] = array_search(MENU_TREE__CURRENT_PAGE_MENU, $menu_order);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $config['parent_mlid'] = 0;
 
     // If no menu link was found, don't display the block.
@@ -377,11 +350,7 @@ function menu_tree_build($config) {
   $data['content'] = menu_block_tree_output($tree, $config);
   if ($data['content']) {
     $hooks = array();
-<<<<<<< HEAD
     $hooks[] = 'menu_block_wrapper__' . str_replace('-', '_', $config['delta']);
-=======
-    $hooks[] = 'menu_block_wrapper__' . $config['delta'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $hooks[] = 'menu_block_wrapper__' . str_replace('-', '_', $config['menu_name']);
     $hooks[] = 'menu_block_wrapper';
     $data['content'] = theme($hooks, $data['content'], $config, $config['delta']);
@@ -418,11 +387,7 @@ function menu_block_get_title($render_title_as_link = TRUE, $config = array()) {
     }
     $hooks = array();
     if (!empty($config['delta'])) {
-<<<<<<< HEAD
       $hooks[] = 'menu_item_link__menu_block__' . str_replace('-', '_', $config['delta']);
-=======
-      $hooks[] = 'menu_item_link__menu_block__' . $config['delta'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     $hooks[] = 'menu_item_link__menu_block__' . str_replace('-', '_', $menu_item['menu_name']);
     $hooks[] = 'menu_item_link__menu_block';
@@ -656,11 +621,7 @@ function menu_block_tree_output(&$tree, $config = array()) {
     $menu_item = current($tree);
     $config['menu_name'] = $menu_item['link']['menu_name'];
   }
-<<<<<<< HEAD
   $hook_delta = str_replace('-', '_', $config['delta']);
-=======
-  $hook_delta = $config['delta'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $hook_menu_name = str_replace('-', '_', $config['menu_name']);
 
   // Pull out just the menu items we are going to render so that we

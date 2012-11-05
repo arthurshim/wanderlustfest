@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: search.module,v 1.250.2.11 2010/08/06 11:18:01 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -914,11 +910,7 @@ function _search_parse_query(&$word, &$scores, $not = FALSE) {
  *              Default: 'ORDER BY score DESC'
  *
  * @return
-<<<<<<< HEAD
  *   An array of objects for the search results.
-=======
- *   An array of SIDs for the search results.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  * @ingroup search
  */
@@ -1025,11 +1017,7 @@ function search_get_keys() {
  * @param $prompt
  *   A piece of text to put before the form (e.g. "Enter your keywords")
  * @return
-<<<<<<< HEAD
  *   A Form API array for the search form.
-=======
- *   An HTML string containing the search form.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function search_form(&$form_state, $action = '', $keys = '', $type = NULL, $prompt = NULL) {
 

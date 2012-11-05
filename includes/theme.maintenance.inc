@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: theme.maintenance.inc,v 1.10.2.2 2010/03/04 00:15:28 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -237,17 +233,10 @@ function template_preprocess_maintenance_page(&$variables) {
 
   // Construct page title
   if (drupal_get_title()) {
-<<<<<<< HEAD
     $head_title = array(strip_tags(drupal_get_title()), variable_get('site_name', 'Pressflow'));
   }
   else {
     $head_title = array(variable_get('site_name', 'Pressflow'));
-=======
-    $head_title = array(strip_tags(drupal_get_title()), variable_get('site_name', 'Drupal'));
-  }
-  else {
-    $head_title = array(variable_get('site_name', 'Drupal'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (variable_get('site_slogan', '')) {
       $head_title[] = variable_get('site_slogan', '');
     }
@@ -267,11 +256,7 @@ function template_preprocess_maintenance_page(&$variables) {
   $variables['primary_links']     = array();
   $variables['secondary_links']   = array();
   $variables['search_box']        = '';
-<<<<<<< HEAD
   $variables['site_name']         = (theme_get_setting('toggle_name') ? variable_get('site_name', 'Pressflow') : '');
-=======
-  $variables['site_name']         = (theme_get_setting('toggle_name') ? variable_get('site_name', 'Drupal') : '');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $variables['site_slogan']       = (theme_get_setting('toggle_slogan') ? variable_get('site_slogan', '') : '');
   $variables['css']               = drupal_add_css();
   $variables['styles']            = drupal_get_css();

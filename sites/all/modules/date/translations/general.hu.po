@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Hungarian translation of Date (6.x-2.6)
 # Copyright (c) 2010 by the Hungarian translation team
 #
@@ -7,16 +6,6 @@ msgstr ""
 "Project-Id-Version: Date (6.x-2.6)\n"
 "POT-Creation-Date: 2010-10-11 14:15+0000\n"
 "PO-Revision-Date: 2010-04-08 17:43+0000\n"
-=======
-# Hungarian translation of Date (6.x-2.4)
-# Copyright (c) 2009 by the Hungarian translation team
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: Date (6.x-2.4)\n"
-"POT-Creation-Date: 2009-11-10 14:25+0000\n"
-"PO-Revision-Date: 2009-11-05 15:35+0000\n"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 "Language-Team: Hungarian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -27,22 +16,16 @@ msgid "Cancel"
 msgstr "Mégsem"
 msgid "Remove"
 msgstr "Eltávolítás"
-<<<<<<< HEAD
 msgid "Yes"
 msgstr "Igen"
 msgid "No"
 msgstr "Nem"
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Date"
 msgstr "Dátum"
 msgid "This action cannot be undone."
 msgstr "A művelet nem vonható vissza."
-<<<<<<< HEAD
 msgid "Import"
 msgstr "Import"
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Save"
 msgstr "Mentés"
 msgid "Text"
@@ -51,20 +34,14 @@ msgid "Configuration saved."
 msgstr "A beállítások el lettek mentve."
 msgid "OR"
 msgstr "VAGY"
-<<<<<<< HEAD
 msgid "Calendar"
 msgstr "Naptár"
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Method"
 msgstr "Mód"
 msgid "Now"
 msgstr "Most"
-<<<<<<< HEAD
 msgid "Change"
 msgstr "Változtat"
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Date/Time"
 msgstr "Dátum/Idő"
 msgid "Granularity"
@@ -73,11 +50,8 @@ msgid "To date"
 msgstr "Záró dátum"
 msgid "From date"
 msgstr "Kezdő dátum"
-<<<<<<< HEAD
 msgid "Date field"
 msgstr "Dátummező"
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 msgid "Date API"
 msgstr "Date API"
 msgid "AND"

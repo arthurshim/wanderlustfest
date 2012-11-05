@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu-block-wrapper.tpl.php,v 1.8 2010/03/17 06:30:20 johnalbin Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Default theme implementation to wrap menu blocks.

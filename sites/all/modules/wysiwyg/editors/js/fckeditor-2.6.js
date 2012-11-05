@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: fckeditor-2.6.js,v 1.16.2.3 2010/02/13 23:58:41 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 (function($) {
 
 /**
@@ -46,7 +42,6 @@ Drupal.wysiwyg.editor.detach.fckeditor = function(context, params) {
     // deepest. Its parent is the iFrame containing the editor.
     var instanceScope = instance.EditingArea.Window.parent;
     instanceScope.FCKTools.RemoveEventListener(instance.GetParentForm(), 'submit', instance.UpdateLinkedField); 
-<<<<<<< HEAD
     // Run cleanups before forcing an unload of the iFrames or IE crashes.
     // This also deletes the instance from the FCKeditorAPI.__Instances array.
     instanceScope.FCKTools.RemoveEventListener(instanceScope, 'unload', instanceScope.FCKeditorAPI_Cleanup);
@@ -60,13 +55,6 @@ Drupal.wysiwyg.editor.detach.fckeditor = function(context, params) {
     $('#' + instanceName + '___Config').remove();
     $('#' + instanceName + '___Frame').remove();
     $('#' + instanceName).show();
-=======
-    // Remove the editor instance.
-    $('#' + instanceName + '___Config').remove();
-    $('#' + instanceName + '___Frame').remove();
-    $('#' + instanceName).show();
-    delete instance;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 };
 
@@ -86,19 +74,12 @@ Drupal.wysiwyg.editor.instance.fckeditor = {
       // Called from SetData() with stripped comments/scripts, revert those
       // manipulations and attach Drupal plugins.
       var data = instance.FCKConfig.ProtectedSource.Revert(data);
-<<<<<<< HEAD
       if (Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat] && Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
         for (var plugin in Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
           if (typeof Drupal.wysiwyg.plugins[plugin].attach == 'function') {
             data = Drupal.wysiwyg.plugins[plugin].attach(data, Drupal.settings.wysiwyg.plugins.drupal[plugin], instance.FCK.Name);
             data = Drupal.wysiwyg.editor.instance.fckeditor.prepareContent(data);
           }
-=======
-      for (var plugin in Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
-        if (typeof Drupal.wysiwyg.plugins[plugin].attach == 'function') {
-          data = Drupal.wysiwyg.plugins[plugin].attach(data, Drupal.settings.wysiwyg.plugins.drupal[plugin], instance.FCK.Name);
-          data = Drupal.wysiwyg.editor.instance.fckeditor.prepareContent(data);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
       }
       // Re-protect the source and use the original data processor to convert it
@@ -111,17 +92,11 @@ Drupal.wysiwyg.editor.instance.fckeditor = {
       // Called from GetData(), convert the content's DOM into a XHTML string
       // using the original data processor and detach Drupal plugins.
       var data = instance.FCKDataProcessor.prototype.ConvertToDataFormat.call(this, rootNode, excludeRoot, ignoreIfEmptyParagraph, format);
-<<<<<<< HEAD
       if (Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat] && Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
         for (var plugin in Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
           if (typeof Drupal.wysiwyg.plugins[plugin].detach == 'function') {
             data = Drupal.wysiwyg.plugins[plugin].detach(data, Drupal.settings.wysiwyg.plugins.drupal[plugin], instance.FCK.Name);
           }
-=======
-      for (var plugin in Drupal.settings.wysiwyg.plugins[instance.wysiwygFormat].drupal) {
-        if (typeof Drupal.wysiwyg.plugins[plugin].detach == 'function') {
-          data = Drupal.wysiwyg.plugins[plugin].detach(data, Drupal.settings.wysiwyg.plugins.drupal[plugin], instance.FCK.Name);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
       }
       return data;
@@ -159,13 +134,10 @@ Drupal.wysiwyg.editor.instance.fckeditor = {
           return FCK_TRISTATE_DISABLED;
         }
         var state = instance.FCK.GetNamedCommandState(this.Name);
-<<<<<<< HEAD
         // FCKeditor sets the wrong state in WebKit browsers.
         if (!$.support.queryCommandEnabled && state == FCK_TRISTATE_DISABLED) {
           state = FCK_TRISTATE_OFF;
         }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         if (state == FCK_TRISTATE_OFF && instance.FCK.EditMode == FCK_EDITMODE_WYSIWYG) {
           if (typeof Drupal.wysiwyg.plugins[plugin].isNode == 'function') {
             var node = instance.FCKSelection.GetSelectedElement();

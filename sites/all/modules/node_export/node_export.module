@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: node_export.module,v 1.1.2.33 2010/12/01 00:57:31 danielb Exp $
-=======
-// $Id: node_export.module,v 1.1.2.21 2010/02/24 23:28:07 danielb Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -51,11 +47,7 @@ function node_export_menu() {
     'access callback' => 'node_export_access',
     'access arguments' => array(1),
     'page callback' => 'node_export_node_export',
-<<<<<<< HEAD
     'page arguments' => array(1, 3),
-=======
-    'page arguments' => array(1),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'title' => 'Export',
     'weight' => 5,
     'type' => MENU_LOCAL_TASK,
@@ -146,11 +138,7 @@ function node_export_node_operations() {
 /**
  * Callback for 'node_export' node operation.
  */
-<<<<<<< HEAD
 function node_export_node_bulk($nids, $return_code = FALSE, $format = NULL) {
-=======
-function node_export_node_bulk($nids, $return_code = FALSE) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   $nodes = array();
   foreach ($nids as $nid) {
@@ -160,7 +148,6 @@ function node_export_node_bulk($nids, $return_code = FALSE) {
   // Let other modules do special fixing up.
   // The function signature is: hook_node_export_node_bulk_alter(&$nodes, $op).
   // Where $op is 'export'.
-<<<<<<< HEAD
   drupal_alter('node_export_node_bulk', $nodes, 'export', $format);
 
   // Allow other modules to take over this entire process. Typically the module
@@ -177,16 +164,6 @@ function node_export_node_bulk($nids, $return_code = FALSE) {
     $node_code = "array(\n  ". implode(",\n  ", $node_codes) .",\n)";
   }
 
-=======
-  drupal_alter('node_export_node_bulk', $nodes, 'export');
-
-  $node_codes = array();
-  foreach ($nodes as $node) {
-    $node_codes[] = node_export_node_export($node, TRUE, 1);
-  }
-
-  $node_code = "array(\n  ". implode(",\n  ", $node_codes) .",\n)";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($return_code) {
     return $node_code;
   }
@@ -290,7 +267,6 @@ function node_export_settings() {
     '#type' => 'fieldset',
     '#title' => t('General settings'),
   );
-<<<<<<< HEAD
 
   $format_handlers = node_export_format_handlers();
   if (!empty($format_handlers)) {
@@ -306,8 +282,6 @@ function node_export_settings() {
     );
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['basic']['node_export_method'] = array(
     '#type' => 'radios',
     '#title' => t('Method to use when importing a node'),
@@ -411,15 +385,10 @@ function node_export_settings() {
 /**
  *  Exports a node - populate a node code form
  *  set $return_code to TRUE to not return form but the code instead.
-<<<<<<< HEAD
  *  set $format to some string if encoding should be handled by some module that
  *  will recognise the string.
  */
 function node_export_node_export($original_node, $return_code = FALSE, $iteration = 0, $format = NULL) {
-=======
- */
-function node_export_node_export($original_node, $return_code = FALSE, $iteration = 0) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (isset($original_node->nid)) {
     global $user;
 
@@ -456,14 +425,9 @@ function node_export_node_export($original_node, $return_code = FALSE, $iteratio
       // Let other modules do special fixing up.
       // The function signature is: hook_node_export_node_alter(&$node, $original_node, $method)
       // Where $method is 'export'
-<<<<<<< HEAD
       drupal_alter('node_export_node', $node, $original_node, 'export', $format);
       $node = node_export_remove_recursion($node);
       $node_code = node_export_node_encode($node, $iteration, $format);
-=======
-      drupal_alter('node_export_node', $node, $original_node, 'export');
-      $node_code = node_export_node_encode($node, $iteration);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if ($return_code) {
         return $node_code;
       }
@@ -555,10 +519,7 @@ function node_export_theme() {
  */
 function node_export_import($node_code, $method = NULL, $redirect = TRUE, $msg_func = 'drupal_set_message', $msg_t = 't') {
   $import = node_export_node_decode($node_code);
-<<<<<<< HEAD
   $import = node_export_restore_recursion($import);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $types_exist = node_export_import_types_check($import);
   if ($types_exist) {
     $count = 0;
@@ -598,10 +559,7 @@ function node_export_import($node_code, $method = NULL, $redirect = TRUE, $msg_f
         if ($redirect) {
           drupal_goto('node/'. $new_nid .'/edit');
         }
-<<<<<<< HEAD
         return TRUE;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
       else if ($method == 'prepopulate') {
         include_once(drupal_get_path('module', 'node') .'/node.pages.inc');
@@ -667,11 +625,7 @@ function node_export_import_form($form_state) {
   );
   $form['upload']['file'] = array(
     '#type' => 'file',
-<<<<<<< HEAD
     '#description' => t('To clear this field, <a href="@reset">reset the form</a>.', array('@reset' => url($_GET['q'])))
-=======
-    '#description' => t('To clear this field, <a href="@reset">reset the form</a>.', array('@reload' => url($_GET['q'])))
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
   $form['paste'] = array(
     '#type' => 'fieldset',
@@ -882,13 +836,10 @@ function node_export_node_clone($original_node, $mode) {
     if (variable_get('node_export_reset_path_'. $node->type, TRUE)) {
       $node->path = NULL;
     }
-<<<<<<< HEAD
     elseif (module_exists('pathauto')) {
       // Prevent pathauto from creating a new path alias.
       $node->pathauto_perform_alias = FALSE;
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     if (variable_get('node_export_reset_book_mlid_'. $node->type, TRUE) && isset($node->book['mlid'])) {
       $node->book['mlid'] = NULL;
@@ -915,7 +866,6 @@ function node_export_node_clone($original_node, $mode) {
 /**
  * Build node code string recursively
  */
-<<<<<<< HEAD
 function node_export_node_encode($var, $iteration = 0, $format = NULL) {
 
   // Allow other modules to take over this entire process before the first
@@ -930,9 +880,6 @@ function node_export_node_encode($var, $iteration = 0, $format = NULL) {
   }
 
   // Default node encoding.
-=======
-function node_export_node_encode($var, $iteration = 0) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $tab = '';
   for ($i = 0; $i < $iteration; $i++) {
     $tab = $tab ."  ";
@@ -947,11 +894,7 @@ function node_export_node_encode($var, $iteration = 0) {
     $code = "array(". ($empty ? '' : "\n");
     foreach ($var as $key => $value) {
       $out = $tab ."  '". $key ."' => ". node_export_node_encode($value, $iteration) .",\n";
-<<<<<<< HEAD
       drupal_alter('node_export_node_encode_line', $out, $tab, $key, $value, $iteration);
-=======
-      drupal_alter('node_export_node_encode', $out, $tab, $key, $value, $iteration);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $code .= $out;
     }
     $code .= ($empty ? '' : $tab) .")";
@@ -959,12 +902,8 @@ function node_export_node_encode($var, $iteration = 0) {
   }
   else {
     if (is_string($var)) {
-<<<<<<< HEAD
       // Escape single quotes so we don't accidentally exit the string.
       return "'". strtr($var, array("'" => "\\'")) ."'";
-=======
-      return "'". addslashes($var) ."'";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     elseif (is_numeric($var)) {
       return $var;
@@ -982,7 +921,6 @@ function node_export_node_encode($var, $iteration = 0) {
  * Evaluate and return decoded string.
  */
 function node_export_node_decode($string) {
-<<<<<<< HEAD
 
   // Allow other modules to take over this entire process.
   $return = FALSE;
@@ -992,8 +930,6 @@ function node_export_node_decode($string) {
   }
 
   // Default node decoding.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $array = eval('return '. $string .';');
   $return = node_export_node_decode_objects($array);
   return $return;
@@ -1007,12 +943,6 @@ function node_export_node_decode_objects($array) {
     if (is_array($v)) {
       $array[$k] = node_export_node_decode_objects($v);
     }
-<<<<<<< HEAD
-=======
-    if (is_string($v)) {
-      $array[$k] = stripslashes($v);
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   if ($array['#_export_node_encode_object']) {
     unset($array['#_export_node_encode_object']);
@@ -1055,7 +985,6 @@ function node_export_get_menu($node) {
   }
 
 }
-<<<<<<< HEAD
 
 
 /**
@@ -1123,5 +1052,3 @@ function node_export_format_handlers() {
   }
   return $format_handlers;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: system.views.inc,v 1.7 2008/09/03 19:21:29 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  *
@@ -172,7 +168,6 @@ function system_views_data() {
     ),
   );
 
-<<<<<<< HEAD
   // uid field
   $data['files']['uid'] = array(
     'title' => t('User'),
@@ -185,8 +180,6 @@ function system_views_data() {
     ),
   );
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $data;
 }

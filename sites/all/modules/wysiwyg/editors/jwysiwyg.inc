@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: jwysiwyg.inc,v 1.4 2009/06/09 00:18:11 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -51,12 +47,9 @@ function wysiwyg_jwysiwyg_editor() {
  */
 function wysiwyg_jwysiwyg_version($editor) {
   $script = $editor['library path'] . '/jquery.wysiwyg.js';
-<<<<<<< HEAD
   if (!file_exists($script)) {
     return;
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $script = fopen($script, 'r');
   fgets($script);
   $line = fgets($script);

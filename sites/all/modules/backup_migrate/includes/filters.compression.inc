@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filters.compression.inc,v 1.1.2.5 2010/03/24 04:02:58 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -36,12 +32,8 @@ class backup_migrate_filter_compression extends backup_migrate_filter {
    * Get the form for the settings for this filter.
    */
   function backup_settings_default() {
-<<<<<<< HEAD
     $options = $this->_backup_migrate_get_compression_form_item_options();
     return array('compression' => isset($options['gzip']) ? 'gzip' : 'none');
-=======
-    return array('compression' => 'none');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -76,15 +68,12 @@ class backup_migrate_filter_compression extends backup_migrate_filter {
         "backup" => TRUE,
         "restore" => TRUE,
       ),
-<<<<<<< HEAD
       "bzip2" => array(
         "extension" => "bz2",
         "filemime" => "application/x-bzip",
         "backup" => TRUE,
         "restore" => TRUE,
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       "zip" => array(
         "extension" => "zip",
         "filemime" => "application/zip",
@@ -241,11 +230,7 @@ class backup_migrate_filter_compression extends backup_migrate_filter {
         break;
 
       case "bzip":
-<<<<<<< HEAD
         $from = $file->push_type('bzip2');
-=======
-        $from = $file->push_type('bzip');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         if (!$success = $this->_backup_migrate_bzip_encode($from, $file->filepath())) {
           $file = NULL;
         }
@@ -280,10 +265,7 @@ class backup_migrate_filter_compression extends backup_migrate_filter {
         break;
 
       case "bzip":
-<<<<<<< HEAD
       case "bzip2":
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $from = $file->pop_type();
         $success = $this->_backup_migrate_bzip_decode($from->filepath(), $file->filepath());
         break;

@@ -165,15 +165,6 @@ div.block div.context-block-empty {
 #context-blockform td.blocks div.form-item,
 #context-blockform td.blocks input.block-weight { display:none; }
 
-<<<<<<< HEAD
-=======
-#context-blockform td.blocks div.exposed div.form-item,
-#context-blockform td.blocks div.exposed input.block-weight {
-    display: block;
-    clear: left;
-}
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 #context-ui-items #context-blockform {
   font-size:11px;
   line-height:15px;

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emfield.install,v 1.1.6.14 2009/11/08 13:19:00 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -13,7 +9,6 @@
  * Implementation of hook_install().
  */
 function emfield_install() {
-<<<<<<< HEAD
   $success = drupal_install_schema('emfield');
 
   if ($success) {
@@ -22,15 +17,12 @@ function emfield_install() {
   else {
     drupal_set_message(st('The installation of Embedded Media Field module failed.'), 'error');
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Implementation of hook_uninstall().
  */
 function emfield_uninstall() {
-<<<<<<< HEAD
   drupal_uninstall_schema('emfield');
 
   // Remove all variables that live in our namespace.
@@ -40,8 +32,6 @@ function emfield_uninstall() {
   }
 
   drupal_set_message(t('Embedded Media Field has been uninstalled.'));
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -54,7 +44,6 @@ function emfield_enable() {
  * Implementation of hook_disable().
  */
 function emfield_disable() {
-<<<<<<< HEAD
   cache_clear_all('*', 'cache_emfield_xml', TRUE);
 }
 
@@ -103,12 +92,6 @@ function emfield_requirements($phase) {
 
 /**
  * Botched this the first time. Redo in 6003.
-=======
-}
-
-/**
- *  Botched this the first time. Redo in 6003.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function emfield_update_6001() {
   $ret = array();
@@ -116,11 +99,7 @@ function emfield_update_6001() {
 }
 
 /**
-<<<<<<< HEAD
  * Rebuild themes and views.
-=======
- *  Rebuild themes and views.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function emfield_update_6002() {
   drupal_rebuild_theme_registry();
@@ -135,22 +114,14 @@ function emfield_update_6002() {
 }
 
 /**
-<<<<<<< HEAD
  * This caused an infinite loop in some cases. Redo in 6005.
-=======
- *  This caused an infinite loop in some cases. Redo in 6005.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function emfield_update_6003() {
   return array();
 }
 
 /**
-<<<<<<< HEAD
  * Rebuild themes.
-=======
- *  Rebuild themes.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function emfield_update_6004() {
   drupal_rebuild_theme_registry();
@@ -158,11 +129,7 @@ function emfield_update_6004() {
 }
 
 /**
-<<<<<<< HEAD
  * Add a provider data version column to existing fields.
-=======
- *  Add a provider data version column to existing fields.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function emfield_update_6005() {
   $ret = array();
@@ -241,7 +208,6 @@ function emfield_update_6005() {
 }
 
 /**
-<<<<<<< HEAD
  * Add new menu item for removing messages for obsolete providers.
  */
 function emfield_update_6006() {
@@ -347,19 +313,6 @@ function emfield_update_6204() {
  *   keyed by provider.
  * @param &$context
  *   The context for the batch operations.
-=======
- *  Batch function to retrieve the most recent data from providers.
- *
- *  @param $field
- *    The field definition.
- *  @param $providers
- *    An optional array of providers to check.
- *  @param $old_data_keys
- *    An optional array of the original version key in the data,
- *    keyed by provider.
- *  @param &$context
- *    The context for the batch operations.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function _emfield_update_fix_data($field, $providers = array(), $old_data_keys = array(), &$context) {
   // Setup the sandbox the first time through.
@@ -437,7 +390,6 @@ function _emfield_update_fix_data($field, $providers = array(), $old_data_keys =
     $context['finished'] = 1;
   }
 }
-<<<<<<< HEAD
 
 /**
  * Implementation of hook_schema().
@@ -450,5 +402,3 @@ function emfield_schema() {
 
   return $schema;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

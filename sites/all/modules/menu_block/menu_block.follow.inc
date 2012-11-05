@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu_block.follow.inc,v 1.4 2010/03/22 14:11:27 johnalbin Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provides active menu item pruning.

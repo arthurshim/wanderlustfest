@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagefield.install,v 1.35 2010/06/29 22:33:43 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementation of hook_install().

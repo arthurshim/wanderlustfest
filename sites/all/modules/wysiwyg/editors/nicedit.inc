@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: nicedit.inc,v 1.6.2.1 2009/08/03 22:37:15 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -69,10 +65,7 @@ function wysiwyg_nicedit_settings($editor, $config, $theme) {
   );
 
   // Add configured buttons or all available.
-<<<<<<< HEAD
   $settings['buttonList'] = array();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!empty($config['buttons'])) {
     $buttons = array();
     foreach ($config['buttons'] as $plugin) {
@@ -80,12 +73,6 @@ function wysiwyg_nicedit_settings($editor, $config, $theme) {
     }
     $settings['buttonList'] = array_keys($buttons);
   }
-<<<<<<< HEAD
-=======
-  else {
-    $settings['fullPanel'] = TRUE;
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Add editor content stylesheet.
   if (isset($config['css_setting'])) {

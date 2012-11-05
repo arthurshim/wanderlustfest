@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_display_feed.inc,v 1.7 2009/09/15 22:20:01 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the feed display plugin.
@@ -33,11 +29,7 @@ class views_plugin_display_feed extends views_plugin_display_page {
   }
 
   function preview() {
-<<<<<<< HEAD
     if (!empty($this->view->live_preview)) {
-=======
-    if (!empty($this->live_preview)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return '<pre>' . check_plain($this->view->render()) . '</pre>';
     }
     return $this->view->render();
@@ -200,7 +192,6 @@ class views_plugin_display_feed extends views_plugin_display_page {
       $clone->set_display($this->display->id);
       $clone->build_title();
       $plugin->attach_to($display_id, $this->get_path(), $clone->get_title());
-<<<<<<< HEAD
 
       // Clean up
       $clone->destroy();
@@ -208,11 +199,6 @@ class views_plugin_display_feed extends views_plugin_display_page {
     }
   }
 
-=======
-    }
-  }
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   function uses_link_display() {
     return TRUE;
   }

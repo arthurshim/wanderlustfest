@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_term_node_tid.inc,v 1.8 2009/04/07 23:21:01 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Filter by term id
@@ -29,17 +25,10 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     }
 
     if ($this->options['limit']) {
-<<<<<<< HEAD
       // We only do this when the form is displayed.
       if ($this->options['vid'] == 0) {
         $first_vocabulary = reset($vocabularies);
         $this->options['vid'] = $first_vocabulary->vid;
-=======
-      // We only do this when the form is displayed so this query doesn't run
-      // unnecessarily just when the object is constructed.
-      if ($this->options['vid'] == 0) {
-        $this->options['vid'] = db_result(db_query('SELECT MIN(vid) FROM {vocabulary} v'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
 
       $form['vid'] = array(
@@ -126,17 +115,10 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
       else {
         $options = array();
         if ($this->options['limit']) {
-<<<<<<< HEAD
           $result = db_query(db_rewrite_sql("SELECT * FROM {term_data} t WHERE t.vid = %d ORDER BY t.weight, t.name", 't', 'tid'), $vocabulary->vid);
         }
         else {
           $result = db_query(db_rewrite_sql("SELECT td.* FROM {term_data} td INNER JOIN {vocabulary} v ON td.vid = v.vid ORDER BY v.weight, v.name, td.weight, td.name", 'td', 'tid'));
-=======
-          $result = db_query("SELECT * FROM {term_data} WHERE vid = %d ORDER BY weight, name", $vocabulary->vid);
-        }
-        else {
-          $result = db_query("SELECT td.* FROM {term_data} td INNER JOIN {vocabulary} v ON td.vid = v.vid ORDER BY v.weight, v.name, td.weight, td.name");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
         while ($term = db_fetch_object($result)) {
           $options[$term->tid] = $term->name;
@@ -280,11 +262,7 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     // add the taxonomy vid to the argument list.
     $args[] = $this->options['vid'];
 
-<<<<<<< HEAD
     $result = db_query("SELECT * FROM {term_data} td WHERE td.name IN (" . implode(', ', $placeholders) . ") AND td.vid = %d", $args);
-=======
-    $result = db_query("SELECT * FROM {term_data} WHERE name IN (" . implode(', ', $placeholders) . ") AND vid = %d", $args);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     while ($term = db_fetch_object($result)) {
       unset($missing[strtolower($term->name)]);
       $tids[] = $term->tid;

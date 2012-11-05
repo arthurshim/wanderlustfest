@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: features.install,v 1.1.2.6 2009/12/21 16:58:45 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementaton of hook_install().

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: wysiwyg.api.js,v 1.1.2.2 2009/08/09 02:47:17 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Wysiwyg plugin button implementation for Awesome plugin.

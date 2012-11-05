@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emwave.module,v 1.1.2.1 2009/10/13 13:26:44 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -40,10 +36,7 @@ function emwave_menu() {
 function emwave_emfield_info() {
   return array(
     '#name' => t('Embedded Wave Field'),
-<<<<<<< HEAD
     '#settings_title' => t('Waves'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#settings_description' => t('The following settings configure content with any fields controlled by Embedded Wave Field.'),
   );
 }
@@ -214,11 +207,7 @@ function emwave_widget_settings($op, $widget) {
         $color = variable_get('emwave_default_thumbnail_height', EMWAVE_DEFAULT_COLOR);
         $font = variable_get('emwave_default_thumbnail_height', EMWAVE_DEFAULT_FONT);
         $font_size = variable_get('emwave_default_thumbnail_height', EMWAVE_DEFAULT_FONT_SIZE);
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $form['style'] = array(
           '#type' => 'fieldset',
           '#title' => t('Style Settings'),
@@ -300,11 +289,7 @@ function emwave_widget_settings($op, $widget) {
           form_set_error('preview_height', t('"Preview height" must be an integer.'));
         }
        // @TODO Add validators for color and font settings.
-<<<<<<< HEAD
 
-=======
-       
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
        // @TODO Add validators for comment and participant settings.
       }
       break;

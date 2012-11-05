@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emaudio.module,v 1.1.4.24 2010/07/19 16:25:21 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -32,10 +28,7 @@ function emaudio_emfield_info() {
   $name = t('Embedded Audio Field');
   return array(
     '#name' => $name,
-<<<<<<< HEAD
     '#settings_title' => t('Audio'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#settings_description' => t('The following settings configure content with any fields controlled by @name.', array('@name' => $name)),
   );
 }

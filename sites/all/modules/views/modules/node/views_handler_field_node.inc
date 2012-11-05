@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_node.inc,v 1.7.2.2 2010/03/16 23:09:05 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the basic 'node' field handler.
@@ -10,11 +6,8 @@
 
 /**
  * Field handler to provide simple renderer that allows linking to a node.
-<<<<<<< HEAD
  * Definition terms:
  * - link_to_node default: Should this field have the checkbox "link to node" enabled by default.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 class views_handler_field_node extends views_handler_field {
   /**
@@ -30,11 +23,7 @@ class views_handler_field_node extends views_handler_field {
 
   function option_definition() {
     $options = parent::option_definition();
-<<<<<<< HEAD
     $options['link_to_node'] = array('default' => isset($this->definition['link_to_node default']) ? $this->definition['link_to_node default'] : FALSE);
-=======
-    $options['link_to_node'] = array('default' => FALSE);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $options;
   }
 
@@ -57,7 +46,6 @@ class views_handler_field_node extends views_handler_field {
    * Data should be made XSS safe prior to calling this function.
    */
   function render_link($data, $values) {
-<<<<<<< HEAD
     if (!empty($this->options['link_to_node'])) {
       if ($data !== NULL && $data !== '') {
         $this->options['alter']['make_link'] = TRUE;
@@ -75,20 +63,6 @@ class views_handler_field_node extends views_handler_field {
       else {
         $this->options['alter']['make_link'] = FALSE;
       } 
-=======
-    if (!empty($this->options['link_to_node']) && $data !== NULL && $data !== '') {
-      $this->options['alter']['make_link'] = TRUE;
-      $this->options['alter']['path'] = "node/" . $values->{$this->aliases['nid']};
-      if (isset($this->aliases['language'])) {
-        $languages = language_list();
-        if (isset($languages[$values->{$this->aliases['language']}])) {
-          $this->options['alter']['language'] = $languages[$values->{$this->aliases['language']}];
-        }
-        else {
-          unset($this->options['alter']['language']);
-        }
-      }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $data;
   }

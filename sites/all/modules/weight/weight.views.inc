@@ -1,20 +1,11 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: weight.views.inc,v 1.2.2.1 2009/01/26 00:28:54 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Views2 support for Weight module.
  */
-<<<<<<< HEAD
  
 /**
  * Implementation of hook_views_data().
-=======
-/**
- * Implementation of hook_views_data()
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function weight_views_data() {
   $data['node_weight'] = array(
@@ -25,15 +16,9 @@ function weight_views_data() {
           'table' => 'node',
           'left_field' => 'nid',
           'field' => 'nid',
-<<<<<<< HEAD
         ),
       ),
     ),
-=======
-          ),
-        ),
-      ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'weight' => array(
       'real field' => 'sticky',
       'title' => t('Weight'), // The item it appears as on the UI,
@@ -41,7 +26,6 @@ function weight_views_data() {
       'field' => array(
         'handler' => 'weight_handler_field_sticky',
         'click sortable' => TRUE,
-<<<<<<< HEAD
       ),
       'filter' => array(
         'handler' => 'weight_handler_filter_weight',
@@ -73,16 +57,6 @@ function weight_views_data() {
         'label' => t('Weighted Sticky'),
         'type' => 'yes-no',
       ),
-=======
-        ),
-      'filter' => array(
-         'handler' => 'views_handler_filter_numeric',
-         'label' => t('Weight'),
-        ),
-      'sort' => array(
-        'handler' => 'weight_handler_sort',
-        ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
   );
 
@@ -107,11 +81,7 @@ function weight_views_plugins() {
         'uses fields' => TRUE,
         'uses options' => TRUE,
         'type' => 'normal',
-<<<<<<< HEAD
       ),
-=======
-       ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
   );
 }
@@ -122,20 +92,14 @@ function weight_views_plugins() {
 function weight_views_handlers() {
   return array(
     'info' => array(
-<<<<<<< HEAD
       'path' => drupal_get_path('module', 'weight') /* .'/handlers' */,
     ),
-=======
-      'path' => drupal_get_path('module', 'weight') /*.'/handlers'*/,
-     ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'handlers' => array(
       'weight_handler_field_sticky' => array(
         'parent' => 'views_handler_field_numeric',
       ),
       'weight_handler_sort' => array(
         'parent' => 'views_handler_sort',
-<<<<<<< HEAD
       ),
       'weight_handler_filter_sticky' => array(
         'parent' => 'views_handler_filter_boolean_operator',
@@ -145,11 +109,6 @@ function weight_views_handlers() {
       ),
     ),
   );
-=======
-       ),
-     ),
-   );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -197,11 +156,7 @@ function theme_weight_view_weight($view, $rows, $type) {
         $header[$field] = l($label . $image, $_GET['q'], $link_options);
       }
     }
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Create a second variable so we can easily find what fields we have and what the
     // CSS classes should be.
     $weight_fields[$field] = views_css_safe($field);
@@ -238,20 +193,12 @@ function theme_weight_view_weight($view, $rows, $type) {
     drupal_add_js('misc/tableheader.js');
     $class .= " sticky-enabled";
   }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Pass along the nid.
 
   foreach ($view->result as $count => $item) {
     $rows[$count]['nid_hidden'] = $item->nid;
-<<<<<<< HEAD
   }
-=======
-  } 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $id = $view->name .'_drag';
   return drupal_get_form('weight_view_weight_form', $header, $rows, $weight_fields, $class, $id);
 }
@@ -269,54 +216,31 @@ function weight_view_weight_form(&$form_state, $header, $rows, $fields, $class, 
     'class' => $class,
     'fields' => $fields,
     'id' => $id,
-<<<<<<< HEAD
   );
-=======
-    );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   foreach ($rows as $count => $row) {
     if (is_numeric($count)) {
       foreach ($row as $field => $content) {
         $nid = $row['nid_hidden'];
-<<<<<<< HEAD
         if (drupal_substr($field, 0, 6) == 'weight') {
-=======
-        if (substr($field, 0, 6) == 'weight') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $form['rows'][$count][$field] = array(
             '#default_value' => $content,
             '#type' => 'weight',
             '#delta' => variable_get('weight_range', 20),
-<<<<<<< HEAD
           );
-=======
-            );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
         elseif ($field != 'nid_hidden') {
           $form['rows'][$count][$field] = array(
             '#value' => $content,
-<<<<<<< HEAD
           );
-=======
-            );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
         else {
           $form['rows'][$count][$field] = array(
             '#type' => 'hidden',
             '#value' => $content,
-<<<<<<< HEAD
           );
         }
       }
     }
-=======
-            );
-        }
-      }
-    }  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   $form['submit'] = array('#type' => 'submit', '#value' => t('Save'));
   return $form;
@@ -339,9 +263,5 @@ function weight_view_weight_form_submit($form, &$form_state) {
     }
     db_query("UPDATE {node} SET sticky = %d WHERE nid = %d", $node->sticky, $nid);
   }
-<<<<<<< HEAD
   drupal_set_message(t('Your weight changes have been saved.'));
-=======
-  drupal_set_message('Your weight changes have been saved.');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

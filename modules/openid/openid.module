@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: openid.module,v 1.19.2.11 2010/08/11 20:35:48 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -171,11 +167,8 @@ function openid_begin($claimed_id, $return_to = '', $form_values = array()) {
     return;
   }
 
-<<<<<<< HEAD
   drupal_session_start();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Store discovered information in the users' session so we don't have to rediscover.
   $_SESSION['openid']['service'] = $services[0];
   // Store the claimed id

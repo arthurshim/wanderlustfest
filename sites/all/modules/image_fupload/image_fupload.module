@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: image_fupload.module,v 1.33 2009/04/06 21:15:41 grandcat Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 define('IMAGE_UNMACHINED', 'image_raw');
 define('IMAGE_HALFPROCESSED', 'image_halfwork');
@@ -24,26 +20,15 @@ function image_fupload_menu() {
   $items['fupload/js/deletequeue/%'] = array(
     'title' => 'Image FUpload',
     'page callback' => 'fupload_empty_queue',
-<<<<<<< HEAD
     'page arguments' => array(3),
     'access arguments' => array('mass upload images'),
     'type' => MENU_CALLBACK,
   );
-=======
-    'page arguments' => array(3), 
-    'access arguments' => array('mass upload images'),
-    'type' => MENU_CALLBACK,    
-  );  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $items['node/add/%image_node_type/list_images'] = array(
     'title' => 'Edit Captions',
     'access arguments' => array('edit captions'),
     'page callback' => 'drupal_get_form',
-<<<<<<< HEAD
     'page arguments' => array('fupload_list_images_image', 2),
-=======
-    'page arguments' => array('fupload_list_images_image', 2),    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'type' => MENU_CALLBACK,
     'file' => 'includes/images.previewlist.image.inc',
   );
@@ -51,11 +36,7 @@ function image_fupload_menu() {
     'title' => 'Edit Captions',
     'access arguments' => array('edit captions'),
     'page callback' => 'drupal_get_form',
-<<<<<<< HEAD
     'page arguments' => array('fupload_list_images_imagefield', 2),
-=======
-    'page arguments' => array('fupload_list_images_imagefield', 2),    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'type' => MENU_CALLBACK,
     'file' => 'includes/images.previewlist.imagefield.inc',
   );
@@ -63,19 +44,13 @@ function image_fupload_menu() {
 }
 
 /**
-<<<<<<< HEAD
  * Menu callback; loads a image node type object
  */
-=======
-* Menu callback; loads a image node type object
-*/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 function image_node_type_load($node_type, $simple_check = FALSE) {
   $image_node_types = variable_get('image_node_types', array());
   // test if given node type is image (field) node type
   $node_type = str_replace("-", "_", $node_type);
   // simple check without checking url arguments
-<<<<<<< HEAD
   if ($simple_check && isset($image_node_types[$node_type])) {
     return $node_type;
   }
@@ -92,26 +67,11 @@ function image_node_type_load($node_type, $simple_check = FALSE) {
     }
   }
   else {
-=======
-  if ($simple_check && isset($image_node_types[$node_type]))
-    return $node_type;
-    
-  if (isset($image_node_types[$node_type])) {
-    if (arg(3) == "list_imagefields" && $image_node_types[$node_type]['type'] == "cck") {
-      return $node_type;
-    } elseif (arg(3) == "list_images" && $image_node_types[$node_type]['type'] == "image") {
-      return $node_type;
-    } else {
-      return FALSE;
-    }
-  } else {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return FALSE;
   }
 }
 
 /**
-<<<<<<< HEAD
  * returns a identifier for images so that their status (current step) can easily be set
  */
 function image_fupload_image_status($field_name, $status = IMAGE_UNMACHINED) {
@@ -121,17 +81,6 @@ function image_fupload_image_status($field_name, $status = IMAGE_UNMACHINED) {
       break;
     default:
       return $field_name ."/". $status;
-=======
-* returns a identifier for images so that their status (current step) can easily be set
-*/
-function image_fupload_image_status($field_name, $status = IMAGE_UNMACHINED) {
-  switch ($status) {  
-    case IMAGE_NOT_COMPLETED:
-      return "<!--" .$field_name ."/" .IMAGE_NOT_COMPLETED ."-->";
-      break;
-    default:
-      return $field_name ."/" .$status;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       break;
   }
 }
@@ -144,22 +93,14 @@ function image_fupload_perm() {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_help().
-=======
- * Implementation of hook_help
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function image_fupload_help($path, $arg) {
   switch ($path) {
       case 'admin/help#image_fupload':
       $output = '<p>'. t("The Image FUpload module is used to provide an alternate upload form to image module itself.") .'</p>';
       $output .= '<p>'. t("This is a great advantage because multiple images can be selected with one click which are automatically uploaded and processed without any further user interaction. Additionally, this module fully integrates in image module. Consequently, all settings made by image module are observed (thumb creation, file size limit etc.).") .'</p>';
-<<<<<<< HEAD
       $output .= '<p>'. t("Image FUpload administration allows to define some characters which are replaced in the node title by a whitespace. In addition to that, the option can be selected to show a link to the original upload form to those users whose browser doesn't support this Flash / JS solution.") .'</p>';
-=======
-      $output .= '<p>' .t("Image FUpload administration allows to define some characters which are replaced in the node title by a whitespace. In addition to that, the option can be selected to show a link to the original upload form to those users whose browser doesn't support this Flash / JS solution.") . '</p>';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $output .= t('<p>You can</p>
 <ul>
 <li>create images using F(lash)Upload at <a href="!node-create-image">node &gt;&gt; create &gt;&gt; image</a>.</li>
@@ -177,11 +118,7 @@ function image_fupload_theme() {
   return array(
     'swfupload_settings' => array(
       'template' => 'swfupload-settings',
-<<<<<<< HEAD
       'arguments' => array('modulepath' => NULL, 'uploadpath' => NULL, 'maxfilesize' => NULL, 'fileextensions' => NULL, 'sessionid' => NULL, 'uploadlimit' => NULL, 'nodetype' => NULL, 'fieldname' => NULL, 'field_required' => NULL, 'storage_mode' => NULL, 'redirect_url' => NULL),
-=======
-      'arguments' => array('modulepath' => NULL, 'uploadpath' => NULL, 'maxfilesize' => NULL, 'fileextensions' => NULL, 'sessionid' => NULL, 'uploadlimit' => NULL, 'nodetype' => NULL, 'fieldname' => NULL, 'field_required' => NULL, 'storage_mode' => NULL, 'redirect_url' => NULL),      
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
     'fupload_create_filename' => array(
       'arguments' => array('image' => NULL, 'replacements' => NULL),
@@ -196,29 +133,16 @@ function image_fupload_theme() {
 function fupload_filetransfer() {
   // huh.. swfUpload sends some data...let's see
   global $user;
-<<<<<<< HEAD
   $sid = $_POST['PHPSESSID'];
   $node_type = check_plain($_POST['nodetype']);
   $field_name = check_plain($_POST['fieldname']);
 
-=======
-  $cache_lifetime = variable_get('cache_lifetime', '');
-  variable_set('cache_lifetime', '');
-  $sid = $_POST['PHPSESSID'];
-  $node_type = check_plain($_POST['nodetype']);
-  $field_name = check_plain($_POST['fieldname']);  
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // validate given session id
   $result = db_query("SELECT * FROM {sessions} WHERE sid = '%s' AND hostname = '%s' LIMIT 1", $sid, ip_address());
   $upload_user = db_fetch_object($result);
   // Get users profile
   $user = user_load(array('uid' => $upload_user->uid));
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Do some checks before upload
   $field_access = FALSE;
   if (!empty($upload_user) && !empty($node_type) && !empty($field_name)) { // user valid? node_type & field_name received?
@@ -228,11 +152,7 @@ function fupload_filetransfer() {
         // image node type
         if ($field_name == "images") {
           $field_access = node_access('create', $node_type, $user);
-<<<<<<< HEAD
 
-=======
-          
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           // get suitable validators for our upload: image module
           $validators = array(
             'file_validate_is_image' => array(),
@@ -245,11 +165,7 @@ function fupload_filetransfer() {
         if (module_exists('content')) {
           if (image_node_type_load($node_type, TRUE) && ($field = content_fields($field_name, $node_type))) {
             $field_access = node_access('create', $node_type, $user);
-<<<<<<< HEAD
 
-=======
-          
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             // also get suitable validators for our upload: cck imagefield module
             $validators = array_merge(filefield_widget_upload_validators($field), imagefield_widget_upload_validators($field));
           }
@@ -257,11 +173,7 @@ function fupload_filetransfer() {
         break;
     }
   }
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (user_access('mass upload images', $user) && $field_access) {
     // Adapt to drupal files structure
     $_FILES['files']['name']['image'] = $_FILES['Filedata']['name'];
@@ -269,27 +181,16 @@ function fupload_filetransfer() {
     $_FILES['files']['tmp_name']['image'] = $_FILES['Filedata']['tmp_name'];
     $_FILES['files']['error']['image'] = $_FILES['Filedata']['error'];
     $_FILES['files']['size']['image'] = $_FILES['Filedata']['size'];
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // do some checks via transliteration module if available
     if (module_exists('transliteration')) {
       require_once(drupal_get_path('module', 'transliteration') .'/transliteration.inc');
       $_FILES['files']['name']['image'] = transliteration_clean_filename($_FILES['Filedata']['name']);
     }
-<<<<<<< HEAD
 
     if ($file = file_save_upload('image', $validators)) {
       $image = image_get_info($file->filepath); // Get real mime-type
       if (!db_query("UPDATE {files} SET filename = '%s', filemime = '%s' WHERE fid = %d", image_fupload_image_status($field_name, IMAGE_UNMACHINED), $image['mime_type'], $file->fid)) {
-=======
-    
-    if ($file = file_save_upload('image', $validators)) {
-      $image = image_get_info($file->filepath); // Get real mime-type
-      if(!db_query("UPDATE {files} SET filename = '%s', filemime = '%s' WHERE fid = %d", image_fupload_image_status($field_name, IMAGE_UNMACHINED), $image['mime_type'], $file->fid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         drupal_json(array('status' => FALSE, 'data' => t('A database related problem appeared during upload. Please inform the site administrator if this is a permanent problem.')));
         exit;
       }
@@ -297,7 +198,6 @@ function fupload_filetransfer() {
       // Get all status messages and add them to server message for swfUpload --> inform client
       $messages = drupal_get_messages('status');
       drupal_json(array('status' => TRUE, 'data' => t('Complete. !messages', array('!messages' => (!empty($messages['status']) ? implode(' ', $messages['status']) : ''))))); // Reply a status message to satisfy swfUpload
-<<<<<<< HEAD
     }
     else {
       // Get responsible error messages and send it to swfUpload
@@ -307,32 +207,16 @@ function fupload_filetransfer() {
 
   }
   else {
-=======
-    } else {
-      // Get responsible error messages and send it to swfUpload
-      $messages = form_get_errors();
-      drupal_json(array('status' => FALSE, 'data' => t('Upload failed: !errors', array('!errors' => implode(' ', $messages)))));
-    } 
-    
-  } else {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     drupal_access_denied();
   }
 }
 
 function fupload_empty_queue($field_name) {
   global $user;
-<<<<<<< HEAD
 
   // Set "processed" flag so that these images aren't processed again; images are deleted later by cron (--> temporary files)
   db_query("UPDATE {files} SET filename = '%s' WHERE uid = %d AND status = %d AND filename = '%s'", image_fupload_image_status(check_plain($field_name), IMAGE_PROCESSED), $user->uid, FILE_STATUS_TEMPORARY, image_fupload_image_status(check_plain($field_name), IMAGE_UNMACHINED));
 
-=======
-  
-  // Set "processed" flag so that these images aren't processed again; images are deleted later by cron (--> temporary files)
-  db_query("UPDATE {files} SET filename = '%s' WHERE uid = %d AND status = %d AND filename = '%s'", image_fupload_image_status(check_plain($field_name), IMAGE_PROCESSED), $user->uid, FILE_STATUS_TEMPORARY, image_fupload_image_status(check_plain($field_name), IMAGE_UNMACHINED));
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Output message to user via AJAX
   drupal_set_message();
   drupal_set_message(t('All queued images were deleted.'), 'warning');
@@ -342,7 +226,6 @@ function fupload_empty_queue($field_name) {
 function theme_fupload_create_filename($image, $replacements = NULL) {
   // Get filename out of filepath
   $filename = trim(basename($image->filepath), ' ');
-<<<<<<< HEAD
   $length1 = drupal_strlen(strrchr($filename, '.'));
   $length2 = drupal_strlen($filename);
   $image_name = drupal_ucfirst(drupal_substr($filename, 0, ($length2 - $length1)));
@@ -353,30 +236,13 @@ function theme_fupload_create_filename($image, $replacements = NULL) {
   }
   $image_name = str_replace(explode(';', $replacements), ' ', $image_name);
 
-=======
-  $length1 = strlen(strrchr($filename, '.'));
-  $length2 = strlen($filename);
-  $image_name = ucfirst(substr($filename, 0, ($length2 - $length1)));
-        
-  // Remove some given (userdefined) elements
-  if (is_null($replacements))
-    $replacements = variable_get('fupload_title_replacements', '_;{;}'); 
-  $image_name = str_replace(explode(';', $replacements), ' ', $image_name);
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $image_name;
 }
 
 /**
-<<<<<<< HEAD
  * Helper function which emulates "node_form_validate" of node.pages.inc
  * Need this because body causes validation error with some settings, but I don't need a body field, later yes =)
  */
-=======
-* Helper function which emulates "node_form_validate" of node.pages.inc
-* Need this because body causes validation error with some settings, but I don't need a body field, later yes =)
-*/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 function fupload_node_form_validate($form, &$form_state) {
   $node = (object)$form_state['values'];
   $node->body = NULL; // Little Hack to disable body validation
@@ -395,11 +261,7 @@ function fupload_node_form_validate($form, &$form_state) {
 function file_validate($file, $validators = array()) {
   // Call the validation functions.
   $errors = array();
-<<<<<<< HEAD
   foreach ($validators as $function => $args) {
-=======
-   foreach ($validators as $function => $args) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     array_unshift($args, $file);
     $errors = array_merge($errors, call_user_func_array($function, $args));
   }
@@ -409,29 +271,20 @@ function file_validate($file, $validators = array()) {
     $message = t('The selected file %name could not be uploaded.', array('%name' => $file->filename));
     if (count($errors) > 1) {
       $message .= '<ul><li>'. implode('</li><li>', $errors) .'</li></ul>';
-<<<<<<< HEAD
     }
     else {
-=======
-    } else {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $message .= ' '. array_pop($errors);
     }
     form_set_error($source, $message);
     return FALSE;
-<<<<<<< HEAD
   }
   else {
-=======
-  } else {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Validation successful =)
     return TRUE;
   }
 }
 
 /**
-<<<<<<< HEAD
  * This helper function lists/read/write/delete special settings for the image previewlist
  * depending on the node type
  *
@@ -474,57 +327,10 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
       $image_node_types = variable_get('image_node_types', array());
 
       switch ($node_type) {
-=======
-* This helper function lists/read/write/delete special settings for the image previewlist 
-* depending on the node type
-*
-* @param string $op
-* @param string $node_type
-* @param array $data_write
-* @return array or NULL
-*/
-
-function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
-  // switch to the right operation: what's up?
-  switch($op) {
-    case 'list':
-      // generate a list of available presets for image_preview: image module or/and imagecache
-      $preview_presets_list = array();
-      
-      // image module presets
-      if (module_exists('image') && $node_type == "image") {
-        $image_sizes = image_get_sizes();
-        
-        foreach ($image_sizes as $key => $size) {
-          $preview_presets_list['image']['0_' .$key] = t('Image size') .': ' .$size['label'];
-        }
-      }
-      
-      // imagecache module presets
-      if (module_exists('imagecache')) {
-        $image_sizes = imagecache_presets();
-        
-        foreach ($image_sizes as $key => $size) {
-          $preview_presets_list['imagecache']['1_' .$size['presetname']] = t('Image size') .': ' .$size['presetname'];
-        }
-      }
-      
-      //output list
-      return $preview_presets_list;
-      
-      break;   
-      
-    case 'read':
-      // read actual setting for this node type
-      $image_node_types = variable_get('image_node_types', array());
-      
-      switch($node_type) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         case 'image':
           // image node type
           if (!empty($image_node_types['image']['image_selection'])) {
             // image module preset
-<<<<<<< HEAD
             return '0_'. $image_node_types['image']['image_selection'];
 
           }
@@ -534,22 +340,12 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
 
           }
           else {
-=======
-            return '0_' .$image_node_types['image']['image_selection'];
-          
-          } elseif (!empty($image_node_types['image']['imagecache_preset'])) {
-            // imagecache module preset
-            return '1_' .$image_node_types['image']['imagecache_preset'];
-          
-          } else {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             // no setting saved yet?
             return '';
           }
           break;
         default:
           // node type with CCK ImageField
-<<<<<<< HEAD
 
           // return imagecache preset
           return '1_'. $image_node_types[$node_type]['imagecache_preset'];
@@ -557,20 +353,10 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
       }
       break;
 
-=======
-          
-          // return imagecache preset
-          return '1_' .$image_node_types[$node_type]['imagecache_preset'];
-          break;
-      }
-      break;
-      
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     case 'write':
       if (isset($data_write)) { // is some data available?
       // write input data to database
       $image_node_types  = variable_get('image_node_types', array());
-<<<<<<< HEAD
 
       // prepare type of image preview before writing into db
       $preview_preset = explode('_', $data_write['preview_preset'], 2);
@@ -593,30 +379,6 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
 
         default:
           // node type with CCK ImageField
-=======
-      
-      // prepare type of image preview before writing into db 
-      $preview_preset = explode('_', $data_write['preview_preset'], 2);  
-      switch($preview_preset[0]) {
-        case '0':    
-          // image module preset
-          $preview_preset_image = $preview_preset[1];    
-          break;    
-        case '1':
-          // imagecache module preset
-          $preview_preset_imagecache = $preview_preset[1];
-          break;    
-      }
-            
-      switch($node_type) {
-        case 'image':
-          // image node type
-          $image_node_types['image'] = array('type' => 'image', 'fieldname' => 'images', 'image_selection' => $preview_preset_image, 'imagecache_preset' => $preview_preset_imagecache);          
-          break;
-          
-        default:
-          // node type with CCK ImageField            
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $image_node_types[$node_type] = array('type' => 'cck', 'fieldname' => $data_write['fieldname'], 'image_selection' => $preview_preset_image, 'imagecache_preset' => $preview_preset_imagecache);
           break;
       }
@@ -624,11 +386,7 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
       variable_set('image_node_types', $image_node_types);
       }
       break;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     case 'delete':
       // delete an entry from settings variable
       $image_node_types  = variable_get('image_node_types', array());
@@ -636,10 +394,6 @@ function _fupload_imagepreview_settings($op, $node_type, $data_write = NULL) {
       // write data to database
       variable_set('image_node_types', $image_node_types);
       break;
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }

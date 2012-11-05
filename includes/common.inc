@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: common.inc,v 1.756.2.96 2010/08/11 20:35:47 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -135,7 +131,6 @@ function drupal_clear_path_cache() {
   drupal_lookup_path('wipe');
 }
 
-<<<<<<< HEAD
 /*
  * The function drupal_set_header() has been moved to includes/bootstrap.inc in Pressflow.
  */
@@ -153,32 +148,6 @@ function drupal_get_headers() {
     $header_text[] .= $name . ': ' . $value;
   }
   return implode("\n", $header_text);
-=======
-/**
- * Set an HTTP response header for the current page.
- *
- * Note: When sending a Content-Type header, always include a 'charset' type,
- * too. This is necessary to avoid security bugs (e.g. UTF-7 XSS).
- */
-function drupal_set_header($header = NULL) {
-  // We use an array to guarantee there are no leading or trailing delimiters.
-  // Otherwise, header('') could get called when serving the page later, which
-  // ends HTTP headers prematurely on some PHP versions.
-  static $stored_headers = array();
-
-  if (strlen($header)) {
-    header($header);
-    $stored_headers[] = $header;
-  }
-  return implode("\n", $stored_headers);
-}
-
-/**
- * Get the HTTP response headers for the current page.
- */
-function drupal_get_headers() {
-  return drupal_set_header();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -224,11 +193,7 @@ function drupal_get_feeds($delimiter = "\n") {
 }
 
 /**
-<<<<<<< HEAD
  * @defgroup http_handling HTTP handling
-=======
- * @name HTTP handling
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @{
  * Functions to properly handle HTTP responses.
  */
@@ -365,15 +330,9 @@ function drupal_goto($path = '', $query = NULL, $fragment = NULL, $http_response
     module_invoke_all('exit', $url);
   }
 
-<<<<<<< HEAD
   // Even though session_write_close() is registered as a shutdown function,
   // we need all session data written to the database before redirecting.
   drupal_session_commit();
-=======
-  // Even though session_write_close() is registered as a shutdown function, we
-  // need all session data written to the database before redirecting.
-  session_write_close();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   header('Location: '. $url, TRUE, $http_response_code);
 
@@ -391,11 +350,7 @@ function drupal_site_offline() {
   drupal_set_header('HTTP/1.1 503 Service unavailable');
   drupal_set_title(t('Site off-line'));
   print theme('maintenance_page', filter_xss_admin(variable_get('site_offline_message',
-<<<<<<< HEAD
     t('@site is currently under maintenance. We should be back shortly. Thank you for your patience.', array('@site' => variable_get('site_name', 'Pressflow'))))));
-=======
-    t('@site is currently under maintenance. We should be back shortly. Thank you for your patience.', array('@site' => variable_get('site_name', 'Drupal'))))));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -568,11 +523,7 @@ function drupal_http_request($url, $headers = array(), $method = 'GET', $data = 
   // same time won't interfere with each other as they would if the database
   // prefix were stored statically in a file or database variable.
   if (is_string($db_prefix) && preg_match("/^simpletest\d+$/", $db_prefix, $matches)) {
-<<<<<<< HEAD
     $defaults['User-Agent'] = 'User-Agent: ' . drupal_generate_test_ua($matches[0]);
-=======
-    $defaults['User-Agent'] = 'User-Agent: ' . $matches[0];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   foreach ($headers as $header => $value) {
@@ -694,11 +645,7 @@ function drupal_error_handler($errno, $message, $filename, $line, $context) {
       }
     }
 
-<<<<<<< HEAD
     $entry = check_plain($types[$errno]) .': '. filter_xss($message) .' in '. check_plain($filename) .' on line '. check_plain($line) .'.';
-=======
-    $entry = $types[$errno] .': '. $message .' in '. $filename .' on line '. $line .'.';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Force display of error messages in update.php.
     if (variable_get('error_level', 1) == 1 || strstr($_SERVER['SCRIPT_NAME'], 'update.php')) {
@@ -998,25 +945,15 @@ function t($string, $args = array(), $langcode = NULL) {
  */
 
 /**
-<<<<<<< HEAD
  * Verifies the syntax of the given e-mail address.
  *
  * See RFC 2822 for details.
-=======
- * Verify the syntax of the given e-mail address.
- *
- * Empty e-mail addresses are allowed. See RFC 2822 for details.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  * @param $mail
  *   A string containing an e-mail address.
  * @return
-<<<<<<< HEAD
  *   1 if the email address is valid, 0 if it is invalid or empty, and FALSE if
  *   there is an input error (such as passing in an array instead of a string).
-=======
- *   TRUE if the address is in a valid format.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function valid_email_address($mail) {
   $user = '[a-zA-Z0-9_\-\.\+\^!#\$%&*+\/\=\?\`\|\{\}~\']+';
@@ -1674,16 +1611,12 @@ function l($text, $path, $options = array()) {
  * react to the closing of the page by calling hook_exit().
  */
 function drupal_page_footer() {
-<<<<<<< HEAD
   // Write the session, and open one if needed.
   drupal_session_commit();
 
   // Do not cache if cache is disabled or external.
   $cache = variable_get('cache', CACHE_DISABLED);
   if ($cache != CACHE_DISABLED && $cache != CACHE_EXTERNAL) {
-=======
-  if (variable_get('cache', CACHE_DISABLED) != CACHE_DISABLED) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     page_set_cache();
   }
 
@@ -1703,12 +1636,8 @@ function drupal_page_footer() {
  *   A linear array.
  * @param $function
  *   A name of a function to apply to all values before output.
-<<<<<<< HEAD
  *
  * @return
-=======
- * @result
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   An associative array.
  */
 function drupal_map_assoc($array, $function = NULL) {
@@ -1776,11 +1705,7 @@ function drupal_eval($code) {
  * Returns the path to a system item (module, theme, etc.).
  *
  * @param $type
-<<<<<<< HEAD
  *   The type of the item (i.e. theme, theme_engine, module, profile).
-=======
- *   The type of the item (i.e. theme, theme_engine, module).
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $name
  *   The name of the item for which the path is requested.
  *
@@ -1818,11 +1743,7 @@ function drupal_add_link($attributes) {
  *
  * @param $path
  *   (optional) The path to the CSS file relative to the base_path(), e.g.,
-<<<<<<< HEAD
  *   modules/devel/devel.css.
-=======
- *   /modules/devel/devel.css.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  *   Modules should always prefix the names of their CSS files with the module
  *   name, for example: system-menus.css rather than simply menus.css. Themes
@@ -1958,26 +1879,15 @@ function drupal_get_css($css = NULL) {
             // If a CSS file is not to be preprocessed and it's a module CSS file, it needs to *always* appear at the *top*,
             // regardless of whether preprocessing is on or off.
             if (!$preprocess && $type == 'module') {
-<<<<<<< HEAD
               $no_module_preprocess .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($file) . $query_string .'" />'."\n";
-=======
-              $no_module_preprocess .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. base_path() . $file . $query_string .'" />'."\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             }
             // If a CSS file is not to be preprocessed and it's a theme CSS file, it needs to *always* appear at the *bottom*,
             // regardless of whether preprocessing is on or off.
             else if (!$preprocess && $type == 'theme') {
-<<<<<<< HEAD
               $no_theme_preprocess .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($file) . $query_string .'" />'."\n";
             }
             else {
               $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($file) . $query_string .'" />'."\n";
-=======
-              $no_theme_preprocess .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. base_path() . $file . $query_string .'" />'."\n";
-            }
-            else {
-              $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. base_path() . $file . $query_string .'" />'."\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             }
           }
         }
@@ -1989,11 +1899,7 @@ function drupal_get_css($css = NULL) {
       // starting with "ad*".
       $filename = 'css_'. md5(serialize($types) . $query_string) .'.css';
       $preprocess_file = drupal_build_css_cache($types, $filename);
-<<<<<<< HEAD
       $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($preprocess_file) .'" />'."\n";
-=======
-      $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. base_path() . $preprocess_file .'" />'."\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
@@ -2117,21 +2023,12 @@ function drupal_load_stylesheet($file, $optimize = NULL) {
       // Regexp to match single quoted strings.
       $single_quot = "'[^'\\\\]*(?:\\\\.[^'\\\\]*)*'";
       $contents = preg_replace_callback(
-<<<<<<< HEAD
         "<$double_quot|$single_quot|$comment>Ss",  // Match all comment blocks along
         "_process_comment",                        // with double/single quoted strings
         $contents);                                // and feed them to _process_comment().
       $contents = preg_replace(
         '<\s*([@{}:;,]|\)\s|\s\()\s*>S',           // Remove whitespace around separators,
         '\1', $contents);                          // but keep space around parentheses.
-=======
-        "<$double_quot|$single_quot|$comment>Sus",  // Match all comment blocks along
-        "_process_comment",                         // with double/single quoted strings
-        $contents);                                 // and feed them to _process_comment().
-      $contents = preg_replace(
-        '<\s*([@{}:;,]|\)\s|\s\()\s*>S',            // Remove whitespace around separators,
-        '\1', $contents);                           // but keep space around parentheses.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       // End the file with a new line.
       $contents .= "\n";
     }
@@ -2390,11 +2287,7 @@ function drupal_get_js($scope = 'header', $javascript = NULL) {
         // Additionally, go through any remaining scripts if JS preprocessing is on and output the non-cached ones.
         foreach ($data as $path => $info) {
           if (!$info['preprocess'] || !$is_writable || !$preprocess_js) {
-<<<<<<< HEAD
             $no_preprocess[$type] .= '<script type="text/javascript"'. ($info['defer'] ? ' defer="defer"' : '') .' src="'. file_create_url($path) . ($info['cache'] ? $query_string : '?'. time()) ."\"></script>\n";
-=======
-            $no_preprocess[$type] .= '<script type="text/javascript"'. ($info['defer'] ? ' defer="defer"' : '') .' src="'. base_path() . $path . ($info['cache'] ? $query_string : '?'. time()) ."\"></script>\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           }
           else {
             $files[$path] = $info;
@@ -2409,11 +2302,7 @@ function drupal_get_js($scope = 'header', $javascript = NULL) {
     // starting with "ad*".
     $filename = 'js_'. md5(serialize($files) . $query_string) .'.js';
     $preprocess_file = drupal_build_js_cache($files, $filename);
-<<<<<<< HEAD
     $preprocessed .= '<script type="text/javascript" src="'. file_create_url($preprocess_file) .'"></script>'."\n";
-=======
-    $preprocessed .= '<script type="text/javascript" src="'. base_path() . $preprocess_file .'"></script>'."\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   // Keep the order of JS files consistent as some are preprocessed and others are not.
@@ -2598,43 +2487,8 @@ function drupal_clear_js_cache() {
  * We use HTML-safe strings, i.e. with <, > and & escaped.
  */
 function drupal_to_js($var) {
-<<<<<<< HEAD
   // json_encode() does not escape <, > and &, so we do it with str_replace()
   return str_replace(array("<", ">", "&"), array('\u003c', '\u003e', '\u0026'), json_encode($var));
-=======
-  switch (gettype($var)) {
-    case 'boolean':
-      return $var ? 'true' : 'false'; // Lowercase necessary!
-    case 'integer':
-    case 'double':
-      return $var;
-    case 'resource':
-    case 'string':
-      return '"'. str_replace(array("\r", "\n", "<", ">", "&"),
-                              array('\r', '\n', '\x3c', '\x3e', '\x26'),
-                              addslashes($var)) .'"';
-    case 'array':
-      // Arrays in JSON can't be associative. If the array is empty or if it
-      // has sequential whole number keys starting with 0, it's not associative
-      // so we can go ahead and convert it as an array.
-      if (empty ($var) || array_keys($var) === range(0, sizeof($var) - 1)) {
-        $output = array();
-        foreach ($var as $v) {
-          $output[] = drupal_to_js($v);
-        }
-        return '[ '. implode(', ', $output) .' ]';
-      }
-      // Otherwise, fall through to convert the array as an object.
-    case 'object':
-      $output = array();
-      foreach ($var as $k => $v) {
-        $output[] = drupal_to_js(strval($k)) .': '. drupal_to_js($v);
-      }
-      return '{ '. implode(', ', $output) .' }';
-    default:
-      return 'null';
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -2776,19 +2630,14 @@ function _drupal_bootstrap_full() {
   require_once './includes/mail.inc';
   require_once './includes/actions.inc';
   // Set the Drupal custom error handler.
-<<<<<<< HEAD
   set_error_handler('_drupal_error_handler');
   set_exception_handler('_drupal_exception_handler');
-=======
-  set_error_handler('drupal_error_handler');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Emit the correct charset HTTP header.
   drupal_set_header('Content-Type: text/html; charset=utf-8');
   // Detect string handling method
   unicode_check();
   // Undo magic quotes
   fix_gpc_magic();
-<<<<<<< HEAD
 
   if (isset($_SERVER['HTTP_USER_AGENT']) && strpos($_SERVER['HTTP_USER_AGENT'], 'simpletest') !== FALSE) {
     // Valid SimpleTest user-agent, log fatal errors to test specific file
@@ -2798,8 +2647,6 @@ function _drupal_bootstrap_full() {
     ini_set('error_log', file_directory_path() . '/error.log');
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Load all enabled modules
   module_load_all();
   // Let all modules take action before menu system handles the request
@@ -2823,7 +2670,6 @@ function _drupal_bootstrap_full() {
  * @see drupal_page_header
  */
 function page_set_cache() {
-<<<<<<< HEAD
   global $base_root;
 
   if (drupal_page_is_cacheable()) {
@@ -2852,26 +2698,11 @@ function page_set_cache() {
       }
       cache_set($cache->cid, $cache->data, 'cache_page', $cache->expire, serialize($cache->headers));
       drupal_page_cache_header($cache);
-=======
-  global $user, $base_root;
-
-  if (!$user->uid && $_SERVER['REQUEST_METHOD'] == 'GET' && page_get_cache(TRUE)) {
-    // This will fail in some cases, see page_get_cache() for the explanation.
-    if ($data = ob_get_contents()) {
-      if (variable_get('page_compression', TRUE) && extension_loaded('zlib')) {
-        $data = gzencode($data, 9, FORCE_GZIP);
-      }
-      ob_end_flush();
-      cache_set($base_root . request_uri(), $data, 'cache_page', CACHE_TEMPORARY, drupal_get_headers());
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Executes a cron run when called
  * @return
@@ -3009,7 +2840,6 @@ function drupal_system_listing($mask, $directory, $key = 'name', $min_depth = 1)
  * interface for all altering operations.
  *
  * @param $type
-<<<<<<< HEAD
  *   A string describing the type of the alterable $data (e.g. 'form',
  *   'profile').
  * @param $data
@@ -3025,15 +2855,6 @@ function drupal_system_listing($mask, $directory, $key = 'name', $min_depth = 1)
  *   Any additional parameters will be passed on to the hook_TYPE_alter()
  *   functions (not by reference), after any by-reference parameters included
  *   in $data (see above)
-=======
- *   The data type of the structured array. 'form', 'links',
- *   'node_content', and so on are several examples.
- * @param $data
- *   The structured array to be altered.
- * @param ...
- *   Any additional params will be passed on to the called
- *   hook_$type_alter functions.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function drupal_alter($type, &$data) {
   // PHP's func_get_args() always returns copies of params, not references, so
@@ -3333,13 +3154,6 @@ function drupal_common_theme() {
     'pager_link' => array(
       'arguments' => array('text' => NULL, 'page_new' => NULL, 'element' => NULL, 'parameters' => array(), 'attributes' => array()),
     ),
-<<<<<<< HEAD
-=======
-    // from locale.inc
-    'locale_admin_manage_screen' => array(
-      'arguments' => array('form' => NULL),
-    ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // from menu.inc
     'menu_item_link' => array(
       'arguments' => array('item' => NULL),
@@ -3455,14 +3269,10 @@ function drupal_get_schema($table = NULL, $rebuild = FALSE) {
 
       // Invoke hook_schema for all modules.
       foreach (module_implements('schema') as $module) {
-<<<<<<< HEAD
         // Cast the result of hook_schema() to an array, as a NULL return value
         // would cause array_merge() to set the $schema variable to NULL as well.
         // That would break modules which use $schema further down the line.
         $current = (array) module_invoke($module, 'schema');
-=======
-        $current = module_invoke($module, 'schema');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         _drupal_initialize_schema($module, $current);
         $schema = array_merge($schema, $current);
       }
@@ -3565,17 +3375,11 @@ function drupal_get_schema_unprocessed($module, $table = NULL) {
   if (!is_null($table) && isset($schema[$table])) {
     return $schema[$table];
   }
-<<<<<<< HEAD
   elseif (!empty($schema)) {
     return $schema;
   }
 
   return array();
-=======
-  else {
-    return $schema;
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -3990,7 +3794,6 @@ function _drupal_flush_css_js() {
   }
   variable_set('css_js_query_string', $new_character . substr($string_history, 0, 19));
 }
-<<<<<<< HEAD
 
 /**
  * Error reporting level: display no errors.
@@ -4250,5 +4053,3 @@ function debug($data, $label = NULL, $print_r = FALSE) {
   $string = $print_r ? print_r($data, TRUE) : var_export($data, TRUE);
   trigger_error(trim($label ? "$label: $string" : $string));
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

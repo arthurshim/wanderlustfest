@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: poll-results-block.tpl.php,v 1.2 2007/08/02 20:08:53 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file poll-results-block.tpl.php
  * Display the poll results in a block.

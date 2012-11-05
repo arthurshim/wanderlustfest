@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emfield.views.inc,v 1.1.2.1 2009/09/30 15:11:01 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -29,12 +25,9 @@ function emfield_views_handlers() {
       'emfield_handler_argument_provider' => array(
         'parent' => 'content_handler_argument_string',
       ),
-<<<<<<< HEAD
       'emfield_handler_argument_status' => array(
         'parent' => 'content_handler_argument_numeric',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 //       'emfield_handler_argument_numeric' => array(
 //         'parent' => 'views_handler_argument_numeric',
 //       ),
@@ -49,12 +42,9 @@ function emfield_views_handlers() {
       'emfield_handler_field_provider' => array(
         'parent' => 'content_handler_field_multiple',
       ),
-<<<<<<< HEAD
       'emfield_handler_field_status' => array(
         'parent' => 'content_handler_field_multiple',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 //       'emfield_handler_field_multiple' => array(
 //         'parent' => 'emfield_handler_field',
 //       ),
@@ -93,12 +83,6 @@ function theme_emfield_handler_field_provider($item, $field, $node, $values, $fo
     $module = $field['module'];
     $info = emfield_include_invoke($module, $provider, 'info');
     switch ($format) {
-<<<<<<< HEAD
-=======
-      case 'provider':
-        $output = check_plain($info['name']);
-        break;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       case 'provider_raw':
         $output = check_plain($info['provider']);
         break;
@@ -114,18 +98,14 @@ function theme_emfield_handler_field_provider($item, $field, $node, $values, $fo
       case 'provider_original_url':
         $output = url(emfield_include_invoke($module, $provider, 'embedded_link', $item['value']));
         break;
-<<<<<<< HEAD
       case 'provider':
       default:
         $output = check_plain($info['name']);
         break;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   return $output;
 }
-<<<<<<< HEAD
 
 function theme_emfield_handler_field_status($item, $field, $node, $values, $format) {
   $output = '';
@@ -145,5 +125,3 @@ function theme_emfield_handler_field_status($item, $field, $node, $values, $form
     }
   }
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

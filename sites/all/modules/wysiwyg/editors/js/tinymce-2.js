@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: tinymce-2.js,v 1.10.2.2 2010/02/13 23:58:41 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 (function($) {
 
 /**
@@ -51,7 +47,6 @@ Drupal.wysiwyg.editor.attach.tinymce = function(context, params, settings) {
   for (var setting in settings) {
     tinyMCE.settings[setting] = settings[setting];
   }
-<<<<<<< HEAD
 
   // Remove TinyMCE's internal mceItem class, which was incorrectly added to
   // submitted content by Wysiwyg <2.1. TinyMCE only temporarily adds the class
@@ -63,8 +58,6 @@ Drupal.wysiwyg.editor.attach.tinymce = function(context, params, settings) {
   $field = $('#' + params.field);
   $field.val($field.val().replace(/(<.+?\s+class=['"][\w\s]*?)\bmceItem\b([\w\s]*?['"].*?>)/ig, '$1$2'));
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Attach editor.
   tinyMCE.execCommand('mceAddControl', true, params.field);
 };

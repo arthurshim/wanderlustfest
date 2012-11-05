@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: syslog.module,v 1.14.2.2 2008/07/24 06:52:43 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -41,7 +37,6 @@ function syslog_menu() {
 }
 
 function syslog_admin_settings() {
-<<<<<<< HEAD
   $form['syslog_identity'] = array(
     '#type'          => 'textfield',
     '#title'         => t('Syslog identity'),
@@ -49,8 +44,6 @@ function syslog_admin_settings() {
     '#description'   => t('A string that will be prepended to every message logged to Syslog. If you have multiple sites logging to the same Syslog log file, a unique identity per site makes it easy to tell the log entries apart. For more information on syslog, see <a href="@syslog_help">Syslog help</a>.', array(
       '@syslog_help' => url('admin/help/syslog'))),
   );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['syslog_facility'] = array(
     '#type'          => 'select',
     '#title'         => t('Send events to this syslog facility'),
@@ -86,11 +79,7 @@ function syslog_watchdog($entry) {
 
   if (!$log_init) {
     $log_init = TRUE;
-<<<<<<< HEAD
     openlog(variable_get('syslog_identity', 'drupal'), LOG_NDELAY, variable_get('syslog_facility', DEFAULT_SYSLOG_FACILITY));
-=======
-    openlog('drupal', LOG_NDELAY, variable_get('syslog_facility', DEFAULT_SYSLOG_FACILITY));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   syslog($entry['severity'], theme('syslog_format', $entry));

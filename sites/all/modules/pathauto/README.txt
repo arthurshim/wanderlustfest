@@ -92,7 +92,3 @@ Current maintainers:
 **Changes:
 See the CHANGELOG.txt file.
 
-<<<<<<< HEAD
-=======
-$Id: README.txt,v 1.16 2008/06/21 18:20:38 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

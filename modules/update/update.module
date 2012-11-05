@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: update.module,v 1.17.2.6 2009/12/16 17:30:00 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -408,11 +404,7 @@ function update_refresh() {
 function update_mail($key, &$message, $params) {
   $language = $message['language'];
   $langcode = $language->language;
-<<<<<<< HEAD
   $message['subject'] .= t('New release(s) available for !site_name', array('!site_name' => variable_get('site_name', 'Pressflow')), $langcode);
-=======
-  $message['subject'] .= t('New release(s) available for !site_name', array('!site_name' => variable_get('site_name', 'Drupal')), $langcode);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   foreach ($params as $msg_type => $msg_reason) {
     $message['body'][] = _update_message_text($msg_type, $msg_reason, FALSE, $language);
   }

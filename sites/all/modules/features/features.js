@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: features.js,v 1.1.2.10 2010/08/09 14:56:58 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.behaviors.features = function() {
   // Features management form package tabs

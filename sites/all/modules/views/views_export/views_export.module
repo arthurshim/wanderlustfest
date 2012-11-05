@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_export.module,v 1.9 2009/09/15 17:27:03 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file views_export.module
@@ -24,16 +20,10 @@ function views_export_menu() {
   );
 
   $items['admin/build/views/tools/export/results'] = array(
-<<<<<<< HEAD
     'title' => 'Bulk export results',
     'access arguments' => array('use views exporter'),
     'page callback' => 'views_export_export',
     'type' => MENU_LOCAL_TASK,
-=======
-    'access arguments' => array('use views exporter'),
-    'page callback' => 'views_export_export',
-    'type' => MENU_CALLBACK,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   return $items;
@@ -225,11 +215,7 @@ function views_export_export_form_submit(&$form, &$form_state) {
   $api .= " */\n";
   $api .= "function @module_views_api() {\n";
   $api .= "  return array(\n";
-<<<<<<< HEAD
   $api .= "    'api' => '" . views_api_version() . "',\n";
-=======
-  $api .= "    'api' => 2,\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $api .= "    'path' => drupal_get_path('module', '@module'),\n";
   $api .= "    //'path' => drupal_get_path('module', '@module') . '/includes',\n";
   $api .= "  );\n";
@@ -238,11 +224,7 @@ function views_export_export_form_submit(&$form, &$form_state) {
   $api = strtr($api, array('@module' => check_plain($form_state['values']['name'])));
 
   $element_api = array(
-<<<<<<< HEAD
     '#title' => t('Put this in @module.module in your modules/@module directory (place a &lt;?php at the top of the file so the webserver knows that it is PHP code)', array('@module' => $form_state['values']['name'])),
-=======
-    '#title' => t('Put this in @module.module in your modules/@module directory', array('@module' => $form_state['values']['name'])),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'textarea',
     '#id' => 'export-api-textarea',
     '#name' => 'export-api-textarea',
@@ -255,11 +237,7 @@ function views_export_export_form_submit(&$form, &$form_state) {
   ) + $types['textarea'];
 
   $element_hook = array(
-<<<<<<< HEAD
     '#title' => t('Put this in @module.views_default.inc in your modules/@module directory or modules/@module/includes directory (place a &lt;?php at the top of the file so the webserver knows that it is PHP code)', array('@module' => $form_state['values']['name'])),
-=======
-    '#title' => t('Put this in @module.views_default.inc in your modules/@module directory or modules/@module/includes directory', array('@module' => $form_state['values']['name'])),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'textarea',
     '#id' => 'export-textarea',
     '#name' => 'export-textarea',

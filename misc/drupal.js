@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-=======
-// $Id: drupal.js,v 1.41.2.4 2009/07/21 08:59:10 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 var Drupal = Drupal || { 'settings': {}, 'behaviors': {}, 'themes': {}, 'locale': {} };
 
 /**
  * Set the variable that indicates if JavaScript behaviors should be applied
  */
-<<<<<<< HEAD
 Drupal.jsEnabled = true;
-=======
-Drupal.jsEnabled = document.getElementsByTagName && document.createElement && document.createTextNode && document.documentElement && document.getElementById;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Attach all registered behaviors to a page element.
@@ -43,19 +35,10 @@ Drupal.jsEnabled = document.getElementsByTagName && document.createElement && do
  */
 Drupal.attachBehaviors = function(context) {
   context = context || document;
-<<<<<<< HEAD
   // Execute all of them.
   jQuery.each(Drupal.behaviors, function() {
     this(context);
   });
-=======
-  if (Drupal.jsEnabled) {
-    // Execute all of them.
-    jQuery.each(Drupal.behaviors, function() {
-      this(context);
-    });
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 };
 
 /**
@@ -267,25 +250,16 @@ Drupal.getSelection = function (element) {
  */
 Drupal.ahahError = function(xmlhttp, uri) {
   if (xmlhttp.status == 200) {
-<<<<<<< HEAD
     if (jQuery.trim(xmlhttp.responseText)) {
       var message = Drupal.t("An error occurred. \n@uri\n@text", {'@uri': uri, '@text': xmlhttp.responseText });
     }
     else {
       var message = Drupal.t("An error occurred. \n@uri\n(no information available).", {'@uri': uri });
-=======
-    if (jQuery.trim($(xmlhttp.responseText).text())) {
-      var message = Drupal.t("An error occurred. \n@uri\n@text", {'@uri': uri, '@text': xmlhttp.responseText });
-    }
-    else {
-      var message = Drupal.t("An error occurred. \n@uri\n(no information available).", {'@uri': uri, '@text': xmlhttp.responseText });
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   else {
     var message = Drupal.t("An HTTP error @status occurred. \n@uri", {'@uri': uri, '@status': xmlhttp.status });
   }
-<<<<<<< HEAD
   return message.replace(/\n/g, '<br />');
 }
 
@@ -295,22 +269,6 @@ $(document.documentElement).addClass('js');
 $(document).ready(function() {
   Drupal.attachBehaviors(this);
 });
-=======
-  return message;
-}
-
-// Global Killswitch on the <html> element
-if (Drupal.jsEnabled) {
-  // Global Killswitch on the <html> element
-  $(document.documentElement).addClass('js');
-  // 'js enabled' cookie
-  document.cookie = 'has_js=1; path=/';
-  // Attach all behaviors.
-  $(document).ready(function() {
-    Drupal.attachBehaviors(this);
-  });
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * The default themes.

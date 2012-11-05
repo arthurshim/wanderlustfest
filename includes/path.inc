@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: path.inc,v 1.19.2.4 2010/05/28 15:12:04 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -28,7 +24,6 @@ function drupal_init_path() {
 /**
  * Given an alias, return its Drupal system URL if one exists. Given a Drupal
  * system URL return one of its aliases if such a one exists. Otherwise,
-<<<<<<< HEAD
  * return FALSE. This function is a hook and modules can impliment lookup_path 
  * to override the core behavior.
  *
@@ -74,8 +69,6 @@ function drupal_lookup_path($action, $path = '', $path_language = '') {
  *
  * Given an alias, return its Drupal system URL if one exists. Given a Drupal
  * system URL return one of its aliases if such a one exists. Otherwise,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * return FALSE.
  *
  * @param $action
@@ -94,7 +87,6 @@ function drupal_lookup_path($action, $path = '', $path_language = '') {
  *   Either a Drupal system path, an aliased path, or FALSE if no path was
  *   found.
  */
-<<<<<<< HEAD
 function _drupal_lookup_path_direct($action, $path = '', $path_language = '') {
   global $language;
   // $map is an array with language keys, holding arrays of Drupal paths to alias relations
@@ -105,32 +97,14 @@ function _drupal_lookup_path_direct($action, $path = '', $path_language = '') {
   // Use $has_paths to avoid looking up paths in subsequent calls if there simply are no aliases
   if (!isset($has_paths)) {
     $has_paths = (db_result(db_query_range('SELECT dst FROM {url_alias}', 0, 1)) !== FALSE);
-=======
-function drupal_lookup_path($action, $path = '', $path_language = '') {
-  global $language;
-  // $map is an array with language keys, holding arrays of Drupal paths to alias relations
-  static $map = array(), $no_src = array(), $count;
-
-  $path_language = $path_language ? $path_language : $language->language;
-
-  // Use $count to avoid looking up paths in subsequent calls if there simply are no aliases
-  if (!isset($count)) {
-    $count = db_result(db_query('SELECT COUNT(pid) FROM {url_alias}'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   if ($action == 'wipe') {
     $map = array();
     $no_src = array();
-<<<<<<< HEAD
     $has_paths = NULL;
   }
   elseif ($has_paths && $path != '') {
-=======
-    $count = NULL;
-  }
-  elseif ($count > 0 && $path != '') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if ($action == 'alias') {
       if (isset($map[$path_language][$path])) {
         return $map[$path_language][$path];
@@ -144,11 +118,7 @@ function drupal_lookup_path($action, $path = '', $path_language = '') {
     // isn't a path that has this alias
     elseif ($action == 'source' && !isset($no_src[$path_language][$path])) {
       // Look for the value $path within the cached $map
-<<<<<<< HEAD
       $src = FALSE;
-=======
-      $src = '';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if (!isset($map[$path_language]) || !($src = array_search($path, $map[$path_language]))) {
         // Get the most fitting result falling back with alias without language
         if ($src = db_result(db_query("SELECT src FROM {url_alias} WHERE dst = '%s' AND language IN('%s', '') ORDER BY language DESC, pid DESC", $path, $path_language))) {
@@ -226,7 +196,6 @@ function drupal_get_normal_path($path, $path_language = '') {
  * @param $index
  *   The index of the component, where each component is separated by a '/'
  *   (forward-slash), and where the first component has an index of 0 (zero).
-<<<<<<< HEAD
  * @param $path
  *   A path to break into components. Defaults to the path of the current page.
  *
@@ -234,12 +203,6 @@ function drupal_get_normal_path($path, $path_language = '') {
  *   The component specified by $index, or NULL if the specified component was
  *   not found. If called without arguments, it returns an array containing all
  *   the components of the current path.
-=======
- *
- * @return
- *   The component specified by $index, or NULL if the specified component was
- *   not found.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function arg($index = NULL, $path = NULL) {
   static $arguments;

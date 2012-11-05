@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: token.css,v 1.2.2.3 2010/09/06 14:55:43 davereid Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 .token-tree {
   font-size: 0.85em;
@@ -12,7 +8,6 @@
   padding-top: 0;
   padding-bottom: 0;
 }
-<<<<<<< HEAD
 
 .token-group {
   font-weight: bold;
@@ -26,5 +21,3 @@
 .token-tree td.token-key {
   white-space: nowrap;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

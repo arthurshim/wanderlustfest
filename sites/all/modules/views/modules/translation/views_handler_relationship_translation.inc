@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_relationship_translation.inc,v 1.1 2008/09/30 22:07:15 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Handles relationships for content translation sets and provides multiple

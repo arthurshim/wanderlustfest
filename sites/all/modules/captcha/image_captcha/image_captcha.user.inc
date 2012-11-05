@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: image_captcha.user.inc,v 1.25.2.1 2010/11/29 23:33:37 soxofaan Exp $
-=======
-// $Id: image_captcha.user.inc,v 1.25 2010/01/30 21:53:13 soxofaan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -97,17 +93,12 @@ function _image_captcha_generate_image($code) {
   }
   imagefilledrectangle($image, 0, 0, $width, $height, $background_color);
 
-<<<<<<< HEAD
   // Do we need to draw in RTL mode?
   global $language;
   $rtl = $language->direction && ((bool) variable_get('image_captcha_rtl_support', 0));
 
   // draw text
   $result = _image_captcha_image_generator_print_string($image, $width, $height, $fonts, $font_size, $code, $rtl);
-=======
-  // draw text
-  $result = _image_captcha_image_generator_print_string($image, $width, $height, $fonts, $font_size, $code);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!$result) {
     return FALSE;
   }
@@ -240,11 +231,7 @@ function _image_captcha_image_generator_add_dots(&$image, $width, $height, $colo
 /**
  * Helper function for drawing text on the image.
  */
-<<<<<<< HEAD
 function _image_captcha_image_generator_print_string(&$image, $width, $height, $fonts, $font_size, $text, $rtl=FALSE) {
-=======
-function _image_captcha_image_generator_print_string(&$image, $width, $height, $fonts, $font_size, $text) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // get characters
   $characters = _image_captcha_utf8_split($text);
   $character_quantity = count($characters);
@@ -274,12 +261,9 @@ function _image_captcha_image_generator_print_string(&$image, $width, $height, $
   foreach ($characters as $c => $character) {
     // initial position of character: in the center of its cage
     $center_x = ($c + 0.5) * $ccage_width;
-<<<<<<< HEAD
     if ($rtl) {
       $center_x = $width - $center_x;
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $center_y = 0.5 * $height;
 
     // Pick a random font from the list.

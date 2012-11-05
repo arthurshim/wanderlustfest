@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: imagebrowser.js,v 1.1.4.4 2010/05/07 05:40:11 blixxxa Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file imagebrowser.js

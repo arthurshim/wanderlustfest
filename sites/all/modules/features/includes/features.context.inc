@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: features.context.inc,v 1.1.2.19 2010/07/29 21:57:08 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Determine context major branch version.

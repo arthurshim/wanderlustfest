@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filefield.theme.inc,v 1.12 2010/06/30 01:37:29 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -167,10 +163,7 @@ function _filefield_generic_icon_map($file) {
     case 'application/vnd.oasis.opendocument.presentation':
     case 'application/vnd.oasis.opendocument.presentation-template':
     case 'application/vnd.openxmlformats-officedocument.presentationml.presentation':
-<<<<<<< HEAD
     case 'application/vnd.openxmlformats-officedocument.presentationml.slideshow':
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     case 'application/vnd.stardivision.impress':
     case 'application/vnd.sun.xml.impress':
     case 'application/vnd.sun.xml.impress.template':
@@ -234,7 +227,6 @@ function _filefield_generic_icon_map($file) {
     case 'application/xhtml+xml':
       return 'text-html';
 
-<<<<<<< HEAD
     // RTF files.
     case 'application/rtf':
       return 'text-rtf';
@@ -244,8 +236,6 @@ function _filefield_generic_icon_map($file) {
     case 'application/vnd.google-earth.kmz':
       return 'application-google-earth';
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Executable types.
     case 'application/x-macbinary':
     case 'application/x-ms-dos-executable':

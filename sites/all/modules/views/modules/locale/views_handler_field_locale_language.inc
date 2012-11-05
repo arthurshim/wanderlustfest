@@ -1,14 +1,9 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_locale_language.inc,v 1.1 2009/02/20 23:02:09 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Field handler to translate a language into its readable form.
  */
 class views_handler_field_locale_language extends views_handler_field {
-<<<<<<< HEAD
   function option_definition() {
     $options = parent::option_definition();
     $options['native_language'] = array('default' => FALSE);
@@ -29,10 +24,5 @@ class views_handler_field_locale_language extends views_handler_field {
   function render($values) {
     $languages = locale_language_list(empty($this->$options['native_language']) ? 'name' : 'native');
     return isset($languages[$values->{$this->field_alias}]) ? $languages[$values->{$this->field_alias}] : '';
-=======
-  function render($values) {
-    $languages = language_list();
-    return isset($languages[$values->{$this->field_alias}]) ? $languages[$values->{$this->field_alias}]->name : '';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }

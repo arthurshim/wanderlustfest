@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_sort_search_score.inc,v 1.1 2009/02/23 22:19:47 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Field handler to provide simple renderer that allows linking to a node.

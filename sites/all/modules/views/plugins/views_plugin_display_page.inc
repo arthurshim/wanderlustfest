@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_display_page.inc,v 1.8.2.4 2010/03/11 00:01:34 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the page display plugin.
@@ -31,11 +27,7 @@ class views_plugin_display_page extends views_plugin_display {
         'title' => array('default' => '', 'translatable' => FALSE),
         'description' => array('default' => '', 'translatable' => FALSE),
         'weight' => array('default' => 0),
-<<<<<<< HEAD
         'name' => array('default' => variable_get('menu_default_node_menu', 'navigation')),
-=======
-        'name' => array('default' => 'navigation'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
        ),
     );
     $options['tab_options'] = array(
@@ -62,23 +54,16 @@ class views_plugin_display_page extends views_plugin_display {
 
     $bits = explode('/', $this->get_option('path'));
     $page_arguments = array($this->view->name, $this->display->id);
-<<<<<<< HEAD
     $view_arguments = $this->get_option('arguments');
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Replace % with %views_arg for menu autoloading and add to the
     // page arguments so the argument actually comes through.
     foreach($bits as $pos => $bit) {
       if ($bit == '%') {
-<<<<<<< HEAD
         $argument = array_shift($view_arguments);
         if ($argument['validate_type'] != 'none') {
           $bits[$pos] = '%views_arg';
         }
-=======
-        $bits[$pos] = '%views_arg';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $page_arguments[] = $pos;
       }
     }

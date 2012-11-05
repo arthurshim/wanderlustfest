@@ -337,7 +337,6 @@ function boost_admin_boost_performance_page() {
     '#default_value' => BOOST_MULTISITE_SINGLE_DB,
     '#description'   => t('Enabling will allow for correct multi-site caching, in cases where different content is served from the same Drupal installation, based on domain. Examples: Multi-site with a single/shared database, site translation detection based on domain, and the contributed "Domain Access" module.'),
   );
-<<<<<<< HEAD
   $form['directories']['boost_determine_host_from_http'] = array(
     '#type'          => 'checkbox',
     '#title'         => t('Determine host from HTTP request, not $base_url'),
@@ -346,8 +345,6 @@ function boost_admin_boost_performance_page() {
   );
   
   
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!BOOST_MULTISITE_SINGLE_DB) {
 //     $form['directories']['boost_host'] = array(
 //       '#type'          => 'textfield',

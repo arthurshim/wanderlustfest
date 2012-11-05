@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: README.txt,v 1.1.2.1 2008/07/18 20:22:44 alexua Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /********************/
  Embedded Image Field

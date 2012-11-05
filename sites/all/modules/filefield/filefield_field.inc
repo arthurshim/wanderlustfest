@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filefield_field.inc,v 1.41 2010/06/30 23:52:45 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -22,11 +18,7 @@ function filefield_field_settings_form($field) {
     '#title' => t('List field'),
     '#options' => array(0 => t('Disabled'), 1 => t('Enabled')),
     '#default_value' => $field['list_field'] === '' ? 0 : (int) $field['list_field'],
-<<<<<<< HEAD
     '#description' => t('Display a checkbox where users may choose if a file should be shown when viewing the content. Most formatters other than <em>Generic file</em> do not support this option.'),
-=======
-    '#description' => t('The "list" option lets a user choose if a file should be shown in a list when viewing the content after creation.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#attributes' => array('class' => 'filefield-list-field'),
   );
   $form['list_default'] = array(
@@ -39,11 +31,7 @@ function filefield_field_settings_form($field) {
     '#title' => t('Description field'),
     '#default_value' => $field['description_field'] === '' ? 0 : (int) $field['description_field'],
     '#options' => array(0 => t('Disabled'), 1 => t('Enabled')),
-<<<<<<< HEAD
     '#description' => t('Display a text field where users may enter a description about the uploaded file. The description text is used when using the <em>Generic file</em> formatter to link to the file, the file name will be used otherwise. Most other formatters do not use the description field on output.'),
-=======
-    '#description' => t('When enabled, will display a text field where users may enter a description about the uploaded file.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   return $form;
@@ -97,10 +85,7 @@ function filefield_field_settings_views_data($field) {
   $data[$table_alias][$field['field_name'] .'_data']['field'] = array(
     'title' => $data[$table_alias][$field['field_name'] .'_data']['title'],
     'title short' => $data[$table_alias][$field['field_name'] .'_data']['title short'],
-<<<<<<< HEAD
     'help' => t('Can be used to display specific alt, title, or description information. May cause duplicate rows if grouping fields.'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'field' => $db_info['columns']['data']['column'],
     'table' => $db_info['table'],
     'handler' => 'filefield_handler_field_data',
@@ -150,13 +135,9 @@ function filefield_field_load($node, $field, &$items, $teaser, $page) {
       $items[$delta] = NULL;
     }
     else {
-<<<<<<< HEAD
       if (isset($item['data']) && !empty($item['data'])) {
         $item['data'] = unserialize($item['data']);
       }
-=======
-      $item['data'] = unserialize($item['data']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       // Temporary fix to unserialize data serialized multiple times.
       // See the FileField issue http://drupal.org/node/402860.
       // And the CCK issue http://drupal.org/node/407446.
@@ -165,15 +146,9 @@ function filefield_field_load($node, $field, &$items, $teaser, $page) {
       }
       // Merge any data added by modules in hook_file_load().
       if (isset($file['data']) && isset($item['data'])) {
-<<<<<<< HEAD
         $file['data'] = array_merge((array) $file['data'], (array) $item['data']);
       }
       $items[$delta] = array_merge($file, $item);
-=======
-        $file['data'] = array_merge((array) $item['data'], (array) $file['data']);
-      }
-      $items[$delta] = array_merge($item, $file);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
@@ -232,7 +207,6 @@ function filefield_field_update($node, $field, &$items, $teaser, $page) {
  */
 function filefield_field_delete_revision($node, $field, &$items, $teaser, $page) {
   foreach ($items as $delta => $item) {
-<<<<<<< HEAD
     if (isset($item['fid'])) {
       // For hook_file_references, remember that this is being deleted.
       $item['field_name'] = $field['field_name'];
@@ -240,13 +214,6 @@ function filefield_field_delete_revision($node, $field, &$items, $teaser, $page)
       if (filefield_field_delete_file($item, $field)) {
         $items[$delta] = NULL;
       }
-=======
-    // For hook_file_references, remember that this is being deleted.
-    $item['field_name'] = $field['field_name'];
-    $item['delete_vid'] = $node->vid;
-    if (filefield_field_delete_file($item, $field)) {
-      $items[$delta] = NULL;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 }
@@ -256,7 +223,6 @@ function filefield_field_delete_revision($node, $field, &$items, $teaser, $page)
  */
 function filefield_field_delete($node, $field, &$items, $teaser, $page) {
   foreach ($items as $delta => $item) {
-<<<<<<< HEAD
     if (isset($item['fid'])) {
       // For hook_file_references(), remember that this is being deleted.
       $item['field_name'] = $field['field_name'];
@@ -276,14 +242,6 @@ function filefield_field_delete($node, $field, &$items, $teaser, $page) {
       $item['delete_vid'] = $item['vid'];
       filefield_field_delete_file($item, $field); 
     }
-=======
-    // For hook_file_references(), remember that this is being deleted.
-    $item['field_name'] = $field['field_name'];
-    // Pass in the nid of the node that is being removed so all references can
-    // be counted in hook_file_references().
-    $item['delete_nid'] = $node->nid;
-    filefield_field_delete_file($item, $field);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -348,15 +306,9 @@ function filefield_field_sanitize($node, $field, &$items, $teaser, $page) {
     if (!empty($item['fid']) && empty($item['filepath'])) {
       $file = (array) field_file_load($item['fid']);
       if (isset($file['data'])) {
-<<<<<<< HEAD
         $file['data'] = array_merge($file['data'], $items[$delta]['data']);
       }
       $items[$delta] = array_merge($file, $items[$delta]);
-=======
-        $file['data'] = array_merge($items[$delta]['data'], $file['data']);
-      }
-      $items[$delta] = array_merge($items[$delta], $file);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Verify the file exists on the server.

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?php // $Id$
-=======
-<?php // $Id: imagecache_create_url.test,v 1.4 2008/07/09 03:07:11 dopry Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Test class for testing imagecache_create_url() in several use cases with

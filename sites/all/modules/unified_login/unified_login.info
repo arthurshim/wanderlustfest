@@ -1,5 +1,0 @@
-; $Id$
-name = Unified Login
-description = Correlates login with remote site (that supports unified login).
-core = 6.x
-package = "Malkine Interactive Drupal Modules"

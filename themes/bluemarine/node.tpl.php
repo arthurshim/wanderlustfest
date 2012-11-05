@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: node.tpl.php,v 1.7 2007/08/07 08:39:36 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
   <div class="node<?php if ($sticky) { print " sticky"; } ?><?php if (!$status) { print " node-unpublished"; } ?>">
     <?php if ($picture) {

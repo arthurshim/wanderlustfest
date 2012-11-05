@@ -1,12 +1,8 @@
 <?php
-<<<<<<< HEAD
 
 /**
  * @file
  */
-=======
-// $Id: image_fupload_image.admin.inc,v 1.7 2009/01/31 00:13:38 grandcat Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 function image_fupload_image_admin() {
   $form['info'] = array(
@@ -43,7 +39,6 @@ function image_fupload_image_admin() {
   $form['previewlist']['field_settings']['fupload_previewlist_field_settings'] = array(
     '#type' => 'checkboxes',
     '#title' => t('Editable fields'),
-<<<<<<< HEAD
     '#description' => t('Choose the fields which should be editable by the uploader.') .'<p>'. t('<strong>Important information:</strong><br /> If the body is not editable by the user, <em>"minimum number of words"</em> !setting for the body field has to be <strong>0</strong>.', array('!setting' => l(t('setting'), 'admin/content/node-type/image'))) .'</p>',
     '#options' => array(
       'title' => t('Title'),
@@ -52,16 +47,6 @@ function image_fupload_image_admin() {
     '#default_value' => variable_get('fupload_previewlist_field_settings', array('title', 'body')),
   );
 
-=======
-    '#description' => t('Choose the fields which should be editable by the uploader.') .'<p>'.t('<strong>Important information:</strong><br /> If the body is not editable by the user, <em>"minimum number of words"</em> !setting for the body field has to be <strong>0</strong>.', array('!setting' => l(t('setting'), 'admin/content/node-type/image'))).'</p>',
-    '#options' => array(
-      'title' => t('Title'),
-      'body' => t('Body'),    
-    ),
-    '#default_value' => variable_get('fupload_previewlist_field_settings', array('title', 'body')),
-  );
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['fupload_title_replacements'] = array(
     '#type' => 'textfield',
     '#title' => t('Image Title Processor'),
@@ -77,10 +62,5 @@ function image_fupload_image_admin() {
 }
 
 function image_fupload_image_admin_submit($form, &$form_state) {
-<<<<<<< HEAD
   _fupload_imagepreview_settings('write', 'image', array('preview_preset' => $form_state['values']['fupload_previewlist_img']));
 }
-=======
-  _fupload_imagepreview_settings('write', 'image', array('preview_preset' => $form_state['values']['fupload_previewlist_img']));     
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

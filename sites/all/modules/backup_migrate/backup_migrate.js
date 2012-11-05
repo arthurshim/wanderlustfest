@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: backup_migrate.js,v 1.1.2.1.2.6 2010/03/24 04:02:58 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.backup_migrate = {
   callbackURL : "",  

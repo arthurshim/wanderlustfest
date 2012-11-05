@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: statistics.views.inc,v 1.9.4.1 2009/11/02 23:25:14 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers for statistics.module

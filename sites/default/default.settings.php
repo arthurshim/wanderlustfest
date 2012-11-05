@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: default.settings.php,v 1.8.2.4 2009/09/14 12:59:18 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -96,7 +92,6 @@ $db_url = 'mysql://username:password@localhost/databasename';
 $db_prefix = '';
 
 /**
-<<<<<<< HEAD
  * Database default collation.
  *
  * All data stored in Drupal is in UTF-8. Certain databases, such as MySQL,
@@ -117,8 +112,6 @@ $db_prefix = '';
 # $db_collation = 'utf8_general_ci';
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Access control for update.php script
  *
  * If you are updating your Drupal installation using the update.php script
@@ -263,7 +256,6 @@ ini_set('url_rewriter.tags',        '');
 #   'forum'      => 'Discussion board',
 #   '@count min' => '@count minutes',
 # );
-<<<<<<< HEAD
 
 /**
  * Smart start:
@@ -277,5 +269,3 @@ ini_set('url_rewriter.tags',        '');
  * threshold has elapsed since installation.
  */
 # $conf['pressflow_smart_start'] = TRUE;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

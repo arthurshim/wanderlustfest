@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: tableselect.js,v 1.8 2007/11/19 12:15:16 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.behaviors.tableSelect = function (context) {
   $('form table:has(th.select-all):not(.tableSelect-processed)', context).each(Drupal.tableSelect);

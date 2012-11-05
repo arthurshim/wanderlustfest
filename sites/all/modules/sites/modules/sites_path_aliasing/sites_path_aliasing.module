@@ -394,7 +394,6 @@ function sites_path_aliasing_form_alter(&$form, $form_state, $form_id) {
   $form['#submit'][] = 'sites_path_aliasing_process_submitted_form_remove_prefix_from_redirect';
   array_unshift($form['#submit'], 'sites_path_aliasing_process_submitted_form_add_prefix');
   
-<<<<<<< HEAD
   if (isset($form['#node'])) {
 	  $node = (object)$form['#node']; // create a copy so we don't change it
 	  
@@ -404,15 +403,6 @@ function sites_path_aliasing_form_alter(&$form, $form_state, $form_id) {
 	  if (sites_path_aliasing_extract_sites_prefix($node->path) && module_exists('pathauto')) {
 	    sites_path_aliasing_add_prefix_to_pathauto_pattern($node, sites_path_aliasing_make_prefix($node));
 	  }
-=======
-  $node = (object)$form['#node']; // create a copy so we don't change it
-  
-  // if the node is sites-prefixed, add the prefix to the active pattern so that pathauto perceives
-  // the prefixed url alias as being identical to what it would generate, thereby ensuring that the
-  // "automatic alias" checkbox on the node form is checked when it ought to be
-  if (sites_path_aliasing_extract_sites_prefix($node->path) && module_exists('pathauto')) {
-    sites_path_aliasing_add_prefix_to_pathauto_pattern($node, sites_path_aliasing_make_prefix($node));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -619,8 +609,4 @@ PID   SRC       DST
 392   my-view   sites:1,2/forum
 
 
-<<<<<<< HEAD
 */
-=======
-*/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

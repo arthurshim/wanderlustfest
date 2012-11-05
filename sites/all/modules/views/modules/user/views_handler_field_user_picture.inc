@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_user_picture.inc,v 1.1.4.3 2010/01/06 20:55:13 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Field handler to provide simple renderer that allows using a themed user link

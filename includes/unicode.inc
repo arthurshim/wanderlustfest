@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: unicode.inc,v 1.29.2.1 2010/06/30 09:04:38 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Indicates an error during check for PHP unicode support.
@@ -338,7 +334,6 @@ function _mime_header_decode($matches) {
  *   The input $text, with all HTML entities decoded once.
  */
 function decode_entities($text, $exclude = array()) {
-<<<<<<< HEAD
   static $html_entities;
   if (!isset($html_entities)) {
     include_once './includes/unicode.entities.inc';
@@ -352,41 +347,17 @@ function decode_entities($text, $exclude = array()) {
   // being used to allow for a callback (see 
   // http://php.net/manual/en/reference.pcre.pattern.modifiers).
   return preg_replace('/&(#x?)?([A-Za-z0-9]+);/e', '_decode_entities("$1", "$2", "$0", $html_entities, $exclude)', $text);
-=======
-  static $table;
-  // We store named entities in a table for quick processing.
-  if (!isset($table)) {
-    // Get all named HTML entities.
-    $table = array_flip(get_html_translation_table(HTML_ENTITIES));
-    // PHP gives us ISO-8859-1 data, we need UTF-8.
-    $table = array_map('utf8_encode', $table);
-    // Add apostrophe (XML)
-    $table['&apos;'] = "'";
-  }
-  $newtable = array_diff($table, $exclude);
-
-  // Use a regexp to select all entities in one pass, to avoid decoding double-escaped entities twice.
-  return preg_replace('/&(#x?)?([A-Za-z0-9]+);/e', '_decode_entities("$1", "$2", "$0", $newtable, $exclude)', $text);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Helper function for decode_entities
  */
-<<<<<<< HEAD
 function _decode_entities($prefix, $codepoint, $original, &$html_entities, &$exclude) {
   // Named entity
   if (!$prefix) {
     // A named entity not in the exclude list.
     if (isset($html_entities[$original]) && !isset($exclude[$html_entities[$original]])) {
       return $html_entities[$original];
-=======
-function _decode_entities($prefix, $codepoint, $original, &$table, &$exclude) {
-  // Named entity
-  if (!$prefix) {
-    if (isset($table[$original])) {
-      return $table[$original];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     else {
       return $original;
@@ -420,11 +391,7 @@ function _decode_entities($prefix, $codepoint, $original, &$table, &$exclude) {
          . chr(0x80 | ( $codepoint        & 0x3F));
   }
   // Check for excluded characters
-<<<<<<< HEAD
   if (isset($exclude[$str])) {
-=======
-  if (in_array($str, $exclude)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $original;
   }
   else {

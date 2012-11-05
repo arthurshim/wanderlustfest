@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: README.txt,v 1.1.2.1 2009/11/08 13:26:13 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Embedded Media Thumbnail
 

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views.module,v 1.341.2.12 2010/04/29 18:26:04 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Primarily Drupal hooks and global API functions to manipulate views.
@@ -254,16 +250,12 @@ function views_menu_alter(&$callbacks) {
  * @param $name
  *   The name of the view. This needs to be specified in the 'load function'
  *   of the menu entry.
-<<<<<<< HEAD
  * @param $display_id
  *   The display id that will be loaded for this menu item.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $index
  *   The menu argument index. This counts from 1.
  */
 function views_arg_load($value, $name, $display_id, $index) {
-<<<<<<< HEAD
   static $views = array();
 
   // Make sure we haven't already loaded this views argument for a similar menu
@@ -273,8 +265,6 @@ function views_arg_load($value, $name, $display_id, $index) {
     return $views[$key];
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($view = views_get_view($name)) {
     $view->set_display($display_id);
     $view->init_handlers();
@@ -294,12 +284,9 @@ function views_arg_load($value, $name, $display_id, $index) {
       if (isset($view->argument[$indexes[$index]])) {
         $arg = $view->argument[$indexes[$index]]->validate_argument($value) ? $value : FALSE;
         $view->destroy();
-<<<<<<< HEAD
 
         // Store the output in case we load this same menu item again.
         $views[$key] = $arg;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         return $arg;
       }
     }
@@ -331,7 +318,6 @@ function views_page() {
 function views_block($op = 'list', $delta = 0, $edit = array()) {
   switch ($op) {
     case 'list':
-<<<<<<< HEAD
       // Try to avoid instantiating all the views just to get the blocks info.
       views_include('cache');
       $cache = views_cache_get('views_block_items', TRUE);
@@ -339,8 +325,6 @@ function views_block($op = 'list', $delta = 0, $edit = array()) {
         return $cache->data;
       }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $items = array();
       $views = views_get_all_views();
       foreach ($views as $view) {
@@ -395,11 +379,8 @@ function views_block($op = 'list', $delta = 0, $edit = array()) {
         $view->destroy();
       }
 
-<<<<<<< HEAD
       views_cache_set('views_block_items', $items, TRUE);
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return $items;
     case 'view':
       $start = views_microtime();
@@ -489,10 +470,7 @@ function views_access() {
     }
 
     list($callback, $arguments) = $arg;
-<<<<<<< HEAD
     $arguments = $arguments ? $arguments : array();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (function_exists($callback) && call_user_func_array($callback, $arguments)) {
       return TRUE;
     }
@@ -699,11 +677,7 @@ function views_include_default_views() {
  * @param $key
  *   The type of handler. i.e, sort, field, argument, filter, relationship
  *
-<<<<<<< HEAD
  * @return views_handler
-=======
- * @return
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   An instance of a handler object. May be views_handler_broken.
  */
 function views_get_handler($table, $field, $key) {
@@ -747,13 +721,10 @@ function views_fetch_plugin_data($type = NULL, $plugin = NULL) {
 
 /**
  * Get a handler for a plugin
-<<<<<<< HEAD
  *
  * @return views_plugin
  *
  * The created plugin object.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function views_get_plugin($type, $plugin) {
   $definition = views_fetch_plugin_data($type, $plugin);
@@ -797,11 +768,7 @@ function &views_get_default_view($view_name) {
 /**
  * Create an empty view to work with.
  *
-<<<<<<< HEAD
  * @return view
-=======
- * @return
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   A fully formed, empty $view object. This object must be populated before
  *   it can be successfully saved.
  */
@@ -930,11 +897,7 @@ function views_get_all_views($reset = FALSE) {
  *   The name of the view.
  * @param $reset
  *   If TRUE, reset this entry in the load cache.
-<<<<<<< HEAD
  * @return view
-=======
- * @return $view
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   A reference to the $view object. Use $reset if you're sure you want
  *   a fresh one.
  */
@@ -943,17 +906,11 @@ function views_get_view($name, $reset = FALSE) {
   $view = view::load($name, $reset);
   $default_view = views_get_default_view($name);
 
-<<<<<<< HEAD
    // The view does not exist.
   if (empty($view) && empty($default_view)) {
     return;
   }
   // The view is defined in code.
-=======
-  if (empty($view) && empty($default_view)) {
-    return;
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   elseif (empty($view) && !empty($default_view)) {
     $status = variable_get('views_defaults', array());
     if (isset($status[$default_view->name])) {
@@ -962,10 +919,7 @@ function views_get_view($name, $reset = FALSE) {
     $default_view->type = t('Default');
     return $default_view->clone_view();
   }
-<<<<<<< HEAD
   // The view is overriden/defined in the database.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   elseif (!empty($view) && !empty($default_view)) {
     $view->type = t('Overridden');
   }
@@ -1040,12 +994,7 @@ function vpr_trace() {
  */
 function views_exposed_form(&$form_state) {
   // Don't show the form when batch operations are in progress.
-<<<<<<< HEAD
   if ($batch = batch_get() && isset($batch['current_set'])) {
-=======
-  $batch =& batch_get();
-  if (!empty($batch)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return array(
       // Set the theme callback to be nothing to avoid errors in template_preprocess_views_exposed_form().
       '#theme' => '',
@@ -1300,11 +1249,7 @@ function views_var_export($var, $prefix = '', $init = TRUE) {
     else {
       $output = "array(\n";
       foreach ($var as $key => $value) {
-<<<<<<< HEAD
         $output .= "  " . views_var_export($key, '', FALSE) . " => " . views_var_export($value, '  ', FALSE) . ",\n";
-=======
-        $output .= "  '$key' => " . views_var_export($value, '  ', FALSE) . ",\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
       $output .= ')';
     }

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_display_block.inc,v 1.5 2009/06/26 00:23:42 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the block display plugin.
@@ -77,11 +73,7 @@ class views_plugin_display_block extends views_plugin_display {
     }
 
     if (strlen($block_description) > 16) {
-<<<<<<< HEAD
       $block_description = drupal_substr($block_description, 0, 16) . '...';
-=======
-      $block_description = substr($block_description, 0, 16) . '...';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     $options['block_description'] = array(
@@ -187,15 +179,9 @@ class views_plugin_display_block extends views_plugin_display {
 
     return FALSE;
   }
-<<<<<<< HEAD
 
   /**
    * Save the block cache setting in the blocks table if this block allready
-=======
-  
-  /**
-   * Save the block cache setting in the blocks table if this block allready 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * exists in the blocks table. Dirty fix untill http://drupal.org/node/235673 gets in.
    */
   function save_block_cache($delta, $cache_setting) {

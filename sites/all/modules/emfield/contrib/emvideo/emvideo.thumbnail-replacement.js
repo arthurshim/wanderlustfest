@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: emvideo.thumbnail-replacement.js,v 1.1.2.2 2009/09/01 20:35:24 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  *  @file

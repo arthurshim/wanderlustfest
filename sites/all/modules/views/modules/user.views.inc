@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-//$Id: user.views.inc,v 1.59.2.3 2010/03/22 20:32:48 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers for user.module
@@ -92,14 +88,11 @@ function user_views_data() {
     'argument' => array(
       'handler' => 'views_handler_argument_string',
     ),
-<<<<<<< HEAD
     'filter' => array(
       'handler' => 'views_handler_filter_string',
       'title' => t('User raw name'),
       'help' => t('The user or author name. This filter do not check if the user exists. Only useful for string comparisons.')
     ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   // mail
@@ -208,11 +201,7 @@ function user_views_data() {
     ),
   );
 
-<<<<<<< HEAD
   // active status
-=======
-  // published status
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $data['users']['status'] = array(
     'title' => t('Active'), // The item it appears as on the UI,
     'help' => t('Whether a user is active or blocked.'), // The help that appears on the UI,
@@ -298,10 +287,7 @@ function user_views_data() {
       'name table' => 'role',
       'name field' => 'name',
       'empty field name' => t('No role'),
-<<<<<<< HEAD
       'zero is null' => TRUE,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'numeric' => TRUE,
     ),
   );
@@ -335,11 +321,7 @@ function user_views_data() {
 
   // ----------------------------------------------------------------------
   // authmap table
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $data['authmap']['table']['group']  = t('User');
   $data['authmap']['table']['join'] = array(
      // Directly links to users table.
@@ -394,11 +376,7 @@ function user_views_data() {
       'handler' => 'views_handler_argument_string',
     ),
   );
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $data;
 }
 

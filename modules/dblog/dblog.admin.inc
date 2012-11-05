@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: dblog.admin.inc,v 1.6.2.1 2008/09/17 05:47:53 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -218,11 +214,7 @@ function dblog_filters() {
   $filters = array();
 
   foreach (_dblog_get_message_types() as $type) {
-<<<<<<< HEAD
     $types[$type] = t($type);
-=======
-    $types[$type] = $type;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   if (!empty($types)) {

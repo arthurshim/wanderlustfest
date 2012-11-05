@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: taxonomy.pages.inc,v 1.9.2.1 2009/04/27 11:49:05 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -51,11 +47,7 @@ function taxonomy_term_page($str_tids = '', $depth = 0, $op = 'page') {
 
         case 'feed':
           $channel['link'] = url('taxonomy/term/'. $str_tids .'/'. $depth, array('absolute' => TRUE));
-<<<<<<< HEAD
           $channel['title'] = variable_get('site_name', 'Pressflow') .' - '. $title;
-=======
-          $channel['title'] = variable_get('site_name', 'Drupal') .' - '. $title;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           // Only display the description if we have a single term, to avoid clutter and confusion.
           if (count($tids) == 1) {
             $term = taxonomy_get_term($tids[0]);
@@ -126,11 +118,7 @@ function taxonomy_autocomplete($vid, $string = '') {
   $last_string = trim(array_pop($array));
   $matches = array();
   if ($last_string != '') {
-<<<<<<< HEAD
     $result = db_query_range(db_rewrite_sql("SELECT t.tid, t.name FROM {term_data} t WHERE t.vid = %d AND t.name LIKE '%%%s%%'", 't', 'tid'), $vid, $last_string, 0, 10);
-=======
-    $result = db_query_range(db_rewrite_sql("SELECT t.tid, t.name FROM {term_data} t WHERE t.vid = %d AND LOWER(t.name) LIKE LOWER('%%%s%%')", 't', 'tid'), $vid, $last_string, 0, 10);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     $prefix = count($array) ? implode(', ', $array) .', ' : '';
 

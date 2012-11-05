@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
 // $Id: captcha.inc,v 1.11.2.7 2010/12/19 00:46:16 soxofaan Exp $
 
 /**
  * @file
  * General CAPTCHA functionality and helper functions.
  */
-=======
-// $Id: captcha.inc,v 1.11.2.2 2010/05/19 06:14:31 soxofaan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Helper function for adding/updating a CAPTCHA point.
@@ -19,51 +15,29 @@
  *   - 'default' to use the default challenge type
  *   - NULL to remove the entry for the CAPTCHA type
  *   - something of the form 'image_captcha/Image'
-<<<<<<< HEAD
  *   - an object with attributes $captcha_type->module and $captcha_type->captcha_type
-=======
- *   - an object with attributes $captcha_type->module and $captcha_type->type
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @return nothing
  */
 function captcha_set_form_id_setting($form_id, $captcha_type) {
   if ($captcha_type == 'none') {
     db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
-<<<<<<< HEAD
     db_query("INSERT INTO {captcha_points} (form_id, module, captcha_type) VALUES ('%s', NULL, NULL)", $form_id);
   }
   elseif ($captcha_type == 'default') {
     db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
     db_query("INSERT INTO {captcha_points} (form_id, module, captcha_type) VALUES ('%s', NULL, '%s')", $form_id, 'default');
-=======
-    db_query("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('%s', NULL, NULL)", $form_id);
-  }
-  elseif ($captcha_type == 'default') {
-    db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
-    db_query("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('%s', NULL, '%s')", $form_id, 'default');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   elseif ($captcha_type == NULL) {
     db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
   }
-<<<<<<< HEAD
   elseif (is_object($captcha_type) && isset($captcha_type->module) && isset($captcha_type->captcha_type)) {
     db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
     db_query("INSERT INTO {captcha_points} (form_id, module, captcha_type) VALUES ('%s', '%s', '%s')", $form_id, $captcha_type->module, $captcha_type->captcha_type);
-=======
-  elseif (is_object($captcha_type) && isset($captcha_type->module) && isset($captcha_type->type)) {
-    db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
-    db_query("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('%s', '%s', '%s')", $form_id, $captcha_type->module, $captcha_type->type);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   elseif (is_string($captcha_type) && substr_count($captcha_type, '/') == 1) {
     list($module, $type) = explode('/', $captcha_type);
     db_query("DELETE FROM {captcha_points} WHERE form_id = '%s'", $form_id);
-<<<<<<< HEAD
     db_query("INSERT INTO {captcha_points} (form_id, module, captcha_type) VALUES ('%s', '%s', '%s')", $form_id, $module, $type);
-=======
-    db_query("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('%s', '%s', '%s')", $form_id, $module, $type);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   else {
     drupal_set_message(t('Failed to set a CAPTCHA type for form %form_id: could not interpret value "@captcha_type"',
@@ -78,20 +52,12 @@ function captcha_set_form_id_setting($form_id, $captcha_type) {
  * @param $symbolic flag to return as (symbolic) strings instead of object.
  *
  * @return NULL if no setting is known
-<<<<<<< HEAD
  *   or a captcha_point object with fields 'module' and 'captcha_type'.
-=======
- *   or a captcha_point object with fields 'module' and 'type'.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   If argument $symbolic is true, returns (symbolic) as 'none', 'default'
  *   or in the form 'captcha/Math'.
  */
 function captcha_get_form_id_setting($form_id, $symbolic=FALSE) {
-<<<<<<< HEAD
   $result = db_query("SELECT module, captcha_type FROM {captcha_points} WHERE form_id = '%s'", $form_id);
-=======
-  $result = db_query("SELECT module, type FROM {captcha_points} WHERE form_id = '%s'", $form_id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!$result) {
     return NULL;
   }
@@ -99,37 +65,21 @@ function captcha_get_form_id_setting($form_id, $symbolic=FALSE) {
   if (!$captcha_point) {
     $captcha_point = NULL;
   }
-<<<<<<< HEAD
   elseif ($captcha_point->captcha_type == 'default') {
     if (!$symbolic) {
       list($module, $type) = explode('/', variable_get('captcha_default_challenge', 'captcha/Math'));
       $captcha_point->module = $module;
       $captcha_point->captcha_type = $type;
-=======
-  elseif ($captcha_point->type == 'default') {
-    if (!$symbolic) {
-      list($module, $type) = explode('/', variable_get('captcha_default_challenge', 'captcha/Math'));
-      $captcha_point->module = $module;
-      $captcha_point->type = $type;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     else {
       $captcha_point = 'default';
     }
   }
-<<<<<<< HEAD
   elseif ($captcha_point->module == NULL && $captcha_point->captcha_type == NULL && $symbolic) {
     $captcha_point = 'none';
   }
   elseif ($symbolic) {
     $captcha_point = $captcha_point->module .'/'. $captcha_point->captcha_type;
-=======
-  elseif ($captcha_point->module == NULL && $captcha_point->type == NULL && $symbolic) {
-    $captcha_point = 'none';
-  }
-  elseif ($symbolic) {
-    $captcha_point = $captcha_point->module .'/'. $captcha_point->type;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   return $captcha_point;
 }
@@ -144,13 +94,9 @@ function captcha_get_form_id_setting($form_id, $symbolic=FALSE) {
  */
 function _captcha_generate_captcha_session($form_id=NULL, $status=CAPTCHA_STATUS_UNSOLVED) {
   global $user;
-<<<<<<< HEAD
   // Initialize solution with random data.
   $solution = md5(mt_rand());
   db_query("INSERT into {captcha_sessions} (uid, sid, ip_address, timestamp, form_id, solution, status, attempts) VALUES (%d, '%s', '%s', %d, '%s', '%s', %d, %d)", $user->uid, session_id(), ip_address(), time(), $form_id, $solution, $status, 0);
-=======
-  db_query("INSERT into {captcha_sessions} (uid, sid, ip_address, timestamp, form_id, solution, status, attempts) VALUES (%d, '%s', '%s', %d, '%s', '%s', %d, %d)", $user->uid, session_id(), ip_address(), time(), $form_id, 'undefined', $status, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $captcha_sid = db_last_insert_id('captcha_sessions', 'csid');
   return $captcha_sid;
 }
@@ -167,7 +113,6 @@ function _captcha_update_captcha_session($captcha_sid, $solution) {
 
 /**
  * Helper function for checking if CAPTCHA is required for user,
-<<<<<<< HEAD
  * based on the CAPTCHA persistence setting, the CAPTCHA session ID and
  * user session info.
  */
@@ -203,27 +148,6 @@ function _captcha_required_for_user($captcha_sid, $form_id) {
 
   // We should never get to this point, but to be sure, we return TRUE.
   return TRUE;
-=======
- * based on CAPTCHA session ID and user session info.
- */
-function _captcha_required_for_user($captcha_sid, $form_id) {
-  $captcha_session_status = db_result(db_query("SELECT status FROM {captcha_sessions} WHERE csid = %d", $captcha_sid));
-
-  $captcha_success_form_ids = isset($_SESSION['captcha_success_form_ids']) ? (array)($_SESSION['captcha_success_form_ids']) : array();
-
-  switch (variable_get('captcha_persistence', CAPTCHA_PERSISTENCE_SHOW_ALWAYS)) {
-    case CAPTCHA_PERSISTENCE_SKIP_ONCE_SUCCESSFUL:
-      $captcha_persistence_status = (count($captcha_success_form_ids) > 0);
-      break;
-    case CAPTCHA_PERSISTENCE_SKIP_ONCE_SUCCESSFUL_PER_FORM:
-      $captcha_persistence_status = isset($captcha_success_form_ids[$form_id]);
-      break;
-    default:
-      $captcha_persistence_status = FALSE;
-  }
-
-  return ($captcha_session_status == CAPTCHA_STATUS_UNSOLVED) && !$captcha_persistence_status;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -286,10 +210,6 @@ function _captcha_get_captcha_placement($form_id, $form) {
   if ($placement_map === NULL) {
     // If first level cache missed: try second level cache.
     $placement_map = variable_get('captcha_placement_map_cache', NULL);
-<<<<<<< HEAD
-=======
-    // TODO: add UI in admin UI for flushing this cache.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     if ($placement_map === NULL) {
       // If second level cache missed: start from a fresh placement map.

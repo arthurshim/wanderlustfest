@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: jquery.form.js,v 1.2 2007/11/19 10:05:48 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*
  * jQuery Form Plugin

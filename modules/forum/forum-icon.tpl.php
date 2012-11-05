@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: forum-icon.tpl.php,v 1.3 2007/12/20 09:35:09 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file forum-icon.tpl.php

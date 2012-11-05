@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: quicktabs.js,v 1.3.2.21 2010/04/20 18:24:05 katbailey Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.settings.views = Drupal.settings.views || {'ajax_path': 'views/ajax'};
 
@@ -172,11 +168,7 @@ var quicktabsClick = function() {
             qtAjaxPath +=  tab.tabObj.nid + '/' + tab.tabObj.teaser + '/' + tab.tabObj.hide_title;
             break;
           case 'block':
-<<<<<<< HEAD
             qtAjaxPath +=  tab.qtid + '/' + tab.tabObj.bid + '/' + tab.tabObj.hide_title;
-=======
-            qtAjaxPath +=  tab.tabObj.bid + '/' + tab.tabObj.hide_title;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             break;
           case 'qtabs':
             qtAjaxPath +=  tab.tabObj.qtid;
@@ -220,14 +212,10 @@ Drupal.quicktabs.ajax.scripts = function(files) {
 
   var html = '';
   for (i in files) {
-<<<<<<< HEAD
     // Load all files that aren't already present on the page, but make sure not
     // to add misc/jquery.js because this could override a newer version of
     // jQuery loaded by jQuery Update module.
     if (!Drupal.quicktabs.scripts[files[i]] && !files[i].match(/^\/misc\/jquery\.js.*$/)) {
-=======
-    if (!Drupal.quicktabs.scripts[files[i]]) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       Drupal.quicktabs.scripts[files[i]] = files[i];
       html += '<script type="text/javascript" src="' + files[i] + '"></script>';
     }

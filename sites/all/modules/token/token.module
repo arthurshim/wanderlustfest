@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: token.module,v 1.7.4.38 2010/09/30 19:39:43 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -42,11 +38,7 @@ function token_help($path, $arg) {
  * Return an array of the core modules supported by token.module.
  */
 function _token_core_supported_modules() {
-<<<<<<< HEAD
   return array('node', 'user', 'taxonomy', 'comment', 'menu', 'book');
-=======
-  return array('node', 'user', 'taxonomy', 'comment');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -117,33 +109,21 @@ function token_token_values($type, $object = NULL) {
       $values['site-mission'] = filter_xss_admin(variable_get('site_mission', ''));
       $values['site-mail']    = variable_get('site_mail', '');
       $values += token_get_date_token_values(NULL, 'site-date-');
-<<<<<<< HEAD
-=======
-      $values['site-date'] = $values['site-date-small'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       // Current page tokens.
       $values['current-page-title'] = drupal_get_title();
       $alias = drupal_get_path_alias($_GET['q']);
-<<<<<<< HEAD
       $values['current-page-path-raw'] = $alias;
       $values['current-page-path'] = check_plain($alias);
-=======
-      $values['current-page-path'] = $alias;
-      $values['current-page-path-raw'] = check_plain($alias);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $values['current-page-url'] = url($_GET['q'], array('absolute' => TRUE));
 
       $page = isset($_GET['page']) ? $_GET['page'] : '';
       $pager_page_array = explode(',', $page);
       $page = $pager_page_array[0];
       $values['current-page-number'] = (int) $page + 1;
-<<<<<<< HEAD
 
       // Backwards compatability for renamed tokens.
       $values['site-date'] = $values['site-date-small'];
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $values['page-number'] = $values['current-page-number'];
 
       break;
@@ -219,13 +199,9 @@ function token_include() {
  *   matches. Defaults to TOKEN_SUFFIX.
  * @param $options
  *   (optional) A keyed array of settings and flags to control the token
-<<<<<<< HEAD
  *   generation and replacement process. Supported options are:
  *   - clear: A boolean flag indicating that tokens should be removed from the
  *     final text if no replacement value can be generated.
-=======
- *   generation and replacement process.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $flush
  *   (optional) A flag indicating whether or not to flush the token cache.
  *   Useful for processes that need to slog through huge numbers of tokens
@@ -236,13 +212,7 @@ function token_include() {
  *   Text with tokens replaced.
  */
 function token_replace($text, $type = 'global', $object = NULL, $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX, $options = array(), $flush = FALSE) {
-<<<<<<< HEAD
   return token_replace_multiple($text, array($type => $object), $leading, $trailing, $options, $flush);
-=======
-  $full = token_get_values($type, $object, $flush, $options);
-  $tokens = token_prepare_tokens($full->tokens, $leading, $trailing);
-  return str_replace($tokens, $full->values, $text);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -267,13 +237,9 @@ function token_replace($text, $type = 'global', $object = NULL, $leading = TOKEN
  *   matches. Defaults to TOKEN_SUFFIX.
  * @param $options
  *   (optional) A keyed array of settings and flags to control the token
-<<<<<<< HEAD
  *   generation and replacement process. Supported options are:
  *   - clear: A boolean flag indicating that tokens should be removed from the
  *     final text if no replacement value can be generated.
-=======
- *   generation and replacement process.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $flush
  *   (optional) A flag indicating whether or not to flush the token cache.
  *   Useful for processes that need to slog through huge numbers of tokens
@@ -283,7 +249,6 @@ function token_replace($text, $type = 'global', $object = NULL, $leading = TOKEN
  * @return
  *   Text with tokens replaced.
  */
-<<<<<<< HEAD
 function token_replace_multiple($text, $types = array('global' => NULL), $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX, $options = array(), $flush = FALSE) {
   // Ensure that the $text parameter is a string and not an array which is an
   // invalid input.
@@ -312,9 +277,6 @@ function token_replace_multiple($text, $types = array('global' => NULL), $leadin
     return $text;
   }
 
-=======
-function token_replace_multiple($text, $types = array(), $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX, $options = array(), $flush = FALSE) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $full = new stdClass();
   $full->tokens = $full->values = array();
 
@@ -329,7 +291,6 @@ function token_replace_multiple($text, $types = array(), $leading = TOKEN_PREFIX
     $full->values = array_merge($full->values, $temp->values);
   }
 
-<<<<<<< HEAD
   // Support clearing out tokens that would not be replaced.
   if (!empty($options['clear'])) {
     foreach ($text_tokens as $token) {
@@ -340,8 +301,6 @@ function token_replace_multiple($text, $types = array(), $leading = TOKEN_PREFIX
     }
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $tokens = token_prepare_tokens($full->tokens, $leading, $trailing);
   return str_replace($tokens, $full->values, $text);
 }
@@ -377,26 +336,8 @@ function token_replace_multiple($text, $types = array(), $leading = TOKEN_PREFIX
  * should be run through token_prepare_tokens().
  */
 function token_get_values($type = 'global', $object = NULL, $flush = FALSE, $options = array()) {
-<<<<<<< HEAD
   static $tokens = array();
   static $running = FALSE;
-=======
-  static $tokens;
-  static $running;
-
-  // Flush the static token cache. Useful for processes that need to slog through
-  // huge numbers of tokens in a single execution cycle. Flushing it will keep
-  // them from burning through memory.
-  if ($flush || !isset($tokens)) {
-    $tokens = array();
-  }
-
-  // Since objects in PHP5 are always passed by reference, we ensure we're
-  // working on a copy of the object.
-  if (is_object($object)) {
-    $object = drupal_clone($object);
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Simple recursion check. This is to avoid content_view()'s potential
   // for endless looping when a filter uses tokens, which load the content
@@ -409,7 +350,6 @@ function token_get_values($type = 'global', $object = NULL, $flush = FALSE, $opt
     $result->values = array();
     return $result;
   }
-<<<<<<< HEAD
   else {
     $running = TRUE;
   }
@@ -437,25 +377,10 @@ function token_get_values($type = 'global', $object = NULL, $flush = FALSE, $opt
   if ($type != 'global' && !isset($tokens[$type][$cid])) {
     token_include();
     $tokens[$type][$cid] = module_invoke_all('token_values', $type, $object, $options);
-=======
-
-  $running = TRUE;
-
-  token_include();
-
-  $id = _token_get_id($type, $object);
-  if ($id && isset($tokens[$type][$id])) {
-    $tmp_tokens = $tokens[$type][$id];
-  }
-  else {
-    $tmp_tokens = module_invoke_all('token_values', $type, $object, $options);
-    $tokens[$type][$id] = $tmp_tokens;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   // Special-case global tokens, as we always want to be able to process
   // those substitutions.
-<<<<<<< HEAD
   if (!isset($tokens['global'][$cid])) {
     token_include();
     $tokens['global'][$cid] = module_invoke_all('token_values', 'global', NULL, $options);
@@ -474,13 +399,6 @@ function token_get_values($type = 'global', $object = NULL, $flush = FALSE, $opt
     'options' => $options,
   );
   drupal_alter('token_values', $all, $context);
-=======
-  if (!isset($tokens['global']['default'])) {
-    $tokens['global']['default'] = module_invoke_all('token_values', 'global');
-  }
-
-  $all = array_merge($tokens['global']['default'], $tokens[$type][$id]);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   $result = new stdClass();
   $result->tokens = array_keys($all);
@@ -521,11 +439,7 @@ function token_get_list($types = 'all') {
         foreach ($module_token_list as $category => $tokens) {
           foreach ($tokens as $token => $title) {
             // Automatically append a raw token warning.
-<<<<<<< HEAD
             if (substr($token, -4) === '-raw' && strpos($title, t('raw user input')) === FALSE && strpos($title, t('UNIX timestamp format')) === FALSE) {
-=======
-            if (substr($token, -4) === '-raw' && strpos($title, t('raw user input')) === FALSE && strpos($title, '1269441371') === FALSE) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
               $title .= ' <em>' . t('Warning: Token value contains raw user input.') . '</em>';
             }
             $return[$category][$token] = $title;
@@ -534,13 +448,10 @@ function token_get_list($types = 'all') {
       }
     }
   }
-<<<<<<< HEAD
   // Sort the tokens by name.
   foreach (array_keys($return) as $category) {
     ksort($return[$category]);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $return;
 }
 
@@ -573,11 +484,7 @@ function _token_get_id($type = 'global', $object = NULL) {
   }
   switch ($type) {
     case 'node':
-<<<<<<< HEAD
       return isset($object->vid) ? $object->vid : (isset($object->nid) ? $object->nid : 0);
-=======
-      return isset($object->nid) ? $object->nid : 0;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     case 'comment':
       return isset($object->cid) ? $object->cid : 0;
     case 'user':
@@ -595,12 +502,8 @@ function _token_get_id($type = 'global', $object = NULL) {
  * @param $description
  */
 function token_get_date_token_info($description, $token_prefix = '') {
-<<<<<<< HEAD
   $time = time();
   $tokens[$token_prefix . 'small']  = t("!description date in 'small' format. (%date)", array('!description' => $description, '%date' => format_date($time, 'small')));
-=======
-  $tokens[$token_prefix . 'small']  = t("!description date in 'small' format. <em>(06/07/2010 - 23:28)</em>", array('!description' => $description));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $tokens[$token_prefix . 'yyyy']   = t("!description year (four digit)", array('!description' => $description));
   $tokens[$token_prefix . 'yy']     = t("!description year (two digit)", array('!description' => $description));
   $tokens[$token_prefix . 'month']  = t("!description month (full word)", array('!description' => $description));
@@ -615,19 +518,13 @@ function token_get_date_token_info($description, $token_prefix = '') {
   $tokens[$token_prefix . 'ddd']    = t("!description day (abbreviation)", array('!description' => $description));
   $tokens[$token_prefix . 'dd']     = t("!description day (two digits with leading zeros)", array('!description' => $description));
   $tokens[$token_prefix . 'd']      = t("!description day (one or two digits without leading zeros)", array('!description' => $description));
-<<<<<<< HEAD
   $tokens[$token_prefix . 'raw']    = t("!description in UNIX timestamp format (%date)", array('!description' => $description, '%date' => $time));
   $tokens[$token_prefix . 'since']  = t("!description in 'time-since' format. (%date)", array('!description' => $description, '%date' => format_interval($time - 360, 2)));
-=======
-  $tokens[$token_prefix . 'raw']    = t("!description in UNIX timestamp format (1269441371)", array('!description' => $description));
-  $tokens[$token_prefix . 'since']  = t("!description in 'time-since' format. (40 years 3 months)", array('!description' => $description));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $tokens;
 }
 
 /**
  * Build a list of common date tokens for use in hook_token_values().
-<<<<<<< HEAD
  */
 function token_get_date_token_values($timestamp = NULL, $token_prefix = '', $langcode = NULL) {
   static $formats;
@@ -651,18 +548,10 @@ function token_get_date_token_values($timestamp = NULL, $token_prefix = '', $lan
     $formats['d']     = 'j';
   }
 
-=======
- *
- * @param $description
- */
-function token_get_date_token_values($timestamp = NULL, $token_prefix = '') {
-  $tokens = array();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $time = time();
   if (!isset($timestamp)) {
     $timestamp = $time;
   }
-<<<<<<< HEAD
 
   $tokens = array();
   foreach ($formats as $token => $format) {
@@ -746,51 +635,14 @@ function token_format_date($timestamp, $type = 'medium', $format = '', $timezone
   }
 
   return $date;
-=======
-  $timezone = variable_get('date_default_timezone', 0);
-
-  $formats = array(
-    'yyyy' => 'Y',
-    'yy' => 'y',
-    'month' => 'F',
-    'mon' => 'M',
-    'mm' => 'm',
-    'm' => 'n',
-    'ww' => 'W',
-    //'date' => 'N', // Provided later since it is PHP 5.1 only.
-    'day' => 'l',
-    'ddd' => 'D',
-    'dd' => 'd',
-    'd' => 'j',
-  );
-  foreach ($formats as $token => $format) {
-    $tokens[$token_prefix . $token] = format_date($timestamp, 'custom', $format, $timezone);
-  }
-
-  $tokens[$token_prefix . 'small'] = format_date($timestamp, 'small', '', $timezone);
-  $tokens[$token_prefix . 'raw'] = $timestamp;
-  $tokens[$token_prefix . 'since'] = format_interval($time - $timestamp);
-
-  $timestamp += $timezone;
-  if (version_compare(PHP_VERSION, '5.1.0', '>=')) {
-    $tokens[$token_prefix . 'date'] = gmdate('N', $timestamp);
-  }
-
-  return $tokens;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Validate an tokens in raw text based on possible contexts.
  *
-<<<<<<< HEAD
  * @param $value
  *   A string with the raw text containing the raw tokens, or an array of
  *   tokens from token_scan().
-=======
- * @param $text
- *   A string with the raw text containing the raw tokens.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $valid_types
  *   An array of token types to validage against.
  * @param $leading
@@ -803,7 +655,6 @@ function token_format_date($timestamp, $type = 'medium', $format = '', $timezone
  * @return
  *   An array with the invalid tokens in their original raw forms.
  */
-<<<<<<< HEAD
 function token_get_invalid_tokens_by_context($value, $valid_types = array(), $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX) {
   if (in_array('all', $valid_types)) {
     $valid_types = array('all');
@@ -842,35 +693,6 @@ function token_get_invalid_tokens_by_context($value, $valid_types = array(), $le
       }
     }
     $invalid_tokens[] = $token;
-=======
-function token_get_invalid_tokens_by_context($text, $valid_types = array(), $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX) {
-  // Add the token types that are always valid in global context.
-  $valid_types[] = 'global';
-
-  $invalid_tokens = array();
-  $valid_tokens = token_get_list($valid_types);
-  foreach (token_scan($text, $leading, $trailing) as $token) {
-    $found = FALSE;
-    foreach ($valid_tokens as $category => $tokens) {
-      if (isset($tokens[$token])) {
-        $found = TRUE;
-        break;
-      }
-      elseif (preg_match('/^(.*[_-])\d+$/', $token, $result)) {
-        // Some modules use a 'wildcard' token, e.g. Location.module defines
-        // [location-country_N] but users actually use [location-country_0].
-        // If the token has a digit on the end and there is a 'wildcard'
-        // token definition, we should allow it.
-        if (isset($tokens[$result[1] . 'N']) || isset($tokens[$result[1] . '?'])) {
-          $found = TRUE;
-          break;
-        }
-      }
-    }
-    if (!$found) {
-      $invalid_tokens[] = $token;
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   array_unique($invalid_tokens);
@@ -894,7 +716,6 @@ function token_get_invalid_tokens_by_context($text, $valid_types = array(), $lea
  *   An array of discovered tokens.
  */
 function token_scan($text, $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX) {
-<<<<<<< HEAD
   $leadingregex = preg_quote($leading, '/');
   $trailingregex = preg_quote($trailing, '/');
 
@@ -911,12 +732,6 @@ function token_scan($text, $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX) {
   $regex .= ']+)' . $trailingregex . '/x';
 
   preg_match_all($regex, $text, $matches);
-=======
-  // Matches tokens with the following pattern: [$token]
-  $leading = preg_quote($leading, '/');
-  $trailing = preg_quote($trailing, '/');
-  preg_match_all("/{$leading}([^\s]+?){$trailing}/", $text, $matches);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $matches[1];
 }
 
@@ -931,7 +746,6 @@ function token_scan($text, $leading = TOKEN_PREFIX, $trailing = TOKEN_SUFFIX) {
  * $form['my_node_text_element'] = array(
  *   '#type' => 'textfield',
  *   '#title' => t('Some text to token-ize that has a node context.'),
-<<<<<<< HEAD
  *   '#default_value' => 'The title of this node is [title].',
  *   '#element_validate' => array('token_element_validate'),
  *   '#token_types' => array('node'),
@@ -974,25 +788,10 @@ function token_element_validate(&$element, &$form_state) {
     }
   }
 
-=======
- *   '#default_value' => 'The title of this node is [node:title].',
- *   '#element_validate' => array('token_element_validate_token_context'),
- *   '#token_types' => array('node'),
- * );
- * @endcode
- */
-function token_element_validate_token_context(&$element, &$form_state) {
-  $value = isset($element['#value']) ? $element['#value'] : $element['#default_value'];
-  $invalid_tokens = token_get_invalid_tokens_by_context($value, $element['#token_types']);
-  if ($invalid_tokens) {
-    form_error($element, t('The %element-title is using the following invalid tokens: @invalid-tokens.', array('%element-title' => $element['#title'], '@invalid-tokens' => implode(', ', $invalid_tokens))));
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $element;
 }
 
 /**
-<<<<<<< HEAD
  * Deprecated. Use token_element_validate() instead.
  */
 function token_element_validate_token_context(&$element, &$form_state) {
@@ -1000,8 +799,6 @@ function token_element_validate_token_context(&$element, &$form_state) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Find tokens that have been declared twice by different modules.
  */
 function token_find_duplicate_tokens() {
@@ -1033,7 +830,6 @@ function token_find_duplicate_tokens() {
 
   return $all_tokens;
 }
-<<<<<<< HEAD
 
 /**
  * Get a translated menu link by its mlid, without access checking.
@@ -1174,5 +970,3 @@ function _menu_titles($menu_link, $nid) {
   }
   return $titles;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

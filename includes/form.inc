@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: form.inc,v 1.265.2.34 2010/08/06 11:02:49 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @defgroup forms Form builder functions
@@ -65,13 +61,9 @@
  *   Any additional arguments are passed on to the functions called by
  *   drupal_get_form(), including the unique form constructor function.
  *   For example, the node_edit form requires that a node object be passed
-<<<<<<< HEAD
  *   in here when it is called. These are available to implementations of
  *   hook_form_alter() and hook_form_FORM_ID_alter() as the array
  *   $form['#parameters'].
-=======
- *   in here when it is called.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @return
  *   The rendered form.
  */
@@ -2000,11 +1992,7 @@ function theme_image_button($element) {
     (!empty($element['#value']) ? ('value="'. check_plain($element['#value']) .'" ') : '') .
     'id="'. $element['#id'] .'" '.
     drupal_attributes($element['#attributes']) .
-<<<<<<< HEAD
     ' src="'. file_create_url($element['#src']) .'" '.
-=======
-    ' src="'. base_path() . $element['#src'] .'" '.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     (!empty($element['#title']) ? 'alt="'. check_plain($element['#title']) .'" title="'. check_plain($element['#title']) .'" ' : '' ) .
     "/>\n";
 }

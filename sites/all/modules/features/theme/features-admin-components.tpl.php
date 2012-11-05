@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: features-admin-components.tpl.php,v 1.1.2.3 2010/06/30 22:57:47 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <div class='clear-block features-components'>
   <div class='column'>

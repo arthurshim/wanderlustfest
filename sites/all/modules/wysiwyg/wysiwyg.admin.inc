@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: wysiwyg.admin.inc,v 1.15.2.9 2010/02/13 23:58:41 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -95,7 +91,6 @@ function wysiwyg_profile_form($form_state, $profile) {
 
   $form['basic']['language'] = array(
     '#type' => 'select',
-<<<<<<< HEAD
     '#title' => t('Interface language'),
     '#default_value' => $profile->settings['language'],
   );
@@ -114,13 +109,6 @@ function wysiwyg_profile_form($form_state, $profile) {
   }
   asort($predefined);
   $form['basic']['language']['#options'] = $predefined;
-=======
-    '#title' => t('Language'),
-    '#default_value' => $profile->settings['language'],
-    '#options' => drupal_map_assoc(array('ar', 'ca', 'cs', 'cy', 'da', 'de', 'el', 'en', 'es', 'fa', 'fi', 'fr', 'fr_ca', 'he', 'hu', 'is', 'it', 'ja', 'ko', 'nb', 'nl', 'nn', 'pl', 'pt', 'pt_br', 'ru', 'ru_KOI8-R', 'ru_UTF-8', 'si', 'sk', 'sv', 'th', 'tr', 'uk', 'zh_cn', 'zh_tw', 'zh_tw_utf8')),
-    '#description' => t('The language to use for the editor interface. Language codes are based on the <a href="http://www.loc.gov/standards/iso639-2/englangn.html">ISO-639-2</a> format.'),
-  );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   $form['buttons'] = array(
     '#type' => 'fieldset',
@@ -329,13 +317,10 @@ function wysiwyg_profile_form_submit($form, &$form_state) {
     // Store only enabled plugins.
     $values['buttons'] = array_filter($values['buttons']);
   }
-<<<<<<< HEAD
   // Remove any white-space from 'block_formats' setting, since editor
   // implementations rely on a comma-separated list to explode().
   $values['block_formats'] = preg_replace('@\s+@', '', $values['block_formats']);
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Remove input format name.
   $format = $values['format'];
   $input_format = $values['input_format'];

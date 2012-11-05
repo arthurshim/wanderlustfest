@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 QUICK START GUIDE
 -----------------
 Click Site building > Views > Add
@@ -122,6 +121,3 @@ KNOWN ISSUES
 ------------
 - "Access denied" when selecting all (or many) rows
 This occurs because too much data is sent to the database server. For MySQL, increase max_allowed_packet (e.g. to 32M). See also: https://drupal.org/node/845618.
-=======
-Please refer to the module page at http://drupal.org/project/views_bulk_operations for quick start instructions.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

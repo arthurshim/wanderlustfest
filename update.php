@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: update.php,v 1.252.2.3 2009/03/30 11:15:11 goba Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Administrative page for handling updates from one Drupal version to another.
@@ -349,13 +344,8 @@ function update_results_page() {
           if (!count($queries)) {
             $output .= '<li class="none">No queries</li>';
           }
-<<<<<<< HEAD
           $output .= '</ul>';
         }
-=======
-        }
-        $output .= '</ul>';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
     $output .= '</div>';
@@ -525,7 +515,6 @@ function update_fix_d6_requirements() {
       'primary key' => array('cid'),
     );
     db_create_table($ret, 'cache_block', $schema['cache_block']);
-<<<<<<< HEAD
 
     // Create the semaphore table now -- the menu system after 6.15 depends on
     // this table, and menu code runs in updates prior to the table being
@@ -551,8 +540,6 @@ function update_fix_d6_requirements() {
       'primary key' => array('name'),
     );
     db_create_table($ret, 'semaphore', $schema['semaphore']);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return $ret;
@@ -653,10 +640,7 @@ ini_set('display_errors', TRUE);
 
 // Access check:
 if (!empty($update_free_access) || $user->uid == 1) {
-<<<<<<< HEAD
   drupal_session_start();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   include_once './includes/install.inc';
   include_once './includes/batch.inc';

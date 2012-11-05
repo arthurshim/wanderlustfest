@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_comment_username.inc,v 1.2 2009/01/30 00:01:42 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Field handler to allow linking to a user account or homepage
  */

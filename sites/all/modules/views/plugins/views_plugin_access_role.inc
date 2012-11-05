@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_access_role.inc,v 1.2.4.1 2010/03/10 21:03:25 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Access plugin that provides role-based access control.
@@ -26,11 +22,7 @@ class views_plugin_access_role extends views_plugin_access {
     }
     else {
       $rids = views_ui_get_roles();
-<<<<<<< HEAD
       $rid = reset($this->options['role']);
-=======
-      $rid = array_shift($this->options['role']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return $rids[$rid];
     }
   }
@@ -60,9 +52,3 @@ class views_plugin_access_role extends views_plugin_access {
     $form_state['values']['access_options']['role'] = array_filter($form_state['values']['access_options']['role']);
   }
 }
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

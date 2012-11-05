@@ -1,99 +1,112 @@
 ﻿body{
- /* background: url('http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg');*/
-  background: url('../images/goldenn-bg.jpg');
+  background: url('http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg');
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg', sizingMethod='scale')";    
   }
 
 body.squaw{
-  /*background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/bg-ca2.jpg') no-repeat center center fixed !important;
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg', sizingMethod='scale')";    
 
   }
 
 body.whistler{
- /* background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-wh.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/bg-wh.jpg') no-repeat center center fixed !important;
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-wh.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/bg-wh.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/bg-wh.jpg', sizingMethod='scale')";    
 
   }
   
 
 body.stratton{
-  /*background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-vt.jpg) no-repeat center center fixed !important;*/
-   background: url('../images/bg-vt.jpg') no-repeat center center fixed !important;
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-vt.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/bg-vt.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/bg-vt.jpg', sizingMethod='scale')";    
 
   }
   
 body.colorado{
- /* background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-co.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/bg-co.jpg') no-repeat center center fixed !important; 
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/bg-co.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/bg-co.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/bg-co.jpg', sizingMethod='scale')";    
 
   }    
 
 body.sf{
-  /*background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sf.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/yitc-sf.jpg') no-repeat center center fixed !important;  
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sf.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sf.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sf.jpg', sizingMethod='scale')";    
 
   }    
 
 body.la{
-  /*background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sm.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/yitc-sm.jpg') no-repeat center center fixed !important; 
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sm.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sm.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/yitc-sm.jpg', sizingMethod='scale')";    
 
   }  
 
 
 body.nyc{
-  /*background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-nyc.jpg) no-repeat center center fixed !important;*/
-  background: url('../images/yitc-nyc.jpg') no-repeat center center fixed !important; 
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/yitc-nyc.jpg) no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.myBackground.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='myBackground.jpg', sizingMethod='scale')";    
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/yitc-nyc.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/yitc-nyc.jpg', sizingMethod='scale')";    
 
   }   
+
+body.oahu{
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/oahu-bg.jpg) no-repeat center center fixed !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/oahu-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/oahu-bg.jpg', sizingMethod='scale')";    
+  } 
+
+body.chile{
+  background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/chile-bg.jpg) no-repeat center center fixed !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  background-size: cover !important;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/chile-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/chile-bg.jpg', sizingMethod='scale')";    
+  } 
+
 
 #main{
     display: block;
@@ -580,8 +593,7 @@ tbody {border: 0px!important;}
   
 .panel-pane tbody td {
   padding-right: 16px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
+  padding-bottom: 0px;
   padding-top: 8px;
   }
 
@@ -998,7 +1010,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   margin: 0;
   padding: 0 0 0 68px;
   height: 40px;
-  background:  #deddce url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup.png") center left no-repeat;
+  background:  #deddce url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup-2013.png") center left no-repeat;
   border: 1px solid #bab9a7;
   margin-top: 17px;
 }
@@ -1934,13 +1946,14 @@ div.carousel-overlay .carousel-overlay-event {
   }
 
 .view-homepage-carousel div.views-field-title:hover {
-	opacity: 0.8;
+	opacity: 0.7;
 	-o-transition-duration: 1s;
 	-moz-transition-duration: 1s;
 	-webkit-transition: -webkit-transform 1s;
 	-webkit-box-shadow: 0px 0px 4px #000;
 	-moz-box-shadow: 0px 0px 4px #000;
 	box-shadow: 0px 0px 4px #000;
+	background: #111;
 }
 
 .view-homepage-carousel li.jcarousel-item {position: relative;}
@@ -2151,4 +2164,182 @@ form.email-signup td{
 
 li.menu-2729.menuparent.menu-path-news.odd.last, li.menu-4966.menuparent.menu-path-node-818.odd.last, li.menu-2729.menuparent.menu-path-news.odd.last,li.menu-4966.menuparent.menu-path-news.odd.last, li.menu-2702.menuparent.menu-path-news.odd.last {
 width:40px;
+}
+
+/* OAHU SPLASH PAGE CSS 
+------------------------ */
+
+
+.not-logged-in.oahu-splash #header{
+  height: 27px;
+}
+
+.not-logged-in.oahu-splash #container{
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.not-logged-in.oahu-splash .info{
+  background: black;
+  opacity: 0.8;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  width: 411px;
+  margin-top: 80px;
+  color: #fff;
+  padding: 18px 0 18px 18px;
+}
+
+.not-logged-in.oahu-splash .poster{
+  float: left;
+  width: 500px;
+  margin-right: 36px;
+}
+
+.not-logged-in.oahu-splash .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.not-logged-in.oahu-splash .details{
+    color: #ffeac6;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.not-logged-in.oahu-splash .description{
+    color: #53a3a8;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.not-logged-in.oahu-splash .intro{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.not-logged-in.oahu-splash .social div{
+  float: left;
+}
+
+.not-logged-in.oahu-splash .subhead,
+.not-logged-in.oahu-splash #main{
+  width: 980px !important;
+}
+
+.not-logged-in.oahu-splash .label{
+  margin-right: 5px;
+}
+
+.not-logged-in.oahu-top-bar{
+    background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/oahu-top-bar.jpg) repeat-x;
+
+}
+
+.not-logged-in.oahu-splash #header .subhead{
+  display: none;
+}
+
+.oahu a#logo,
+.oahu-splash a#logo,
+.chile a#logo,
+.chile-splash a#logo{
+  background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/wanderlust-logo-new.png) 12px 11px no-repeat;
+  display: block;
+  height: 87px;
+  width: 562px;
+  }
+
+.oahu #logo img,
+.oahu-splash #logo img,
+.chile #logo img,
+.chile-splash a#logo{
+  display: none;
+  }
+
+
+/* CHILE SPLASH PAGE CSS 
+------------------------ */
+
+
+.not-logged-in.chile-splash #header{
+  height: 27px;
+}
+
+.not-logged-in.chile-splash #container{
+  background: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -moz-box-shadow: none !important;
+}
+
+.not-logged-in.chile-splash .info{
+  background: black;
+  opacity: 0.8;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+  width: 411px;
+  margin-top: 80px;
+  color: #fff;
+  padding: 18px 0 18px 18px;
+}
+
+.not-logged-in.chile-splash .poster{
+  float: left;
+  width: 500px;
+  margin-right: 36px;
+}
+
+.not-logged-in.chile-splash .title{
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.not-logged-in.chile-splash .details{
+    color: #ffeac6;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.not-logged-in.chile-splash .description{
+    color: #53a3a8;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.not-logged-in.chile-splash .intro{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.not-logged-in.chile-splash .social div{
+  float: left;
+}
+
+.not-logged-in.chile-splash .subhead,
+.not-logged-in.chile-splash #main{
+  width: 980px !important;
+}
+
+.not-logged-in.chile-splash .label{
+  margin-right: 5px;
+}
+
+.not-logged-in.chile-top-bar{
+    background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/oahu-top-bar.jpg) repeat-x;
+
+}
+
+.not-logged-in.chile-splash #header .subhead{
+  display: none;
 }

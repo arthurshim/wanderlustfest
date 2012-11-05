@@ -5,17 +5,9 @@ dependencies[] = content
 dependencies[] = date
 package = Date/Time
 core = 6.x
-<<<<<<< HEAD
 ; Information added by drupal.org packaging script on 2011-01-03
 version = "6.x-2.7"
 core = "6.x"
 project = "date"
 datestamp = "1294059080"
-=======
-; Information added by drupal.org packaging script on 2010-08-14
-version = "6.x-2.6"
-core = "6.x"
-project = "date"
-datestamp = "1281786990"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: query.inc,v 1.50.2.4 2009/12/02 22:59:18 dww Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file query.inc
  * Defines the query object which is the underlying layer in a View.
@@ -256,36 +252,19 @@ class views_query {
       return FALSE;
     }
 
-<<<<<<< HEAD
     if ($join && $relationship) {
       $join = $this->adjust_join($join, $relationship);
     }
 
-=======
-    if (!$join) {
-      $join = $this->get_join_data($table, $this->relationships[$relationship]['base']);
-    }
-
-    $join = $this->adjust_join($join, $relationship);
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $this->queue_table($table, $relationship, $join, $alias);
   }
 
   /**
-<<<<<<< HEAD
    * Add a table to the query without ensuring the path.
    *
    * This is a pretty internal function to Views and add_table() or
    * ensure_table() should be used instead of this one, unless you are
    * absolutely sure this is what you want.
-=======
-   * Add a table to the query, without ensuring the path.
-   *
-   * This function will test to ensure that the path back to the primary
-   * table is valid and exists; if you do not wish for this testing to
-   * occur, use $query->queue_table() instead.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    *
    * @param $table
    *   The name of the table to add. It needs to exist in the global table

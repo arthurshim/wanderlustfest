@@ -1,8 +1,4 @@
 #!/bin/sh
-<<<<<<< HEAD
-=======
-# $Id: code-clean.sh,v 1.8 2005/08/11 13:02:08 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 find . -name "*~" -type f | xargs rm -f
 find . -name ".#*" -type f | xargs rm -f

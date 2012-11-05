@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-# $Id: robots.txt,v 1.9.2.1 2008/12/10 20:12:19 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 #
 # robots.txt
 #
@@ -23,19 +19,12 @@
 User-agent: *
 Crawl-delay: 10
 # Directories
-<<<<<<< HEAD
 Disallow: /boost_stats.php
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Disallow: /includes/
 Disallow: /misc/
 Disallow: /modules/
 Disallow: /profiles/
 Disallow: /scripts/
-<<<<<<< HEAD
-=======
-Disallow: /sites/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Disallow: /themes/
 # Files
 Disallow: /CHANGELOG.txt
@@ -52,10 +41,6 @@ Disallow: /xmlrpc.php
 # Paths (clean URLs)
 Disallow: /admin/
 Disallow: /comment/reply/
-<<<<<<< HEAD
-=======
-Disallow: /contact/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Disallow: /logout/
 Disallow: /node/add/
 Disallow: /search/
@@ -65,10 +50,6 @@ Disallow: /user/login/
 # Paths (no clean URLs)
 Disallow: /?q=admin/
 Disallow: /?q=comment/reply/
-<<<<<<< HEAD
-=======
-Disallow: /?q=contact/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Disallow: /?q=logout/
 Disallow: /?q=node/add/
 Disallow: /?q=search/

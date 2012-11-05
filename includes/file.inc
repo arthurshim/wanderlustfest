@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: file.inc,v 1.121.2.13 2010/08/11 17:40:55 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -38,7 +34,6 @@ define('FILE_STATUS_PERMANENT', 1);
 /**
  * Create the download path to a file.
  *
-<<<<<<< HEAD
  * There are two kinds of local files:
  * - "created files", i.e. those in the files directory (which is stored in
  *   the file_directory_path variable and can be retrieved using
@@ -90,21 +85,6 @@ function file_create_url($path) {
         $path = file_directory_strip($path);
         return url('system/files/' . $path, array('absolute' => TRUE));
     }
-=======
- * @param $path A string containing the path of the file to generate URL for.
- * @return A string containing a URL that can be used to download the file.
- */
-function file_create_url($path) {
-  // Strip file_directory_path from $path. We only include relative paths in urls.
-  if (strpos($path, file_directory_path() .'/') === 0) {
-    $path = trim(substr($path, strlen(file_directory_path())), '\\/');
-  }
-  switch (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC)) {
-    case FILE_DOWNLOADS_PUBLIC:
-      return $GLOBALS['base_url'] .'/'. file_directory_path() .'/'. str_replace('\\', '/', $path);
-    case FILE_DOWNLOADS_PRIVATE:
-      return url('system/files/'. $path, array('absolute' => TRUE));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -140,7 +120,6 @@ function file_create_path($dest = 0) {
 }
 
 /**
-<<<<<<< HEAD
  * Checks whether a directory exists and is writable.
  *
  * Furthermore, the directory can optionally be created if it does not exist,
@@ -163,19 +142,6 @@ function file_create_path($dest = 0) {
  * @return
  *   FALSE if the directory does not exist or is not writable, even after
  *   any optional actions have been carried out. Otherwise, TRUE is returned.
-=======
- * Check that the directory exists and is writable. Directories need to
- * have execute permissions to be considered a directory by FTP servers, etc.
- *
- * @param $directory A string containing the name of a directory path.
- * @param $mode A Boolean value to indicate if the directory should be created
- *   if it does not exist or made writable if it is read-only.
- * @param $form_item An optional string containing the name of a form item that
- *   any errors will be attached to. This is useful for settings forms that
- *   require the user to specify a writable directory. If it can't be made to
- *   work, a form error will be set preventing them from saving the settings.
- * @return FALSE when directory not found, or TRUE when directory exists.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function file_check_directory(&$directory, $mode = 0, $form_item = NULL) {
   $directory = rtrim($directory, '/\\');
@@ -569,29 +535,17 @@ function file_space_used($uid = NULL) {
 }
 
 /**
-<<<<<<< HEAD
  * Saves a file upload to a new location.
  *
  * The source file is validated as a proper upload and handled as such.
  * The file will be added to the files table as a temporary file. Temporary
  * files are periodically cleaned. To make the file permanent file call
-=======
- * Saves a file upload to a new location. The source file is validated as a
- * proper upload and handled as such.
- *
- * The file will be added to the files table as a temporary file. Temporary files
- * are periodically cleaned. To make the file permanent file call
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * file_set_status() to change its status.
  *
  * @param $source
  *   A string specifying the name of the upload field to save.
  * @param $validators
-<<<<<<< HEAD
  *   (optional) An associative array of callback functions used to validate the
-=======
- *   An optional, associative array of callback functions used to validate the
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   file. The keys are function names and the values arrays of callback
  *   parameters which will be passed in after the file object. The
  *   functions should return an array of error messages; an empty array
@@ -601,18 +555,12 @@ function file_space_used($uid = NULL) {
  *   A string containing the directory $source should be copied to. If this is
  *   not provided or is not writable, the temporary directory will be used.
  * @param $replace
-<<<<<<< HEAD
  *   Replace behavior when the destination file already exists:
  *   - FILE_EXISTS_REPLACE: Replace the existing file.
  *   - FILE_EXISTS_RENAME: Append _{incrementing number} until the filename
  *     is unique.
  *   - FILE_EXISTS_ERROR: Do nothing and return FALSE.
  *
-=======
- *   A boolean indicating whether an existing file of the same name in the
- *   destination directory should overwritten. A false value will generate a
- *   new, unique filename in the destination directory.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @return
  *   An object containing the file information, or 0 in the event of an error.
  */
@@ -758,18 +706,12 @@ function file_validate_name_length($file) {
  * @param $file
  *   A Drupal file object.
  * @param $extensions
-<<<<<<< HEAD
  *   A string with a space separated list of allowed file extensions, not
  *   including the period. For example, 'bmp jpg gif png'.
  *
  * @return
  *   An array. If the file extension is not allowed, it will contain an error
  *   message.
-=======
- *   A string with a space separated
- * @return
- *   An array. If the file extension is not allowed, it will contain an error message.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function file_validate_extensions($file, $extensions) {
   global $user;
@@ -950,7 +892,6 @@ function file_transfer($source, $headers) {
   if (ob_get_level()) {
     ob_end_clean();
   }
-<<<<<<< HEAD
   
   // IE cannot download private files because it cannot store files downloaded
   // over https in the browser cache. The problem can be solved by sending
@@ -959,8 +900,6 @@ function file_transfer($source, $headers) {
     drupal_set_header('Cache-Control: private');
     drupal_set_header('Pragma: private');
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   foreach ($headers as $header) {
     // To prevent HTTP header injection, we delete new lines that are
@@ -1131,7 +1070,6 @@ function file_directory_path() {
 }
 
 /**
-<<<<<<< HEAD
  * Remove a possible leading file directory path from the given path.
  *
  * @param $path
@@ -1149,8 +1087,6 @@ function file_directory_strip($path) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Determine the maximum file upload size by querying the PHP settings.
  *
  * @return

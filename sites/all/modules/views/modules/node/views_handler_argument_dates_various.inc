@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_argument_dates_various.inc,v 1.4 2009/01/08 00:25:19 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Argument handler for a full date (CCYYMMDD)
  */
@@ -66,22 +62,14 @@ class views_handler_argument_node_created_year_month extends views_handler_argum
    */
   function summary_name($data) {
     $created = $data->{$this->name_alias};
-<<<<<<< HEAD
     return format_date(strtotime($created . "15" . " 00:00:00 UTC"), 'custom', $this->format, 0);
-=======
-    return format_date(strtotime($created . "15"), 'custom', $this->format, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
    * Provide a link to the next level of the view
    */
   function title() {
-<<<<<<< HEAD
     return format_date(strtotime($this->argument . "15" . " 00:00:00 UTC"), 'custom', $this->format, 0);
-=======
-    return format_date(strtotime($this->argument . "15"), 'custom', $this->format, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -104,11 +92,7 @@ class views_handler_argument_node_created_month extends views_handler_argument_d
    */
   function summary_name($data) {
     $month = str_pad($data->{$this->name_alias}, 2, '0', STR_PAD_LEFT);
-<<<<<<< HEAD
     return format_date(strtotime("2005" . $month . "15" . " 00:00:00 UTC" ), 'custom', $this->format);
-=======
-    return format_date(strtotime("2005" . $month . "15"), 'custom', $this->format);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -116,11 +100,7 @@ class views_handler_argument_node_created_month extends views_handler_argument_d
    */
   function title() {
     $month = str_pad($this->argument, 2, '0', STR_PAD_LEFT);
-<<<<<<< HEAD
     return format_date(strtotime("2005" . $month . "15" . " 00:00:00 UTC"), 'custom', $this->format, 0);
-=======
-    return format_date(strtotime("2005" . $month . "15"), 'custom', $this->format, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function summary_argument($data) {
@@ -148,12 +128,8 @@ class views_handler_argument_node_created_day extends views_handler_argument_dat
    */
   function summary_name($data) {
     $day = str_pad($data->{$this->name_alias}, 2, '0', STR_PAD_LEFT);
-<<<<<<< HEAD
     // strtotime respects server timezone, so we need to set the time fixed as utc time
     return format_date(strtotime("2005" . "05" . $day . " 00:00:00 UTC"), 'custom', $this->format, 0);
-=======
-    return format_date(strtotime("2005" . "05" . $day), 'custom', $this->format, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -161,11 +137,7 @@ class views_handler_argument_node_created_day extends views_handler_argument_dat
    */
   function title() {
     $day = str_pad($this->argument, 2, '0', STR_PAD_LEFT);
-<<<<<<< HEAD
     return format_date(strtotime("2005" . "05" . $day . " 00:00:00 UTC"), 'custom', $this->format, 0);
-=======
-    return format_date(strtotime("2005" . "05" . $day), 'custom', $this->format, 0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function summary_argument($data) {

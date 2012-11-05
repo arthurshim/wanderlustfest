@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emfield.admin.inc,v 1.1.2.16 2009/10/19 15:02:19 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -17,12 +13,8 @@ function emfield_settings() {
     drupal_set_message(t('The Embedded Media Field module does nothing on its own. You should also install the Embedded Video Field, Embedded Image Field, and/or Embedded Audio Field modules from the <a href="@modules">modules administration page</a>. (If you do not see them listed there, under the CCK section, you may need to <a href="@download">download the module</a> from its project page. They are all in the same package.)', array('@download' => 'http://drupal.org/project/emfield', '@modules' => url('admin/build/modules'))), 'error');
   }
   $form = array();
-<<<<<<< HEAD
 
   $form = array(
-=======
-  $form['general'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'fieldset',
     '#title' => t('General Settings'),
     '#description' => t('These features will be generally available for use by related modules as needed.'),
@@ -30,14 +22,10 @@ function emfield_settings() {
     '#collapsed' => FALSE,
   );
 
-<<<<<<< HEAD
   // Add vertical tabs display if available.
   $form['#pre_render'][] = 'vertical_tabs_form_pre_render';
 
   $form['flvmediaplayer'] = array(
-=======
-  $form['general']['flvmediaplayer'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'fieldset',
     '#title' => t('JW FLV Media Player options'),
     '#collapsible' => TRUE,
@@ -47,20 +35,12 @@ function emfield_settings() {
     $url = emfield_flvmediaplayer_url(TRUE);
     $flvmediaplayer_configs = flvmediaplayer_profile_get_configs();
     $flvmediaplayer_configs = (!empty($flvmediaplayer_configs)) ? $flvmediaplayer_configs : array();
-<<<<<<< HEAD
     $form['flvmediaplayer']['emfield_flvmediaplayer_url'] = array(
-=======
-    $form['general']['flvmediaplayer']['emfield_flvmediaplayer_url'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#type' => 'item',
       '#title' => t('JW FLV Media Player'),
       '#description' => t('Some providers may support the !player, and may be configured to use that player for display of its media. You may set that path (%path) at the !settings.', array('%path' => url($url), '!settings' => l(t('FLV Media Player settings page'), 'admin/settings/flvmediaplayer'), '!player' => l(t('JW FLV Media Player'), 'http://www.longtailvideo.com/players/jw-flv-player/'))),
     );
-<<<<<<< HEAD
     $form['flvmediaplayer']['emfield_flv_profile'] = array(
-=======
-    $form['general']['flvmediaplayer']['emfield_flv_profile'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#type' => 'select',
       '#title' => t('FLV Media Player Profile'),
       '#options' => array('' => t('-----')) + $flvmediaplayer_configs,
@@ -69,22 +49,14 @@ function emfield_settings() {
     );
   }
   else {
-<<<<<<< HEAD
     $form['flvmediaplayer']['emfield_flvmediaplayer_url'] = array(
-=======
-    $form['general']['flvmediaplayer']['emfield_flvmediaplayer_url'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#type' => 'textfield',
       '#title' => t('JW FLV Media Player'),
       '#default_value' => emfield_flvmediaplayer_url(TRUE),
       '#description' => t("Some providers may support the !player, and may be configured to use that player for display of its media. In that case, please enter the path to this player here, without a leading slash. If you are certain you have the player installed on this server, the path doesn't show up here, and you don't know the path, you can blank out this field and save the configuration, and an attempt will be made to autodiscover the player. For best success, you should put the file somewhere in the /sites/all/plugins folder.", array('!player' => l(t('JW FLV Media Player'), 'http://www.longtailvideo.com/players/jw-flv-player/'))),
     );
   }
-<<<<<<< HEAD
   $form['flvmediaplayer']['emfield_imagerotator_url'] = array(
-=======
-  $form['general']['flvmediaplayer']['emfield_imagerotator_url'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'textfield',
     '#title' => t('JW Image Rotator'),
     '#default_value' => emfield_imagerotator_url(TRUE),
@@ -97,21 +69,13 @@ function emfield_settings() {
   else {
     $swfobject_desc = t('If you have the swfobject.js file installed on your system, you can make it available to Embedded Media Field and its related modules by entering the information here. You can download and find out more about <a href="@here" target="_blank">SWFObject here</a>. You may also choose to install the <a href="@swfobject_api" target="_blank">SWFObject API</a> module, which will integrate automatically with this module..', array('@here' => 'http://code.google.com/p/swfobject/', '@swfobject_api' => 'http://drupal.org/project/swfobject_api'));
   }
-<<<<<<< HEAD
   $form['swfobject'] = array(
-=======
-  $form['general']['swfobject'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'fieldset',
     '#title' => t('SWF Object'),
     '#description' => $swfobject_desc,
     '#collapsible' => TRUE,
   );
-<<<<<<< HEAD
   $form['swfobject']['emfield_swfobject'] = array(
-=======
-  $form['general']['swfobject']['emfield_swfobject'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'checkbox',
     '#title' => t('Use SWFObject'),
     '#default_value' => variable_get('emfield_swfobject', FALSE),
@@ -119,11 +83,7 @@ function emfield_settings() {
   );
 
   if (!module_exists('swfobject_api')) {
-<<<<<<< HEAD
     $form['swfobject']['emfield_swfobject_location'] = array(
-=======
-    $form['general']['swfobject']['emfield_swfobject_location'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#type' => 'textfield',
       '#title' => t('SWFObject location'),
       '#default_value' => variable_get('emfield_swfobject_location', ''),
@@ -131,7 +91,6 @@ function emfield_settings() {
     );
   }
 
-<<<<<<< HEAD
   $form['thumbnails'] = array(
     '#type' => 'fieldset',
     '#title' => t('Thumbnails'),
@@ -139,16 +98,12 @@ function emfield_settings() {
     '#collapsed' => TRUE,
   );
   $form['thumbnails']['emfield_thumbnail_overlay'] = array(
-=======
-  $form['general']['emfield_thumbnail_overlay'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#type' => 'checkbox',
     '#title' => t('Thumbnail play button overlay'),
     '#description' => t('If a thumbnail replacement or modal display formatter (such as Shadowbox) is selected, then a play button will be overlayed on the image if this box is checked.'),
     '#default_value' => variable_get('emfield_thumbnail_overlay', TRUE),
   );
 
-<<<<<<< HEAD
   $form = system_settings_form($form);
 
   // Custom valiation callback so we can validate the SWFObject path.
@@ -211,69 +166,10 @@ function emfield_module_settings(&$form_state, $module) {
       '#default_value' => variable_get('emfield_'. $module .'_allow_'. $provider->name, TRUE),
     );
     $form['providers'][$provider->name][] = emfield_include_invoke($module, $provider->name, 'settings');
-=======
-  $header = array(t('Feature'), t('Supported'), t('Notes'));
-
-  foreach (module_implements('emfield_info', TRUE) as $module) {
-    $emfield_info = module_invoke($module, 'emfield_info');
-    $providers = emfield_system_list($module);
-    $form[$module] = array(
-      '#type' => 'fieldset',
-      '#title' => t('@neighborhood', array('@neighborhood' => $emfield_info['#name'])),
-      '#description' => $emfield_info['#settings_description'],
-      '#collapsible' => TRUE,
-      '#collapsed' => TRUE,
-    );
-    $form[$module] = array_merge($form[$module], module_invoke($module, 'emfield_settings'));
-    $form[$module]['providers'] = array(
-      '#type' => 'fieldset',
-      '#title' => t('Providers'),
-      '#description' => t('The following settings determine what providers are allowed, and what provider-specific options, if any, are set.'),
-      '#collapsible' => TRUE,
-      '#collapsed' => FALSE,
-    );
-    foreach ($providers as $provider) {
-      $info = emfield_include_invoke($module, $provider->name, 'info');
-      $form[$module]['providers'][$provider->name] = array(
-        '#type' => 'fieldset',
-        '#title' => t('@provider configuration', array('@provider' => $info['name'])),
-        '#description' => $info['settings_description'],
-        '#collapsible' => TRUE,
-        '#collapsed' => TRUE,
-      );
-      if (is_array($info['supported_features']) && !empty($info['supported_features'])) {
-        $form[$module]['providers'][$provider->name]['supported_features'] = array(
-          '#type' => 'fieldset',
-          '#title' => t('Supported features'),
-          '#description' => t('This is a list of the current state of support for the following features by %provider:', array('%provider' => $info['name'])),
-          '#collapsible' => TRUE,
-          '#collapsed' => TRUE,
-          '#weight' => 7,
-        );
-        $form[$module]['providers'][$provider->name]['supported_features']['features'] = array(
-          '#type' => 'markup',
-          '#value' => theme('table', $header, $info['supported_features']),
-        );
-      }
-      $form[$module]['providers'][$provider->name]['emfield_'. $module .'_allow_'. $provider->name] = array( '#type' => 'checkbox',
-        '#title' => t('Allow content from %provider', array('%provider' => $info['name'])),
-        '#description' => t('If checked, then content types may be created that allow content to be provided by %provider.', array('%provider' => $info['name'])),
-        '#weight' => -10,
-        '#default_value' => variable_get('emfield_'. $module .'_allow_'. $provider->name, TRUE),
-      );
-      $form[$module]['providers'][$provider->name][] = emfield_include_invoke($module, $provider->name, 'settings');
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   $form = system_settings_form($form);
 
-<<<<<<< HEAD
-=======
-  // Custom valiation callback so we can validate the SWFObject path.
-  $form['#validate'][] = 'emfield_settings_validate';
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $form;
 }
 
@@ -359,7 +255,6 @@ function emfield_reload($nid) {
     }
   }
 }
-<<<<<<< HEAD
 
 function emfield_disable_obsolete_provider($module = NULL, $provider = NULL) {
   if ($module && $provider) {
@@ -371,5 +266,3 @@ function emfield_disable_obsolete_provider($module = NULL, $provider = NULL) {
   }
   drupal_goto($_GET['destination']);
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

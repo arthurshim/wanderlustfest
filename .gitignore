@@ -1,0 +1,5 @@
+#Ignore Files direction
+files
+files/
+cache
+cache*

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filefield_meta_handler_field_duration.inc,v 1.3 2010/04/24 06:28:03 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -53,7 +49,6 @@ class filefield_meta_handler_field_duration extends views_handler_field_numeric 
 
     switch ($this->options['format']) {
       case 'hours':
-<<<<<<< HEAD
         $output = date('g', (int) $value);
         break;
       case 'minutes':
@@ -64,18 +59,6 @@ class filefield_meta_handler_field_duration extends views_handler_field_numeric 
         break;
       case 'total':
         $output = check_plain($value);
-=======
-        $value = date('g', (int) $value);
-        break;
-      case 'minutes':
-        $value = date('i', (int) $value);
-        break;
-      case 'seconds':
-        $value = date('s', (int) $value);
-        break;
-      case 'total':
-        $value = $value;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         break;
       default:
         $output = theme('filefield_meta_duration', $value);

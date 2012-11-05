@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu_tree.inc,v 1.1.2.3 2010/03/24 12:13:01 johnalbin Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provides ctools integration for "Menu block" trees.

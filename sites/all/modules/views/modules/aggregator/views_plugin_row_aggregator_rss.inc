@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_row_aggregator_rss.inc,v 1.1 2009/01/07 19:38:08 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the Aggregator Item RSS row style plugin.

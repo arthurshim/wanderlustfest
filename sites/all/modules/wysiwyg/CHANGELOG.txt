@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 Wysiwyg 6.x-2.x, xxxx-xx-xx
 ---------------------------
@@ -66,16 +65,6 @@ Wysiwyg 6.x-2.2, 2010-12-20
 #752516 by nquocbao, sun: Fixed openwysiwyg version callback.
 #753536 by TwoD: Fixed version detection for Whizzywig.
 #752516 by nquocbao, sun: Fixed file stream warnings in version callbacks.
-=======
-// $Id: CHANGELOG.txt,v 1.149.2.41 2010/03/08 15:49:15 sun Exp $
-
-Wysiwyg x.x-x.x, xxxx-xx-xx
----------------------------
-
-
-Wysiwyg 6.x-2.x, xxxx-xx-xx
----------------------------
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 Wysiwyg 6.x-2.1, 2010-03-08
@@ -285,13 +274,10 @@ Wysiwyg 6.x-0.3, 2008-09-12
 #227687 by sun: Fixed improperly capitalized package name.
 #288028 by Matthew Davidson: Fixed outdated check for PHP input filter.
 #280727 by sun: Removed gzip compressor from installation instructions.
-<<<<<<< HEAD
 
 
 Wysiwyg 5.x-0.2, 2008-07-16
 ---------------------------
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 by sun: Fixed JavaScript errors when JS aggregation/compression is enabled.
 #268562 by sun: Code clean-up; changed format for custom defined CSS classes
   and removed error-prone auto-layout of buttons in favor of aligning them in

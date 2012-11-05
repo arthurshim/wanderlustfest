@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: viewscarousel_style_plugin.inc,v 1.2.2.2 2009/11/05 20:29:50 robloach Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  *  Provide the views carousel plugin object with default options and form.

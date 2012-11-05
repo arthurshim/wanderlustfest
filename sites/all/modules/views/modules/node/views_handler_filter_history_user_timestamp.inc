@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_history_user_timestamp.inc,v 1.3 2009/06/24 01:17:28 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Filter for new content
  */
@@ -10,11 +6,7 @@ class views_handler_filter_history_user_timestamp extends views_handler_filter {
   // Don't display empty space where the operator would be.
   var $no_operator = TRUE;
 
-<<<<<<< HEAD
   function expose_form_right(&$form, &$form_state) {
-=======
-  function expose_form_right() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // We don't want any of the usual options for exposed filters.
   }
 
@@ -56,17 +48,10 @@ class views_handler_filter_history_user_timestamp extends views_handler_filter {
 
     $this->ensure_my_table();
     $field = "$this->table_alias.$this->real_field";
-<<<<<<< HEAD
     $node = $this->query->ensure_table('node', $this->relationship);
 
     if (module_exists('comment')) {
       $ncs = $this->query->ensure_table('node_comment_statistics', $this->relationship);
-=======
-    $node = $this->query->ensure_table('node');
-
-    if (module_exists('comment')) {
-      $ncs = $this->query->ensure_table('node_comment_statistics');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $clause = ("OR $ncs.last_comment_timestamp > (***CURRENT_TIME*** - $limit)");
       $clause2 = "OR $field < $ncs.last_comment_timestamp";
     }

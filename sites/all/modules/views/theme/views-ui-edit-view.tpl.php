@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-ui-edit-view.tpl.php,v 1.10 2009/04/07 23:05:29 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-ui-edit-view.tpl.php
  * Template for the primary view editing window.

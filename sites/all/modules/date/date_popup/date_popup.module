@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date_popup.module,v 1.42.2.1.2.65 2010/11/20 11:33:30 karens Exp $
-=======
-// $Id: date_popup.module,v 1.42.2.1.2.60 2010/08/13 18:48:34 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * A module to enable jquery calendar and time entry popups.
@@ -43,7 +39,6 @@ function date_popup_load() {
 }
 
 function date_popup_css_default() {
-<<<<<<< HEAD
   if (!module_exists('jquery_ui')) {
     return '';
   }
@@ -72,23 +67,6 @@ function date_popup_css_options() {
     default:
       $paths[drupal_get_path('module', 'date_popup') .'/themes/datepicker.1.7.css'] = t('Date Popup default');
       $paths[$jquery_ui_path .'/jquery.ui/themes/base/ui.datepicker.css'] = t('jQuery UI default');
-=======
-  return drupal_get_path('module', 'date_popup') .'/themes/datepicker.css';
-}
-
-function date_popup_css_options() {
-  $version = jquery_ui_get_version();
-  $jquery_ui_path = drupal_get_path('module', 'jquery_ui');
-  $paths = array();
-  switch ($version) {
-    case '1.6':
-      $paths[drupal_get_path('module', 'date_popup') .'/themes/datepicker.css'] = t('Date Popup default');
-      $paths[$jquery_ui_path .'/jquery.ui/themes/base/ui.datepicker.css'] = t('jQuery UI default');
-      break;
-    default:
-      $paths[drupal_get_path('module', 'date_popup') .'/themes/datepicker.1.7.css'] = t('Date Popup default');
-      $paths[$jquery_ui_path .'/jquery.ui/themes/default/ui.datepicker.css'] = t('jQuery UI default');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       break;
   }
   return $paths;
@@ -138,7 +116,6 @@ function date_popup_js_settings_id($id, $func, $settings) {
   static $js_added = FALSE;
   static $id_count = array();
 
-<<<<<<< HEAD
   // Make sure popup date selector grid is in correct year.
   if (!empty($settings['yearRange'])) {
     $parts = explode(':', $settings['yearRange']);
@@ -157,8 +134,6 @@ function date_popup_js_settings_id($id, $func, $settings) {
     $settings += array('defaultDate' => (string) $defaultDate . 'y');
 	}
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!$js_added) {
     drupal_add_js(drupal_get_path('module', 'date_popup') .'/date_popup.js');
     $js_added = TRUE;
@@ -288,18 +263,9 @@ function date_popup_process_date(&$element, $edit = NULL, $date = NULL) {
   
   // The datepicker can't handle zero or negative values like 0:+1
   // even though the Date API can handle them, so rework the value
-<<<<<<< HEAD
   // we pass to the datepicker to use defaults it can accept (such as +0:+1)
   // date_range_string() adds the necessary +/- signs to the range string.
   $range = date_range_years($element['#date_year_range'], $date);
-=======
-  // we pass to the datepicker to use defaults it can accept.
-  $this_year = date_format(date_now(), 'Y');
-  $range = date_range_years($element['#date_year_range'], $date);
-  if ($range[0] > $this_year) {
-    $range[0] = $this_year;
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $year_range = date_range_string($range);
 
   $settings = array(
@@ -369,11 +335,7 @@ function date_popup_process_time(&$element, $edit = NULL, $date = NULL) {
   $id = date_popup_js_settings_id($element['#id'], 'timeEntry', $settings);
   $sub_element = array(
     '#type' => 'textfield',
-<<<<<<< HEAD
     '#default_value' => (!empty($element['#value']['time']) || !empty($edit['time'])) && is_object($date) ? date_format_date($date, 'custom', $time_format) : '',
-=======
-    '#default_value' => (!empty($element['#value']['time']) || !empty($edit['time'])) && is_object($date) ? date_format($date, $time_format) : '',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#id' => $id,
     '#size' => 10,
     '#maxlength' => 10,
@@ -384,11 +346,7 @@ function date_popup_process_time(&$element, $edit = NULL, $date = NULL) {
     $sub_element['#value'] = $sub_element['#default_value'];
   }
   // TODO, figure out exactly when we want this description. In many places it is not desired.
-<<<<<<< HEAD
   $sub_element['#description'] = t('Format: @date', array('@date' => date_format_date(date_now(), 'custom', $time_format)));
-=======
-  $sub_element['#description'] = t('Format: @date', array('@date' => date($time_format, time())));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return ($sub_element);
 }
 
@@ -690,8 +648,4 @@ EOM;
   $form['#suffix'] = t('<p>The Date Popup calendar includes some css for IE6 that breaks css validation. Since IE 6 is now superceded by IE 7 and IE 8, the special css for IE 6 has been removed from the regular css used by the Date Popup. If you find you need that css after all, you can add it back in your theme. Look at the way the Garland theme adds special IE-only css in in its page.tpl.php file. The css you need is:</p>') .'<blockquote><PRE>'. $css .'</PRE></blockquote>';
 
   return system_settings_form($form);
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

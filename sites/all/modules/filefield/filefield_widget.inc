@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filefield_widget.inc,v 1.100 2010/06/29 21:38:10 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -102,11 +98,7 @@ function filefield_widget_settings_save($widget) {
  * A FAPI #pre_render() function to set a cosmetic default value for extensions.
  */
 function _filefield_widget_settings_extensions_value($element) {
-<<<<<<< HEAD
   $element['#value'] = implode(', ', array_filter(explode(' ', str_replace(',', ' ', $element['#value']))));
-=======
-  $element['#value'] = implode(', ', explode(' ', $element['#value']));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $element;
 }
 
@@ -114,14 +106,9 @@ function _filefield_widget_settings_extensions_value($element) {
  * A FAPI #element_validate callback to strip commas from extension lists.
  */
 function _filefield_widget_settings_extensions_validate($element, &$form_state) {
-<<<<<<< HEAD
   // Remove commas and leading dots from file extensions.
   $value = str_replace(',', ' ', $element['#value']);
   $value = str_replace(' .', ' ', $value);
-=======
-  // Remove commas from file extensions.
-  $value = str_replace(',', ' ', $element['#value']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $value = array_filter(explode(' ', $value));
   $value = implode(' ', $value);
   form_set_value($element, $value, $form_state);
@@ -198,11 +185,7 @@ function filefield_widget_file_path($field, $account = NULL) {
  *   The FAPI element whose values are being saved.
  */
 function filefield_save_upload($element) {
-<<<<<<< HEAD
   $upload_name = implode('_', $element['#array_parents']);
-=======
-  $upload_name = $element['#field_name'] .'_'. $element['#delta'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $field = content_fields($element['#field_name'], $element['#type_name']);
 
   if (empty($_FILES['files']['name'][$upload_name])) {
@@ -251,19 +234,12 @@ function filefield_widget_value($element, $edit = FALSE) {
     }
 
     // Load file if the FID has changed so that it can be saved by CCK.
-<<<<<<< HEAD
     $file = isset($item['fid']) ? field_file_load($item['fid']) : NULL;
-=======
-    $file = field_file_load($item['fid']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // If the file entry doesn't exist, don't save anything.
     if (empty($file)) {
       $item = array();
-<<<<<<< HEAD
       $file = array();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Checkboxes loose their value when empty.
@@ -288,12 +264,7 @@ function filefield_widget_value($element, $edit = FALSE) {
  * remove buttons, and the description field.
  */
 function filefield_widget_process($element, $edit, &$form_state, $form) {
-<<<<<<< HEAD
   static $settings_added;
-=======
-  // The widget is being presented, so apply the JavaScript.
-  drupal_add_js(drupal_get_path('module', 'filefield') .'/filefield.js');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   $item = $element['#value'];
   $field_name = $element['#field_name'];
@@ -302,7 +273,6 @@ function filefield_widget_process($element, $edit, &$form_state, $form) {
 
   $field = $form['#field_info'][$field_name];
 
-<<<<<<< HEAD
   // The widget is being presented, so apply the JavaScript.
   drupal_add_js(drupal_get_path('module', 'filefield') .'/filefield.js');
   if (!isset($settings_added[$field_name]) && isset($element['#upload_validators']['filefield_validate_extensions'])) {
@@ -315,8 +285,6 @@ function filefield_widget_process($element, $edit, &$form_state, $form) {
     drupal_add_js($settings, 'setting');
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Title is not necessary for each individual field.
   if ($field['multiple'] > 0) {
     unset($element['#title']);
@@ -462,23 +430,12 @@ function filefield_widget_process($element, $edit, &$form_state, $form) {
       $desc[] = call_user_func_array($help_func, $arguments);
     }
   }
-<<<<<<< HEAD
 
   $element['upload'] = array(
     '#name' => 'files[' . implode('_', $element['#array_parents']) . ']',
     '#type' => 'file',
     '#description' => implode('<br />', $desc),
     '#size' => 22,
-=======
-  $element['upload'] = array(
-    '#name' => 'files['. $element['#field_name'] .'_'. $element['#delta'] .']',
-    '#type' => 'file',
-    '#description' => implode('<br />', $desc),
-    '#size' => 22,
-    '#attributes' => array(
-      'accept' => implode(',', array_filter(explode(' ', $field['widget']['file_extensions']))),
-    ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#access' => empty($item['fid']),
   );
 
@@ -603,11 +560,7 @@ function filefield_node_form_validate($form, &$form_state) {
       }
     }
 
-<<<<<<< HEAD
     if (!$valid && $field['required'] && filefield_edit_access($field['type_name'], $field_name, $form['#node'])) {
-=======
-    if (!$valid && $field['required']) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       form_set_error($field_name, t('%title field is required.', array('%title' => $field['widget']['label'])));
     }
     $max_filesize = parse_size($field['widget']['max_filesize_per_node']);

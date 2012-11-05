@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views.install,v 1.50.2.4 2010/06/16 20:37:29 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views.install
  * Contains install and update functions for Views.
@@ -285,11 +281,7 @@ function views_update_6001() {
     if (strlen($new) >= 32) {
       $new = md5($new);
     }
-<<<<<<< HEAD
     $ret[] = update_sql("UPDATE {blocks} SET delta = '$new' WHERE bid = $block->bid");
-=======
-    update_sql($ret, "UPDATE {blocks} SET delta = '$new' WHERE bid = $block->bid");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return $ret;
@@ -460,7 +452,6 @@ function views_update_6009() {
 
   return $ret;
 }
-<<<<<<< HEAD
 
 /**
  * Remove the view_php field
@@ -525,5 +516,3 @@ function views_update_6013() {
   return $ret;
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

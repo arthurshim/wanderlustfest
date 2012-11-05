@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: database.inc,v 1.92.2.10 2010/08/06 11:05:03 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -125,13 +121,8 @@ function db_prefix_tables($sql) {
  * @return the name of the previously active database or FALSE if non was found.
  */
 function db_set_active($name = 'default') {
-<<<<<<< HEAD
   global $db_url, $db_slave_url, $db_type, $active_db, $active_slave_db;
   static $db_conns, $db_slave_conns, $active_name = FALSE;
-=======
-  global $db_url, $db_type, $active_db;
-  static $db_conns, $active_name = FALSE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   if (empty($db_url)) {
     include_once 'includes/install.inc';
@@ -142,7 +133,6 @@ function db_set_active($name = 'default') {
     // Initiate a new connection, using the named DB URL specified.
     if (is_array($db_url)) {
       $connect_url = array_key_exists($name, $db_url) ? $db_url[$name] : $db_url['default'];
-<<<<<<< HEAD
       if (is_array($db_slave_url[$name])) {
         $slave_index = mt_rand(0, count($db_slave_url[$name]) - 1);
         $slave_connect_url = $db_slave_url[$name][$slave_index];
@@ -160,11 +150,6 @@ function db_set_active($name = 'default') {
       else {
         $slave_connect_url = $db_slave_url;        
       }
-=======
-    }
-    else {
-      $connect_url = $db_url;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     $db_type = substr($connect_url, 0, strpos($connect_url, '://'));
@@ -178,27 +163,21 @@ function db_set_active($name = 'default') {
     }
 
     $db_conns[$name] = db_connect($connect_url);
-<<<<<<< HEAD
     if (!empty($slave_connect_url)) {
       $db_slave_conns[$name] = db_connect($slave_connect_url); 
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   $previous_name = $active_name;
   // Set the active connection.
   $active_name = $name;
   $active_db = $db_conns[$name];
-<<<<<<< HEAD
   if (isset($db_slave_conns[$name])) {
     $active_slave_db = $db_slave_conns[$name];
   }
   else {
     unset($active_slave_db);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $previous_name;
 }
@@ -350,7 +329,6 @@ function _db_rewrite_sql($query = '', $primary_table = 'n', $primary_field = 'ni
 }
 
 /**
-<<<<<<< HEAD
  * Runs a basic query in the active slave database.
  *
  * User-supplied arguments to the query should be passed in as separate
@@ -387,8 +365,6 @@ function db_query_slave($query) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Rewrites node, taxonomy and comment queries. Use it for listing queries. Do not
  * use FROM table1, table2 syntax, use JOIN instead.
  *
@@ -536,10 +512,6 @@ function db_escape_table($string) {
  *   - 'fields': An associative array ('fieldname' => specification)
  *     that describes the table's database columns.  The specification
  *     is also an array.  The following specification parameters are defined:
-<<<<<<< HEAD
-=======
- *
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *     - 'description': A string describing this field and its purpose.
  *       References to other tables should be enclosed in
  *       curly-brackets.  For example, the node table vid field
@@ -558,10 +530,6 @@ function db_escape_table($string) {
  *       datatypes will be used (e.g. on MySQL, TINYINT vs. INT vs. BIGINT).
  *       'normal', the default, selects the base type (e.g. on MySQL,
  *       INT, VARCHAR, BLOB, etc.).
-<<<<<<< HEAD
-=======
- *
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *       Not all sizes are available for all data types. See
  *       db_type_map() for possible combinations.
  *     - 'not null': If true, no NULL values will be allowed in this
@@ -580,15 +548,8 @@ function db_escape_table($string) {
  *       the precision (total number of significant digits) and scale
  *       (decimal digits right of the decimal point).  Both values are
  *       mandatory.  Ignored for other field types.
-<<<<<<< HEAD
  *     All parameters apart from 'type' are optional except that type
  *     'numeric' columns must specify 'precision' and 'scale'.
-=======
- *
- *     All parameters apart from 'type' are optional except that type
- *     'numeric' columns must specify 'precision' and 'scale'.
- *
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *  - 'primary key': An array of one or more key column specifiers (see below)
  *    that form the primary key.
  *  - 'unique keys': An associative array of unique keys ('keyname' =>

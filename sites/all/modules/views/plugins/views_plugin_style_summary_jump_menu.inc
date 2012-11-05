@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_style_summary_jump_menu.inc,v 1.1.2.2 2009/10/28 02:22:47 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the default summary style plugin, which displays items in an HTML list.
@@ -17,24 +13,17 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
   function option_definition() {
     $options = parent::option_definition();
 
-<<<<<<< HEAD
     $options['base_path'] = array('default' => '');
     $options['count'] = array('default' => TRUE);
     $options['hide'] = array('default' => FALSE);
     $options['text'] = array('default' => 'Go', 'translatable' => TRUE);
     $options['choose'] = array('default' => '- Choose -', 'translatable' => TRUE);
     $options['default_value'] = array('default' => FALSE);
-=======
-    $options['count'] = array('default' => TRUE);
-    $options['hide'] = array('default' => FALSE);
-    $options['text'] = array('default' => t('Go'), 'translatable' => TRUE);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $options;
   }
 
   function query() {
-<<<<<<< HEAD
     // We can't have an offset without a limit, so provide a very large limit instead.
     if (!empty($this->display->handler->options['offset'])) {
       $this->view->set_items_per_page(999999);
@@ -43,15 +32,10 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
       $this->view->set_items_per_page(0);
       $this->view->set_use_pager(0);
     }
-=======
-    $this->view->set_items_per_page(0);
-    $this->view->set_use_pager(0);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function options_form(&$form, &$form_state) {
     parent::options_form($form, $form_state);
-<<<<<<< HEAD
     $form['base_path'] = array(
       '#type' => 'textfield',
       '#title' => t('Base path'),
@@ -62,8 +46,6 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
         is empty, views will use the first path found as the base path,
         in page displays, or / if no path could be found.'),
     );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['count'] = array(
       '#type' => 'checkbox',
       '#default_value' => !empty($this->options['count']),
@@ -82,7 +64,6 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
       '#title' => t('Button text'),
       '#default_value' => $this->options['text'],
     );
-<<<<<<< HEAD
 
     $form['choose'] = array(
       '#type' => 'textfield',
@@ -97,8 +78,6 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
       '#default_value' => !empty($this->options['default_value']),
       '#description' => t('If checked, the current argument setting will be displayed as the default option in the jump menu, if applicable.'),
     );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function render() {
@@ -111,7 +90,6 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
     }
 
     $options = array();
-<<<<<<< HEAD
     $default_value = '';
     foreach ($this->view->result as $id => $row) {
       $args = $this->view->args;
@@ -121,34 +99,22 @@ class views_plugin_style_summary_jump_menu extends views_plugin_style {
         $base_path = $argument->options['style_options']['base_path'];
       }
       $path = url($this->view->get_url($args, $base_path), $url_options);
-=======
-    foreach ($this->view->result as $id => $row) {
-      $args = $this->view->args;
-      $args[$argument->position] = $argument->summary_argument($row);
-      $path = url($this->view->get_url($args), $url_options);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       $options[$path] = strip_tags($argument->summary_name($row));
       if (!empty($this->options['count'])) {
         $options[$path] .= ' (' . intval($row->{$argument->count_alias}) . ')';
       }
-<<<<<<< HEAD
       if ($this->options['default_value'] && $_GET['q'] == $this->view->get_url($args)) {
         $default_value = $path;
       }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     ctools_include('jump-menu');
     $settings = array(
       'hide' => $this->options['hide'],
       'button' => $this->options['text'],
-<<<<<<< HEAD
       'choose' => $this->options['choose'],
       'default_value' => $default_value,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     return drupal_get_form('ctools_jump_menu', $options, $settings);

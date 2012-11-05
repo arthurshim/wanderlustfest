@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: README.txt,v 1.26 2008/10/20 19:34:53 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Welcome to Views 2. Please see the advanced help for more information.
 

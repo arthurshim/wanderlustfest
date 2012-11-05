@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: schedules.inc,v 1.1.2.1.2.15 2009/11/26 21:16:59 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -207,10 +203,6 @@ class backup_migrate_schedule extends backup_migrate_item {
     $form['enabled'] = array(
       "#type" => "checkbox",
       "#title" => t("Enabled"),
-<<<<<<< HEAD
-=======
-      "#field_suffix" => t("Hour(s)"),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       "#default_value" => $this->get('enabled'),
     );
     $form['name'] = array(
@@ -227,11 +219,7 @@ class backup_migrate_schedule extends backup_migrate_item {
       "#options" => _backup_migrate_get_profile_form_item_options(),
       "#default_value" => $this->get('profile_id'),
     );
-<<<<<<< HEAD
     $form['profile_id']['#description'] = ' '. l(t("Create new profile"), BACKUP_MIGRATE_MENU_PATH . "/profile/add");
-=======
-    $form['profile_id']['#description'] = ' '. l(t("Create new profile"), "admin/content/backup_migrate/profile/add");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (!$form['profile_id']['#options']) {
       $form['profile_id']['#options'] = array('0' => t('-- None Available --'));
     }
@@ -276,11 +264,7 @@ class backup_migrate_schedule extends backup_migrate_item {
       "#options" => $destination_options,
       "#default_value" => $this->get('destination_id'),
     );
-<<<<<<< HEAD
     $form['destination_id']['#description'] .= ' '. l(t("Create new destination"), BACKUP_MIGRATE_MENU_PATH . "/destination/add");
-=======
-    $form['destination_id']['#description'] .= ' '. l(t("Create new destination"), "admin/content/backup_migrate/destination/add");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $form;
   }

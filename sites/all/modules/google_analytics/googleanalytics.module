@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: googleanalytics.module,v 1.19.2.16 2010/09/14 21:51:39 hass Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*
  * @file
@@ -13,7 +9,6 @@
  * @author: Alexander Hass <http://drupal.org/user/85918>
  */
 
-<<<<<<< HEAD
 define('GOOGLEANALYTICS_TRACKFILES_EXTENSIONS', '7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip');
 
 // Remove tracking from all administrative pages, see http://drupal.org/node/34970.
@@ -52,27 +47,13 @@ function googleanalytics_theme_registry_alter(&$registry) {
 /**
  * Implementation of hook_perm().
  */
-=======
-define('GA_TRACKFILES_EXTENSIONS', '7z|aac|arc|arj|asf|asx|avi|bin|csv|doc|exe|flv|gif|gz|gzip|hqx|jar|jpe?g|js|mp(2|3|4|e?g)|mov(ie)?|msi|msp|pdf|phps|png|ppt|qtm?|ra(m|r)?|sea|sit|tar|tgz|torrent|txt|wav|wma|wmv|wpd|xls|xml|z|zip');
-
-function googleanalytics_help($path, $arg) {
-  switch ($path) {
-    case 'admin/settings/googleanalytics':
-      return t('<a href="@ga_url">Google Analytics</a> is a free statistics package based on the excellent Urchin system. This module provides services to better integrate Drupal with Google Analytics.', array('@ga_url' => 'http://www.google.com/analytics/'));
-  }
-}
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 function googleanalytics_perm() {
   return array('administer google analytics', 'opt-in or out of tracking', 'use PHP for tracking visibility');
 }
 
-<<<<<<< HEAD
 /**
  * Implementation of hook_menu().
  */
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 function googleanalytics_menu() {
   $items['admin/settings/googleanalytics'] = array(
     'title' => 'Google Analytics',
@@ -87,14 +68,10 @@ function googleanalytics_menu() {
   return $items;
 }
 
-<<<<<<< HEAD
 /**
  * Adds Google Analytics tracking scripts.
  */
 function googleanalytics_add_js(&$vars, $hook) {
-=======
-function googleanalytics_init() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   global $user;
 
   $id = variable_get('googleanalytics_account', '');
@@ -103,26 +80,10 @@ function googleanalytics_init() {
   // 2. Track page views based on visibility value.
   // 3. Check if we should track the currently active user's role.
   if (!empty($id) && _googleanalytics_visibility_pages() && _googleanalytics_visibility_user($user)) {
-<<<<<<< HEAD
 
     // Custom tracking.
     if (variable_get('googleanalytics_trackadsense', FALSE)) {
       drupal_add_js('window.google_analytics_uacct = ' . drupal_to_js($id) . ';', 'inline', 'header');
-=======
-    $scope = variable_get('googleanalytics_js_scope', 'footer');
-
-    // Should a local cached copy of ga.js be used?
-    $js_file = 'ga.js';
-    $url = 'http://www.google-analytics.com/'. $js_file;
-
-    if (variable_get('googleanalytics_cache', 0) && (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC) == FILE_DOWNLOADS_PUBLIC) && $source = _googleanalytics_cache($url)) {
-      drupal_add_js($source, 'module', $scope);
-    }
-    else {
-      $script = 'var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");';
-      $script .= 'document.write(unescape("%3Cscript src=\'" + gaJsHost + "google-analytics.com/'. $js_file .'\' type=\'text/javascript\'%3E%3C/script%3E"));';
-      drupal_add_js($script, 'inline', $scope);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Add link tracking.
@@ -133,7 +94,6 @@ function googleanalytics_init() {
     if ($track_mailto = variable_get('googleanalytics_trackmailto', 1)) {
       $link_settings['trackMailto'] = $track_mailto;
     }
-<<<<<<< HEAD
     if (($track_download = variable_get('googleanalytics_trackfiles', 1)) && ($trackfiles_extensions = variable_get('googleanalytics_trackfiles_extensions', GOOGLEANALYTICS_TRACKFILES_EXTENSIONS))) {
       $link_settings['trackDownload'] = $track_download;
       $link_settings['trackDownloadExtensions'] = $trackfiles_extensions;
@@ -154,39 +114,6 @@ function googleanalytics_init() {
         // Extend the $user object with profile data. Otherwise only 'User roles' can be tracked.
         profile_load_profile($user);
       }
-=======
-    if (($track_download = variable_get('googleanalytics_trackfiles', 1)) && ($trackfiles_extensions = variable_get('googleanalytics_trackfiles_extensions', GA_TRACKFILES_EXTENSIONS))) {
-      $link_settings['trackDownload'] = $track_download;
-      $link_settings['trackDownloadExtensions'] = $trackfiles_extensions;
-    }
-    if (!empty($link_settings)) {
-      drupal_add_js(array('googleanalytics' => $link_settings), 'setting', 'header');
-      drupal_add_js(drupal_get_path('module', 'googleanalytics') .'/googleanalytics.js', 'module', $scope);
-    }
-
-    // Custom tracking.
-    if (variable_get('googleanalytics_trackadsense', FALSE)) {
-      drupal_add_js('window.google_analytics_uacct = ' . drupal_to_js($id) . ';', 'inline', 'header');
-    }
-  }
-}
-
-/**
- * Implementation of hook_footer() to insert Javascript at the end of the page.
- */
-function googleanalytics_footer($main = 0) {
-  global $user;
-
-  $id = variable_get('googleanalytics_account', '');
-
-  if (!empty($id) && _googleanalytics_visibility_pages() && _googleanalytics_visibility_user($user)) {
-
-    // Add User profile segmentation values.
-    $profile_fields = variable_get('googleanalytics_segmentation', array());
-    if (module_exists('profile') && !empty($profile_fields) && ($user->uid > 0)) {
-      // Extend the $user object with profile data.
-      profile_load_profile($user);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       $fields = array();
       foreach ($profile_fields as $field => $title) {
@@ -196,22 +123,14 @@ function googleanalytics_footer($main = 0) {
       // Only show segmentation variable if there are specified fields.
       $segmentation = '';
       if (count($fields) > 0) {
-<<<<<<< HEAD
         $segmentation = '_gaq.push(["_setVar", ' . drupal_to_js(implode(':', $fields)) . ']);';
-=======
-        $segmentation = 'pageTracker._setVar('. drupal_to_js(implode(':', $fields)) .');';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
 
     // Site search tracking support.
     $url_custom = '';
     if (module_exists('search') && variable_get('googleanalytics_site_search', FALSE) && arg(0) == 'search' && $keys = search_get_keys()) {
-<<<<<<< HEAD
       $url_custom = '(window.googleanalytics_search_results) ? ' . drupal_to_js(url('search/'. arg(1), array('query' => 'search='. drupal_urlencode($keys)))) . ' : ' . drupal_to_js(url('search/'. arg(1), array('query' => 'search=no-results:'. drupal_urlencode($keys) .'&cat=no-results')));
-=======
-      $url_custom = drupal_to_js(url('search/'. arg(1), array('query' => 'search='. $keys)));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // If this node is a translation of another node, pass the original
@@ -228,7 +147,6 @@ function googleanalytics_footer($main = 0) {
     }
 
     // Track access denied (403) and file not found (404) pages.
-<<<<<<< HEAD
     $headers = drupal_get_headers();
     if (strstr($headers, '403 Forbidden')) {
       // See http://www.google.com/support/analytics/bin/answer.py?answer=86927
@@ -236,24 +154,12 @@ function googleanalytics_footer($main = 0) {
     }
     elseif (strstr($headers, '404 Not Found')) {
       $url_custom = '"/404.html?page=" + document.location.pathname + document.location.search + "&from=" + document.referrer';
-=======
-    if (function_exists('drupal_get_headers')) {
-      $headers = drupal_get_headers();
-      if (strstr($headers, '403 Forbidden')) {
-        // See http://www.google.com/support/analytics/bin/answer.py?answer=86927
-        $url_custom = '"/403.html?page=" + document.location.pathname + document.location.search + "&from=" + document.referrer';
-      }
-      elseif (strstr($headers, '404 Not Found')) {
-        $url_custom = '"/404.html?page=" + document.location.pathname + document.location.search + "&from=" + document.referrer';
-      }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Add any custom code snippets if specified.
     $codesnippet_before = variable_get('googleanalytics_codesnippet_before', '');
     $codesnippet_after = variable_get('googleanalytics_codesnippet_after', '');
 
-<<<<<<< HEAD
     // Add custom variables.
     $googleanalytics_custom_vars = variable_get('googleanalytics_custom_var', array());
     $custom_var = '';
@@ -351,24 +257,6 @@ function googleanalytics_footer($main = 0) {
     $script .= '})();';
 
     drupal_add_js($script, 'inline', 'header');
-=======
-    // Build tracker code for footer.
-    $script = 'try{';
-    $script .= 'var pageTracker = _gat._getTracker('. drupal_to_js($id) .');';
-    if (!empty($segmentation)) {
-      $script .= $segmentation;
-    }
-    if (!empty($codesnippet_before)) {
-      $script .= $codesnippet_before;
-    }
-    $script .= 'pageTracker._trackPageview('. $url_custom .');';
-    if (!empty($codesnippet_after)) {
-      $script .= $codesnippet_after;
-    }
-    $script .= '} catch(err) {}';
-
-    drupal_add_js($script, 'inline', 'footer');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -399,7 +287,6 @@ function googleanalytics_user($type, $edit, &$account, $category = NULL) {
             break;
         }
 
-<<<<<<< HEAD
         // Disable tracking for visitors who have opted out from tracking via DNT (Do-Not-Track) header.
         $disabled = FALSE;
         if (variable_get('googleanalytics_privacy_donottrack', 1) && !empty($_SERVER['HTTP_DNT'])) {
@@ -413,18 +300,12 @@ function googleanalytics_user($type, $edit, &$account, $category = NULL) {
           $description .= '</span>';
         }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $form['googleanalytics']['custom'] = array(
           '#type' => 'checkbox',
           '#title' => t('Enable user tracking'),
           '#description' => $description,
-<<<<<<< HEAD
           '#default_value' => isset($account->googleanalytics['custom']) ? $account->googleanalytics['custom'] : ($custom == 1),
           '#disabled' => $disabled,
-=======
-          '#default_value' => isset($account->googleanalytics['custom']) ? $account->googleanalytics['custom'] : ($custom == 1)
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         );
 
         return $form;
@@ -438,28 +319,14 @@ function googleanalytics_user($type, $edit, &$account, $category = NULL) {
  * Implementation of hook_cron().
  */
 function googleanalytics_cron() {
-<<<<<<< HEAD
   // Regenerate the tracking code file every day.
   if (time() - variable_get('googleanalytics_last_cache', 0) >= 86400 && variable_get('googleanalytics_cache', 0)) {
     _googleanalytics_cache('http://www.google-analytics.com/ga.js', TRUE);
-=======
-  // Regenerate the google analytics ga.js every day.
-  if (time() - variable_get('googleanalytics_last_cache', 0) >= 86400) {
-    // New google analytics version.
-    file_delete(file_directory_path() .'/googleanalytics/ga.js');
-
-    // Clear aggregated JS files.
-    if (variable_get('preprocess_js', 0)) {
-      drupal_clear_js_cache();
-    }
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     variable_set('googleanalytics_last_cache', time());
   }
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_preprocess_search_results().
  *
  * Collects the number of search results. It need to be noted, that this
@@ -518,28 +385,10 @@ function _googleanalytics_cache($location, $sync_cached_file = FALSE) {
           // Return the local JS file path.
           return base_path() . $file_destination;
         }
-=======
- * Download and cache the ga.js file locally.
- * @param $location
- *   The full URL to the external javascript file.
- * @return mixed
- *   The path to the local javascript file on success, boolean FALSE on failure.
- */
-function _googleanalytics_cache($location) {
-  $directory = file_directory_path() .'/googleanalytics';
-  $file_destination = $directory .'/'. basename($location);
-  if (!file_exists($file_destination)) {
-    $result = drupal_http_request($location);
-    if ($result->code == 200) {
-      // Check that the files directory is writable
-      if (file_check_directory($directory, FILE_CREATE_DIRECTORY)) {
-        return file_save_data($result->data, $directory .'/'. basename($location), FILE_EXISTS_REPLACE);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
   }
   else {
-<<<<<<< HEAD
     // Return the local JS file path.
     return base_path() . $file_destination;
   }
@@ -558,9 +407,6 @@ function googleanalytics_clear_js_cache() {
     _drupal_flush_css_js();
 
     watchdog('googleanalytics', 'Local cache has been purged.', array(), WATCHDOG_INFO);
-=======
-    return $file_destination;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -577,11 +423,7 @@ function _googleanalytics_visibility_user($account) {
   $enabled = FALSE;
 
   // Is current user a member of a role that should be tracked?
-<<<<<<< HEAD
   if (_googleanalytics_visibility_header($account) && _googleanalytics_visibility_roles($account)) {
-=======
-  if (_googleanalytics_visibility_roles($account)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Use the user's block visibility setting, if necessary.
     if (($custom = variable_get('googleanalytics_custom', 0)) != 0) {
@@ -607,7 +449,6 @@ function _googleanalytics_visibility_user($account) {
  */
 function _googleanalytics_visibility_roles($account) {
 
-<<<<<<< HEAD
   $visibility = variable_get('googleanalytics_visibility_roles', 0);
   $enabled = $visibility;
   $roles = variable_get('googleanalytics_roles', array());
@@ -619,28 +460,12 @@ function _googleanalytics_visibility_roles($account) {
       if (isset($roles[$rid]) && $rid == $roles[$rid]) {
         // Current user is a member of a role that should be tracked/excluded from tracking.
         $enabled = !$visibility;
-=======
-  $enabled = FALSE;
-  $roles = variable_get('googleanalytics_roles', array());
-
-  if (array_sum($roles) > 0) {
-    // One or more roles are selected for tracking.
-    foreach (array_keys($account->roles) as $rid) {
-      // Is the current user a member of one role enabled for tracking?
-      if (isset($roles[$rid]) && $rid == $roles[$rid]) {
-        // Current user is a member of a role that should be tracked.
-        $enabled = TRUE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         break;
       }
     }
   }
   else {
-<<<<<<< HEAD
     // No role is selected for tracking, therefore all roles should be tracked.
-=======
-    // No role is selected for tracking, therefor all roles should be tracked.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $enabled = TRUE;
   }
 
@@ -654,7 +479,6 @@ function _googleanalytics_visibility_roles($account) {
 function _googleanalytics_visibility_pages() {
   static $page_match;
 
-<<<<<<< HEAD
   // Cache visibility setting in googleanalytics_add_js.
   if (!isset($page_match)) {
 
@@ -670,38 +494,17 @@ function _googleanalytics_visibility_pages() {
         // Convert the Drupal path to lowercase
         $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
         // Compare the lowercase internal and lowercase path alias (if any).
-=======
-  // Cache visibility setting in hook_init for hook_footer.
-  if (!isset($page_match)) {
-
-    $visibility = variable_get('googleanalytics_visibility', 0);
-    $pages = variable_get('googleanalytics_pages', '');
-
-    // Match path if necessary.
-    if (!empty($pages)) {
-      if ($visibility < 2) {
-        $path = drupal_get_path_alias($_GET['q']);
-        // Compare with the internal and path alias (if any).
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $page_match = drupal_match_path($path, $pages);
         if ($path != $_GET['q']) {
           $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
         }
-<<<<<<< HEAD
         // When $visibility has a value of 0, the tracking code is displayed on
-=======
-        // When $visibility has a value of 0, the block is displayed on
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         // all pages except those listed in $pages. When set to 1, it
         // is displayed only on those pages listed in $pages.
         $page_match = !($visibility xor $page_match);
       }
       else {
-<<<<<<< HEAD
         $page_match = drupal_eval($setting_pages);
-=======
-        $page_match = drupal_eval($pages);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
     else {
@@ -711,7 +514,6 @@ function _googleanalytics_visibility_pages() {
   }
   return $page_match;
 }
-<<<<<<< HEAD
 
 /**
  * Based on headers send by clients this function returns TRUE if GA code should
@@ -757,5 +559,3 @@ function googleanalytics_token_list($type = 'all') {
     return $tokens;
   }
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

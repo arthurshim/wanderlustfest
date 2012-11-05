@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: clone.views.inc,v 1.1 2008/10/14 23:16:56 pwolanin Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
 * Implementation of hook_views_handlers()

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: ckeditor-3.0.js,v 1.2.4.5 2009/11/17 15:31:33 twod Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 (function($) {
 
 Drupal.wysiwyg.editor.init.ckeditor = function(settings) {
@@ -63,12 +59,9 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
         }
       }
       else {
-<<<<<<< HEAD
         // CKEditor adds default formatting to <br>, so we want to remove that
         // here too.
         tags.br = 1;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         // No indents or linebreaks;
         for (var tag in tags) {
           if (tag == 'pre') {
@@ -115,7 +108,6 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
         });
       }
     },
-<<<<<<< HEAD
 
     selectionChange: function (event) {
       var pluginSettings = Drupal.settings.wysiwyg.plugins[params.format];
@@ -131,8 +123,6 @@ Drupal.wysiwyg.editor.attach.ckeditor = function(context, params, settings) {
       }
     },
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     focus: function(ev) {
       Drupal.wysiwyg.activeId = ev.editor.name;
     }
@@ -178,7 +168,6 @@ Drupal.wysiwyg.editor.instance.ckeditor = {
         }
         if (typeof Drupal.wysiwyg.plugins[pluginName].invoke == 'function') {
           var pluginCommand = {
-<<<<<<< HEAD
             exec: function (editor) {
               var data = { format: 'html', node: null, content: '' };
               var selection = editor.getSelection();
@@ -200,12 +189,6 @@ Drupal.wysiwyg.editor.instance.ckeditor = {
                   data.content = data.node.parentNode.innerHTML;
                 }
               }
-=======
-            exec: function(editor) {
-              var data = { format: 'html', node: editor.getSelection().getSelectedElement() };
-              // @todo This is NOT the same as data.node.
-              data.content = data.node ? data.node.innerHTML : '';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
               Drupal.wysiwyg.plugins[pluginName].invoke(data, pluginSettings, editor.name);
             }
           };

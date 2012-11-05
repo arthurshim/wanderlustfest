@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: README.txt,v 1.6 2009/03/27 03:56:37 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 FileField provides an "File" field type to CCK. It provides many advantages over
 the Drupal core "Upload" module including:

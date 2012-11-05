@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: handlers.inc,v 1.119.2.4 2009/12/24 01:08:31 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file handlers.inc
  * Defines the various handler objects to help build and display views.
@@ -853,14 +849,10 @@ function views_get_timezone() {
       if ($GLOBALS['db_type'] == 'pgsql') {
         db_query("SET TIME ZONE INTERVAL '$offset' HOUR TO MINUTE");
       }
-<<<<<<< HEAD
       elseif ($GLOBALS['db_type'] == 'mysqli') {
         db_query("SET @@session.time_zone = '$offset'");
       }
       elseif ($GLOBALS['db_type'] == 'mysql' && version_compare(db_version(), '4.1.3', '>=')) {
-=======
-      elseif ($GLOBALS['db_type'] == 'mysqli' || version_compare(mysql_get_server_info(), '4.1.3', '>=')) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         db_query("SET @@session.time_zone = '$offset'");
       }
 
@@ -941,7 +933,6 @@ function views_date_sql_format($format, $field, $field_type = 'int', $set_offset
     case 'mysqli':
       $replace = array(
         'Y' => '%Y',
-<<<<<<< HEAD
         'y' => '%y',
         'M' => '%%b',
         'm' => '%m',
@@ -957,20 +948,12 @@ function views_date_sql_format($format, $field, $field_type = 'int', $set_offset
         'i' => '%i',
         's' => '%%s',
         'A' => '%p',
-=======
-        'm' => '%m',
-        'd' => '%%d',
-        'H' => '%H',
-        'i' => '%i',
-        's' => '%s',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         );
       $format = strtr($format, $replace);
       return "DATE_FORMAT($field, '$format')";
     case 'pgsql':
       $replace = array(
         'Y' => 'YYYY',
-<<<<<<< HEAD
         'y' => 'YY',
         'M' => 'Mon',
         'm' => 'MM',
@@ -986,13 +969,6 @@ function views_date_sql_format($format, $field, $field_type = 'int', $set_offset
         'i' => 'MI',
         's' => 'SS',
         'A' => 'AM',
-=======
-        'm' => 'MM',
-        'd' => 'DD',
-        'H' => 'HH24',
-        'i' => 'MI',
-        's' => 'SS',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         );
       $format = strtr($format, $replace);
       return "TO_CHAR($field, '$format')";
@@ -1098,12 +1074,9 @@ function views_views_handlers() {
       'views_handler_argument_null' => array(
         'parent' => 'views_handler_argument',
       ),
-<<<<<<< HEAD
       'views_handler_argument_broken' => array(
         'parent' => 'views_handler_argument',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       // field handlers
       'views_handler_field' => array(
@@ -1141,15 +1114,12 @@ function views_views_handlers() {
       'views_handler_field_counter' => array(
         'parent' => 'views_handler_field',
       ),
-<<<<<<< HEAD
       'views_handler_field_math' => array(
         'parent' => 'views_handler_field_numeric',
       ),
       'views_handler_field_broken' => array(
         'parent' => 'views_handler_field',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       // filter handlers
       'views_handler_filter' => array(
@@ -1182,23 +1152,17 @@ function views_views_handlers() {
       'views_handler_filter_many_to_one' => array(
         'parent' => 'views_handler_filter_in_operator',
       ),
-<<<<<<< HEAD
       'views_handler_filter_broken' => array(
         'parent' => 'views_handler_filter',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       // relationship handlers
       'views_handler_relationship' => array(
         'parent' => 'views_handler',
       ),
-<<<<<<< HEAD
       'views_handler_relationship_broken' => array(
         'parent' => 'views_handler_relationship',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
       // sort handlers
@@ -1217,12 +1181,9 @@ function views_views_handlers() {
       'views_handler_sort_random' => array(
         'parent' => 'views_handler_sort',
       ),
-<<<<<<< HEAD
       'views_handler_sort_broken' => array(
         'parent' => 'views_handler_sort',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
   );
 }
@@ -1244,25 +1205,15 @@ function views_views_handlers() {
  *   // PHP 4 doesn't call constructors of the base class automatically from a
  *   // constructor of a derived class. It is your responsibility to propagate
  *   // the call to constructors upstream where appropriate.
-<<<<<<< HEAD
  *   function construct($table = NULL, $left_table = NULL, $left_field = NULL, $field = NULL, $extra = array(), $type = 'LEFT') {
-=======
- *   function construct($table, $left_table, $left_field, $field, $extra = array(), $type = 'LEFT') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *     parent::construct($table, $left_table, $left_field, $field, $extra, $type);
  *   }
  *
  *   function join($table, &$query) {
  *     $output = parent::join($table, $query);
-<<<<<<< HEAD
  *     $output .= "AND foo.bar = baz.boing";
  *     return $output;
  *   }
-=======
- *   }
- *   $output .= "AND foo.bar = baz.boing";
- *   return $output;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * }
  * @endcode
  */
@@ -1344,7 +1295,6 @@ class views_join {
     }
 
     $output = " $this->type JOIN $right_table $table[alias] ON $left_field = $table[alias].$this->field";
-<<<<<<< HEAD
 
     // Load query tokens replacements.
     $view = views_get_current_view();
@@ -1356,8 +1306,6 @@ class views_join {
       vpr('The current view is not set, maybe some code missed to execute $view->pre_execute()');
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Tack on the extra.
     if (isset($this->extra)) {
       if (is_array($this->extra)) {
@@ -1374,7 +1322,6 @@ class views_join {
             $join_table = $info['table'] . '.';
           }
 
-<<<<<<< HEAD
           // Apply query token replacements.
           $info['value'] = str_replace(array_keys($replacements), $replacements, $info['value']);
 
@@ -1382,12 +1329,6 @@ class views_join {
           // a single-quote for non-numeric values and the
           // empty-string for numeric values, then wrap all values in $q.
           $raw_value = $this->db_safe($info['value'], $info);
-=======
-          // And now deal with the value and the operator.  Set $q to
-          // a single-quote for non-numeric values and the
-          // empty-string for numeric values, then wrap all values in $q.
-          $raw_value = $this->db_safe($info['value']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $q = (empty($info['numeric']) ? "'" : '');
 
           if (is_array($raw_value)) {
@@ -1429,11 +1370,7 @@ class views_join {
    * so something that needs floats in their joins needs to do their
    * own type checking.
    */
-<<<<<<< HEAD
   function db_safe($input, $info) {
-=======
-  function db_safe($input) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (is_array($input)) {
       $output = array();
       foreach ($input as $value) {
@@ -1474,7 +1411,6 @@ function views_views_api() {
   );
 }
 
-<<<<<<< HEAD
 if (!function_exists('aggregator_views_api')) {
   function aggregator_views_api() { return views_views_api(); }
 }
@@ -1538,36 +1474,3 @@ if (!function_exists('user_views_api')) {
 if (!function_exists('contact_views_api')) {
   function contact_views_api() { return views_views_api(); }
 }
-=======
-function aggregator_views_api() { return views_views_api(); }
-
-function book_views_api() { return views_views_api(); }
-
-function comment_views_api() { return views_views_api(); }
-
-function locale_views_api() { return views_views_api(); }
-
-function filter_views_api() { return views_views_api(); }
-
-function node_views_api() { return views_views_api(); }
-
-function poll_views_api() { return views_views_api(); }
-
-function profile_views_api() { return views_views_api(); }
-
-function search_views_api() { return views_views_api(); }
-
-function statistics_views_api() { return views_views_api(); }
-
-function system_views_api() { return views_views_api(); }
-
-function taxonomy_views_api() { return views_views_api(); }
-
-function translation_views_api() { return views_views_api(); }
-
-function upload_views_api() { return views_views_api(); }
-
-function user_views_api() { return views_views_api(); }
-
-function contact_views_api() { return views_views_api(); }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

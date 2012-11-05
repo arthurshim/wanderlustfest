@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: search-block-form.tpl.php,v 1.1 2007/10/31 18:06:38 dries Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file search-block-form.tpl.php

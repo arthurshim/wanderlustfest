@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emwave.theme.inc,v 1.1.2.1 2009/10/13 13:26:44 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 function theme_emwave_wave($field, $item, $formatter, $node, $code, $width, $height, $bg_color, $color, $font, $font_size, $title = '', $link = NULL) {
   $url = module_invoke('emfield', 'include_invoke', 'emwave', $item['provider'], 'wave_url', $code, $width, $height, $formatter, $field, $item, $node);

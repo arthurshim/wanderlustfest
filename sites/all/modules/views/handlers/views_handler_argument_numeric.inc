@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_argument_numeric.inc,v 1.1 2008/09/03 19:21:28 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the numeric argument handler.
@@ -84,7 +80,6 @@ class views_handler_argument_numeric extends views_handler_argument {
       $this->value = array($this->argument);
     }
 
-<<<<<<< HEAD
     $null_check = empty($this->options['not']) ? '' : " OR $this->table_alias.$this->real_field IS NULL";
 
     if (count($this->value) > 1) {
@@ -95,16 +90,6 @@ class views_handler_argument_numeric extends views_handler_argument {
     else {
       $operator = empty($this->options['not']) ? '=' : '!=';
       $this->query->add_where(0, "$this->table_alias.$this->real_field $operator %d $null_check", $this->argument);
-=======
-    if (count($this->value) > 1) {
-      $operator = empty($this->options['not']) ? 'IN' : 'NOT IN';
-      $placeholders = implode(', ', array_fill(0, sizeof($this->value), '%d'));
-      $this->query->add_where(0, "$this->table_alias.$this->real_field $operator ($placeholders)", $this->value);
-    }
-    else {
-      $operator = empty($this->options['not']) ? '=' : '!=';
-      $this->query->add_where(0, "$this->table_alias.$this->real_field $operator %d", $this->argument);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 }

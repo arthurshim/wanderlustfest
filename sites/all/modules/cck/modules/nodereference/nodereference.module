@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: nodereference.module,v 1.138.2.69 2010/08/14 05:17:39 markuspetrux Exp $
-=======
-// $Id: nodereference.module,v 1.138.2.68 2010/08/11 23:27:10 pwolanin Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -19,11 +15,7 @@ function nodereference_menu() {
     'title' => 'Nodereference autocomplete',
     'page callback' => 'nodereference_autocomplete',
     'access callback' => 'nodereference_autocomplete_access',
-<<<<<<< HEAD
     'access arguments' => array(2),
-=======
-    'access arguments' => array(2), 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'type' => MENU_CALLBACK
   );
   return $items;
@@ -190,11 +182,7 @@ function nodereference_field_settings($op, $field) {
  * Implementation of hook_field().
  */
 function nodereference_field($op, &$node, $field, &$items, $teaser, $page) {
-<<<<<<< HEAD
   static $sanitized_nodes = array();
-=======
-  static $sanitized_nodes = array(); 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   
   switch ($op) {
     // When preparing a translation, load any translations of existing references.
@@ -282,11 +270,7 @@ function nodereference_field($op, &$node, $field, &$items, $teaser, $page) {
           }
         }
       }
-<<<<<<< HEAD
       return $items;
-=======
-      return $items;    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
@@ -338,11 +322,7 @@ function theme_nodereference_formatter_default($element) {
     if (!$element['#item']['safe']['status']) {
       $output = '<span class="node-unpublished"> '. t('(Unpublished)') ." $output</span>";
     }
-<<<<<<< HEAD
   }
-=======
-  }  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $output;
 }
 
@@ -973,15 +953,9 @@ function _nodereference_potential_references_standard($field, $string = '', $mat
   return $references;
 }
 
-<<<<<<< HEAD
 /**
  * Check access to the menu callback of the autocomplete widget.
  *
-=======
- /**
- * Check access to the menu callback of the autocomplete widget.
- * 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Check for both 'edit' and 'view' access in the unlikely event
  * a user has edit but not view access.
  */

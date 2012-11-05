@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-$Id: README.txt,v 1.1.2.5 2010/07/05 14:28:33 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Features 1.x for Drupal 6.x
 ---------------------------

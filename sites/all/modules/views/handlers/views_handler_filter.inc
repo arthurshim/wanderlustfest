@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter.inc,v 1.10.2.4 2009/12/23 19:21:34 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @defgroup views_filter_handlers Views' filter handlers
  * @{
@@ -11,7 +7,6 @@
  * Definition items:
  * - allow empty: If true, the 'IS NULL' and 'IS NOT NULL' operators become
  *   available as standard operators.
-<<<<<<< HEAD
  *
  * Object flags:
  *  You can set some specific behavior by setting up the following flags on
@@ -23,9 +18,6 @@
  *    Disable the possibility to use operators.
  * - no_optional:
  *    Disable the possibility to allow a exposed input to be optional.
-=======
- * -
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 
 /**
@@ -345,7 +337,6 @@ class views_handler_filter extends views_handler {
    * Handle the 'right' side fo the exposed options form.
    */
   function expose_form_right(&$form, &$form_state) {
-<<<<<<< HEAD
     if (empty($this->no_optional)) {
       $form['expose']['optional'] = array(
         '#type' => 'checkbox',
@@ -354,14 +345,6 @@ class views_handler_filter extends views_handler {
         '#default_value' => $this->options['expose']['optional'],
       );
     }
-=======
-    $form['expose']['optional'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Optional'),
-      '#description' => t('This exposed filter is optional and will have added options to allow it not to be set.'),
-      '#default_value' => $this->options['expose']['optional'],
-    );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (empty($this->no_single)) {
       $form['expose']['single'] = array(
         '#type' => 'checkbox',
@@ -493,11 +476,7 @@ class views_handler_filter extends views_handler {
       $form['#size'] = NULL;
     }
 
-<<<<<<< HEAD
     if ($type == 'value' && empty($this->no_optional) && !empty($this->options['expose']['optional']) && $form['#type'] == 'select' && empty($form['#multiple'])) {
-=======
-    if ($type == 'value' && !empty($this->options['expose']['optional']) && $form['#type'] == 'select' && empty($form['#multiple'])) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $any_label = variable_get('views_exposed_filter_any_label', 'old_any') == 'old_any' ? '<Any>' : t('- Any -');
       $form['#options'] = array('All' => $any_label) + $form['#options'];
       $form['#default_value'] = 'All';
@@ -539,7 +518,6 @@ class views_handler_filter extends views_handler {
 
       // Various ways to check for the absence of optional input.
       if (!empty($this->options['expose']['optional'])) {
-<<<<<<< HEAD
 
         if (($this->operator == 'empty' || $this->operator == 'not empty') && $value === '') {
           $value = ' ';
@@ -549,10 +527,6 @@ class views_handler_filter extends views_handler {
           if ($value == 'All' || $value === array()) {
             return FALSE;
           }
-=======
-        if ($value == 'All' || $value === array()) {
-          return FALSE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
 
         if (!empty($this->no_single) && $value === '') {

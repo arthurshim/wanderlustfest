@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: user.js,v 1.6 2007/09/12 18:29:32 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Attach handlers to evaluate the strength of any password fields and to check

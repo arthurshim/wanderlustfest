@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-$Id: README.txt,v 1.1.6.1 2009/04/19 21:31:24 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Description
 ===========

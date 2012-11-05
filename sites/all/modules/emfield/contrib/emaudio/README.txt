@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: README.txt,v 1.1.4.5 2008/06/04 12:08:03 alexua Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /********************/
  Embedded Audio Field

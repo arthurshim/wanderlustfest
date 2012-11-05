@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: plugins.inc,v 1.156.2.2 2009/11/30 23:55:33 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file plugins.inc
  * Built in plugins for Views output handling.

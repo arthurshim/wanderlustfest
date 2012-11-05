@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: comment.module,v 1.617.2.17 2010/08/11 20:35:47 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -1205,11 +1201,7 @@ function comment_validate($edit) {
     $node = node_load($edit['nid']);
     if (variable_get('comment_anonymous_'. $node->type, COMMENT_ANONYMOUS_MAYNOT_CONTACT) > COMMENT_ANONYMOUS_MAYNOT_CONTACT) {
       if ($edit['name']) {
-<<<<<<< HEAD
         $taken = db_result(db_query("SELECT COUNT(uid) FROM {users} WHERE name = '%s'", $edit['name']));
-=======
-        $taken = db_result(db_query("SELECT COUNT(uid) FROM {users} WHERE LOWER(name) = '%s'", $edit['name']));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
         if ($taken != 0) {
           form_set_error('name', t('The name you used belongs to a registered user.'));

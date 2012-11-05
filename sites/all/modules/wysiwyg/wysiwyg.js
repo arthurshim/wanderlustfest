@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: wysiwyg.js,v 1.15.2.2 2010/02/13 23:58:41 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 (function($) {
 
 /**
@@ -70,15 +66,11 @@ Drupal.behaviors.attachWysiwyg = function(context) {
       }
     }
     // Detach any editor when the containing form is submitted.
-<<<<<<< HEAD
     $('#' + params.field).parents('form').submit(function (event) {
       // Do not detach if the event was cancelled.
       if (event.originalEvent.returnValue === false) {
         return;
       }
-=======
-    $('#' + params.field).parents('form').submit(function () {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       Drupal.wysiwygDetach(context, params);
     });
   });
@@ -165,34 +157,9 @@ Drupal.wysiwygAttachToggleLink = function(context, params) {
   }
   $('#wysiwyg-toggle-' + params.field)
     .html(params.status ? Drupal.settings.wysiwyg.disable : Drupal.settings.wysiwyg.enable).show()
-<<<<<<< HEAD
     .unbind('click.wysiwyg', Drupal.wysiwyg.toggleWysiwyg)
     .bind('click.wysiwyg', { params: params, context: context }, Drupal.wysiwyg.toggleWysiwyg);
 
-=======
-    .unbind('click').click(function() {
-      if (params.status) {
-        // Detach current editor.
-        params.status = false;
-        Drupal.wysiwygDetach(context, params);
-        // After disabling the editor, re-attach default behaviors.
-        // @todo We HAVE TO invoke Drupal.wysiwygAttach() here.
-        Drupal.wysiwyg.editor.attach.none(context, params);
-        Drupal.wysiwyg.instances[params.field] = Drupal.wysiwyg.editor.instance.none;
-        Drupal.wysiwyg.instances[params.field].editor = 'none';
-        $(this).html(Drupal.settings.wysiwyg.enable).blur();
-      }
-      else {
-        // Before enabling the editor, detach default behaviors.
-        Drupal.wysiwyg.editor.detach.none(context, params);
-        // Attach new editor using parameters of the currently selected input format.
-        Drupal.wysiwyg.getParams($('.wysiwyg-field-' + params.field + ':checked, div.wysiwyg-field-' + params.field, context).get(0), params);
-        params.status = true;
-        Drupal.wysiwygAttach(context, params);
-        $(this).html(Drupal.settings.wysiwyg.disable).blur();
-      }
-    });
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Hide toggle link in case no editor is attached.
   if (params.editor == 'none') {
     $('#wysiwyg-toggle-' + params.field).hide();
@@ -200,7 +167,6 @@ Drupal.wysiwygAttachToggleLink = function(context, params) {
 };
 
 /**
-<<<<<<< HEAD
  * Callback for the Enable/Disable rich editor link.
  */
 Drupal.wysiwyg.toggleWysiwyg = function (event) {
@@ -229,8 +195,6 @@ Drupal.wysiwyg.toggleWysiwyg = function (event) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Parse the CSS classes of an input format DOM element into parameters.
  *
  * Syntax for CSS classes is "wysiwyg-name-value".
@@ -243,11 +207,7 @@ Drupal.wysiwyg.toggleWysiwyg = function (event) {
 Drupal.wysiwyg.getParams = function(element, params) {
   var classes = element.className.split(' ');
   var params = params || {};
-<<<<<<< HEAD
   for (var i = 0; i < classes.length; i++) {
-=======
-  for (var i in classes) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (classes[i].substr(0, 8) == 'wysiwyg-') {
       var parts = classes[i].split('-');
       var value = parts.slice(2).join('-');

@@ -1,5 +1,0 @@
-; $Id$
-name = WL_PayPal
-description = Various PayPal pages for Wanderlust site.
-core = 6.x
-package = "Malkine Interactive Drupal Modules"

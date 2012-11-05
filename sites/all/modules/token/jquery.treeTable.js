@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: jquery.treeTable.js,v 1.1.2.2 2010/03/26 00:03:19 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*
  * jQuery treeTable Plugin 2.3.0
@@ -145,11 +141,7 @@
   };
 
   function childrenOf(node) {
-<<<<<<< HEAD
     return $(node).siblings("tr." + options.childPrefix + node[0].id);
-=======
-    return $("table.treeTable tbody tr." + options.childPrefix + node[0].id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   };
 
   function getPaddingLeft(node) {
@@ -221,11 +213,7 @@
 
     for(key in classNames) {
       if(classNames[key].match(options.childPrefix)) {
-<<<<<<< HEAD
         return $(node).siblings("#" + classNames[key].substring(options.childPrefix.length));
-=======
-        return $("#" + classNames[key].substring(9));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
   };

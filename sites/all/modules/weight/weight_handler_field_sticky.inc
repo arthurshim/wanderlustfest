@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: weight_handler_field_sticky.inc,v 1.2.2.2 2009/01/26 00:28:54 nancyw Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Field handler for Weight module.
@@ -29,9 +25,5 @@ class weight_handler_field_sticky extends views_handler_field_numeric {
       }
     }
     return check_plain($this->options['prefix'] . $value . $this->options['suffix']);
-<<<<<<< HEAD
   }
-=======
-  }   
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

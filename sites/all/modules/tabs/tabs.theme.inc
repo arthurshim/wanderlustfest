@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: tabs.theme.inc,v 1.8 2010/01/18 07:03:44 nedjo Exp $
-=======
-// $Id: tabs.theme.inc,v 1.5 2009/08/19 20:01:18 nedjo Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -17,12 +13,8 @@
  */
 function theme_tabset($element) {
   $output = '<div id="tabs-'. $element['#tabset_name'] .'"'. drupal_attributes($element['#attributes']) .'>';
-<<<<<<< HEAD
   $output .= '<div class="description">'. $element['#description'] .'</div>';
   $output .= '<ul class="clear-block">';
-=======
-  $output .= '<ul class="tabs clear-block">';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   foreach (element_children($element) as $key) {
     if (isset($element[$key]['#type']) && $element[$key]['#type'] == 'tabpage') {
       // Ensure the tab has content before rendering it.
@@ -51,21 +43,10 @@ function theme_tabset($element) {
 function theme_tabpage($element) {
   $output = '';
   // Ensure the tab has content before rendering it.
-<<<<<<< HEAD
   if (!empty($element['#ajax_url']) || !empty($element['#content']) || !empty($element['#children'])) {
     $output .= '<div id="' . $element['#tab_name'] . '" class="tabs-' . $element['#tabset_name'] . '">';
     $output .= '<h2 class="drupal-tabs-title js-hide">'. $element['#title'] .'</h2>';
     $output .= $element['#content'] . (!empty($element['#children']) ? $element['#children'] : '');
-=======
-  if (
-    (isset($element['#ajax_url']) && !empty($element['#ajax_url'])) ||
-    (isset($element['#content']) && !empty($element['#content'])) ||
-    (isset($element['#children']) && !empty($element['#children']))
-  ) {
-    $output .= '<div id="' . $element['#tab_name'] . '" class="tabs-' . $element['#tabset_name'] . '">';
-    $output .= '<h2 class="drupal-tabs-title js-hide">'. $element['#title'] .'</h2>';
-    $output .= $element['#content'] . $element['#children'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $output .='</div>';
   }
   return $output;

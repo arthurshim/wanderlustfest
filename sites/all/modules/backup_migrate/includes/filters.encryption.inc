@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filters.encryption.inc,v 1.1.2.6 2010/03/24 04:02:58 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -36,11 +32,7 @@ class backup_migrate_filter_encryption extends backup_migrate_filter {
    * Get the form for the settings for this filter.
    */
   function backup_settings_default() {
-<<<<<<< HEAD
     return array('encryption' => 'none');
-=======
-    return array('compression' => 'none');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**

@@ -43,38 +43,26 @@ function sites_init() {
   }
 
   // @@TODO: make this configurable
-<<<<<<< HEAD
 
  // sites_set_current_site_cookie();
 
-=======
-  sites_set_current_site_cookie();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
  * Set a cookie recording the most recent site the user visited.
  */
 function sites_set_current_site_cookie() {
-<<<<<<< HEAD
 
   if(isset($_COOKIE['drupal_sites_module_most_recent_site'])) {
     _sites_most_recent_site_sid((int)$_COOKIE['drupal_sites_module_most_recent_site']);
   }
-=======
-  _sites_most_recent_site_sid((int)$_COOKIE['drupal_sites_module_most_recent_site']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $site = sites_get_current_site();
   $cookie_domain = '.' . (variable_get('purl_base_domain', NULL) ? str_replace('http://', '', variable_get('purl_base_domain', NULL)) : $_SERVER['HTTP_HOST']);
   // @@TODO: document this alter
   //drupal_alter('sites_cookie_domain', $cookie_domain, $site);
-<<<<<<< HEAD
   if(is_object($site) && !empty($site)) {
     $success = setcookie('drupal_sites_module_most_recent_site', $site->sid, time() + 31536000, '/', $cookie_domain);
   }
-=======
-  $success = setcookie('drupal_sites_module_most_recent_site', $site->sid, time() + 31536000, '/', $cookie_domain);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -377,11 +365,7 @@ function sites_invoke_siteapi(&$alter, $op, $a3 = NULL, $a4 = NULL) {
   $return = array();
   
   foreach (module_implements('siteapi') as $name) {
-<<<<<<< HEAD
 	$function = $name .'_siteapi';
-=======
-    $function = $name .'_siteapi';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $result = $function($alter, $op, $a3, $a4);
     if (isset($result) && is_array($result)) {
       $return = array_merge($return, $result);

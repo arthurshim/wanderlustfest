@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # $Id: de.po,v 1.6.2.1 2010/08/17 12:12:59 soxofaan Exp $
-=======
-# $Id: de.po,v 1.6 2009/12/06 11:15:14 thomaszahreddin Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 #
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
@@ -226,11 +222,7 @@ msgstr "CAPTCHA überspringen"
 
 #: captcha.module:150
 msgid "This question is for testing whether you are a human visitor and to prevent automated spam submissions."
-<<<<<<< HEAD
 msgstr "Diese Frage hat den Zweck zu testen, ob Sie ein menschlicher Benutzer sind und um automatisiertem Spam vorzubeugen."
-=======
-msgstr "Diese Frage hat den Zweck zu testen, ob Sie ein menschlicher Benutzer sind und um automatisierten Spam vorzubeugen."
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 #: captcha.module:191
 msgid "CAPTCHA: \"@type\" enabled"

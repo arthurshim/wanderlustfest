@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?php // $Id$
-=======
-<?php // $Id: imageapi_gd.module,v 1.13.2.9 2010/10/17 18:16:13 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -31,7 +27,6 @@ function imageapi_gd_settings_form() {
     '#default_value' => variable_get('imageapi_jpeg_quality', 75),
     '#field_suffix' => '%',
   );
-<<<<<<< HEAD
   $form['imageapi_crop_background'] = array(
     '#type' => 'textfield',
     '#title' => t('Crop background'),
@@ -47,8 +42,6 @@ function imageapi_gd_settings_form() {
     '#default_value' => variable_get('imageapi_interlaced', 0),
     '#description' => t('Interlacing is a method of encoding a bitmap image such that a person who has partially received it sees a degraded copy of the entire image. When communicating over a slow communications link, this is often preferable to seeing a perfectly clear copy of one part of the image, as it helps the viewer decide more quickly whether to abort or continue the transmission.')
   );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return system_settings_form($form);
 }
 
@@ -84,12 +77,9 @@ function imageapi_gd_image_close($image, $destination) {
   if (!function_exists($function)) {
     return FALSE;
   }
-<<<<<<< HEAD
   if (variable_get('imageapi_interlaced', 0)) {
     imageinterlace($image->resource, 1);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($extension == 'jpeg') {
     return $function($image->resource, $destination, variable_get('imageapi_jpeg_quality', 75));
   }
@@ -121,7 +111,6 @@ function imageapi_gd_image_close($image, $destination) {
  *   TRUE or FALSE, based on success.
  */
 function imageapi_gd_image_crop(&$image, $x, $y, $width, $height) {
-<<<<<<< HEAD
   // Create an image with the new width and height.
   $res = imageapi_gd_create_tmp($image, $width, $height);
 
@@ -138,11 +127,6 @@ function imageapi_gd_image_crop(&$image, $x, $y, $width, $height) {
   // using the source image's width and height, not the destination
   // width and height.
   if (!imagecopyresampled($res, $image->resource, -$x, -$y, 0, 0, $image->info['width'], $image->info['height'], $image->info['width'], $image->info['height'])) {
-=======
-  $res = imageapi_gd_create_tmp($image, $width, $height);
-
-  if (!imagecopyresampled($res, $image->resource, 0, 0, $x, $y, $width, $height, $width, $height)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return FALSE;
   }
 

@@ -1,8 +1,4 @@
 
-<<<<<<< HEAD
-=======
-// $Id: swfobject_api.js,v 1.1.2.1 2009/10/05 19:05:11 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * This function looks for swfobject class items and loads them

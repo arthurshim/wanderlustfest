@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: backup_migrate.install,v 1.1.2.2.2.1.2.19 2009/08/24 18:31:52 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -39,15 +35,9 @@ function backup_migrate_schema() {
         'not null' => TRUE
       ),
       'filename' => array(
-<<<<<<< HEAD
         'description' => t('The base pattern (including unreplaced tokens) for the name of the backup file.'),
         'type' => 'varchar',
         'length' => 255,
-=======
-        'description' => t('The name of the profile.'),
-        'type' => 'varchar',
-        'length' => 50,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'not null' => TRUE
       ),
       'append_timestamp' => array(
@@ -119,11 +109,7 @@ function backup_migrate_schema() {
         'default' => '0',
         'description' => t('The primary identifier for a profile.'),
       ),
-<<<<<<< HEAD
       'name' => array(
-=======
-     'name' => array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'description' => t('The name of the profile.'),
         'type' => 'varchar',
         'length' => 255,
@@ -392,7 +378,6 @@ function backup_migrate_update_2005() {
   }
 
   return $ret;
-<<<<<<< HEAD
 }
 
 /**
@@ -402,6 +387,4 @@ function backup_migrate_update_2006() {
   $ret = array();
   db_change_field($ret, 'backup_migrate_profiles', 'filename', 'filename', array('type' => 'varchar', 'length' => 255, 'not null' => TRUE));
   return $ret;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

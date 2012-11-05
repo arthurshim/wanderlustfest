@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: teaser.js,v 1.12.2.2 2010/03/01 10:13:18 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Auto-attach for teaser behavior.

@@ -1,27 +1,15 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id$
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
  * Webform module component tests.
  */
 
-<<<<<<< HEAD
 include_once(dirname(__FILE__) . '/webform.test');
 
 class WebformComponentsTestCase extends WebformTestCase {
   /**
    * Implements getInfo().
-=======
-include_once(dirname(__FILE__) .'/webform.test');
-
-class WebformComponentsTestCase extends WebformTestCase {
-  /**
-   * Implementation of getInfo().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    */
   public static function getInfo() {
     return array(
@@ -32,22 +20,14 @@ class WebformComponentsTestCase extends WebformTestCase {
   }
 
   /**
-<<<<<<< HEAD
    * Implements setUp().
-=======
-   * Implementation of setUp().
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    */
   function setUp() {
     parent::setUp();
   }
 
   /**
-<<<<<<< HEAD
    * Implements testWebformDummy(). if it is not present,
-=======
-   * Implementation of testWebformDummy(). if it is not present,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * then the test runs fine, but when combined with other tests
    * the whole block fails, since there would be no output.
    */

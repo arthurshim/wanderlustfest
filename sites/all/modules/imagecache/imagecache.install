@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagecache.install,v 1.27 2009/05/01 15:02:29 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
  function imagecache_requirements($phase) {
   $requirements = array();

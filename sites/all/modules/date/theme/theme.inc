@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: theme.inc,v 1.1.4.38 2010/11/20 13:25:54 karens Exp $
-=======
-// $Id: theme.inc,v 1.1.4.37 2010/08/13 12:07:26 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  *  Preprocessor to construct back and next navigation from the date argument.
  */
@@ -173,10 +169,7 @@ function theme_date_nav_title($granularity, $view, $link = FALSE, $format = NULL
 function template_preprocess_date_vcalendar(&$vars) {
     
   $vars['current_date'] = date_format(date_now(), DATE_FORMAT_ICAL);
-<<<<<<< HEAD
   $vars['current_date_utc'] = date_format(date_now('UTC'), DATE_FORMAT_ICAL);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $vars['site_timezone'] = date_default_timezone_name();
   $vars['calname'] = date_ical_escape_text(!empty($vars['calname']) ? $vars['calname'] : variable_get('site_name', ''));
   
@@ -191,11 +184,7 @@ function template_preprocess_date_vcalendar(&$vars) {
       $events[$uid] = $event;
       $timezone = timezone_name_get(date_timezone_get($event['start']));
       if (!empty($timezone)) {
-<<<<<<< HEAD
         $events[$uid]['timezone'] = "TZID=$timezone:";
-=======
-        $events[$uid]['timezone'] = "TZID=$timezone;";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
       else {
         $events[$uid]['timezone'] = '';
@@ -224,11 +213,7 @@ function template_preprocess_date_vcalendar(&$vars) {
           }
         }
         elseif (in_array($key, array('summary', 'description', 'location'))) {
-<<<<<<< HEAD
           $events[$uid][$key] = date_ical_escape_text(html_entity_decode($value, ENT_QUOTES, 'UTF-8'));
-=======
-          $events[$uid][$key] = date_ical_escape_text($value);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
       }
     }
@@ -413,8 +398,4 @@ function theme_date_time_ago($start_date, $end_date, $interval = 2) {
   else {
     return date_format_interval($start_date, $interval);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

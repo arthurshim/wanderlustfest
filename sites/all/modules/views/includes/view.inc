@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: view.inc,v 1.167.2.7 2010/03/22 20:55:11 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file view.inc
  * Provides the view object type and associated methods.
@@ -54,7 +50,6 @@ class view extends views_db_object {
 
   // Used to store views that were previously running if we recurse.
   var $old_view = array();
-<<<<<<< HEAD
 
   /**
    * Identifier of the current display.
@@ -68,8 +63,6 @@ class view extends views_db_object {
    */
   var $substitutions = array();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   /**
    * Constructor
    */
@@ -142,7 +135,6 @@ class view extends views_db_object {
   }
 
   /**
-<<<<<<< HEAD
    * Synchronize views pager with global pager variables
    *
    */
@@ -171,8 +163,6 @@ class view extends views_db_object {
   }
 
   /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * How many records to skip. This does not function if use_pager is
    * set.
    */
@@ -313,11 +303,7 @@ class view extends views_db_object {
 
     // If no display id sent in and one wasn't chosen above, we're finished.
     if (empty($display_id)) {
-<<<<<<< HEAD
       return FALSE;
-=======
-      return TRUE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Ensure the requested display exists.
@@ -365,11 +351,7 @@ class view extends views_db_object {
       return FALSE;
     }
 
-<<<<<<< HEAD
     // init the new style handler with data.
-=======
-    // init the new display handler with data.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $this->style_plugin->init($this, $this->display[$this->current_display], $this->style_options);
     return TRUE;
   }
@@ -418,7 +400,6 @@ class view extends views_db_object {
   }
 
   /**
-<<<<<<< HEAD
    * Get's all the substitutions and store them.
    */
   function substitutions($reset = FALSE) {
@@ -429,8 +410,6 @@ class view extends views_db_object {
   }
 
   /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * Attach all of the handlers for each type.
    *
    * @param $key
@@ -485,11 +464,7 @@ class view extends views_db_object {
     if (!empty($form_state['js settings'])) {
       $this->js_settings = $form_state['js settings'];
     }
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Don't render exposed filter form when there's form errors.
     // Applies when filters are in a block ("exposed_block" option).
     if (form_get_errors() && empty($form_state['rerender'])) {
@@ -630,11 +605,7 @@ class view extends views_db_object {
       }
     }
 
-<<<<<<< HEAD
     // Let modules modify the view just prior to building it.
-=======
-    // Let modules modify the view just prior to executing it.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     foreach (module_implements('views_pre_build') as $module) {
       $function = $module . '_views_pre_build';
       $function($this);
@@ -668,11 +639,8 @@ class view extends views_db_object {
       $this->exposed_widgets = $this->render_exposed_form();
       if (form_set_error() || !empty($this->build_info['abort'])) {
         $this->built = TRUE;
-<<<<<<< HEAD
         // Don't execute the query, but rendering will still be executed to display the empty text.
         $this->executed = TRUE;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         return empty($this->build_info['fail']);
       }
     }
@@ -738,7 +706,6 @@ class view extends views_db_object {
 
     // Attach displays
     $this->attach_displays();
-<<<<<<< HEAD
 
     // Let modules modify the view just after building it.
     foreach (module_implements('views_post_build') as $module) {
@@ -746,8 +713,6 @@ class view extends views_db_object {
       $function($this);
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return TRUE;
   }
 
@@ -808,20 +773,13 @@ class view extends views_db_object {
       $cache = $this->display_handler->get_cache_plugin();
     }
     if ($cache && $cache->cache_get('results')) {
-<<<<<<< HEAD
       $this->synchronize_pager();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       vpr('Used cached results');
     }
     else {
       $items = array();
       if ($query) {
-<<<<<<< HEAD
         $replacements = $this->substitutions();
-=======
-        $replacements = module_invoke_all('views_query_substitutions', $this);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $query = str_replace(array_keys($replacements), $replacements, $query);
         $count_query = 'SELECT COUNT(*) FROM (' . str_replace(array_keys($replacements), $replacements, $count_query) . ') count_alias';
 
@@ -847,32 +805,7 @@ class view extends views_db_object {
             $this->total_rows = db_result(db_query($count_query, $args)) - $this->pager['offset'];
           }
 
-<<<<<<< HEAD
           $this->synchronize_pager();
-=======
-          if (!empty($this->pager['use_pager'])) {
-            // dump information about what we already know into the globals
-            global $pager_page_array, $pager_total, $pager_total_items;
-            // total rows in query
-            $pager_total_items[$this->pager['element']] = $this->total_rows;
-            // total pages
-            $pager_total[$this->pager['element']] = ceil($pager_total_items[$this->pager['element']] / $this->pager['items_per_page']);
-
-            // What page was requested:
-            $pager_page_array = isset($_GET['page']) ? explode(',', $_GET['page']) : array();
-
-            // If the requested page was within range. $this->pager['current_page']
-            // defaults to 0 so we don't need to set it in an out-of-range condition.
-            if (!empty($pager_page_array[$this->pager['element']])) {
-              $page = intval($pager_page_array[$this->pager['element']]);
-              if ($page > 0 && $page < $pager_total[$this->pager['element']]) {
-                $this->pager['current_page'] = $page;
-              }
-            }
-            $pager_page_array[$this->pager['element']] = $this->pager['current_page'];
-          }
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $offset = $this->pager['current_page'] * $this->pager['items_per_page'] + $this->pager['offset'];
           $result = db_query_range($query, $args, $offset, $this->pager['items_per_page']);
 
@@ -902,15 +835,12 @@ class view extends views_db_object {
       }
     }
 
-<<<<<<< HEAD
     // Let modules modify the view just after executing it.
     foreach (module_implements('views_post_execute') as $module) {
       $function = $module . '_views_post_execute';
       $function($this);
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $this->executed = TRUE;
   }
 
@@ -952,11 +882,7 @@ class view extends views_db_object {
 
       $this->style_plugin->pre_render($this->result);
 
-<<<<<<< HEAD
       // Let modules modify the view just prior to rendering it.
-=======
-      // Let modules modify the view just prior to executing it.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       foreach (module_implements('views_pre_render') as $module) {
         $function = $module . '_views_pre_render';
         $function($this);
@@ -965,11 +891,7 @@ class view extends views_db_object {
       // Let the theme play too, because pre render is a very themey thing.
       $function = $GLOBALS['theme'] . '_views_pre_render';
       if (function_exists($function)) {
-<<<<<<< HEAD
         $function($this);
-=======
-        $function($this, $this->display_handler->output, $cache);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
 
       // Give field handlers the opportunity to perform additional queries
@@ -1056,11 +978,7 @@ class view extends views_db_object {
    * normalized output.
    */
   function preview($display_id = NULL, $args = array()) {
-<<<<<<< HEAD
     if (empty($this->current_display) || ((!empty($display_id)) && $this->current_display != $display_id)) {
-=======
-    if (empty($this->current_display) || $this->current_display != $display_id) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if (!$this->set_display($display_id)) {
         return FALSE;
       }
@@ -1183,14 +1101,11 @@ class view extends views_db_object {
    * this sets the display handler if it hasn't been.
    */
   function access($displays = NULL, $account = NULL) {
-<<<<<<< HEAD
     // Noone should have access to disabled views.
     if (!empty($this->disabled)) {
       return FALSE;
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (!isset($this->current_display)) {
       $this->init_display();
     }
@@ -1595,11 +1510,7 @@ class view extends views_db_object {
     $output = '';
     $output .= $this->export_row('view', $indent);
     // Set the API version
-<<<<<<< HEAD
     $output .= $indent . '$view->api_version = \'' . views_api_version() . "';\n";
-=======
-    $output .= $indent . '$view->api_version = ' . views_api_version() . ";\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $output .= $indent . '$view->disabled = FALSE; /* Edit this to true to make a default view disabled initially */' . "\n";
 
     foreach ($this->display as $id => $display) {
@@ -1700,7 +1611,6 @@ class view extends views_db_object {
         $this->display[$display_id]->handler->destroy();
         unset($this->display[$display_id]->handler);
       }
-<<<<<<< HEAD
     }
 
     foreach (views_object_types() as $type => $info) {
@@ -1729,36 +1639,6 @@ class view extends views_db_object {
 
     if (isset($this->query)) {
       unset($this->query);
-=======
-
-      foreach (views_object_types() as $type => $info) {
-        if (isset($this->$type)) {
-          $handlers = &$this->$type;
-          foreach ($handlers as $id => $item) {
-            $handlers[$id]->destroy();
-          }
-          unset($handlers);
-        }
-      }
-
-      if (isset($this->style_plugin)) {
-        $this->style_plugin->destroy();
-        unset($this->style_plugin);
-      }
-
-      // Clear these to make sure the view can be processed/used again.
-      if (isset($this->display_handler)) {
-        unset($this->display_handler);
-      }
-
-      if (isset($this->current_display)) {
-        unset($this->current_display);
-      }
-
-      if (isset($this->query)) {
-        unset($this->query);
-      }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
@@ -1773,19 +1653,13 @@ class view extends views_db_object {
 
     $errors = array();
 
-<<<<<<< HEAD
     $current_display = $this->current_display;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     foreach ($this->display as $id => $display) {
       if ($display->handler) {
         if (!empty($display->deleted)) {
           continue;
         }
-<<<<<<< HEAD
         $this->set_display($id);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
         $result = $this->display[$id]->handler->validate();
         if (!empty($result) && is_array($result)) {
@@ -1794,10 +1668,7 @@ class view extends views_db_object {
       }
     }
 
-<<<<<<< HEAD
     $this->set_display($current_display);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $errors ? $errors : TRUE;
   }
 }
@@ -1997,7 +1868,6 @@ class views_db_object {
       $plugin['title'] = t('Broken');
     }
 
-<<<<<<< HEAD
 
     if (empty($id)) {
       $title = $plugin['title'];
@@ -2006,23 +1876,6 @@ class views_db_object {
       $count = str_replace($type . '_', '', $id);
       if (empty($title)) {
         $title = $plugin['title'] . ' ' . $count;
-=======
-    // 'default' is singular and is unique, so just go with 'default'
-    // for it. For all others, start counting.
-    if (empty($id)) {
-      $id = ($type == 'default') ? $type : $type . '_1';
-      $title = $plugin['title'];
-
-      $count = 1;
-
-      // Loop through IDs based upon our style plugin name until
-      // we find one that is unused.
-      while (!empty($this->display[$id])) {
-        $id = $type . '_' . ++$count;
-        if (empty($title)) {
-          $title = $plugin['title'] . ' ' . $count;
-        }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
 
@@ -2036,7 +1889,6 @@ class views_db_object {
   }
 
   /**
-<<<<<<< HEAD
    * Generate a display id of a certain plugin type.
    *
    * @param $type
@@ -2062,8 +1914,6 @@ class views_db_object {
   }
 
   /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * Create a new display and a display handler for it.
    * @param $type
    *   The plugin type from the views plugin data. Defaults to 'page'.

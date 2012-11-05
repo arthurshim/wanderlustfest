@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_bulk_operations.views.inc,v 1.1.2.10 2009/07/25 03:19:23 kratib Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 function views_bulk_operations_views_plugins() {
   return array(
@@ -22,7 +18,3 @@ function views_bulk_operations_views_plugins() {
     ),
   );
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

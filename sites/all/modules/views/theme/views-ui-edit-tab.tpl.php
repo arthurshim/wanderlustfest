@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-ui-edit-tab.tpl.php,v 1.11 2008/08/08 16:57:44 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-ui-edit-tab.tpl.php
  * Template for the primary view editing window.
@@ -13,12 +9,9 @@
   <?php if ($remove): ?>
     <div class="remove-display"><?php print $remove ?></div>
   <?php endif; ?>
-<<<<<<< HEAD
   <?php if ($clone): ?>
     <div class="clone-display"><?php print $clone ?></div>
   <?php endif; ?>
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   <div class="top">
     <div class="inside">
       <?php print $display_help_icon; ?>

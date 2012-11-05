@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field.inc,v 1.33.2.14 2010/06/16 19:15:53 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @defgroup views_field_handlers Views' field handlers
  * @{
@@ -115,11 +111,7 @@ class views_handler_field extends views_handler {
    * Called to determine what to tell the clicksorter.
    */
   function click_sort($order) {
-<<<<<<< HEAD
     $this->query->add_orderby($this->table_alias, $this->real_field, $order, $this->field_alias);
-=======
-    $this->query->add_orderby($this->table, $this->field, $order, $this->field_alias);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -160,13 +152,9 @@ class views_handler_field extends views_handler {
         'text' => array('default' => '', 'translatable' => TRUE),
         'make_link' => array('default' => FALSE),
         'path' => array('default' => '', 'translatable' => TRUE),
-<<<<<<< HEAD
         'absolute' => array('default' => '', 'translatable' => FALSE),
         'alt' => array('default' => '', 'translatable' => TRUE),
         'rel' => array('default' => ''),
-=======
-        'alt' => array('default' => '', 'translatable' => TRUE),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'link_class' => array('default' => ''),
         'prefix' => array('default' => '', 'translatable' => TRUE),
         'suffix' => array('default' => '', 'translatable' => TRUE),
@@ -182,10 +170,7 @@ class views_handler_field extends views_handler {
     $options['empty'] = array('default' => '', 'translatable' => TRUE);
     $options['hide_empty'] = array('default' => FALSE);
     $options['empty_zero'] = array('default' => FALSE);
-<<<<<<< HEAD
     $options['hide_alter_empty'] = array('default' => TRUE);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $options;
   }
@@ -245,7 +230,6 @@ class views_handler_field extends views_handler {
         ),
         '#maxlength' => 255,
       );
-<<<<<<< HEAD
        $form['alter']['absolute'] = array(
          '#type' => 'checkbox',
          '#title' => t('Use absolute path'),
@@ -256,8 +240,6 @@ class views_handler_field extends views_handler {
          ),
        );
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $form['alter']['link_class'] = array(
         '#title' => t('Link class'),
         '#type' => 'textfield',
@@ -278,7 +260,6 @@ class views_handler_field extends views_handler {
           'edit-options-alter-make-link' => array(1)
         ),
       );
-<<<<<<< HEAD
       $form['alter']['rel'] = array(
         '#title' => t('Rel Text'),
         '#type' => 'textfield',
@@ -289,8 +270,6 @@ class views_handler_field extends views_handler {
           'edit-options-alter-make-link' => array(1)
         ),
       );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $form['alter']['prefix'] = array(
         '#title' => t('Prefix text'),
         '#type' => 'textfield',
@@ -344,12 +323,8 @@ class views_handler_field extends views_handler {
       $output = t('<p>You must add some additional fields to this display before using this field. These fields may be marked as <em>Exclude from display</em> if you prefer. Note that due to rendering order, you cannot use fields that come after this field; if you need a field not listed here, rearrange your fields.</p>');
       // We have some options, so make a list.
       if (!empty($options)) {
-<<<<<<< HEAD
         $output = t('<p>The following tokens are available for this field. Note that due to rendering order, you cannot use fields that come after this field; if you need a field not listed here, rearrange your fields.
 If you would like to have the characters %5B and %5D please use the html entity codes \'%5B\' or  \'%5D\' or they will get replaced with empty space.</p>');
-=======
-        $output = t('<p>The following substitution patterns are available for this display. Use the pattern shown on the left to display the value indicated on the right. Note that due to rendering order, you cannot use fields that come after this field; if you need a field not listed here, rearrange your fields.</p>');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         foreach (array_keys($options) as $type) {
           if (!empty($options[$type])) {
             $items = array();
@@ -453,7 +428,6 @@ If you would like to have the characters %5B and %5D please use the html entity 
       '#type' => 'checkbox',
       '#title' => t('Hide if empty'),
       '#default_value' => $this->options['hide_empty'],
-<<<<<<< HEAD
       '#description' => t('Enable to hide this field if it is empty. Note that the field label or rewritten output may still be displayed. To hide labels, check the style or row style settings for empty fields. To hide rewritten content, check the Hide rewriting if empty checkbox.'),
     );
 
@@ -461,9 +435,6 @@ If you would like to have the characters %5B and %5D please use the html entity 
       '#type' => 'checkbox',
       '#title' => t('Do not rewrite if empty'),
       '#default_value' => $this->options['hide_alter_empty'],
-=======
-      '#description' => t('Do not display anything for this field if it is empty. Note that the field label may still be displayed. Check style or row style settings to hide labels for empty fields.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
   }
 
@@ -536,14 +507,10 @@ If you would like to have the characters %5B and %5D please use the html entity 
 
     if (empty($this->last_render)) {
       if (($this->last_render !== 0 && $this->last_render !== '0') || !empty($this->options['empty_zero'])) {
-<<<<<<< HEAD
         $alter = $this->options['alter'];
         $alter['alter_text'] = 1;
         $alter['text'] = $this->options['empty'];
         $this->last_render = $this->render_text($alter);
-=======
-        $this->last_render = $this->options['empty'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
 
@@ -558,26 +525,16 @@ If you would like to have the characters %5B and %5D please use the html entity 
    */
   function render_text($alter) {
     $value = trim($this->last_render);
-<<<<<<< HEAD
-=======
-    if ($this->options['hide_empty'] && empty($value) && ($value !== 0 || $this->options['empty_zero'])) {
-      return '';
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     if (!empty($alter['alter_text']) && $alter['text'] !== '') {
       $tokens = $this->get_render_tokens($alter);
       $value = $this->render_altered($alter, $tokens);
     }
-<<<<<<< HEAD
 
     if ((($this->options['hide_empty'] && empty($value)) || ($this->options['hide_alter_empty'] && empty($this->original_value))) && ($value !== 0 || $this->options['empty_zero'])) {
       return '';
     }
 
-=======
- 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (!empty($alter['strip_tags'])) {
       $value = strip_tags($value);
     }
@@ -632,12 +589,8 @@ If you would like to have the characters %5B and %5D please use the html entity 
     }
 
     $options = array(
-<<<<<<< HEAD
       'html' => TRUE,
       'absolute' => !empty($alter['absolute']) ? TRUE : FALSE,
-=======
-      'html' => 'true',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     // $path will be run through check_url() by l() so we do not need to
@@ -666,24 +619,17 @@ If you would like to have the characters %5B and %5D please use the html entity 
     }
     if (isset($url['fragment'])) {
       $path = strtr($path, array('#' . $url['fragment'] => ''));
-<<<<<<< HEAD
       // If the path is empty we want to have a fragment for the current site.
       if ($path == '') {
         $options['external'] = TRUE;
       }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $options['fragment'] = $url['fragment'];
     }
 
     $alt = strtr($alter['alt'], $tokens);
     // Set the title attribute of the link only if it improves accessibility
     if ($alt && $alt != $text) {
-<<<<<<< HEAD
       $options['attributes']['title'] = html_entity_decode($alt, ENT_QUOTES);
-=======
-      $options['attributes']['title'] = $alt;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     $class = strtr($alter['link_class'], $tokens);
@@ -691,19 +637,15 @@ If you would like to have the characters %5B and %5D please use the html entity 
       $options['attributes']['class'] = $class;
     }
 
-<<<<<<< HEAD
     if (!empty($alter['rel']) && $rel = strtr($alter['rel'], $tokens)) {
       $options['attributes']['rel'] = $rel;
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $target = check_plain(trim(strtr($alter['target'],$tokens)));
     if (!empty($target)) {
       $options['attributes']['target'] = $target;
     }
 
-<<<<<<< HEAD
     // Allow the addition of arbitrary attributes to links. Additional attributes
     // currently can only be altered in preprocessors and not within the UI.
     if (isset($alter['link_attributes']) && is_array($alter['link_attributes'])) {
@@ -714,8 +656,6 @@ If you would like to have the characters %5B and %5D please use the html entity 
       }
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // If the query and fragment were programatically assigned overwrite any
     // parsed values.
     if (isset($alter['query'])) {
@@ -760,14 +700,10 @@ If you would like to have the characters %5B and %5D please use the html entity 
         $tokens[$token] = '';
       }
 
-<<<<<<< HEAD
       // Use strip tags as there should never be HTML in the path.
       // However, we need to preserve special characters like " that
       // were removed by check_plain().
       $tokens['!' . $count] = isset($this->view->args[$count - 1]) ? strip_tags(html_entity_decode($this->view->args[$count - 1])) : '';
-=======
-      $tokens['!' . $count] = isset($this->view->args[$count - 1]) ? check_plain($this->view->args[$count - 1]) : '';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     // Now add replacements for our fields.

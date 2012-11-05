@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emimage.install,v 1.1.2.6 2009/09/21 16:20:09 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -79,7 +75,6 @@ function emimage_update_6001() {
   // We added options to themes, so need to rebuild the theme registry.
   drupal_rebuild_theme_registry();
 
-<<<<<<< HEAD
   return array();
 }
 
@@ -87,8 +82,6 @@ function emimage_update_6002() {
   // We added options to themes, so need to rebuild the theme registry.
   drupal_rebuild_theme_registry();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $ret[] = array(
     'query' => t('Rebuilt the theme to accommodate new options.'),
     'success' => TRUE

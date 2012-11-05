@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: farbtastic.js,v 1.4.2.1 2008/06/25 09:34:17 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 // Farbtastic 1.2
 
 jQuery.fn.farbtastic = function (callback) {

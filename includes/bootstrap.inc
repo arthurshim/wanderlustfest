@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: bootstrap.inc,v 1.206.2.29 2010/08/06 11:50:24 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -38,7 +34,6 @@ define('CACHE_NORMAL', 1);
 define('CACHE_AGGRESSIVE', 2);
 
 /**
-<<<<<<< HEAD
  * Indicates that page caching is using "external" mode. This disables the
  * internal page cache but returns headers allowing downstream caches (such
  * as Squid, Varnish, and other reverse proxies) to cache full pages. Like
@@ -47,8 +42,6 @@ define('CACHE_AGGRESSIVE', 2);
 define('CACHE_EXTERNAL', 3);
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Log message severity -- Emergency: system is unusable.
  *
  * The WATCHDOG_* constant definitions correspond to the logging severity levels
@@ -390,11 +383,7 @@ function conf_init() {
   global $base_url, $base_path, $base_root;
 
   // Export the following settings.php variables to the global namespace
-<<<<<<< HEAD
   global $db_url, $db_slave_url, $db_prefix, $db_collation, $cookie_domain, $conf, $installed_profile, $update_free_access;
-=======
-  global $db_url, $db_prefix, $cookie_domain, $conf, $installed_profile, $update_free_access;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $conf = array();
 
   if (isset($_SERVER['HTTP_HOST'])) {
@@ -485,13 +474,10 @@ function conf_init() {
   if (count(explode('.', $cookie_domain)) > 2 && !is_numeric(str_replace('.', '', $cookie_domain))) {
     ini_set('session.cookie_domain', $cookie_domain);
   }
-<<<<<<< HEAD
 
   // Use httponly session cookies.
   ini_set('session.cookie_httponly', '1');
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   session_name('SESS'. md5($session_name));
 }
 
@@ -513,11 +499,7 @@ function conf_init() {
  * the above, depending on where the module is located.
  *
  * @param $type
-<<<<<<< HEAD
  *   The type of the item (i.e. theme, theme_engine, module, profile).
-=======
- *   The type of the item (i.e. theme, theme_engine, module).
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $name
  *   The name of the item for which the filename is requested.
  * @param $filename
@@ -574,7 +556,6 @@ function drupal_get_filename($type, $name, $filename = NULL) {
  * with variable_set() as well as those explicitly specified in the configuration
  * file.
  */
-<<<<<<< HEAD
 function variable_init($conf = array(), $regenerate = FALSE, $recursion_depth = 0) {
   // NOTE: caching the variables improves performance by 20% when serving cached pages.
   if (!$regenerate && $cached = cache_get('variables', 'cache')) {
@@ -605,19 +586,6 @@ function variable_init($conf = array(), $regenerate = FALSE, $recursion_depth = 
 
       $variables = array();
     }
-=======
-function variable_init($conf = array()) {
-  // NOTE: caching the variables improves performance by 20% when serving cached pages.
-  if ($cached = cache_get('variables', 'cache')) {
-    $variables = $cached->data;
-  }
-  else {
-    $result = db_query('SELECT * FROM {variable}');
-    while ($variable = db_fetch_object($result)) {
-      $variables[$variable->name] = unserialize($variable->value);
-    }
-    cache_set('variables', $variables);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   foreach ($conf as $name => $value) {
@@ -665,11 +633,7 @@ function variable_get($name, $default) {
  * @see variable_del(), variable_get()
  */
 function variable_set($name, $value) {
-<<<<<<< HEAD
   global $conf, $db_prefix;
-=======
-  global $conf;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   $serialized_value = serialize($value);
   db_query("UPDATE {variable} SET value = '%s' WHERE name = '%s'", $serialized_value, $name);
@@ -677,7 +641,6 @@ function variable_set($name, $value) {
     @db_query("INSERT INTO {variable} (name, value) VALUES ('%s', '%s')", $name, $serialized_value);
   }
 
-<<<<<<< HEAD
   $conf[$name] = $value;
 
   // The write-through rebuild optimization isn't compatible with SimpleTest.
@@ -688,11 +651,6 @@ function variable_set($name, $value) {
   }
   
   variable_cache_rebuild();
-=======
-  cache_clear_all('variables', 'cache');
-
-  $conf[$name] = $value;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -708,7 +666,6 @@ function variable_set($name, $value) {
  * @see variable_get(), variable_set()
  */
 function variable_del($name) {
-<<<<<<< HEAD
   global $conf, $db_prefix;
 
   db_query("DELETE FROM {variable} WHERE name = '%s'", $name);
@@ -735,21 +692,10 @@ function variable_cache_rebuild() {
     $shutdown_registered = TRUE;
   }
 }
-=======
-  global $conf;
-
-  db_query("DELETE FROM {variable} WHERE name = '%s'", $name);
-  cache_clear_all('variables', 'cache');
-
-  unset($conf[$name]);
-}
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Retrieve the current page from the cache.
  *
-<<<<<<< HEAD
  * Note: we do not serve cached pages to authenticated users, or to anonymous
  * users when $_SESSION is non-empty. $_SESSION may contain status messages
  * from a form submission, the contents of a shopping cart, or other user-
@@ -788,34 +734,6 @@ function drupal_page_is_cacheable($force = NULL) {
     && !drupal_is_cli();
 
   return $result;
-=======
- * Note: we do not serve cached pages when status messages are waiting (from
- * a redirected form submission which was completed).
- *
- * @param $status_only
- *   When set to TRUE, retrieve the status of the page cache only
- *   (whether it was started in this request or not).
- */
-function page_get_cache($status_only = FALSE) {
-  static $status = FALSE;
-  global $user, $base_root;
-
-  if ($status_only) {
-    return $status;
-  }
-  $cache = NULL;
-
-  if (!$user->uid && $_SERVER['REQUEST_METHOD'] == 'GET' && count(drupal_set_message()) == 0 && $_SERVER['SERVER_SOFTWARE'] !== 'PHP CLI') {
-    $cache = cache_get($base_root . request_uri(), 'cache_page');
-
-    if (empty($cache)) {
-      ob_start();
-      $status = TRUE;
-    }
-  }
-
-  return $cache;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -836,11 +754,7 @@ function bootstrap_invoke_all($hook) {
  * including a theme, engine, module, etc., more than once.
  *
  * @param $type
-<<<<<<< HEAD
  *   The type of item to load (i.e. theme, theme_engine, module, profile).
-=======
- *   The type of item to load (i.e. theme, theme_engine, module).
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @param $name
  *   The name of the item to load.
  *
@@ -867,7 +781,6 @@ function drupal_load($type, $name) {
 }
 
 /**
-<<<<<<< HEAD
  * Set an HTTP response header for the current page.
  *
  * Note: When sending a Content-Type header, always include a 'charset' type,
@@ -1020,18 +933,10 @@ function drupal_send_headers($default_headers = array(), $only_default = FALSE) 
  * older Last-Modified date, the proxy may respond with 304 Not Modified, making
  * the client think that the anonymous and authenticated pageviews are
  * identical.
-=======
- * Set HTTP headers in preparation for a page response.
- *
- * Authenticated users are always given a 'no-cache' header, and will
- * fetch a fresh page on every request.  This prevents authenticated
- * users seeing locally cached pages that show them as logged out.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  * @see page_set_cache()
  */
 function drupal_page_header() {
-<<<<<<< HEAD
   static $headers_sent = FALSE;
   if ($headers_sent) {
     return TRUE;
@@ -1127,35 +1032,10 @@ function drupal_page_cache_header(stdClass $cache) {
 
   // See if the client has provided the required HTTP headers.
   $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE']) : FALSE;
-=======
-  header("Expires: Sun, 19 Nov 1978 05:00:00 GMT");
-  header("Last-Modified: ". gmdate("D, d M Y H:i:s") ." GMT");
-  header("Cache-Control: store, no-cache, must-revalidate");
-  header("Cache-Control: post-check=0, pre-check=0", FALSE);
-}
-
-/**
- * Set HTTP headers in preparation for a cached page response.
- *
- * The general approach here is that anonymous users can keep a local
- * cache of the page, but must revalidate it on every request.  Then,
- * they are given a '304 Not Modified' response as long as they stay
- * logged out and the page has not been modified.
- *
- */
-function drupal_page_cache_header($cache) {
-  // Set default values:
-  $last_modified = gmdate('D, d M Y H:i:s', $cache->created) .' GMT';
-  $etag = '"'. md5($last_modified) .'"';
-
-  // See if the client has provided the required HTTP headers:
-  $if_modified_since = isset($_SERVER['HTTP_IF_MODIFIED_SINCE']) ? stripslashes($_SERVER['HTTP_IF_MODIFIED_SINCE']) : FALSE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $if_none_match = isset($_SERVER['HTTP_IF_NONE_MATCH']) ? stripslashes($_SERVER['HTTP_IF_NONE_MATCH']) : FALSE;
 
   if ($if_modified_since && $if_none_match
       && $if_none_match == $etag // etag must match
-<<<<<<< HEAD
       && $if_modified_since == $cache->created) {  // if-modified-since must match
     header($_SERVER['SERVER_PROTOCOL'] . ' 304 Not Modified');
     drupal_send_headers($default_headers);
@@ -1191,28 +1071,6 @@ function drupal_page_cache_header($cache) {
     header('Vary: Accept-Encoding', FALSE);
     // If page_compression is enabled, the cache contains gzipped data.
     if ($return_compressed) {
-=======
-      && $if_modified_since == $last_modified) {  // if-modified-since must match
-    header('HTTP/1.1 304 Not Modified');
-    // All 304 responses must send an etag if the 200 response for the same object contained an etag
-    header("Etag: $etag");
-    return;
-  }
-
-  // Send appropriate response:
-  header("Last-Modified: $last_modified");
-  header("ETag: $etag");
-
-  // The following headers force validation of cache:
-  header("Expires: Sun, 19 Nov 1978 05:00:00 GMT");
-  header("Cache-Control: must-revalidate");
-
-  if (variable_get('page_compression', TRUE) && extension_loaded('zlib')) {
-    // Determine if the browser accepts gzipped data.
-    if (isset($_SERVER['HTTP_ACCEPT_ENCODING']) && strpos($_SERVER['HTTP_ACCEPT_ENCODING'], 'gzip') !== FALSE) {
-      // $cache->data is already gzip'ed, so make sure zlib.output_compression
-      // does not compress it once more.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ini_set('zlib.output_compression', '0');
       header('Content-Encoding: gzip');
     }
@@ -1220,24 +1078,10 @@ function drupal_page_cache_header($cache) {
       // The client does not support compression, so unzip the data in the
       // cache. Strip the gzip header and run uncompress.
       $cache->data = gzinflate(substr(substr($cache->data, 10), 0, -8));
-<<<<<<< HEAD
       header('X-PF-Uncompressing: 1');
     }
   }
 
-=======
-    }
-  }
-
-  // Send the original request's headers. We send them one after
-  // another so PHP's header() function can deal with duplicate
-  // headers.
-  $headers = explode("\n", $cache->headers);
-  foreach ($headers as $header) {
-    header($header);
-  }
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   print $cache->data;
 }
 
@@ -1439,16 +1283,12 @@ function watchdog($type, $message, $variables = array(), $severity = WATCHDOG_NO
 function drupal_set_message($message = NULL, $type = 'status', $repeat = TRUE) {
   if ($message) {
     if (!isset($_SESSION['messages'])) {
-<<<<<<< HEAD
       if (function_exists('drupal_set_session')) {
         drupal_set_session('messages', array());
       }
       else {
         $_SESSION['messages'] = array();
       }
-=======
-      $_SESSION['messages'] = array();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     if (!isset($_SESSION['messages'][$type])) {
@@ -1521,11 +1361,7 @@ function drupal_is_denied($type, $mask) {
   // We deny access if the only matching records in the {access} table have
   // status 0 (deny). If any have status 1 (allow), or if there are no
   // matching records, we allow access.
-<<<<<<< HEAD
   $sql = "SELECT 1 FROM {access} WHERE type = '%s' AND '%s' LIKE mask AND status = %d";
-=======
-  $sql = "SELECT 1 FROM {access} WHERE type = '%s' AND LOWER('%s') LIKE LOWER(mask) AND status = %d";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return db_result(db_query_range($sql, $type, $mask, 0, 0, 1)) && !db_result(db_query_range($sql, $type, $mask, 1, 0, 1));
 }
 
@@ -1565,7 +1401,6 @@ function drupal_anonymous_user($session = '') {
  *     DRUPAL_BOOTSTRAP_PATH: set $_GET['q'] to Drupal path of request.
  *     DRUPAL_BOOTSTRAP_FULL: Drupal is fully loaded, validate and fix input data.
  */
-<<<<<<< HEAD
 function drupal_bootstrap($phase = NULL) {
   static $phases = array(DRUPAL_BOOTSTRAP_CONFIGURATION, DRUPAL_BOOTSTRAP_EARLY_PAGE_CACHE, DRUPAL_BOOTSTRAP_DATABASE, DRUPAL_BOOTSTRAP_ACCESS, DRUPAL_BOOTSTRAP_SESSION, DRUPAL_BOOTSTRAP_LATE_PAGE_CACHE, DRUPAL_BOOTSTRAP_LANGUAGE, DRUPAL_BOOTSTRAP_PATH, DRUPAL_BOOTSTRAP_FULL), $phase_index = 0;
 
@@ -1587,24 +1422,11 @@ function detect_installation_or_run_installer() {
   if (variable_get('pressflow_smart_start', FALSE) && !db_table_exists('access')) {
     include_once 'includes/install.inc';
     install_goto('install.php');
-=======
-function drupal_bootstrap($phase) {
-  static $phases = array(DRUPAL_BOOTSTRAP_CONFIGURATION, DRUPAL_BOOTSTRAP_EARLY_PAGE_CACHE, DRUPAL_BOOTSTRAP_DATABASE, DRUPAL_BOOTSTRAP_ACCESS, DRUPAL_BOOTSTRAP_SESSION, DRUPAL_BOOTSTRAP_LATE_PAGE_CACHE, DRUPAL_BOOTSTRAP_LANGUAGE, DRUPAL_BOOTSTRAP_PATH, DRUPAL_BOOTSTRAP_FULL), $phase_index = 0;
-
-  while ($phase >= $phase_index && isset($phases[$phase_index])) {
-    $current_phase = $phases[$phase_index];
-    unset($phases[$phase_index++]);
-    _drupal_bootstrap($current_phase);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 
 function _drupal_bootstrap($phase) {
-<<<<<<< HEAD
   global $conf, $user, $db_prefix;
-=======
-  global $conf;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   switch ($phase) {
 
@@ -1620,10 +1442,7 @@ function _drupal_bootstrap($phase) {
       // Allow specifying special cache handlers in settings.php, like
       // using memcached or files for storing cache information.
       require_once variable_get('cache_inc', './includes/cache.inc');
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       // If the page_cache_fastpath is set to TRUE in settings.php and
       // page_cache_fastpath (implemented in the special implementation of
       // cache.inc) printed the page and indicated this with a returned TRUE
@@ -1634,7 +1453,6 @@ function _drupal_bootstrap($phase) {
       break;
 
     case DRUPAL_BOOTSTRAP_DATABASE:
-<<<<<<< HEAD
       // The user agent header is used to pass a database prefix in the request when
       // running tests. However, for security reasons, it is imperative that we
       // validate we ourselves made the request.
@@ -1647,8 +1465,6 @@ function _drupal_bootstrap($phase) {
         $db_prefix .= $matches[1];
       }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       // Initialize the default database.
       require_once './includes/database.inc';
       db_set_active();
@@ -1656,13 +1472,10 @@ function _drupal_bootstrap($phase) {
       // those using APC or memcached.
       require_once variable_get('lock_inc', './includes/lock.inc');
       lock_init();
-<<<<<<< HEAD
       
       // Detect if an installation is present.
       detect_installation_or_run_installer();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       break;
 
     case DRUPAL_BOOTSTRAP_ACCESS:
@@ -1676,7 +1489,6 @@ function _drupal_bootstrap($phase) {
 
     case DRUPAL_BOOTSTRAP_SESSION:
       require_once variable_get('session_inc', './includes/session.inc');
-<<<<<<< HEAD
       drupal_session_initialize();
       break;
 
@@ -1696,34 +1508,14 @@ function _drupal_bootstrap($phase) {
 
       // If the skipping of the bootstrap hooks is not enforced, call hook_init.
       if (!is_object($cache) || $cache_mode != CACHE_AGGRESSIVE) {
-=======
-      session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy_sid', 'sess_gc');
-      session_start();
-      //print 'sessionid::' . session_id() . '::';exit();
-      break;
-
-    case DRUPAL_BOOTSTRAP_LATE_PAGE_CACHE:
-      // Initialize configuration variables, using values from settings.php if available.
-      $conf = variable_init(isset($conf) ? $conf : array());
-      $cache_mode = variable_get('cache', CACHE_DISABLED);
-      // Get the page from the cache.
-      $cache = $cache_mode == CACHE_DISABLED ? '' : page_get_cache();
-      // If the skipping of the bootstrap hooks is not enforced, call hook_boot.
-      if (!$cache || $cache_mode != CACHE_AGGRESSIVE) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         // Load module handling.
         require_once './includes/module.inc';
         bootstrap_invoke_all('boot');
       }
-<<<<<<< HEAD
 
       // If there is a cached page, display it.
       if (is_object($cache)) {
         header('X-Drupal-Cache: HIT');
-=======
-      // If there is a cached page, display it.
-      if ($cache) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         drupal_page_cache_header($cache);
         // If the skipping of the bootstrap hooks is not enforced, call hook_exit.
         if ($cache_mode != CACHE_AGGRESSIVE) {
@@ -1732,7 +1524,6 @@ function _drupal_bootstrap($phase) {
         // We are done.
         exit;
       }
-<<<<<<< HEAD
   
       if (!$cache && drupal_page_is_cacheable() && $cache_mode != CACHE_EXTERNAL) {
         header('X-Drupal-Cache: MISS');
@@ -1748,10 +1539,6 @@ function _drupal_bootstrap($phase) {
         ob_start();
         drupal_page_header();
       }
-=======
-      // Prepare for non-cached page workflow.
-      drupal_page_header();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       break;
 
     case DRUPAL_BOOTSTRAP_LANGUAGE:
@@ -1882,7 +1669,6 @@ function ip_address() {
 
   if (!isset($ip_address)) {
     $ip_address = $_SERVER['REMOTE_ADDR'];
-<<<<<<< HEAD
     
     // Only use parts of the X-Forwarded-For (XFF) header that have followed a trusted route.
     // Specifically, identify the leftmost IP address in the XFF header that is not one of ours.
@@ -1905,24 +1691,11 @@ function ip_address() {
       
       // The right-most IP is the most specific we can trust.
       $ip_address = array_pop($untrusted);
-=======
-    if (variable_get('reverse_proxy', 0) && array_key_exists('HTTP_X_FORWARDED_FOR', $_SERVER)) {
-      // If an array of known reverse proxy IPs is provided, then trust
-      // the XFF header if request really comes from one of them.
-      $reverse_proxy_addresses = variable_get('reverse_proxy_addresses', array());
-      if (!empty($reverse_proxy_addresses) && in_array($ip_address, $reverse_proxy_addresses, TRUE)) {
-        // If there are several arguments, we need to check the most
-        // recently added one, i.e. the last one.
-        $ip_address_parts = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-        $ip_address = array_pop($ip_address_parts);
-      }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
   return $ip_address;
 }
-<<<<<<< HEAD
 
 /**
  * Initialize the session handler, starting a session if needed.
@@ -2136,5 +1909,3 @@ function drupal_session_destroy() {
   // @see http://bugs.php.net/bug.php?id=32330
   session_set_save_handler('sess_open', 'sess_close', 'sess_read', 'sess_write', 'sess_destroy_sid', 'sess_gc');
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

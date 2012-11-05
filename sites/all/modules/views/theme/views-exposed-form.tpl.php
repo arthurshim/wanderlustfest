@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-exposed-form.tpl.php,v 1.4.4.1 2009/11/18 20:37:58 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-exposed-form.tpl.php
  *
@@ -27,13 +23,8 @@
 <?php endif; ?>
 <div class="views-exposed-form">
   <div class="views-exposed-widgets clear-block">
-<<<<<<< HEAD
     <?php foreach ($widgets as $id => $widget): ?>
       <div class="views-exposed-widget views-widget-<?php print $id; ?>">
-=======
-    <?php foreach($widgets as $id => $widget): ?>
-      <div class="views-exposed-widget">
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         <?php if (!empty($widget->label)): ?>
           <label for="<?php print $widget->id; ?>">
             <?php print $widget->label; ?>
@@ -49,16 +40,8 @@
         </div>
       </div>
     <?php endforeach; ?>
-<<<<<<< HEAD
     <div class="views-exposed-widget views-submit-button">
       <?php print $button; ?>
     </div>
   </div>
 </div>
-=======
-    <div class="views-exposed-widget">
-      <?php print $button ?>
-    </div>
-  </div>
-</div>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

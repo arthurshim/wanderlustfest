@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagefield_widget.inc,v 1.44 2010/06/29 22:46:18 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -140,14 +136,9 @@ function imagefield_widget_settings_form($widget) {
  * to the $form_state variable.
  */
 function _imagefield_widget_settings_default_validate($element, &$form_state) {
-<<<<<<< HEAD
   // Skip this validation if there isn't a default file uploaded at all or if
   // validation has already failed because of another error.
   if (!is_uploaded_file($_FILES['files']['tmp_name']['default_image_upload']) || form_set_error()) {
-=======
-  // Skip this validation if there isn't a default file uploaded at all.
-  if (!is_uploaded_file($_FILES['files']['tmp_name']['default_image_upload'])) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return;
   }
 
@@ -168,21 +159,12 @@ function _imagefield_widget_settings_default_validate($element, &$form_state) {
     return;
   }
 
-<<<<<<< HEAD
   // Remove the old default image if any.
   $old_default = $form_state['values']['default_image'];
   if (!empty($old_default['fid'])) {
     // Set a flag to not count this instance in hook_file_references().
     $old_default['imagefield_type_name'] = $form_state['values']['type_name'];
     field_file_delete($old_default);
-=======
-  // Remove old image (if any) & clean up database.
-  $old_default = $form_state['values']['default_image'];
-  if (!empty($old_default['fid'])) {
-    if (file_delete(file_create_path($old_default['filepath']))) {
-      db_query('DELETE FROM {files} WHERE fid = %d', $old_default['fid']);
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   // Make the file permanent and store it in the form.

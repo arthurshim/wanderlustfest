@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: fckeditor.inc,v 1.17.2.2 2010/01/23 00:51:32 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -55,12 +51,9 @@ function wysiwyg_fckeditor_editor() {
  */
 function wysiwyg_fckeditor_version($editor) {
   $library = $editor['library path'] . '/fckeditor.js';
-<<<<<<< HEAD
   if (!file_exists($library)) {
     return;
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $library = fopen($library, 'r');
   $max_lines = 100;
   while ($max_lines && $line = fgets($library, 60)) {
@@ -143,19 +136,11 @@ function wysiwyg_fckeditor_settings($editor, $config, $theme) {
     }
   }
 
-<<<<<<< HEAD
   // Use our custom toolbar set.
   $settings['ToolbarSet'] = 'Wysiwyg';
   // Populate our custom toolbar set for fckeditor.config.js.
   $settings['buttons'] = array();
   if (!empty($config['buttons'])) {
-=======
-  if (!empty($config['buttons'])) {
-    // Use our custom toolbar set.
-    $settings['ToolbarSet'] = 'Wysiwyg';
-    // Populate our custom toolbar set for fckeditor.config.js.
-    $settings['buttons'] = array();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $plugins = wysiwyg_get_plugins($editor['name']);
     foreach ($config['buttons'] as $plugin => $buttons) {
       foreach ($buttons as $button => $enabled) {
@@ -176,17 +161,9 @@ function wysiwyg_fckeditor_settings($editor, $config, $theme) {
         }
       }
     }
-<<<<<<< HEAD
   }
   // For now, all buttons are placed into one row.
   $settings['buttons'] = array($settings['buttons']);
-=======
-    // For now, all buttons are placed into one row.
-    if (!empty($settings['buttons'])) {
-      $settings['buttons'] = array($settings['buttons']);
-    }
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $settings;
 }
@@ -202,12 +179,8 @@ function wysiwyg_fckeditor_plugin_settings($editor, $profile, $plugins) {
       $settings[$name] = array();
       // Add path for native external plugins; internal ones do not need a path.
       if (empty($plugin['internal']) && isset($plugin['path'])) {
-<<<<<<< HEAD
         // All native FCKeditor plugins use the filename fckplugin.js.
         $settings[$name]['path'] = base_path() . $plugin['path'] . '/';
-=======
-        $settings[$name]['path'] = base_path() . $plugin['path'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
       if (!empty($plugin['languages'])) {
         $settings[$name]['languages'] = $plugin['languages'];

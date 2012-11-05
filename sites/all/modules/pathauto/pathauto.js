@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: pathauto.js,v 1.4.2.2 2010/02/10 21:50:30 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 if (Drupal.jsEnabled) {
   $(document).ready(function() {
     if ($("#edit-pathauto-perform-alias").size() && $("#edit-pathauto-perform-alias").attr("checked")) {

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: profile.js,v 1.2 2007/12/08 14:06:22 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Add functionality to the profile drag and drop table.

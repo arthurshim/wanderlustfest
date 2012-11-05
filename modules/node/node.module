@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: node.module,v 1.947.2.26 2010/08/06 11:41:13 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -677,10 +673,6 @@ function node_invoke(&$node, $hook, $a2 = NULL, $a3 = NULL, $a4 = NULL) {
  */
 function node_invoke_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
   $return = array();
-<<<<<<< HEAD
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   foreach (module_implements('nodeapi') as $name) {
     $function = $name .'_nodeapi';
     $result = $function($node, $op, $a3, $a4);
@@ -756,17 +748,10 @@ function node_load($param = array(), $revision = NULL, $reset = NULL) {
   // No db_rewrite_sql is applied so as to get complete indexing for search.
   if ($revision) {
     array_unshift($arguments, $revision);
-<<<<<<< HEAD
     $node = db_fetch_object(db_query_slave('SELECT '. $fields .' FROM {node} n INNER JOIN {users} u ON u.uid = n.uid INNER JOIN {node_revisions} r ON r.nid = n.nid AND r.vid = %d WHERE '. $cond, $arguments));
   }
   else {
     $node = db_fetch_object(db_query_slave('SELECT '. $fields .' FROM {node} n INNER JOIN {users} u ON u.uid = n.uid INNER JOIN {node_revisions} r ON r.vid = n.vid WHERE '. $cond, $arguments));
-=======
-    $node = db_fetch_object(db_query('SELECT '. $fields .' FROM {node} n INNER JOIN {users} u ON u.uid = n.uid INNER JOIN {node_revisions} r ON r.nid = n.nid AND r.vid = %d WHERE '. $cond, $arguments));
-  }
-  else {
-    $node = db_fetch_object(db_query('SELECT '. $fields .' FROM {node} n INNER JOIN {users} u ON u.uid = n.uid INNER JOIN {node_revisions} r ON r.vid = n.vid WHERE '. $cond, $arguments));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   if ($node && $node->nid) {
@@ -830,7 +815,6 @@ function node_validate($node, $form = array()) {
 }
 
 /**
-<<<<<<< HEAD
  * Prepares a node for saving by populating teaser, author, and creation date.
  *
  * @param object|array $node
@@ -838,9 +822,6 @@ function node_validate($node, $form = array()) {
  *
  * @return
  *   A validated node object with a populated teaser, author, and creation date.
-=======
- * Prepare node for save and allow modules to make changes.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function node_submit($node) {
   global $user;
@@ -992,10 +973,7 @@ function node_delete($nid) {
   if (node_access('delete', $node)) {
     db_query('DELETE FROM {node} WHERE nid = %d', $node->nid);
     db_query('DELETE FROM {node_revisions} WHERE nid = %d', $node->nid);
-<<<<<<< HEAD
     db_query('DELETE FROM {node_access} WHERE nid = %d', $node->nid);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Call the node-specific callback (if any):
     node_invoke($node, 'delete');
@@ -1261,15 +1239,9 @@ function node_search($op = 'search', $keys = NULL) {
       if ($weight = (int)variable_get('node_rank_recent', 5)) {
         // Exponential decay with half-life of 6 months, starting at last indexed node
         // c.last_comment_timestamp may be NULL. Since both MAX(anynumber, NULL) and
-<<<<<<< HEAD
         // GREATEST(anynumber, NULL) return NULL, we use COALESCE(MAX(c.last_comment_timestamp), 0)
         // to prevent it from being NULL.
         $ranking[] = '%d * POW(2, (GREATEST(MAX(n.created), MAX(n.changed), COALESCE(MAX(c.last_comment_timestamp), 0)) - %d) * 6.43e-8)';
-=======
-        // GREATEST(anynumber, NULL) return NULL, we OR MAX(c.last_comment_timestamp) with 1
-        // to prevent it from being NULL.
-        $ranking[] = '%d * POW(2, (GREATEST(MAX(n.created), MAX(n.changed), MAX(c.last_comment_timestamp) || 1) - %d) * 6.43e-8)';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $arguments2[] = $weight;
         $arguments2[] = (int)variable_get('node_cron_last', 0);
         $join2 .= ' LEFT JOIN {node_comment_statistics} c ON c.nid = i.sid';
@@ -1771,11 +1743,7 @@ function node_feed($nids = FALSE, $channel = array()) {
 
   $channel_defaults = array(
     'version'     => '2.0',
-<<<<<<< HEAD
     'title'       => variable_get('site_name', 'Pressflow'),
-=======
-    'title'       => variable_get('site_name', 'Drupal'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'link'        => $base_url,
     'description' => variable_get('site_mission', ''),
     'language'    => $language->language
@@ -1806,19 +1774,11 @@ function node_page_default() {
 
   if ($num_rows) {
     $feed_url = url('rss.xml', array('absolute' => TRUE));
-<<<<<<< HEAD
     drupal_add_feed($feed_url, variable_get('site_name', 'Pressflow') .' '. t('RSS'));
     $output .= theme('pager', NULL, variable_get('default_nodes_main', 10));
   }
   else {
     $default_message = t('<h1 class="title">Welcome to your new Pressflow website!</h1><p>Please follow these steps to set up and start using your website:</p>');
-=======
-    drupal_add_feed($feed_url, variable_get('site_name', 'Drupal') .' '. t('RSS'));
-    $output .= theme('pager', NULL, variable_get('default_nodes_main', 10));
-  }
-  else {
-    $default_message = t('<h1 class="title">Welcome to your new Drupal website!</h1><p>Please follow these steps to set up and start using your website:</p>');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $default_message .= '<ol>';
 
     $default_message .= '<li>'. t('<strong>Configure your website</strong> Once logged in, visit the <a href="@admin">administration section</a>, where you can <a href="@config">customize and configure</a> all aspects of your website.', array('@admin' => url('admin'), '@config' => url('admin/settings'))) .'</li>';
@@ -2734,11 +2694,7 @@ function node_save_action($node) {
 function node_assign_owner_action(&$node, $context) {
   $node->uid = $context['owner_uid'];
   $owner_name = db_result(db_query("SELECT name FROM {users} WHERE uid = %d", $context['owner_uid']));
-<<<<<<< HEAD
   watchdog('action', 'Changed owner of @type %title to uid %name.', array('@type' => node_get_types('name', $node), '%title' => $node->title, '%name' => $owner_name));
-=======
-  watchdog('action', 'Changed owner of @type %title to uid %name.', array('@type' => node_get_types('type', $node), '%title' => $node->title, '%name' => $owner_name));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 function node_assign_owner_action_form($context) {

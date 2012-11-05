@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: features.admin.inc,v 1.1.2.68 2010/08/20 14:51:38 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Form callback for features export form. Acts as a router based on the form_state.

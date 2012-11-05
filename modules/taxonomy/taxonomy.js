@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: taxonomy.js,v 1.2 2007/12/16 10:36:53 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Move a block in the blocks table from one region to another via select list.

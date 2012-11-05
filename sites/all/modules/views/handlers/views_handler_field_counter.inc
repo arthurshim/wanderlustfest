@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_counter.inc,v 1.3.2.2 2009/11/06 18:19:40 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 class views_handler_field_counter extends views_handler_field {
   function option_definition() {

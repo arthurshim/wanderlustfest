@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagecache_ui.pages.inc,v 1.6 2009/05/03 17:27:46 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Preset Admin callbacks and required functions.
@@ -138,20 +134,12 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
 
   $form['presetid'] = array(
     '#type' => 'value',
-<<<<<<< HEAD
     '#value' => isset($preset['presetid']) ? $preset['presetid'] : '',
-=======
-    '#value' => $preset['presetid'],
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   // Browsers don't submit disabled form values so we've got to put two copies
   // of the name on the form: one for the submit handler and one for the user.
-<<<<<<< HEAD
   if (isset($preset['storage']) && $preset['storage'] === IMAGECACHE_STORAGE_DEFAULT) {
-=======
-  if ($preset['storage'] === IMAGECACHE_STORAGE_DEFAULT) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['presetname'] = array(
       '#type' => 'value',
       '#value' => $preset['presetname'],
@@ -169,11 +157,7 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
       '#type' => 'textfield',
       '#size' => '64',
       '#title' => t('Preset Namespace'),
-<<<<<<< HEAD
       '#default_value' => isset($preset['presetname']) ? $preset['presetname'] : '',
-=======
-      '#default_value' => $preset['presetname'],
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#description' => t('The namespace is used in URL\'s for images to tell imagecache how to process an image. Please only use alphanumeric characters, underscores (_), and hyphens (-) for preset names.'),
       '#validate' => array('imagecache_element_presetname_validate' => array()),
     );
@@ -181,11 +165,7 @@ function imagecache_ui_preset_form($form_state, $preset = array()) {
 
   $form['submit'] = array(
     '#type' => 'submit',
-<<<<<<< HEAD
     '#value' => isset($preset['storage']) && $preset['storage'] === IMAGECACHE_STORAGE_DEFAULT ? t('Override Defaults') : t('Save Preset'),
-=======
-    '#value' => $preset['storage'] === IMAGECACHE_STORAGE_DEFAULT ? t('Override Defaults') : t('Save Preset'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#weight' => 9,
   );
 
@@ -410,11 +390,7 @@ function imagecache_ui_action_form($form_state, $preset, $action) {
   );
   $form['actionid'] = array(
     '#type' => 'value',
-<<<<<<< HEAD
     '#value' => isset($action['actionid']) ? $action['actionid']: '',
-=======
-    '#value' => $action['actionid'],
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
   $form['action'] = array(
     '#type' => 'value',

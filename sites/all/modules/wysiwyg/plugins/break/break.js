@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: break.js,v 1.6.2.1 2010/02/13 23:58:41 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 (function ($) {
 
 // @todo Array syntax required; 'break' is a predefined token in JavaScript.

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-$Id: README.txt,v 1.25.2.1 2008/04/19 11:32:44 augustin Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Introduction
 ================

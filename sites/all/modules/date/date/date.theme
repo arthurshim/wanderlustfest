@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 //$Id: date.theme,v 1.6.4.56 2010/11/29 16:37:33 karens Exp $
-=======
-//$Id: date.theme,v 1.6.4.53 2010/08/13 12:44:22 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Theme functions.
@@ -22,11 +18,7 @@
  *   $node->date_id 
  *     If set, this will show only an individual date on a field with 
  *     multiple dates. The value should be a string that contains
-<<<<<<< HEAD
  *     the following values, separated with periods:
-=======
- *     the following values, separated with colons:
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *     - module name of the module adding the item
  *     - node nid
  *     - field name
@@ -34,11 +26,7 @@
  *     - other information the module's custom theme might need
  * 
  *     Used by the calendar module and available for other uses.
-<<<<<<< HEAD
  *     example: 'date.217.field_date.3.test'
-=======
- *     example: 'date:217:field_date:3:test'
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * 
  *   $node->date_repeat_show
  *     If true, tells the theme to show all the computed values
@@ -75,7 +63,6 @@ function theme_date_display_combination($element) {
     $options = $node->date_info->formatter_settings;
   }
     
-<<<<<<< HEAD
   $output = '';
 
   // If date_id is set for this field and the delta doesn't match, don't display it.
@@ -87,19 +74,6 @@ function theme_date_display_combination($element) {
       }
     }
   }
-=======
-  // If date_id is set for this field and the delta doesn't match, don't display it.
-  if (!empty($node->date_id)) {
-    foreach ((array) $node->date_id as $key => $id) {
-      list($module, $nid, $field_name, $delta, $other) = explode(':', $id);
-      if ($field_name == $field['field_name'] && isset($item['#delta']) && $delta != $item['#delta']) {
-        return;
-      }
-    }
-  }
-
-  $output = '';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     
   // Check the formatter settings to see if the repeat rule should be
   // displayed. Show it only with the first multiple value date.
@@ -175,10 +149,6 @@ function theme_date_display_combination($element) {
   else {
     $output .= theme('date_display_range', $date1, $date2, $timezone);
   }
-<<<<<<< HEAD
-=======
-  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $output;
 }
 
@@ -222,11 +192,7 @@ function theme_date_format_interval($element) {
   // If date_id is set for this field and the delta doesn't match, don't display it.
   if (!empty($node->date_id)) {
     foreach ((array) $node->date_id as $key => $id) {
-<<<<<<< HEAD
       list($module, $nid, $field_name, $delta, $other) = explode('.', $id);
-=======
-      list($module, $nid, $field_name, $delta, $other) = explode(':', $id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if ($field_name == $field['field_name'] && isset($item['#delta']) && $delta != $item['#delta']) {
         return;
       }
@@ -279,10 +245,7 @@ function theme_date_repeat_display($field, $item, $node = NULL) {
  * @return formatted date.
  */
 function theme_date_all_day($field, $which, $date1, $date2, $format, $node, $view = NULL) {
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (empty($date1) || !is_object($date1) || $format == 'format_interval') {
     return;
   }
@@ -290,7 +253,6 @@ function theme_date_all_day($field, $which, $date1, $date2, $format, $node, $vie
     $date2 = $date1;
   }
   
-<<<<<<< HEAD
   if (!date_has_time($field['granularity'])) {
     $format = date_limit_format($format, array('year', 'month', 'day'));
     return date_format_date($$which, 'custom', $format);
@@ -300,50 +262,6 @@ function theme_date_all_day($field, $which, $date1, $date2, $format, $node, $vie
     $format = date_limit_format($format, array('year', 'month', 'day'));
     return trim(date_format_date($$which, 'custom', $format) .' '. theme('date_all_day_label'));
   }
-=======
-  $tmp = date_format_order($format);
-  $granularity = array_intersect(array_keys(date_granularity_names()), date_format_order($format));
-  $granularity = array_pop($granularity);
-  if (empty($field['granularity'])) {
-    $field['granularity'] = $tmp;
-  }
-
-  $increment = isset($field['widget']['increment']) ? $field['widget']['increment'] : 1;
-  $tmp = date_seconds('s', TRUE, $increment);
-  $max_seconds = array_pop($tmp);
-  $tmp = date_minutes('i', TRUE, $increment);
-  $max_minutes = array_pop($tmp);
-  
-  switch ($granularity) {
-    case 'second':
-      $min_comp = date_format($date1, 'H:i:s') == '00:00:00';
-      $max_comp = date_format($date2, 'H:i:s') == '00:00:00' || date_format($date2, 'H:i:s') == '23:'. $max_minutes .':'. $max_seconds;
-      break;
-    case 'minute':
-      $min_comp = date_format($date1, 'H:i') == '00:00';
-      $max_comp = date_format($date2, 'H:i:s') == '00:00:00' || date_format($date2, 'H:i') == '23:'. $max_minutes;
-      break;
-    case 'hour':
-      $min_comp = date_format($date1, 'H') == '00';
-      $max_comp = date_format($date2, 'H:i:s') == '00:00:00' || date_format($date2, 'H') == '23';
-      break;
-    default:
-      $min_comp = TRUE;
-      $max_comp = FALSE;
-  }
-  
-  // Time runs from midnight to the maximum time -- call it 'All day'.
-  if (date_has_time($field['granularity']) && $min_comp && $max_comp) {
-    $format = date_limit_format($format, array('year', 'month', 'day'));
-    return trim(date_format_date($$which, 'custom', $format) .' '. theme('date_all_day_label'));
-  }
-  // There is no time, use neither 'All day' nor time.
-  elseif (!date_has_time($field['granularity'])) {
-    $format = date_limit_format($format, array('year', 'month', 'day'));
-    return date_format_date($$which, 'custom', $format);
-  }
-  // Normal formatting.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   else {
     return date_format_date($$which, 'custom', $format);
   }

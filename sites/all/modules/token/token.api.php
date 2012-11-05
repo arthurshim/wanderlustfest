@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: token.api.php,v 1.1.2.2 2010/09/23 01:04:12 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -55,11 +51,8 @@ function hook_token_list($type = 'all') {
  *   An associative array of replacement values, keyed by the original 'raw'
  *   tokens that were found in the source text. For example:
  *   $values['title-raw'] = 'My new node';
-<<<<<<< HEAD
  *
  * @see hook_token_values_alter()
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 function hook_token_values($type, $object = NULL, $options = array()) {
   $values = array();
@@ -76,7 +69,6 @@ function hook_token_values($type, $object = NULL, $options = array()) {
 }
 
 /**
-<<<<<<< HEAD
  * Alter replacement values for placeholder tokens.
  *
  * @param $replacements
@@ -104,7 +96,5 @@ function hook_token_values_alter(&$replacements, $context) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @} End of "addtogroup hooks".
  */

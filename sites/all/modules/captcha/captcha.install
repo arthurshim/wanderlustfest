@@ -1,14 +1,10 @@
 <?php
-<<<<<<< HEAD
 // $Id: captcha.install,v 1.11.2.8 2011/02/03 23:43:56 soxofaan Exp $
 
 /**
  * @file
  * Install, update and uninstall functions for the CAPTCHA module.
  */
-=======
-// $Id: captcha.install,v 1.11 2009/12/19 00:24:36 soxofaan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementation of hook_schema().
@@ -23,21 +19,14 @@ function captcha_schema() {
         'type' => 'varchar',
         'length' => 128,
         'not null' => TRUE,
-<<<<<<< HEAD
         'default' => '',
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       ),
       'module' => array(
         'description' => 'The module that provides the challenge.',
         'type' => 'varchar',
         'length' => 64,
       ),
-<<<<<<< HEAD
       'captcha_type' => array(
-=======
-      'type' => array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'description' => 'The challenge type to use.',
         'type' => 'varchar',
         'length' => 64,
@@ -54,15 +43,12 @@ function captcha_schema() {
         'type' => 'serial',
         'not null' => TRUE,
       ),
-<<<<<<< HEAD
       'token' => array(
         'description' => 'One time CAPTCHA token.',
         'type' => 'varchar',
         'length' => 64,
         'not null' => FALSE,
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'uid' => array(
         'description' => "User's {users}.uid.",
         'type' => 'int',
@@ -124,7 +110,6 @@ function captcha_schema() {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of hook_requirements().
  */
 function captcha_requirements($phase) {
@@ -146,15 +131,12 @@ function captcha_requirements($phase) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Implementation of hook_install().
  */
 function captcha_install() {
   $t = get_t();
   drupal_install_schema('captcha');
 
-<<<<<<< HEAD
   // Insert some default CAPTCHA points.
   $form_ids = array(
     'comment_form',
@@ -176,18 +158,6 @@ function captcha_install() {
       array('!performance_admin' => url('admin/settings/performance'))), 'warning');
   }
 
-=======
-  // insert some defaults
-  $form_ids = array('comment_form', 'contact_mail_user', 'contact_mail_page',
-    'user_register', 'user_pass', 'user_login', 'user_login_block', 'forum_node_form');
-  foreach ($form_ids as $form_id) {
-    db_query("INSERT INTO {captcha_points} (form_id, module, type) VALUES ('%s', NULL, NULL)", $form_id);
-  }
-
-  // what to do after install?
-  drupal_set_message($t('You can now <a href="!captcha_admin">configure the CAPTCHA module</a> for your site.',
-    array('!captcha_admin' => url('admin/user/captcha'))), 'status');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -342,7 +312,6 @@ function captcha_update_6201() {
   $items[] = update_sql("UPDATE {captcha_points} SET module = 'captcha', type = 'Math' WHERE module = 'text_captcha' AND type = 'Text';");
   return $items;
 }
-<<<<<<< HEAD
 
 
 /**
@@ -365,5 +334,3 @@ function captcha_update_6203() {
   db_change_field($ret, 'captcha_points', 'type', 'captcha_type', array('type' => 'varchar', 'length' => 64));
   return $ret;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

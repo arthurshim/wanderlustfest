@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_argument_string.inc,v 1.5 2009/06/25 21:58:17 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Basic argument handler to implement string arguments that may have length
@@ -26,10 +22,7 @@ class views_handler_argument_string extends views_handler_argument {
     $options = parent::option_definition();
 
     $options['glossary'] = array('default' => FALSE);
-<<<<<<< HEAD
     $options['ignorecase'] = array('default' => FALSE);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $options['limit'] = array('default' => 0);
     $options['case'] = array('default' => 'none');
     $options['path_case'] = array('default' => 'none');
@@ -53,7 +46,6 @@ class views_handler_argument_string extends views_handler_argument {
       '#default_value' => $this->options['glossary'],
     );
 
-<<<<<<< HEAD
     $form['ignorecase'] = array(
       '#type' => 'checkbox',
       '#title' => t('Ignore case'),
@@ -61,8 +53,6 @@ class views_handler_argument_string extends views_handler_argument {
       '#default_value' => $this->options['ignorecase'],
     );
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['limit'] = array(
       '#type' => 'textfield',
       '#title' => t('Character limit'),
@@ -135,7 +125,6 @@ class views_handler_argument_string extends views_handler_argument {
 
     if (empty($this->options['glossary'])) {
       // Add the field.
-<<<<<<< HEAD
       if (empty($this->options['ignorecase'])){
         $this->base_alias = $this->name_alias = $this->query->add_field($this->table_alias, $this->real_field);
         $this->query->set_count_field($this->table_alias, $this->real_field);
@@ -144,15 +133,10 @@ class views_handler_argument_string extends views_handler_argument {
         $this->base_alias = $this->name_alias = $this->query->add_field($this->table_alias, 'LOWER(' . $this->real_field . ')');
         $this->query->set_count_field($this->table_alias, 'LOWER(' . $this->real_field . ')');
       }
-=======
-      $this->base_alias = $this->name_alias = $this->query->add_field($this->table_alias, $this->real_field);
-      $this->query->set_count_field($this->table_alias, $this->real_field);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     else {
       // Add the field.
       $formula = $this->get_formula();
-<<<<<<< HEAD
       if (empty($this->options['ignorecase'])){
         $this->base_alias = $this->name_alias = $this->query->add_field(NULL, $formula, $this->field . '_truncated');
         $this->query->set_count_field(NULL, $formula, $this->field, $this->field . '_truncated');
@@ -161,10 +145,6 @@ class views_handler_argument_string extends views_handler_argument {
         $this->base_alias = $this->name_alias = $this->query->add_field(NULL, 'LOWER(' . $formula . ')', $this->field . '_truncated');
         $this->query->set_count_field(NULL, $formula, $this->field, $this->field . '_truncated');
       }
-=======
-      $this->base_alias = $this->name_alias = $this->query->add_field(NULL, $formula, $this->field . '_truncated');
-      $this->query->set_count_field(NULL, $formula, $this->field, $this->field . '_truncated');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
 
     return $this->summary_basics(FALSE);
@@ -206,16 +186,12 @@ class views_handler_argument_string extends views_handler_argument {
       $field = $this->get_formula();
     }
 
-<<<<<<< HEAD
     if (empty($this->options['ignorecase'])){
       $this->query->add_where(0, "$field = '%s'", $argument);
     }
     else {
       $this->query->add_where(0, "LOWER($field) = LOWER('%s')", $argument);
     }
-=======
-    $this->query->add_where(0, "$field = '%s'", $argument);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   function summary_argument($data) {

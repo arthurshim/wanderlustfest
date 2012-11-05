@@ -10,10 +10,6 @@
 * @license http://opensource.org/licenses/lgpl-license.php GNU Lesser General Public License Version 2.1
 *
 * @package Krumo
-<<<<<<< HEAD
-=======
-* @version $Id: class.krumo.php,v 1.1.2.5 2009/09/23 18:14:19 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 */
 
 //////////////////////////////////////////////////////////////////////////////
@@ -70,11 +66,7 @@ Class krumo {
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function version() {
-=======
-	Function version() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		return '0.2a';
 		}
 
@@ -86,11 +78,7 @@ Class krumo {
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function backtrace() {
-=======
-	Function backtrace() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -109,11 +97,7 @@ Class krumo {
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function classes() {
-=======
-	Function classes() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -137,11 +121,7 @@ This is a list of all currently declared classes.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function interfaces() {
-=======
-	Function interfaces() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -165,11 +145,7 @@ This is a list of all currently declared interfaces.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function includes() {
-=======
-	Function includes() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -193,11 +169,7 @@ This is a list of all currently included (or required) files.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function functions() {
-=======
-	Function functions() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -221,11 +193,7 @@ This is a list of all currently declared functions.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function defines() {
-=======
-	Function defines() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -249,11 +217,7 @@ This is a list of all currently declared constants (defines).
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function extensions() {
-=======
-	Function extensions() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -277,11 +241,7 @@ This is a list of all currently loaded PHP extensions.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function headers() {
-=======
-	Function headers() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -305,11 +265,7 @@ This is a list of all HTTP request headers.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function phpini() {
-=======
-	Function phpini() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -333,11 +289,7 @@ This is a list of the configuration settings read from <code><b><?php echo get_c
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function conf() {
-=======
-	Function conf() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -361,11 +313,7 @@ This is a list of all your configuration settings.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function path() {
-=======
-	Function path() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -389,11 +337,7 @@ This is a list of the specified directories under your <code><b>include_path</b>
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function request() {
-=======
-	Function request() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -417,11 +361,7 @@ This is a list of all the values from the <code><b>$_REQUEST</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function get() {
-=======
-	Function get() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -445,11 +385,7 @@ This is a list of all the values from the <code><b>$_GET</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function post() {
-=======
-	Function post() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -473,11 +409,7 @@ This is a list of all the values from the <code><b>$_POST</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function server() {
-=======
-	Function server() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -501,11 +433,7 @@ This is a list of all the values from the <code><b>$_SERVER</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function cookie() {
-=======
-	Function cookie() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -529,11 +457,7 @@ This is a list of all the values from the <code><b>$_COOKIE</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function env() {
-=======
-	Function env() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -557,11 +481,7 @@ This is a list of all the values from the <code><b>$_ENV</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function session() {
-=======
-	Function session() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -587,11 +507,7 @@ This is a list of all the values from the <code><b>$_SESSION</b></code> array.
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function ini($ini_file) {
-=======
-	Function ini($ini_file) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -624,11 +540,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function dump($data) {
-=======
-	Function dump($data) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// disabled ?
 		//
@@ -691,7 +603,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		  foreach($hive as $i=>$bee){
 			  if (is_object($bee)) {
 				  unset($hive[$i]->$_recursion_marker);
-				} else {
+				// DEVEL: changed 'else' to 'elseif' below
+				} elseif (is_array($bee)) {
 				  unset($hive[$i][$_recursion_marker]);
 				}
 			}
@@ -713,11 +626,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _css() {
-=======
-	Function _css() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		
 		static $_css = false;
 		
@@ -795,11 +704,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function enable() {
-=======
-	Function enable() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		return true === krumo::_debug(true);
 		}
 
@@ -810,11 +715,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access public
 	* @static
 	*/
-<<<<<<< HEAD
   static Function disable() {
-=======
-	Function disable() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		return false === krumo::_debug(false);
 		}
 	
@@ -826,11 +727,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _debug($state=null) {
-=======
-	Function _debug($state=null) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		
 		static $_ = true;
 		
@@ -855,11 +752,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _dump(&$data, $name='...') {
-=======
-	Function _dump(&$data, $name='...') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// object ?
 		//
@@ -938,23 +831,15 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _null($name) {
-=======
-	Function _null($name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 	<div class="krumo-element"
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type krumo-null">NULL</em>) 
 	</div>
 </li>
@@ -971,11 +856,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _marker() {
-=======
-	Function _marker() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		
 		static $_recursion_marker;
 		if (!isset($_recursion_marker)) {
@@ -997,11 +878,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function &_hive(&$bee) {
-=======
-	Function &_hive(&$bee) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 		
 		static $_ = array();
 
@@ -1033,11 +910,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _vars(&$data) {
-=======
-	Function _vars(&$data) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		$_is_object = is_object($data);
 		
@@ -1112,11 +985,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _recursion() {
-=======
-	Function _recursion() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <div class="krumo-nest" style="display:none;">
 	<ul class="krumo-node">
@@ -1144,11 +1013,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _array(&$data, $name) {
-=======
-	Function _array(&$data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 	
@@ -1157,12 +1022,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Array, <strong class="krumo-array-length"><?php echo 
 				(count($data)==1)
 					?("1 element")
@@ -1204,11 +1065,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _object(&$data, $name) {
-=======
-	Function _object(&$data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 
@@ -1217,12 +1074,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Object</em>) 
 			<strong class="krumo-class"><?php echo get_class($data);?></strong>
 	</div>
@@ -1244,11 +1097,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _resource($data, $name) {
-=======
-	Function _resource($data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 
@@ -1256,12 +1105,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Resource</em>) 
 			<strong class="krumo-resource"><?php echo get_resource_type($data);?></strong>
 	</div>
@@ -1280,11 +1125,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _boolean($data, $name) {
-=======
-	Function _boolean($data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 
@@ -1292,12 +1133,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Boolean</em>) 
 			<strong class="krumo-boolean"><?php echo $data?'TRUE':'FALSE'?></strong>
 	</div>
@@ -1316,11 +1153,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _integer($data, $name) {
-=======
-	Function _integer($data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 
@@ -1328,12 +1161,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Integer</em>)
 			<strong class="krumo-integer"><?php echo $data;?></strong> 
 	</div>
@@ -1352,11 +1181,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _float($data, $name) {
-=======
-	Function _float($data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 ?>
 <li class="krumo-child">
 
@@ -1364,12 +1189,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 		
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">Float</em>) 
 			<strong class="krumo-float"><?php echo $data;?></strong>
 	</div>
@@ -1388,11 +1209,7 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 	* @access private
 	* @static
 	*/
-<<<<<<< HEAD
   static Function _string($data, $name) {
-=======
-	Function _string($data, $name) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 		// extra ?
 		//
@@ -1410,12 +1227,8 @@ This is a list of all the values from the <code><b><?php echo realpath($ini_file
 		onMouseOver="krumo.over(this);"
 		onMouseOut="krumo.out(this);">
 
-<<<<<<< HEAD
 			<?php /* DEVEL: added htmlSpecialChars */ ?>
 			<a class="krumo-name"><?php echo htmlSpecialChars($name);?></a>
-=======
-			<a class="krumo-name"><?php echo $name;?></a>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			(<em class="krumo-type">String,
 				<strong class="krumo-string-length"><?php
 					echo strlen($data) ?> characters</strong> </em>)

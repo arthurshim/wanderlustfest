@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: openwysiwyg.inc,v 1.4 2009/06/13 02:17:10 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -48,15 +44,11 @@ function wysiwyg_openwysiwyg_editor() {
  *   The installed editor version.
  */
 function wysiwyg_openwysiwyg_version($editor) {
-<<<<<<< HEAD
   // 'library path' has '/scripts' appended already.
   $changelog = $editor['editor path'] . '/changelog';
   if (!file_exists($changelog)) {
     return;
   }
-=======
-  $changelog = $editor['editor path'] . '/changelog';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $changelog = fopen($changelog, 'r');
   $line = fgets($changelog, 20);
   if (preg_match('@v([\d\.]+)@', $line, $version)) {
@@ -115,10 +107,7 @@ function wysiwyg_openwysiwyg_settings($editor, $config, $theme) {
     }
   }
 
-<<<<<<< HEAD
   $settings['Toolbar'] = array();
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!empty($config['buttons'])) {
     $plugins = wysiwyg_get_plugins($editor['name']);
     foreach ($config['buttons'] as $plugin => $buttons) {

@@ -1,9 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu_block.api.php,v 1.2 2010/03/12 17:30:00 johnalbin Exp $
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Hooks provided by the Menu Block module.
@@ -32,7 +27,6 @@ function hook_menu_block_tree_alter(&$tree, &$config) {
  *   An array containing the menus' machine names as keys with their menu titles
  *   as values.
  */
-<<<<<<< HEAD
 function hook_menu_block_get_menus() {
   $menus = array();
   // For each menu, add the following information:
@@ -58,12 +52,6 @@ function hook_menu_block_get_sort_menus() {
   $menus['menu_name'] = 'menu title';
   // Optionally, add a regular expression to match several menus at once.
   $menus['/^my\-menus\-.+/'] = t('My menus');
-=======
-function hook_get_menus() {
-  $menus = array();
-  // For each menu, add the following information:
-  $menus['menu_name'] = 'menu title';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $menus;
 }

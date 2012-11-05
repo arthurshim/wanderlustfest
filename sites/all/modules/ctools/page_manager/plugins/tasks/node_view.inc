@@ -91,17 +91,11 @@ function page_manager_node_view($node) {
     node_tag_new($node->nid);
     return $output;
   }
-<<<<<<< HEAD
   global $user;
   $function = 'node_page_view';
   foreach (module_implements('page_manager_override') as $module) {
 
     
-=======
-
-  $function = 'node_page_view';
-  foreach (module_implements('page_manager_override') as $module) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $call = $module . '_page_manager_override';
     if (($rc = $call('node_view')) && function_exists($rc)) {
       $function = $rc;
@@ -109,15 +103,12 @@ function page_manager_node_view($node) {
     }
   }
 
-<<<<<<< HEAD
     if ($user->uid == 1) {
       print '<pre>' . print_r($function, 1) . '</pre>';
     }
 
 
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Otherwise, fall back.
   return $function($node);
 }

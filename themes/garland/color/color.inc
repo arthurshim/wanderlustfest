@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: color.inc,v 1.4 2007/12/14 17:00:14 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 $info = array(
 

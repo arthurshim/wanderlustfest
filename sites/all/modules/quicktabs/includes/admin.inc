@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: admin.inc,v 1.1.2.54 2010/04/20 18:24:05 katbailey Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Page callback for quicktabs admin landing page.
@@ -123,11 +119,7 @@ function _qt_admin_main_form($form_state, &$quicktabs) {
       FALSE => t('No') .': '. t('Load all tabs on page view.'),
     ),
     '#default_value' => isset($quicktabs['ajax']) ? $quicktabs['ajax'] : 0,
-<<<<<<< HEAD
     '#description' => t('Choose how the content of tabs should be loaded.<p>By choosing "Yes", only the first tab will be loaded when the page first viewed. Content for other tabs will be loaded only when the user clicks the other tab. This will provide faster initial page loading, but subsequent tab clicks will be slower. This can place less load on a server.</p><p>By choosing "No", all tabs will be loaded when the page is first viewed. This will provide slower initial page loading, and more server load, but subsequent tab clicks will be faster for the user. Use with care if you have heavy views.</p><p>Warning: if you enable Ajax, any block you add to this quicktabs block will be accessible to anonymous users, even if you place role restrictions on the quicktabs block. Do not enable Ajax if the quicktabs block includes any blocks with potentially sensitive information.</p>'),
-=======
-    '#description' => t('Choose how the content of tabs should be loaded.<p>By choosing "Yes", only the first tab will be loaded when the page first viewed. Content for other tabs will be loaded only when the user clicks the other tab. This will provide faster initial page loading, but subsequent tab clicks will be slower. This can place less load on a server.</p><p>By choosing "No", all tabs will be loaded when the page is first viewed. This will provide slower initial page loading, and more server load, but subsequent tab clicks will be faster for the user. Use with care if you have heavy views.</p>'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#weight' => -6,
   );
 
@@ -478,14 +470,11 @@ function quicktabs_form_submit($form, &$form_state) {
         drupal_set_message(t('The quicktab block has been created.'));
       }
     }
-<<<<<<< HEAD
     if (module_exists('i18nstrings')) {
       foreach ($quicktabs['tabs'] as $tabkey => $tab) {
         i18nstrings_update('quicktabs:tab:' . $quicktabs['qtid'] . '--' . $tabkey . ':title', $tab['title']);
       }
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     drupal_goto('admin/build/quicktabs');
   }
 }

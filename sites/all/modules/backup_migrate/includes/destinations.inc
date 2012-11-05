@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: destinations.inc,v 1.1.2.1.2.26 2010/03/24 04:02:58 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -254,7 +250,6 @@ function _backup_migrate_destination_get_file_links($destination_id, $file_id) {
  * List the backup files in the given destination.
  */
 function backup_migrate_ui_destination_display_files($destination_id = NULL) {
-<<<<<<< HEAD
   $rows = $sort = array();
   if ($destination = backup_migrate_get_destination($destination_id)) {
     // Refresh the file listing cache if requested.
@@ -264,10 +259,6 @@ function backup_migrate_ui_destination_display_files($destination_id = NULL) {
     }
 
 
-=======
-  $out = $sort = array();
-  if ($destination = backup_migrate_get_destination($destination_id)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     drupal_set_title(t('%title Files', array('%title' => $destination->get_name())));
     $headers = array(
       array('data' => 'Filename', 'field' => 'filename'),
@@ -289,11 +280,7 @@ function backup_migrate_ui_destination_display_files($destination_id = NULL) {
       // Show only files that can be restored from.
       if ($file->is_recognized_type()) {
         $sort[] = $info[$sort_key];
-<<<<<<< HEAD
         $rows[] = array(
-=======
-        $out[] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           check_plain($info['filename']),
           format_date($info['filetime'], 'small'),
           format_interval(time() - $info['filetime'], 1),
@@ -303,7 +290,6 @@ function backup_migrate_ui_destination_display_files($destination_id = NULL) {
       }
     }
 
-<<<<<<< HEAD
     array_multisort($sort, $sort_dir, $rows);
 
     if ($files) {
@@ -318,18 +304,6 @@ function backup_migrate_ui_destination_display_files($destination_id = NULL) {
     return $out;
   }
   drupal_goto(BACKUP_MIGRATE_MENU_PATH . "/destination");
-=======
-    array_multisort($sort, $sort_dir, $out);
-
-    if ($out) {
-      return theme("table", $headers, $out);
-    }
-    else {
-      return t('There are no backup files to display.');
-    }
-  }
-  drupal_goto("admin/content/backup_migrate/destination");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -340,11 +314,7 @@ function backup_migrate_ui_destination_download_file($destination_id = NULL, $fi
     backup_migrate_include('files');
     $file->transfer();
   }
-<<<<<<< HEAD
   drupal_goto(BACKUP_MIGRATE_MENU_PATH);
-=======
-  drupal_goto('admin/content/backup_migrate');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -354,15 +324,11 @@ function backup_migrate_ui_destination_restore_file($destination_id = NULL, $fil
   if (backup_migrate_destination_file_exists($destination_id, $file_id)) {
     return drupal_get_form('backup_migrate_ui_destination_restore_file_confirm', $destination_id, $file_id);
   }
-<<<<<<< HEAD
   _backup_migrate_message('Cannot restore from the the file: %file_id because it does not exist.', array('%file_id' => $file_id), 'error');
   if ($destination_id && user_access('access backup files')) {
     drupal_goto(BACKUP_MIGRATE_MENU_PATH . '/destination/list/files/' . $destination_id);
   }
   drupal_goto(BACKUP_MIGRATE_MENU_PATH);
-=======
-  drupal_goto(user_access('access backup files') ? "admin/content/backup_migrate/destination/list/files/". $destination_id : "admin/content/backup_migrate");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -388,11 +354,7 @@ function backup_migrate_ui_destination_restore_file_confirm(&$form_state, $desti
 
   $form['destination_id'] = array('#type' => 'value', '#value' => $destination_id);
   $form['file_id'] = array('#type' => 'value', '#value' => $file_id);
-<<<<<<< HEAD
   $form = confirm_form($form, t('Are you sure you want to restore the database?'), BACKUP_MIGRATE_MENU_PATH . "/destination/list/files/". $destination_id, t('Are you sure you want to restore the database from the backup file %file_id? This will delete some or all of your data and cannot be undone. <strong>Always test your backups on a non-production server!</strong>', array('%file_id' => $file_id)), t('Restore'), t('Cancel'));
-=======
-  $form = confirm_form($form, t('Are you sure you want to restore the database?'), "admin/content/backup_migrate/destination/list/files/". $destination_id, t('Are you sure you want to restore the database from the backup file %file_id? This will delete some or all of your data and cannot be undone. <strong>Always test your backups on a non-production server!</strong>', array('%file_id' => $file_id)), t('Restore'), t('Cancel'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   drupal_set_message(t('Restoring will delete some or all of your data and cannot be undone. <strong>Always test your backups on a non-production server!</strong>'), 'warning', FALSE);
   $form = array_merge_recursive($form, backup_migrate_filters_settings_form(backup_migrate_filters_settings_default('restore'), 'restore'));
   $form['actions']['#weight'] = 100;
@@ -417,11 +379,7 @@ function backup_migrate_ui_destination_restore_file_confirm_submit($form, &$form
   if ($destination_id && $file_id) {
     backup_migrate_perform_restore($destination_id, $file_id, $form_state['values']);
   }
-<<<<<<< HEAD
   $redir = user_access('access backup files') ? BACKUP_MIGRATE_MENU_PATH . "/destination/list/files/". $destination_id : BACKUP_MIGRATE_MENU_PATH;
-=======
-  $redir = user_access('access backup files') ? "admin/content/backup_migrate/destination/list/files/". $destination_id : "admin/content/backup_migrate";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form_state['redirect'] = $redir;
 }
 
@@ -432,15 +390,11 @@ function backup_migrate_ui_destination_delete_file($destination_id = NULL, $file
   if (backup_migrate_destination_file_exists($destination_id, $file_id)) {
     return drupal_get_form('backup_migrate_ui_destination_delete_file_confirm', $destination_id, $file_id);
   }
-<<<<<<< HEAD
   _backup_migrate_message('Cannot delete the file: %file_id because it does not exist.', array('%file_id' => $file_id), 'error');
   if ($destination_id && user_access('access backup files')) {
     drupal_goto(BACKUP_MIGRATE_MENU_PATH .'/destination/list/files/' . $destination_id);
   }
   drupal_goto(BACKUP_MIGRATE_MENU_PATH);
-=======
-  drupal_goto("admin/content/backup_migrate");
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -449,11 +403,7 @@ function backup_migrate_ui_destination_delete_file($destination_id = NULL, $file
 function backup_migrate_ui_destination_delete_file_confirm(&$form_state, $destination_id, $file_id) {
   $form['destination_id'] = array('#type' => 'value', '#value' => $destination_id);
   $form['file_id'] = array('#type' => 'value', '#value' => $file_id);
-<<<<<<< HEAD
   return confirm_form($form, t('Are you sure you want to delete the backup file?'), BACKUP_MIGRATE_MENU_PATH . '/destination/list/files/'. $destination_id, t('Are you sure you want to delete the backup file %file_id? <strong>This action cannot be undone.</strong>', array('%file_id' => $file_id)), t('Delete'), t('Cancel'));
-=======
-  return confirm_form($form, t('Are you sure you want to delete the backup file?'), 'admin/content/backup_migrate/destination/list/files/'. $destination_id, t('Are you sure you want to delete the backup file %file_id? <strong>This action cannot be undone.</strong>', array('%file_id' => $file_id)), t('Delete'), t('Cancel'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -466,11 +416,7 @@ function backup_migrate_ui_destination_delete_file_confirm_submit($form, &$form_
     backup_migrate_destination_delete_file($destination_id, $file_id);
     _backup_migrate_message('Database backup file deleted: %file_id', array('%file_id' => $file_id));
   }
-<<<<<<< HEAD
   $form_state['redirect'] = user_access('access backup files') ? BACKUP_MIGRATE_MENU_PATH . "/destination/list/files/". $destination_id : BACKUP_MIGRATE_MENU_PATH;
-=======
-  $form_state['redirect'] = user_access('access backup files') ? "admin/content/backup_migrate/destination/list/files/". $destination_id : "admin/content/backup_migrate";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /* Utilities */
@@ -540,12 +486,9 @@ class backup_migrate_destination extends backup_migrate_item {
   var $default_values = array('settings' => array());
   var $singular = 'destination';
   var $plural = 'destinations';
-<<<<<<< HEAD
   var $cache_files = FALSE;
   var $fetch_time = NULL;
   var $cache_expire = 86400; // 24 hours
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   var $destination_type = "";
   var $supported_ops = array();
@@ -595,13 +538,10 @@ class backup_migrate_destination extends backup_migrate_item {
     $this->type = $type;
   }
 
-<<<<<<< HEAD
   function set_location($location) {
     $this->location = $location;
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   function get_location() {
     return @$this->location;
   }
@@ -637,7 +577,6 @@ class backup_migrate_destination extends backup_migrate_item {
    */
   function save_file($file, $settings) {
     // This must be overriden.
-<<<<<<< HEAD
     $this->file_cache_clear();
     return $this->_save_file($file, $settings);
   }
@@ -647,8 +586,6 @@ class backup_migrate_destination extends backup_migrate_item {
    */
   function _save_file($file, $settings) {
     // This must be overriden.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $file;
   }
 
@@ -673,7 +610,6 @@ class backup_migrate_destination extends backup_migrate_item {
    * List all the available files in the given destination with their destination specific id.
    */
   function list_files() {
-<<<<<<< HEAD
     $out = NULL;
     if ($this->cache_files) {
       $out = $this->file_cache_get();
@@ -691,13 +627,10 @@ class backup_migrate_destination extends backup_migrate_item {
    * List all the available files in the given destination with their destination specific id.
    */
   function _list_files() {
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return array();
   }
 
   /**
-<<<<<<< HEAD
    * Cache the file list.
    */
   function file_cache_set($files) {
@@ -739,11 +672,6 @@ class backup_migrate_destination extends backup_migrate_item {
    * Delete the file with the given destination specific id.
    */
   function _delete_file($file_id) {
-=======
-   * Delete the file with the given destination specific id.
-   */
-  function delete_file($file_id) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // This must be overriden.
   }
 
@@ -771,11 +699,7 @@ class backup_migrate_destination extends backup_migrate_item {
       foreach ($types as $key => $type) {
         if (@$type['can_create']) {
           $type_url_str = str_replace('_', '-', $key);
-<<<<<<< HEAD
           $out = '<dt>'. l($type['type_name'], BACKUP_MIGRATE_MENU_PATH . "/destination/list/add/$type_url_str", array('attributes' => array('title' => t('Add a new @s destination.', array('@s' => $type['type_name']))))) .'</dt>';
-=======
-          $out = '<dt>'. l($type['type_name'], "admin/content/backup_migrate/destination/add/$type_url_str", array('attributes' => array('title' => t('Add a new @s destination.', array('@s' => $type['type_name']))))) .'</dt>';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $out .= '<dd>'. filter_xss_admin($type['description']) .'</dd>';
           $items[] = $out;
         }
@@ -821,13 +745,6 @@ class backup_migrate_destination extends backup_migrate_item {
   function get_list_row() {
     $out = parent::get_list_row();
 
-<<<<<<< HEAD
-=======
-    $out['name'] = check_plain($out['name']);
-    $out['destination_type_name'] = check_plain($out['destination_type_name']);
-    $out['display_location'] = check_plain($out['display_location']);
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // Supress destinations with no actions as there's no value in showing them (and they may confuse new users).
     if (empty($out['actions'])) {
       return NULL;
@@ -844,11 +761,7 @@ class backup_migrate_destination extends backup_migrate_item {
 
     // Don't display the download/delete/restore ops if they are not available for this destination.
     if ($this->op('list files') && user_access("access backup files")) {
-<<<<<<< HEAD
       $out = array('list files' => l(t("list files"), BACKUP_MIGRATE_MENU_PATH . "/$this->type_name/list/files/". $item_id)) + $out;
-=======
-      $out = array('list files' => l(t("list files"), "admin/content/backup_migrate/$this->type_name/list/files/". $item_id)) + $out;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     if (!$this->op('configure') || !user_access('administer backup and migrate')) {
       unset($out['edit']);
@@ -868,7 +781,6 @@ class backup_migrate_destination extends backup_migrate_item {
 
     $destination_id = $this->get_id();
     if ($can_read && user_access("access backup files")) {
-<<<<<<< HEAD
       $out[] = l(t("download"), BACKUP_MIGRATE_MENU_PATH . "/destination/downloadfile/". $destination_id .'/'. $file_id);
     }
     if ($can_read && user_access("restore from backup")) {
@@ -876,15 +788,6 @@ class backup_migrate_destination extends backup_migrate_item {
     }
     if ($can_delete && user_access("delete backup files")) {
       $out[] = l(t("delete"), BACKUP_MIGRATE_MENU_PATH . "/destination/list/deletefile/". $destination_id .'/'. $file_id);
-=======
-      $out[] = l(t("download"), "admin/content/backup_migrate/destination/downloadfile/". $destination_id .'/'. $file_id);
-    }
-    if ($can_read && user_access("restore from backup")) {
-      $out[] = l(t("restore"), "admin/content/backup_migrate/destination/list/restorefile/". $destination_id .'/'. $file_id);
-    }
-    if ($can_delete && user_access("delete backup files")) {
-      $out[] = l(t("delete"), "admin/content/backup_migrate/destination/list/deletefile/". $destination_id .'/'. $file_id);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     return $out;
   }
@@ -940,11 +843,7 @@ class backup_migrate_destination extends backup_migrate_item {
 
     // Get the type passed in in the params, or if none, check the url for a valid type name.
     // This is to allow new destination type to be specified in the path.
-<<<<<<< HEAD
     $destination_type = !empty($params['type']) ? $params['type'] : arg(BACKUP_MIGRATE_MENU_DEPTH + 3);
-=======
-    $destination_type = !empty($params['type']) ? $params['type'] : arg(5);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     if ($destination_type && ($type = @$types[$destination_type])) {
       // Include the necessary file if specified by the type.
@@ -964,22 +863,14 @@ class backup_migrate_destination extends backup_migrate_item {
    */
   function get_menu_items() {
     $items = parent::get_menu_items();
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/destination/list/files'] = array(
-=======
-    $items['admin/content/backup_migrate/destination/list/files'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Destination Files',
       'page callback' => 'backup_migrate_menu_callback',
       'page arguments' => array('destinations', 'backup_migrate_ui_destination_display_files', TRUE),
       'access arguments' => array('access backup files'),
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/destination/list/deletefile'] = array(
-=======
-    $items['admin/content/backup_migrate/destination/list/deletefile'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Delete File',
       'description' => 'Delete a backup file',
       'page callback' => 'backup_migrate_menu_callback',
@@ -995,11 +886,7 @@ class backup_migrate_destination extends backup_migrate_item {
       'access arguments' => array('restore from backup'),
       'type' => MENU_LOCAL_TASK,
     );
-<<<<<<< HEAD
     $items[BACKUP_MIGRATE_MENU_PATH . '/destination/downloadfile'] = array(
-=======
-    $items['admin/content/backup_migrate/destination/downloadfile'] = array(
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'title' => 'Download File',
       'description' => 'Download a backup file',
       'page callback' => 'backup_migrate_menu_callback',
@@ -1020,12 +907,8 @@ class backup_migrate_destination extends backup_migrate_item {
   /**
    * Get the form for the settings for this filter.
    */
-<<<<<<< HEAD
   function backup_settings_form($settings) {
     return array();
-=======
-  function backup_settings_form(&$form, $settings) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_argument_default_user.inc,v 1.1 2008/09/03 19:21:30 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the user from URL argument default plugin.
@@ -56,7 +52,6 @@ class views_plugin_argument_default_user extends views_plugin_argument_default {
       return arg(1);
     }
 
-<<<<<<< HEAD
     if (!empty($this->argument->options[$this->option_name])) {
       if (arg(0) == 'node' && is_numeric(arg(1))) {
         $node = node_load(arg(1));
@@ -72,14 +67,6 @@ class views_plugin_argument_default_user extends views_plugin_argument_default {
     if ($views_page && isset($views_page->view->argument['uid'])) {
       return $views_page->view->argument['uid']->argument;
     }
-=======
-    if (arg(0) == 'node' && is_numeric(arg(1))) {
-      $node = node_load(arg(1));
-      if ($node) {
-        return $node->uid;
-      }
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 }
 

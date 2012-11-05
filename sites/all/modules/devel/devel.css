@@ -85,12 +85,8 @@ div.devel-querylog div.cell {
   div.devel-querylog-odd div.cell-4 {
     max-height:18em;
     font-family: 'Andale Mono', monospace;
-<<<<<<< HEAD
     }
 
 #devel-execute-form textarea {
   font-family: monospace;
 }
-=======
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

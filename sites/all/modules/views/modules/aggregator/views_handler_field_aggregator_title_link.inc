@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_aggregator_title_link.inc,v 1.1.4.1 2010/06/17 02:46:52 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
  /**
  * Field handler that turns an item's title into a clickable link to the original

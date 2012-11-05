@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: profile.pages.inc,v 1.2 2007/12/08 14:06:22 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -113,11 +109,7 @@ function profile_browse() {
 function profile_autocomplete($field, $string) {
   $matches = array();
   if (db_result(db_query("SELECT COUNT(*) FROM {profile_fields} WHERE fid = %d AND autocomplete = 1", $field))) {
-<<<<<<< HEAD
     $result = db_query_range("SELECT value FROM {profile_values} WHERE fid = %d AND value LIKE '%s%%' GROUP BY value ORDER BY value ASC", $field, $string, 0, 10);
-=======
-    $result = db_query_range("SELECT value FROM {profile_values} WHERE fid = %d AND LOWER(value) LIKE LOWER('%s%%') GROUP BY value ORDER BY value ASC", $field, $string, 0, 10);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     while ($data = db_fetch_object($result)) {
       $matches[$data->value] = check_plain($data->value);
     }

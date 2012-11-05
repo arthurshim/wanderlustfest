@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: ib_wysiwyg.module,v 1.1.2.3 2010/05/12 06:33:03 blixxxa Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementation of hook_help().

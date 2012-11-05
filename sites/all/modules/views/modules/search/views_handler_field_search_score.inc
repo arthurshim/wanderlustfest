@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_search_score.inc,v 1.2 2009/02/23 23:30:38 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Field handler to provide simple renderer that allows linking to a node.
@@ -29,11 +25,7 @@ class views_handler_field_search_score extends views_handler_field_numeric {
       $form['alternate_sort'] = array(
         '#type' => 'select',
         '#title' => t('Alternative sort'),
-<<<<<<< HEAD
         '#description' => t('Pick an alternative default table sort field to use when the search score field is unavailable.'),
-=======
-        '#description' => t('If no search is performed and this field does not appear, pick an alternative default table sort field.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         '#options' => $options,
         '#default_value' => $this->options['alternate_sort'],
       );

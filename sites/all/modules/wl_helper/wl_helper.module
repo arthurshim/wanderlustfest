@@ -6,24 +6,18 @@ require_once 'wl_helper.base_domain.inc';
 
 function wl_helper_boot() {
   // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
-<<<<<<< HEAD
   global $user;
   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
-=======
-  /*global $user;
-  $url = explode('.', str_replace('http://', '', $_SERVER['SCRIPT_URI']));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $subdomain = strtolower(trim($url[0]));
   if ($subdomain == 'wanderfest' && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
     $sid = sites_get_most_recent_visited_site_sid();
 
     if (!empty($sid)) {
       $prev_site = _sites_get_site($sid);
-<<<<<<< HEAD
+      
+
+ 
       drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '');
-=======
-      drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '/home');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   else {
@@ -32,9 +26,9 @@ function wl_helper_boot() {
       'stratton' => 3,
       'cosmo' => 7,
       'standard' => 8,
-<<<<<<< HEAD
       'colorado' => 21,
-      'whistler' => 22,      
+      'whistler' => 22,
+      'oahu' => 23,      
     );
     
     @sites_set_current_site(_sites_get_site($arr[$subdomain]));
@@ -43,6 +37,7 @@ function wl_helper_boot() {
 }
 
 function wl_helper_init() {
+  
   drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
   drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper.js'); 
   global $user;
@@ -51,31 +46,21 @@ function wl_helper_init() {
   if (!empty($site) && $user->uid != 1 && $user->uid != 4482) {
 	$disabled = array();
     $disabled = wl_helper_disabled_sites();
+  
+    
     if (in_array($site->sid, $disabled)) {
-      drupal_goto('http://whistler.' . wl_get_base_domain());
+      drupal_goto('http://oahu.' . wl_get_base_domain());
     }
   }
   
-  
   if (isset($_GET['set_purl_base_domain']) && $_GET['set_purl_base_domain'] == '1') {
-=======
-    );
-    
-    sites_set_current_site(_sites_get_site($arr[$subdomain]));
-    sites_set_current_site_cookie();
-  }*/
-}
-
-function wl_helper_init() {
-  if ($_GET['set_purl_base_domain'] == '1') {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     variable_set('purl_base_domain', 'http://' . wl_get_base_domain());
   }
 
   // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
   if ($_GET['q'] != 'live-events-list.json') {
     global $user;
-<<<<<<< HEAD
+    
     if ((!($site)) && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
       $sid = sites_get_most_recent_visited_site_sid();
 
@@ -86,20 +71,7 @@ function wl_helper_init() {
 
       }
       else {
-       drupal_goto('http://whistler.' . wl_get_base_domain() . '/home');
-=======
-    if ((!($site = sites_get_current_site())) && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
-      $sid = sites_get_most_recent_visited_site_sid();
-
-      if (!empty($sid)) {
-//        $prev_site = _sites_get_site($sid);
-//        drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '/home');
-        drupal_goto('http://cosmopolitan.' . wl_get_base_domain() . '/home');
-
-      }
-      else {
-        drupal_goto('http://squaw.' . wl_get_base_domain() . '/home');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+       drupal_goto('http://oahu.' . wl_get_base_domain() . '/home');
       }
     }
   }
@@ -107,11 +79,8 @@ function wl_helper_init() {
   if ($msg != 'NO MESSAGES') {
     $msg = unserialize($msg);
   }
-<<<<<<< HEAD
   //dsm($msg, 'MESSAGES!');*/
-=======
-  dsm($msg, 'MESSAGES!');*/
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+
 }
 
 
@@ -119,11 +88,7 @@ function wl_helper_init() {
 
 function wl_helper_sites_node_access_alter(&$permitted, $node) {
   global $user;
-<<<<<<< HEAD
   if ($user->uid > 1 && $user->uid != 4482) {
-=======
-  if ($user->uid > 1) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $site = sites_get_current_site();
     if ($site) {
       if ($site->extra_fields->field_event_hide[0]['value'] == 'disabled') {
@@ -159,25 +124,15 @@ function wl_helper_cron() {
     if (!is_array($names)) {
       $names = unserialize($names);
     }
-<<<<<<< HEAD
     //dsm($names, 'remaining');
-=======
-    dsm($names, 'remaining');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   $i = 0;
   while ($i < 10 && count($names) > 0) {
     $name = array_shift($names);
-<<<<<<< HEAD
     //dsm(twitter_fetch_timeline($name), 'twitter_fetch_timeline ' . $name);
     $i++;
     //dsm('updating twitter status for ' . $name);
-=======
-    dsm(twitter_fetch_timeline($name), 'twitter_fetch_timeline ' . $name);
-    $i++;
-    dsm('updating twitter status for ' . $name);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   variable_set('wl_remaining_twitter_accts', serialize($names));
 }
@@ -340,15 +295,9 @@ function wl_helper_page_title_alter(&$title) {
 
 function wl_helper_get_fbook_app_id() {
   $ids = array(
-<<<<<<< HEAD
     'wanderlustfestival.com' => '321576251186267',
     'wanderfest.com' => '170029253037850',
     'rusticovertonesmusic.com' => '202279093186680',
-=======
-    'wanderlustfestival.com' => '177467345606483',
-    'wanderfest.com' => '170029253037850',
-    'rusticovertonesmusic.com' => '170029253037850',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   return $ids[wl_get_base_domain()];
@@ -364,7 +313,6 @@ function wl_helper_views_pre_render(&$view) {
 }
 
 
-<<<<<<< HEAD
 /**
  * Implementation of hook_form_FORM_ID_alter()
  */
@@ -397,10 +345,16 @@ function wl_helper_form_views_exposed_form_alter(&$form, &$form_state) {
  */
 function wl_helper_disabled_sites() {
   $sites = _sites_get_sites();
+  global $user;
+ /* if($user->uid == 1) {
+     drupal_set_message('<pre>' . print_r($sites , 1) . '<pre>');
+  }*/
+ 
+  
   foreach ($sites as $site) {
+ //   if ($site->sid == 23 && $user->uid ==0)  continue; 
     $sids[] = $site->sid;
   }
-  
   $field_name = 'field_event_hide';
   $field = content_fields($field_name);
   $db_info = content_database_info($field);
@@ -417,5 +371,4 @@ function wl_helper_disabled_sites() {
   
   return $disabled;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+

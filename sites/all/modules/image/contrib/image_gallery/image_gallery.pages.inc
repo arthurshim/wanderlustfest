@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: image_gallery.pages.inc,v 1.1.2.2 2010/12/22 00:09:59 joachim Exp $
-=======
-// $Id: image_gallery.pages.inc,v 1.1.2.1 2010/08/03 17:43:00 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -76,11 +72,7 @@ function image_gallery_page($type = NULL, $tid = 0) {
       $breadcrumb[] = l($parent->name, 'image/tid/' . $parent->tid);
     }
     drupal_set_breadcrumb($breadcrumb);
-<<<<<<< HEAD
     drupal_set_title(check_plain($gallery->name));
-=======
-    drupal_set_title($gallery->name);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return theme('image_gallery', $galleries, $images);

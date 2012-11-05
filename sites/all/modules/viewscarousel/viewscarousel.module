@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id$
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provides a Views style plugin for jQuery jcarousel.

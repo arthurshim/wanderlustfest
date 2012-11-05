@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-$Id: README.txt,v 1.1.2.2.2.1 2008/12/02 20:22:46 robloach Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Description
 -----------
@@ -13,7 +9,6 @@ http://sorgalla.com/jcarousel/
 Installation
 ------------
 1) Place this module directory in your modules folder (this will usually be
-<<<<<<< HEAD
    "sites/all/modules/").
 
 2) Enable the module within your Drupal site at Administer -> Site Building ->
@@ -73,45 +68,12 @@ list.
 
 See admin/help/jcarousel for demonstrations of how to utilize jCarousel in your
 own code.
-=======
-"sites/all/modules/").
-
-2) Enable the module.
-
-
-Usage
------
-The jcarousel_add function allows you to not only add the required jCarousel
-JavaScript, but also apply the jCarousel to the elements on the page. The
-arguments are as follows:
-
-  jcarousel_add($selector, $options, $skin, $skin_path);
-
-The $selector is the jQuery selector element to apply the jCarousel to. This
-can usually be thought of as the #ID of the element (#carousel).
-
-The $options are the configuration options that are sent during the creation
-of the jCarousel element (optional). The configuration options can be found at:
-http://sorgalla.com/projects/jcarousel/#Configuration
-
-The $skin is the name of the skin to use (tango, ie7 or your own) (optional).
-
-The $skin_path is only used if you're using a custom skin, and references the
-path to the CSS file for the skin (optional).
-
-See admin/help/jcarousel for a demonstration.
- 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Example
 -------
 The following would add a vertical jCarousel to the page:
 
-<<<<<<< HEAD
   <ul class="mycarousel jcarousel-skin-default">
-=======
-  <ul id="mycarousel">
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     <li><img src="http://static.flickr.com/66/199481236_dc98b5abb3_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/75/199481072_b4a0d09597_s.jpg" width="75" height="75" alt="" /></li>
     <li><img src="http://static.flickr.com/57/199481087_33ae73a8de_s.jpg" width="75" height="75" alt="" /></li>
@@ -124,7 +86,6 @@ The following would add a vertical jCarousel to the page:
     <li><img src="http://static.flickr.com/70/229228324_08223b70fa_s.jpg" width="75" height="75" alt="" /></li>
   </ul>
   <?php
-<<<<<<< HEAD
     jcarousel_add('mycarousel', array('vertical' => TRUE));
   ?>
 See jcarousel_help() for more examples.
@@ -133,14 +94,5 @@ Authors
 -------
 Nate Haug (http://quicksketch.org)
 Matt Farina (http://www.mattfarina.com)
-=======
-    jcarousel_add('#mycarousel', array('vertical' => TRUE));
-  ?>
-See jcarousel_help() for more examples.
-
-
-Author
-------
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Wim Leers (work@wimleers.com | http://wimleers.com/work)
 Rob Loach (http://www.robloach.net)

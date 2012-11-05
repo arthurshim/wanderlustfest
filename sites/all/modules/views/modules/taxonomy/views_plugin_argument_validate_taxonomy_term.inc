@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_argument_validate_taxonomy_term.inc,v 1.6.2.1 2009/11/30 19:01:09 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the 'taxonomy term' argument validator plugin.
@@ -51,11 +47,7 @@ class views_plugin_argument_validate_taxonomy_term extends views_plugin_argument
       '#title' => t('Transform dashes in URL to spaces in term name arguments'),
       '#default_value' => isset($this->argument->options['validate_argument_transform']) ? $this->argument->options['validate_argument_transform'] : FALSE,
       '#process' => array('views_process_dependency'),
-<<<<<<< HEAD
       '#dependency' => array('edit-options-validate-argument-type' => array('convert', 'name')),
-=======
-      '#dependency' => array('edit-options-validate-argument-type' => array('convert')),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
   }
 
@@ -77,14 +69,11 @@ class views_plugin_argument_validate_taxonomy_term extends views_plugin_argument
 
         return empty($vids) || !empty($vids[$result->vid]);
       case 'tids':
-<<<<<<< HEAD
         // An empty argument is not a term so doesn't pass.
         if (empty($argument)) {
           return FALSE;
         }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $tids = new stdClass();
         $tids->value = $argument;
         $tids = views_break_phrase($argument, $tids);
@@ -150,13 +139,8 @@ class views_plugin_argument_validate_taxonomy_term extends views_plugin_argument
 
         if ($type == 'convert') {
           $this->argument->argument = $result->tid;
-<<<<<<< HEAD
         }
         $this->argument->validated_title = check_plain($result->name);
-=======
-          $this->argument->validated_title = check_plain($result->name);
-        }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
         return TRUE;
     }

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: tabs.admin.inc,v 1.5 2010/01/18 06:30:10 nedjo Exp $
-=======
-// $Id: tabs.admin.inc,v 1.3 2009/08/26 15:07:33 nedjo Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -33,11 +29,7 @@ function tabs_admin_settings() {
     '#type' => 'radios',
     '#title' => t('Effect speed'),
     '#description' => t('Speed at which to apply effects.'),
-<<<<<<< HEAD
     '#default_value' => variable_get('tabs_speed', 'fast'),
-=======
-    '#default_value' => variable_get('tabs_speed', 'slow'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#options' => array('slow' => t('slow'), 'fast' => t('fast'), '1' => t('immediate')),
   );
   $form['tabs_navigation'] = array(
@@ -59,7 +51,6 @@ function tabs_admin_settings() {
     '#description' => t('The text to be displayed in the \'previous\' button.'),
     '#default_value' => variable_get('tabs_nav_prev', t('previous')),
   );
-<<<<<<< HEAD
   $form['tabs_navigation_titles'] = array(
     '#type' => 'radios',
     '#title' => t('Take captions from tab titles'),
@@ -67,8 +58,6 @@ function tabs_admin_settings() {
     '#default_value' => variable_get('tabs_navigation_titles', 0),
     '#options' => array(t('disabled'), t('enabled')),
   );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['tabs_descriptive_urls'] = array(
     '#type' => 'radios',
     '#title' => t('Descriptive tab URLs'),

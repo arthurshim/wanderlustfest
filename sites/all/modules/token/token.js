@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: token.js,v 1.3.2.2 2010/03/26 00:03:19 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 (function ($) {
 

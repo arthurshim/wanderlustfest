@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_user_language.inc,v 1.1 2009/06/02 20:18:26 merlinofchaos Exp $ 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  *   Views field handler for userlanguage.

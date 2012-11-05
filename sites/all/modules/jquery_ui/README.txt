@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: README.txt,v 1.5.2.6 2010/09/09 03:04:34 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 -- SUMMARY --
 
@@ -33,7 +29,6 @@ To submit bug reports and feature suggestions, or to track changes:
 
     http://code.google.com/p/jquery-ui/downloads/list?q=1.6
 
-<<<<<<< HEAD
 * Put the downloaded archive into the directory:
 
     /sites/all/libraries/jquery.ui-1.6.zip
@@ -49,23 +44,6 @@ To submit bug reports and feature suggestions, or to track changes:
   so the actual jQuery UI JavaScript files are located in:
 
     /sites/all/libraries/jquery.ui/ui/*.js
-=======
-* Put the downloaded archive into the module directory:
-
-    /sites/all/modules/jquery_ui/jquery.ui-1.6.zip
-
-* Extract the archive.  This will create the following sub-directory:
-
-    /sites/all/modules/jquery_ui/jquery.ui-1.6/
-
-* Rename the sub-directory into "jquery.ui" within the jquery_ui module folder:
-
-    /sites/all/modules/jquery_ui/jquery.ui/
-
-  so the actual jQuery UI JavaScript files are located in:
-
-    /sites/all/modules/jquery_ui/jquery.ui/ui/*.js
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 * Enable the module at Administer >> Site building >> Modules.
 
@@ -84,7 +62,6 @@ to jQuery UI 1.7, you can get around this by doing the following:
 
     http://code.google.com/p/jquery-ui/downloads/list?q=1.7
 
-<<<<<<< HEAD
 * Put the downloaded archive into the directory:
 
     /sites/all/libraries/jquery.ui-1.7.zip
@@ -100,23 +77,6 @@ to jQuery UI 1.7, you can get around this by doing the following:
   so the actual jQuery UI JavaScript files are located in:
 
     /sites/all/libraries/jquery.ui/ui/*.js
-=======
-* Put the downloaded archive into the module directory:
-
-    /sites/all/modules/jquery_ui/jquery.ui-1.7.zip
-
-* Extract the archive.  This will create the following sub-directory:
-
-    /sites/all/modules/jquery_ui/jquery.ui-1.7/
-
-* Rename the sub-directory into "jquery.ui" within the jquery_ui module folder:
-
-    /sites/all/modules/jquery_ui/jquery.ui/
-
-  so the actual jQuery UI JavaScript files are located in:
-
-    /sites/all/modules/jquery_ui/jquery.ui/ui/*.js
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 * Enable the module at Administer >> Site building >> Modules.
 

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: convert.inc,v 1.17 2009/09/25 17:06:14 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file convert.inc
  *
@@ -355,34 +351,23 @@ function views1_import($imported) {
       module_invoke($module, 'views_convert', 'default', 'argument', $view, $field, NULL);
     }
   }
-<<<<<<< HEAD
   foreach ($imported->filter as $key => $field) {
-=======
-  foreach ($imported->filter as $field) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $options = $field['value'] == '' ? array() : array('value' => $field['value']);
     $id = $view->add_item('default', 'filter', $field['tablename'], $field['field'], $options);
     foreach (module_implements('views_convert') as $module) {
       module_invoke($module, 'views_convert', 'default', 'filter', $view, $field, $id);
     }
-<<<<<<< HEAD
     // Store the id in the exposed filter if there is one.
     foreach ($imported->exposed_filter as $key => $filter) {
       if ($field['tablename'] == $filter['tablename'] && $field['field'] == $filter['field']) {
         $imported->exposed_filter[$key]['id'] = $id;
       }
     }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   // Exposed filters now get added to the filter array, not as a separate array.
   $count = 0;
   foreach ($imported->exposed_filter as $field) {
-<<<<<<< HEAD
     $id = $field['id'];
-=======
-    list(, $id) = explode('.', $field['field'], 2);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $item = $view->get_item('default', 'filter', $id);
     if (views_get_handler($item['table'], $item['field'], 'filter')) {
       $item['exposed'] = TRUE;

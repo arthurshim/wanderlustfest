@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views-view-summary.tpl.php,v 1.6.4.1 2010/03/16 23:12:31 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file views-view-summary.tpl.php
  * Default simple view template to display a list of summary lines

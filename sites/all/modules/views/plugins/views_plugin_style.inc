@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_style.inc,v 1.8.2.8 2010/04/29 18:21:52 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @defgroup views_style_plugins Views' style plugins
@@ -91,11 +87,7 @@ class views_plugin_style extends views_plugin {
     // key to FALSE.
     // @TODO: Document "uses grouping" in docs.php when docs.php is written.
     if ($this->uses_fields() && $this->definition['uses grouping']) {
-<<<<<<< HEAD
       $options = array('' => t('- None -'));
-=======
-      $options = array('' => t('<None>'));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $options += $this->display->handler->get_field_labels();
 
       // If there are no fields, we can't group on them.
@@ -217,10 +209,6 @@ class views_plugin_style extends views_plugin {
       return;
     }
 
-<<<<<<< HEAD
-=======
-    $start = views_microtime();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (isset($this->rendered_fields)) {
       return $this->rendered_fields;
     }

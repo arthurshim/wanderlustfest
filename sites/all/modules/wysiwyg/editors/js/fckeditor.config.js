@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: fckeditor.config.js,v 1.6 2009/06/08 22:20:38 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal = window.parent.Drupal;
 
@@ -14,11 +10,7 @@ Drupal = window.parent.Drupal;
  */
 var wysiwygFormat = FCKConfig.PageConfig.wysiwygFormat;
 var wysiwygSettings = Drupal.settings.wysiwyg.configs.fckeditor[wysiwygFormat];
-<<<<<<< HEAD
 var pluginSettings = (Drupal.settings.wysiwyg.plugins[wysiwygFormat] ? Drupal.settings.wysiwyg.plugins[wysiwygFormat] : { 'native': {}, 'drupal': {} });
-=======
-var pluginSettings = Drupal.settings.wysiwyg.plugins[wysiwygFormat];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Apply format-specific settings.

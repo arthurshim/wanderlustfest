@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_style_jump_menu.inc,v 1.1.2.3 2010/03/13 00:06:20 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Contains the table style plugin.
@@ -21,10 +17,7 @@ class views_plugin_style_jump_menu extends views_plugin_style {
     $options['path'] = array('default' => '');
     $options['text'] = array('default' => 'Go', 'translatable' => TRUE);
     $options['choose'] = array('default' => '- Choose -', 'translatable' => TRUE);
-<<<<<<< HEAD
     $options['default_value'] = array('default' => FALSE);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     return $options;
   }
@@ -73,18 +66,13 @@ class views_plugin_style_jump_menu extends views_plugin_style {
       '#title' => t('Button text'),
       '#default_value' => $this->options['text'],
     );
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form['choose'] = array(
       '#type' => 'textfield',
       '#title' => t('Choose text'),
       '#default_value' => $this->options['choose'],
       '#description' => t('The text that will appear as the selected option in the jump menu.'),
     );
-<<<<<<< HEAD
 
     $form['default_value'] = array(
       '#type' => 'checkbox',
@@ -92,8 +80,6 @@ class views_plugin_style_jump_menu extends views_plugin_style {
       '#default_value' => !empty($this->options['default_value']),
       '#description' => t('If checked, the current path will be displayed as the default option in the jump menu, if applicable.'),
     );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   /**
@@ -102,39 +88,11 @@ class views_plugin_style_jump_menu extends views_plugin_style {
    * This is overridden so that we can render our grouping specially.
    */
   function render() {
-<<<<<<< HEAD
     $sets = $this->render_grouping($this->view->result, $this->options['grouping']);
-=======
-    $result = $this->view->result;
-    // Group the rows according to the grouping field, if specified.
-    $fields = $this->render_fields($result);
-    $sets = array();
-    if ($this->options['grouping']) {
-      foreach ($result as $index => $row) {
-        $grouping = '';
-        // Group on the rendered version of the field, not the raw.  That way,
-        // we can control any special formatting of the grouping field through
-        // the admin or theme layer or anywhere else we'd like.
-        if (isset($this->view->field[$this->options['grouping']])) {
-          $grouping = strip_tags($this->get_field($index, $this->options['grouping']));
-          if ($this->view->field[$this->options['grouping']]->options['label']) {
-            $grouping = $this->view->field[$this->options['grouping']]->options['label'] . ': ' . $grouping;
-          }
-          $grouping = url($grouping);
-        }
-        $sets[$grouping][] = $row;
-      }
-    }
-    else {
-      // Create a single group with an empty grouping field.
-      $sets[''] = $result;
-    }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     // Turn this all into an $options array for the jump menu.
     $this->view->row_index = 0;
     $options = array();
-<<<<<<< HEAD
     $paths = array();
 
     foreach ($sets as $title => $records) {
@@ -162,44 +120,29 @@ class views_plugin_style_jump_menu extends views_plugin_style {
 
         $path = url($path, $url_options);
         $field = html_entity_decode(strip_tags($this->row_plugin->render($row)), ENT_QUOTES);
-=======
-    foreach ($sets as $title => $records) {
-      foreach ($records as $row) {
-        $path = strip_tags($this->get_field($this->view->row_index, $this->options['path']));
-        $field = strip_tags($this->row_plugin->render($row));;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         if ($title) {
           $options[$title][$path] = $field;
         }
         else {
           $options[$path] = $field;
         }
-<<<<<<< HEAD
         $paths[$path] = $path;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $this->view->row_index++;
       }
     }
     unset($this->view->row_index);
 
-<<<<<<< HEAD
     $default_value = '';
     if ($this->options['default_value'] && !empty($paths[url($_GET['q'])])) {
       $default_value = url($_GET['q']);
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ctools_include('jump-menu');
     $settings = array(
       'hide' => $this->options['hide'],
       'button' => $this->options['text'],
       'choose' => $this->options['choose'],
-<<<<<<< HEAD
       'default_value' => $default_value,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     return drupal_get_form('ctools_jump_menu', $options, $settings);

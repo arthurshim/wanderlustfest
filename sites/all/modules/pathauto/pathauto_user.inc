@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: pathauto_user.inc,v 1.28.2.4 2010/07/31 15:57:16 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -117,7 +113,6 @@ function contact_pathauto($op) {
  * Bulk generate aliases for all users without aliases.
  */
 function user_pathauto_bulkupdate() {
-<<<<<<< HEAD
   $concat = _pathauto_sql_concat("'user/'", 'u.uid');
   $sql = "SELECT u.uid FROM {users} u LEFT JOIN {url_alias} ua ON $concat = ua.src WHERE u.uid > 0 AND ua.src IS NULL";
   $query = db_query_range($sql, 0, variable_get('pathauto_max_bulk_update', 50));
@@ -129,17 +124,6 @@ function user_pathauto_bulkupdate() {
     $placeholders = pathauto_get_placeholders('user', $account);
     $source = 'user/'. $account->uid;
     if (pathauto_create_alias('user', 'bulkupdate', $placeholders, $source, $account->uid)) {
-=======
-  $query = "SELECT uid, name, src, dst FROM {users} LEFT JOIN {url_alias} ON CONCAT('user/', CAST(uid AS CHAR)) = src WHERE uid > 0 AND src IS NULL";
-  $result = db_query_range($query, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($user = db_fetch_object($result)) {
-    $placeholders = pathauto_get_placeholders('user', $user);
-    $source = 'user/'. $user->uid;
-    if (pathauto_create_alias('user', 'bulkupdate', $placeholders, $source, $user->uid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $count++;
     }
   }
@@ -153,7 +137,6 @@ function user_pathauto_bulkupdate() {
  * Bulk generate aliases for all blogs without aliases.
  */
 function blog_pathauto_bulkupdate() {
-<<<<<<< HEAD
   $concat = _pathauto_sql_concat("'blog/'", 'u.uid');
   $sql = "SELECT u.uid FROM {users} u LEFT JOIN {url_alias} ua ON $concat = ua.src WHERE u.uid > 0 AND ua.src IS NULL";
   $query = db_query_range($sql, 0, variable_get('pathauto_max_bulk_update', 50));
@@ -165,17 +148,6 @@ function blog_pathauto_bulkupdate() {
     $placeholders = pathauto_get_placeholders('user', $account);
     $source = 'blog/'. $account->uid;
     if (pathauto_create_alias('blog', 'bulkupdate', $placeholders, $source, $account->uid)) {
-=======
-  $query = "SELECT uid, name, src, dst FROM {users} LEFT JOIN {url_alias} ON CONCAT('blog/', CAST(uid AS CHAR)) = src WHERE uid > 0 AND src IS NULL";
-  $result = db_query_range($query, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($user = db_fetch_object($result)) {
-    $placeholders = pathauto_get_placeholders('user', $user);
-    $source = 'blog/'. $user->uid;
-    if (pathauto_create_alias('blog', 'bulkupdate', $placeholders, $source, $user->uid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $count++;
     }
   }
@@ -189,7 +161,6 @@ function blog_pathauto_bulkupdate() {
  * Bulk generate aliases for user trackers without aliases.
  */
 function tracker_pathauto_bulkupdate() {
-<<<<<<< HEAD
   $concat = _pathauto_sql_concat("'user/'", 'u.uid', "'/track'");
   $sql = "SELECT u.uid FROM {users} u LEFT JOIN {url_alias} ua ON $concat = ua.src WHERE u.uid > 0 AND ua.src IS NULL";
   $query = db_query_range($sql, 0, variable_get('pathauto_max_bulk_update', 50));
@@ -201,19 +172,6 @@ function tracker_pathauto_bulkupdate() {
     $placeholders = pathauto_get_placeholders('user', $account);
     $src = 'user/'. $account->uid .'/track';
     if (pathauto_create_alias('tracker', 'bulkupdate', $placeholders, $src, $account->uid)) {
-=======
-  // We do the double CONCAT because Pgsql8.1 doesn't support more than three arguments to CONCAT
-  // Hopefully some day we can remove that.
-  $query = "SELECT uid, name, src, dst FROM {users} LEFT JOIN {url_alias} ON CONCAT(CONCAT('user/', CAST(uid AS CHAR)), '/track') = src WHERE uid > 0 AND src IS NULL";
-  $result = db_query_range($query, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($user = db_fetch_object($result)) {
-    $placeholders = pathauto_get_placeholders('user', $user);
-    $src = 'user/'. $user->uid .'/track';
-    if (pathauto_create_alias('tracker', 'bulkupdate', $placeholders, $src, $user->uid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $count++;
     }
   }
@@ -227,7 +185,6 @@ function tracker_pathauto_bulkupdate() {
  * Bulk generate aliases for all users without aliases
  */
 function contact_pathauto_bulkupdate() {
-<<<<<<< HEAD
   $sql = "SELECT u.uid FROM {users} u LEFT JOIN {url_alias} ua ON CONCAT(CONCAT('user/', CAST(u.uid AS CHAR)), '/contact') = ua.src WHERE u.uid > 0 AND ua.src IS NULL";
   $query = db_query_range($sql, 0, variable_get('pathauto_max_bulk_update', 50));
 
@@ -238,17 +195,6 @@ function contact_pathauto_bulkupdate() {
     $placeholders = pathauto_get_placeholders('user', $account);
     $source = 'user/'. $account->uid .'/contact';
     if (pathauto_create_alias('contact', 'bulkupdate', $placeholders, $source, $account->uid)) {
-=======
-  $query = "SELECT uid, name, src, dst FROM {users} LEFT JOIN {url_alias} ON CONCAT(CONCAT('user/', CAST(uid AS CHAR)), '/contact') = src WHERE uid > 0 AND src IS NULL";
-  $result = db_query_range($query, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($user = db_fetch_object($result)) {
-    $placeholders = pathauto_get_placeholders('user', $user);
-    $source = 'user/'. $user->uid .'/contact';
-    if (pathauto_create_alias('contact', 'bulkupdate', $placeholders, $source, $user->uid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $count++;
     }
   }

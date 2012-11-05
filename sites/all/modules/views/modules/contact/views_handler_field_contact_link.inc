@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_contact_link.inc,v 1.2 2009/09/21 21:18:10 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * A field that links to the user contact page, if access is permitted.
  */
@@ -30,7 +26,6 @@ class views_handler_field_contact_link extends views_handler_field_user_link {
     $form['text']['#default_value'] = empty($this->options['text']) ? t('contact') : $this->options['text'];
   }
 
-<<<<<<< HEAD
   // An example of field level access control.
   // We must override the access method in the parent class, as that requires
   // the 'access user profiles' permission, which the contact form does not.
@@ -45,18 +40,11 @@ class views_handler_field_contact_link extends views_handler_field_user_link {
     return TRUE;
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   function render($values) {
     global $user;
     $uid = $values->{$this->aliases['uid']};
 
-<<<<<<< HEAD
     if (empty($uid)) {
-=======
-    // Only registered users can view other registered user's contact page.
-    if (empty($user->uid) || empty($uid)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return;
     }
 
@@ -67,12 +55,8 @@ class views_handler_field_contact_link extends views_handler_field_user_link {
 
     // Check access when we pull up the user account so we know
     // if the user has made the contact page available.
-<<<<<<< HEAD
     $menu_item = menu_get_item("user/$uid/contact");
     if (!$menu_item['access'] || empty($account->contact)) {
-=======
-    if (!_contact_user_tab_access($account) || empty($account->contact)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return;
     }
 

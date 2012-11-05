@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date_repeat_calc.inc,v 1.8.4.25 2011/01/01 00:52:57 karens Exp $
-=======
-// $Id: date_repeat_calc.inc,v 1.8.4.19 2010/08/12 21:06:57 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Code to compute the dates that match an iCal RRULE.
@@ -18,11 +14,7 @@
  * so the calculation code is not called more often than necessary.
  *
  * Currently implemented:
-<<<<<<< HEAD
  * INTERVAL, UNTIL, COUNT, EXDATE, RDATE, BYDAY, BYMONTHDAY, BYMONTH,
-=======
- * INTERVAL, UNTIL, COUNT, EXDATE, BYDAY, BYMONTHDAY, BYMONTH,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * YEARLY, MONTHLY, WEEKLY, DAILY
  *
  * Currently not implemented:
@@ -39,11 +31,7 @@
  *
  * Compute dates that match the requested rule, within a specified date range.
  */
-<<<<<<< HEAD
 function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone, $additions) {
-=======
-function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   require_once('./'. drupal_get_path('module', 'date_api') .'/date_api_ical.inc');
   
   if (empty($timezone)) {
@@ -51,11 +39,7 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
   }
   
   // Make sure the 'EXCEPTIONS' string isn't appended to the rule.
-<<<<<<< HEAD
   $parts = explode("\n", $rrule);
-=======
-  $parts = split("\n", $rrule);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (count($parts)) {
     $rrule = $parts[0];
   }
@@ -123,11 +107,7 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
     $direction_days = array();
     // Deconstruct the day in case it has a negative modifier.
     foreach ($rrule['BYMONTHDAY'] as $day) {
-<<<<<<< HEAD
       preg_match("@(-)?([0-9]{1,2})@", $day, $regs);
-=======
-      ereg("(-)?([0-9]{1,2})", $day, $regs);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if (!empty($regs[2])) {
         // Convert parameters into full day name, count, and direction.
         $direction_days[$day] = array(
@@ -153,11 +133,7 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
             $period_finished = TRUE;
           }
           // Back up to first of month and jump.
-<<<<<<< HEAD
           $current_day = date_repeat_set_month_day($current_day, NULL, 1, '+', $timezone);
-=======
-          $current_day = date_repeat_set_month_day($current_day, NULL, 1, $timezone);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           date_modify($current_day, '+'. $jump);
         }
         // If it's yearly, break out of the loop at the
@@ -168,22 +144,14 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
           }
           else {
             // Back up to first of month and jump.
-<<<<<<< HEAD
             $current_day = date_repeat_set_month_day($current_day, NULL, 1, '+', $timezone);
-=======
-            $current_day = date_repeat_set_month_day($current_day, NULL, 1, $timezone);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             date_modify($current_day, '+1 month');
           }
         }
       }
       if ($rrule['FREQ'] == 'YEARLY') {
         // Back up to first of year and jump.
-<<<<<<< HEAD
         $current_day = date_repeat_set_year_day($current_day, NULL, 1, '+', $timezone);
-=======
-        $current_day = date_repeat_set_year_day($current_day, NULL, 1, $timezone);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         date_modify($current_day, '+'. $jump);
       }
       $finished = date_repeat_is_finished($current_day, $days, $count, $end_date);
@@ -234,11 +202,7 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
     $ordered_keys = array_flip($ordered);
 
     foreach ($rrule['BYDAY'] as $day) {
-<<<<<<< HEAD
       preg_match("@(-)?([0-9]+)?([SU|MO|TU|WE|TH|FR|SA]{2})@", trim($day), $regs);
-=======
-      ereg("(-)?([1-5])?([SU|MO|TU|WE|TH|FR|SA]{2})", trim($day), $regs);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if (!empty($regs[2])) {
         // Convert parameters into full day name, count, and direction.
         $direction_days[] = array(
@@ -299,19 +263,11 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
       $current_day = drupal_clone($start_date);
       $format = $rrule['FREQ'] == 'YEARLY' ? 'Y' : 'n';
       $current_period = date_format($current_day, $format);
-<<<<<<< HEAD
-=======
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       // Back up to the beginning of the week in case we are somewhere in the
       // middle of the possible week days, needed so we don't prematurely
       // jump to the next week. The date_repeat_add_dates() function will
       // keep dates outside the range from getting added.
-<<<<<<< HEAD
       if (date_format($current_day, 'l') != $day_names[$day]) {  
-=======
-      if (date_format($current_day, 'l') != $day) {  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         date_modify($current_day, '-1 '. $week_start_day);
       }
       while (!$finished) {
@@ -384,15 +340,12 @@ function _date_repeat_calc($rrule, $start, $end, $exceptions, $timezone) {
       }
     }
   }
-<<<<<<< HEAD
   
   // add additional dates
   foreach($additions as $addition) {
     $days[] = date_format($addition, DATE_FORMAT_DATETIME);
   }
   
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   sort($days);
   return $days;
 }
@@ -471,28 +424,18 @@ function date_repeat_add_dates(&$days, $current_day, $start_date, $end_date, $ex
   }
   if (!empty($rrule['BYMONTHDAY'])) {
     // Test month days, but only if there are no negative numbers.
-<<<<<<< HEAD
     $test = TRUE;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $BYMONTHDAYS = array();
     foreach ($rrule['BYMONTHDAY'] as $day) {
       if ($day > 0) {
         $BYMONTHDAYS[] = $day;
       }
       else {
-<<<<<<< HEAD
         $test = FALSE;
         break;
       }
     }
     if ($test && !empty($BYMONTHDAYS) && !in_array(date_format($current_day, 'j'), $BYMONTHDAYS)) {
-=======
-        break;
-      }
-    }
-    if (!empty($BYMONTHDAYS) && !in_array(date_format($current_day, 'j'), $BYMONTHDAYS)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       return FALSE;
     }
   }
@@ -556,12 +499,8 @@ function date_repeat_set_month_day($date_in, $day, $count = 1, $direction = '+',
       // Use the English text for order, like First Sunday
       // instead of +1 Sunday to overcome PHP5 bug, (see #369020).
       $order = date_order();
-<<<<<<< HEAD
       $step = $count <= 5 ? $order[$direction . $count] : $count;
       date_modify($date, $step . ' ' . $day);
-=======
-      date_modify($date, $order[$direction . $count] .' '. $day);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     
     // If that takes us outside the current month, don't go there.
@@ -607,12 +546,8 @@ function date_repeat_set_year_day($date_in, $day, $count = 1, $direction = '+', 
       // Use the English text for order, like First Sunday
       // instead of +1 Sunday to overcome PHP5 bug, (see #369020).
       $order = date_order();
-<<<<<<< HEAD
       $step = $count <= 5 ? $order[$direction . $count] : $count;
       date_modify($date, $step . ' ' . $day);
-=======
-      date_modify($date, $order[$direction . $count] .' '. $day);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
     
     // If that takes us outside the current year, don't go there.

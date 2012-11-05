@@ -1,20 +1,13 @@
 <?php
-<<<<<<< HEAD
 // $Id: image_captcha.module,v 1.33.2.4 2011/02/06 20:45:12 soxofaan Exp $
-=======
-// $Id: image_captcha.module,v 1.33.2.1 2010/03/16 21:09:17 soxofaan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
  * Implementation of image CAPTCHA for use with the CAPTCHA module
  */
 
-<<<<<<< HEAD
 // TODO: add test for fallback to simple math challenge in maintenance mode.
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 define('IMAGE_CAPTCHA_ALLOWED_CHARACTERS', 'aAbBCdEeFfGHhijKLMmNPQRrSTtWXYZ23456789');
 
 // Setup status flags.

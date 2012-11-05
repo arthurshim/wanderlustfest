@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_bulk_operations.drush.inc,v 1.1.2.6 2010/02/23 21:12:37 kratib Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implementation of hook_drush_help().
@@ -21,24 +17,15 @@ function views_bulk_operations_drush_help($section) {
  */
 function views_bulk_operations_drush_command() {
   $items['vbo-list'] = array(
-<<<<<<< HEAD
     'callback' => 'drush_views_bulk_operations_list',
     'description' => 'List all Views Bulk Operations (VBO) views, along with the operations associated with each.',
   );
   $items['vbo-execute'] = array(
     'callback' => 'drush_views_bulk_operations_execute',
-=======
-    'callback' => 'views_bulk_operations_drush_list',
-    'description' => 'List all Views Bulk Operations (VBO) views, along with the operations associated with each.',
-  );
-  $items['vbo-execute'] = array(
-    'callback' => 'views_bulk_operations_drush_execute',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'description' => 'Execute a bulk operation based on a Views Bulk Operations (VBO) view.',
     'arguments' => array(
       'vid' => 'ID or name of the view to be executed.',
       'operation' => 'Callback name of the operation to be applied on the view results.',
-<<<<<<< HEAD
       'input:name=value ...' => 'Parameter to be passed as view input filter.',
       'operation:name=value ...' => 'Parameter to be passed as operation argument.',
       'argument:value ...' => 'Parameter to be passed as view argument.',
@@ -49,16 +36,6 @@ function views_bulk_operations_drush_command() {
       '$ drush vbo-execute 44 node_assign_owner_action operation:owner_uid=3' =>
         'Change node ownership on nodes returned by view #44, passing argument owner_uid=3 to the action.',
       '$ drush vbo-execute admin_content node_unpublish_action input:type=expense argument:3' =>
-=======
-      'type:[name=]value ...' => 'Parameters to be passed as view input filters, view arguments or operation arguments, where type is respectively {input, argument, operation}.',
-    ),
-    'examples' => array(
-      '$ drush vbo-execute admin_content node_publish_action' => 
-        'Publish nodes returned by view admin_content.',
-      '$ drush vbo-execute 44 node_assign_owner_action operation:owner_uid=3' => 
-        'Change node ownership on nodes returned by view #44, passing argument owner_uid=3 to the action.',
-      '$ drush vbo-execute admin_content node_unpublish_action input:type=expense argument:3' => 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'Unpublish nodes returned by view admin_content, filtering results of type expense and passing value 3 as first view argument.',
     ),
   );
@@ -66,15 +43,9 @@ function views_bulk_operations_drush_command() {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of 'vbo-list' command.
  */
 function drush_views_bulk_operations_list() {
-=======
- * Implementation of 'vbo list' command.
- */
-function views_bulk_operations_drush_list() {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Impersonate admin.
   global $user;
   $user = user_load(array('uid' => '1'));
@@ -84,7 +55,6 @@ function views_bulk_operations_drush_list() {
   $rows = array(array(sprintf('%5s', dt('VID')), dt('NAME'), dt('DESCRIPTION'), dt('OPERATIONS')));
   foreach (views_get_all_views() as $name => $view) {
     foreach (array_keys($view->display) as $display) {
-<<<<<<< HEAD
       $display_options = $view->display[$display]->display_options;
       if (isset($display_options['style_plugin']) && $display_options['style_plugin'] == 'bulk') {
         $view->build($display);
@@ -95,20 +65,6 @@ function views_bulk_operations_drush_list() {
         $operations[] = "---------------";
         $rows[] = array(
           empty($view->vid) ? sprintf('%5s', '---') : sprintf('%5d', $view->vid),
-=======
-      $display_options = &$view->display[$display]->display_options;
-      if (isset($display_options['style_plugin']) && $display_options['style_plugin'] == 'bulk') {
-        $view->build($display);
-        $operations = array();
-        foreach (array_filter($display_options['style_options']['selected_operations']) as $operation) {
-          if (isset($view->style_plugin->options['all_operations'][$operation])) {
-            $operations[] = $view->style_plugin->options['all_operations'][$operation]['label'] .' ('. $operation .')';
-          }
-        }
-        $operations[] = "---------------";
-        $rows[] = array(
-          sprintf('%5d', $view->vid),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $view->name,
           $view->description,
           implode("\n", $operations),
@@ -120,15 +76,9 @@ function views_bulk_operations_drush_list() {
 }
 
 /**
-<<<<<<< HEAD
  * Implementation of 'vbo-execute' command.
  */
 function drush_views_bulk_operations_execute($vid = NULL, $operation = NULL) {
-=======
- * Implementation of 'vbo execute' command.
- */ 
-function views_bulk_operations_drush_execute($vid = NULL, $operation = NULL) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Parse arguments.
   if (is_null($vid)) {
     drush_set_error('VIEWS_BULK_OPERATIONS_MISSING_VID', dt('Please specify a view ID to execute.'));
@@ -172,7 +122,3 @@ function views_bulk_operations_drush_execute($vid = NULL, $operation = NULL) {
   // Execute the VBO.
   views_bulk_operations_execute($vid, $operation, $operation_arguments, $view_exposed_input, $view_arguments);
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

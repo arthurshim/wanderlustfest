@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: text.module,v 1.95.2.32 2011/01/03 14:29:09 yched Exp $
-=======
-// $Id: text.module,v 1.95.2.30 2009/07/18 01:18:07 markuspetrux Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -171,18 +167,10 @@ function text_field($op, &$node, $field, &$items, $teaser, $page) {
     case 'sanitize':
       foreach ($items as $delta => $item) {
         if (!empty($field['text_processing'])) {
-<<<<<<< HEAD
           $text = isset($item['value']) ? check_markup($item['value'], $item['format'], FALSE) : '';
         }
         else {
           $text = isset($item['value']) ? check_plain($item['value']) : '';
-=======
-          $check = is_null($node) || (isset($node->build_mode) && $node->build_mode == NODE_BUILD_PREVIEW);
-          $text = isset($item['value']) ? check_markup($item['value'], $item['format'], $check) : '';
-        }
-        else {
-          $text = check_plain($item['value']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         }
         $items[$delta]['safe'] = $text;
       }
@@ -494,8 +482,4 @@ function theme_text_textfield($element) {
 
 function theme_text_textarea($element) {
   return $element['#children'];
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

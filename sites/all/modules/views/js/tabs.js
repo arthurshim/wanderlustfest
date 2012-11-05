@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: tabs.js,v 1.4.2.1 2010/03/10 20:08:58 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file tabs.js

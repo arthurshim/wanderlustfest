@@ -1,7 +1,6 @@
 Webform 2.x Changelog
 ---------------------
 
-<<<<<<< HEAD
 2.x to 3.0
 ----------
 - Module directory structure moved around.
@@ -18,8 +17,6 @@ Webform 2.x Changelog
 - Popup calendar support on Date components (with Date Popup module).
 - New Mollom module integration.
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 1.x to 2.0
 ----------
 - Redirect POST option removed.
@@ -38,7 +35,3 @@ Webform 2.x Changelog
 - Component descriptions are textareas rather than textfields.
 - _webform_filtervalues() has been renamed to _webform_filter_values.
 
-<<<<<<< HEAD
-=======
-$Id: CHANGELOG.txt,v 1.2.2.1 2008/04/02 04:05:12 quicksketch Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

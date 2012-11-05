@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: README.txt,v 1.1.6.6 2008/11/12 18:14:37 aaron Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /*********************/
  Embedded Media Field
@@ -32,47 +28,8 @@ If you have the Job Queue module enabled (from http://drupal.org/project/job_que
  Providers
 /*********/
 
-<<<<<<< HEAD
 All provider files now must be installed seperately! Please see the emfield project page for a list of relevant Media: Modules.
 
-=======
-Currently supported providers:
-
-Video:
-
-    * Blip.TV
-    * Brightcove
-    * Daily Motion
-    * Google
-    * Guba
-    * JumpCut
-    * imeem
-    * Lastfm
-    * LiveVideo
-    * MetaCafe
-    * MySpace
-    * Revver
-    * SevenLoad
-    * Spike.TV
-    * Tudou
-    * Veoh
-    * Vimeo
-    * YouTube
-    * Local videos (when already uploaded in the files directory)
-
-Image:
-
-    * Flickr
-    * ImageShack
-    * PhotoBucket
-    * Picasa
-
-Audio:
-
-    * Odeo
-    * Podcast Alley
-    * podOmatic
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 You can:
 

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: ckeditor.inc,v 1.2.6.5 2010/02/14 00:03:28 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -63,18 +59,12 @@ function wysiwyg_ckeditor_editor() {
  */
 function wysiwyg_ckeditor_version($editor) {
   $library = $editor['library path'] . '/ckeditor.js';
-<<<<<<< HEAD
   if (!file_exists($library)) {
     return;
   }
   $library = fopen($library, 'r');
   $max_lines = 8;
   while ($max_lines && $line = fgets($library, 500)) {
-=======
-  $library = fopen($library, 'r');
-  $max_lines = 8;
-  while ($max_lines && $line = fgets($library, 140)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     // version:'CKEditor 3.0 SVN',revision:'3665'
     // version:'3.0 RC',revision:'3753'
     // version:'3.0.1',revision:'4391'
@@ -112,11 +102,8 @@ function wysiwyg_ckeditor_themes($editor, $profile) {
       }
     }
     closedir($dir_handle);
-<<<<<<< HEAD
     natcasesort($themes);
     $themes = array_values($themes);
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return !empty($themes) ? $themes : array('default');
   }
   else {
@@ -197,26 +184,16 @@ function wysiwyg_ckeditor_settings($editor, $config, $theme) {
     $settings['language'] = $config['language'];
   }
   if (isset($config['resizing'])) {
-<<<<<<< HEAD
     // CKEditor tests "!== false", so ensure it is a Boolean.
     $settings['resize_enabled'] = (bool) $config['resizing'];
-=======
-    $settings['resize_enabled'] = $config['resizing'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   if (isset($config['toolbar_loc'])) {
     $settings['toolbarLocation'] = $config['toolbar_loc'];
   }
 
-<<<<<<< HEAD
   $settings['toolbar'] = array();
   if (!empty($config['buttons'])) {
     $extra_plugins = array();
-=======
-  if (!empty($config['buttons'])) {
-    $extra_plugins = array();
-    $settings['toolbar'] = array();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $plugins = wysiwyg_get_plugins($editor['name']);
     foreach ($config['buttons'] as $plugin => $buttons) {
       foreach ($buttons as $button => $enabled) {
@@ -256,17 +233,9 @@ function wysiwyg_ckeditor_settings($editor, $config, $theme) {
     if (!empty($extra_plugins)) {
       $settings['extraPlugins'] = implode(',', $extra_plugins);
     }
-<<<<<<< HEAD
   }
   // For now, all buttons are placed into one row.
   $settings['toolbar'] = array($settings['toolbar']);
-=======
-    // For now, all buttons are placed into one row.
-    if (!empty($settings['toolbar'])) {
-      $settings['toolbar'] = array($settings['toolbar']);
-    }
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $settings;
 }
@@ -282,20 +251,13 @@ function wysiwyg_ckeditor_plugin_settings($editor, $profile, $plugins) {
       $settings[$name] = array();
       // Add path for native external plugins.
       if (empty($plugin['internal']) && isset($plugin['path'])) {
-<<<<<<< HEAD
         $settings[$name]['path'] = base_path() . $plugin['path'] . '/';
-=======
-        $settings[$name]['path'] = base_path() . $plugin['path'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
       // Force native internal plugins to use the standard path.
       else {
         $settings[$name]['path'] = base_path() . $editor['library path'] . '/plugins/' . $name . '/';
       }
-<<<<<<< HEAD
       // CKEditor defaults to 'plugin.js' on its own when filename is not set.
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       if (!empty($plugin['filename'])) {
         $settings[$name]['fileName'] = $plugin['filename'];
       }
@@ -351,10 +313,7 @@ function wysiwyg_ckeditor_plugins($editor) {
         'SelectAll' => t('Select all'), 'Find' => t('Search'), 'Replace' => t('Replace'),
         'Flash' => t('Flash'), 'Smiley' => t('Smiley'),
         'CreateDiv' => t('Div container'),
-<<<<<<< HEAD
         'Iframe' => t('iFrame'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         'Maximize' => t('Maximize'),
         'SpellChecker' => t('Check spelling'), 'Scayt' => t('Check spelling as you type'),
         'About' => t('About'),
@@ -366,12 +325,9 @@ function wysiwyg_ckeditor_plugins($editor) {
   if (version_compare($editor['installed version'], '3.1.0.4885', '<')) {
     unset($plugins['default']['buttons']['CreateDiv']);
   }
-<<<<<<< HEAD
   if (version_compare($editor['installed version'], '3.5.0.6260', '<')) {
     unset($plugins['default']['buttons']['Iframe']);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $plugins;
 }
 

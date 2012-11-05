@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: imagecache_actions.inc,v 1.24.2.3 2009/08/19 21:05:31 drewish Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 function imagecache_resize_form($action) {
   $form['width'] = array(

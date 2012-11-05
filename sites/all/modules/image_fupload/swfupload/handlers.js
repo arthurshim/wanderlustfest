@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-/* $Id: handlers.js,v 1.18 2009/04/05 20:31:56 grandcat Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /* 
 	File: handlers.js
@@ -33,11 +29,7 @@ function fileQueued(file) {
 function fileQueueError(file, errorCode, message) {
 	try {
 		if (errorCode === SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {
-<<<<<<< HEAD
 			alert(Drupal.t("You have attempted to queue too many files.") + "\n" + (Drupal.t("You may select @files", { '@files': Drupal.formatPlural(message, 'one file.', 'up to @count files.')})));
-=======
-			alert(Drupal.t("You have attempted to queue too many files.") + "\n" + (Drupal.t("You may select @files?", { '@files': Drupal.formatPlural(message, 'one file.', 'up to @count files.')})));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 			return;
 		}
 
@@ -281,8 +273,4 @@ function fupload_redirect(url) {
     url = document.getElementById('redirect_url').value;
   if (url)
     window.location = url;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

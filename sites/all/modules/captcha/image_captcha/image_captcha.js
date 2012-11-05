@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 // $Id: image_captcha.js,v 1.1.2.2 2010/11/29 23:34:44 soxofaan Exp $
 
 // JavaScript behaviors for the Image CAPTCHA admin page
 Drupal.behaviors.imageCaptchaAdmin = function (context) {
-=======
-// $Id: image_captcha.js,v 1.1 2009/06/21 16:01:53 soxofaan Exp $
-
-$(document).ready(function(){
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 	// Helper function to show/hide noise level widget.
 	var noise_level_shower = function(speed) {
@@ -40,8 +34,4 @@ $(document).ready(function(){
 	// Show or hide appropriately on page load.
 	smooth_distortion_shower(0)
 
-<<<<<<< HEAD
 };
-=======
-});
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

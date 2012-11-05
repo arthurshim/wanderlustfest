@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: docs.php,v 1.16.2.2 2010/03/08 20:04:40 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * This file contains no working PHP code; it exists to provide additional documentation
@@ -182,11 +178,8 @@ function hook_views_data() {
       'handler' => 'views_handler_filter_boolean_operator',
       'label' => t('Published'),
       'type' => 'yes-no',
-<<<<<<< HEAD
       // use boolean_field = 1 instead of boolean_field <> 0 in WHERE statment
       'use equal' => TRUE,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
     'sort' => array(
       'handler' => 'views_handler_sort',
@@ -213,7 +206,6 @@ function hook_views_data() {
 }
 
 /**
-<<<<<<< HEAD
  * Alter table structure.
  *
  * You can add/edit/remove to existing tables defined by hook_views_data().
@@ -244,8 +236,6 @@ function hook_views_data_alter(&$data) {
 
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * The full documentation for this hook is now in the advanced help.
  *
  * This hook should be placed in MODULENAME.views.inc and it will be auto-loaded.
@@ -320,13 +310,7 @@ function hook_views_default_views() {
   $view->name = 'frontpage';
   $view->description = t('Emulates the default Drupal front page; you may set the default home page path to this view to make it your front page.');
   $view->tag = t('default');
-<<<<<<< HEAD
   $view->base_table = 'node';
-=======
-  $view->view_php = '';
-  $view->base_table = 'node';
-  $view->is_cacheable = '0';
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $view->api_version = 2;
   $view->disabled = FALSE; // Edit this to true to make a default view disabled initially
   $view->display = array();
@@ -610,7 +594,6 @@ function hook_views_pre_build(&$view) {
 }
 
 /**
-<<<<<<< HEAD
  * This hook is called right after the build process. The query is
  * now fully built, but it has not yet been run through db_rewrite_sql.
  *
@@ -622,8 +605,6 @@ function hook_views_post_build(&$view) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * This hook is called right before the execute process. The query is
  * now fully built, but it has not yet been run through db_rewrite_sql.
  *
@@ -635,7 +616,6 @@ function hook_views_pre_execute(&$view) {
 }
 
 /**
-<<<<<<< HEAD
  * This hook is called right after the execute process. The query has
  * been executed, but the pre_render() phase has not yet happened for
  * handlers.
@@ -649,8 +629,6 @@ function hook_views_post_execute(&$view) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * This hook is called right before the render process. The query has
  * been executed, and the pre_render() phase has already happened for
  * handlers, so all data should be available.

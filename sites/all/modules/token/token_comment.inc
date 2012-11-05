@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: token_comment.inc,v 1.3.4.11 2010/07/08 00:41:19 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -21,7 +17,6 @@
  */
 function comment_token_values($type, $object = NULL, $options = array()) {
   $values = array();
-<<<<<<< HEAD
 
   if ($type == 'comment' && !empty($object)) {
     // Cast to an object just in case fussy Drupal gave us an array
@@ -59,47 +54,6 @@ function comment_token_values($type, $object = NULL, $options = array()) {
 
     $values['comment-node-title-raw']  = db_result(db_query("SELECT title FROM {node} WHERE nid = %d", $comment->nid));
     $values['comment-node-title']      = check_plain($values['comment-node-title-raw']);
-=======
-  switch ($type) {
-    case 'comment':
-
-      // Cast to an object just in case fussy Drupal gave us an array
-      $comment = (object)$object;
-
-      $values['comment-cid']             = $comment->cid;
-      $values['comment-nid']             = $comment->nid;
-      $values['comment-title']           = check_plain($comment->subject);
-      $values['comment-body']            = check_markup($comment->comment, $comment->format, FALSE);
-      $values['comment-author-name']     = check_plain($comment->name);
-      $values['comment-author-uid']      = $comment->uid;
-      $values['comment-author-homepage'] = check_url($comment->homepage);
-
-      // Raw counterparts of user supplied data.
-      $values['comment-title-raw']       = $comment->subject;
-      $values['comment-body-raw']        = $comment->comment;
-      $values['comment-author-name-raw'] = $comment->name;
-
-      if (!empty($comment->mail)) {
-        $account_mail = $comment->mail;
-      }
-      elseif (!empty($comment->uid)) {
-        $account_mail = db_result(db_query("SELECT mail FROM {users} WHERE uid = %d", $comment->uid));
-      }
-      else {
-        $account_mail = '';
-      }
-      $values['comment-author-mail']     = check_plain($account_mail);
-      $values['comment-author-mail-raw'] = $account_mail;
-
-      // Included in case a consuming module wants to format the body
-      $values['comment-body-format']     = $comment->format;
-
-      $values += token_get_date_token_values($comment->timestamp, 'comment-');
-
-      $values['comment-node-title-raw']  = db_result(db_query("SELECT title FROM {node} WHERE nid = %d", $comment->nid));
-      $values['comment-node-title']      = check_plain($values['comment-node-title-raw']);
-      break;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   return $values;
@@ -109,11 +63,8 @@ function comment_token_values($type, $object = NULL, $options = array()) {
  * Implementation of hook_token_list().
  */
 function comment_token_list($type = 'all') {
-<<<<<<< HEAD
   $tokens = array();
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($type == 'comment' || $type == 'all') {
     $tokens['comment']['comment-cid']             = t('The unique ID of the comment.');
     $tokens['comment']['comment-nid']             = t('The unique ID of the node the comment was posted to.');
@@ -134,13 +85,7 @@ function comment_token_list($type = 'all') {
 
     $tokens['comment']['comment-node-title']      = t('The title of the node the comment was posted to.');
     $tokens['comment']['comment-node-title-raw']  = t('The title of the node the comment was posted to.');
-<<<<<<< HEAD
   }
 
   return $tokens;
-=======
-
-    return $tokens;
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

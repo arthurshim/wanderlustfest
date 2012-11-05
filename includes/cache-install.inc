@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: cache-install.inc,v 1.2 2007/08/07 08:39:35 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * A stub cache implementation to be used during the installation

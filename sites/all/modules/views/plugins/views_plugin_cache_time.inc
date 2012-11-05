@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_plugin_cache_time.inc,v 1.3 2009/06/30 21:57:22 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Simple caching of query results for Views displays.
@@ -48,7 +44,6 @@ class views_plugin_cache_time extends views_plugin_cache {
     }
   }
 
-<<<<<<< HEAD
   function cache_set_expire($type) {
     if ($lifespan = $this->options[$type . '_lifespan']) {
       return time() + $lifespan;
@@ -57,6 +52,4 @@ class views_plugin_cache_time extends views_plugin_cache {
       return CACHE_PERMANENT;
     }
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

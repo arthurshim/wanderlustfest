@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: aggregator-item.tpl.php,v 1.1 2007/09/13 08:02:38 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file aggregator-item.tpl.php

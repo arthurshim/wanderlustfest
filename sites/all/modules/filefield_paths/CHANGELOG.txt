@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // $Id: CHANGELOG.txt,v 1.1.2.19 2010/01/11 06:07:16 deciphered Exp $
 
 FileField Paths 6.x-1.4, 2010-01-11
@@ -21,13 +20,6 @@ FileField Paths 6.x-1.4, 2010-01-11
 - Added cleanup of removed field instance settings.
 - Fixed issue with revisions support.
 
-=======
-// $Id: CHANGELOG.txt,v 1.1.2.11 2009/07/03 07:06:50 deciphered Exp $
-
-FileField Paths 6.x-1.x-dev, xxxx-xx-xx (development release)
------------------------------------
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 FileField Paths 6.x-1.3, 2009-07-03
 -----------------------------------

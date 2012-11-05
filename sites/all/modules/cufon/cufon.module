@@ -18,7 +18,6 @@ function cufon_perm() {
  * Implementation of hook_init().
  */
 function cufon_init() {
-<<<<<<< HEAD
  $js = drupal_get_path('module', 'cufon') .'/js';
  /* if (!file_exists($js .'/cufon-yui.js')) {
     drupal_set_message(t('<strong>Cufón:</strong> You must download <a href="http://cufon.shoqolate.com/js/cufon-yui.js">cufon-yui.js</a> and install it to <code>@js</code>.', array('@js' => $js)));
@@ -29,15 +28,6 @@ function cufon_init() {
  
 
  //drupal_add_js((defined('LABJS_EXCLUDE') ? LABJS_EXCLUDE . "\n" : "") . $js .'/cufon-drupal.js', 'inline');
-=======
-  $js = drupal_get_path('module', 'cufon') .'/js';
-  if (!file_exists($js .'/cufon-yui.js')) {
-    drupal_set_message(t('<strong>Cufón:</strong> You must download <a href="http://cufon.shoqolate.com/js/cufon-yui.js">cufon-yui.js</a> and install it to <code>@js</code>.', array('@js' => $js)));
-    return;
-  }
-  drupal_add_js($js .'/cufon-yui.js', 'module');
-  drupal_add_js($js .'/cufon-drupal.js', 'module', 'footer');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -122,9 +112,5 @@ function cufon_preprocess_page(&$vars) {
   drupal_add_js(array('cufonSelectors' => $selectors), 'setting');
 
   $vars['scripts'] = drupal_get_js();
-<<<<<<< HEAD
 
-=======
-  $vars['closure'] = theme('closure'); 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

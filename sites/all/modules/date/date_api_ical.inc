@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 /* $Id: date_api_ical.inc,v 1.35.4.34 2010/10/26 10:21:36 karens Exp $ */
-=======
-/* $Id: date_api_ical.inc,v 1.35.4.32 2010/08/13 15:26:24 karens Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Parse iCal data.
@@ -69,7 +65,6 @@
  *         [tz] => US/Eastern
  *       )
  *     )
-<<<<<<< HEAD
  *     [RDATE] => Array (
  *       [0] = Array (
  *         [datetime] => 1997-09-21 09:00:00
@@ -82,8 +77,6 @@
  *         [tz] => US/Eastern
  *       )
  *     )
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   )
  *
  * @param $filename
@@ -264,10 +257,6 @@ function date_ical_parse($icaldatafolded = array()) {
         case 'DTSTART':
         case 'DTEND':
         case 'DTSTAMP':
-<<<<<<< HEAD
-=======
-        case 'RDATE':
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         case 'FREEBUSY':
         case 'DUE':
         case 'COMPLETED':
@@ -275,10 +264,7 @@ function date_ical_parse($icaldatafolded = array()) {
           break;
 
         case 'EXDATE':
-<<<<<<< HEAD
         case 'RDATE':
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $parse_result = date_ical_parse_exceptions($field, $data);
           break;
 
@@ -408,14 +394,10 @@ function date_ical_parse_date($field, $data) {
     $datetime = date_pad($regs[1]) .'-'. date_pad($regs[2]) .'-'. date_pad($regs[3]); // Date
     if (isset($regs[4])) {
       $has_time = true;
-<<<<<<< HEAD
         $has_time = TRUE;
         $datetime .= ' ' . (!empty($regs[5]) ? date_pad($regs[5]) : '00') .
          ':' . (!empty($regs[6]) ? date_pad($regs[6]) : '00') .
          ':' . (!empty($regs[7]) ? date_pad($regs[7]) : '00'); // Time
-=======
-      $datetime .= ' '.date_pad($regs[5]) .':'. date_pad($regs[6]) .':'. date_pad($regs[7]); // Time
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
 
@@ -487,11 +469,7 @@ function date_ical_parse_rrule($field, $data) {
  *   an array of date value arrays.
  */
 function date_ical_parse_exceptions($field, $data) {
-<<<<<<< HEAD
   $data = str_replace($field.':', '', $data);
-=======
-  $data = str_replace('EXDATE:', '', $data);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $items = array('DATA' => $data);
   $ex_dates = explode(',', $data);
   foreach ($ex_dates as $ex_date) {
@@ -669,7 +647,6 @@ function date_ical_escape_text($text) {
  *         [tz] => US/Eastern
  *       )
  *     )
-<<<<<<< HEAD
  *     [RDATE] => Array (
  *       [0] = Array (
  *         [datetime] => 1997-09-21 09:00:00
@@ -682,8 +659,6 @@ function date_ical_escape_text($text) {
  *         [tz] => US/Eastern
  *       )
  *     )
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  */
 function date_api_ical_build_rrule($form_values) {
@@ -746,7 +721,6 @@ function date_api_ical_build_rrule($form_values) {
   elseif (!empty($form_values['EXDATE'])) {
     $RRULE .= chr(13) . chr(10) .'EXDATE:'. $form_values['EXDATE'];
   }
-<<<<<<< HEAD
 
   // Exceptions dates go last, on their own line.
   if (isset($form_values['RDATE']) && is_array($form_values['RDATE'])) {
@@ -766,7 +740,5 @@ function date_api_ical_build_rrule($form_values) {
     $RRULE .= chr(13) . chr(10) .'RDATE:'. $form_values['RDATE'];
   }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $RRULE;
 }

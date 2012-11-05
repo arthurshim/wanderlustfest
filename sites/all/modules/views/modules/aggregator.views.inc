@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: aggregator.views.inc,v 1.3.2.1 2010/01/05 01:17:02 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers for aggregator.module
@@ -38,7 +34,6 @@ function aggregator_views_data() {
   // ----------------------------------------------------------------
   // Fields
 
-<<<<<<< HEAD
   // item id.
   $data['aggregator_item']['iid'] = array(
     'title' => t('Feed Item ID'),
@@ -84,8 +79,6 @@ function aggregator_views_data() {
     ),
   );
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // title
   $data['aggregator_item']['title'] = array(
     'title' => t('Title'), // The item it appears as on the UI,
@@ -128,7 +121,6 @@ function aggregator_views_data() {
     'help' => t('The author of the original imported item.'),
      // Information for displaying a title as a field
     'field' => array(
-<<<<<<< HEAD
       'handler' => 'views_handler_field_aggregator_xss',
       'click sortable' => TRUE,
      ),
@@ -150,8 +142,6 @@ function aggregator_views_data() {
     'help' => t('The guid of the original imported item.'),
      // Information for displaying a title as a field
     'field' => array(
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'handler' => 'views_handler_field_xss',
       'click sortable' => TRUE,
      ),
@@ -173,11 +163,7 @@ function aggregator_views_data() {
     'help' => t('The actual content of the imported item.'),
      // Information for displaying a title as a field
     'field' => array(
-<<<<<<< HEAD
       'handler' => 'views_handler_field_aggregator_xss',
-=======
-      'handler' => 'views_handler_field_aggregator_item_description',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'click sortable' => FALSE,
      ),
     // Information for accepting a title as a filter
@@ -240,11 +226,7 @@ function aggregator_views_data() {
     'filter' => array(
       'handler' => 'views_handler_filter_numeric',
     ),
-<<<<<<< HEAD
     // Information for sorting on a fid.
-=======
-    // Information for sorting on a nid.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'sort' => array(
       'handler' => 'views_handler_sort',
     ),
@@ -424,7 +406,6 @@ function aggregator_views_handlers() {
       'views_handler_field_aggregator_category' => array(
         'parent' => 'views_handler_field',
       ),
-<<<<<<< HEAD
       'views_handler_field_aggregator_xss' => array(
         'parent' => 'views_handler_field',
       ),
@@ -433,13 +414,6 @@ function aggregator_views_handlers() {
       'views_handler_argument_aggregator_iid' => array(
         'parent' => 'views_handler_argument_numeric',
       ),
-=======
-      'views_handler_field_aggregator_item_description' => array(
-        'parent' => 'views_handler_field_xss',
-      ),
-
-      // argument handlers
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'views_handler_argument_aggregator_fid' => array(
         'parent' => 'views_handler_argument_numeric',
       ),

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: fieldgroup.module,v 1.79.2.53 2011/01/03 11:03:47 yched Exp $
-=======
-// $Id: fieldgroup.module,v 1.79.2.52 2010/06/09 02:10:01 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -885,11 +881,7 @@ function theme_fieldgroup_fieldset($element) {
  *
  * @see fieldgroup-simple.tpl.php
  */
-<<<<<<< HEAD
 function template_preprocess_fieldgroup_simple(&$vars) {
-=======
-function fieldgroup_preprocess_fieldgroup_simple(&$vars) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $element = $vars['element'];
 
   $vars['group_name'] = $element['#group_name'];
@@ -918,8 +910,4 @@ function fieldgroup_preprocess_node(&$vars) {
     // '#chilren' might not be set if the group is empty.
     $vars[$group_name .'_rendered'] = isset($node->content[$group_name]['#children']) ? $node->content[$group_name]['#children'] : '';
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

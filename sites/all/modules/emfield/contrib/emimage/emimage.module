@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: emimage.module,v 1.1.2.14 2009/09/21 16:20:09 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -37,10 +33,7 @@ function emimage_menu() {
 function emimage_emfield_info() {
   return array(
     '#name' => t('Embedded Image Field'),
-<<<<<<< HEAD
     '#settings_title' => t('Images'),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#settings_description' => t('The following settings configure content with any fields controlled by Embedded Image Field.'),
   );
 }
@@ -70,14 +63,7 @@ function emimage_field_info() {
 
 /** Implementation of hook_field_settings **/
 function emimage_field_settings($op, $field) {
-<<<<<<< HEAD
   return emfield_emfield_field_settings($op, $field);
-=======
-  switch ($op) {
-    case 'database columns':
-      return module_invoke('emfield', 'field_columns', $field);
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 function emimage_handler_arg_provider($op, &$query, $argtype, $arg = '') {
@@ -122,13 +108,10 @@ function emimage_field_formatter_info() {
       'label' => t('Embed Code'),
       'field types' => $types,
     ),
-<<<<<<< HEAD
     'image_link' => array(
       'label' => t('Link to Image'),
       'field types' => $types,
     ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
   return $formats;
 }
@@ -336,7 +319,6 @@ function emimage_theme(){
       ),
       'file' => 'emimage.theme.inc',
     ),
-<<<<<<< HEAD
     'emimage_image_link' => array(
         'arguments' => array('element' => NULL),
         'file' => 'emimage.theme.inc'
@@ -345,8 +327,6 @@ function emimage_theme(){
         'arguments' => array('element' => NULL),
         'file' => 'emimage.theme.inc'
     ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'emimage_image_image' => array(
       'arguments' => array(
         'field' => NULL,
@@ -432,7 +412,6 @@ function emimage_theme(){
 
   return $themes;
 }
-<<<<<<< HEAD
 
 /**
  * Return the URL to the emimage field specified.
@@ -458,5 +437,3 @@ function emimage_image_url($field, $item, $formatter, $node, $code, $width = NUL
     return $url;
   }
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

@@ -1,20 +1,13 @@
-<<<<<<< HEAD
-=======
-/* $Id: backup_migrate.css,v 1.1.2.1.2.1 2009/06/01 03:32:44 ronan Exp $ */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 .schedule-list-disabled {
   filter:alpha(opacity=50);
   -moz-opacity: .50;
   opacity: .50;
 }
 
-<<<<<<< HEAD
 .backup-migrate-cache-time {
   font-size: 0.85em;
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 .backup-migrate-tables-checkboxes .form-item label {
   width: 15em;
   float: left;

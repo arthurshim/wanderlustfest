@@ -39,10 +39,7 @@ define('BOOST_CACHEABILITY_PAGES',   variable_get('boost_cacheability_pages', ''
 // Dir & File Structure
 define('BOOST_ROOT_CACHE_DIR',       variable_get('boost_root_cache_dir', 'cache'));
 define('BOOST_MULTISITE_SINGLE_DB',  variable_get('boost_multisite_single_db', TRUE));
-<<<<<<< HEAD
 define('BOOST_DETERMINE_HOST_FROM_HTTP',  variable_get('boost_determine_host_from_http', FALSE));
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 define('BOOST_NORMAL_DIR',           variable_get('boost_normal_dir', 'normal'));
 define('BOOST_GZIP_DIR',             variable_get('boost_gzip_dir', 'normal'));
 define('BOOST_PERM_NORMAL_DIR',      variable_get('boost_perm_normal_dir', 'perm'));
@@ -2858,16 +2855,12 @@ function boost_cache_directory($host = NULL, $absolute = TRUE, $root_dir = NULL,
   }
 
   $parts = parse_url($base_url);
-<<<<<<< HEAD
   if (BOOST_DETERMINE_HOST_FROM_HTTP) {
     $host = $_SERVER['HTTP_HOST'];
   }
   else {
     $host = !empty($host) ? $host : $parts['host'];
   }
-=======
-  $host = !empty($host) ? $host : $parts['host'];
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $parts['path'] = isset($parts['path']) ? $parts['path'] : '/';
   $subdir = implode('/', array_filter(explode('/', (!empty($base_path)) ? $base_path : $parts['path'])));
 

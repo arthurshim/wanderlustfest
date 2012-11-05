@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: user.module,v 1.892.2.27 2010/08/06 11:58:09 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -133,32 +129,21 @@ function user_external_login($account, $edit = array()) {
 /**
  * Fetch a user object.
  *
-<<<<<<< HEAD
  * @param $user_info
  *   Information about the user to load, consisting of one of the following:
  *   - An associative array whose keys are fields in the {users} table (such as
  *     uid, name, pass, mail, status) and whose values are the field's value.
  *   - A numeric user ID.
-=======
- * @param $array
- *   An associative array of attributes to search for in selecting the
- *   user, such as user name or e-mail address.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *
  * @return
  *   A fully-loaded $user object upon successful user load or FALSE if user
  *   cannot be loaded.
  */
-<<<<<<< HEAD
 function user_load($user_info = array()) {
-=======
-function user_load($array = array()) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Dynamically compose a SQL query:
   $query = array();
   $params = array();
 
-<<<<<<< HEAD
   if (is_numeric($user_info)) {
     $user_info = array('uid' => $user_info);
   }
@@ -167,16 +152,6 @@ function user_load($array = array()) {
   }
 
   foreach ($user_info as $key => $value) {
-=======
-  if (is_numeric($array)) {
-    $array = array('uid' => $array);
-  }
-  elseif (!is_array($array)) {
-    return FALSE;
-  }
-
-  foreach ($array as $key => $value) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if ($key == 'uid' || $key == 'status') {
       $query[] = "$key = %d";
       $params[] = $value;
@@ -186,11 +161,7 @@ function user_load($array = array()) {
       $params[] = md5($value);
     }
     else {
-<<<<<<< HEAD
       $query[]= "$key = '%s'";
-=======
-      $query[]= "LOWER($key) = LOWER('%s')";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       $params[] = $value;
     }
   }
@@ -210,11 +181,7 @@ function user_load($array = array()) {
     while ($role = db_fetch_object($result)) {
       $user->roles[$role->rid] = $role->name;
     }
-<<<<<<< HEAD
     user_module_invoke('load', $user_info, $user);
-=======
-    user_module_invoke('load', $array, $user);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   else {
     $user = FALSE;
@@ -305,11 +272,7 @@ function user_save($account, $array = array(), $category = 'account') {
     if (!empty($array['pass'])) {
       sess_destroy_uid($account->uid);
       if ($account->uid == $GLOBALS['user']->uid) {
-<<<<<<< HEAD
         drupal_session_regenerate();
-=======
-        sess_regenerate();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
 
@@ -566,11 +529,7 @@ function user_access($string, $account = NULL, $reset = FALSE) {
  * @return boolean TRUE for blocked users, FALSE for active.
  */
 function user_is_blocked($name) {
-<<<<<<< HEAD
   $deny = db_fetch_object(db_query("SELECT name FROM {users} WHERE status = 0 AND name = '%s'", $name));
-=======
-  $deny = db_fetch_object(db_query("SELECT name FROM {users} WHERE status = 0 AND name = LOWER('%s')", $name));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $deny;
 }
@@ -627,21 +586,13 @@ function user_search($op = 'search', $keys = NULL, $skip_access_check = FALSE) {
         $keys = preg_replace('!\*+!', '%', $keys);
         if (user_access('administer users')) {
           // Administrators can also search in the otherwise private email field.
-<<<<<<< HEAD
           $result = pager_query("SELECT name, uid, mail FROM {users} WHERE name LIKE '%%%s%%' OR mail LIKE '%%%s%%'", 15, 0, NULL, $keys, $keys);
-=======
-          $result = pager_query("SELECT name, uid, mail FROM {users} WHERE LOWER(name) LIKE LOWER('%%%s%%') OR LOWER(mail) LIKE LOWER('%%%s%%')", 15, 0, NULL, $keys, $keys);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           while ($account = db_fetch_object($result)) {
             $find[] = array('title' => $account->name .' ('. $account->mail .')', 'link' => url('user/'. $account->uid, array('absolute' => TRUE)));
           }
         }
         else {
-<<<<<<< HEAD
           $result = pager_query("SELECT name, uid FROM {users} WHERE name LIKE '%%%s%%'", 15, 0, NULL, $keys);
-=======
-          $result = pager_query("SELECT name, uid FROM {users} WHERE LOWER(name) LIKE LOWER('%%%s%%')", 15, 0, NULL, $keys);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           while ($account = db_fetch_object($result)) {
             $find[] = array('title' => $account->name, 'link' => url('user/'. $account->uid, array('absolute' => TRUE)));
           }
@@ -822,21 +773,7 @@ function user_block($op = 'list', $delta = 0, $edit = array()) {
           // Perform database queries to gather online user lists.  We use s.timestamp
           // rather than u.access because it is much faster.
           $anonymous_count = sess_count($interval);
-<<<<<<< HEAD
           $authenticated_count = db_result(db_query('SELECT COUNT(DISTINCT s.uid) FROM {sessions} s WHERE s.timestamp >= %d AND s.uid > 0', $interval));
-=======
-          $authenticated_users = db_query('SELECT DISTINCT u.uid, u.name, s.timestamp FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.timestamp >= %d AND s.uid > 0 ORDER BY s.timestamp DESC', $interval);
-          $authenticated_count = 0;
-          $max_users = variable_get('user_block_max_list_count', 10);
-          $items = array();
-          while ($account = db_fetch_object($authenticated_users)) {
-            if ($max_users > 0) {
-              $items[] = $account;
-              $max_users--;
-            }
-            $authenticated_count++;
-          }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
           // Format the output with proper grammar.
           if ($anonymous_count == 1 && $authenticated_count == 1) {
@@ -849,13 +786,10 @@ function user_block($op = 'list', $delta = 0, $edit = array()) {
           // Display a list of currently online users.
           $max_users = variable_get('user_block_max_list_count', 10);
           if ($authenticated_count && $max_users) {
-<<<<<<< HEAD
             $authenticated_users = db_query_range('SELECT u.uid, u.name, MAX(s.timestamp) AS timestamp FROM {users} u INNER JOIN {sessions} s ON u.uid = s.uid WHERE s.timestamp >= %d AND s.uid > 0 GROUP BY u.uid, u.name ORDER BY s.timestamp DESC', $interval, 0, $max_users);
             while ($account = db_fetch_object($authenticated_users)) {
               $items[] = $account;
             }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             $output .= theme('user_list', $items, t('Online users'));
           }
 
@@ -1341,11 +1275,7 @@ function user_login(&$form_state) {
     '#required' => TRUE,
   );
 
-<<<<<<< HEAD
   $form['name']['#description'] = t('Enter your @s username.', array('@s' => variable_get('site_name', 'Pressflow')));
-=======
-  $form['name']['#description'] = t('Enter your @s username.', array('@s' => variable_get('site_name', 'Drupal')));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $form['pass'] = array('#type' => 'password',
     '#title' => t('Password'),
     '#description' => t('Enter the password that accompanies your username.'),
@@ -1465,15 +1395,10 @@ function user_authenticate_finalize(&$edit) {
   $user->login = time();
   db_query("UPDATE {users} SET login = %d WHERE uid = %d", $user->login, $user->uid);
 
-<<<<<<< HEAD
   // This is called before hook_user in case one of those functions fails
   // or incorrectly does a redirect which would leave the old session in place.
   drupal_session_regenerate();
 
-=======
-  // Regenerate the session ID to prevent against session fixation attacks.
-  sess_regenerate();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   user_module_invoke('login', $edit, $user);
 }
 
@@ -1669,11 +1594,7 @@ function _user_edit_validate($uid, &$edit) {
     if ($error = user_validate_name($edit['name'])) {
       form_set_error('name', $error);
     }
-<<<<<<< HEAD
     else if (db_result(db_query("SELECT COUNT(*) FROM {users} WHERE uid != %d AND name = '%s'", $uid, $edit['name'])) > 0) {
-=======
-    else if (db_result(db_query("SELECT COUNT(*) FROM {users} WHERE uid != %d AND LOWER(name) = LOWER('%s')", $uid, $edit['name'])) > 0) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       form_set_error('name', t('The name %name is already taken.', array('%name' => $edit['name'])));
     }
     else if (drupal_is_denied('user', $edit['name'])) {
@@ -1685,11 +1606,7 @@ function _user_edit_validate($uid, &$edit) {
   if ($error = user_validate_mail($edit['mail'])) {
     form_set_error('mail', $error);
   }
-<<<<<<< HEAD
   else if (db_result(db_query("SELECT COUNT(*) FROM {users} WHERE uid != %d AND mail = '%s'", $uid, $edit['mail'])) > 0) {
-=======
-  else if (db_result(db_query("SELECT COUNT(*) FROM {users} WHERE uid != %d AND LOWER(mail) = LOWER('%s')", $uid, $edit['mail'])) > 0) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     form_set_error('mail', t('The e-mail address %email is already registered. <a href="@password">Have you forgotten your password?</a>', array('%email' => $edit['mail'], '@password' => url('user/password'))));
   }
   else if (drupal_is_denied('mail', $edit['mail'])) {
@@ -2205,11 +2122,7 @@ function user_mail_tokens($account, $language) {
   global $base_url;
   $tokens = array(
     '!username' => $account->name,
-<<<<<<< HEAD
     '!site' => variable_get('site_name', 'Pressflow'),
-=======
-    '!site' => variable_get('site_name', 'Drupal'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '!login_url' => user_pass_reset_url($account),
     '!uri' => $base_url,
     '!uri_brief' => preg_replace('!^https?://!', '', $base_url),

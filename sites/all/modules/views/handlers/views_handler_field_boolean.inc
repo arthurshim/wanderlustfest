@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_field_boolean.inc,v 1.3.2.1 2010/03/25 01:14:22 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * A handler to provide proper displays for booleans.
@@ -10,19 +6,11 @@
  * Allows for display of true/false, yes/no, on/off.
  *
  * Definition terms:
-<<<<<<< HEAD
  *   - output formats: An array where the first entry is displayed on boolean true
  *      and the second is displayed on boolean false. An example for sticky is:
  *      @code
  *      'output formats' => array(
  *        'sticky' => array(t('Sticky'), ''),
-=======
- *   - output formats: An array where the first entry is displayed on boolean false
- *      and the second is displayed on boolean true. An example for sticky is:
- *      @code
- *      'output formats' => array(
- *        'sticky' => array('', t('Sticky')),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *      ),
  *      @endcode
  *

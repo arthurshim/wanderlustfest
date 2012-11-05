@@ -1,23 +1,11 @@
-<<<<<<< HEAD
-=======
-; $Id: token_actions.info,v 1.1.2.1 2008/07/08 19:40:17 greggles Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 name = Token actions
 description = Provides enhanced versions of core Drupal actions using the Token module.
 dependencies[] = token
 core = 6.x
 
-<<<<<<< HEAD
 ; Information added by drupal.org packaging script on 2011-11-03
 version = "6.x-1.18"
 core = "6.x"
 project = "token"
 datestamp = "1320336935"
-=======
-; Information added by drupal.org packaging script on 2010-10-07
-version = "6.x-1.15"
-core = "6.x"
-project = "token"
-datestamp = "1286469963"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 

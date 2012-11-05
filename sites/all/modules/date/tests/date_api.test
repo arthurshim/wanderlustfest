@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date_api.test,v 1.5.6.7 2010/10/20 14:32:20 karens Exp $
-=======
-// $Id: date_api.test,v 1.5.6.6 2010/08/13 16:26:05 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Test Date API functions
  */
@@ -11,11 +7,7 @@ class DateAPITestCase extends DrupalWebTestCase {
   function getInfo() {
     return array(
       'name' => t('Date API'),
-<<<<<<< HEAD
       'description' => t('Test Date API functions.') ,
-=======
-      'description' => t('Test Date API functions like date_convert(), date_part_extract(), date_is_valid(), date_last_day_of_month(), date_first_day_of_week().') ,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'group' => t('Date'),
     );
   }
@@ -23,7 +15,6 @@ class DateAPITestCase extends DrupalWebTestCase {
   /**
    * Implementation of setUp().
    */
-<<<<<<< HEAD
   public function setUp() {
     // Load the date_api module.
     parent::setUp('date_api');
@@ -32,22 +23,6 @@ class DateAPITestCase extends DrupalWebTestCase {
   }
 
   function testDateAPI() {
-=======
-  function setUp() {
-    // Load the date_api module.
-    parent::setUp('date_api');
-  }
-
-  function testDateAPI() {
-    variable_set('date_first_day', 1);
-    $expected = array ( 0 => t('Mon'), 1 => t('Tue'), 2 => t('Wed'), 3 => t('Thu'), 4 => t('Fri'), 5 => t('Sat'), 6 => t('Sun'), );
-    $days = date_week_days_ordered(date_week_days_abbr(1));
-    $this->assertEqual($expected, $days, 'Test that date_week_days_ordered() array starts on Monday when the site first day is on Monday.');
-    variable_set('date_first_day', 0);
-    $expected = array ( 0 => t('Sun'), 1 => t('Mon'), 2 => t('Tue'), 3 => t('Wed'), 4 => t('Thu'), 5 => t('Fri'), 6 => t('Sat'), );
-    $days = date_week_days_ordered(date_week_days_abbr(1));
-    $this->assertEqual($expected, $days, 'Test that date_week_days_ordered() array starts on Sunday when the site first day is on Sunday.');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
     $value = '2007-12-05 23:59';
     $this->assertEqual(TRUE, date_part_extract($value, 'year'), "Test date_part_extract(". $value .", year), results ". date_part_extract($value, 'year'));
@@ -64,19 +39,6 @@ class DateAPITestCase extends DrupalWebTestCase {
     $value = '2007-00-01T00:00';
     $this->assertEqual(TRUE, date_is_valid($value, DATE_ISO), "Test ISO exception to date_is_valid(". $value .", DATE_ISO)");
 
-<<<<<<< HEAD
-=======
-    $expected = 28;
-    $value = date_days_in_month(2005, 2);
-    $this->assertEqual($expected, $value, 'Test date_days_in_month(2, 2005), results '.$value);
-    $expected = 29;
-    $value = date_days_in_month(2004, 2);
-    $this->assertEqual($expected, $value, 'Test date_days_in_month(2, 2004), results '.$value);
-    $expected = 28;
-    $value = date_days_in_month(2003, 2);
-    $this->assertEqual($expected, $value, 'Test date_days_in_month(2, 2003), results '.$value);
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $dates = array(
       '2007-01-01 00:00:00',
       '1970-01-01 00:00:00',
@@ -135,7 +97,6 @@ class DateAPITestCase extends DrupalWebTestCase {
       $php_format = date_format(date_now(), $formatter);
       $this->assertEqual($date_api_format, $php_format, 'Test that the "' . $formatter . '" formatter is formatted correctly by date_format_date()');
     }
-<<<<<<< HEAD
   
     // Test the order of the weeks days for a calendar that starts on Monday and one that starts on Sunday.
     variable_set('date_first_day', 1);
@@ -391,19 +352,11 @@ class DateAPITestCase extends DrupalWebTestCase {
    }
  
    /**
-=======
-  }
-  
-  /**
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
    * Implementation of tearDown().
    */
   function tearDown() {
     variable_del('date_first_day');
-<<<<<<< HEAD
     variable_del('date_api_use_iso8601');
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     parent::tearDown();
   }
 }

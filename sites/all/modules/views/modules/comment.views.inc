@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: comment.views.inc,v 1.33.2.3 2009/12/02 21:51:40 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers for comment.module
@@ -89,11 +85,7 @@ function comment_views_data() {
       'handler' => 'views_handler_sort',
     ),
     'argument' => array(
-<<<<<<< HEAD
       'handler' => 'views_handler_argument_numeric',
-=======
-      'handler' => 'views_handler_argument',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
   );
 
@@ -192,22 +184,14 @@ function comment_views_data() {
   // status (approved or not)
   $data['comments']['status'] = array(
     'title' => t('In moderation'),
-<<<<<<< HEAD
     'help' => t('Whether or not the comment is currently in the moderation queue.'),
-=======
-    'help' => t('Whether or not the comment is currently in moderation.'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'field' => array(
       'handler' => 'views_handler_field_boolean',
       'click sortable' => TRUE,
     ),
     'filter' => array(
       'handler' => 'views_handler_filter_boolean_operator',
-<<<<<<< HEAD
       'label' => t('In the moderation queue'),
-=======
-      'label' => t('Moderated'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'type' => 'yes-no',
     ),
     'sort' => array(
@@ -323,11 +307,7 @@ function comment_views_data() {
     'title' => t('Last comment time'),
     'help' => t('Date and time of when the last comment was posted.'),
     'field' => array(
-<<<<<<< HEAD
       'handler' => 'views_handler_field_last_comment_timestamp',
-=======
-      'handler' => 'views_handler_field_date',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'click sortable' => TRUE,
     ),
     'sort' => array(
@@ -524,12 +504,9 @@ function comment_views_handlers() {
       'views_handler_field_node_comment' => array(
         'parent' => 'views_handler_field',
       ),
-<<<<<<< HEAD
       'views_handler_field_last_comment_timestamp' => array(
         'parent' => 'views_handler_field_date',
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
       // sort handlers
       'views_handler_sort_comment_thread' => array(

@@ -1,7 +1,6 @@
 // $Id: cufon-drupal.js,v 1.1 2009/07/13 21:41:46 eads Exp $
 
 // Initialize Cufon based on Drupal settings
-<<<<<<< HEAD
 Drupal.behaviors.cufonReplace = function(context) {
   for (o in Drupal.settings.cufonSelectors) { 
     var s = Drupal.settings.cufonSelectors[o];
@@ -31,12 +30,3 @@ Drupal.behaviors.cufon = function (context) {
  
   Drupal.behaviors.cufon.first_run = false;
 }
-=======
-for (o in Drupal.settings.cufonSelectors) { 
-  s = Drupal.settings.cufonSelectors[o];
-  Cufon.replace(s.selector, s.options)
-}
-
-// Work around Internet Explorer rendering delay
-Cufon.now();
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

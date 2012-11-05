@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id$
-=======
-// $Id: phptemplate.engine,v 1.69.2.1 2010/05/11 09:48:03 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file

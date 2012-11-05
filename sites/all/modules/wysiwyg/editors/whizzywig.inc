@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: whizzywig.inc,v 1.3.2.1 2010/02/06 17:33:58 sun Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -33,12 +29,9 @@ function wysiwyg_whizzywig_editor() {
       '56' => array(
         'js files' => array('whizzywig-56.js'),
       ),
-<<<<<<< HEAD
       '60' => array(
         'js files' => array('whizzywig-60.js'),
       ),
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     ),
   );
   return $editor;
@@ -55,7 +48,6 @@ function wysiwyg_whizzywig_editor() {
  */
 function wysiwyg_whizzywig_version($editor) {
   $script = $editor['library path'] . '/whizzywig.js';
-<<<<<<< HEAD
   if (!file_exists($script)) {
     return;
   }
@@ -64,11 +56,6 @@ function wysiwyg_whizzywig_version($editor) {
   // 55: Whizzywig v55i
   // 60: Whizzywig 60
   if (preg_match('@Whizzywig v?([0-9]+)@', $line, $version)) {
-=======
-  $script = fopen($script, 'r');
-  $line = fgets($script, 43);
-  if (preg_match('@Whizzywig v([0-9]+)@', $line, $version)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     fclose($script);
     return $version[1];
   }
@@ -99,7 +86,6 @@ function wysiwyg_whizzywig_settings($editor, $config, $theme) {
   if (file_exists($editor['library path'] . '/WhizzywigToolbar.png')) {
     $settings['toolbarImagePath'] = base_path() . $editor['library path'] . '/WhizzywigToolbar.png';
   }
-<<<<<<< HEAD
   // Filename changed in version 60.
   elseif (file_exists($editor['library path'] . '/icons.png')) {
     $settings['toolbarImagePath'] = base_path() . $editor['library path'] . '/icons.png';
@@ -107,10 +93,6 @@ function wysiwyg_whizzywig_settings($editor, $config, $theme) {
 
   // Add configured buttons or all available.
   $settings['buttons'] = array();
-=======
-
-  // Add configured buttons or all available.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (!empty($config['buttons'])) {
     $buttons = array();
     foreach ($config['buttons'] as $plugin) {
@@ -118,12 +100,6 @@ function wysiwyg_whizzywig_settings($editor, $config, $theme) {
     }
     $settings['buttons'] = implode(' ', array_keys($buttons));
   }
-<<<<<<< HEAD
-=======
-  else {
-    $settings['buttons'] = 'all';
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Add editor content stylesheet.
   if (isset($config['css_setting'])) {

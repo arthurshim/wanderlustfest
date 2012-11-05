@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: content.module,v 1.301.2.123 2011/01/03 11:03:47 yched Exp $
-=======
-// $Id: content.module,v 1.301.2.120 2010/08/11 23:27:10 pwolanin Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Allows administrators to associate custom fields to content types.
@@ -2361,11 +2357,7 @@ function theme_content_exclude($content, $object, $context) {
  * TODO : this should live in theme/theme.inc, but then the preprocessor
  * doesn't get called when the theme overrides the template. Bug in theme layer ?
  */
-<<<<<<< HEAD
 function template_preprocess_content_field(&$variables) {
-=======
-function content_preprocess_content_field(&$variables) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $element = $variables['element'];
   $field = content_fields($element['#field_name'], $element['#node']->type);
 
@@ -2497,11 +2489,7 @@ function content_content_extra_fields($type_name) {
       'description' => t('Comment module form.'),
       'weight' => 30
     );
-<<<<<<< HEAD
   }
-=======
-  }  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (module_exists('locale') && variable_get("language_content_type_$type_name", 0)) {
     $extra['language'] = array(
       'label' => t('Language'),
@@ -2692,7 +2680,6 @@ function content_inactive_fields($type_name = NULL) {
   }
   return $inactive;
 }
-<<<<<<< HEAD
 
  
 /**
@@ -2720,5 +2707,3 @@ function content_inactive_instances($type_name = NULL) {
   }
   return $inactive;
 }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

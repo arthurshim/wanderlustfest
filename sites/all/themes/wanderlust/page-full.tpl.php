@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
@@ -320,37 +319,3 @@ $(function() {
 
 </body>
 </html>
-=======
- <?php
-include('./sites/all/themes/wanderlust/includes/header.php');
-?>
-
-	<p class="section-title"><?php print $title; ?></p>
-
-
-	<div id="container-top"></div>
-	
-	<div id="container-body" class="clearfix">
- 	
-	    <div id="main" class="column grid-16 full  ">
- 			<div id="main-content" class="region clear-block  ">
-
-				<div class="content-container ">
-					<?php if ($tabs): ?>
-					<div class="tabs"><?php print $tabs; ?></div>
-					<?php endif; ?>
-					<?php print $messages; ?>
-					<?php print $help; ?> 
-					<?php print $content; ?>
- 				</div>         
-			</div>
-		</div>
- 
- 	</div>
- 
- 
-
-<?php
-include('./sites/all/themes/wanderlust/includes/footer.php');
-?>
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8

@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_argument_aggregator_category_cid.inc,v 1.1 2009/06/02 19:46:06 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Argument handler to accept an aggregator category id.

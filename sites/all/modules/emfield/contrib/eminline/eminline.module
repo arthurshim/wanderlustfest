@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: eminline.module,v 1.1.4.6 2010/07/19 17:00:20 aaron Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Implemenation of hook_filter().
@@ -69,11 +65,7 @@ function _eminline_url($text, $format) {
   $callback = _eminline_curry('_eminline_url_parse_full_links', 2);
 
   // Match absolute URLs.
-<<<<<<< HEAD
   $text = preg_replace_callback("`(?<=[\s(>])((http://|https://)([a-zA-Z0-9@:%_+*~#?&=.,/;-]*[a-zA-Z0-9@:%_+*~#&=/;-]))(?=[.,?!\s)<])`i", $callback($format), $text);
-=======
-  $text = preg_replace_callback("`(<p>|<li>|<br\s*/?>|[ \n\r\t\(])((http://|https://)([a-zA-Z0-9@:%_+*~#?&=.,/;-]*[a-zA-Z0-9@:%_+*~#&=/;-]))([.,?!]*?)(?=(</p>|</li>|<br\s*/?>|[ \n\r\t\)]))`i", $callback($format), $text);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   return $text;
 }
@@ -92,11 +84,7 @@ function _eminline_url($text, $format) {
  */
 function _eminline_url_parse_full_links($format, $match) {
   // Get just the URL.
-<<<<<<< HEAD
   $match[1] = check_url(decode_entities($match[1]));
-=======
-  $match[2] = check_url(decode_entities($match[2]));
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Get our filter settings.
   $video_default = variable_get('eminline_video_' . $format, _eminline_default_filter_settings('video'));
@@ -120,11 +108,7 @@ function _eminline_url_parse_full_links($format, $match) {
   );
 
   // Build our embed item.
-<<<<<<< HEAD
   $item = emfield_parse_embed($field, $match[1], 'emvideo');
-=======
-  $item = emfield_parse_embed($field, $match[2], 'emvideo');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
   // Check to make sure the provider that was found is an allowed provider.
   if ($field['providers'][$item['provider']]) {

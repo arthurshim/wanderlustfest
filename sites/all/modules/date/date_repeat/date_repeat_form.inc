@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date_repeat_form.inc,v 1.15.4.19 2010/10/30 10:42:51 karens Exp $
-=======
-// $Id: date_repeat_form.inc,v 1.15.4.16 2010/08/12 22:32:58 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Code to add a date repeat selection form to a date field and create
@@ -13,11 +9,7 @@
  * so the code is not parsed unless needed.
  *
  * Currently implemented:
-<<<<<<< HEAD
  * INTERVAL, UNTIL, EXDATE, RDATE, BYDAY, BYMONTHDAY, BYMONTH,
-=======
- * INTERVAL, UNTIL, EXDATE, BYDAY, BYMONTHDAY, BYMONTH,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * YEARLY, MONTHLY, WEEKLY, DAILY
  *
  * Currently not implemented:
@@ -62,11 +54,8 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
   $parts = date_repeat_split_rrule($rrule);
   $rrule = $parts[0];
   $exceptions = $parts[1];
-<<<<<<< HEAD
   $additions = $parts[2];
   
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $timezone = !empty($element['#date_timezone']) ? $element['#date_timezone'] : date_default_timezone_name();
   $merged_values = date_repeat_merge($rrule, $element);
   
@@ -115,11 +104,7 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
       '#description' => t('Date to stop repeating this item.'),
       '#default_value' => $UNTIL,
       '#date_timezone' => $timezone,
-<<<<<<< HEAD
       '#date_format' => !empty($element['#date_format']) ? date_limit_format($element['#date_format'], array('year', 'month', 'day')) : 'Y-m-d',
-=======
-      '#date_format' => !empty($element['#date_format']) ? $element['#date_format'] : 'Y-m-d',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       '#date_text_parts'  => !empty($element['#date_text_parts']) ? $element['#date_text_parts'] : array(),
       '#date_year_range'  => !empty($element['#date_year_range']) ? $element['#date_year_range'] : '-3:+3',
       '#date_label_position' => !empty($element['#date_label_position']) ? $element['#date_label_position'] : 'within',
@@ -184,11 +169,7 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
     '#collapsed' => empty($exceptions) ? TRUE : FALSE,
     '#title' => t('Except'),
     '#description' => t('Dates to omit from the list of repeating dates.'),
-<<<<<<< HEAD
     '#prefix' => '<div id="date-repeat-exceptions" class="date-repeat">',
-=======
-    '#prefix' => '<div class="date-repeat">',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     '#suffix' => '</div>',
     );
   $max = !empty($exceptions) ? sizeof($exceptions) : 0;
@@ -203,7 +184,6 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
         '#type' => $element['#date_repeat_widget'],
         '#default_value' => $EXCEPT,
         '#date_timezone' => !empty($element['#date_timezone']) ? $element['#date_timezone'] : date_default_timezone_name(),
-<<<<<<< HEAD
         '#date_format' => !empty($element['#date_format']) ? date_limit_format($element['#date_format'], array('year', 'month', 'day')) : 'Y-m-d',
         '#date_text_parts'  => !empty($element['#date_text_parts']) ? $element['#date_text_parts'] : array(),
         '#date_year_range'  => !empty($element['#date_year_range']) ? $element['#date_year_range'] : '-3:+3',
@@ -238,9 +218,6 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
         '#default_value' => $RDATE,
         '#date_timezone' => !empty($element['#date_timezone']) ? $element['#date_timezone'] : date_default_timezone_name(),
         '#date_format' => !empty($element['#date_format']) ? date_limit_format($element['#date_format'], array('year', 'month', 'day')) : 'Y-m-d',
-=======
-        '#date_format' => !empty($element['#date_format']) ? $element['#date_format'] : 'Y-m-d',
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         '#date_text_parts'  => !empty($element['#date_text_parts']) ? $element['#date_text_parts'] : array(),
         '#date_year_range'  => !empty($element['#date_year_range']) ? $element['#date_year_range'] : '-3:+3',
         '#date_label_position' => !empty($element['#date_label_position']) ? $element['#date_label_position'] : 'within',
@@ -250,7 +227,6 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
       'granularity' => array('#type' => 'hidden', '#value' => serialize(array('year', 'month', 'day'))),
       );
   }
-<<<<<<< HEAD
 
   // Create an "Add another" button for the exceptions.
   $field_name = $element['#parents'][0];
@@ -279,13 +255,10 @@ function _date_repeat_rrule_process($element, $edit, $form_state, $form) {
     )
   );
   
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $element;
 }
 
 /**
-<<<<<<< HEAD
  * Ajax callback to get the exceptions form.  This is needed to
  * implement the "Add another" button for the date repeat exceptions.
  * 
@@ -328,15 +301,12 @@ function date_repeat_get_exception_form_ajax($type, $field_name) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Regroup values back into a consistant array, no matter what state it is in.
  */
 function date_repeat_merge($form_values, $element) {
   if (empty($form_values) || !is_array($form_values)) {
     return $form_values;
   }
-<<<<<<< HEAD
   if (array_key_exists('advanced', $form_values) || array_key_exists('exceptions', $form_values) || array_key_exists('additions', $form_values)) {
     if (!array_key_exists('advanced', $form_values)) $form_values['advanced'] = array();
     if (!array_key_exists('exceptions', $form_values)) $form_values['exceptions'] = array();
@@ -345,14 +315,6 @@ function date_repeat_merge($form_values, $element) {
     unset($form_values['advanced']);
     unset($form_values['exceptions']);
     unset($form_values['additions']);
-=======
-  if (array_key_exists('advanced', $form_values) || array_key_exists('exceptions', $form_values)) {
-    if (!array_key_exists('advanced', $form_values)) $form_values['advanced'] = array();
-    if (!array_key_exists('exceptions', $form_values)) $form_values['exceptions'] = array();
-    $form_values = array_merge($form_values, (array) $form_values['advanced'], (array) $form_values['exceptions']);
-    unset($form_values['advanced']);
-    unset($form_values['exceptions']);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   if (array_key_exists('BYDAY', $form_values)) unset($form_values['BYDAY']['']);
   if (array_key_exists('BYMONTH', $form_values)) unset($form_values['BYMONTH']['']);
@@ -362,10 +324,7 @@ function date_repeat_merge($form_values, $element) {
     $function = $element['#date_repeat_widget'] .'_input_value';
     $until_element = $element;
     $until_element['#value'] = $form_values['UNTIL']['datetime'];
-<<<<<<< HEAD
     $until_element['#date_format'] = date_limit_format($element['#date_format'], array('year', 'month', 'day'));
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $form_values['UNTIL']['datetime'] = $function($until_element);
   }
   if (array_key_exists('EXDATE', $form_values) && is_array($form_values['EXDATE'])) {
@@ -374,15 +333,11 @@ function date_repeat_merge($form_values, $element) {
     foreach ($form_values['EXDATE'] as $delta => $value) {
       if (is_array($value['datetime'])) {
         $exdate_element['#value'] = $form_values['EXDATE'][$delta]['datetime'];
-<<<<<<< HEAD
         $exdate_element['#date_format'] = date_limit_format($element['#date_format'], array('year', 'month', 'day'));
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         $form_values['EXDATE'][$delta]['datetime'] = $function($exdate_element);
       }
     }
   }
-<<<<<<< HEAD
   if (array_key_exists('RDATE', $form_values) && is_array($form_values['RDATE'])) {
     $function = $element['#date_repeat_widget'] .'_input_value';
     $rdate_element = $element;
@@ -394,8 +349,6 @@ function date_repeat_merge($form_values, $element) {
       }
     }
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return $form_values;
 }
 
@@ -408,15 +361,12 @@ function date_repeat_rrule_validate($element, &$form_state) {
   $field_name = $element['#parents'][0];
   $item = $form_values[$field_name]['rrule'];
   $item = date_repeat_merge($item, $element);
-<<<<<<< HEAD
   if (!empty($item['UNTIL']['datetime'])) {
     $date = date_make_date($item['UNTIL']['datetime'], $element['#date_timezone']);
     date_time_set($date, 23, 59, 59);
     date_timezone_set($date, timezone_open('UTC'));
     $item['UNTIL']['datetime'] = date_format($date, DATE_FORMAT_DATETIME);
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $rrule = date_api_ical_build_rrule($item);
   form_set_value($element, $rrule, $form_state);
 }
@@ -435,7 +385,6 @@ function theme_date_repeat_current_exceptions($rows = array()) {
 }
 
 /**
-<<<<<<< HEAD
  * Theme the exception list as a table so the buttons line up
  */
 function theme_date_repeat_current_additions($rows = array()) {
@@ -449,8 +398,6 @@ function theme_date_repeat_current_additions($rows = array()) {
 }
 
 /**
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Themes the date repeat element.
  */
 function theme_date_repeat($element) {

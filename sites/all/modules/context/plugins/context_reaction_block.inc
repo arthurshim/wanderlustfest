@@ -66,23 +66,12 @@ class context_reaction_block extends context_reaction {
       );
       foreach ($this->get_blocks($region, $context) as $block) {
         if (!empty($block->context)) {
-<<<<<<< HEAD
-=======
-          $weight_form = array('#type' => 'weight', '#delta' => $weight_delta, '#default_value' => 0);
-          if(variable_get('context_reaction_block_expose_weights', FALSE)) {
-            $weight_form = array('#type' => 'weight', '#title' => t('Weight'), '#delta' => $weight_delta, '#default_value' => $block->weight, '#prefix' => '<div class="exposed">', '#suffix' => '</div>');
-          }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $form['blocks'][$region][$block->bid] = array(
             '#value' => check_plain($block->info),
             '#weight' => $block->weight,
             '#type' => 'markup',
             '#tree' => TRUE,
-<<<<<<< HEAD
             'weight' => array('#type' => 'weight', '#delta' => $weight_delta, '#default_value' => 0),
-=======
-            'weight' => $weight_form,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           );
         }
       }
@@ -108,22 +97,11 @@ class context_reaction_block extends context_reaction {
     foreach ($edited as $region => $bids) {
       foreach ($bids as $position => $bid) {
         if (isset($block_info[$bid])) {
-<<<<<<< HEAD
-=======
-          $weight_submitted = $position;
-          if(variable_get('context_reaction_block_expose_weights', FALSE)) {
-            $weight_submitted = $values['blocks'][$region][$block_info[$bid]->module.'-'.$block_info[$bid]->delta][weight];
-          }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           $blocks[$bid] = array(
             'module' => $block_info[$bid]->module,
             'delta' => $block_info[$bid]->delta,
             'region' => $region,
-<<<<<<< HEAD
             'weight' => $position,
-=======
-            'weight' => $weight_submitted,
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           );
         }
       }
@@ -225,15 +203,6 @@ class context_reaction_block extends context_reaction {
       '#default_value' => variable_get('context_reaction_block_all_regions', FALSE),
       '#description' => t('Show all regions including those that are empty. Enable if you are administering your site using the inline editor.')
     );
-<<<<<<< HEAD
-=======
-    $form['context_reaction_block_expose_weights'] = array(
-      '#title' => t('Expose numeric block weights'),
-      '#type' => 'checkbox',
-      '#default_value' => variable_get('context_reaction_block_expose_weights', FALSE),
-      '#description' => t('Expose block weights allowing you to set them manually. This can be useful if you have complex overlapping contexts that place blocks in the same regions. Note that newly added blocks must be saved before their weights are exposed. Also note that any manual settings will be overridden when using the inline editor.')
-    );
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     return $form;
   }
 

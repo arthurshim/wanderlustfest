@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: date_api.module,v 1.64.2.5.2.121 2011/01/01 00:29:04 karens Exp $
-=======
-// $Id: date_api.module,v 1.64.2.5.2.105 2010/08/13 14:36:31 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * This module will make the date API available to other modules.
@@ -50,10 +46,7 @@ function date_api_init() {
     date_default_timezone_set(date_default_timezone_name());
   }  
   drupal_add_css(drupal_get_path('module', 'date_api')  .'/date.css');
-<<<<<<< HEAD
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -480,7 +473,6 @@ function date_granularity_names() {
     );
 }
 
-<<<<<<< HEAD
 
 /**
  * Give a granularity $precision, return an array of 
@@ -538,8 +530,6 @@ function date_granularity_format($granularity) {
   } 
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * A translated array of timezone names.
  * Cache the untranslated array, make the translated array a static variable.
@@ -717,21 +707,12 @@ function date_t_strings(&$replace, $langcode) {
  *   A translated date string in the requested format.
  */
 function date_format_date($date, $type = 'medium', $format = '', $langcode = NULL) {
-<<<<<<< HEAD
   if (get_class($date) != 'DateTime') {
     $date = date_make_date($date);
   }
   if (empty($date)) {
     return '';
   }
-=======
-  if (empty($date)) {
-    return '';
-  }
-  if (get_Class($date) != 'DateTime') {
-    $date = new DateTime($date);
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   
   switch ($type) {
     case 'small':
@@ -857,22 +838,13 @@ function date_now($timezone = NULL) {
  *    dates so they pass validation and don't get reset to 'now'.
  */
 function date_make_date($date, $timezone = NULL, $type = DATE_DATETIME, $granularity = array('year', 'month', 'day', 'hour', 'minute')) {
-<<<<<<< HEAD
   
-=======
-  // No value or one that can't be used.
-  if (empty($date) || is_array($date)) {
-    return NULL;
-  }
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Make sure some value is set for the date and timezone even if the
   // site timezone is not yet set up to avoid fatal installation
   // errors.
   if (empty($timezone) || !date_timezone_is_valid($timezone)) {
     $timezone = date_default_timezone_name();
   }
-<<<<<<< HEAD
   
   // Special handling for a unix timestamp of '0', since it will fail 'empty' tests below.
   if ($date === 0 && $type == DATE_UNIX) {
@@ -884,8 +856,6 @@ function date_make_date($date, $timezone = NULL, $type = DATE_DATETIME, $granula
   if (empty($date) || (is_array($date) && array_diff($granularity, array_keys($date)))) {
     return NULL;
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     
   // Special handling for partial dates that don't need precision.
   $max_granularity = array_pop($granularity);
@@ -972,16 +942,10 @@ function date_days_in_month($year, $month) {
 function date_days_in_year($date = NULL, $type = DATE_OBJECT) {
   if (empty($date)) {
     $date = date_now();
-<<<<<<< HEAD
   }
   if (!is_object($date)) {
     $date = date_convert($date, $type, DATE_OBJECT);
   }  
-=======
-    $type = DATE_OBJECT;
-  }
-  $date = date_convert($date, $type, DATE_OBJECT);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (is_object($date)) {
     if (date_format($date, 'L')) {
       return 366;
@@ -1005,16 +969,10 @@ function date_days_in_year($date = NULL, $type = DATE_OBJECT) {
 function date_iso_weeks_in_year($date = NULL, $type = DATE_OBJECT) {
   if (empty($date)) {
     $date = date_now();
-<<<<<<< HEAD
   }
   if (!is_object($date)) {
     $date = date_convert($date, $type, DATE_OBJECT);
   }  
-=======
-    $type = DATE_OBJECT;
-  }
-  $date = date_convert($date, $type, DATE_OBJECT);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if (is_object($date)) {
     date_date_set($date, date_format($date, 'Y'), 12, 28);
     return date_format($date, 'W');
@@ -1184,7 +1142,6 @@ function date_week_range($week, $year) {
  */
 function date_iso_week_range($week, $year) {
   
-<<<<<<< HEAD
   // Get to the last ISO week of the previous year.
   $min_date = date_make_date(($year - 1) .'-12-28 00:00:00', date_default_timezone_name());
   date_timezone_set($min_date, date_default_timezone());
@@ -1192,15 +1149,6 @@ function date_iso_week_range($week, $year) {
   // Find the first day of the first ISO week in the year.
   date_modify($min_date, '+1 Monday');
   
-=======
-  // Get to the first ISO week of the year.
-  $min_date = date_make_date($year .'-01-01 00:00:00', date_default_timezone_name());
-  date_timezone_set($min_date, date_default_timezone());
-  
-  if (date_format($min_date, 'W') != 1) {
-    date_modify($min_date, '+1 Monday');
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Jump ahead to the desired week for the beginning of the week range.
   if ($week > 1) {
     date_modify($min_date, '+ '. ($week - 1) .' weeks');
@@ -1237,19 +1185,11 @@ function date_weeks_in_year($year) {
 function date_week($date) {
   $date = substr($date, 0, 10);
   $parts = explode('-', $date);
-<<<<<<< HEAD
-=======
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $date = date_make_date($date . ' 12:00:00', 'UTC');
   
   // If we are using ISO weeks, this is easy.
   if (variable_get('date_api_use_iso8601', FALSE)) {
-<<<<<<< HEAD
     return intval(date_format($date, 'W'));
-=======
-    return date_format($date, 'W');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
   
   $year_date = date_make_date($parts[0] . '-01-01 12:00:00', 'UTC');
@@ -1403,14 +1343,11 @@ function date_fuzzy_datetime($date) {
   if (empty($date['day'])) {
     $date['day'] = 1;
   }
-<<<<<<< HEAD
   foreach(array('hour', 'minute', 'second') as $part) {
     if (empty($date[$part])) {
       $date[$part] = 0;
     }
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $value = date_pad($date['year'], 4) .'-'. date_pad($date['month']) .'-'. 
     date_pad($date['day']) .' '. date_pad($date['hour']) .':'. 
     date_pad($date['minute']) .':'. date_pad($date['second']);
@@ -1514,12 +1451,8 @@ function date_part_extract($date, $part, $type = DATE_DATETIME, $tz = 'UTC') {
 function date_is_valid($date, $type = DATE_DATETIME, $granularity = array('year', 'month', 'day', 'hour', 'minute')) {
   
   // Check that the value is properly structured.
-<<<<<<< HEAD
   // Remember that DATE_UNIX can have a valid value of '0', which is 'empty'.
   if (empty($date) && $type != DATE_UNIX) return FALSE;
-=======
-  if (empty($date)) return FALSE;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   if ($type == DATE_OBJECT && !is_object($date)) return FALSE;
   if (($type == DATE_ISO || $type == DATE_DATETIME) && (!is_string($date) || !preg_match(DATE_REGEX_LOOSE, $date))) return FALSE;
   if ($type == DATE_UNIX and !is_numeric($date)) return FALSE;
@@ -2326,17 +2259,10 @@ function date_order() {
     '+4' => 'Fourth',
     '+5' => 'Fifth',
     '-1' => 'Last',
-<<<<<<< HEAD
     '-2' => '-2',
     '-3' => '-3',
     '-4' => '-4',
     '-5' => '-5'
-=======
-    '-2' => 'Next to last',
-    '-3' => 'Third from last',
-    '-4' => 'Fourth from last',
-    '-5' => 'Fifth from last'
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 }
 
@@ -2519,7 +2445,6 @@ function date_real_url($view, $date_type = NULL, $date_arg = NULL, $force_view_u
   if (!$force_view_url && 
   (!empty($view->preview) || !empty($view->date_info->block_identifier))) {
     $url = $view->get_url($args);
-<<<<<<< HEAD
     $key = date_block_identifier($view);
     if (!empty($key)) {
       return url($_GET['q'], array(
@@ -2532,19 +2457,6 @@ function date_real_url($view, $date_type = NULL, $date_arg = NULL, $force_view_u
   return url($view->get_url($args), array(
     'query' => date_querystring($view), 
     'absolute' => TRUE));
-=======
-    return url($_GET['q'], array(
-      'query' => date_querystring($view, array(date_block_identifier($view) => $url)), 
-      'absolute' => TRUE));
-  }
-  else {
-    // Normal views may need querystrings appended to them
-    // if they use exposed filters.
-    return url($view->get_url($args), array(
-      'query' => date_querystring($view), 
-      'absolute' => TRUE));
-  }
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 /**
@@ -2649,7 +2561,6 @@ function date_api_date_time_lookup() {
   exit;
 }
 
-<<<<<<< HEAD
 /*
  * Test validity of a date range string.
  */
@@ -2658,8 +2569,6 @@ function date_range_valid($string) {
   return $matches < 1 ? FALSE : TRUE;
 }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Split a string like -3:+3 or 2001:2010 into 
  * an array of min and max years.
@@ -2691,7 +2600,6 @@ function date_range_years($string, $date = NULL) {
       $max_year = $this_year;
     }
   }
-<<<<<<< HEAD
   // We expect the $min year to be less than the $max year.
   // Some custom values for -99:+99 might not obey that.
   if ($min_year > $max_year) {
@@ -2699,8 +2607,6 @@ function date_range_years($string, $date = NULL) {
     $max_year = $min_year;
     $min_year = $temp;
   }
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // If there is a current value, stretch the range to include it.
   $value_year = is_object($date) ? date_format($date, 'Y') : '';
   if (!empty($value_year)) {
@@ -2738,7 +2644,6 @@ function date_range_string($years) {
  */
 function date_api_date_api_tables() {
   return array('node', 'comments', 'users');
-<<<<<<< HEAD
 }
 
 /**
@@ -2867,6 +2772,4 @@ function &date_get_nested_elements(&$form, $field_name) {
   }
 
   return $elements;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

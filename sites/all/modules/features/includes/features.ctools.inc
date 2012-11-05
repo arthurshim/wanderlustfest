@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: features.ctools.inc,v 1.1.2.28 2010/08/19 21:55:48 yhahn Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * This is a wild hack, but effective.
@@ -171,21 +167,12 @@ function ctools_component_features_export_render($component, $module, $data) {
     $code = implode('}', $code);
   }
   else {
-<<<<<<< HEAD
     $code = '  $export = array();'."\n\n";
-=======
-    $code = '  $export = array();'."\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     foreach ($data as $object_name) {
       if ($object = _ctools_features_export_crud_load($component, $object_name)) {
         $identifier = $schema['export']['identifier'];
         $code .= _ctools_features_export_crud_export($component, $object, '  ');
-<<<<<<< HEAD
         $code .= "  \$export[" . ctools_var_export($object_name) . "] = \${$identifier};\n\n";
-=======
-        $code .= "\n";
-        $code .= "  \$export[" . ctools_var_export($object_name) . "] = \${$identifier};\n";
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       }
     }
     $code .= '  return $export;';

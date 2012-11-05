@@ -1,28 +1,17 @@
-<<<<<<< HEAD
-=======
-/* $Id: */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file style sheet for Weight module.
  */
 
 .weight-selector {
   display: inline;
-<<<<<<< HEAD
   float: left;
   position: relative;
-=======
-  position: relative;
-  float: left;
-/*  margin: 0 0 0 5px; */
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 #node-admin-nodes td a {
   margin-right: 3px;
 }
 
-<<<<<<< HEAD
 #weight-settings-form .form-radios, #weight-settings-form .form-radios .form-item {
   margin-top: 0;
 }
@@ -32,17 +21,9 @@
 #weight-settings-form .form-checkboxes .form-item,
 #weight-settings-form .form-radios .form-item {
   margin-left: 1em;
-=======
-#weight-settings-form .form-checkboxes .form-item label {
-  width: 24%;
-  float: left;  
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }
 
 #weight-settings-form  .description {
   clear: both;  
-<<<<<<< HEAD
   margin-left: 1em;
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

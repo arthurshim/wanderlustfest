@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name = Embedded Media Thumbnail
 description = Allows custom thumbnails for Embedded Media Fields.
 dependencies[] = emfield
@@ -9,17 +8,4 @@ version = "6.x-2.5"
 core = "6.x"
 project = "emfield"
 datestamp = "1304705515"
-=======
-; $Id: emthumb.info,v 1.1.4.6 2009/08/25 03:00:44 aaron Exp $
-name = Embedded Media Thumbnail
-description = Allows custom thumbnails for Embedded Media Fields.
-dependencies[] = emfield
-package = CCK
-core = 6.x
-; Information added by drupal.org packaging script on 2010-09-22
-version = "6.x-1.25"
-core = "6.x"
-project = "emfield"
-datestamp = "1285164662"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 

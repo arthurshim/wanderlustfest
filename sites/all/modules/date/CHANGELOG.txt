@@ -1,14 +1,9 @@
-<<<<<<< HEAD
 //$Id: CHANGELOG.txt,v 1.1.8.499 2011/01/03 12:47:46 karens Exp $
-=======
-//$Id: CHANGELOG.txt,v 1.1.8.487 2010/08/14 11:53:45 karens Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Date Module 6.x
 =================
 Version 6.2-dev
 =================
 
-<<<<<<< HEAD
 Version 6.2.7
 =============
 - #514242 Day repeated every two weeks was broken by wrong day comparison value.
@@ -44,8 +39,6 @@ Version 6.2.7
 - #521990 by Aron Novak: Make sure popup date selector grid is in correct year by.
 - #587338 by Kevin Rogers - Add token to support day number with English ordinal (st, nd, rd or th).
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 Version 6.2.6
 =============
 

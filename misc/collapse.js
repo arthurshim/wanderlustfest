@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: collapse.js,v 1.17 2008/01/29 10:58:25 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Toggle the visibility of a fieldset using smooth animations

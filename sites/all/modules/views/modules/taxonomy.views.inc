@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: taxonomy.views.inc,v 1.57.2.6 2010/04/29 18:17:37 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  *
@@ -107,10 +103,7 @@ function taxonomy_views_data() {
     ),
     'argument' => array(
       'handler' => 'views_handler_argument_numeric',
-<<<<<<< HEAD
       'name field' => 'name',
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
       'skip base' => array('node', 'node_revision'),
       'zero is null' => TRUE,
     ),
@@ -283,11 +276,7 @@ function taxonomy_views_data() {
     'argument' => array(
       'help' => t('A related term of the term.'),
       'handler' => 'views_handler_argument_numeric',
-<<<<<<< HEAD
     ),
-=======
-    ),    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   // ----------------------------------------------------------------------
@@ -331,11 +320,7 @@ function taxonomy_views_data() {
     'argument' => array(
       'help' => t('The parent term of the term.'),
       'handler' => 'views_handler_argument_numeric',
-<<<<<<< HEAD
     ),
-=======
-    ),    
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 
   // ----------------------------------------------------------------------
@@ -379,11 +364,7 @@ function taxonomy_views_data() {
 function taxonomy_views_data_alter(&$data) {
   $data['node']['term_node_tid'] = array(
     'group' => t('Taxonomy'),
-<<<<<<< HEAD
     'title' => t('Terms on node'),
-=======
-    'title' => t('Related terms'),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     'help' => t('Relate nodes to taxonomy terms, specifiying which vocabulary or vocabularies to use. This relationship will cause duplicated records if there are multiple terms.'),
     'relationship' => array(
       'handler' => 'views_handler_relationship_node_term_data',
@@ -476,7 +457,6 @@ function taxonomy_views_plugins() {
         'path' => drupal_get_path('module', 'views') . '/modules/taxonomy',
       ),
     ),
-<<<<<<< HEAD
    'argument default' => array(
      'taxonomy_tid' => array(
        'title' => t('Taxonomy Term ID from URL'),
@@ -485,16 +465,6 @@ function taxonomy_views_plugins() {
        'parent' => 'fixed',
      ),
    ),
-=======
-    'argument default' => array(
-      'taxonomy_tid' => array(
-        'title' => t('Taxonomy Term ID from URL'),
-        'handler' => 'views_plugin_argument_default_taxonomy_tid',
-        'path' => drupal_get_path('module', 'views') . '/modules/taxonomy',
-        'parent' => 'fixed',
-      ),
-    ),
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   );
 }
 

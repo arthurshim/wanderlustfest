@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_term_node_tid_depth.inc,v 1.1 2009/06/05 01:26:35 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Filter handler for taxonomy terms with depth.
  *

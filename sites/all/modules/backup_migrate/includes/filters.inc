@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: filters.inc,v 1.1.2.10 2010/09/13 02:51:27 ronan Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 
 /**
@@ -139,15 +135,9 @@ function backup_migrate_filters_settings_form($settings, $op) {
  */
 function backup_migrate_filters_settings_form_set_parents($form) {
   foreach (element_children($form) as $key) {
-<<<<<<< HEAD
     if (!isset($form[$key]['#parents'])) {
       $form[$key]['#parents'] = array('filters', $key);
       $form[$key] = backup_migrate_filters_settings_form_set_parents($form[$key]);
-=======
-    $form[$key] = backup_migrate_filters_settings_form_set_parents($form[$key]);
-    if (!isset($form[$key]['#parents'])) {
-      $form[$key]['#parents'] = array('filters', $key);
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     }
   }
   return $form;

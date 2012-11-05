@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: pathauto_taxonomy.inc,v 1.39.2.5 2010/07/31 15:57:16 davereid Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -60,14 +56,11 @@ function taxonomy_pathauto_bulkupdate() {
   // From all node types, only attempt to update those with patterns
   $pattern_vids = array();
   foreach (taxonomy_get_vocabularies() as $vid => $info) {
-<<<<<<< HEAD
     // Exclude forum module's vocabulary.
     if ($vid == variable_get('forum_nav_vocabulary', '')) {
       continue;
     }
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $pattern = trim(variable_get('pathauto_taxonomy_'. $vid .'_pattern', ''));
 
     // If it's not set, check the default
@@ -78,7 +71,6 @@ function taxonomy_pathauto_bulkupdate() {
     }
     if (!empty($pattern)) {
       $pattern_vids[] = $vid;
-<<<<<<< HEAD
     }
   }
 
@@ -92,28 +84,6 @@ function taxonomy_pathauto_bulkupdate() {
       $term = taxonomy_get_term($tid);
       $count += _taxonomy_pathauto_alias($term, 'bulkupdate');
     }
-=======
-      if (empty($vid_where)) {
-        $vid_where = " AND (vid = '%s' ";
-      }
-      else {
-        $vid_where .= " OR vid = '%s'";
-      }
-    }
-  }
-  $vid_where .= ')';
-
-  // Exclude the forums and join all the args into one array so they can be passed to db_query
-  $forum_vid[] = variable_get('forum_nav_vocabulary', '');
-  $query_args = array_merge($forum_vid, $pattern_vids);
-  $query = "SELECT tid, vid, name, description, src, dst FROM {term_data} LEFT JOIN {url_alias} ON CONCAT('taxonomy/term/', CAST(tid AS CHAR)) = src WHERE src IS NULL AND vid <> %d ". $vid_where;
-  $result = db_query_range($query, $query_args, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($category = db_fetch_object($result)) {
-    $count += _taxonomy_pathauto_alias($category, 'bulkupdate');
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   drupal_set_message(format_plural($count,
@@ -182,7 +152,6 @@ function forum_pathauto($op) {
  * Generate aliases for all forums and forum containers without aliases.
  */
 function forum_pathauto_bulkupdate() {
-<<<<<<< HEAD
   $concat = _pathauto_sql_concat("'forum/'", 'td.tid');
   $forum_vid = variable_get('forum_nav_vocabulary', '');
   $sql = "SELECT td.tid FROM {term_data} td LEFT JOIN {url_alias} ua ON $concat = ua.src WHERE ua.src IS NULL AND td.vid = %d";
@@ -192,16 +161,6 @@ function forum_pathauto_bulkupdate() {
   while ($tid = db_result($query)) {
     $term = taxonomy_get_term($tid);
     $count += _taxonomy_pathauto_alias($term, 'bulkupdate');
-=======
-  $forum_vid = variable_get('forum_nav_vocabulary', '');
-  $query = "SELECT tid, vid, name, description, src, dst FROM {term_data} LEFT JOIN {url_alias} ON CONCAT('forum/', CAST(tid AS CHAR)) = src WHERE vid = %d AND src IS NULL";
-  $result = db_query_range($query, $forum_vid, 0, variable_get('pathauto_max_bulk_update', 50));
-
-  $count = 0;
-  $placeholders = array();
-  while ($category = db_fetch_object($result)) {
-    $count = _taxonomy_pathauto_alias($category, 'bulkupdate') + $count;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   }
 
   drupal_set_message(format_plural($count,

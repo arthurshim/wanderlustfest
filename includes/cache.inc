@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: cache.inc,v 1.17.2.4 2009/12/16 17:30:00 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * Return data from the persistent cache. Data may be stored as either plain text or as serialized data.
@@ -42,11 +38,7 @@ function cache_get($cid, $table = 'cache') {
     // cache timer. The cache variable is loaded into the $user object by
     // sess_read() in session.inc.
     else {
-<<<<<<< HEAD
       if (isset($user->cache) && $user->cache > $cache->created) {
-=======
-      if ($user->cache > $cache->created) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         // This cache data is too old and thus not valid for us, ignore it.
         return 0;
       }

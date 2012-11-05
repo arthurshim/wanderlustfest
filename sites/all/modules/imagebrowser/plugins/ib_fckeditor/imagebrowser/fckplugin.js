@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: fckplugin.js,v 1.1.2.2 2009/10/24 17:04:41 starnox Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 // Get Drupal basePath
 var FCKBasePath = top.window.Drupal.settings.basePath;

@@ -1,9 +1,5 @@
 <?php
-<<<<<<< HEAD
 // $Id: node_export.api.php,v 1.1.2.8 2010/11/30 01:43:16 danielb Exp $
-=======
-// $Id: node_export.api.php,v 1.1.2.5 2010/01/26 03:03:39 danielb Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -54,11 +50,7 @@ function hook_node_export_node_alter(&$node, $original_node, $method) {
  * @param $iteration
  *   The $iteration variable from node_export_node_encode().
  */
-<<<<<<< HEAD
 function hook_node_export_node_encode_line_alter(&$out, $tab, $key, $value, $iteration) {
-=======
-function hook_node_export_node_encode_alter(&$out, $tab, $key, $value, $iteration) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   // Start with something like this, and work on it:
   $out = $tab ."  '". $key ."' => ". node_export_node_encode($value, $iteration) .",\n";
 }
@@ -68,11 +60,7 @@ function hook_node_export_node_encode_alter(&$out, $tab, $key, $value, $iteratio
  *
  * The purpose of this is to allow a module to check nodes in the array for
  * two or more nodes that must retain a relationship, and to add/remove other
-<<<<<<< HEAD
  * data to the array to assist with maintaining dependencies, relationships,
-=======
- * data to the array to assist with maintaining dependencies, relationships, 
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * references, and additional data required by the nodes.
  *
  * @param &$nodes
@@ -82,7 +70,6 @@ function hook_node_export_node_encode_alter(&$out, $tab, $key, $value, $iteratio
  */
 function hook_node_export_node_bulk_alter(&$nodes, $op) {
   // no example code
-<<<<<<< HEAD
 }
 
 /**
@@ -173,6 +160,4 @@ function hook_node_export_format_handlers() {
       '#module' => 'format_module_name',
     ),
   );
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 }

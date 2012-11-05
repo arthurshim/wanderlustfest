@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// $Id: openid.js,v 1.6 2008/01/30 22:11:22 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 Drupal.behaviors.openid = function (context) {
   var $loginElements = $("#edit-name-wrapper, #edit-pass-wrapper, li.openid-link");

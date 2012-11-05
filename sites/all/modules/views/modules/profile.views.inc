@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-//$Id: profile.views.inc,v 1.10.2.1 2010/03/10 19:52:42 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * @file
  * Provide views data and handlers for user.module
@@ -36,13 +32,8 @@ function profile_views_data() {
   );
 
   $fields = profile_views_get_fields();
-<<<<<<< HEAD
   foreach ($fields as $field) {
     $table_name = 'profile_values_' . str_replace('-', '_', $field->name);
-=======
-  foreach($fields as $field) {
-    $table_name = 'profile_values_' . $field->name;
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $data[$table_name] = array(
       'table' => array(
         'group' => t('Profile'),
@@ -157,10 +148,7 @@ function profile_views_fetch_field($field) {
         ),
         'filter' => array(
           'handler' => 'views_handler_filter_boolean_operator',
-<<<<<<< HEAD
           'accept null' => TRUE,
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
         ),
         // @todo there ought to be a boolean argument handler
       );

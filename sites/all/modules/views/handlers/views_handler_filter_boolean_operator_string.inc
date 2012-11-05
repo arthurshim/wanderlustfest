@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: views_handler_filter_boolean_operator_string.inc,v 1.2 2009/09/15 16:18:38 merlinofchaos Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 /**
  * Simple filter to handle matching of boolean values.
  *

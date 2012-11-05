@@ -1,24 +1,12 @@
-<<<<<<< HEAD
-=======
-; $Id: devel.info,v 1.5.2.1 2008/06/13 03:25:20 weitzman Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 name = Devel
 description = Various blocks, pages, and functions for developers.
 package = Development
 dependencies[] = menu
 core = 6.x
 
-<<<<<<< HEAD
-; Information added by drupal.org packaging script on 2011-07-22
-version = "6.x-1.26"
+; Information added by drupal.org packaging script on 2012-09-06
+version = "6.x-1.27+3-dev"
 core = "6.x"
 project = "devel"
-datestamp = "1311355315"
-=======
-; Information added by drupal.org packaging script on 2010-08-13
-version = "6.x-1.22"
-core = "6.x"
-project = "devel"
-datestamp = "1281718291"
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
+datestamp = "1346890741"
 

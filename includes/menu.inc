@@ -1,8 +1,4 @@
 <?php
-<<<<<<< HEAD
-=======
-// $Id: menu.inc,v 1.255.2.34 2010/02/01 18:00:49 goba Exp $
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
 
 /**
  * @file
@@ -75,11 +71,7 @@
  */
 
 /**
-<<<<<<< HEAD
  * @defgroup menu_flags Menu flags
-=======
- * @name Menu flags
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @{
  * Flags for use in the "type" attribute of menu items.
  */
@@ -97,15 +89,10 @@ define('MENU_IS_LOCAL_TASK', 0x0080);
  */
 
 /**
-<<<<<<< HEAD
  * @defgroup menu_item_types Menu item types
  * @{
  * Definitions for various menu item types.
  *
-=======
- * @name Menu item types
- * @{
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * Menu item definitions provide one of these constants, which are shortcuts for
  * combinations of the above flags.
  */
@@ -149,11 +136,7 @@ define('MENU_DEFAULT_LOCAL_TASK', MENU_IS_LOCAL_TASK | MENU_LINKS_TO_PARENT);
  */
 
 /**
-<<<<<<< HEAD
  * @defgroup menu_status_codes Menu status codes
-=======
- * @name Menu status codes
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @{
  * Status codes for menu callbacks.
  */
@@ -168,15 +151,9 @@ define('MENU_SITE_OFFLINE', 4);
  */
 
 /**
-<<<<<<< HEAD
  * @defgroup menu_tree_parameters Menu tree parameters
  * @{
  * Parameters for a menu tree.
-=======
- * @Name Menu tree parameters
- * @{
- * Menu tree
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  */
 
  /**
@@ -574,11 +551,7 @@ function _menu_item_localize(&$item, $map, $link_translate = FALSE) {
  *   path from the menu table, for example tabs.
  * @return
  *   Returns the map with objects loaded as defined in the
-<<<<<<< HEAD
  *   $item['load_functions']. $item['access'] becomes TRUE if the item is
-=======
- *   $item['load_functions. $item['access'] becomes TRUE if the item is
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *   accessible, FALSE otherwise. $item['href'] is set according to the map.
  *   If an error occurs during calling the load_functions (like trying to load
  *   a non existing node) then this function return FALSE.
@@ -893,7 +866,6 @@ function menu_tree_all_data($menu_name = 'navigation', $item = NULL) {
  *   submenu below the link if there is one, and it is a subtree that has the
  *   same structure described for the top-level array.
  */
-<<<<<<< HEAD
 function menu_tree_page_data($menu_name = 'navigation', $only_active_trail = FALSE) {
    static $tree = array();
  
@@ -912,16 +884,6 @@ function menu_tree_page_data($menu_name = 'navigation', $only_active_trail = FAL
     if (!isset($tree[$cid]) && $only_active_trail) {
       $cid .= ':trail';
    }
-=======
-function menu_tree_page_data($menu_name = 'navigation') {
-  static $tree = array();
-
-  // Load the menu item corresponding to the current page.
-  if ($item = menu_get_item()) {
-    // Generate a cache ID (cid) specific for this page.
-    $cid = 'links:'. $menu_name .':page-cid:'. $item['href'] .':'. (int)$item['access'];
-
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     if (!isset($tree[$cid])) {
       // If the static variable doesn't have the data, check {cache_menu}.
       $cache = cache_get($cid, 'cache_menu');
@@ -959,11 +921,7 @@ function menu_tree_page_data($menu_name = 'navigation') {
           $placeholders = implode(', ', array_fill(0, count($args), '%d'));
           $expanded = variable_get('menu_expanded', array());
           // Check whether the current menu has any links set to be expanded.
-<<<<<<< HEAD
           if (!$only_active_trail && in_array($menu_name, $expanded)) {
-=======
-          if (in_array($menu_name, $expanded)) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
             // Collect all the links set to be expanded, and then add all of
             // their children to the list as well.
             do {
@@ -990,11 +948,7 @@ function menu_tree_page_data($menu_name = 'navigation') {
         $data['tree'] = menu_tree_data(db_query("
           SELECT m.load_functions, m.to_arg_functions, m.access_callback, m.access_arguments, m.page_callback, m.page_arguments, m.title, m.title_callback, m.title_arguments, m.type, m.description, ml.*
           FROM {menu_links} ml LEFT JOIN {menu_router} m ON m.path = ml.router_path
-<<<<<<< HEAD
          WHERE ml.menu_name = '%s' AND " . ($only_active_trail ? 'ml.mlid' : 'ml.plid') . " IN (". $placeholders .")
-=======
-          WHERE ml.menu_name = '%s' AND ml.plid IN (". $placeholders .")
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
           ORDER BY p1 ASC, p2 ASC, p3 ASC, p4 ASC, p5 ASC, p6 ASC, p7 ASC, p8 ASC, p9 ASC", $args), $parents);
         $data['node_links'] = array();
         menu_tree_collect_node_links($data['tree'], $data['node_links']);
@@ -1566,25 +1520,15 @@ function menu_set_active_item($path) {
  * @param $new_trail
  *   Menu trail to set, or NULL to use previously-set or calculated trail. If
  *   supplying a trail, use the same format as the return value (see below).
-<<<<<<< HEAD
  *
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @return
  *   Path to menu root of the current page, as an array of menu link items,
  *   starting with the site's home page. Each link item is an associative array
  *   with the following components:
-<<<<<<< HEAD
  *   - title: Title of the item.
  *   - href: Drupal path of the item.
  *   - localized_options: Options for passing into the l() function.
  *   - type: A menu type constant, such as MENU_DEFAULT_LOCAL_TASK, or 0 to
-=======
- *   - 'title': Title of the item.
- *   - 'href': Drupal path of the item.
- *   - 'localized_options': Options for passing into the l() function.
- *   - 'type': A menu type constant, such as MENU_DEFAULT_LOCAL_TASK, or 0 to
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  *     indicate it's not really in the menu (used for the home page item).
  *   If $new_trail is supplied, the value is saved in a static variable and
  *   returned. If $new_trail is not supplied, and there is a saved value from
@@ -1624,14 +1568,10 @@ function menu_set_active_trail($new_trail = NULL) {
       }
     }
 
-<<<<<<< HEAD
     // Pass TRUE for $only_active_trail to make menu_tree_page_data() build a
     // stripped down menu tree containing the active trail only, in case the
     // given menu has not been built in this request yet.
     $tree = menu_tree_page_data(menu_get_active_menu_name(), TRUE);
-=======
-    $tree = menu_tree_page_data(menu_get_active_menu_name());
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     list($key, $curr) = each($tree);
 
     while ($curr) {
@@ -1680,11 +1620,7 @@ function menu_get_active_breadcrumb() {
   }
 
   $item = menu_get_item();
-<<<<<<< HEAD
   if (!empty($item['access'])) {
-=======
-  if ($item && $item['access']) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $active_trail = menu_get_active_trail();
 
     foreach ($active_trail as $parent) {
@@ -1777,12 +1713,9 @@ function menu_rebuild() {
     return FALSE;
   }
 
-<<<<<<< HEAD
   // Encapsulate the rebuild in a transaction.
   db_query('BEGIN');
 
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   $menu = menu_router_build(TRUE);
   _menu_navigation_links_rebuild($menu);
   // Clear the menu, page and block caches.
@@ -1796,12 +1729,9 @@ function menu_rebuild() {
     variable_del('menu_rebuild_needed');
   }
   lock_release('menu_rebuild');
-<<<<<<< HEAD
   
   db_query('COMMIT');
   
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
   return TRUE;
 }
 
@@ -1977,7 +1907,6 @@ function _menu_delete_item($item, $force = FALSE) {
  * @param $item
  *   An array representing a menu link item. The only mandatory keys are
  *   link_path and link_title. Possible keys are:
-<<<<<<< HEAD
  *   - menu_name: Default is navigation.
  *   - weight: Default is 0.
  *   - expanded: Whether the item is expanded.
@@ -1986,15 +1915,6 @@ function _menu_delete_item($item, $force = FALSE) {
  *   - plid: The mlid of the parent.
  *   - router_path: The path of the relevant router item.
  *
-=======
- *   - menu_name   default is navigation
- *   - weight      default is 0
- *   - expanded    whether the item is expanded.
- *   - options     An array of options, @see l for more.
- *   - mlid        Set to an existing value, or 0 or NULL to insert a new link.
- *   - plid        The mlid of the parent.
- *   - router_path The path of the relevant router item.
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
  * @return
  *   The mlid of the saved menu link, or FALSE if the menu link could not be 
  *   saved.
@@ -2374,7 +2294,6 @@ function _menu_router_build($callbacks) {
   // First pass: separate callbacks from paths, making paths ready for
   // matching. Calculate fitness, and fill some default values.
   $menu = array();
-<<<<<<< HEAD
   $unique_paths = array();
   foreach ($callbacks as $path => $item) {
     // If this is a duplicate path (case insensitive) then ignore this
@@ -2383,9 +2302,6 @@ function _menu_router_build($callbacks) {
       continue;
     }
     $unique_paths[] = strtolower($path);
-=======
-  foreach ($callbacks as $path => $item) {
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     $load_functions = array();
     $to_arg_functions = array();
     $fit = 0;
@@ -2543,10 +2459,7 @@ function _menu_router_build($callbacks) {
       'file' => '',
       'file path' => '',
       'include file' => '',
-<<<<<<< HEAD
       'module' => '',
-=======
->>>>>>> 11c42aacd2cce208210c8578843c892e1112f1a8
     );
 
     // Calculate out the file to be included for each callback, if any.
