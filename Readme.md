@@ -3,7 +3,7 @@
 Please open a ticket or a basecamp todo if you have trouble setting this up.
 
 ## Apache2 VirtualHost settings
-<code>
+````
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
         ServerName www.wanderfest.com
@@ -33,4 +33,4 @@ Please open a ticket or a basecamp todo if you have trouble setting this up.
         CustomLog /var/log/apache2/wanderlust-access.log combined
 
 </VirtualHost>
-</code>
+````
