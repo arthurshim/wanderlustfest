@@ -6,7 +6,7 @@ Please open a ticket or a basecamp todo if you have trouble setting this up.
 * Clone this repo
 * Create a mysql database called wl_prod, check default/settings.php for username and passwords
 * Import wl_prod.sql in the database
-* Create a directory called fiels in the foler which has index.php
+* Create a directory called fiels in the folder which has index.php
 * Use the Apache2 VirtualHost settings provided below and modify it for your DocumentRoot
 
 ## Apache2 VirtualHost settings
@@ -16,10 +16,6 @@ Please open a ticket or a basecamp todo if you have trouble setting this up.
         ServerName www.wanderfest.com
         ServerAlias *.wanderfest.com wanderfest.com
         DocumentRoot /home/wanderlust/Wanderlust
-        <Directory />
-                Options FollowSymLinks
-                AllowOverride None
-        </Directory>
         <Directory /home/wanderlust/Wanderlust>
                 Options Indexes FollowSymLinks MultiViews
                 AllowOverride All
