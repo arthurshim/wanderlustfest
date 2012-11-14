@@ -2251,7 +2251,7 @@ width:40px;
 .chile a#logo,
 .chile-splash a#logo{
   background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/wanderlust-logo-new.png) 12px 11px no-repeat;
-  display: block;
+  display: block !important;
   height: 87px;
   width: 562px;
   }
@@ -2263,6 +2263,9 @@ width:40px;
   display: none;
   }
 
+.chile #header{
+  height: 130px;
+}
 
 /* CHILE SPLASH PAGE CSS 
 ------------------------ */
@@ -2337,9 +2340,13 @@ width:40px;
 
 .not-logged-in.chile-top-bar{
     background: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/website-images/oahu-top-bar.jpg) repeat-x;
-
-}
+    }
 
 .not-logged-in.chile-splash #header .subhead{
   display: none;
 }
+
+
+.chile #navigation ul.nice-menu li a{
+  padding: 0 20px;
+  }
