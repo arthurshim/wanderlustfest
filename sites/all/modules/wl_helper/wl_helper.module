@@ -28,7 +28,8 @@ function wl_helper_boot() {
       'standard' => 8,
       'colorado' => 21,
       'whistler' => 22,
-      'oahu' => 23,      
+      'oahu' => 23,    
+      'chile' => 24,            
     );
     
     @sites_set_current_site(_sites_get_site($arr[$subdomain]));
@@ -103,7 +104,7 @@ function wl_helper_sites_node_access_alter(&$permitted, $node) {
 }
 
 
-
+/* DISABLED BY ARTHUR 11-14-12 
 function wl_helper_cron() {
   // Update cached Twitter statuses for all stored Twitter usernames
   $field = content_fields($GLOBALS['_artist_node_twitter_field']);
@@ -137,7 +138,7 @@ function wl_helper_cron() {
   variable_set('wl_remaining_twitter_accts', serialize($names));
 }
 
-
+*/
 
 
 
