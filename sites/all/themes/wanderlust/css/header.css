@@ -246,13 +246,15 @@ td.dropdown-column, .dropdown-column-div {
 #header .subhead{
   width: 960px !important;
   }
+
 .not-front #header .subhead{
   width: 960px !important;
   }
+
 .subhead2{
-  width: 942px;
+  width: 950px;
   margin: 0 auto;
-    }
+  }
 
 
 .subhead{
