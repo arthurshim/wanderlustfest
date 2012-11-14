@@ -156,7 +156,7 @@ _gaq.push(['_trackPageview']);
       
     </header> <!-- /#header -->
         <?php  global $user;
-  if($user->uid != 1 && $user->uid != 4482) { ?>
+  if($user->uid != 1 && $user->uid != 4482 && $user->uid != 4483) { ?>
     
     <div class="subhead body-content">
     
@@ -192,11 +192,11 @@ _gaq.push(['_trackPageview']);
       
         <?php } else {?>
   
-      <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
+
       <nav id="navigation" role="navigation" class="clearfix ">
 	      <div class="subhead2"><?php print $navigation ?></div>
       </nav> <!-- /#navigation -->
-      <?php endif; ?>
+
      
   
    <div id="slideshows" role="slideshow" class="slideshowhome">
