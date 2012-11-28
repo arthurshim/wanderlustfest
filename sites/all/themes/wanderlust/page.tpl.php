@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if IE 7]>    <html class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if IE 8]>    <html class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if gt IE 8]> <!--> <html class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
+<!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
 <head>
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
@@ -25,14 +25,10 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
-   <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
-   <meta property="og:title" content="Wanderlust Festival 2012"/>
-   <meta property="og:type" content="website"/>
-   <!--<meta property="og:url" content="http://www.wanderlustfestival.com"/>-->
-   <meta property="og:image" content="http://wanderlustfestival.com/wlbird.jpg"/>
-   <meta property="og:site_name" content="Wanderlust"/>
-   <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
-<meta property="fb:app_id" content="321576251186267"/>
+
+
+
+
   <!-- <script type="text/javascript">
     // cross domain tracking code for Schedule Activities link - to open in new window
   
@@ -90,6 +86,14 @@ _gaq.push(['_trackPageview']);
   })();
 
 </script>
+
+
+
+<!-- Facebook Open Graph Admin & App Ids -->
+<meta property="fb:app_id" content="321576251186267"/>
+<!--/ Facebook Open Graph -->
+
+
 </head>
 
 <body class="<?php print $body_classes; ?>">
