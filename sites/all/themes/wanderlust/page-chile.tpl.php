@@ -200,16 +200,22 @@ _gaq.push(['_trackPageview']);
      
   
    <div id="slideshows" role="slideshow" class="slideshowhome">
+      <?php if (!empty($slidemain)): ?>
 
       <div class="slidemain-container">
         <div class="slidemain">
           <?php print $slidemain; ?>
         </div>
       </div>
+      <?php endif; ?>
+
+	    <?php if (!empty($slides)): ?>
        
       <div class="slides">
         <?php print $slides; ?>
       </div>
+      <?php endif; ?>
+      
     </div>
     
     <div class="subhead body-content">
