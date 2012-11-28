@@ -216,12 +216,12 @@ function wanderlust_preprocess_page(&$vars, $hook) {
 	
 	$vars['template_file'] = 'page-oahu';
     }
-*/
+
    if($subdomain == 'chile') {	
 	
 	$vars['template_file'] = 'page-chile';
     }    
-    
+    */
   }
 }
 
