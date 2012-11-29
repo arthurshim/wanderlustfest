@@ -297,6 +297,11 @@ td.esc-down{
   margin-top: 4px;
   }
 
+#header #site-name-slogan .event-item .event-item-title a{
+  color: #084411;
+  margin-top: 16px;
+  display: block;
+}
   
 #header #site-name-slogan .event-right {
   line-height: 13px; 
