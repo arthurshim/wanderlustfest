@@ -268,3 +268,22 @@ function wanderlust_menu_item_link($link) {
    }
     return l($link['title'], $link['href'], $link['localized_options']);
 }
+
+function wwanderlust_viewsdisplaytabs_tab_groups($displays, $class) {
+  drupal_add_css(drupal_get_path('module', 'viewsdisplaytabs') .'/viewsdisplaytabs.css');
+  
+  $out = '<div class="viewsdisplaytabs-wrapper">';
+  
+  
+    
+  // unset($displays[0][5]);
+  foreach ($displays as $group => $display_items) {
+    $out .= '<div class="viewsdisplaytabs-group-wrapper">';
+    $group = ( $group === 0 ? null : $group );
+    $out .= theme('item_list', $display_items, $group, 'ul', array('class' => $class));
+    $out .= '</div>';
+  }
+  $out .= '</div>';
+  $out .= '<div class="viewsdisplaytabs-wrapper-closure"></div>';
+  return $out;
+}

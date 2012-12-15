@@ -32,15 +32,30 @@ function wl_helper_boot() {
       'chile' => 24,            
     );
     
-    @sites_set_current_site(_sites_get_site($arr[$subdomain]));
-    sites_set_current_site_cookie();
+/*    @sites_set_current_site(_sites_get_site($arr[$subdomain]));
+    sites_set_current_site_cookie();*/
   }
 }
 
 function wl_helper_init() {
   
   drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
-  drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper.js'); 
+  drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper.js');
+  
+  $mystring = $_SERVER['HTTP_REFERER'];
+  $find   = '.wanderfest.com';
+  $pos = strpos($mystring, $find);
+  $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+  $subdomain = strtolower(trim($url[0]));  
+  if ($subdomain == 'wanderfest' && !$pos) {  /*add  jquery redirect if  user come from external to wanderfest.com*/
+    drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper_map.js');
+    
+  }	
+
+
+
+
+
   global $user;
   $site = sites_get_current_site();
   // If current site is disabled, redirect to default site.
@@ -50,7 +65,7 @@ function wl_helper_init() {
   
     
     if (in_array($site->sid, $disabled)) {
-      drupal_goto('http://oahu.' . wl_get_base_domain());
+    //  drupal_goto('http://oahu.' . wl_get_base_domain());
     }
   }
   
@@ -59,7 +74,7 @@ function wl_helper_init() {
   }
 
   // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
-  if ($_GET['q'] != 'live-events-list.json') {
+/*  if ($_GET['q'] != 'live-events-list.json') {
     global $user;
     
     if ((!($site)) && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
@@ -72,10 +87,10 @@ function wl_helper_init() {
 
       }
       else {
-       drupal_goto('http://oahu.' . wl_get_base_domain() . '/home');
+     //  drupal_goto('http://oahu.' . wl_get_base_domain() . '/home');
       }
     }
-  }
+  }*/
   /*$msg = variable_get('wl_messages', 'NO MESSAGES');
   if ($msg != 'NO MESSAGES') {
     $msg = unserialize($msg);
@@ -373,3 +388,70 @@ function wl_helper_disabled_sites() {
   return $disabled;
 }
 
+
+function wlw_helper_preprocess_views_view(&$vars) {
+  global $base_path;
+
+  $view = $vars['view'];
+  $empty = !(bool) count($view->result);
+  $settings = variable_get('viewsdisplaytabs_settings', array());
+  $show = ( $empty ? $empty && $settings['view_show_empty'][$view->name] == 1 : true );
+
+  if ($settings['view_enabled'][$view->name] == 1 && $show) {
+    $selected_displays = $settings['view_displays'][$view->name];
+
+    // Collect displays and build grouping array
+    // If no displays are selected, include all displays
+    foreach ($view->display as $display_name => $display_data) {
+      if (!$selected_displays || !count($selected_displays) || in_array($display_name, $selected_displays)) {
+
+        // Allow grouping of tabs with grouping separator in titles/names: group[sep]title
+        // If the separator is at position 0 or does not exist it all, do not group
+        $sep = $settings['view_group_separator'][$view->name];
+        if ($sep && strpos($display_data->display_title, $sep)) {
+            
+          list($group, $title) = explode($sep, $display_data->display_title);
+        }
+        else {
+          $title = $display_data->display_title;
+          $group = 0;
+        }
+
+        // Set current tab as active based on URL query params
+        $current_view_display = _viewsdisplaytabs_get_current_views_display_from_url();
+        if ($current_view_display && $view->name == $current_view_display->view_name) {
+          $active = ( $display_name == $current_view_display->display_name );
+        }
+        else {
+          $active = ( $display_name == $settings['view_displays_default'][$view->name] );
+        }
+
+        // Build a grouping array for later
+        // @TODO: Pass the path of the display as well, provided it has been set
+        // (true for page displays).
+        $displays[$group][] = theme('viewsdisplaytabs_tab', $title, $_GET['q'], $view->name, $display_name, $active);
+      }
+    }
+
+    // Build header, exclude displays that are attachments (or we'll end up
+    // with two sets of tabs)
+   
+     unset($displays[0][5]);
+ 
+    if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
+      $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
+    }
+
+    // Assign header
+    $vars['header'] .= $header;
+
+    // Add JS
+    $js = drupal_add_js();
+    $js['setting']['viewsdisplaytabs']['views'][$view->name] = $view->name;
+    $js['setting']['viewsdisplaytabs']['default_display'][$view->name] = $settings['view_displays_default'][$view->name];
+    $js['setting']['viewsdisplaytabs']['view_throbber'][$view->name] = $settings['view_throbber'][$view->name];
+    drupal_add_js($js['setting'], 'setting');
+    drupal_add_js(drupal_get_path('module', 'viewsdisplaytabs') .'/viewsdisplaytabs.js');
+    drupal_add_js('misc/jquery.form.js');
+  }
+}

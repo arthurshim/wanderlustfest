@@ -246,15 +246,13 @@ td.dropdown-column, .dropdown-column-div {
 #header .subhead{
   width: 960px !important;
   }
-
 .not-front #header .subhead{
   width: 960px !important;
   }
-
 .subhead2{
-  width: 950px;
+  width: 942px;
   margin: 0 auto;
-  }
+    }
 
 
 .subhead{
@@ -297,11 +295,6 @@ td.esc-down{
   margin-top: 4px;
   }
 
-#header #site-name-slogan .event-item .event-item-title a{
-  color: #084411;
-  margin-top: 16px;
-  display: block;
-}
   
 #header #site-name-slogan .event-right {
   line-height: 13px; 

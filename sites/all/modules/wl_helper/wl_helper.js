@@ -5,6 +5,15 @@ $("#navigation a").each(function(){
    });
 } );
   */
+
+  
+$(".mark").hover(function(){
+
+   $(this).find('div.innersite').fadeIn();
+},function(){
+   $(this).find('div.innersite').hide();
+});
+    
   
   $('body').append('<div id="ted_photo_hover"></div>');
     $('#ted_photo_hover').css({position: 'absolute'});
@@ -32,5 +41,8 @@ $("#navigation a").each(function(){
   function(e){
   //    $('#ted_photo_hover').hide();
   });
+  
+  
+  
 });
 

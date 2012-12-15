@@ -1,0 +1,131 @@
+
+
+#map-1-container .mark {
+  position: relative;
+  z-index: 999;
+}
+
+#map-1 .mark.squaw {
+  top: 154px;
+  margin-left: 510px;
+  
+}
+
+#map-1 .mark.stratton {
+   margin-left: 565px;
+   top:47px;
+}
+
+#map-1 .mark.cosmopolitan {
+   top: 150px;
+   margin-left: 640px;
+}
+
+#map-1 .mark.standard {
+   top: 50px;
+   margin-left: 280px;
+}
+
+#map-1 .mark.phoenix {
+   top: 200px;
+   margin-left: 450px;
+}
+
+#map-1 .mark.dallas {
+   top: 280px;
+   margin-left: 570px;
+}
+
+#map-1 .mark.atlanta {
+   top: 220px;
+   margin-left: 470px;
+}
+
+#map-1 .mark.nyc {
+   margin-left: 624px;
+   top: 213px;
+}
+
+#map-1  .mark.sf {
+   margin-left: 475px;
+   top: 148px;
+}
+
+#map-1 .mark.chicago {
+   top: 255px;
+   margin-left: 480px;
+}
+
+#map-1 .mark.la {
+   margin-left: 450px;
+   top: 196px;
+}
+
+#map-1 .mark.williamsburg {
+   top: 210px;
+   margin-left: 350px;
+}
+
+#map-1 .mark.mygroup {
+   top: 150px;
+   margin-left: 650px;
+}
+
+#map-1 .mark.colorado {
+  margin-left: 550px;
+  top: 120px;
+}
+
+#map-1 .mark.whistler {
+  margin-left: 503px;
+  top: 240px;
+}
+
+#map-1 .mark.oahu {
+    margin-left: 550px;
+    top: 169px;
+}
+
+#map-1 .mark.chile {
+    margin-left: 720px;
+    top: 162px;
+}
+
+#map-1-container{ position:relative; width:600px; height:400px; overflow:hidden; }
+#map-1{ width:960px; height:600px; position:absolute; left:0; top:0; }
+.level{ position:absolute; left:0; top:0; z-index:10;}
+.current-level{ z-index:20; }
+
+.map-viewport {
+    border: 1px solid black;
+    height: 400px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    width: 600px;
+}
+
+
+#map {
+   background: url(../images/map2.png) no-repeat;
+   background-position: 50% 0;
+    height: 810px;
+    width: 994px;
+}
+
+.innersite {
+  display: none;
+  background-color: #FFFFFF;
+  width: 200px;
+  height: 160px;
+  border-radius: 4px;
+  position: absolute;
+  z-index: 999;
+}
+
+.mark {
+  background: url(../images/orange.png) no-repeat;
+  height: 50px;
+  width: 50px;
+}
+

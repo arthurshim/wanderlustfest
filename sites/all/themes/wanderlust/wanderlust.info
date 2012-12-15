@@ -10,12 +10,21 @@ stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/customlineup.css
 stylesheets[all][] = css/bodystyles.css
 stylesheets[all][] = css/header.css
+stylesheets[all][] = css/header.css
+stylesheets[all][] = css/splash.css
+
 
 scripts[] = js/js_combined.js
+scripts[] = js/jquery_cookie.js
+scripts[] = js/jquery_mapz.js
+scripts[] = js/jquery_mapz.min.js
+
 ; scripts[] = js/wanderlust.js
 ; scripts[] = js/sliderbottom.js
 ; scripts[] = js/jcarousellite_1.0.1.min.js
 ; scripts[] = js/jcarousellite_control.js
+
+
 scripts[] = ../../modules/sitesdropdown/sitesdropdown.js
 
 regions[left] = Left sidebar
