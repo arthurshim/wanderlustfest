@@ -1,6 +1,16 @@
 <?php
 
 function sitesdropdown_init() {
+  
+  
+      $current_site = sites_get_current_site();
+  $sids = sites_taxonomy_get_tids_by_sid($current_site->sid);
+ // $nid = sites_extra_fields_get_associated_nid($row->sid)
+ // drupal_set_message('<pre>' . print_r($current_site->taxonomy[30]['name'] , 1) . '</pre>');
+      
+      
+   //   [field_event_image][0] [filepath]
+      
   /*global $user;
    if($user->uid == 1) {
    $current_site = sites_get_current_site();
@@ -180,7 +190,11 @@ function sitesdropdown_create_menu($reset = FALSE) {
   $col2 .= '<div class="col-footer"></div></div>';
   $col3 .= '<div class="col-footer"></div></div>';
   
-  return '<a href="#" id="megaanchor">California</a><div id="megamenu1" class="megamenu">'.$col1.$col2.$col3.'</div>';
+  
+  
+
+  
+  return  '<a href="#" id="megaanchor">California</a><div id="megamenu1" class="megamenu">'.$col1.$col2.$col3.'</div>';
 }
 
 /*
@@ -297,7 +311,7 @@ function sitesdropdown_site_id() {
 	 
 		  if($site['field_event_date'][0]['value']){
 	   $item = '<div class="event-item">';
-	   $item .= '<div class="event-item-title">'.$site['title'].'</div>';
+	 //  $item .= '<div class="event-item-title">'.$site['title'].'</div>';
 	   $item .= '<div class="event-right"><div class="item-date">';
 	 //If event starts / ends on same day, don't repeat day
 	 if (substr($site['field_event_date'][0]['value'], 0 , 10) == substr($site['field_event_date'][0]['value2'], 0 , 10)) {

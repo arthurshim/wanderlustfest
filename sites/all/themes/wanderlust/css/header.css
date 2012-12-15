@@ -185,7 +185,8 @@ td.dropdown-column, .dropdown-column-div {
 ----------------------------------*/	
 
 #header{
-    background: url("http://c282314.r14.cf1.rackcdn.com/website-images/header-bg.jpg") top center no-repeat;
+   /* background: url("http://c282314.r14.cf1.rackcdn.com/website-images/header-bg.jpg") top center no-repeat;*/
+     background: url(../images/header_bg.png) top center no-repeat;
     margin: 0;
     padding: 0;
     position: relative;
@@ -270,10 +271,10 @@ td.esc-down{
 ----------------------------------*/	
     
 #header #site-name-slogan{
-  background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/site-info-bg.jpg");
-  background-repeat: no-repeat;
-  margin-left: 68px;
-  width: 319px;
+  /*background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/site-info-bg.jpg");
+  background-repeat: no-repeat;*/
+  
+  width: 256px;
   font-size: 11px;
   text-transform: uppercase;
   color: #627a62;

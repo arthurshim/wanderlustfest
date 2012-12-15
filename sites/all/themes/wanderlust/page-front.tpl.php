@@ -150,21 +150,11 @@ _gaq.push(['_trackPageview']);
 
     <header id="header" role="banner" class="clearfix">
       
-      <?php if (!empty($topnav)): ?>
-      <div class="topnav">
-        <?php print $topnav; ?>
-      </div>
-      <?php endif; ?>
+
       
       <div class="subhead">
-        <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-          <img src="http://c282314.r14.cf1.rackcdn.com/website-images/wanderlust_logo.png" alt="<?php print t('Home'); ?>" />
-        </a>
-        <?php endif; ?>
-
-	<?php print l( 'Return to map' , "http://{$base}"); ?>
-        <?php if ($site_name || $site_slogan): ?>
+	
+       <?php if ($site_name || $site_slogan): ?>
         <hgroup id="site-name-slogan">
           <?php if ($site_name): ?>
             <h1 id="site-name" style=" display: none;">
@@ -178,6 +168,23 @@ _gaq.push(['_trackPageview']);
 	        <?php print $header; ?>
         </hgroup>
         <?php endif; ?>
+	
+        <?php if ($logo): ?>
+	<div class="newlogo">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
+          <img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" />
+        </a>
+	</div>
+	<?php print $top_nav; ?>
+        <?php endif; ?>
+
+	
+	<div class="tomap">
+	<a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>">
+          <img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" />
+        </a>
+	</div>
+
       </div>
       
       <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>

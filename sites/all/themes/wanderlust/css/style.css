@@ -654,3 +654,16 @@ div.view div.views-admin-links li a {
 #webform-client-form-2728 .form-item label {width: 200px; display: inline-block!important; font-weight: normal!important;}
 
 #webform-client-form-2728 #webform-component-choose-list {margin-left: 220px;}
+
+.tomap {
+  float: right;
+  margin: 12px 4px 12px 0;
+}
+
+.newlogo {
+  text-align: center;  
+}
+
+#block-sitesdropdown-1 {
+  float: left;
+}
