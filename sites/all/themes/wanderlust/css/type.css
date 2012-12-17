@@ -1,0 +1,26 @@
+/* STYLESHEET FOR @FONT-FACE CUSTOM TYPOGRAPHY */
+
+
+
+@font-face {
+    font-family: 'revolution';
+    src: url('revolution-webfont.eot');
+    src: url('revolution-webfont.eot?#iefix') format('embedded-opentype'),
+         url('revolution-webfont.woff') format('woff'),
+         url('revolution-webfont.ttf') format('truetype'),
+         url('revolution-webfont.svg#revolutionrevolution') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+		font-family: 'MrsEavesOT-Italic';
+		src: url('mrseavesotitalic.eot');
+		src: url('mrseavesotitalic.eot?#iefix') format('embedded-opentype'),
+				 url('mrseavesotitalic.woff') format('woff'),
+				 url('mrseavesotitalic.ttf') format('truetype'),
+				 url('mrseavesotitalic.svg#mrseavesotitalic') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
