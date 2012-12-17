@@ -12,7 +12,7 @@
 *		- Attribution requires leaving author name, author link, and the license info intact.	
 */
 
-(function( $ ){
+$(document).ready(function() { 
 
   $.fn.mapz = function(options) {
   
@@ -28,7 +28,7 @@
   
 		var viewport = this.parent('.map-viewport');
 		var map = this;
-                alert('aaa');
+
 		var constraint = $(document.createElement('div')).addClass('mapz-constraint').css('position','absolute').appendTo(viewport);
 		
 		// Add current-level class to first map level
@@ -58,7 +58,9 @@
 		}
 			
 		map.draggable({
-			 containment : constraint
+                            
+                       //     console.log(map.position().left)
+			containment : '.mapz-constraint'
 		});
 		
 		function createMaps(){
@@ -112,7 +114,7 @@
 			});
 			
 			// Check if map is currently out of bounds, revert to closest position if so
-			if(map.position().left < constraint.position().left) map.css('left',constraint.position().left);
+			if(map.position().left < constraint.position().left) alert('aaa'); map.css('left',constraint.position().left);
 			if(map.position().top < constraint.position().top) map.css('top',constraint.position().top);
 		}
 		
@@ -159,4 +161,4 @@
 		}
    
   };
-})( jQuery );
+});

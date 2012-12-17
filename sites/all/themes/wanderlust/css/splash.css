@@ -2,7 +2,7 @@
 
 #map-1-container .mark {
   position: relative;
-  z-index: 999;
+  z-index: 500;
 }
 
 #map-1 .mark.squaw {
@@ -91,18 +91,18 @@
     top: 162px;
 }
 
-#map-1-container{ position:relative; width:600px; height:400px; overflow:hidden; }
-#map-1{ width:960px; height:600px; position:absolute; left:0; top:0; }
+#map-1-container{ position:relative; width: 1170px; height: 495px; overflow:hidden; }
+#map-1{ cursor: move; width: 2146px; height:1170px; position:absolute; left:0; top:0; }
 .level{ position:absolute; left:0; top:0; z-index:10;}
 .current-level{ z-index:20; }
 
 .map-viewport {
     border: 1px solid black;
-    height: 400px;
+    height: 503px;
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    width: 600px;
+    width: 1170px;
 }
 
 
@@ -123,9 +123,18 @@
   z-index: 999;
 }
 
+.innersite:hover {
+  cursor: pointer;
+  z-index:999;
+}
+
 .mark {
   background: url(../images/orange.png) no-repeat;
   height: 50px;
   width: 50px;
+}
+
+.front #container {
+ width:1350px;   
 }
 

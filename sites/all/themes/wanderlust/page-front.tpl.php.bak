@@ -11,7 +11,7 @@
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-  
+
   <!-- <script type="text/javascript" src="sites/all/modules/cufon/js/cufon-yui.js"></script>
 <script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Super_800.font.js"></script>
 <script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Bold_700.font.js"></script>
@@ -24,6 +24,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+
   
    <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
    <meta property="og:title" content="Wanderlust Festival 2012"/>
@@ -90,6 +91,39 @@ _gaq.push(['_trackPageview']);
   })();
 
 </script>
+
+	
+    <?php
+      $base = wl_get_base_domain();
+      $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+      $subdomain = strtolower(trim($url[0]));
+      $f = FALSE;
+      if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
+	$f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
+   
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+   
+<script type="text/javascript">
+ $(document).ready(function() {
+  
+ $('input[type=checkbox]').change(function(){
+   if ($(this).is(":checked")){
+       $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '.wanderfest.com'});     
+       $(location).attr('href', 'http://' +  $(this).attr('name') + '.wanderfest.com');
+   }
+  });
+
+
+ $("#map-1").mapz();
+ 
+});
+</script>
+
+
+     <?php } ?>
+
+
+ 
 </head>
 
 <body class="<?php print $body_classes; ?>">
@@ -104,7 +138,7 @@ _gaq.push(['_trackPageview']);
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-
+  
   <div id="container" class="clearfix">
 
     <div id="skip-link">
@@ -113,7 +147,6 @@ _gaq.push(['_trackPageview']);
         <a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
       <?php endif; ?>
     </div>
-
     <header id="header" role="banner" class="clearfix">
       
       <?php if (!empty($topnav)): ?>
@@ -157,7 +190,123 @@ _gaq.push(['_trackPageview']);
       
     </header> <!-- /#header -->
    
-    <div id="slideshows" role="slideshow" class="slideshowhome">
+
+    <?php
+    
+    
+      if ($f) {  ?>
+      
+ <?php
+      $q = 'SELECT * FROM {sites}';                   //get all sites; 
+      $res = db_query($q);
+    while($row = db_fetch_object($res)) {
+    if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
+        if ($node = node_load($nid)) {                   /* load event node*/
+          $row->extra_fields = $node;
+        }
+      }
+      $sites[$row->sid] = $row;
+    }
+    ?>
+    
+<div id="map-1-container">   
+<div class="map-viewport">
+<div id="map-1" >
+<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2080" height="1170" usemap="#map" alt="" />
+  <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
+      <?php if($site->extra_fields->status == 1 && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
+      <div class="mark <?php print $site->purl_prefix;?>">
+	<div class="innersite">	
+	<?php 
+	  if($site->extra_fields->field_event_date[0]['value']){
+	   $item =  '<div class="site-item">';
+	   $item .= '<div class="site-title">' . $site->title . '</div>';
+	   $item .= '<div class="siteevent"><div class="item-date">';
+	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
+	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
+	  }   
+	  else {
+	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
+	   } 
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br /> ' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	 }
+	 else {
+            $item = '<div class="site-item"><div class="event-right">';
+	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
+	 }	 
+	 
+	print $item; ?>
+	 <div class="visitsite"><?php print l('Visit site', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
+	<input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div>
+      </div>
+    <?php } ?>
+<?php  endforeach;   ?>
+
+
+</div>
+
+
+    
+	  <map name="map">
+
+	
+	  
+
+	</map>
+</div>
+
+</div>
+      
+      
+      
+      
+     <div id="mapa">
+
+      <div class="map-content">	
+	
+
+
+<?php  /*foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
+      <?php if($site->extra_fields->status == 1 && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
+      <div class="mark <?php print $site->purl_prefix;?>">
+	<div class="innersite">	
+	<?php 
+	  if($site->extra_fields->field_event_date[0]['value']){
+	   $item =  '<div class="site-item">';
+	   $item .= '<div class="site-title">' . $site->title . '</div>';
+	   $item .= '<div class="siteevent"><div class="item-date">';
+	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
+	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
+	  }   
+	  else {
+	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
+	   } 
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br /> ' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	 }
+	 else {
+            $item = '<div class="site-item"><div class="event-right">';
+	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
+	 }	 
+	 
+	print $item; ?>
+	 <div class="visitsite"><?php print l('Visit site', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
+	<input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div>
+      </div>
+    <?php } ?>
+<?php  endforeach; */  ?>
+
+  </div>
+ </div>
+
+      
+    </div>
+<?php  
+      } 
+        else {  /*if not front page - print slide and other content */?> 
+
+        <div id="slideshows" role="slideshow" class="slideshowhome">
       <?php if (!empty($slidemain)): ?>
       <div class="slidemain-container">
         <div class="slidemain">
@@ -173,7 +322,8 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
     </div>
     
-    <div class="subhead body-content">
+    <?php } ?>
+    
     
       <div id="main"  role="main" class="clearfix">
         <?php if (!empty($messages)): print $messages; endif; ?>

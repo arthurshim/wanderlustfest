@@ -171,7 +171,7 @@ DirectoryIndex index.php
 
 
 
-#php_value memory_limit 200M
+#php_value memory_limit 500M
 
 #Header unset ETag
 #FileETag None

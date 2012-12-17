@@ -138,23 +138,33 @@ _gaq.push(['_trackPageview']);
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-
+  
   <div id="container" class="clearfix">
-
+<?php  if (!$f) { ?>
     <div id="skip-link">
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
       <?php if ($primary_links): ?>
         <a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
       <?php endif; ?>
     </div>
-
     <header id="header" role="banner" class="clearfix">
       
-
+      <?php if (!empty($topnav)): ?>
+      <div class="topnav">
+        <?php print $topnav; ?>
+      </div>
+      <?php endif; ?>
       
       <div class="subhead">
+        <?php if ($logo): ?>
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
+          <img src="http://c282314.r14.cf1.rackcdn.com/website-images/wanderlust_logo.png" alt="<?php print t('Home'); ?>" />
+        </a>
+        <?php endif; ?>
+        <?php
+	print l('return',"http://wanderfest.com");
 	
-       <?php if ($site_name || $site_slogan): ?>
+	if ($site_name || $site_slogan): ?>
         <hgroup id="site-name-slogan">
           <?php if ($site_name): ?>
             <h1 id="site-name" style=" display: none;">
@@ -168,23 +178,6 @@ _gaq.push(['_trackPageview']);
 	        <?php print $header; ?>
         </hgroup>
         <?php endif; ?>
-	
-        <?php if ($logo): ?>
-	<div class="newlogo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-          <img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-	</div>
-	<?php print $top_nav; ?>
-        <?php endif; ?>
-
-	
-	<div class="tomap">
-	<a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>">
-          <img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" />
-        </a>
-	</div>
-
       </div>
       
       <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
@@ -196,13 +189,10 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
       
     </header> <!-- /#header -->
- 
-
-   
    
 
     <?php
-    
+    }
     
       if ($f) {  ?>
       
@@ -222,7 +212,7 @@ _gaq.push(['_trackPageview']);
 <div id="map-1-container">   
 <div class="map-viewport">
 <div id="map-1" >
-<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map-4.png" width="960" height="600" usemap="#map" alt="" />
+<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2080" height="1170" usemap="#map" alt="" />
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       <?php if($site->extra_fields->status == 1 && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
       <div class="mark <?php print $site->purl_prefix;?>">
@@ -352,7 +342,7 @@ _gaq.push(['_trackPageview']);
       </div> <!-- /#main -->
       
     </div>
-      
+     <?php   if (!$f) { ?>
     <footer id="footer" role="contentinfo" class="clearfix">
       <?php if (!empty($footertop)): ?>
       <div class="footertop">
@@ -369,7 +359,7 @@ _gaq.push(['_trackPageview']);
         <div class="footer-message-content"><?php print $footer_message; ?></p>
       </div>
     </footer> <!-- /#footer -->
-    <?php print $closure ?>
+    <?php } print $closure ?>
   </div> <!-- /#container -->
 
 
