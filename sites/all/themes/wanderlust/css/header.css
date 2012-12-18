@@ -190,7 +190,7 @@ td.dropdown-column, .dropdown-column-div {
     margin: 0;
     padding: 0;
     position: relative;
-    height: 163px;
+    height: 154px;
   }
   
  .oahu #header{
@@ -212,15 +212,14 @@ td.dropdown-column, .dropdown-column-div {
 
 #header #logo {
   float: left;
-  margin: 0;
-  padding: 11px 0 0 9px;
+  margin: 16px 0 -8px 10px;
   }
 
 .studios-down .bullet{
   display: none;
   }
 
-
+/*
 .sf #header a#logo,
 .nyc #header a#logo,
 .la #header a#logo{
@@ -243,7 +242,7 @@ td.dropdown-column, .dropdown-column-div {
 .la #header a#logo img{
   display: none;
   }
-
+*/
 #header .subhead{
   width: 960px !important;
   }
@@ -273,8 +272,8 @@ td.esc-down{
 #header #site-name-slogan{
   /*background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/site-info-bg.jpg");
   background-repeat: no-repeat;*/
-  
-  width: 256px;
+ /* margin: 24px 0 0 16px;
+  width: 230px;
   font-size: 11px;
   text-transform: uppercase;
   color: #627a62;
@@ -282,7 +281,7 @@ td.esc-down{
   height: 91px;  
   float: left;
   position: relative;
-  top: 7px;
+  top: 7px;*/
   }
 
 #header #site-name-slogan .event-item {
@@ -296,7 +295,7 @@ td.esc-down{
   margin-top: 4px;
   }
 
-  
+  /*
 #header #site-name-slogan .event-right {
   line-height: 13px; 
   font-family: futura;
@@ -304,7 +303,7 @@ td.esc-down{
   font-size: 11px;
   }
 
-
+  */
 #main{
   width: 942px;
   margin: 0 auto;
@@ -317,10 +316,12 @@ td.esc-down{
 ----------------------------------*/	
 
 #navigation{
-  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/nav-bg.png") no-repeat;
+  /*background: url("http://c282314.r14.cf1.rackcdn.com/website-images/nav-bg.png") no-repeat;*/
+  background: url(../images/newmenu.png) no-repeat;
   height:46px;
   z-index: 40;
   position: relative;
+   margin: 0 0 0 -1px;
   }
 
 #navigation ul#main-menu li a {
@@ -345,6 +346,7 @@ td.esc-down{
 
 #navigation ul ul{
 	background: url('http://c282314.r14.cf1.rackcdn.com/website-images/childnav-bg.jpg');
+	
  	top: 38px;
 	padding: 0px 10px;
 	width: 195px;
@@ -374,9 +376,11 @@ td.esc-down{
  	font-weight: bold;
  	text-transform: uppercase;
 	color: #ffffff;
-	padding: 0 30px;
-	border-right: 1px solid #45724c;
+	padding: 0 28px;
+	/*border-right: 1px solid #45724c;*/
 	margin: 10px 0;
+	 font-family: 'MrsEavesOT-Italic';
+	  font-style: italic;
   }
  
 #navigation ul.nice-menu li.first > a{

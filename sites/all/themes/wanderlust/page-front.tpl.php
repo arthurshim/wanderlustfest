@@ -117,16 +117,11 @@ _gaq.push(['_trackPageview']);
  $("#map-1").mapz();
  
 });
-</script>
-
-
+ </script>
      <?php } ?>
+ </head>
 
-
- 
-</head>
-
-<body class="<?php print $body_classes; ?>">
+ <body class="<?php print $body_classes; ?>">
   <?php print $google_marketing; ?>
   <div id="fb-root"></div>
   <script>
@@ -147,38 +142,23 @@ _gaq.push(['_trackPageview']);
         <a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
       <?php endif; ?>
     </div>
+    
     <header id="header" role="banner" class="clearfix">
-      
-      <?php if (!empty($topnav)): ?>
-      <div class="topnav">
-        <?php print $topnav; ?>
-      </div>
-      <?php endif; ?>
-      
-      <div class="subhead">
-        <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-          <img src="http://c282314.r14.cf1.rackcdn.com/website-images/wanderlust_logo.png" alt="<?php print t('Home'); ?>" />
-        </a>
-        <?php endif; ?>
-        <?php
-	print l('return',"http://wanderfest.com");
-	
-	if ($site_name || $site_slogan): ?>
-        <hgroup id="site-name-slogan">
-          <?php if ($site_name): ?>
-            <h1 id="site-name" style=" display: none;">
-              <span><?php print $site_name; ?></span>
-            </h1>
-          <?php endif; ?>
-          <?php if ($site_slogan): ?>
-            <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-          <?php endif; ?>
-	        
-	        <?php print $header; ?>
-        </hgroup>
-        <?php endif; ?>
-      </div>
+    <div class="subhead">
+           <hgroup id="site-name-slogan">      
+           <?php print $header; ?>
+           </hgroup>
+
+    <div class="newlogo">
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+   <?php print $topnav; ?>
+    </div>
+
+   <div class="tomap">
+      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
+   </div>
+
+  </div>
       
       <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
       
@@ -245,62 +225,13 @@ _gaq.push(['_trackPageview']);
 
 
 </div>
-
-
-    
 	  <map name="map">
-
-	
-	  
-
-	</map>
+	  </map>
 </div>
 
 </div>
       
-      
-      
-      
-     <div id="mapa">
-
-      <div class="map-content">	
-	
-
-
-<?php  /*foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
-      <?php if($site->extra_fields->status == 1 && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
-      <div class="mark <?php print $site->purl_prefix;?>">
-	<div class="innersite">	
-	<?php 
-	  if($site->extra_fields->field_event_date[0]['value']){
-	   $item =  '<div class="site-item">';
-	   $item .= '<div class="site-title">' . $site->title . '</div>';
-	   $item .= '<div class="siteevent"><div class="item-date">';
-	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
-	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
-	  }   
-	  else {
-	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
-	   } 
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br /> ' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
-	 }
-	 else {
-            $item = '<div class="site-item"><div class="event-right">';
-	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
-	 }	 
-	 
-	print $item; ?>
-	 <div class="visitsite"><?php print l('Visit site', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
-	<input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div>
-      </div>
-    <?php } ?>
-<?php  endforeach; */  ?>
-
-  </div>
- </div>
-
-      
+   
     </div>
 <?php  
       } 
@@ -341,7 +272,7 @@ _gaq.push(['_trackPageview']);
         <?php endif; ?>
       </div> <!-- /#main -->
       
-    </div>
+
      <?php   if (!$f) { ?>
     <footer id="footer" role="contentinfo" class="clearfix">
       <?php if (!empty($footertop)): ?>

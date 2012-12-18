@@ -86,7 +86,7 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
         // If the separator is at position 0 or does not exist it all, do not group
         $sep = $settings['view_group_separator'][$view->name];
         
-        
+    
    
         
       if($subdomain == 'oahu' && $display_data->display_title == 'Healing') {
@@ -176,6 +176,8 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
        if($subdomain == 'oahu') {
          unset($displays[0][6]);
       }
+      
+     //    drupal_set_message('<pre>' . print_r($displays, 1) . '</pre>'); 
     if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
       $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
     }

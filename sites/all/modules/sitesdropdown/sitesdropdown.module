@@ -3,10 +3,7 @@
 function sitesdropdown_init() {
   
   
-      $current_site = sites_get_current_site();
-  $sids = sites_taxonomy_get_tids_by_sid($current_site->sid);
- // $nid = sites_extra_fields_get_associated_nid($row->sid)
- // drupal_set_message('<pre>' . print_r($current_site->taxonomy[30]['name'] , 1) . '</pre>');
+
       
       
    //   [field_event_image][0] [filepath]
@@ -57,7 +54,7 @@ function sitesdropdown_block($op = 'list', $delta = 0, $edit = array()) {
 		  $block['content'] = sitesdropdown_site_id();	
 		}
 		elseif($delta == 2) {
-		  $block['content'] = sitesdropdown_menutop();	
+		  $block['content'] =  sitesdropdown_menutop();	
 		}
 	     elseif($delta == 3) {
 		  $block['content'] = sitesdropdown_homepage();	
@@ -340,7 +337,12 @@ function sitesdropdown_site_id() {
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' <br />'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
 	 
-	 return $item;
+	 if ($site['field_event_image'][0]['filepath']) {
+	  $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
+	 }
+	//drupal_set_message('<pre>' . print_r($site['field_event_image'][0]['filepath'], 1) . '</pre>');
+	// $site->field_event_image[0]['filepath'];
+	 return $item ;
 	/*}
 	else {
      $site = unserialize($_SESSION['subdomain']);
@@ -363,14 +365,14 @@ function sitesdropdown_site_id() {
 
 function sitesdropdown_menutop($reset = FALSE) {
 
-  static $menus;
+  /*static $menus;
   if(empty($menus) || $reset):
     if (!$reset && ($cache = cache_get('sitesdd_menu'))) {
       $node_items = $cache->data;
 	  $menus = $node_items;
     }
     else {
-    //Select all event nodes
+
     $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s' ORDER BY cte.field_event_date_value ASC", 'event');
     while($items = db_fetch_array($result)) {
 	  $nodes[] = $items;  
@@ -379,7 +381,7 @@ function sitesdropdown_menutop($reset = FALSE) {
     foreach($nodes as $n) {
 	  $node_items[] = node_load($n['nid']);	  
 	  if($nd->field_event_subdomain[0]['value'] == $crrsite->purl_prefix) {
-	  //  $menulink = $nd->field_scheduler_url[0]['url'];
+
 	  }
     }
 	cache_set('sitesdd_menu',$node_items, 'cache');
@@ -410,19 +412,35 @@ function sitesdropdown_menutop($reset = FALSE) {
 	  
   }
   $output = '<table><tr><td class="label">Choose your Wanderlust Adventure</td><td class="dropdown-column fest-down"><div class="dropdown-column-div"><span class="menu-title">Festivals</span><div id="festival-col" class="dropdown-column fest-down">'.$festivals.'</div></div></td>';
-  $output .= '<td class="dropdown-column esc-down"><div class="dropdown-column-div"><span class="menu-title">Yoga In The City</span><div id="escapes-col" class="dropdown-column esc-down">'.$escapes.'</div></div></td>'; /*$escapes*/
-  $output .= '<td class="dropdown-column ret-down"><div class="dropdown-column-div"><span class="menu-title">Retreats</span><div id="retreat-col" class="dropdown-column ret-down"></div></div></td>'; /*$retreats*/
+  $output .= '<td class="dropdown-column esc-down"><div class="dropdown-column-div"><span class="menu-title">Yoga In The City</span><div id="escapes-col" class="dropdown-column esc-down">'.$escapes.'</div></div></td>'; 
+  $output .= '<td class="dropdown-column ret-down"><div class="dropdown-column-div"><span class="menu-title">Retreats</span><div id="retreat-col" class="dropdown-column ret-down"></div></div></td>'; 
   $output .= '<td class="dropdown-column studios-down"><div class="dropdown-column-div"><span class="menu-title">Studios</span><div id="studio-col" class="dropdown-column studios-down">'.$studios.'</div></div></td><td class="schedule"><a href="'.$menulink.'" target="_blank"  onclick="return openWindow(this);">Schedule Activities</a></td>';
   $output .= '</tr></table>';
   $output .= '';
+  */
  
-  return $output;
-  	
-	
-	
+ 
+
+ $current_site = sites_get_current_site(); 
+ foreach($current_site->extra_fields->taxonomy as $t=>$v) {
+  if($v->vid == 6) {
+    $name = $v->name;
+    break;
+  }
+ }
+ $output = !empty($name) ? $name : '';
+  return '<div class="left-arr"></div><span>' . $output . '</span><div class="right-arr"></div>';
 }
 
 function sitesdropdown_menucreate($node) {
+     
+     
+            $current_site = sites_get_current_site();
+  $sids = sites_taxonomy_get_tids_by_sid($current_site->sid);
+ // $nid = sites_extra_fields_get_associated_nid($row->sid)
+ //drupal_set_message('<pre>' . print_r($current_site->extra_fields->taxonomy , 1) . '</pre>');
+     
+     
      
 	 	/*      global $user;
 		if($user->uid == 1) {
