@@ -1,15 +1,12 @@
-; $Id: ninesixty.info,v 1.1.2.3 2009/06/05 17:52:14 dvessel Exp $
-
-name = Wanderlust Festival 2010
+name = Wanderlust Festival 
 description = A custom template for Wanderlust Festival designed and developed by ROOT DOWN
 core = 6.x
 engine = phptemplate
 
-stylesheets[all][] = css/style.css
 stylesheets[all][] = css/type.css
+stylesheets[all][] = css/style.css
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/customlineup.css
-stylesheets[all][] = css/bodystyles.css
 stylesheets[all][] = css/header.css
 stylesheets[all][] = css/header.css
 stylesheets[all][] = css/splash.css
@@ -19,6 +16,7 @@ scripts[] = js/js_combined.js
 scripts[] = js/jquery_cookie.js
 scripts[] = js/jquery_mapz.js
 scripts[] = js/jquery_mapz.min.js
+
 
 ; scripts[] = js/wanderlust.js
 ; scripts[] = js/sliderbottom.js

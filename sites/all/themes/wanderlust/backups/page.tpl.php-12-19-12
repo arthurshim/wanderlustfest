@@ -13,7 +13,15 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   
-    <!-- IE Fix for HTML5 Tags -->
+  <!-- <script type="text/javascript" src="sites/all/modules/cufon/js/cufon-yui.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Super_800.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Bold_700.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Cn_400.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperCondensed_500.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/FuturaBold_700.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Futura_500.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperGroteskB_500.font.js"></script>-->
+  <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
@@ -112,35 +120,35 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
     </div>
 
- 
-    <!-- BEGIN HEADER -->
     <header id="header" role="banner" class="clearfix">
-
-      <div id="event-info">      
-        <?php print $header; ?>
-      </div>
-
-      <div class="logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
-        <?php print $topnav; ?>
-      </div>
-
-      <div class="tomap">
-        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
-      </div>
       
-    </header>
-    <!-- END HEADER -->
-    
-    <!-- BEGIN NAVIGATION -->  
-    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
-    <nav id="navigation" role="navigation" class="clearfix ">
-      <?php print $navigation ?>
-    </nav> 
-    <?php endif; ?>
-    <!-- END NAVIGATION -->
+     
+      
+        <div class="subhead">
+           <hgroup id="site-name-slogan">      
+           <?php print $header; ?>
+           </hgroup>
 
- 
+    <div class="newlogo">
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+   <?php print $topnav; ?>
+    </div>
+
+   <div class="tomap">
+      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
+   </div>
+
+  </div>
+      
+      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
+      
+	    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
+      <nav id="navigation" role="navigation" class="clearfix ">
+	      <div class="subhead2"><?php print $navigation ?></div>
+      </nav> <!-- /#navigation -->
+      <?php endif; ?>
+      
+    </header> <!-- /#header -->
    
     <div id="slideshows" role="slideshow" class="slideshowhome">
       <?php if (!empty($slidemain)): ?>
@@ -158,9 +166,9 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
     </div>
     
-    <div class="body-content">
+    <div class="subhead body-content">
     
-      <div id="main" role="main" class="clearfix">
+      <div id="main"  role="main" class="clearfix">
         <?php if (!empty($messages)): print $messages; endif; ?>
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
         <a id="main-content"></a>

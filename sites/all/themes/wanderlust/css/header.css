@@ -1,3 +1,5 @@
+/* STYLESHEET FOR HEADER STYLES */
+
 
   
 /* HEADER
@@ -9,7 +11,7 @@
   padding: 0;
   position: relative;
   height: 131px;
-}
+  }
 
 
 /* EVENT INFO
@@ -22,11 +24,11 @@
   font-family: 'MrsEavesOT-Italic';
   font-style: italic;
   color: #603220;
-  width: 200px;
+  width: 212px;
   font-size: 14px;
   text-align: center;
   height: 91px;    
-}
+  }
 
 .item-date{
   font-family: 'RexBold', arial;
@@ -37,17 +39,17 @@
   font-style: normal;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
+  }
   
 #block-sitesdropdown-1 .siteico {
   left: 1px;
   position: absolute;
   top: 0px;
-}
+  }
 
 .event-item{
   margin-left: 30px;    
-}
+  }
   
 
 /* LOGO
@@ -59,7 +61,7 @@
   position: relative;
   margin: 0 auto;
   width: 500px;
-}
+  }
 
 
 /* GLOBAL SPLASH CALLOUT
@@ -68,7 +70,7 @@
   position: absolute;
   top: 21px;
   right: 11px;
-}
+  }
 
 
 
@@ -129,8 +131,8 @@
  	font-size: 16px;
  	text-transform: uppercase;
 	color: #ddb57b;
-	padding: 0 28px;
-	margin: 7px 0;
+	padding: 1px 28px 7px;
+	margin: 2px 0;
 	font-family: 'revolution';
 	letter-spacing: 1px;
   }
@@ -187,18 +189,9 @@
   }
   
 
-  /*Top Nav Defaults (custom menu) - hide children */
-  .dropdown-column-div .dropdown-column {display: none; position: absolute; top: 25px;}
-  
-
-/* MISC
+/* EVENT BANNER
 ----------------------------------*/	
 
-
-.subhead DIV {
-  display: inline;
-  float: left;
-}
 
 #block-sitesdropdown-2 {
  /*  display: block;

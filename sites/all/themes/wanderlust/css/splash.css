@@ -121,11 +121,23 @@
 }
 
 .mark {
-  background: url(../images/orange.png) no-repeat;
+ 
   height: 50px;
   width: 50px;
   cursor: pointer;
   z-index: 1;  
+}
+
+.mark.festival{
+   background: url(../images/festival_ico.png) no-repeat;
+}
+
+.mark.yoga{
+   background: url(../images/yoga_icon.png) no-repeat;
+}
+
+.mark.studio{
+   background: url(../images/studio_icon.png) no-repeat;
 }
 
 .wanderfest #container {

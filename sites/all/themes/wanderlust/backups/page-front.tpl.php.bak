@@ -12,7 +12,14 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
 
-
+  <!-- <script type="text/javascript" src="sites/all/modules/cufon/js/cufon-yui.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Super_800.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Bold_700.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Cn_400.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperCondensed_500.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/FuturaBold_700.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Futura_500.font.js"></script>
+<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperGroteskB_500.font.js"></script>-->
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -112,24 +119,6 @@ _gaq.push(['_trackPageview']);
 });
  </script>
      <?php } ?>
-	 <?php  if (!$f) { ?>
-	 
-	 <script>
-	  $(document).ready(function(){
-    // Floating sidebars on page nodes
-    var sidebartop = $('.page-node .panels-flexible-region-node_layout-right').offset().top;
-    $(window).scroll(function(){
-        if( $(window).scrollTop() > sidebartop ) {
-            $('.page-node .panels-flexible-region-node_layout-right').css({position: 'fixed', top: '40px', margin: '0 0 0 650px'});
-        } else {
-            $('.page-node .panels-flexible-region-node_layout-right').css({position: 'static', margin: '-35px 0 0 0'});
-        }
-    });
-});
-</script>
-	 <?php } ?>
-	 
-	 
  </head>
 
  <body class="<?php print $body_classes; ?>">
@@ -154,34 +143,32 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
     </div>
     
-    
-    <!-- BEGIN HEADER -->
     <header id="header" role="banner" class="clearfix">
+    <div class="subhead">
+           <hgroup id="site-name-slogan">      
+           <?php print $header; ?>
+           </hgroup>
 
-      <div id="event-info">      
-        <?php print $header; ?>
-      </div>
+    <div class="newlogo">
+      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+   <?php print $topnav; ?>
+    </div>
 
-      <div class="logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
-        <?php print $topnav; ?>
-      </div>
+   <div class="tomap">
+      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
+   </div>
 
-      <div class="tomap">
-        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
-      </div>
+  </div>
       
-    </header>
-    <!-- END HEADER -->
-    
-    <!-- BEGIN NAVIGATION -->  
-    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
-    <nav id="navigation" role="navigation" class="clearfix ">
-      <?php print $navigation ?>
-    </nav> 
-    <?php endif; ?>
-    <!-- END NAVIGATION -->
+      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
       
+	    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
+      <nav id="navigation" role="navigation" class="clearfix ">
+	      <div class="subhead2"><?php print $navigation ?></div>
+      </nav> <!-- /#navigation -->
+      <?php endif; ?>
+      
+    </header> <!-- /#header -->
    
  
     <?php
@@ -190,35 +177,16 @@ _gaq.push(['_trackPageview']);
       if ($f) {  ?>
       
  <?php
-     $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value ASC", 'event');
-    while($items = db_fetch_array($result)) {
-	  $nodes[] = $items;
-    }
       $q = 'SELECT * FROM {sites}';                   //get all sites; 
       $res = db_query($q);
-      $nids = array();
     while($row = db_fetch_object($res)) {
     if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
         if ($node = node_load($nid)) {                   /* load event node*/
           $row->extra_fields = $node;
-	  if($node->field_event_hide[0]['value'] == 'enabled') {
-	    $nids[]  = $node->nid;
-	  }
         }
-      }    
+      }
       $sites[$row->sid] = $row;
     }
-    
-    foreach($nodes as $s) {
-      if(!in_array($s['nid'], $nids)) {
-	 $row->extra_fields = node_load($s['nid']);
-	  //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
-	  $sites[] = $row;
-      }  
-    }
-    
-    
-    
     ?>
     
 <div id="map-1-container">   
@@ -226,25 +194,8 @@ _gaq.push(['_trackPageview']);
 <div id="map-1" >
 <img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2080" height="1170" usemap="#map" alt="" />
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
-      <?php
-          foreach($site->extra_fields->taxonomy as $n) {
-	  if($n->tid == 93) {
-	     $class = 'festival'; 
-	  }
-	  elseif($n->tid == 92) {
-	    $class = 'yoga';
-	  }
-	  elseif($n->tid == 94) {
-	    $class = ''; 
-	  }
-	  elseif($n->tid == 180) {
-	    $class = 'studio'; 
-	  }
-
-	}
-	
-      if($site->extra_fields->status == 1 /* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
-      <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
+      <?php if($site->extra_fields->status == 1 /* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  print '<pre>' . print_r($site->sid, 1) . '</pre>';?>
+      <div class="mark <?php print $site->purl_prefix;?>">
 	<div class="innersite">	
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){

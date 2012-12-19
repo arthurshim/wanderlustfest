@@ -337,7 +337,7 @@ function sitesdropdown_site_id() {
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' <br />'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
 	 
-	 if (!empty($site['field_event_image'][0]['filepath'])) {
+	 if ($site['field_event_image'][0]['filepath']) {
 	  $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
 	 }
 	//drupal_set_message('<pre>' . print_r($site['field_event_image'][0]['filepath'], 1) . '</pre>');

@@ -1,4 +1,7 @@
-﻿body{
+﻿/* STYLESHEET FOR GENERAL SITE STYLES */
+
+
+body{
   background: url('http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg');
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
@@ -582,13 +585,12 @@ tbody {border: 0px!important;}
   -webkit-box-shadow: 0px 0px 8px #666; 
   -moz-box-shadow: 0px 0px 8px #666;
   background: #fdfcf2;
-  margin: 20px auto;
   min-height: 1200px;
   }
 
  
 .not-front .body-content #main {
-  padding-top: 0;
+  padding: 15px;
   }
   
 .panel-pane tbody td {
@@ -597,26 +599,46 @@ tbody {border: 0px!important;}
   padding-top: 8px;
   }
 
-/*--------------------------------
- * NODE
- *--------------------------------*/
-h1.title {
-  color: #0e4815;
-  font-size: 28px;
-  line-height: 1.2em;
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  padding: 15px 20px 0 15px !important;
-}
+/* PAGE NODES
+--------------------------------*/
+
+
+
 .page-description {
   font-family: Georgia;
   font-size: 17px;
-}
+  }
+
+
+hr{
+  margin: 20px 0;
+  border-bottom: 1px dotted #888772;
+  background: none;
+  }
+  
+.imgupl_floating_none_left{
+  margin: 15px 0;
+  }
+  
+.imgupl_floating_none_left img,
+.imgupl_floating_left img,
+.imgupl_floating_right img{
+   -moz-box-shadow: 0 2px 4px #6d6d65;
+   -webkit-box-shadow: 0 2px 4px #6d6d65;
+   box-shadow: 0 2px 4px #6d6d65;
+  }
+  
+.legal{
+  font-size: 10px;
+  }
+
+
 
 /* Tags */
 .tags {
   font-style: italic;
 }
+
 .tags a {
   color: #232323;
   font-style: normal;
@@ -679,11 +701,7 @@ h2.sub-title {
   float: left;
   margin-right: 10px;
 }
-.page-body p {
-  line-height: 1.5em;
-  margin: 0;
-  padding: 0;
-}
+
 
 /* Page List */
 .page-list {
@@ -1091,10 +1109,8 @@ div.view-artist-landing div.view-content div.views-field-title a {
 .node-type-page .body-content #main,
 .node-type-webform .body-content #main,
 .node-type-artists .body-content #main {
-  background: url('http://c282314.r14.cf1.rackcdn.com/website-images/fond_main.jpg') repeat-y 0 0;
 
-  float: left;
-  width: 944px;
+
 }
 .node-type-photos .body-content #main h1.title, 
 .node-type-videos .body-content #main h1.title, 
@@ -1152,29 +1168,14 @@ div.view-artist-landing div.view-content div.views-field-title a {
   font-size: 24px;
   text-transform: uppercase;
 }
-.node-type-photos .photo-node-column, 
-.node-type-videos .panels-flexible-region-first, 
-.node-type-blog .panels-flexible-region-first, 
-.node-type-news .panels-flexible-region-first, 
-.node-type-page .panels-flexible-region-first,
-.node-type-webform .panels-flexible-region-first,
-.node-type-artists .panel-col-first{
-  width: 598px;
-  padding-left: 15px;
-  padding-right: 16px;
-}
+
+
+
+
 .view-display-id-block_5 {
   padding-bottom: 0;
 }
-.node-type-photos .panels-flexible-region-first, 
-.node-type-videos .panels-flexible-region-first, 
-.node-type-blog .panels-flexible-region-first, 
-.node-type-news .panels-flexible-region-first, 
-.node-type-page .panels-flexible-region-first,
-.node-type-webform .panels-flexible-region-first {
-  float: left;
 
-}
 .node-type-photos .pane-1 #social-links, 
 .node-type-videos .pane-1 #social-links, 
 .node-type-blog .pane-1 #social-links, 
@@ -1194,18 +1195,42 @@ div.view-artist-landing div.view-content div.views-field-title a {
   display: none;
   }
 
+
+
+/* PAGE NODE LAYOUT
+----------------------------------*/	
+
+.panels-flexible-region-first{
+  width: 650px;
+  }
+
+.right-column, 
+.photo-node-right{
+  float: left;
+  width: 300px;
+  margin-top: -35px;
+  }
+
+
+/* SIDEBAR BLOCKS
+----------------------------------*/	
+  
+.pane-block{
+  background: #e3f5e4;
+  border-radius: 5px;
+  float: left;
+  margin-bottom: 15px;
+  opacity: 0.8;
+  }
+
+
+
+
+
 /*--------------------------------
 RIGHT SIDEBAR
 --------------------------------*/
-.right-column, 
-.photo-node-right{
-  background: #eeedde;
-  border-left: 1px solid #dfded2;
-  float: left;
-  width: 312px;
-  margin-top: -55px;
-  }
-  
+
  
 .photo-node-right .panel-pane {
   padding: 15px;
