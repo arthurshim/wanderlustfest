@@ -4,11 +4,11 @@
 
 @font-face {
     font-family: 'revolution';
-    src: url('revolution-webfont.eot');
-    src: url('revolution-webfont.eot?#iefix') format('embedded-opentype'),
-         url('revolution-webfont.woff') format('woff'),
-         url('revolution-webfont.ttf') format('truetype'),
-         url('revolution-webfont.svg#revolutionrevolution') format('svg');
+    src: url('../fonts/revolution-webfont.eot');
+    src: url('../fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/revolution-webfont.woff') format('woff'),
+         url('../fonts/revolution-webfont.ttf') format('truetype'),
+         url('../fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -16,11 +16,23 @@
 
 @font-face {
 		font-family: 'MrsEavesOT-Italic';
-		src: url('mrseavesotitalic.eot');
-		src: url('mrseavesotitalic.eot?#iefix') format('embedded-opentype'),
-				 url('mrseavesotitalic.woff') format('woff'),
-				 url('mrseavesotitalic.ttf') format('truetype'),
-				 url('mrseavesotitalic.svg#mrseavesotitalic') format('svg');
+		src: url('../fonts/mrseavesotitalic.eot');
+		src: url('../fonts/mrseavesotitalic.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotitalic.woff') format('woff'),
+				 url('../fonts/mrseavesotitalic.ttf') format('truetype'),
+				 url('../fonts/mrseavesotitalic.svg#mrseavesotitalic') format('svg');
 		font-weight: normal;
 		font-style: normal;
+}
+
+
+
+@font-face {
+  font-family:"RexBold";
+  src:  url("../fonts/Rex_Bold.eot?") format("eot"),
+        url("../fonts/Rex_Bold.woff") format("woff"),
+        url("../fonts/Rex_Bold.ttf") format("truetype"),
+        url("../fonts/Rex_Bold.svg#RexBold") format("svg");
+  font-weight:normal;
+  font-style:normal;
 }

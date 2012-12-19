@@ -1031,7 +1031,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   text-transform: uppercase;
   font-size: 16px;
   color: #7e9e83 !important;
-  padding: 10px 16px 0 16px;
+  padding: 10px 12px 0 16px;
   margin: 0;
   height: 30px;
   background: #deddce;
@@ -2167,7 +2167,7 @@ width:40px;
 }
 
 /* OAHU SPLASH PAGE CSS 
------------------------- */
+------------------------ 
 
 
 .not-logged-in.oahu-splash #header{
@@ -2268,7 +2268,7 @@ width:40px;
 }
 
 /* CHILE SPLASH PAGE CSS 
------------------------- */
+------------------------ 
 
 
 .not-logged-in.chile-splash #header{
@@ -2364,3 +2364,4 @@ width:40px;
   background: #deddce;
   border: none;
 }
+*/

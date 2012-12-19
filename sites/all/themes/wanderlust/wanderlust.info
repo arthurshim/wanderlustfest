@@ -2,10 +2,11 @@
 
 name = Wanderlust Festival 2010
 description = A custom template for Wanderlust Festival designed and developed by ROOT DOWN
- core = 6.x
+core = 6.x
 engine = phptemplate
 
 stylesheets[all][] = css/style.css
+stylesheets[all][] = css/type.css
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/customlineup.css
 stylesheets[all][] = css/bodystyles.css

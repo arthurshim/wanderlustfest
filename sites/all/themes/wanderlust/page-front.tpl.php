@@ -170,7 +170,7 @@ _gaq.push(['_trackPageview']);
       
     </header> <!-- /#header -->
    
-
+ 
     <?php
     }
     
@@ -194,7 +194,7 @@ _gaq.push(['_trackPageview']);
 <div id="map-1" >
 <img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2080" height="1170" usemap="#map" alt="" />
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
-      <?php if($site->extra_fields->status == 1 && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
+      <?php if($site->extra_fields->status == 1 /* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  print '<pre>' . print_r($site->sid, 1) . '</pre>';?>
       <div class="mark <?php print $site->purl_prefix;?>">
 	<div class="innersite">	
 	<?php 
@@ -208,7 +208,7 @@ _gaq.push(['_trackPageview']);
 	  else {
 	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
 	   } 
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br /> ' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	    $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */. $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
 	 }
 	 else {
             $item = '<div class="site-item"><div class="event-right">';
@@ -217,8 +217,8 @@ _gaq.push(['_trackPageview']);
 	 }	 
 	 
 	print $item; ?>
-	 <div class="visitsite"><?php print l('Visit site', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
-	<input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div>
+	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
+	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div></div>
       </div>
     <?php } ?>
 <?php  endforeach;   ?>
