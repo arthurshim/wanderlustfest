@@ -253,9 +253,9 @@
 
 #joinmail {
 
-   background-image: url(/sites/all/themes/wanderlust/images/join_bg.png);
+   background-image: url(/sites/all/themes/wanderlust/images/email.png);
     width: 321px;
-    height: 113px;
+    height: 132px;
     position: absolute;
     z-index: 200;
     top: 152px;

@@ -257,10 +257,8 @@ function doSubmit(oForm) {
 </div>
 </div>
 
-<div id="joinmail">
- <div class="touch"></div>
- <div class="title">Enter your email to join our mailing list</div>
- 
+<div id="joinmail"></div>
+
  <div class="joincontent">
  <table border="0" cellpadding="0" cellspacing="0">
 <form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
@@ -381,6 +379,8 @@ function doSubmit(oForm) {
   
   <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
  </div>
+ 
+ 
 </div>
 
 <div class="map-viewport">

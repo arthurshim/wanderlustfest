@@ -1196,6 +1196,14 @@ div.view-artist-landing div.view-content div.views-field-title a {
   }
 
 
+/* HOMEPAGE LAYOUT
+----------------------------------*/	
+
+.front #main{
+  padding: 15px;
+  }
+
+
 
 /* PAGE NODE LAYOUT
 ----------------------------------*/	
@@ -1215,7 +1223,7 @@ div.view-artist-landing div.view-content div.views-field-title a {
 /* SIDEBAR BLOCKS
 ----------------------------------*/	
   
-.pane-block{
+.not-front .pane-block{
   background: #e3f5e4;
   border-radius: 5px;
   float: left;
@@ -1548,10 +1556,12 @@ TEMPORARY STYLES FOR LAUNCH
 
 article{
   background-color: white;
-  border: 1px solid #b2b198;
   height: 300px;
   padding: 0 10px 8px;
   width: 200px;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
   }
 
 article header{
@@ -1576,7 +1586,6 @@ article header h2 a{
 
 article .content{
   font-size: 12px;
-	font-family: Georgia, Times New Roman, Times, serif;
 	height: 270px;
   }
   
@@ -1584,13 +1593,7 @@ article .homepage-table {
 	margin-bottom: 1em!important; 
 	height: 255px!important; 
   }
-  
-article h2 {
-  font-size: 16px;
-	margin-top: 2px; 
-	margin-bottom: 5px;
-  }
-  
+
 article h2 a{
 	color: #232323;
   }

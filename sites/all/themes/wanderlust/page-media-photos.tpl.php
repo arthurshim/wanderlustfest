@@ -13,10 +13,75 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  
+       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+      
+      <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+      	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    
+
   <![endif]-->
+  
+  	<script type="text/javascript">
+		$(document).ready(function() {
+
+
+
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : true,
+				arrows    : true,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+					}
+				});
+
+
+		});
+	</script>
+		<style type="text/css">
+		a.hid {
+			display: none;
+		}
+	</style>
 </head>
 
 <body class="body-content-photos <?php print $body_classes; ?>">
@@ -41,45 +106,32 @@
       <?php endif; ?>
     </div>
 
+    <!-- BEGIN HEADER -->
     <header id="header" role="banner" class="clearfix">
-      
-      <?php if (!empty($topnav)): ?>
-      <div class="topnav">
+
+      <div id="event-info">      
+        <?php print $header; ?>
+      </div>
+
+      <div class="logo">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
         <?php print $topnav; ?>
       </div>
-      <?php endif; ?>
-      
-      <div class="subhead">
-        <?php if ($logo): ?>
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo">
-          <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-        </a>
-        <?php endif; ?>
-        <?php if ($site_name || $site_slogan): ?>
-        <hgroup id="site-name-slogan">
-          <?php if ($site_name): ?>
-            <h1 id="site-name" style=" display: none;">
-              <span><?php print $site_name; ?></span>
-            </h1>
-          <?php endif; ?>
-          <?php if ($site_slogan): ?>
-            <h2 id="site-slogan"><?php print $site_slogan; ?></h2>
-          <?php endif; ?>
-	        
-	        <?php print $header; ?>
-        </hgroup>
-        <?php endif; ?>
+
+      <div class="tomap">
+        <a href="<?php   $base = wl_get_base_domain(); print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
       </div>
       
-      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
-      
-	    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
-      <nav id="navigation" role="navigation" class="clearfix ">
-	      <div class="subhead"><?php print $navigation ?></div>
-      </nav> <!-- /#navigation -->
-      <?php endif; ?>
-      
-    </header> <!-- /#header -->
+    </header>
+    <!-- END HEADER -->
+    
+    <!-- BEGIN NAVIGATION -->  
+    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
+    <nav id="navigation" role="navigation" class="clearfix ">
+      <?php print $navigation ?>
+    </nav> 
+    <?php endif; ?>
+    <!-- END NAVIGATION -->
    
     <div id="slideshows" role="slideshow" class="slideshowhome">
       <?php if (!empty($slidemain)): ?>
@@ -106,6 +158,7 @@
         <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title ?></h1><?php endif; ?>
         <?php if (!empty($tabs)): ?><div class="tabs-wrapper clearfix"><?php print $tabs; ?></div><?php endif; ?>
         <?php if (!empty($help)): print $help; endif; ?>
+	
         <?php print $content; ?>
         
         <?php if (!empty($right)): ?>
