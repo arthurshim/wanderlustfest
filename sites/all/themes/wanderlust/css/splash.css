@@ -91,18 +91,18 @@
     top: 162px;
 }
 
-#map-1-container{ position:relative; width: 1170px; height: 495px; overflow:hidden; }
+#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }
 #map-1{ cursor: move; width: 2146px; height:1170px; position:absolute; left:0; top:0; }
 .level{ position:absolute; left:0; top:0; z-index:10;}
 .current-level{ z-index:20; }
 
 .map-viewport {
     border: 1px solid black;
-    height: 503px;
+    height: 530px;
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    width: 1170px;
+    width: 1350px;
 }
 
 
@@ -135,6 +135,14 @@
 .mark.yoga{
    background: url(../images/yoga_icon.png) no-repeat;
 }
+
+.mark.yoga:hover{
+   background: url(../images/yoga_icon.png) no-repeat;
+   	-webkit-transform: rotate(360deg);
+	-webkit-transition-timing-function: ease-out;
+	-webkit-transition-duration: 500ms;
+}
+
 
 .mark.studio{
    background: url(../images/studio_icon.png) no-repeat;
@@ -188,4 +196,85 @@
   color: #3d8283 !important;
   font-family: revolution;
   font-style: normal;
+}
+
+#legend {
+    background-image: url(/sites/all/themes/wanderlust/images/legend.png);
+   
+    width: 410px;
+    height: 244px;
+    position: absolute;
+    z-index: 200;
+    top: 192px;
+    left: 439px;
+}
+
+#legend1 {
+    margin-top: 101px;
+    
+    margin-left: 36px;
+}
+
+#legend2 {
+    margin-left: 28px;
+    
+    margin-top: -2px;
+}
+
+#legend3 {
+    margin-left: 32px;
+    
+    margin-top: 2px;
+}
+
+#legend1 .mark {
+  float: left;
+}
+
+#legend2 .mark{
+  float: left;
+  margin: 0 0 0 -58px;
+}
+
+#legend3 .mark {
+  float: left;
+}
+
+#legend .legendtitle {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #603220;
+    width: 320px;
+}
+
+.highlight {
+  background-color: #F9C125;
+}
+
+#joinmail {
+
+   background-image: url(/sites/all/themes/wanderlust/images/join_bg.png);
+    width: 321px;
+    height: 113px;
+    position: absolute;
+    z-index: 200;
+    top: 152px;
+    left: 950px;
+}
+
+#joinmail .title {
+    color: #603220;
+    font-family: 'MrsEavesOT-Italic';
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 0 8px 12px;
+    text-align: left;
+}
+
+#joinmail .touch {
+  background-image: url(/sites/all/themes/wanderlust/images/kepp_touch.png);
+  width: 314px;
+  height: 13px;
+   margin: -20px 0 0;
 }

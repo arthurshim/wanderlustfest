@@ -10,9 +10,22 @@ $("#navigation a").each(function(){
 $(".mark").hover(function(){
 
    $(this).find('div.innersite').fadeIn();
+   if ($(this).hasClass("festival")) {
+     $('#legend1 .legendtitle').addClass('highlight');   
+   }
+   else if($(this).hasClass('yoga')) {
+      $('#legend2 .legendtitle').addClass('highlight');   
+   }
+   else if($(this).hasClass('studio')){
+      $('#legend3 .legendtitle').addClass('highlight');   
+   }
+   
 },function(){
    $(this).find('div.innersite').hide();
+   $('#legend .legendtitle').removeClass('highlight');     
 });
+    
+    
     
   
   $('body').append('<div id="ted_photo_hover"></div>');

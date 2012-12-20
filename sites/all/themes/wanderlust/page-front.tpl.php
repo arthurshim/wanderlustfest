@@ -111,6 +111,26 @@ _gaq.push(['_trackPageview']);
  
 });
  </script>
+
+<script language="javascript">
+<!--
+function doSubmit(oForm) {
+  if ("" == oForm.email.value) {
+    alert("Please enter your Email Address");
+    oForm.email.focus();
+    return false;
+  }if ("" == oForm.postal_code.value) {
+    alert("ZIP/Postal Code is a required field");
+    oForm.postal_code.focus();
+      return false;
+  } else {
+    return true;
+  }
+  
+  return false;
+}
+//-->
+</script>
      <?php } ?>
 	 <?php  if (!$f) { ?>
 	 
@@ -213,7 +233,7 @@ _gaq.push(['_trackPageview']);
       if(!in_array($s['nid'], $nids)) {
 	 $row->extra_fields = node_load($s['nid']);
 	  //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
-	  $sites[] = $row;
+	  $sites['studio' . $s['nid']] = $row;
       }  
     }
     
@@ -222,9 +242,150 @@ _gaq.push(['_trackPageview']);
     ?>
     
 <div id="map-1-container">   
+<div id="legend" class="ui-draggable">
+<div id="legend1">
+<div class="mark festival"></div>
+<div class="legendtitle">wanderlust festivals</div><br>
+</div>
+<div id="legend2">
+<div class="mark yoga"></div>
+<div class="legendtitle">yoga in the city events</div><br>
+</div>
+<div id="legend3">
+<div class="mark studio"></div>
+<div class="legendtitle">wanderlust yoga studios</div><br>
+</div>
+</div>
+
+<div id="joinmail">
+ <div class="touch"></div>
+ <div class="title">Enter your email to join our mailing list</div>
+ 
+ <div class="joincontent">
+ <table border="0" cellpadding="0" cellspacing="0">
+<form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
+                  <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Email*<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='email' id="email" /></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">First Name<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='FirstName' id="firstname" /></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Last Name<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='LastName' id="lastname" /></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">State/Province<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><select name='State/Prov' size='1' id="state">
+        <option value=''>Please Select</option>
+<option value="">------ USA ------</option>
+        <option value='AL' >AL</option>
+        <option value='AK' >AK</option>
+        <option value='AZ' >AZ</option>
+        <option value='AR' >AR</option>
+        <option value='CA' >CA</option>
+        <option value='CO' >CO</option>
+        <option value='CT' >CT</option>
+        <option value='DE' >DE</option>
+        <option value='DC' >DC</option>
+        <option value='FL' >FL</option>
+        <option value='GA' >GA</option>
+        <option value='HI' >HI</option>
+        <option value='ID' >ID</option>
+        <option value='IL' >IL</option>
+        <option value='IN' >IN</option>
+        <option value='IA' >IA</option>
+        <option value='KS' >KS</option>
+        <option value='KY' >KY</option>
+        <option value='LA' >LA</option>
+        <option value='ME' >ME</option>
+        <option value='MD' >MD</option>
+        <option value='MA' >MA</option>
+        <option value='MI' >MI</option>
+        <option value='MN' >MN</option>
+        <option value='MS' >MS</option>
+        <option value='MO' >MO</option>
+        <option value='MT' >MT</option>
+        <option value='NE' >NE</option>
+        <option value='NV' >NV</option>
+        <option value='NH' >NH</option>
+        <option value='NJ' >NJ</option>
+        <option value='NM' >NM</option>
+        <option value='NY' >NY</option>
+        <option value='NC' >NC</option>
+        <option value='ND' >ND</option>
+        <option value='OH' >OH</option>
+        <option value='OK' >OK</option>
+        <option value='OR' >OR</option>
+        <option value='PA' >PA</option>
+        <option value='RI' >RI</option>
+        <option value='SC' >SC</option>
+        <option value='SD' >SD</option>
+        <option value='TN' >TN</option>
+        <option value='TX' >TX</option>
+        <option value='UT' >UT</option>
+        <option value='VT' >VT</option>
+        <option value='VA' >VA</option>
+        <option value='WA' >WA</option>
+        <option value='WV' >WV</option>
+        <option value='WI' >WI</option>
+        <option value='WY' >WY</option>
+<option value="">----- CANADA -----</option>
+        <option value='AB' >AB</option>
+        <option value='BC' >BC</option>
+        <option value='LB' >LB</option>
+        <option value='MB' >MB</option>
+        <option value='NB' >NB</option>
+        <option value='NF' >NF</option>
+        <option value='NS' >NS</option>
+        <option value='NT' >NT</option>
+        <option value='ON' >ON</option>
+        <option value='PE' >PE</option>
+        <option value='QC' >QC</option>
+        <option value='SK' >SK</option>
+        <option value='YT' >YT</option>
+<option value="">---------------</option>
+<option value='Other' >OTHER</option>
+      </select></td>
+                  </tr>
+ <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='Zip/PostalCode' id="postal_code" /></td>
+                  </tr>
+ <tr>
+   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Country<span style="color:#841D0A;"></span></td>
+   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><select name='Country' size='1' id="country">
+            <option value=''>Please Select</option>
+            <option value='United States' >United States</option>
+            <option value='Canada' >Canada</option>
+<option value='Other' >OTHER</option>
+          </select></td>
+   </tr>
+ <tr>
+   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">How
+     did you hear about us? </td>
+   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='HearAbout' /></td>
+   </tr>
+                  <tr>
+                    <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
+                    <input type='hidden' name='goto' value='' />
+<input type='hidden' name='iehack' value='&#9760;' />
+                    
+                                          <span style="color:#841D0A;"><em>*Required</em></span></td>
+                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='submit' value='Subscribe' /></td>
+                  </tr>
+                </form>
+</table>
+  
+  <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
+ </div>
+</div>
+
 <div class="map-viewport">
 <div id="map-1" >
-<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2080" height="1170" usemap="#map" alt="" />
+<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       <?php
           foreach($site->extra_fields->taxonomy as $n) {
@@ -243,7 +404,7 @@ _gaq.push(['_trackPageview']);
 
 	}
 	
-      if($site->extra_fields->status == 1 /* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
+      if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
       <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
 	<div class="innersite">	
 	<?php 
@@ -269,8 +430,37 @@ _gaq.push(['_trackPageview']);
 	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
 	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div></div>
       </div>
-    <?php } ?>
-<?php  endforeach;   ?>
+    <?php }
+               elseif($class == 'studio') { ?>
+		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
+	<div class="innersite">	
+	<?php
+	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+	  if($site->extra_fields->field_event_date[0]['value']){
+	   $item =  '<div class="site-item">';
+	   $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
+	   $item .= '<div class="siteevent"><div class="item-date">';
+	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
+	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
+	  }   
+	  else {
+	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
+	   } 
+	    $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */. $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	 }
+	else {
+            $item = '<div class="site-item"><div class="event-right">';
+	    $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
+	 }	 
+	 
+	print $item; ?>
+	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
+      </div>
+		
+		
+	  <?php } ?>
+<?php  endforeach;  ?>
 
 
 </div>
@@ -344,4 +534,9 @@ _gaq.push(['_trackPageview']);
 
 
 </body>
+<script>
+$(function() {
+        $( "#legend" ).draggable();
+    });
+</script>
 </html>
