@@ -29,59 +29,39 @@
 
   <![endif]-->
   
-  	<script type="text/javascript">
-		$(document).ready(function() {
+<script type="text/javascript">
+ 
+ $(document).ready(function() {
+   $("li.views-row").hover(
+      function () {
+        $(this).find('a').addClass('fancybox-thumbs');
+	
+      },
+      function () {
+        $(this).find('a').removeClass("fancybox-thumbs");
+      }
+    );
+      /*
+       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+       */
+      $('.fancybox-thumbs').fancybox({
+	      prevEffect : 'none',
+	      nextEffect : 'none',
 
+	      closeBtn  : true,
+	      arrows    : true,
+	      nextClick : true,
 
+	      helpers : {
+		      thumbs : {
+			      width  : 50,
+			      height : 50
+		      }
+	      }
+      });
+});
+</script>
 
-
-
-			/*
-			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-			 */
-
-			$('.fancybox-thumbs').fancybox({
-				prevEffect : 'none',
-				nextEffect : 'none',
-
-				closeBtn  : true,
-				arrows    : true,
-				nextClick : true,
-
-				helpers : {
-					thumbs : {
-						width  : 50,
-						height : 50
-					}
-				}
-			});
-
-			/*
-			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-			*/
-			$('.fancybox-media')
-				.attr('rel', 'media-gallery')
-				.fancybox({
-					openEffect : 'none',
-					closeEffect : 'none',
-					prevEffect : 'none',
-					nextEffect : 'none',
-
-					arrows : false,
-					helpers : {
-						media : {},
-						buttons : {}
-					}
-				});
-
-
-		});
-	</script>
-		<style type="text/css">
-		a.hid {
-			display: none;
-		}
-	</style>
 </head>
 
 <body class="body-content-photos <?php print $body_classes; ?>">
@@ -110,7 +90,7 @@
     <header id="header" role="banner" class="clearfix">
 
       <div id="event-info">      
-        <?php print $header; ?>
+        <?php print $header;	?>
       </div>
 
       <div class="logo">
@@ -159,7 +139,7 @@
         <?php if (!empty($tabs)): ?><div class="tabs-wrapper clearfix"><?php print $tabs; ?></div><?php endif; ?>
         <?php if (!empty($help)): print $help; endif; ?>
 	
-        <?php print $content; ?>
+        <?php print $content;	?>
         
         <?php if (!empty($right)): ?>
         <div id="sidebar-right" role="complementary" class="sidebar clearfix">

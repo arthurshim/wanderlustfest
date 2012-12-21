@@ -149,6 +149,13 @@ function doSubmit(oForm) {
 </script>
 	 <?php } ?>
 	 
+	  <?php  if (!$f) { ?>
+	  <!--scripts and css for frontpage go here-->
+	 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/jquery.fancybox.pack.js"></script>
+	<link rel="stylesheet" href="sites/all/themes/wanderlust/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+
+
+	<?php}?>
 	 
  </head>
 
@@ -257,10 +264,10 @@ function doSubmit(oForm) {
 </div>
 </div>
 
-<div id="joinmail"></div>
-
- <div class="joincontent">
- <table border="0" cellpadding="0" cellspacing="0">
+<div id="joinmail"><a id="inline" href="#joincontent"><div id="emailClick"></div></a></div>
+ 
+<div class="joincontent">
+ <table border="0" cellpadding="0" cellspacing="0">/
 <form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
                   <tr>
                     <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Email*<span style="color:#841D0A;"></span></td>
@@ -381,7 +388,7 @@ function doSubmit(oForm) {
  </div>
  
  
-</div>
+
 
 <div class="map-viewport">
 <div id="map-1" >
@@ -535,8 +542,14 @@ function doSubmit(oForm) {
 
 </body>
 <script>
+if ( navigator.userAgent.indexOf('iPhone') == -1 || navigator.userAgent.indexOf('Android') == -1  )
+  {
+
 $(function() {
         $( "#legend" ).draggable();
+		   $( "#joinmail" ).draggable();
     });
+	
+  }
 </script>
 </html>

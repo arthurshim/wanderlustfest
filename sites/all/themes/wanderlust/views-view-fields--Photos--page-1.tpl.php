@@ -1,7 +1,6 @@
 <?php $_page_url = $_SERVER['SERVER_NAME'].'/'.arg(0).'/'.arg(1); ?>
 
-<?php print $fields['field_photos_images']->content; //drupal_set_message('<pre>' . print_r($fields, 1) . '</pre>'); /*print $rows; */?>
-<?php print $fields['field_photos_images_fid']->content; ?>
+<?php print $fields['vid']->content; //drupal_set_message('<pre>' . print_r($fields, 1) . '</pre>'); /*print $rows; */?>
 <?php print $fields['title']->content; ?>
 <div class="social-networks">
   <div class="like-twitter">

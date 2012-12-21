@@ -652,5 +652,8 @@ div.view div.views-admin-links li a {
 
 #webform-client-form-2728 #webform-component-choose-list {margin-left: 220px;}
 
+.view-Photos a.hid {
+  display: none!important;
+}
 
 
