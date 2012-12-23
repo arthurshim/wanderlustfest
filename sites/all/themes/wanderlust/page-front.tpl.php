@@ -131,6 +131,8 @@ function doSubmit(oForm) {
 }
 //-->
 </script>
+     
+
      <?php } ?>
 	 <?php  if (!$f) { ?>
 	 
@@ -149,13 +151,6 @@ function doSubmit(oForm) {
 </script>
 	 <?php } ?>
 	 
-	  <?php  if (!$f) { ?>
-	  <!--scripts and css for frontpage go here-->
-	 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/jquery.fancybox.pack.js"></script>
-	<link rel="stylesheet" href="sites/all/themes/wanderlust/js/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
-
-
-	<?php}?>
 	 
  </head>
 
@@ -251,23 +246,23 @@ function doSubmit(oForm) {
 <div id="map-1-container">   
 <div id="legend" class="ui-draggable">
 <div id="legend1">
-<div class="mark festival"></div>
+<div class="mark festival legendNo"></div>
 <div class="legendtitle">wanderlust festivals</div><br>
 </div>
 <div id="legend2">
-<div class="mark yoga"></div>
+<div class="mark yoga legendNo"></div>
 <div class="legendtitle">yoga in the city events</div><br>
 </div>
 <div id="legend3">
-<div class="mark studio"></div>
+<div class="mark studio legendNo"></div>
 <div class="legendtitle">wanderlust yoga studios</div><br>
 </div>
 </div>
 
-<div id="joinmail"><a id="inline" href="#joincontent"><div id="emailClick"></div></a></div>
- 
-<div class="joincontent">
- <table border="0" cellpadding="0" cellspacing="0">/
+<div id="joinmail"><div id="emailClick"></div></div>
+
+ <div class="joincontent">
+ <table border="0" cellpadding="0" cellspacing="0">
 <form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
                   <tr>
                     <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Email*<span style="color:#841D0A;"></span></td>

@@ -5,25 +5,58 @@ $("#navigation a").each(function(){
    });
 } );
   */
-
-  
-$(".mark").hover(function(){
+if (!$(this).hasClass("test")) {
+ 
+$(".mark:not(.legendNo)").hover(function(){
 
    $(this).find('div.innersite').fadeIn();
    if ($(this).hasClass("festival")) {
-     $('#legend1 .legendtitle').addClass('highlight');   
+     $('div.mark.festival.legendNo').addClass('highlight');   
    }
    else if($(this).hasClass('yoga')) {
-      $('#legend2 .legendtitle').addClass('highlight');   
+      $('div.mark.yoga.legendNo').addClass('highlight');   
    }
    else if($(this).hasClass('studio')){
-      $('#legend3 .legendtitle').addClass('highlight');   
+      $('#div.mark.studio.legendNo').addClass('highlight');   
    }
    
 },function(){
    $(this).find('div.innersite').hide();
-   $('#legend .legendtitle').removeClass('highlight');     
+   $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');     
 });
+}
+
+
+/*hover legend*/
+   $("#legend1 .mark").hover(function() {
+   $(".mark.festival").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.festival').removeClass('highlight1'); 
+   });
+   
+      
+   $("#legend2 .mark").hover(function() {
+   $(".mark.yoga").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.yoga').removeClass('highlight1'); 
+   });
+   
+      
+   $("#legend3 .mark").hover(function() {
+   $(".mark.studio").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.studio').removeClass('highlight1'); 
+   });
+
+
+
+
+
+
+
     
     
     
@@ -58,4 +91,6 @@ $(".mark").hover(function(){
   
   
 });
+
+
 
