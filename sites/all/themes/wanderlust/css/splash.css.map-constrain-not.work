@@ -1,4 +1,6 @@
-
+.wanderfest #container {
+overflow: hidden;
+}
 
 #map-1-container .mark {
   position: relative;

@@ -1,6 +1,9 @@
 name = Wanderlust Festival 
 description = A custom template for Wanderlust Festival designed and developed by ROOT DOWN
 core = 6.x
+engine = phptemplatename = Wanderlust Festival 
+description = A custom template for Wanderlust Festival designed and developed by ROOT DOWN
+core = 6.x
 engine = phptemplate
 
 stylesheets[all][] = css/type.css

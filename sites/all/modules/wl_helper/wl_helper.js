@@ -1,4 +1,13 @@
 $(document).ready(function(){
+
+/*add class with touch function for mobile
+  $("div.mark.studio").bind('touchstart mousedown', function(e){
+	    $("div[class^='.mark']").stop(true, true);
+
+	   $("div.mark.studio").toggleClass("highlightMobile1");
+        });
+*/
+
   /*
 $("#navigation a").each(function(){
    $(this).attr({ target: "_blank" });
@@ -11,13 +20,13 @@ $(".mark:not(.legendNo)").hover(function(){
 
    $(this).find('div.innersite').fadeIn();
    if ($(this).hasClass("festival")) {
-     $('div.mark.festival.legendNo').addClass('highlight');   
+     /*$('div.mark.festival.legendNo').addClass('highlight');  */ 
    }
    else if($(this).hasClass('yoga')) {
-      $('div.mark.yoga.legendNo').addClass('highlight');   
+     /* $('div.mark.yoga.legendNo').addClass('highlight');*/   
    }
    else if($(this).hasClass('studio')){
-      $('#div.mark.studio.legendNo').addClass('highlight');   
+     /* $('#div.mark.studio.legendNo').addClass('highlight'); */  
    }
    
 },function(){
@@ -44,11 +53,13 @@ $(".mark:not(.legendNo)").hover(function(){
    });
    
       
-   $("#legend3 .mark").hover(function() {
-   $(".mark.studio").addClass('highlight1');
+ /*for star only*/
+
+   $("div.mark.studio").hover(function() {
+   $(".mark.studio").addClass('highlight2');
    },
    function(){
-   $('#.mark.studio').removeClass('highlight1'); 
+   $('#.mark.studio').removeClass('highlight2'); 
    });
 
 
