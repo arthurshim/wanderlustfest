@@ -40,7 +40,7 @@ function wl_helper_boot() {
 function wl_helper_init() {
 	
   drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
-  drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper.js');
+
   
   $mystring = $_SERVER['HTTP_REFERER'];
   $find   = '.wanderfest.com';

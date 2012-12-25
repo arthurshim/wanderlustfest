@@ -10,6 +10,7 @@
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
+   <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
   <?php print $scripts; ?>
 
 
@@ -85,11 +86,6 @@ _gaq.push(['_trackPageview']);
 
 </script>
 
-
-
-
-
-
 	
     <?php
       $base = wl_get_base_domain();
@@ -113,6 +109,22 @@ _gaq.push(['_trackPageview']);
 
 
  $("#map-1").mapz();
+ 
+ // .wanderfest #container, .map-viewport , #map-1
+ //, img.current-level
+
+ 
+ var update_view_port = function() {
+	 $('.wanderfest #container, #map-1-container, .map-viewport , #map-1').css('width',$(window).width()).css('height',$(window).height()); 
+     $('#map-1').css({'left':0,'top':0})
+ };
+ 
+ $(window).resize(function() {
+ 	console.log($(window).width()+'-----'+$(window).height());
+ 	update_view_port();
+ });
+ 
+ update_view_port();
  
 });
  </script>
@@ -162,7 +174,7 @@ function doSubmit(oForm) {
  <body class="<?php print $body_classes; ?>">
   <?php print $google_marketing; ?>
   <div id="fb-root"></div>
-  <script>
+  <!--<script>
     (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
       if (d.getElementById(id)) {return;}
@@ -170,7 +182,7 @@ function doSubmit(oForm) {
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-  </script>
+  </script>-->
   
   <div id="container" class="clearfix">
 <?php  if (!$f) { ?>
@@ -542,143 +554,14 @@ function doSubmit(oForm) {
 
 </body>
 <script>
+if ( navigator.userAgent.indexOf('iPhone') == -1 || navigator.userAgent.indexOf('Android') == -1  )
+  {
 
-
-	
-	
-
-
-
-
-
-
-
-  
-/*detect if mobile */
-var isMobile = {
-    Android: function() {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function() {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-    },
-    Opera: function() {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function() {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-
-
-if( isMobile.any() ) {
-
-var script = document.createElement( 'script' );
-script.value = 'type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_mobile.js"';
-$("head").prepend( script );
-
- 
-
-} 
-
-
-
-else {
-
-  $(document).ready(function () {
-
+$(function() {
         $( "#legend" ).draggable();
 		   $( "#joinmail" ).draggable();
-
-
-
-if (!$(this).hasClass("test")) {
- 
-$(".mark:not(.legendNo)").hover(function(){
-
-   $(this).find('div.innersite').fadeIn();
-   if ($(this).hasClass("festival")) {
-     /*$('div.mark.festival.legendNo').addClass('highlight');  */ 
-   }
-   else if($(this).hasClass('yoga')) {
-     /* $('div.mark.yoga.legendNo').addClass('highlight');*/   
-   }
-   else if($(this).hasClass('studio')){
-     /* $('#div.mark.studio.legendNo').addClass('highlight'); */  
-   }
-   
-},function(){
-   $(this).find('div.innersite').hide();
-   $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');     
-});
-}
-
-
-/*hover legend*/
-   $("#legend1 .mark").hover(function() {
-   $(".mark.festival").addClass('highlight1');
-   },
-   function(){
-   $('#.mark.festival').removeClass('highlight1'); 
-   });
-   
-      
-   $("#legend2 .mark").hover(function() {
-   $(".mark.yoga").addClass('highlight1');
-   },
-   function(){
-   $('#.mark.yoga').removeClass('highlight1'); 
-   });
-   
-      
- /*for star only*/
-
-   $("div.mark.studio").hover(function() {
-   $(".mark.studio").addClass('highlight2');
-   },
-   function(){
-   $('#.mark.studio').removeClass('highlight2'); 
-   });
-
-  
-  $('body').append('<div id="ted_photo_hover"></div>');
-    $('#ted_photo_hover').css({position: 'absolute'});
-
-    $('#ted_photo_hover').offset({top: 500, left: 500});
-  $('.ted_photo').hover(
-  function(e){
-    var name      = $(this).children('.ted_photo_data').html();
-    var answer    = $(this).children('a').children('img').attr('title');
-    var eventName = $(this).children('a').children('img').attr('alt');
-
-    var hoverText = "";
-    hoverText    += "Name: " + name + '<br>\r\n'; 
-    hoverText    += "Event: " + eventName + '<br>\r\n'; 
-    hoverText    += '"' + answer + '"'; 
-  //    $('#ted_photo_hover').show();
-    $('#ted_photo_hover').html(hoverText);
-    $('#ted_photo_hover').css({top: e.pageY, left: e.pageX});
-      divoff = $('#ted_photo_hover').offset();
-  //    alert(e.pageX +' '+ e.pageY);
-  //    $(this).children('a').children('img').attr('title', hoverText);
-  //    $(this).children('img').attr('title', hoverText);
-    //        $('#ted_photo_hover').css({'left': e.pageX + 'px', 'bottom': e.pageY + 'px', 'position': 'absolute'});
-  },
-  function(e){
-  //    $('#ted_photo_hover').hide();
-  });
-  
-  
-  
-});
-
-}
+    });
+	
+  }
 </script>
-
 </html>
