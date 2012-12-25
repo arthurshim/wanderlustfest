@@ -582,11 +582,7 @@ if( isMobile.any() ) {
 var script = document.createElement( 'script' );
 script.value = 'type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_mobile.js"';
 $("head").prepend( script );
-
- 
-
 } 
-
 
 
 else {
@@ -594,8 +590,7 @@ else {
   $(document).ready(function () {
 
         $( "#legend" ).draggable();
-		   $( "#joinmail" ).draggable();
-
+	    $( "#joinmail" ).draggable();
 
 
 if (!$(this).hasClass("test")) {
@@ -604,13 +599,13 @@ $(".mark:not(.legendNo)").hover(function(){
 
    $(this).find('div.innersite').fadeIn();
    if ($(this).hasClass("festival")) {
-     /*$('div.mark.festival.legendNo').addClass('highlight');  */ 
+    
    }
    else if($(this).hasClass('yoga')) {
-     /* $('div.mark.yoga.legendNo').addClass('highlight');*/   
+
    }
    else if($(this).hasClass('studio')){
-     /* $('#div.mark.studio.legendNo').addClass('highlight'); */  
+
    }
    
 },function(){
@@ -636,7 +631,6 @@ $(".mark:not(.legendNo)").hover(function(){
    $('#.mark.yoga').removeClass('highlight1'); 
    });
    
-      
  /*for star only*/
 
    $("div.mark.studio").hover(function() {
@@ -673,8 +667,6 @@ $(".mark:not(.legendNo)").hover(function(){
   function(e){
   //    $('#ted_photo_hover').hide();
   });
-  
-  
   
 });
 
