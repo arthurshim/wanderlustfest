@@ -1,5 +1,4 @@
 
-
 #map-1-container .mark {
   position: relative;
   z-index: 100;
@@ -437,9 +436,10 @@ margin-left: 12px;
     position: relative;
     width: 1350px;
 }
-.wanderfest #main {
-    display: none;
+.not-logged-in.wanderfest #main {
+display: block !important;
 }
+
 .map-viewport {
     border: 1px solid black;
     height: 700px;
