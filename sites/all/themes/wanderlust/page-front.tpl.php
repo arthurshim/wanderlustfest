@@ -105,11 +105,24 @@ _gaq.push(['_trackPageview']);
 <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/header.css" />
 <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 <link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+
+
+	<!--remove image hover on IE which does not support transitions between the two images, TODO do this also later if mobile-->
+	<!--[if IE]>
+		<style>
+			.mark.studio:hover {
+				background: url(../images/studio_icon.png) no-repeat;
+			}
+
+			#map-1 .mark.highlight2 {
+				background: url(../images/studio_icon.png) no-repeat;
+			}
+		</style>
+	<![endif]-->
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script><!--makes it sticky with this -->
 <!--<script type="text/javascript" src="/sites/all/modules/jquery_update/replace/jquery.min.js?8"></script>-->
-  
-  
-  
   
 <script type="text/javascript" src="/misc/drupal.js"></script>
 <script type="text/javascript" src="/sites/all/modules/pngfix/jquery.pngFix.js"></script>
@@ -129,15 +142,10 @@ $(document).ready(function(){ $('#branding, #mailing-list, #nav li a, #container
 </script>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-      
-      <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+<script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
    
-   
-   
-   
-   
-   
+
    
    
    
@@ -591,8 +599,6 @@ function doSubmit(oForm) {
 <script>
 
 
-	
-	
 
 
 
@@ -600,7 +606,9 @@ function doSubmit(oForm) {
 
 
 
-  
+
+
+
 /*detect if mobile */
 var isMobile = {
     Android: function() {

@@ -133,6 +133,10 @@
   padding: 1px;
 }
 
+.mark:hover {
+  z-index: 103 !important;
+}
+
 .mark.festival{
    background: url(../images/festival_ico.png) no-repeat;
 }
@@ -150,6 +154,7 @@
 	transform: rotate(360deg);
 	transition-timing-function: ease-out;
 	transition-duration: 500ms;
+	
 }
 
 .mark.yoga{
@@ -428,11 +433,12 @@ margin-left: 12px;
 .wanderfest #container {
     height: 700px;
     width: 1350px;
+    overflow:hidden;
 }
 
 .wanderfest #map-1-container {
     height: 700px;
-    overflow: hidden;
+    overflow: hidden !important;
     position: relative;
     width: 1350px;
 }
@@ -448,6 +454,7 @@ display: block !important;
     position: relative;
     width: 1350px;
 }
+
 /*
 div.mark.festival.legendNo.highlight {
    background-color: #CEA430;
@@ -508,15 +515,35 @@ div.mark.studio.legendNo.highlight {
    transform: rotate(360deg);
    transition-timing-function: ease-out;
    transition-duration: 500ms;
-   
-   
 
+}
+
+.highlight3 {
+  background-color: #CEA430;
+  border-radius:3px;
+  -moz-border-radius:3px ;
 }
 
 
 
+.wanderfest #main {
+    display: none;
+}
 
-
+.wanderfest {
+   margin:0px;
+   overflow: hidden;
+}
+.mark:hover {
+  -ms-transform: rotate(360deg);
+  -ms-transition-timing-function: ease-out;
+  -ms-transition-duration: 500ms;
+progid:DXImageTransform.Microsoft.BasicImage(rotation=5);
+}
+.mark{
+transition:all .4s ease-in-out;
+-ms-transition:all .4s ease-in-out;
+}
 
 
 @media only screen and (min-width: 319px) and (max-width: 580px) {
