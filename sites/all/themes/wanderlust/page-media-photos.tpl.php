@@ -114,22 +114,7 @@
     <?php endif; ?>
     <!-- END NAVIGATION -->
    
-    <div id="slideshows" role="slideshow" class="slideshowhome">
-      <?php if (!empty($slidemain)): ?>
-      <div class="slidemain-container">
-        <div class="slidemain">
-          <?php print $slidemain; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-       
-	    <?php if (!empty($slides)): ?>
-      <div class="slides">
-        <?php print $slides; ?>
-      </div>
-      <?php endif; ?>
-    </div>
-    
+    <!-- BEGIN CONTENT -->    
     <div class="subhead body-content">
     
       <div id="main"  role="main" class="clearfix">
@@ -150,27 +135,32 @@
       </div> <!-- /#main -->
       
     </div>
-      
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php if (!empty($footertop)): ?>
-      <div class="footertop">
-        <div id="footer-top-inner">
-        <?php print $footertop; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="subhead">
-        <?php if (!empty($footer)): print $footer; endif; ?>
-        <?php print $feed_icons ?>
-      </div>
-      <div class="footer-message">
-        <div class="footer-message-content"><?php print $footer_message; ?></p>
-      </div>
-    </footer> <!-- /#footer -->
+    <!-- END CONTENT -->
 
     <?php print $closure ?>
 
-  </div> <!-- /#container -->
+  </div> 
+  <!-- END CONTAINER -->
+
+
+
+  <!-- BEGIN FOOTER -->
+  <footer class="footer">
+    <div class="logos">
+      <div class="velour">Velour Music Group</div>
+      <div class="c3">C3 Presents</div>
+    </div>
+    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+    <div class="footer-links">
+      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+    </div>
+    <div class="site-credits">
+      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
 
 </body>
 </html>

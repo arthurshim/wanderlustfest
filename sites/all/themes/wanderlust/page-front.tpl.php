@@ -98,6 +98,9 @@ _gaq.push(['_trackPageview']);
       if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
 	$f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
+	
+	
+	
 
 <link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
 <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/style.css" />
@@ -107,18 +110,26 @@ _gaq.push(['_trackPageview']);
 <link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
 
 
-	<!--remove image hover on IE which does not support transitions between the two images, TODO do this also later if mobile-->
-	<!--[if IE]>
-		<style>
-			.mark.studio:hover {
-				background: url(../images/studio_icon.png) no-repeat;
-			}
+	
 
-			#map-1 .mark.highlight2 {
-				background: url(../images/studio_icon.png) no-repeat;
-			}
-		</style>
-	<![endif]-->
+<!--remove image hover on IE which does not support transitions between the two images, TODO do this also later if mobile-->
+	<!--[if IE]>
+	<style>
+	
+	
+	.mark.studio:hover {
+    background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
+}
+
+	#map-1 .mark.highlight2 {
+     background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
+}
+
+.mark.studio {
+
+}
+	</style>
+<![endif]-->
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script><!--makes it sticky with this -->
@@ -130,6 +141,8 @@ _gaq.push(['_trackPageview']);
 <script type="text/javascript" src="/sites/all/libraries/jquery.ui/ui/minified/ui.droppable.min.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js"></script>
+<!--TODO only put this in for mobile -->
+<script type="text/javascript" src="/sites/all/themes/wanderlust/js/rotate.js"></script>
 <script type="text/javascript">
 <!--//--><![CDATA[//><!--
 jQuery.extend(Drupal.settings, {"basePath":"\/","imagebrowser":{"basepath":"\/","filepath":"files","modulepath":"sites\/all\/modules\/imagebrowser"},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views","carousels":{"jcarousel-view--homepage-carousel--block-1":{"skin":"default","visible":5,"navigation":"before","animation":"slow","start":1,"autoPause":1,"scroll":5,"selector":".jcarousel-view--homepage-carousel--block-1"}}},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)files","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":0,"disable_zoom":0,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"","node_link_target":0,"image_count":"","video_count":"","page_count":"","lite_press_x_close":"press \u003ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\u003e\u003ckbd\u003ex\u003c\/kbd\u003e\u003c\/a\u003e to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":"lightbox_ungrouped","custom_trigger_classes":"img.ibimage","disable_for_gallery_lists":1,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":1,"slideshow_automatic_exit":1,"show_play_pause":0,"pause_on_next_click":0,"pause_on_previous_click":1,"loop_slides":0,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0},"nice_menus_options":{"delay":"40","speed":"fast"},"extlink":{"extTarget":"_blank","extClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto"},"admin_menu":{"margin_top":1,"position_fixed":1,"tweak_tabs":1},"viewsSlideshowSingleFrame":{"#views_slideshow_singleframe_main_Homepage_slider-block_1":{"num_divs":10,"id_prefix":"#views_slideshow_singleframe_main_","div_prefix":"#views_slideshow_singleframe_div_","vss_id":"Homepage_slider-block_1","timeout":"8000","sort":1,"effect":"fade","speed":"700","start_paused":0,"delay":"0","fixed_height":"1","random":"0","pause":"1","pause_on_click":"1","pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","remember_slide":0,"remember_slide_days":"1","controls":"0","items_per_slide":"1","pager":"2","pager_type":"Numbered","pager_hover":"2","pager_click_to_page":0,"image_count":"0","nowrap":"0","sync":"1","advanced":"cleartype: true,\ncleartypeNoBg: true","ie":{"cleartype":"true","cleartypenobg":"false"}}}});
@@ -144,7 +157,19 @@ $(document).ready(function(){ $('#branding, #mailing-list, #nav li a, #container
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
+<!--[if IE]>
+	<script>
+	
+   $("div.mark.studio").hover(function() {
+   $(".mark.studio").addClass('highlight3');
+   },
+   function(){
+   $('#.mark.studio').removeClass('highlight3'); 
+   });
    
+	</script>
+	
+<![endif]-->
 
    
    
@@ -304,41 +329,74 @@ function doSubmit(oForm) {
     ?>
       
 <div id="map-1-container">   
-<div id="legend" class="ui-draggable">
-<div id="legend1">
-<div class="mark festival legendNo"></div>
-<div class="legendtitle">wanderlust festivals</div><br>
-</div>
-<div id="legend2">
-<div class="mark yoga legendNo"></div>
-<div class="legendtitle">yoga in the city events</div><br>
-</div>
-<div id="legend3">
-<div class="mark studio legendNo"></div>
-<div class="legendtitle">wanderlust yoga studios</div><br>
-</div>
+
+
+<div id="logo">
+  Wanderlust Festivals 
+  Find Your True North
 </div>
 
-<div id="joinmail"><div id="emailClick"></div></div>
+<!-- BEGIN LEGEND -->  
+<div id="legend" class="ui-draggable">
+  <div id="legend1">
+    <div class="mark festival legendNo"></div>
+    <div class="legendtitle">Wanderlust Festivals</div><br>
+  </div>
+  <div id="legend2">
+    <div class="mark yoga legendNo"></div>
+    <div class="legendtitle">Yoga in the City events</div><br>
+  </div>
+  <div id="legend3">
+    <div class="mark studio legendNo"></div>
+    <div class="legendtitle">Wanderlust Yoga Studios</div><br>
+  </div>
+</div>
+<!-- END LEGEND -->  
+
+
+<!-- BEGIN MAILING LIST SIGN UP BOX -->  
+<div id="joinmail">
+  <div id="emailClick"></div>
+  <div class="fb-tw">
+    <div class="fb-icon">
+      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fwanderlust&amp;send=false&amp;layout=button_count&amp;width=85&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=217615481632986" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:21px;" allowTransparency="true"></iframe>
+    </div>
+    <div class="tw-icon">
+      <a href="https://twitter.com/wanderlustfest" class="twitter-follow-button" data-show-count="false">Follow @wanderlustfest</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+  </div>
+  <div class="other-icons">
+    <a class="google-icon" href="https://plus.google.com/111241266781662158832" target="_blank"></a>
+    <a class="instagram-icon" href="http://instagram.com/wanderlustfest" target="_blank"></a>
+    <a class="pinterest-icon" href="http://pinterest.com/wanderlustfest/" target="_blank"></a>    
+    <a class="youtube-icon" href="http://youtube.com/wanderlustfestival" target="_blank"></a>    
+    <a class="blog-icon" href="http://blog.wanderlustfestival.com" target="_blank"></a>    
+  </div>
+</div>
 
  <div class="joincontent">
- <table id="mytable" border="0" cellpadding="0" cellspacing="0">
-<form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
+                <table id="mytable" border="0" cellpadding="0" cellspacing="0">
+
+                  <form method='get' name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6' onSubmit="return doSubmit(this);">
                   <tr>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Email*<span style="color:#841D0A;"></span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='email' id="email" /></td>
+                    <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
                   </tr>
                   <tr>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">First Name<span style="color:#841D0A;"></span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='FirstName' id="firstname" /></td>
+                    <td width="180" valign="middle" style="padding:2px; ">Email*<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
                   </tr>
                   <tr>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Last Name<span style="color:#841D0A;"></span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='LastName' id="lastname" /></td>
+                    <td valign="middle" style="padding:2px; ">First Name<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
                   </tr>
                   <tr>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">State/Province<span style="color:#841D0A;"></span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><select name='State/Prov' size='1' id="state">
+                    <td valign="middle" style="padding:2px; ">Last Name<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
+                  </tr>
+                  <tr>
+                    <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
+                    <td valign="middle" style="padding:2px; "><select name='State/Prov' size='1' id="state">
         <option value=''>Please Select</option>
 <option value="">------ USA ------</option>
         <option value='AL' >AL</option>
@@ -411,12 +469,12 @@ function doSubmit(oForm) {
       </select></td>
                   </tr>
  <tr>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='Zip/PostalCode' id="postal_code" /></td>
+                    <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
+                    <td valign="middle" style="padding:2px; "><input type='text' name='Zip/PostalCode' id="postal_code" /></td>
                   </tr>
  <tr>
-   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">Country<span style="color:#841D0A;"></span></td>
-   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><select name='Country' size='1' id="country">
+   <td valign="middle" style="padding:2px; ">Country<span style="color:#841D0A;"></span></td>
+   <td valign="middle" style="padding:2px; "><select name='Country' size='1' id="country">
             <option value=''>Please Select</option>
             <option value='United States' >United States</option>
             <option value='Canada' >Canada</option>
@@ -424,24 +482,24 @@ function doSubmit(oForm) {
           </select></td>
    </tr>
  <tr>
-   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;">How
+   <td valign="middle" style="padding:2px; ">How
      did you hear about us? </td>
-   <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='text' name='HearAbout' /></td>
+   <td valign="middle" style="padding:2px; "><input type='text' name='HearAbout' /></td>
    </tr>
                   <tr>
                     <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
                     <input type='hidden' name='goto' value='' />
 <input type='hidden' name='iehack' value='&#9760;' />
                     
-                                          <span style="color:#841D0A;"><em>*Required</em></span></td>
-                    <td valign="middle" style="padding:2px; font: normal normal 13px Arial, Helvetica, sans-serif; color:#545454;"><input type='submit' value='Subscribe' /></td>
+                                          </td>
+                    <td valign="middle" style="padding:2px; "><input type='submit' id="submit" value='Subscribe' /></td>
                   </tr>
                 </form>
 </table>
   
   <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
  </div>
- 
+ <!-- END MAILING LIST SIGN UP BOX -->  
  
 
 
@@ -575,30 +633,35 @@ function doSubmit(oForm) {
       
 
      <?php   if (!$f) { ?>
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php if (!empty($footertop)): ?>
-      <div class="footertop">
-        <div id="footer-top-inner">
-        <?php print $footertop; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="subhead">
-        <?php if (!empty($footer)): print $footer; endif; ?>
-        <?php print $feed_icons ?>
-      </div>
-      <div class="footer-message">
-        <div class="footer-message-content"><?php print $footer_message; ?></p>
-      </div>
-    </footer> <!-- /#footer -->
-    <?php } print $closure ?>
-  </div> <!-- /#container -->
-
+    
+     <?php } print $closure ?>
+     
+  </div> 
+  <!-- END CONTAINER -->
+  
+  <!-- BEGIN FOOTER -->
+  <footer class="footer">
+    <div class="logos">
+      <div class="velour">Velour Music Group</div>
+      <div class="c3">C3 Presents</div>
+    </div>
+    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+    <div class="footer-links">
+      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+    </div>
+    <div class="site-credits">
+      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
 
 </body>
 <script>
 
 
+	
+	
 
 
 
@@ -606,9 +669,7 @@ function doSubmit(oForm) {
 
 
 
-
-
-
+  
 /*detect if mobile */
 var isMobile = {
     Android: function() {
@@ -634,9 +695,57 @@ var isMobile = {
 
 if( isMobile.any() ) {
 
-var script = document.createElement( 'script' );
-script.value = 'type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_mobile.js"';
-$("head").prepend( script );
+$("head").append( '<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
+
+
+
+if (!$(this).hasClass("test")) {
+ 
+$(".mark:not(.legendNo)").hover(function(){
+
+   $(this).find('div.innersite').fadeIn();
+   if ($(this).hasClass("festival")) {
+    
+   }
+   else if($(this).hasClass('yoga')) {
+
+   }
+   else if($(this).hasClass('studio')){
+
+   }
+   
+},function(){
+   $(this).find('div.innersite').hide();
+   $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');     
+});
+}
+
+
+/*hover legend*/
+   $("#legend1 .mark").hover(function() {
+   $(".mark.festival").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.festival').removeClass('highlight1'); 
+   });
+   
+      
+   $("#legend2 .mark").hover(function() {
+   $(".mark.yoga").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.yoga').removeClass('highlight1'); 
+   });
+   
+ /*for star only*/
+
+   $("div.mark.studio").hover(function() {
+   $(".mark.studio").addClass('highlight3');
+   },
+   function(){
+   $('#.mark.studio').removeClass('highlight3'); 
+   });
+
 } 
 
 
@@ -695,6 +804,9 @@ $(".mark:not(.legendNo)").hover(function(){
    function(){
    $('#.mark.studio').removeClass('highlight2'); 
    });
+   
+   /*position map for desktop*/
+   $('#map-1').css('left', '-270px');
 
   
   $('body').append('<div id="ted_photo_hover"></div>');

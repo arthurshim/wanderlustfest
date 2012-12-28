@@ -1,0 +1,50 @@
+.mark.studio {
+    height: 25px;
+    width: 25px;
+}
+
+#legend3 .legendtitle {
+    position: relative;
+    right: 5px;
+}
+
+.mark.studio:hover {
+    background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat!important;
+    -webkit-transform: rotate(360deg);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    transform: rotate(360deg);
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+}
+
+.wanderfest #container {
+    height: 2000px;
+    width: 1353px;
+}
+
+.wanderfest #map-1-container {
+    height: 2719px;
+    position: relative;
+    width: 1943px;
+}
+
+.not-logged-in.wanderfest #main {
+    display: block !important;
+}
+
+.map-viewport {
+    border: 1px solid black;
+    height: 2059px;
+    margin: 0 0 20px;
+    position: relative;
+    width: 2485px;
+}
+
+#map-1 .mark.highlight1 {
+    background-color: #CEA430 !important;
+}
+
+
+
+

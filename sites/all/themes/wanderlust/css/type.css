@@ -123,11 +123,12 @@ h1.title {
 
   
 article h2,
-article h2 a{
-  font-size: 16px;
+article h2 a,
+.pane-photos .view-display-id-page_1 li.views-row{
+  font-size: 15px;
 	margin-top: 2px; 
 	margin-bottom: 5px;
-	font-famiy: 'DejaVuSansBold' !important;
-	font-weight: bold;
+	font-family: 'DejaVuSansBold' !important;
+	line-height: 1.2;
   }
   

@@ -1,3 +1,21 @@
+/* SPLASH PAGE LOGO
+---------------------------------*/
+
+#map-1-container #logo{
+  background: url('../images/splash-sprite.png');
+  width: 514px;
+  height: 151px;
+  background-position:647px 0px;
+  position: absolute;
+  top: 20px;
+  left: 30%;
+  z-index: 99;
+  text-indent: -9999em;
+}
+
+
+/* MAP MARKERS 
+---------------------------------*/
 
 #map-1-container .mark {
   position: relative;
@@ -5,19 +23,19 @@
 }
 
 .mark.studio.studio3294 {
-    left:900px;
-    top:99px;
+    left:960px;
+    top:215px;
 }
     
 #map-1 .mark.squaw {
-  top: 154px;
-  margin-left: 510px;
+  top: 387px;
+  margin-left: 849px;
   
 }
 
 #map-1 .mark.stratton {
-   margin-left: 565px;
-   top:47px;
+   margin-left: 1075px;
+   top:323px;
 }
 
 #map-1 .mark.cosmopolitan {
@@ -46,13 +64,13 @@
 }
 
 #map-1 .mark.nyc {
-   margin-left: 1023px;
-   top: 274px;
+   margin-left: 1057px;
+   top: 327px;
 }
 
 #map-1  .mark.sf {
-   margin-left: 475px;
-   top: 148px;
+   margin-left: 806px;
+   top: 296px;
 }
 
 #map-1 .mark.chicago {
@@ -61,8 +79,8 @@
 }
 
 #map-1 .mark.la {
-   margin-left: 450px;
-   top: 196px;
+   margin-left: 825px;
+   top: 327px;
 }
 
 #map-1 .mark.williamsburg {
@@ -76,27 +94,34 @@
 }
 
 #map-1 .mark.colorado {
-  margin-left: 550px;
-  top: 120px;
+  margin-left: 890px;
+  top: 290px;
 }
 
 #map-1 .mark.whistler {
-  margin-left: 503px;
-  top: 240px;
+  margin-left: 964px;
+  top: 140px;
 }
 
 #map-1 .mark.oahu {
-    margin-left: 550px;
-    top: 169px;
+    margin-left: 624px;
+    top: 330px;
 }
 
 #map-1 .mark.chile {
-    margin-left: 1170px;
-    top: 352px;
+    margin-left: 1107px;
+    top: 572px;
 }
 
 /*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
-#map-1{ cursor: move; width: 2146px; height:1170px; position:absolute; left:0; top:0; }
+#map-1{ 
+cursor: move;
+width: 2146px; 
+height:1170px;
+position:absolute;
+left: -275px;
+top: -33px;
+}
 .level{ position:absolute; left:0; top:0; z-index:10;}
 .current-level{ z-index:20; }
 
@@ -227,7 +252,6 @@
     transition: all .3s ease-in-out; 
     height: 50px;
     width: 50px;
-    z-index: 103 !important;
 }
 
 .mark.studio:hover {
@@ -301,12 +325,15 @@
   text-transform: uppercase;
   font-family: revolution;
   font-style: normal;
+  margin-top: 6px;
 }
 
 .siteaddress {
   font-family: 'MrsEavesOT-Italic';
   font-style: italic;
   color: #c04b0d !important;
+  margin-bottom: 8px;
+  
 }
 
 .siteevent {
@@ -321,6 +348,18 @@
   font-style: normal;
 }
 
+
+#map-1-container .item-date,
+#map-1-container .visitsite {
+  margin-bottom: 8px;
+}
+
+
+#site-checkbox input{
+  margin-right: 7px;
+}
+
+
 #legend {
     background-image: url(/sites/all/themes/wanderlust/images/legend.png);
     width: 410px;
@@ -330,6 +369,11 @@
     top: 192px;
     left: 439px;
     cursor: pointer;
+}
+
+
+#legend .mark {
+    margin-right: 10px;  
 }
 
 #legend1 {
@@ -372,7 +416,8 @@
     font-weight: bold;
     text-transform: uppercase;
     color: #603220;
-    width: 319px;
+    width: 324px;
+    font-family: 'revolution', arial;
 }
 
 .highlight {
@@ -382,17 +427,21 @@
 
 }
 
-#joinmail {
 
-   background-image: url(/sites/all/themes/wanderlust/images/email.png);
-    width: 321px;
-    height: 132px;
+
+
+/* GET SOCIAL WIDGET
+---------------------------------*/
+
+#joinmail {
+   background-image: url(/sites/all/themes/wanderlust/images/splash-sprite.png);
+    width: 340px;
+    height: 189px;
     position: absolute;
     z-index: 200;
     top: 152px;
     left: 950px;
     cursor: pointer;
-
 }
 
 #joinmail .title {
@@ -410,15 +459,120 @@
   width: 314px;
   height: 13px;
   margin: -20px 0 0;
+  
 }
+
+
+
+
+
 #emailClick {
-height: 29px;
-width: 294px;    
-cursor: text;
-position: relative;
-top: 54px;
-margin-left: 12px;
+    height: 29px;
+    width: 276px;    
+    cursor: text;
+    position: relative;
+    top: 69px;
+    margin-left: 31px;
 }
+
+.fb-icon {
+    position: absolute;
+    top: 116px;
+    left: 35px;
+}
+
+.tw-icon {
+    position: absolute;  
+    top: 116px;
+    left: 157px;
+}
+
+.other-icons {
+  position: absolute;
+  top: 154px;
+  left: 55px;
+}
+
+.other-icons a{
+    background: url('../images/splash-sprite.png');
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 22px;
+}
+
+.other-icons a:hover{
+    opacity: 0.8;
+}
+
+
+.google-icon {
+    background-position: -20px -194px !important;
+}
+
+.instagram-icon {
+    background-position: -81px -194px !important;
+}
+
+.pinterest-icon {
+    background-position: -50px -194px !important;
+}
+
+.youtube-icon {
+    background-position: -111px -194px !important;
+}
+
+.blog-icon {
+    background-position: -141px -194px !important;
+}
+
+
+
+/* MAILING LIST DIALOG
+---------------------------------*/
+
+.front .fancybox-skin {
+}
+
+.front .fancybox-skin td{
+  padding: 8px !important;
+  font-family: 'DejaVuSans', helvetica !important;
+  font-size: 12px;
+}
+
+.front .fancybox-skin .title{
+  font-family: 'revolution', arial;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin-bottom: 0;
+}
+
+.front .fancybox-skin input{
+  padding: 3px;
+  width: 165px;
+  font-family: 'DejaVuSans', helvetica;
+}
+
+.front .fancybox-skin select{
+  width: 176px;
+}
+
+.front .fancybox-skin #submit{
+  background: #c4581d;
+  padding: 9px 6px 6px 6px;
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-size: 18px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 174px;
+  }
+
+.front .fancybox-skin #submit:hover {
+  background: #e0611c;
+}
+
 
 
 .joincontent {
