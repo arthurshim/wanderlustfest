@@ -26,46 +26,7 @@
    <meta property="og:site_name" content="Wanderlust"/>
    <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
 <meta property="fb:app_id" content="321576251186267"/>
-  <!-- <script type="text/javascript">
-    // cross domain tracking code for Schedule Activities link - to open in new window
-  
-	function openWindow(link) {
-      _gaq.push(function() {
-        var tracker = _gaq._getAsyncTracker();  //add name param if needed
-        window.open(tracker._getLinkerUrl(link.href));
-      });
-      return false;
-    }
 
-
-  </script>
-
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-12068308-1']);
-  _gaq.push(['_setDomainName', 'wanderlustfestival.com']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-  <script type="text/javascript">
-function recordOutboundLink(link, category, action) {
-try {
-var myTracker=_gat._getTrackerByName();
-_gaq.push(['myTracker._trackEvent', category , action ]);
-setTimeout('document.location = "' + link.href + '"', 100)
-}catch(err){}
-}
-</script>
--->
 
 <script>
 var _gaq = _gaq || [];
@@ -84,11 +45,6 @@ _gaq.push(['_trackPageview']);
 
 </script>
 
-
-
-
-
-
 	
     <?php
       $base = wl_get_base_domain();
@@ -96,7 +52,7 @@ _gaq.push(['_trackPageview']);
       $subdomain = strtolower(trim($url[0]));
       $f = FALSE;
       if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
-	$f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
+	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
 	
 	
@@ -126,7 +82,13 @@ _gaq.push(['_trackPageview']);
 }
 
 .mark.studio {
+    height: 17px;
+    width: 17px;
+}
 
+#legend3 .legendtitle {
+    position: relative;
+    right: 5px;
 }
 	</style>
 <![endif]-->
@@ -633,28 +595,25 @@ function doSubmit(oForm) {
       
 
      <?php   if (!$f) { ?>
-    
-     <?php } print $closure ?>
-     
-  </div> 
-  <!-- END CONTAINER -->
-  
-  <!-- BEGIN FOOTER -->
-  <footer class="footer">
-    <div class="logos">
-      <div class="velour">Velour Music Group</div>
-      <div class="c3">C3 Presents</div>
-    </div>
-    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
-    <div class="footer-links">
-      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
-      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
-    </div>
-    <div class="site-credits">
-      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
-    </div>
-  </footer>
-  <!-- END FOOTER -->
+    <footer id="footer" role="contentinfo" class="clearfix">
+      <?php if (!empty($footertop)): ?>
+      <div class="footertop">
+        <div id="footer-top-inner">
+        <?php print $footertop; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <div class="subhead">
+        <?php if (!empty($footer)): print $footer; endif; ?>
+        <?php print $feed_icons ?>
+      </div>
+      <div class="footer-message">
+        <div class="footer-message-content"><?php print $footer_message; ?></p>
+      </div>
+    </footer> <!-- /#footer -->
+    <?php } print $closure ?>
+  </div> <!-- /#container -->
+
 
 </body>
 <script>
@@ -699,36 +658,31 @@ $("head").append( '<link rel="stylesheet" type="text/css" href="sites/all/themes
 
 
 
-if (!$(this).hasClass("test")) {
+  $(".mark").bind('touchend', function(e){
+	    $(".mark").stop(true, true);
+	   $(this).find('div.innersite').toggle(500);
+        });
  
 $(".mark:not(.legendNo)").hover(function(){
 
    $(this).find('div.innersite').fadeIn();
-   if ($(this).hasClass("festival")) {
-    
-   }
-   else if($(this).hasClass('yoga')) {
-
-   }
-   else if($(this).hasClass('studio')){
-
-   }
    
 },function(){
    $(this).find('div.innersite').hide();
-   $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');     
 });
-}
+
 
 
 /*hover legend*/
+
+    /*for flag*/
    $("#legend1 .mark").hover(function() {
    $(".mark.festival").addClass('highlight1');
    },
    function(){
    $('#.mark.festival').removeClass('highlight1'); 
    });
-   
+    /*for green star*/
       
    $("#legend2 .mark").hover(function() {
    $(".mark.yoga").addClass('highlight1');
@@ -740,16 +694,17 @@ $(".mark:not(.legendNo)").hover(function(){
  /*for star only*/
 
    $("div.mark.studio").hover(function() {
-   $(".mark.studio").addClass('highlight3');
+   $(".mark.studio").addClass('highlight1');
    },
    function(){
-   $('#.mark.studio').removeClass('highlight3'); 
+   $('#.mark.studio').removeClass('highlight1'); 
    });
 
 } 
 
 
 else {
+
 
   $(document).ready(function () {
   
@@ -798,12 +753,24 @@ $(".mark:not(.legendNo)").hover(function(){
    
  /*for star only*/
 
+ 
+ if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
+$("div.mark.studio").hover(function() {
+   $(".mark.studio").addClass('highlight1');
+   },
+   function(){
+   $('#.mark.studio').removeClass('highlight1'); 
+   });
+} else { 
    $("div.mark.studio").hover(function() {
    $(".mark.studio").addClass('highlight2');
    },
    function(){
    $('#.mark.studio').removeClass('highlight2'); 
    });
+   }
+ 
+
    
    /*position map for desktop*/
    $('#map-1').css('left', '-270px');

@@ -1,6 +1,6 @@
 .mark.studio {
-    height: 25px;
-    width: 25px;
+    height: 17px;
+    width: 17px;
 }
 
 #legend3 .legendtitle {
@@ -19,14 +19,14 @@
 }
 
 .wanderfest #container {
-    height: 2000px;
-    width: 1353px;
+    height: 1130px;
+    width: 1870px;
 }
 
 .wanderfest #map-1-container {
-    height: 2719px;
     position: relative;
-    width: 1943px;
+    height: 1130px;
+    width: 1870px;
 }
 
 .not-logged-in.wanderfest #main {
@@ -35,10 +35,11 @@
 
 .map-viewport {
     border: 1px solid black;
-    height: 2059px;
     margin: 0 0 20px;
     position: relative;
-    width: 2485px;
+	height: 1130px;
+    width: 1870px;
+   
 }
 
 #map-1 .mark.highlight1 {
@@ -48,3 +49,9 @@
 
 
 
+#legend {
+
+top: 252px;
+left: 35px;
+
+}
