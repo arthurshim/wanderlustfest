@@ -708,21 +708,6 @@ if (isMobile.any()) {
             }, function() {
                 $('#.mark.studio').removeClass('highlight1');
             });
-		/*jquery rotate for IE */
-
-            $("div.mark").hover(function() {
-				$(this).rotate({
-				   angle: 0,
-				   animateTo: 360,
-				   duration: 900
-				});
-            }, function() {
-                $(this).children().fadeOut('fast');
-            });
-
-
-
-
         } else {
             $("div.mark.studio").hover(function() {
                 $(".mark.studio").addClass('highlight2');

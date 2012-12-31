@@ -158,7 +158,7 @@ function sitesdropdown_create_menu($reset = FALSE) {
   
         $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
 	$item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	$item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_venue'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
+	$item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_country'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
 	$data[] = $item;
 	
 	endif;
@@ -329,12 +329,12 @@ function sitesdropdown_site_id() {
 		 
 		 
 	   } 
-	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' <br /> '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
+	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' <br /> '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
 	 }
 	 else {
        $item = '<div class="event-item"><div class="event-right">';
 	   $item .= '<div class="event-item-title"><a href="'.$site['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' <br />'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
+	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' <br />'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
 	 
 	 if ($site['field_event_image'][0]['filepath']) {
@@ -350,12 +350,12 @@ function sitesdropdown_site_id() {
 	   $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">';
 	   $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('j', strtotime($site['field_event_date'][0]['value2'])).'</div>';
 	   $item .= '<div class="event-item-title"><a href="'.$site['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' &middot; '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
+	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' &middot; '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
 	 }
 	 else {
        $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['field_event_image'][0]['filepath'].'" /></div><div class="event-right">';
 	   $item .= '<div class="event-item-title"><a href="'.$site['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].' &middot; '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
+	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' &middot; '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
 	 */
 	// return $item;
@@ -472,7 +472,7 @@ function sitesdropdown_menucreate($node) {
              }
 	   } 
 	//   $item .= '<div class="event-item-address">'.$node->field_event_venue[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></div></a></div>';
-	   $item .= '<div class="event-item-address">'.$node->field_event_venue[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></div></a></div>';
+	   $item .= '<div class="event-item-address">'.$node->field_event_country[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></div></a></div>';
 
 	 }
 	 else if ($node->status == 1){
@@ -480,7 +480,7 @@ function sitesdropdown_menucreate($node) {
 	 //  $item .= '<a href="'.$node->field_event_url[0]['url'].'" onclick="_gaq.push([\'_link\',\''. $node->field_event_url[0]['url'] .'\']); return false;" ><div class="event-item-title">'.$node->title.'</div>';
 	   
 	   $item .= '<a href=' .$node->field_event_url[0]['url'] . '><div class="event-item-title">'.$node->title.'</div>';
-	   $item .= '<div class="event-item-address">'.$node->field_event_venue[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></a></div></div>';	 
+	   $item .= '<div class="event-item-address">'.$node->field_event_country[0]['value'].' <span class="bullet">&middot;</span> '.$node->field_event_city[0]['value'].', '.$node->field_event_state[0]['value'].'</div></a></div></div>';	 
 	 }
 	 
 	 return $item;	
