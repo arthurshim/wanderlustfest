@@ -1,6 +1,10 @@
 <?php
 
-function sitesdropdown_init() {     
+function sitesdropdown_init() {
+  
+  
+
+      
       
    //   [field_event_image][0] [filepath]
       
@@ -284,10 +288,9 @@ function sitesdropdown_site_id() {
  // else {
 	//if(count($host) <  3 || ( count($host[0]) > 3 && $current_domain_name != $host[0])) {
 	  $result = db_result(db_query("SELECT s.sid FROM sites s WHERE s.purl_prefix = '%s'", $host[0]));
-
+	 
 	  if($result > 0) {
 	    $node_res = node_load(variable_get('sites_extra_fields_site_'.$result.'_nid', 1));
-	    	 //echo "Result : <pre>"; print_r($node_res); echo "</pre";exit;
 	  }
 	  else {
 		$node_res = node_load(variable_get('sites_extra_fields_site_1_nid', 1));
@@ -313,7 +316,8 @@ function sitesdropdown_site_id() {
 	  }   
 	  else {
 	    
-//echo "<pre>"; print_r($current_site); echo "</pre>";
+	    
+
 	    /*reformat date for oahu which spans two different months so needs to be reformatted*/
 	    if($current_site->sid == 23) {
 	      
@@ -339,25 +343,11 @@ function sitesdropdown_site_id() {
 	 /*add state image for each header*/
 	 if ($site['field_event_image'][0]['filepath']) {
 	  $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
-	  	}
-
-	 if ($site['field_logo'][0]['filepath']) {
-		  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]	['filepath']  . '" alt=""/></div>';
-	     }	  
-
-
-//added on 2,Jan
-		if ($site['field_event_image'][0]['filename']) {
-	  	 $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filename']  . '" alt=""/></div>';
-	  	}
-
- if ($site['field_logo'][0]['filename']) {
-	  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filename']  . '" alt=""/></div>';
 	  	 }
-//ends
+ if ($site['field_logo'][0]['filepath']) {
+	  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filepath']  . '" alt=""/></div>';
+	  	 }
 
-
-//echo "<pre>"; print_r($item); echo "</pre>"; exit;
 		 //drupal_set_message('<pre>' . print_r($site['field_event_image'][0]['filepath'], 1) . '</pre>');
 	// $site->field_event_image[0]['filepath'];
 	 return $item ;

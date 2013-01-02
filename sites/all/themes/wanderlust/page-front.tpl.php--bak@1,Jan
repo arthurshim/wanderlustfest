@@ -157,9 +157,6 @@ function doSubmit(oForm) {
   return false;
 }
 //-->
-
-
-
 </script>
      
 
@@ -219,31 +216,8 @@ function doSubmit(oForm) {
 
 	  <!--TOD make this dynamic-->
       <div class="logo">
-      <?php
-     // $sites = _sites_get_sites();
-    //  foreach($sites as $site) {
- 	//	if ($site->tid == '234') {
- 		//echo "hello Chile <br /><pre>";
-        //print_r($site);
-        //echo "</pre>"; 
-        // echo $site->extra_fields->field_logo[0]['value'];
-        // echo '<img  src="'. path_to_theme() .'/'.$site->extra_fields->field_logo[0]['filepath'].'" width="210" height="110" />';
-        //}
-     // }
-     
-     //$result = db_result(db_query("SELECT s.sid FROM sites s WHERE s.purl_prefix = '%s'", $host[0]));
-	    	 //echo "Result : <pre>"; print_r($result); echo "</pre";exit;
-	  //if($result > 0) {
-	   // $node_res = node_load(variable_get('sites_extra_fields_site_'.$result.'_nid', 1));
-	    	 //echo "Result : <pre>"; print_r($node_res); echo "</pre";exit;
-	  //}      
-      ?>
-      
-      
-	 <?php //echo $site->extra_fields->field_logo[0]['value']; ?>
-	  <?php //echo "<img src="."http://{$base}/wanderlust/".$n->field_logo[0]['filepath'].">";
-	 // echo "<img src=".$site->extra_fields->field_logo[0]['filepath'].">";
-	   print $topnav; ?>
+	 <?php $site->extra_fields->field_logo[0]['value'] ?>
+	  <?php print $topnav; ?>
       </div>
 
       <div class="tomap">
@@ -477,12 +451,8 @@ function doSubmit(oForm) {
 <div class="map-viewport">
 <div id="map-1" >
 <img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
-  
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
-      
-      
-      <?php 
-      
+      <?php
           foreach($site->extra_fields->taxonomy as $n) {
 	  if($n->tid == 93) {
 	     $class = 'festival'; 
@@ -638,11 +608,8 @@ var isMobile = {
         return navigator.userAgent.match(/BlackBerry/i);
     },
     iOS: function() {
-        return navigator.userAgent.match(/iPhone|iPod/i);
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
     },
-	iPAD: function() {
-        return navigator.userAgent.match(/iPad/i);
-    },	
     Opera: function() {
         return navigator.userAgent.match(/Opera Mini/i);
     },
@@ -650,21 +617,14 @@ var isMobile = {
         return navigator.userAgent.match(/IEMobile/i);
     },
     any: function() {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.iPAD() || isMobile.Opera() || isMobile.Windows());
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
     }
 };
-
-if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()){
-	   $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.6, maximum-scale=.6">');
-}
 
 if (isMobile.any()) {
 
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
 
-
-	
-	
     $(".mark").bind('touchend', function(e) {
         $(".mark").stop(true, true);
         $(this).find('div.innersite').toggle(500);

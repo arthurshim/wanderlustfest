@@ -4,10 +4,9 @@
 
 /**
  * Admin landing page registered in hook_menu()
- */echo "t<pre>"; print_r(_sites_get_sites()); echo "</pre>";exit;
+ */
 function sites_list_sites() {
   $sites = _sites_get_sites();
-  
   $rows = array();
   foreach ($sites as $sid => $site) {
     $edit_link = l('edit', 'admin/build/sites/edit/' . $site->sid);

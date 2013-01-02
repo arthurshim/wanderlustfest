@@ -55,3 +55,6 @@ top: 252px;
 left: 35px;
 
 }
+
+input[type=checkbox] {width:100px; height:100px;}
+

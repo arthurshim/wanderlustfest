@@ -20,11 +20,11 @@
 #event-info{
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 18px;
   font-family: 'MrsEavesOT-Italic';
   font-style: italic;
   color: #603220;
-  width: 212px;
+  width: 1084px;
   font-size: 14px;
   text-align: center;
   height: 91px;    
@@ -48,7 +48,7 @@
   }
 
 .event-item{
-  margin-left: 30px;    
+  margin-left: -847px;    
   }
   
 

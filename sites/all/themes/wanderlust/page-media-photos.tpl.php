@@ -33,7 +33,7 @@
 <script type="text/javascript">
  
  $(document).ready(function() {
-   $("li.views-row").hover(
+   $(".view-Photos.view-display-id-page_1 li.views-row").hover(
       function () {
         $(this).find('a').addClass('fancybox-thumbs');
 	
