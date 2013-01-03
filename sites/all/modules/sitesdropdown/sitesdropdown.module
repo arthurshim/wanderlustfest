@@ -341,23 +341,53 @@ function sitesdropdown_site_id() {
 	  $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
 	  	}
 
-	 if ($site['field_logo'][0]['filepath']) {
-		  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]	['filepath']  . '" alt=""/></div>';
-	     }	  
+		 if ($site['field_logo'][0]['filepath']) {
+			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filepath']  . '" alt=""/></div>';
+	     }
 
 
-//added on 2,Jan
-		if ($site['field_event_image'][0]['filename']) {
-	  	 $item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filename']  . '" alt=""/></div>';
-	  	}
+		//added on 3,Jan - starts
 
- if ($site['field_logo'][0]['filename']) {
-	  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filename']  . '" alt=""/></div>';
-	  	 }
-//ends
+		/*echo "<br />Testing <br />";
+		echo "<br />Event img name     :" . $site['field_event_image'][0]['filename'];
+		echo "<br />Path for event img : ". realpath($site['field_event_image'][0]['filename']);
+		$p = pathinfo($site['field_event_image'][0]['filename']);
+		echo "<br />Path for event img : <pre>"; print_r($p); echo "</pre>";
+		echo "<br />";
+		echo "<br />Logo  img name     :" . $site['field_logo'][0]['filename'];
+		echo "<br />Path for logo img  : ". realpath($site['field_logo'][0]['filename']);
+		echo "<br />";
+//		if(file_exists("files/" . $site['field_event_image'][0]['filename'])) {
+	
+		if ($site['field_event_image'][0]['filepath']) {
+			$item .= '<div class="siteico"><img src="' .  $site['field_event_image'][0]	['filename']  . '" alt=""/></div>';
+		}
+
+//echo "<pre>"; print_r($site); echo "</pre>";exit;
+	//	if(file_exists("files/" . $site['field_logo'][0]['filename'])) {
+		if ($site['field_logo'][0]['filepath']) {
+			$item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filepath']  . '" alt=""/></div>';
+		}
+*/
+
+//		echo "<br /> Exists in : ". realpath($site['field_logo'][0]['filename']);
+//		echo "<br /> Dirname   : ". dirname($site['field_logo'][0]['filename']);
+		
+		
+		
+		//echo "<br /> Path info : <pre>"; print_r(pathinfo($site['field_event_image'][0]['filename'])); echo "</pre>";
+
+		/*if ($site['field_event_image'][0]['filename']) {
+			$item .= '<div class="siteico"><img src="' . $site['field_event_image'][0]['filename']  . '" alt=""/></div>';
+		}
+
+		if ($site['field_logo'][0]['filename']) {
+			$item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filename']  . '" alt=""/></div>';
+		}*/
+		//added on 3,Jan - ends
 
 
-//echo "<pre>"; print_r($item); echo "</pre>"; exit;
+//echo "<pre>"; print_r($item); echo "</pre>";exit;
 		 //drupal_set_message('<pre>' . print_r($site['field_event_image'][0]['filepath'], 1) . '</pre>');
 	// $site->field_event_image[0]['filepath'];
 	 return $item ;
