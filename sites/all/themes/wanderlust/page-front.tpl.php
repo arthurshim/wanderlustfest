@@ -111,7 +111,17 @@
   });
 	$("#emailClick").click(function() {
 				$.fancybox.open('#mytable');
-	}); 
+	});
+	
+		$("#legend1 span").click(function() {
+				$.fancybox.open('#festinfo');
+	        });
+		$("#legend2 span").click(function() {
+				$.fancybox.open('#yogainfo');
+	        });
+		$("#legend3 span").click(function() {
+				$.fancybox.open('#studioinfo');
+	        }); 
 });
  </script>
 
@@ -194,27 +204,7 @@ function doSubmit(oForm) {
       </div>
 
 	  <!--TOD make this dynamic-->
-      <div class="logo">
-      <?php
-     // $sites = _sites_get_sites();
-    //  foreach($sites as $site) {
- 	//	if ($site->tid == '234') {
- 		//echo "hello Chile <br /><pre>";
-        //print_r($site);
-        //echo "</pre>"; 
-        // echo $site->extra_fields->field_logo[0]['value'];
-        // echo '<img  src="'. path_to_theme() .'/'.$site->extra_fields->field_logo[0]['filepath'].'" width="210" height="110" />';
-        //}
-     // }
-      
-      ?>
-      
-      
-	 <?php //echo $site->extra_fields->field_logo[0]['value']; ?>
-	  <?php //echo "<img src="."http://{$base}/wanderlust/".$n->field_logo[0]['filepath'].">";
-	 // echo "<img src=".$site->extra_fields->field_logo[0]['filepath'].">";
-	  // print //$topnav; ?>
-      </div>
+   
 
       <div class="tomap">
         <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
@@ -284,20 +274,64 @@ function doSubmit(oForm) {
 <div id="legend" class="ui-draggable">
   <div id="legend1">
     <div class="mark festival legendNo"></div>
-    <div class="legendtitle">Wanderlust Festivals</div><br>
+    <div class="legendtitle">Wanderlust Festivals <span>i</span></div><br>
   </div>
   <div id="legend2">
     <div class="mark yoga legendNo"></div>
-    <div class="legendtitle">Yoga in the City events</div><br>
+    <div class="legendtitle">Yoga in the City events <span>i</span></div><br>
   </div>
   <div id="legend3">
     <div class="mark studio legendNo"></div>
-    <div class="legendtitle">Wanderlust Yoga Studios</div><br>
+    <div class="legendtitle">Wanderlust Yoga Studios <span>i</span></div><br>
   </div>
 </div>
 <!-- END LEGEND -->  
 
 
+
+ 
+
+
+<!-- BEGIN TOOLBAR -->
+<div id="toolbar">
+  <div id="help">
+    <a href="#">Help</a>
+    <div class="dialog">
+        <h3>Help</h3>
+        <p>
+          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+        </p>
+        <div class="arrow"></div>
+    </div>
+  </div>
+  <div id="about">
+    <a href="#">About</a>  
+    <div class="dialog">
+        <h3>About</h3>
+        <p>
+          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+        </p>
+        <div class="arrow"></div>
+    </div>
+
+  </div>
+  <div id="mission">
+    <a href="#">Mission</a>  
+    <div class="dialog">
+        <h3>Mission</h3>
+        <p>
+          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+        </p>
+        <div class="arrow"></div>
+    </div>
+  </div>
+  <div id="blog">
+    <a href="http://blog.wanderfest.com" target="_blank">Blog</a>
+  </div>
+  <div id="connect">
+    <a href="#">Connect</a>
+    <div class="dialog">
+      <h3>Connect</h3>
 <!-- BEGIN MAILING LIST SIGN UP BOX -->  
 <div id="joinmail">
   <div id="emailClick"></div>
@@ -341,76 +375,76 @@ function doSubmit(oForm) {
                   <tr>
                     <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
                     <td valign="middle" style="padding:2px; "><select name='State/Prov' size='1' id="state">
-        <option value=''>Please Select</option>
-<option value="">------ USA ------</option>
-        <option value='AL' >AL</option>
-        <option value='AK' >AK</option>
-        <option value='AZ' >AZ</option>
-        <option value='AR' >AR</option>
-        <option value='CA' >CA</option>
-        <option value='CO' >CO</option>
-        <option value='CT' >CT</option>
-        <option value='DE' >DE</option>
-        <option value='DC' >DC</option>
-        <option value='FL' >FL</option>
-        <option value='GA' >GA</option>
-        <option value='HI' >HI</option>
-        <option value='ID' >ID</option>
-        <option value='IL' >IL</option>
-        <option value='IN' >IN</option>
-        <option value='IA' >IA</option>
-        <option value='KS' >KS</option>
-        <option value='KY' >KY</option>
-        <option value='LA' >LA</option>
-        <option value='ME' >ME</option>
-        <option value='MD' >MD</option>
-        <option value='MA' >MA</option>
-        <option value='MI' >MI</option>
-        <option value='MN' >MN</option>
-        <option value='MS' >MS</option>
-        <option value='MO' >MO</option>
-        <option value='MT' >MT</option>
-        <option value='NE' >NE</option>
-        <option value='NV' >NV</option>
-        <option value='NH' >NH</option>
-        <option value='NJ' >NJ</option>
-        <option value='NM' >NM</option>
-        <option value='NY' >NY</option>
-        <option value='NC' >NC</option>
-        <option value='ND' >ND</option>
-        <option value='OH' >OH</option>
-        <option value='OK' >OK</option>
-        <option value='OR' >OR</option>
-        <option value='PA' >PA</option>
-        <option value='RI' >RI</option>
-        <option value='SC' >SC</option>
-        <option value='SD' >SD</option>
-        <option value='TN' >TN</option>
-        <option value='TX' >TX</option>
-        <option value='UT' >UT</option>
-        <option value='VT' >VT</option>
-        <option value='VA' >VA</option>
-        <option value='WA' >WA</option>
-        <option value='WV' >WV</option>
-        <option value='WI' >WI</option>
-        <option value='WY' >WY</option>
-<option value="">----- CANADA -----</option>
-        <option value='AB' >AB</option>
-        <option value='BC' >BC</option>
-        <option value='LB' >LB</option>
-        <option value='MB' >MB</option>
-        <option value='NB' >NB</option>
-        <option value='NF' >NF</option>
-        <option value='NS' >NS</option>
-        <option value='NT' >NT</option>
-        <option value='ON' >ON</option>
-        <option value='PE' >PE</option>
-        <option value='QC' >QC</option>
-        <option value='SK' >SK</option>
-        <option value='YT' >YT</option>
-<option value="">---------------</option>
-<option value='Other' >OTHER</option>
-      </select></td>
+                      <option value=''>Please Select</option>
+                      <option value="">------ USA ------</option>
+                              <option value='AL' >AL</option>
+                              <option value='AK' >AK</option>
+                              <option value='AZ' >AZ</option>
+                              <option value='AR' >AR</option>
+                              <option value='CA' >CA</option>
+                              <option value='CO' >CO</option>
+                              <option value='CT' >CT</option>
+                              <option value='DE' >DE</option>
+                              <option value='DC' >DC</option>
+                              <option value='FL' >FL</option>
+                              <option value='GA' >GA</option>
+                              <option value='HI' >HI</option>
+                              <option value='ID' >ID</option>
+                              <option value='IL' >IL</option>
+                              <option value='IN' >IN</option>
+                              <option value='IA' >IA</option>
+                              <option value='KS' >KS</option>
+                              <option value='KY' >KY</option>
+                              <option value='LA' >LA</option>
+                              <option value='ME' >ME</option>
+                              <option value='MD' >MD</option>
+                              <option value='MA' >MA</option>
+                              <option value='MI' >MI</option>
+                              <option value='MN' >MN</option>
+                              <option value='MS' >MS</option>
+                              <option value='MO' >MO</option>
+                              <option value='MT' >MT</option>
+                              <option value='NE' >NE</option>
+                              <option value='NV' >NV</option>
+                              <option value='NH' >NH</option>
+                              <option value='NJ' >NJ</option>
+                              <option value='NM' >NM</option>
+                              <option value='NY' >NY</option>
+                              <option value='NC' >NC</option>
+                              <option value='ND' >ND</option>
+                              <option value='OH' >OH</option>
+                              <option value='OK' >OK</option>
+                              <option value='OR' >OR</option>
+                              <option value='PA' >PA</option>
+                              <option value='RI' >RI</option>
+                              <option value='SC' >SC</option>
+                              <option value='SD' >SD</option>
+                              <option value='TN' >TN</option>
+                              <option value='TX' >TX</option>
+                              <option value='UT' >UT</option>
+                              <option value='VT' >VT</option>
+                              <option value='VA' >VA</option>
+                              <option value='WA' >WA</option>
+                              <option value='WV' >WV</option>
+                              <option value='WI' >WI</option>
+                              <option value='WY' >WY</option>
+                      <option value="">----- CANADA -----</option>
+                              <option value='AB' >AB</option>
+                              <option value='BC' >BC</option>
+                              <option value='LB' >LB</option>
+                              <option value='MB' >MB</option>
+                              <option value='NB' >NB</option>
+                              <option value='NF' >NF</option>
+                              <option value='NS' >NS</option>
+                              <option value='NT' >NT</option>
+                              <option value='ON' >ON</option>
+                              <option value='PE' >PE</option>
+                              <option value='QC' >QC</option>
+                              <option value='SK' >SK</option>
+                              <option value='YT' >YT</option>
+                      <option value="">---------------</option>
+                      <option value='Other' >OTHER</option>
+                            </select></td>
                   </tr>
  <tr>
                     <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
@@ -443,45 +477,8 @@ function doSubmit(oForm) {
   
   <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
  </div>
- <!-- END MAILING LIST SIGN UP BOX -->  
- 
-
-
-<!-- BEGIN TOOLBAR -->
-<div id="toolbar">
-  <div id="help">
-    <a href="#">Help</a>
-    <div class="dialog">
-        <h3>Help</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
+ <!-- END MAILING LIST SIGN UP BOX -->        
     </div>
-  </div>
-  <div id="about">
-    <a href="#">About</a>  
-    <div class="dialog">
-        <h3>About</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
-    </div>
-
-  </div>
-  <div id="mission">
-    <a href="#">Mission</a>  
-    <div class="dialog">
-        <h3>Mission</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
-    </div>
-  </div>
-  <div id="blog">
-    <a href="http://blog.wanderfest.com" target="_blank">Blog</a>
   </div>
 </div>
 <!-- END TOOLBAR -->
@@ -519,6 +516,7 @@ function doSubmit(oForm) {
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){
 	   $item =  '<div class="site-item">';
+	   $item .=  '<div class="site-marker"></div>';	   
 	   $item .= '<div class="site-title">' . $site->title . '</div>';
 	   $item .= '<div class="siteevent"><div class="item-date">';
 	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
@@ -534,6 +532,20 @@ function doSubmit(oForm) {
 	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';	 
 	 }	 
+	
+	 if($class == 'festival') {
+	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+	    $c = 'checked="checked"';
+	   }
+	   $fests .= '<div class="bl">' . $item .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>';
+	 }elseif($class == 'yoga') {
+	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+	    $c = 'checked="checked"';
+	   }
+	   $yogas .= '<div class="bl">' . $item  .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>' ;
+	 }
+	 
+	 unset($c);
 	 
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
@@ -562,7 +574,7 @@ function doSubmit(oForm) {
 	    $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
-	 
+	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
       </div>
@@ -581,6 +593,28 @@ function doSubmit(oForm) {
       
    
     </div>
+
+<div id="wanderdata">
+<div id="festinfo">
+  <span>Wanderlust Festivals</span>
+  <div class="descript"></div>
+ <?php print $fests; ?>
+</div>
+
+<div id="yogainfo">
+ <span>Yoga In The City Events</span>
+   <div class="descript">Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis </div>
+
+ <?php print $yogas; ?>
+</div>
+
+<div id="studioinfo">
+<span>Wanderlust Yoga Studios</span>
+  <div class="descript">Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis </div>
+
+  <?php print $studios; ?>
+</div>
+</div>    
 <?php  
       } 
         else {  /*if not front page - print slide and other content */?> 

@@ -342,7 +342,7 @@ function sitesdropdown_site_id() {
 	  	}
 
 		 if ($site['field_logo'][0]['filepath']) {
-			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 450px;"><img src="' . $site['field_logo'][0]['filepath']  . '" alt=""/></div>';
+			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 250px;"><img src="' . $site['field_logo'][0]['filepath']  . '" alt=""/></div>';
 	     }
 
 

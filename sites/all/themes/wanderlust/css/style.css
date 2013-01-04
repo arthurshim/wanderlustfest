@@ -656,4 +656,8 @@ div.view div.views-admin-links li a {
   display: none!important;
 }
 
+#wanderdata{
+    position: absolute;
+    display: none;
+}
 

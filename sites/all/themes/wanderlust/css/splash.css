@@ -11,6 +11,7 @@
     left: 30%;
     z-index: 99;
     text-indent: -9999em;
+    border-radius: 0 0 0 80px;
 }
 
 
@@ -23,18 +24,18 @@
 }
 
 .mark.studio.studio3294 {
-    left: 960px;
-    top: 215px;
+    left: 943px;
+    top: 95px;
 }
 
 #map-1 .mark.squaw {
-    top: 387px;
-    margin-left: 849px;
+    top: 373px;
+    margin-left: 823px;
 }
 
 #map-1 .mark.stratton {
-    margin-left: 1075px;
-    top: 323px;
+    margin-left: 1085px;
+    top: 289px;
 }
 
 #map-1 .mark.cosmopolitan {
@@ -63,13 +64,13 @@
 }
 
 #map-1 .mark.nyc {
-    margin-left: 1057px;
-    top: 327px;
+    margin-left: 1078px;
+    top: 286px;
 }
 
 #map-1  .mark.sf {
-    margin-left: 806px;
-    top: 296px;
+    margin-left: 811px;
+    top: 246px;
 }
 
 #map-1 .mark.chicago {
@@ -78,8 +79,8 @@
 }
 
 #map-1 .mark.la {
-    margin-left: 825px;
-    top: 327px;
+    margin-left: 834px;
+    top: 263px;
 }
 
 #map-1 .mark.williamsburg {
@@ -93,18 +94,18 @@
 }
 
 #map-1 .mark.colorado {
-    margin-left: 890px;
-    top: 290px;
+    margin-left: 898px;
+    top: 207px;
 }
 
 #map-1 .mark.whistler {
-    margin-left: 964px;
-    top: 140px;
+    margin-left: 861px;
+    top: 80px;
 }
 
 #map-1 .mark.oahu {
-    margin-left: 624px;
-    top: 330px;
+    margin-left: 611px;
+    top: 226px;
 }
 
 #map-1 .mark.chile {
@@ -252,7 +253,7 @@
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
-    height: 29px;
+    height: 33px;
     width: 24px;
     background-position: -170px -195px;
     top: 5px;
@@ -353,20 +354,20 @@
 }
 
 #legend {
-    background-image: url(../images/splash-sprite.png);
-    background-position: -18px -250px;    
-    width: 328px;
-    height: 198px;
-    position: absolute;
-    z-index: 200;
-    top: 252px;
-	left: 35px;
-    cursor: pointer;
-    padding: 0px 22px;
+  background-image: url(../images/splash-sprite.png);
+  background-position: -18px -250px;    
+  width: 320px;
+  height: 198px;
+  position: absolute;
+  z-index: 200;
+  top: 252px;
+  left: 35px;
+  cursor: pointer;
+  padding: 0px 21px;
 }
 
 #legend .mark {
-    margin-right: 10px;
+    margin-right: 4px;
 }
 
 #legend1 {
@@ -402,28 +403,27 @@
 }
 
 #legend .legendtitle {
-    padding-left: 40px;
-    text-transform: uppercase;
-    width: 324px;
-    font-family: 'revolution', arial;
-    font-size: 15px;
-    letter-spacing: 1px;
+  padding-left: 40px;
+  text-transform: uppercase;
+  font-family: 'revolution', arial;
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
 #legend1 .legendtitle{
-  color: #952c05;
+  color: #47292b;
   top: 8px;
   position: relative;
 }
 
 #legend2 .legendtitle {
-  color: #047377;
+  color: #a67d01;
   position: relative;
   top: 11px;
 }
 
 #legend3 .legendtitle {
-  color: #5e467d;
+  color: #ac5b0e;
 }
 
 .highlight {
@@ -432,7 +432,16 @@
     border-radius: 5px;
 }
 
-
+.legendtitle span{
+  background: url('../images/splash-sprite.png');
+  background-position: -294px -195px;
+  width: 34px;
+  text-indent: -999em;
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 10px;
+}
 
 
 /* GET SOCIAL WIDGET
@@ -444,7 +453,8 @@
     height: 189px;
     position: absolute;
     z-index: 200;
-    top: 152px;
+    /*old-top: 152px;*/
+    top: 60px;
     left: 950px;
     cursor: pointer;
 }
@@ -528,10 +538,103 @@
 
 
 
+/* FESTIVALS, YITC, STUDIOS OVERVIEW DIALOGS
+---------------------------------*/
+
+.fancybox-inner .site-title{
+  font-size: 16px;
+}
+
+.fancybox-inner .bl a{
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  color: #782a11;
+  text-transform: capitalize
+}
+
+#festinfo .site-marker{
+  background: url('../images/splash-sprite.png');
+  background-position: -264px -195px;  
+  width: 32px;
+  height: 36px;
+  position: absolute;
+  left: -37px;
+  top: 9px;
+}
+
+#festinfo .site-title{
+  color: #47292b;
+
+}
+ 
+
+
+.bl {
+  float: left;
+  margin: 0 0 10px 0;
+  width: 308px;
+  position: relative;
+  left: 60px;
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-style: italic;
+}
+
+.bl DIV {
+    color: #000000;
+}
+
+.bl .siteevent {
+    color: #000000;
+}
+
+#festinfo, #yogainfo, #studioinfo {
+  width: 636px;
+}
+
+
+#festinfo span, #yogainfo span, #studioinfo span{
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.front .fancybox-skin #site-checkbox input {
+  width: 0px;
+}
+
+#festinfo .descript, #yogainfo .descript, #studioinfo .descript {
+  text-align: center;
+}
+
+
+.bl .item-date{
+  margin-top: 3px;
+}
+
+.bl .siteaddress{
+  margin-bottom: 3px;
+}
+
+.bl #site-checkbox input{
+  margin-right: 20px;
+}
+
+#festinfo .site-title{
+  
+}
+
+
 /* MAILING LIST DIALOG
 ---------------------------------*/
 
-.front .fancybox-skin {;
+.front .fancybox-skin {
+  background: url('../images/splash-sprite.png') no-repeat !important;
+  background-position: -20px -466px !important;
+  width: 670px !important;
+  height: 435px !important;
+  padding: 0px !important;
 }
 
 .front .fancybox-skin td {
@@ -580,20 +683,21 @@
     display: none;
 }
 
+
 .wanderfest #container {
-    /*height: 700px;
-    width: 1350px;*/
-    height : 100%;
+    height: 800px;
+    /*width: 1350px;
+    height : 100%;*/
     width : 100%;
     overflow: hidden;
 }
 
 .wanderfest #map-1-container {
-    /*height: 700px;
-    width: 1350px;*/
+    height: 800px;
+    /*width: 1350px;*/
     overflow: hidden !important;
     position: relative;
-    height : 100%;
+    /*height : 100%;*/
     width : 100%;
 }
 
@@ -603,12 +707,12 @@
 
 .map-viewport {
     border: 1px solid black;
-    height: 1170px;
+    /*height: 1170px;*/
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    /*width: 1350px;
-    height : 700px;*/
+    /*width: 1350px;*/
+    height : 800px;
     width : 1560px;
 }
 
@@ -624,12 +728,12 @@
   right: 0px;
   bottom: 10px;
   z-index: 99;
-  width: 390px;
+  width: 520px;
 }
 
 #toolbar a{
   background: url('../images/splash-sprite.png');
-  height: 106px;
+  height: 109px;
   display: block;
   text-indent: -999em;
   float: left;
@@ -637,8 +741,8 @@
 }
 
 #help a{
-  background-position: -397px -235px;
-  width: 78px;
+  background-position: -384px -235px;
+  width: 102px;
 }
 
 #about a{
@@ -647,14 +751,23 @@
 }
 
 #mission a{
-  background-position: -589px -235px;
-  width: 80px;
+  background-position: -584px -235px;
+  width: 93px;
 }
 
 #blog a{
   background-position: -696px -235px;
   width: 70px;
 }
+
+#connect a{
+  background-position: -785px -235px;
+  width: 78px;
+  
+}
+
+
+/* DISABLE ICON HOVERS FOR NOW 1/4/13
 
 #help a:hover{
   background-position: -397px -348px;
@@ -674,7 +787,7 @@
   background-position: -696px -348px;
   width: 70px;
 }
-
+*/
 
 #toolbar .dialog{
   background: url('../images/splash-sprite.png');
@@ -719,7 +832,8 @@
 
 /* TEMPORARY STYLES TO HIDE TOOlBAR DIALOGS UNTIL JQUERY IS READY #alexb */
 #toolbar #about .dialog,
-#toolbar #mission .dialog {
+#toolbar #mission .dialog,
+#toolbar #connect .dialog {
   display: none;
 }
 
