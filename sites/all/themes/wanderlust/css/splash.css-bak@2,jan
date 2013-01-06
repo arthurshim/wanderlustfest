@@ -1,0 +1,809 @@
+/* SPLASH PAGE LOGO
+---------------------------------*/
+
+#map-1-container #logo {
+    background: url('../images/splash-sprite.png');
+    width: 514px;
+    height: 202px;
+    background-position: 679px 0px;
+    position: absolute;
+    top: 10px;
+    left: 30%;
+    z-index: 99;
+    text-indent: -9999em;
+}
+
+
+/* MAP MARKERS 
+---------------------------------*/
+
+#map-1-container .mark {
+    position: relative;
+    z-index: 100;
+}
+
+.mark.studio.studio3294 {
+    left: 960px;
+    top: 215px;
+}
+
+#map-1 .mark.squaw {
+    top: 387px;
+    margin-left: 849px;
+}
+
+#map-1 .mark.stratton {
+    margin-left: 1075px;
+    top: 323px;
+}
+
+#map-1 .mark.cosmopolitan {
+    top: 150px;
+    margin-left: 640px;
+}
+
+#map-1 .mark.standard {
+    top: 50px;
+    margin-left: 280px;
+}
+
+#map-1 .mark.phoenix {
+    top: 200px;
+    margin-left: 450px;
+}
+
+#map-1 .mark.dallas {
+    top: 280px;
+    margin-left: 570px;
+}
+
+#map-1 .mark.atlanta {
+    top: 220px;
+    margin-left: 470px;
+}
+
+#map-1 .mark.nyc {
+    margin-left: 1057px;
+    top: 327px;
+}
+
+#map-1  .mark.sf {
+    margin-left: 806px;
+    top: 296px;
+}
+
+#map-1 .mark.chicago {
+    top: 255px;
+    margin-left: 480px;
+}
+
+#map-1 .mark.la {
+    margin-left: 825px;
+    top: 327px;
+}
+
+#map-1 .mark.williamsburg {
+    top: 210px;
+    margin-left: 350px;
+}
+
+#map-1 .mark.mygroup {
+    top: 150px;
+    margin-left: 650px;
+}
+
+#map-1 .mark.colorado {
+    margin-left: 890px;
+    top: 290px;
+}
+
+#map-1 .mark.whistler {
+    margin-left: 964px;
+    top: 140px;
+}
+
+#map-1 .mark.oahu {
+    margin-left: 624px;
+    top: 330px;
+}
+
+#map-1 .mark.chile {
+    margin-left: 1107px;
+    top: 572px;
+}
+
+/*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
+#map-1 {
+    cursor: move;
+    width: 2146px;
+    height: 1170px;
+    position: absolute;
+    left: -275px;
+    top: -33px;
+}
+
+.level {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.current-level {
+    z-index: 20;
+}
+
+/*.map-viewport {
+    border: 1px solid black;
+    height: 530px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    width: 1350px;
+}*/
+
+
+#map {
+    background: url(../images/map2.png) no-repeat;
+    background-position: 50% 0;
+    height: 810px;
+    width: 994px;
+}
+
+.innersite:hover {
+    cursor: pointer;
+    z-index: 999;
+}
+
+.mark {
+    height: 23px;
+    width: 24px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 1px;
+}
+
+.mark:hover {
+    z-index: 103 !important;
+}
+
+.mark.festival {
+  background: url('../images/splash-sprite.png');
+  height: 36px;
+  width: 27px;
+  background-position: -264px -195px;
+}
+
+.mark.yoga {
+  background: url('../images/splash-sprite.png');
+  height: 36px;
+  width: 27px;
+  background-position: -235px -195px; 
+  top: 4px;
+}
+
+.mark.festival:hover {
+    -webkit-transform: rotate(360deg);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    -moz-transform: rotate(360deg);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+    -ms-transform: rotate(360deg);
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+    transform: rotate(360deg);
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+}
+
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes rotating {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-ms-keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+
+    to {
+        -ms: rotate(360deg);
+    }
+}
+
+#legend2 .mark.yoga:hover {
+    -webkit-animation: rotating 1.3s linear infinite;
+    -ms-animation: rotating 1.3s linear infinite;
+    -moz-animation: rotating 1.3s linear infinite;
+}
+
+.mark.yoga:hover {
+    background: url(../images/yoga_icon.png) no-repeat;
+    -webkit-transform: rotate(360deg);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    -moz-transform: rotate(360deg);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+    -ms-transform: rotate(360deg);
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+}
+
+.mark.studio {
+    background: url(../images/splash-sprite.png) no-repeat;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    height: 29px;
+    width: 24px;
+    background-position: -170px -195px;
+    top: 5px;
+}
+
+.mark.studio:hover {
+    background: url(../images/studio_icon-hover.png) no-repeat;
+}
+/*mobile touch class
+.highlightMobile1 {
+    background: url(../images/studio_icon-hover.png) no-repeat;
+    transition: all .3s ease-in-out;
+	transform: rotate(360deg);
+	transition-duration: 500ms;
+	-webkit-transition: all .5s ease-in-out;
+	-webkit-transform: rotate(360deg);
+
+}
+*/
+
+@-moz-document url-prefix() {
+    .mark.studio {
+        background: url(../images/studio_icon.png) no-repeat;
+        height: 50px;
+        width: 50px;
+        z-index: 103 !important;
+    }
+
+    .mark.studio:hover {
+        -moz-transform: rotate(360deg);
+        -moz-transition-timing-function: ease-out;
+        -moz-transition-duration: 500ms;
+        transform: rotate(360deg);
+        transition-timing-function: ease-out;
+        transition-duration: 500ms;
+    }
+}
+
+/*(.wanderfest #container {
+ width:1350px;   
+}*/
+
+
+/* MARKER HOVERS
+---------------------------------*/
+
+.innersite {
+    display: none;
+    background-color: #FFFFFF;
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 999999 !important;
+    border: 1px solid #b69866;
+    padding: 8px;
+    text-align: center;
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    margin-left: 30px;
+}
+
+.site-title {
+    font-weight: bold !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: revolution;
+    font-style: normal;
+    margin-top: 6px;
+}
+
+.siteaddress {
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    color: #c04b0d !important;
+    margin-bottom: 8px;
+}
+
+.siteevent {
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    color: #c04b0d !important;
+}
+
+.visitsite a {
+    color: #3d8283 !important;
+    font-family: revolution;
+    font-style: normal;
+}
+
+#map-1-container .item-date,
+#map-1-container .visitsite {
+    margin-bottom: 8px;
+}
+
+#site-checkbox input {
+    margin-right: 7px;
+}
+
+#legend {
+    background-image: url(../images/splash-sprite.png);
+    background-position: -18px -250px;    
+    width: 328px;
+    height: 198px;
+    position: absolute;
+    z-index: 200;
+    top: 252px;
+	left: 35px;
+    cursor: pointer;
+    padding: 0px 22px;
+}
+
+#legend .mark {
+    margin-right: 10px;
+}
+
+#legend1 {
+    margin-top:68px;
+
+    height: 39px;
+}
+
+#legend2 {
+    height: 39px;
+}
+
+#legend3 {
+    height: 39px;
+}
+
+#legend1 .mark {
+    float: left;
+}
+
+#legend2 .mark {
+    float: left;
+
+}
+
+#legend3 .mark {
+    float: left;
+}
+
+#legend3 .legendtitle {
+    position: relative;
+    top: 13px;
+}
+
+#legend .legendtitle {
+    padding-left: 40px;
+    text-transform: uppercase;
+    width: 324px;
+    font-family: 'revolution', arial;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+#legend1 .legendtitle{
+  color: #952c05;
+  top: 8px;
+  position: relative;
+}
+
+#legend2 .legendtitle {
+  color: #047377;
+  position: relative;
+  top: 11px;
+}
+
+#legend3 .legendtitle {
+  color: #5e467d;
+}
+
+.highlight {
+    background-color: #F9C125;
+    -moz-border: radius:5px;
+    border-radius: 5px;
+}
+
+
+
+
+/* GET SOCIAL WIDGET
+---------------------------------*/
+
+#joinmail {
+    background-image: url(/sites/all/themes/wanderlust/images/splash-sprite.png);
+    width: 320px;
+    height: 189px;
+    position: absolute;
+    z-index: 200;
+    top: 152px;
+    left: 950px;
+    cursor: pointer;
+}
+
+#joinmail .title {
+    color: #603220;
+    font-family: 'MrsEavesOT-Italic';
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 0 8px 12px;
+    text-align: left;
+}
+
+#joinmail .touch {
+    background-image: url(/sites/all/themes/wanderlust/images/kepp_touch.png);
+    width: 314px;
+    height: 13px;
+    margin: -20px 0 0;
+}
+
+#emailClick {
+    height: 29px;
+    width: 276px;
+    cursor: text;
+    position: relative;
+    top: 69px;
+    margin-left: 31px;
+}
+
+.fb-icon {
+    position: absolute;
+    top: 116px;
+    left: 35px;
+}
+
+.tw-icon {
+    position: absolute;
+    top: 116px;
+    left: 157px;
+}
+
+.other-icons {
+    position: absolute;
+    top: 154px;
+    left: 55px;
+}
+
+.other-icons a {
+    background: url('../images/splash-sprite.png');
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 22px;
+}
+
+.other-icons a:hover {
+    opacity: 0.8;
+}
+
+.google-icon {
+    background-position: -20px -194px !important;
+}
+
+.instagram-icon {
+    background-position: -81px -194px !important;
+}
+
+.pinterest-icon {
+    background-position: -50px -194px !important;
+}
+
+.youtube-icon {
+    background-position: -111px -194px !important;
+}
+
+.blog-icon {
+    background-position: -141px -194px !important;
+}
+
+
+
+/* MAILING LIST DIALOG
+---------------------------------*/
+
+.front .fancybox-skin {;
+}
+
+.front .fancybox-skin td {
+    padding: 8px !important;
+    font-family: 'DejaVuSans', helvetica !important;
+    font-size: 12px;
+}
+
+.front .fancybox-skin .title {
+    font-family: 'revolution', arial;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.front .fancybox-skin input {
+    padding: 3px;
+    width: 165px;
+    font-family: 'DejaVuSans', helvetica;
+}
+
+.front .fancybox-skin select {
+    width: 176px;
+}
+
+.front .fancybox-skin #submit {
+    background: #c4581d;
+    padding: 9px 6px 6px 6px;
+    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 174px;
+}
+
+.front .fancybox-skin #submit:hover {
+    background: #e0611c;
+}
+
+.joincontent {
+    position: absolute;
+    top: 192px;
+    left: 439px;
+    z-index: 200;
+    display: none;
+}
+
+.wanderfest #container {
+    height: 700px;
+    width: 1350px;
+    overflow: hidden;
+}
+
+.wanderfest #map-1-container {
+    height: 700px;
+    overflow: hidden !important;
+    position: relative;
+    width: 1350px;
+}
+
+.not-logged-in.wanderfest #main {
+    display: block !important;
+}
+
+.map-viewport {
+    border: 1px solid black;
+    height: 700px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    width: 1350px;
+}
+
+
+
+
+
+/* TOOLBAR
+---------------------------------*/
+
+#toolbar{
+  position: fixed;
+  right: 0px;
+  bottom: 10px;
+  z-index: 99;
+  width: 390px;
+}
+
+#toolbar a{
+  background: url('../images/splash-sprite.png');
+  height: 106px;
+  display: block;
+  text-indent: -999em;
+  float: left;
+  margin-right: 17px;
+}
+
+#help a{
+  background-position: -397px -235px;
+  width: 78px;
+}
+
+#about a{
+  background-position: -504px -235px;
+  width: 72px;
+}
+
+#mission a{
+  background-position: -589px -235px;
+  width: 80px;
+}
+
+#blog a{
+  background-position: -696px -235px;
+  width: 70px;
+}
+
+#help a:hover{
+  background-position: -397px -348px;
+}
+
+#about a:hover{
+  background-position: -504px -348px;
+  width: 72px;
+}
+
+#mission a:hover{
+  background-position: -589px -348px;
+  width: 80px;
+}
+
+#blog a:hover{
+  background-position: -696px -348px;
+  width: 70px;
+}
+
+
+#toolbar .dialog{
+  background: url('../images/splash-sprite.png');
+  background-position: -19px -946px;
+  width: 340px;
+  height: 261px;
+  position: absolute;
+  bottom: 127px;
+  font-size: 12px;
+  padding: 0 20px;
+
+}
+
+#toolbar .arrow{
+  background: url('../images/splash-sprite.png');
+  background-position: -349px -195px;
+  height: 14px;
+  width: 16px;
+  top: 2px;
+  position: relative;
+}
+
+#toolbar h3{
+  font-family: 'revolution';
+  text-transform: uppercase;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+#toolbar #blog .arrow{
+  left: 11px;
+}
+
+#toolbar #mission .arrow{
+  left: 198px;
+}
+
+#toolbar #about .arrow{
+  left: 98px;
+}
+
+
+/* TEMPORARY STYLES TO HIDE TOOlBAR DIALOGS UNTIL JQUERY IS READY #alexb */
+#toolbar #about .dialog,
+#toolbar #mission .dialog {
+  display: none;
+}
+
+
+
+
+/*
+div.mark.festival.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+
+div.mark.festival.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+div.mark.yoga.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+div.mark.studio.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}*/
+
+
+#map-1 .mark.highlight1 {
+    background-color: #CEA430;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-transform: rotate(360deg);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    -ms-transform: rotate(360deg);
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+    -moz-transform: rotate(360deg);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+    transform: rotate(360deg);
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+}
+
+
+/*only added to blue star on hover of legend */
+#map-1 .mark.highlight2 {
+    background: url(../images/studio_icon-hover.png) no-repeat;
+    z-index: 103 !important;
+    -webkit-transform: rotate(360deg);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    -ms-transform: rotate(360deg);
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+    -moz-transform: rotate(360deg);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+    transform: rotate(360deg);
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+}
+
+.highlight3 {
+    background-color: #CEA430;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+.wanderfest #main {
+    display: none;
+}
+
+.wanderfest {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.mark:hover {
+    -ms-transform: rotate(360deg);
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+    progid: DXImageTransform.Microsoft.BasicImage(rotation=5);
+}
+
+.mark {
+    transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+}

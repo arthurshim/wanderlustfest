@@ -158,7 +158,13 @@ DirectoryIndex index.php
   RewriteRule .* cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.json [L,T=text/javascript]
 
   ### BOOST END ###
+  RewriteCond %{HTTP_HOST} =blogs.wanderfest.com
+  RewriteCond %{REQUEST_URI} =/blogs
+  RewriteRule http://blogs.wanderfest.com [R=301,L]
 
+  RewriteCond %{HTTP_HOST} =blogs.wanderfest.com
+  RewriteCond %{REQUEST_URI} =/
+  RewriteRule ^(.*)$ index.php?q=blogs [L,QSA]
 
   # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
   RewriteCond %{REQUEST_FILENAME} !-f
