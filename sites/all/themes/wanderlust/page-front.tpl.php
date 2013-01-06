@@ -122,6 +122,13 @@
 		$("#legend3 span").click(function() {
 				$.fancybox.open('#studioinfo');
 	        }); 
+	
+	$('.fancybox-inner').css({
+ 
+    overflow: 'none',
+    overflowX: 'none'
+});
+	
 });
  </script>
 
@@ -330,8 +337,7 @@ function doSubmit(oForm) {
   </div>
   <div id="connect">
     <a href="#">Connect</a>
-    <div class="dialog">
-      <h3>Connect</h3>
+  
 <!-- BEGIN MAILING LIST SIGN UP BOX -->  
 <div id="joinmail">
   <div id="emailClick"></div>
@@ -479,7 +485,7 @@ function doSubmit(oForm) {
  </div>
  <!-- END MAILING LIST SIGN UP BOX -->        
     </div>
-  </div>
+
 </div>
 <!-- END TOOLBAR -->
 
@@ -512,6 +518,7 @@ function doSubmit(oForm) {
 	
       if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
       <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
+	  <div class="innersiteWrapper" style="padding-left: 20px">
 	<div class="innersite">	
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){
@@ -528,32 +535,35 @@ function doSubmit(oForm) {
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
 	 }
 	 else {
-            $item = '<div class="site-item"><div class="event-right">';
+      $item = '<div class="site-item"><div class="event-right">';
 	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';	 
 	 }	 
-	
+	 $options = array('html' => TRUE);
 	 if($class == 'festival') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $fests .= '<div class="bl">' . $item .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>';
+	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div></div>';
 	 }elseif($class == 'yoga') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $yogas .= '<div class="bl">' . $item  .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>' ;
+
+	   $yogas .= '<div class="bl">' . $item  .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
 	 }
 	 
 	 unset($c);
 	 
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
-	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div></div>
+	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div></div>
       </div>
+	  </div>
     <?php }
                elseif($class == 'studio') { ?>
 		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
+	<div class="innersiteWrapper" style="padding-left: 30px">
 	<div class="innersite">	
 	<?php
 	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
@@ -578,6 +588,7 @@ function doSubmit(oForm) {
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
       </div>
+	  </div>
 		
 		
 	  <?php } ?>
@@ -757,25 +768,66 @@ if (isMobile.any()) {
 
         $("#map-1").mapz();
         $("#legend").draggable();
-        $("#joinmail").draggable();
+        
+		
+		
+		/*MENU*/
+$("#help").hover(
+  function () {
+    $('#toolbar #help .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #help .dialog').hide();
+  }
+);
 
-        if (!$(this).hasClass("test")) {
+$("#about").hover(
+  function () {
+    $('#toolbar #about .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #about .dialog').hide();
+  }
+);
+
+$("#mission").hover(
+  function () {
+    $('#toolbar #mission .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #mission .dialog').hide();
+  }
+);
+
+
+$("#connect").hover(
+  function () {
+    $('#toolbar #connect #joinmail').fadeIn();;
+  },
+  function () {
+    $('#toolbar #connect #joinmail').hide();
+  }
+);
+			
+		
+		
+		
+		
+/*LEGEND HOVERS*/
+  
 
             $(".mark:not(.legendNo)").hover(function() {
 
                 $(this).find('div.innersite').fadeIn();
-                if ($(this).hasClass("festival")) {
-} else if ($(this).hasClass('yoga')) {
-} else if ($(this).hasClass('studio')) {
-}
-
             }, function() {
                 $(this).find('div.innersite').hide();
                 $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');
             });
-        }
+        
 
         /*hover legend*/
+
+
         $("#legend1 .mark").hover(function() {
             $(".mark.festival").addClass('highlight1');
         }, function() {
@@ -788,7 +840,13 @@ if (isMobile.any()) {
             $('#.mark.yoga').removeClass('highlight1');
         });
 
-        /*for star only*/
+		
+		  $("#legend3 .mark").hover(function() {
+            $(".mark.studio").addClass('highlight1');
+        }, function() {
+            $('#.mark.studio').removeClass('highlight1');
+        });
+        /*for star only
 
         if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
             $("div.mark.studio").hover(function() {
@@ -796,7 +854,7 @@ if (isMobile.any()) {
             }, function() {
                 $('#.mark.studio').removeClass('highlight1');
             });
-		/*jquery rotate for IE */
+		/*jquery rotate for IE *//*
 
             $("div.mark").hover(function() {
 				$(this).rotate({
@@ -810,7 +868,6 @@ if (isMobile.any()) {
 
 
 
-
         } else {
             $("div.mark.studio").hover(function() {
                 $(".mark.studio").addClass('highlight2');
@@ -818,6 +875,26 @@ if (isMobile.any()) {
                 $('#.mark.studio').removeClass('highlight2');
             });
         }
+		
+		*/
+		
+				/*Balloon hover*/
+		   $(".mark.festival").hover(function() {
+				$(this).animate({
+      top: '-=7',
+    }, 500);
+            }, function() {
+ 
+	$(".mark.festival").removeAttr('style'); 
+	$(".mark.festival").stop();
+
+            });
+		
+		
+		
+		
+		
+		
 
         /*position map for desktop*/
         $('#map-1').css('left', '-270px');
