@@ -183,17 +183,28 @@
   top: 4px;
 }
 
+
+@-webkit-keyframes baloonish
+{
+0%		{-webkit-transform: rotate(0deg);}
+25%		{-webkit-transform: rotate(2deg);}
+50%		{-webkit-transform: rotate(3deg);}
+65%		{-webkit-transform: rotate(-3deg);}
+90%		{-webkit-transform: rotate(-2deg);}
+100%	{-webkit-transform: rotate(0deg);}
+}
+
 .mark.festival:hover {
-    -webkit-transform: rotate(360deg);
+    -webkit-animation: baloonish 1.3s linear infinite;
     -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
-    -moz-transform: rotate(360deg);
+    -moz-animation: baloonish 1.3s linear infinite;
     -moz-transition-timing-function: ease-out;
     -moz-transition-duration: 500ms;
-    -ms-transform: rotate(360deg);
+    -ms-animation: baloonish 1.3s linear infinite;
     -ms-transition-timing-function: ease-out;
     -ms-transition-duration: 500ms;
-    transform: rotate(360deg);
+    animation: baloonish 1.3s linear infinite;
     transition-timing-function: ease-out;
     transition-duration: 500ms;
 }
@@ -257,42 +268,6 @@
     background-position: -170px -195px;
     top: 5px;
 }
-
-.mark.studio:hover {
-}
-/*mobile touch class
-.highlightMobile1 {
-    background: url(../images/studio_icon-hover.png) no-repeat;
-    transition: all .3s ease-in-out;
-	transform: rotate(360deg);
-	transition-duration: 500ms;
-	-webkit-transition: all .5s ease-in-out;
-	-webkit-transform: rotate(360deg);
-
-}
-*/
-
-@-moz-document url-prefix() {
-    .mark.studio {
-        background: url(../images/studio_icon.png) no-repeat;
-        height: 50px;
-        width: 50px;
-        z-index: 103 !important;
-    }
-
-    .mark.studio:hover {
-        -moz-transform: rotate(360deg);
-        -moz-transition-timing-function: ease-out;
-        -moz-transition-duration: 500ms;
-        transform: rotate(360deg);
-        transition-timing-function: ease-out;
-        transition-duration: 500ms;
-    }
-}
-
-/*(.wanderfest #container {
- width:1350px;   
-}*/
 
 
 /* MARKER HOVERS
@@ -1052,7 +1027,7 @@ div.mark.studio.legendNo.highlight {
 
 #map-1 .mark.chile {
     margin-left: 1107px;
-    top: 572px;
+    top: 433px;
 }
 
 /*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/

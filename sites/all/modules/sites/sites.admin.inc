@@ -4,7 +4,8 @@
 
 /**
  * Admin landing page registered in hook_menu()
- */echo "t<pre>"; print_r(_sites_get_sites()); echo "</pre>";exit;
+ */
+#echo "t<pre>"; print_r(_sites_get_sites()); echo "</pre>";exit;
 function sites_list_sites() {
   $sites = _sites_get_sites();
   

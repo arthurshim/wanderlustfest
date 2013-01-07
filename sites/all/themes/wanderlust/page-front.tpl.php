@@ -115,19 +115,40 @@
 	
 		$("#legend1 span").click(function() {
 				$.fancybox.open('#festinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+					$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+		
+			
 	        });
 		$("#legend2 span").click(function() {
 				$.fancybox.open('#yogainfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+				$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+		
+
+
 	        });
 		$("#legend3 span").click(function() {
 				$.fancybox.open('#studioinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+			  				$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+
+
 	        }); 
 	
-	$('.fancybox-inner').css({
- 
-    overflow: 'none',
-    overflowX: 'none'
-});
+
 	
 });
  </script>
@@ -719,10 +740,12 @@ if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Op
 
 if (isMobile.any()) {
 
+/*FOR MOBILE*/
+
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
 
 
-	
+/*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
 	
     $(".mark").bind('touchend', function(e) {
         $(".mark").stop(true, true);
@@ -737,7 +760,7 @@ if (isMobile.any()) {
         $(this).find('div.innersite').hide();
     });
 
-    /*hover legend*/
+    /*LEGEND HOVERS*/
 
     /*for flag*/
     $("#legend1 .mark").hover(function() {
@@ -763,6 +786,7 @@ if (isMobile.any()) {
 
 }
  else {
+ /*FOR DESKTOP*/
 
     $(document).ready(function() {
 
@@ -813,7 +837,7 @@ $("#connect").hover(
 		
 		
 		
-/*LEGEND HOVERS*/
+
   
 
             $(".mark:not(.legendNo)").hover(function() {
@@ -824,10 +848,7 @@ $("#connect").hover(
                 $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');
             });
         
-
-        /*hover legend*/
-
-
+/*LEGEND HOVERS*/
         $("#legend1 .mark").hover(function() {
             $(".mark.festival").addClass('highlight1');
         }, function() {
@@ -846,14 +867,9 @@ $("#connect").hover(
         }, function() {
             $('#.mark.studio').removeClass('highlight1');
         });
-        /*for star only
-
+        /*
         if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
-            $("div.mark.studio").hover(function() {
-                $(".mark.studio").addClass('highlight1');
-            }, function() {
-                $('#.mark.studio').removeClass('highlight1');
-            });
+         
 		/*jquery rotate for IE *//*
 
             $("div.mark").hover(function() {
@@ -866,15 +882,7 @@ $("#connect").hover(
                 $(this).children().fadeOut('fast');
             });
 
-
-
-        } else {
-            $("div.mark.studio").hover(function() {
-                $(".mark.studio").addClass('highlight2');
-            }, function() {
-                $('#.mark.studio').removeClass('highlight2');
-            });
-        }
+        } 
 		
 		*/
 		
@@ -891,13 +899,18 @@ $("#connect").hover(
             });
 		
 		
+		/*FIX FANCYBOX POPUPS*/
 		
+
+$(".fancybox-inner").css("overflow", "hidden")
+
+      /*position map for desktop*/
+$('#map-1').css('left', '-270px');
 		
 		
 		
 
-        /*position map for desktop*/
-        $('#map-1').css('left', '-270px');
+      
 
         $('body').append('<div id="ted_photo_hover"></div>');
         $('#ted_photo_hover').css({
