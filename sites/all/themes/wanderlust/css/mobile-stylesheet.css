@@ -1,22 +1,3 @@
-.mark.studio {
-    height: 17px;
-    width: 17px;
-}
-
-#legend3 .legendtitle {
-    position: relative;
-    right: 5px;
-}
-
-.mark.studio:hover {
-    background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat!important;
-    -webkit-transform: rotate(360deg);
-    -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 500ms;
-    transform: rotate(360deg);
-    transition-timing-function: ease-out;
-    transition-duration: 500ms;
-}
 
 .wanderfest #container {
     height: 1130px;
@@ -42,19 +23,13 @@
    
 }
 
-#map-1 .mark.highlight1 {
-    background-color: #CEA430 !important;
-}
-
-
-
 
 #legend {
 
-top: 252px;
+top: 220px;
 left: 35px;
 
 }
 
-input[type=checkbox] {width:100px; height:100px;}
+input[type=checkbox] {width:30px; height:30px;}
 

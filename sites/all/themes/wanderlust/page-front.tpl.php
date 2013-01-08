@@ -45,29 +45,8 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/header.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
-	<!--remove image hover on IE which does not support transitions between the two images-->
 <!--[if IE]>
-<style>
-	
-	
-	.mark.studio:hover {
-    background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
-}
 
-	#map-1 .mark.highlight2 {
-     background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
-}
-
-.mark.studio {
-    height: 17px;
-    width: 17px;
-}
-
-#legend3 .legendtitle {
-    position: relative;
-    right: 5px;
-}
-</style>
 <![endif]-->
 
   <!-- IE Fix for HTML5 Tags -->
@@ -79,26 +58,35 @@
 <!--not sure why but we have to call these two scripts again for redirect and drag to work-->
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js"></script>
-<!--[if IE]>
-<script type="text/javascript" src="/sites/all/themes/wanderlust/js/rotate.js"></script>
-<![endif]-->
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 <!--[if IE]>
-	<script>
-	
-   $("div.mark.studio").hover(function() {
-   $(".mark.studio").addClass('highlight3');
-   },
-   function(){
-   $('#.mark.studio').removeClass('highlight3'); 
-   });
-   
-	</script>	
+<script>
+$(document).ready(function()
+{
+
+$('.mark.yoga').bind('mouseenter', function(){
+     $(this).effect("bounce", { times:3 }, 300);
+});
+
+});
+</script>
 <![endif]-->
 
-   
-   
+  <script> $.preloadImages = function()
+{
+       for(var i = 0; i<arguments.length; i++)
+       {
+               $("<img />").attr("src", arguments[i]);
+       }
+}
+
+$(document).ready(function()
+{
+       $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
+});
+   </script>
    
 <script type="text/javascript">
  $(document).ready(function() {
@@ -144,14 +132,57 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 				
-
-
-	        }); 
-	
-
-	
+	        });
 });
  </script>
+
+
+<!--added on 7,Jan - start-->
+<script type="text/javascript">
+    
+    
+    function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+$(document).ready(function() {
+//	$('#chile_show').hide();
+	//var div_offset = $('#map-1 .mark.chile').offset();
+	//alert ("document-height: " + $(document).height + " element-top: " + div_offset.top);
+	$('#map-1').bind('drag', function( event ) {
+            
+             var chile_inView=isScrolledIntoView('div.mark.chile')
+             
+             if(chile_inView){
+                 $('#chile_show').hide();
+             }else{
+                 $('#chile_show').show();
+             }
+		/*if(  event.offsetY > 700) // || event.offsetX > 1000 )
+		{
+			$('#chile_show').hide();
+			//alert("event.offsetY: " + event.offsetY + "; " + "event.offsetX: " + event.offsetX);
+		}
+		else {
+				$('#chile_show').show();
+				//alert("event.offsetY: " + event.offsetY + "; " + "event.offsetX: " + event.offsetX);
+			 }
+        */
+	});
+	
+	
+});
+
+</script>
+<!--end-->
+
 
 <script language="javascript">
 <!--
@@ -194,7 +225,15 @@ function doSubmit(oForm) {
             $('.page-node .panels-flexible-region-node_layout-right').css({position: 'static', margin: '-35px 0 0 0'});
         }
     });
+
 });
+
+
+
+
+
+
+
 </script>
 	 <?php } ?>
 	 
@@ -316,14 +355,13 @@ function doSubmit(oForm) {
 <!-- END LEGEND -->  
 
 
-
- 
+<div id="chile_show" class="chile_disp" style="background: none repeat scroll 0 0 gray;height: 60px;left: 400px;position: absolute;top: 150px;width: 100px;z-index: 999;">Chile this way</div>
 
 
 <!-- BEGIN TOOLBAR -->
 <div id="toolbar">
   <div id="help">
-    <a href="#">Help</a>
+    <a class="icon" href="#">Help</a>
     <div class="dialog">
         <h3>Help</h3>
         <p>
@@ -333,7 +371,7 @@ function doSubmit(oForm) {
     </div>
   </div>
   <div id="about">
-    <a href="#">About</a>  
+    <a class="icon" href="#">About</a>  
     <div class="dialog">
         <h3>About</h3>
         <p>
@@ -344,7 +382,7 @@ function doSubmit(oForm) {
 
   </div>
   <div id="mission">
-    <a href="#">Mission</a>  
+    <a class="icon" href="#">Mission</a>  
     <div class="dialog">
         <h3>Mission</h3>
         <p>
@@ -353,12 +391,12 @@ function doSubmit(oForm) {
         <div class="arrow"></div>
     </div>
   </div>
-  <div id="blog">
-    <a href="http://blog.wanderfest.com" target="_blank">Blog</a>
-  </div>
+
   <div id="connect">
-    <a href="#">Connect</a>
-  
+    <a class="icon" href="#">Connect</a>
+    <div class="dialog">
+      <h3>Connect</h3>
+      <div class="email-container clearfix">
 <!-- BEGIN MAILING LIST SIGN UP BOX -->  
 <div id="joinmail">
   <div id="emailClick"></div>
@@ -368,7 +406,7 @@ function doSubmit(oForm) {
     </div>
     <div class="tw-icon">
       <a href="https://twitter.com/wanderlustfest" class="twitter-follow-button" data-show-count="false">Follow @wanderlustfest</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
     </div>
   </div>
   <div class="other-icons">
@@ -376,7 +414,6 @@ function doSubmit(oForm) {
     <a class="instagram-icon" href="http://instagram.com/wanderlustfest" target="_blank"></a>
     <a class="pinterest-icon" href="http://pinterest.com/wanderlustfest/" target="_blank"></a>    
     <a class="youtube-icon" href="http://youtube.com/wanderlustfestival" target="_blank"></a>    
-    <a class="blog-icon" href="http://blog.wanderlustfestival.com" target="_blank"></a>    
   </div>
 </div>
 
@@ -504,8 +541,17 @@ function doSubmit(oForm) {
   
   <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
  </div>
- <!-- END MAILING LIST SIGN UP BOX -->        
+      </div>
+ <!-- END MAILING LIST SIGN UP BOX -->    
+<div class="arrow"></div>
+ </div>    
+         
     </div>
+    <!-- END CONNECT -->
+
+  <div id="blog">
+    <a class="icon" href="http://blog.wanderfest.com" target="_blank">Blog</a>
+  </div>
 
 </div>
 <!-- END TOOLBAR -->
@@ -745,6 +791,9 @@ if (isMobile.any()) {
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
 
 
+	
+
+	
 /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
 	
     $(".mark").bind('touchend', function(e) {
@@ -759,6 +808,23 @@ if (isMobile.any()) {
     }, function() {
         $(this).find('div.innersite').hide();
     });
+	
+	
+	/*BALLOON HOVER TODO MAKE TOUCH*/
+		   $(".mark.festival").hover(function() {
+				$(this).animate({
+      top: '-=7'
+    }, 500);
+            }, function() {
+ 
+	$(".mark.festival").removeAttr('style'); 
+	$(".mark.festival").stop();
+
+            });
+	
+
+	
+	
 
     /*LEGEND HOVERS*/
 
@@ -788,7 +854,9 @@ if (isMobile.any()) {
  else {
  /*FOR DESKTOP*/
 
-    $(document).ready(function() {
+$(document).ready(function() {
+
+
 
         $("#map-1").mapz();
         $("#legend").draggable();
@@ -796,8 +864,9 @@ if (isMobile.any()) {
 		
 		
 		/*MENU*/
-$("#help").hover(
+$("#help .icon").toggle(
   function () {
+    $('#toolbar .dialog').hide();
     $('#toolbar #help .dialog').fadeIn();;
   },
   function () {
@@ -805,8 +874,9 @@ $("#help").hover(
   }
 );
 
-$("#about").hover(
+$("#about").toggle(
   function () {
+    $('#toolbar .dialog').hide();
     $('#toolbar #about .dialog').fadeIn();;
   },
   function () {
@@ -814,8 +884,9 @@ $("#about").hover(
   }
 );
 
-$("#mission").hover(
+$("#mission").toggle(
   function () {
+    $('#toolbar .dialog').hide();
     $('#toolbar #mission .dialog').fadeIn();;
   },
   function () {
@@ -824,12 +895,13 @@ $("#mission").hover(
 );
 
 
-$("#connect").hover(
+$("#connect .icon").toggle(
   function () {
-    $('#toolbar #connect #joinmail').fadeIn();;
+    $('#toolbar .dialog').hide();
+    $('#toolbar #connect .dialog').fadeIn();
   },
   function () {
-    $('#toolbar #connect #joinmail').hide();
+    $('#toolbar #connect .dialog').hide();
   }
 );
 			
@@ -860,9 +932,8 @@ $("#connect").hover(
         }, function() {
             $('#.mark.yoga').removeClass('highlight1');
         });
-
-		
-		  $("#legend3 .mark").hover(function() {
+	
+		$("#legend3 .mark").hover(function() {
             $(".mark.studio").addClass('highlight1');
         }, function() {
             $('#.mark.studio').removeClass('highlight1');
@@ -886,10 +957,10 @@ $("#connect").hover(
 		
 		*/
 		
-				/*Balloon hover*/
+/*BALLOON HOVER*/
 		   $(".mark.festival").hover(function() {
 				$(this).animate({
-      top: '-=7',
+      top: '-=7'
     }, 500);
             }, function() {
  
@@ -897,21 +968,16 @@ $("#connect").hover(
 	$(".mark.festival").stop();
 
             });
-		
-		
-		/*FIX FANCYBOX POPUPS*/
-		
+			
 
-$(".fancybox-inner").css("overflow", "hidden")
-
-      /*position map for desktop*/
-$('#map-1').css('left', '-270px');
+			
+/*FIX FANCYBOX POPUPS*/
+		$(".fancybox-inner").css("overflow", "hidden")
 		
+/*POSITION MAP FOR DESKTOP*/
+		$('#map-1').css('left', '-270px');
 		
-		
-
-      
-
+/*FOR PHOTOS*/
         $('body').append('<div id="ted_photo_hover"></div>');
         $('#ted_photo_hover').css({
             position: 'absolute'
