@@ -112,8 +112,8 @@ body.chile{
 
 
 #main{
-    display: block;
-    float:none !important;
+  display: block;
+  background: #fffaf1;
 }
 .nivo-caption {
   /*  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/jsliderbg.png") repeat scroll 0 0 ;*/
@@ -698,7 +698,8 @@ h2.sub-title {
 
 /* Page Body */
 .page-body {
-  font-size: 15px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 .page-body img.imagecache-Thumbnail {
   float: left;
@@ -1103,16 +1104,7 @@ div.view-artist-landing div.view-content div.views-field-title a {
 /*--------------------------------
  * NODES DETAIL
  *--------------------------------*/
-.node-type-photos .body-content #main,
-.node-type-videos .body-content #main,
-.node-type-blog .body-content #main,
-.node-type-news .body-content #main,
-.node-type-page .body-content #main,
-.node-type-webform .body-content #main,
-.node-type-artists .body-content #main {
 
-
-}
 .node-type-photos .body-content #main h1.title,
 .node-type-videos .body-content #main h1.title,
 .node-type-blog .body-content #main h1.title,
@@ -1229,7 +1221,6 @@ div.view-artist-landing div.view-content div.views-field-title a {
   border-radius: 5px;
   float: left;
   margin-bottom: 15px;
-  opacity: 0.8;
   }
 
 
@@ -1295,6 +1286,8 @@ RIGHT SIDEBAR
   font-size: 16px;
   margin: 0 0 10px;
   text-transform: uppercase;
+  font-family: 'dejavusansbold', helvetica;
+  
 }
 
 /* Block Views */
@@ -1847,43 +1840,34 @@ div.carousel-overlay .carousel-overlay-event {
 
 
 .view-homepage-carousel div.views-field-title {
-	opacity: 1;
-	/*background:url(http://c282314.r14.cf1.rackcdn.com/website-images/carousel-bg.png) center center no-repeat #000;*/
-	cursor: pointer;
-	height: 136px;
+
 	width: 158px;
 	position: absolute;
 	text-align: center;
-  padding: 40px 10px 0px 10px;
-	top: 0;
+  padding: 0 10px;
+	bottom: 15px;
 	left: 0;
 	z-index: 10;
-	opacity: 0;
 	color: #fff;
 	text-transform: uppercase;
+	line-height: 1 !important;
 }
 
 .view-homepage-carousel div.views-field-title a{
-  color: #fff;
-  font-size: 22px;
-  line-height: 22px;
-  text-shadow: 4px 4px 4px #333;
+  color: #fefdf3;
+  font-size: 14px;
+  text-shadow: 2px 4px 3px #333;
+  font-family: 'dejavusansbold', helvetica;
+  line-height: 1;
   }
 
 .view-homepage-carousel .artist-category{
-  font-size: 12px !important;
+  font-size: 10px !important;
   font-weight: normal;
+  display: none;
   }
 
 .view-homepage-carousel div.views-field-title:hover {
-	opacity: 0.7;
-	-o-transition-duration: 1s;
-	-moz-transition-duration: 1s;
-	-webkit-transition: -webkit-transform 1s;
-	-webkit-box-shadow: 0px 0px 4px #000;
-	-moz-box-shadow: 0px 0px 4px #000;
-	box-shadow: 0px 0px 4px #000;
-	background: #111;
 }
 
 .view-homepage-carousel li.jcarousel-item {position: relative;}
@@ -2105,6 +2089,12 @@ width:40px;
   padding: 10px;
   font-size: 12px;
   margin-bottom: 50px;
+  text-shadow: 0px 2px 3px #111;
+  }
+
+.footer a{
+  color: #fff;
+  text-shadow: 0px 2px 3px #111;  
   }
 
 .velour{
