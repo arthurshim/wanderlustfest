@@ -110,6 +110,13 @@
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
+      <div class="social-media-links">
+        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
+        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a>
+        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank">YouTube</a>
+        <a class="email" >Email</a>        
+      </div>      
     </nav> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
