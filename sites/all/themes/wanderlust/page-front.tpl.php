@@ -11,22 +11,13 @@
   <?php header("Connection: keep-alive");?>
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
 
-
-
-
-
-
    <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
    <meta property="og:title" content="Wanderlust Festival 2012"/>
    <meta property="og:type" content="website"/>
-   <!--<meta property="og:url" content="http://www.wanderlustfestival.com"/>-->
    <meta property="og:image" content="http://wanderlustfestival.com/wlbird.jpg"/>
    <meta property="og:site_name" content="Wanderlust"/>
    <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
    <meta property="fb:app_id" content="321576251186267"/>
-
-
-
 
     <?php
       $base = wl_get_base_domain();
@@ -36,15 +27,14 @@
       if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
-
-
-
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/type.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/style.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/custom.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/header.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
+
 <!--[if IE]>
 
 <![endif]-->
@@ -53,6 +43,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  
 <?php print $scripts; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script><!--makes it sticky with this -->
 <!--not sure why but we have to call these two scripts again for redirect and drag to work-->
