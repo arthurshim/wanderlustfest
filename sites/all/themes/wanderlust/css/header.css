@@ -79,7 +79,7 @@
 
 #navigation{
   background: #321307;
-  height: 32px;
+  height: 34px;
   z-index: 40;
   position: relative;
   margin: 0 0 0 -1px;
@@ -131,7 +131,7 @@
  	font-size: 16px;
  	text-transform: uppercase;
 	color: #ddb57b;
-	padding: 1px 28px 7px;
+	padding: 1px 22px 7px;
 	margin: 2px 0;
 	font-family: 'revolution';
 	letter-spacing: 1px;
@@ -187,7 +187,67 @@
 #navigation ul ul li.last a{
   border: none !important;
   }
+
+
+.social-media-links{
+  top: 7px;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  }
+
+.social-media-links a{
+  background: url('../images/site-splash.png');
+  display: block;
+  float: left;
+  width: 22px;
+  text-indent: -999em;
+  height: 19px;
+  margin-right: 8px;
+  }
   
+.social-media-links .facebook{
+  background-position: 0 0px;
+  width: 10px;
+  }  
+
+.social-media-links .facebook:hover{
+  background-position: 0 -22px;
+  }  
+
+.social-media-links .twitter{
+  background-position: -20px 0px;
+  }  
+
+.social-media-links .twitter:hover{
+  background-position: -20px -22px;
+  }  
+
+.social-media-links .instagram{
+  background-position: -50px 0px;
+  }  
+
+.social-media-links .instagram:hover{
+  background-position: -50px -22px;
+  }   
+
+.social-media-links .youtube{
+  background-position: -79px 0px;
+  }  
+
+.social-media-links .youtube:hover{
+  background-position: -79px -22px;
+  }    
+  
+.social-media-links .email{
+  background-position: -110px 0px;
+  }  
+
+.social-media-links .email:hover{
+  background-position: -110px -22px;
+  }    
+  
+ 
 
 /* EVENT BANNER
 ----------------------------------*/	
@@ -212,22 +272,19 @@
   height:18px;
   width:59px;
   background: url(../images/newright_arrow.png) no-repeat;
-  margin: 6px 0 0;
-  
+  margin: 6px 0 0; 
 }
 
 #block-sitesdropdown-2  .content {
-   margin: 10px 0 -4px 10px;
-   width: 436px;
-   text-align: center;
+  margin: 10px 0 -4px 10px;
+  width: 436px;
+  text-align: center;
 }
 
 #block-sitesdropdown-2  .content span {
-    font-size: 20px;
-    letter-spacing: 12px;
-     text-transform: uppercase;
-     font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 12px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-
-
 
