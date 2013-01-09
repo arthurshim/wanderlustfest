@@ -120,11 +120,6 @@ _gaq.push(['_trackPageview']);
         <?php print $header; ?>
       </div>
 
-      <div class="logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
-        <?php print $topnav; ?>
-      </div>
-
       <div class="tomap">
         <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
       </div>
