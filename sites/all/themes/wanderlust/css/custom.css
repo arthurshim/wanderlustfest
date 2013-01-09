@@ -113,7 +113,11 @@ body.chile{
 
 #main{
   display: block;
-  background: #fffaf1;
+
+}
+
+.page-node #main{
+  background: #fffaf1;  
 }
 .nivo-caption {
   /*  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/jsliderbg.png") repeat scroll 0 0 ;*/
