@@ -254,7 +254,7 @@ function doSubmit(oForm) {
   </script>
   
   <div id="container" class="clearfix">
-<?php  if (!$f) { ?>
+    <?php  if (!$f) { ?>
     <div id="skip-link">
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
       <?php if ($primary_links): ?>
@@ -270,8 +270,9 @@ function doSubmit(oForm) {
         <?php print $header; ?>
       </div>
 
-	  <!--TOD make this dynamic-->
-   
+      <div class="logo">
+        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
+      </div>
 
       <div class="tomap">
         <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
@@ -284,6 +285,13 @@ function doSubmit(oForm) {
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
+      <div class="social-media-links">
+        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
+        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a>
+        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank">YouTube</a>
+        <a class="email" >Email</a>        
+      </div>
     </nav> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
@@ -734,24 +742,28 @@ function doSubmit(oForm) {
       
 
      <?php   if (!$f) { ?>
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php if (!empty($footertop)): ?>
-      <div class="footertop">
-        <div id="footer-top-inner">
-        <?php print $footertop; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="subhead">
-        <?php if (!empty($footer)): print $footer; endif; ?>
-        <?php print $feed_icons ?>
-      </div>
-      <div class="footer-message">
-        <div class="footer-message-content"><?php print $footer_message; ?></p>
-      </div>
-    </footer> <!-- /#footer -->
+    
+      </div> <!-- /#container -->
+
+    
+  <!-- BEGIN FOOTER -->
+  <footer class="footer">
+    <div class="logos">
+      <div class="velour">Velour Music Group</div>
+      <div class="c3">C3 Presents</div>
+    </div>
+    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+    <div class="footer-links">
+      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+    </div>
+    <div class="site-credits">
+      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
     <?php } print $closure ?>
-  </div> <!-- /#container -->
 </body>
 <script>
   
