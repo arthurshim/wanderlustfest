@@ -198,38 +198,28 @@
 
 @-webkit-keyframes flagish
 {
-0%		{-webkit-transform: rotate(0deg); top:-3px;}
+0%		{-webkit-transform: rotate(0deg);}
 25%		{-webkit-transform: rotate(2deg);}
 60%		{-webkit-transform: rotate(5deg);}
 75%		{-webkit-transform: rotate(-4deg);}
 90%		{-webkit-transform: rotate(-2deg);}
-100%	{-webkit-transform: rotate(0deg); top:3px;}
+100%	{-webkit-transform: rotate(0deg);}
 
 
 }
 @-moz-keyframes flagish
 {
-0%		{-moz-transform: rotate(0deg); top:-3px;}
+0%		{-moz-transform: rotate(0deg);}
 25%		{-moz-transform: rotate(2deg);}
 60%		{-moz-transform: rotate(5deg);}
 75%		{-moz-transform: rotate(-4deg);}
 90%		{-moz-transform: rotate(-2deg);}
-100%	{-moz-transform: rotate(0deg); top:3px;}
+100%	{-moz-transform: rotate(0deg); }
 
 
 }
 
-@-ms-keyframes flagish
-{
-0%		{-ms-transform: rotate(0deg); top:-3px;}
-25%		{-ms-transform: rotate(2deg);}
-60%		{-ms-transform: rotate(5deg);}
-75%		{-ms-transform: rotate(-4deg);}
-90%		{-ms-transform: rotate(-2deg);}
-100%	{-ms-transform: rotate(0deg); top:3px;}
 
-
-}
 
 
 .mark.yoga:hover {
@@ -693,8 +683,8 @@
 
 .front .fancybox-skin td {
     padding: 8px !important;
-    font-family: 'DejaVuSans', helvetica !important;
-    font-size: 12px;
+    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-size: 13px;
 }
 
 .front .fancybox-skin .title {
@@ -779,7 +769,10 @@
   margin: 0 auto;
 }
 
-
+#mytable{
+  width: 420px;
+  margin: 9px 141px;
+}
 
 /* TOOLBAR
 ---------------------------------*/
