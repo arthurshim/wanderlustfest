@@ -256,7 +256,8 @@ function wanderlust_menu_item_link($link) {
 	'menu-santamonica-primary-links',
 	'menu-squaw-links',
 	'menu-standard-links',
-	'menu-whistler-primary-links',//add more primary links here
+	'menu-whistler-primary-links',
+	'menu-blogs-primary-links',//add more primary links here
     );
     $titles = array('Schedule');
     if(in_array($link['menu_name'], $states)){

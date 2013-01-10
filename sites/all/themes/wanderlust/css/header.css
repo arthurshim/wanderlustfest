@@ -293,3 +293,6 @@
   font-weight: bold;
 }
 
+.pane-content a.hid{
+  display: none!important;
+}

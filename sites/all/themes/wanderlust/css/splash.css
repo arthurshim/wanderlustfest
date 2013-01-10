@@ -199,23 +199,20 @@
 @-webkit-keyframes flagish
 {
 0%		{-webkit-transform: rotate(0deg);}
-25%		{-webkit-transform: rotate(2deg);}
-60%		{-webkit-transform: rotate(5deg);}
-75%		{-webkit-transform: rotate(-4deg);}
-90%		{-webkit-transform: rotate(-2deg);}
+20%		{-webkit-transform: rotate(2deg);}
+60%		{-webkit-transform: rotate(7deg);}
+80%		{-webkit-transform: rotate(-7deg);}
 100%	{-webkit-transform: rotate(0deg);}
 
 
 }
 @-moz-keyframes flagish
 {
-0%		{-moz-transform: rotate(0deg);}
-25%		{-moz-transform: rotate(2deg);}
-60%		{-moz-transform: rotate(5deg);}
-75%		{-moz-transform: rotate(-4deg);}
-90%		{-moz-transform: rotate(-2deg);}
-100%	{-moz-transform: rotate(0deg); }
-
+0%		{-webkit-transform: rotate(0deg);}
+20%		{-webkit-transform: rotate(2deg);}
+60%		{-webkit-transform: rotate(7deg);}
+80%		{-webkit-transform: rotate(-7deg);}
+100%	{-webkit-transform: rotate(0deg);}
 
 }
 
@@ -224,7 +221,7 @@
 
 .mark.yoga:hover {
 
-    -webkit-animation: flagish 1.3s linear 2;
+    -webkit-animation: flagish .23s linear 3;
 	-moz-animation: flagish 1.3s linear 2;
 	-ms-animation: flagish 1.3s linear 2;
 }
@@ -257,8 +254,8 @@
 {
 0%		{-webkit-transform: rotate(0deg);}
 25%		{-webkit-transform: rotate(2deg);}
-60%		{-webkit-transform: rotate(5deg);}
-75%		{-webkit-transform: rotate(-4deg);}
+60%		{-webkit-transform: rotate(25deg);}
+75%		{-webkit-transform: rotate(-25deg);}
 90%		{-webkit-transform: rotate(-2deg);}
 100%	{-webkit-transform: rotate(0deg);}
 
@@ -291,7 +288,7 @@
 
 .mark.festival:hover {
    
-    -webkit-animation: baloonish 1.3s linear 2;
+    -webkit-animation: baloonish .8s linear 2;
     -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
     -moz-animation: baloonish 1.3s linear 2;
@@ -330,7 +327,7 @@
     text-align: center;
     font-family: 'MrsEavesOT-Italic';
     font-style: italic;
-    margin-left: 0px;
+    margin-left: 284px;
 }
 
 .site-title {
@@ -377,8 +374,8 @@
   height: 198px;
   position: absolute;
   z-index: 200;
-  top: 252px;
-  left: 35px;
+  top: 421px;
+  left: 9px;
   cursor: move;
   padding: 0px 21px;
 }

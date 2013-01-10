@@ -152,9 +152,10 @@ $(document).ready(function() {
              var chile_inView=isScrolledIntoView('div.mark.chile')
              
              if(chile_inView){
-                 $('#chile_show').hide();
+                 $('#chile_show').fadeOut();
              }else{
-                 $('#chile_show').show();
+			 $('#chile_show').fadeIn();
+                 
              }
 		/*if(  event.offsetY > 700) // || event.offsetX > 1000 )
 		{
@@ -203,10 +204,61 @@ function doSubmit(oForm) {
 	 <?php  if (!$f) { ?>
 	 
   <?php print $styles; ?>
-  <?php print $scripts; ?>
-	 
+        <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+      	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+       <?php print $scripts; ?>
+  
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+      
+
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+	 <script type="text/javascript">
+	
+	  
+	  </script>
+
+<script type="text/javascript">
+$.noConflict();
+jQuery(document).ready(function($) {
+	      	  $(".pane-content td").hover(
+	  function () {
+	    jQuery(this).find('a.frimage').addClass('fancybox-thumbs');
+	    
+	  },
+	  function () {
+	    jQuery(this).find('a.frimage').removeClass("fancybox-thumbs");
+	  }
+	);
+      /*
+       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+       */
+      jQuery('.fancybox-thumbs').fancybox({
+	      prevEffect : 'none',
+	      nextEffect : 'none',
+
+	      closeBtn  : true,
+	      arrows    : true,
+	      nextClick : true,
+
+	      helpers : {
+		      thumbs : {
+			      width  : 50,
+			      height : 50
+		      }
+	      }
+      });
+});
+
+</script>
+
 	 <script>
 	  $(document).ready(function(){
+	    
+
+      
     // Floating sidebars on page nodes
     var sidebartop = $('.page-node .panels-flexible-region-node_layout-right').offset().top;
     $(window).scroll(function(){
@@ -352,7 +404,7 @@ function doSubmit(oForm) {
 <!-- END LEGEND -->  
 
 
-<div id="chile_show" class="chile_disp" style="background: none repeat scroll 0 0 gray;height: 60px;left: 400px;position: absolute;top: 150px;width: 100px;z-index: 999;">Chile this way</div>
+<div id="chile_show" class="chile_disp" style="background: none repeat scroll 0 0 gray;height: 60px;left: 400px;position: absolute;top: 150px;width: 100px;z-index: 999;">Chile this way &darr;</div>
 
 
 <!-- BEGIN TOOLBAR -->
@@ -581,9 +633,8 @@ function doSubmit(oForm) {
 	}
 	
       if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
-      <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
-	  <div class="innersiteWrapper" style="padding-left: 20px">
-	<div class="innersite">	
+      <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>"></div>
+	<div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){
 	   $item =  '<div class="site-item">';
@@ -621,14 +672,12 @@ function doSubmit(oForm) {
 	 
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
-	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div></div>
-      </div>
-	  </div>
+	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
+	</div>
     <?php }
                elseif($class == 'studio') { ?>
-		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
-	<div class="innersiteWrapper" style="padding-left: 30px">
-	<div class="innersite">	
+		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>"></div>
+	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
 	<?php
 	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
 	  if($site->extra_fields->field_event_date[0]['value']){
@@ -651,9 +700,8 @@ function doSubmit(oForm) {
 	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
-      </div>
-	  </div>
-		
+    
+	 
 		
 	  <?php } ?>
 <?php  endforeach;  ?>
@@ -754,8 +802,7 @@ function doSubmit(oForm) {
 
     <?php } print $closure ?>
 </body>
-<script>
-  
+<script><?php  if ($f) {?>
 /*detect if mobile */
 var isMobile = {
     Android: function() {
@@ -915,9 +962,9 @@ $("#connect .icon").toggle(
 
             $(".mark:not(.legendNo)").hover(function() {
 
-                $(this).find('div.innersite').fadeIn();
+                $(this).next().fadeIn();
             }, function() {
-                $(this).find('div.innersite').hide();
+                $(this).next().fadeOut();
                 $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');
             });
         
@@ -961,7 +1008,11 @@ $("#connect .icon").toggle(
 /*BALLOON HOVER*/
 		   $(".mark.festival").hover(function() {
 				$(this).animate({
-      top: '-=7'
+      top: '-=5'
+    }, 400);
+	
+	$(this).animate({
+      top: '-=459'
     }, 500);
             }, function() {
  
@@ -978,6 +1029,16 @@ $("#connect .icon").toggle(
 /*POSITION MAP FOR DESKTOP*/
 		$('#map-1').css('left', '-270px');
 		
+    });
+
+}
+
+
+<?php } else {?> 
+
+$(document).ready(function()
+{
+  
 /*FOR PHOTOS*/
         $('body').append('<div id="ted_photo_hover"></div>');
         $('#ted_photo_hover').css({
@@ -1011,14 +1072,11 @@ $("#connect .icon").toggle(
             }, function(e) {
             //    $('#ted_photo_hover').hide();
             });
+			
+			});
+			<?php }?>
+			/*GOOGLE ANALYTICS*/
 
-    });
-
-}
-
-
-
-/*ga for all*/
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-12068308-1']);
 _gaq.push(['_setAllowLinker', true]);

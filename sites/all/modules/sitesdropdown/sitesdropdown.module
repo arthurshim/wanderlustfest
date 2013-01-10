@@ -1,15 +1,15 @@
 <?php
 
 function sitesdropdown_init() {     
-      
-   //   [field_event_image][0] [filepath]
-      
+
+  //   [field_event_image][0] [filepath]
+
   /*global $user;
-   if($user->uid == 1) {
-   $current_site = sites_get_current_site();
+  if ($user->uid == 1) {
+    $current_site = sites_get_current_site();
     drupal_set_message('<pre>' . print_r($current_site->sid, 1) . '</pre>');
-      
- }*/
+
+  }*/
 }
 /*
  * Implementation of hook_block
@@ -19,44 +19,43 @@ function sitesdropdown_block($op = 'list', $delta = 0, $edit = array()) {
   $blocks = array();
   switch ($op) {
     case 'list':
-	    $blocks[0] = array(
-          'info' => 'Megamenu Dropdown',
-		  'cache' => BLOCK_NO_CACHE,
-		  'title' => 'Megamenu Dropdown'
-        );
-		$blocks[1] = array(
-          'info' => 'Site Identifier',
-		  'cache' => BLOCK_NO_CACHE,
-		  'title' => 'Megamenu Dropdown'		);
-		$blocks[2] = array(
-		  'info' => 'Homepage Top Navigation',
-		  'title' => '',
-		  'cache' => BLOCK_NO_CACHE,
-		
-		);
-	    $blocks[3] = array(
-		  'info' => 'Homepage Main Content',
-		  'title' => ''
-		
-		);
-        return $blocks;
-      break;        
+      $blocks[0] = array(
+	'info' => 'Megamenu Dropdown',
+	'cache' => BLOCK_NO_CACHE,
+	'title' => 'Megamenu Dropdown'
+      );
+      $blocks[1] = array(
+	'info' => 'Site Identifier',
+	'cache' => BLOCK_NO_CACHE,
+	'title' => 'Megamenu Dropdown'
+      );
+      $blocks[2] = array(
+	'info' => 'Homepage Top Navigation',
+	'title' => '',
+	'cache' => BLOCK_NO_CACHE,
+      );
+      $blocks[3] = array(
+	'info' => 'Homepage Main Content',
+	'title' => ''
+      );
+      return $blocks;
+    break;        
     
     case 'view':
-        if ($delta == 0) {
-			$block['content'] = sitesdropdown_create_menu();
-		}
-		elseif($delta == 1) {
-		  $block['content'] = sitesdropdown_site_id();	
-		}
-		elseif($delta == 2) {
-		  $block['content'] =  sitesdropdown_menutop();	
-		}
-	     elseif($delta == 3) {
-		  $block['content'] = sitesdropdown_homepage();	
-		}
-        return $block;
-      break;      
+      if ($delta == 0) {
+	$block['content'] = sitesdropdown_create_menu();
+      }
+      elseif($delta == 1) {
+	$block['content'] = sitesdropdown_site_id();	
+      }
+      elseif($delta == 2) {
+	$block['content'] =  sitesdropdown_menutop();	
+      }
+      elseif($delta == 3) {
+	$block['content'] = sitesdropdown_homepage();	
+      }
+      return $block;
+    break;      
   }
 }
 
@@ -65,20 +64,20 @@ function sitesdropdown_block($op = 'list', $delta = 0, $edit = array()) {
  */
 function sitesdropdown_form_alter(&$form, &$form_state, $form_id) {
   if($form_id == 'simplenews_block_form_91' || substr($form_id, 0, 15) == 'simplenews_block') {
-	$form['mail'] = array(
+    $form['mail'] = array(
       '#type' => 'textfield',
       '#title' => '',
       '#size' => 20,
       '#maxlength' => 128,
       '#required' => TRUE,
-	  '#prefix' => '<table><tr><td>',
-	  '#suffix' => '</td>'
+      '#prefix' => '<table><tr><td>',
+      '#suffix' => '</td>'
     );
     $form['action'] = array('#type' => 'value', '#value' => 'subscribe');
     $form['#attributes'] = array('class' => 'simplenews-subscribe');
-	$form['submit']['#value'] = 'JOIN';
-	$form['submit']['#prefix'] = '<td>';
-	$form['submit']['#suffix'] = '</td></tr></table>';
+    $form['submit']['#value'] = 'JOIN';
+    $form['submit']['#prefix'] = '<td>';
+    $form['submit']['#suffix'] = '</td></tr></table>';
   }
 }
 /******************************************************************************
@@ -148,44 +147,37 @@ function sitesdropdown_create_menu($reset = FALSE) {
   
   foreach($sites as $site) {
 
-   if($site['extra_fields']['field_event_date'][0]['value'] && $site['status'] == 1 && $site['extra_fields']['field_event_hide'][0]['value'] == 'enabled'):
-  
+    if($site['extra_fields']['field_event_date'][0]['value'] && $site['status'] == 1 && $site['extra_fields']['field_event_hide'][0]['value'] == 'enabled'):
 
-  
-        $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
-	$item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	$item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_country'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
-	$data[] = $item;
-	
-	endif;
+      $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
+      $item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
+      $item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_country'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
+      $data[] = $item;
+    endif;
   }
   
   $col1 = $col2 = $col3 = '<div class="column">';
   while(count($data) > 0) {
-	for($x = 0; $x < 3; $x++) {
-	  switch($x) {
-		case 0:
-		  $col1 .= $data[$x];
-		  unset($data[$x]);
-		  break;
-		 case 1:
-		   $col2 .= $data[$x];
-		   unset($data[$x]);
-		   break;
-		 case 2:
-		   $col3 .= $data[$x];
-		   unset($data[$x]);
-		   break;		   
-	  }
-	}
+    for($x = 0; $x < 3; $x++) {
+      switch($x) {
+	case 0:
+	  $col1 .= $data[$x];
+	  unset($data[$x]);
+	break;
+	case 1:
+	  $col2 .= $data[$x];
+	  unset($data[$x]);
+	break;
+	case 2:
+	  $col3 .= $data[$x];
+	  unset($data[$x]);
+	break;		   
+      }
+    }
   }
   $col1 .= '<div class="col-footer"></div></div>';
   $col2 .= '<div class="col-footer"></div></div>';
   $col3 .= '<div class="col-footer"></div></div>';
-  
-  
-  
-
   
   return  '<a href="#" id="megaanchor">California</a><div id="megamenu1" class="megamenu">'.$col1.$col2.$col3.'</div>';
 }

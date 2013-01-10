@@ -33,33 +33,7 @@
 <script type="text/javascript">
  
  $(document).ready(function() {
-   $(".view-Photos.view-display-id-page_1 li.views-row").hover(
-      function () {
-        $(this).find('a').addClass('fancybox-thumbs');
-	
-      },
-      function () {
-        $(this).find('a').removeClass("fancybox-thumbs");
-      }
-    );
-      /*
-       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-       */
-      $('.fancybox-thumbs').fancybox({
-	      prevEffect : 'none',
-	      nextEffect : 'none',
 
-	      closeBtn  : true,
-	      arrows    : true,
-	      nextClick : true,
-
-	      helpers : {
-		      thumbs : {
-			      width  : 50,
-			      height : 50
-		      }
-	      }
-      });
 });
 </script>
 

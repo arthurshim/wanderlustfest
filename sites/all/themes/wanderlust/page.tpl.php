@@ -128,7 +128,9 @@ _gaq.push(['_trackPageview']);
     <!-- END HEADER -->
     
     <!-- BEGIN NAVIGATION -->  
-    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
+    <?php if ($primary_links || $secondary_links || !empty($navigation)): 
+      #print_r($primary_links);print_r($secondary_links);
+    ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
       <div class="social-media-links">

@@ -11,7 +11,7 @@ stylesheets[all][] = css/style.css
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/customlineup.css
 stylesheets[all][] = css/header.css
-stylesheets[all][] = css/splash.css
+;stylesheets[all][] = css/splash.css
 
 
 scripts[] = js/js_combined.js
