@@ -1,5 +1,5 @@
 <?php if (!$page): ?>
-  <article id="node-<?php print $node->nid; ?>" class="node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
+  <article id="node-<?php print $node->nid; ?>" class="ads node<?php if ($sticky) { print ' sticky'; } ?><?php if (!$status) { print ' node-unpublished'; } ?> clearfix">
 <?php endif; ?>
   <?php if ($picture || $submitted || !$page): ?>
     <?php if (!$page): ?>
@@ -27,7 +27,7 @@
   <div class="content">
     <?php //print $content;
 
-    $img = theme('imagecache', '200x300', $node->field_adv_image[0]['filepath']);
+    $img = theme('imagecache', 'home-ads', $node->field_adv_image[0]['filepath']);
     $link = $node->field_ad_link[0]['url'];
     print l($img, "$link", array('attrivutes' => array('target' => '_blank'), 'html' => TRUE));
    // drupal_set_message('<pre>counter' . print_r($node->content['field_adv_image'], 1) . '</pre>');
