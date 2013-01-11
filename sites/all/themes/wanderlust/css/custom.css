@@ -312,40 +312,7 @@ body.page-activities #main .view-id-activities_page{
     float: left !important;
     width: 606px;
 }
-#footer #simplenews-block-form-91 .form-submit {
-    background: url("http://c282314.r14.cf1.rackcdn.com/website-images/join.png") no-repeat scroll 0 0 transparent;
-    border: 0 none;
-    color: #FFFFFF;
-    cursor: pointer;
-    float: right;
-    height: 26px;
-    margin: 7px 0.5em 7px 0 !important;
-    padding: 0;
-    text-indent: -999px;
-    text-transform: uppercase;
-    width: 55px;
-}
-#footer #edit-mail-wrapper .form-text{
-    background: url("http://c282314.r14.cf1.rackcdn.com/website-images/editform.png") no-repeat scroll 0 0 transparent;
-    border: medium none;
-    float: left;
-    height: 24px;
-    margin: 7px 0 7px 77px;
-    padding-left: 5px;
-    padding-right: 0 !important;
-    width: 216px;
-}
- #footer #edit-mail-wrapper{
-  margin-top: 0;
-}
- #footer #block-simplenews-91{
-  height: 36px;
-  width:268px;
-  margin-bottom:0;
-  padding:0 !important;
-    float: right;
-    margin-right: 80px;
-}
+
 
 
 
@@ -1227,6 +1194,96 @@ div.view-artist-landing div.view-content div.views-field-title a {
   margin-bottom: 15px;
   }
 
+#emailClick{
+  background: url('../images/site-sprite.png');
+  background-position: 0px -74px;
+  height: 52px;
+  width: 272px;
+  margin: 0 auto;
+  }
+
+.pane-block-42 .email{
+  padding: 15px 0;  
+  border-top: 1px dotted #888772;
+  border-bottom: 1px dotted #888772;
+  
+}
+
+.social-networks .links{
+  float: left;
+  border-top: 1px dotted #888772;
+  padding: 8px 20px 0 60px;
+  width: 190px;  
+}
+
+.social-networks .links a{
+  display: block;
+  width: 28px;
+  height: 28px;
+  background: url('../images/site-sprite.png');
+  float: left;
+  margin-right: 15px;
+  text-indent: -999em;
+  }
+
+.links a.pinterest{
+  background-position: -32px -44px;
+  }
+
+
+.links a.google{
+  background-position: 0 -44px;  
+  }
+
+.links a.instagram{
+  background-position: -64px -44px;  
+  }
+
+.links a.youtube{
+  background-position: -93px -44px;  
+  }
+
+
+
+
+.photo-node-right .panel-pane {
+  padding: 15px;
+  clear: both;
+  margin-top: -30px;
+}
+
+.photo-node-right .social-networks {
+  float: none;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 0;
+  }
+  
+.photo-node-right .social-networks .like-facebook {
+
+  }
+  
+.photo-node-right .social-networks {
+  margin-bottom: 10px;
+  clear: both;
+  float: left;
+  }
+  
+.photo-node-right .like-facebook {
+
+  margin: 15px 15px 10px 10px;
+  width: 80px;
+  float: left;
+  }
+
+
+.photo-node-right .like-twitter {
+  width: 150px;
+  float: left;
+  margin: 15px 0 10px 0;
+  }
+
+
 
 
 
@@ -1236,50 +1293,8 @@ RIGHT SIDEBAR
 --------------------------------*/
 
 
-.photo-node-right .panel-pane {
-  padding: 15px;
-  clear: both;
-}
-.photo-node-right .social-networks {
-  float: none;
-  height: auto;
-  margin-bottom: 10px;
-  margin-top: 0;
-}
-.photo-node-right .social-networks .like-facebook {
-  width: 278px;
-}
-.photo-node-right .email-input {
-  border: 1px solid #96b0a2;
-  height: 12px;
-  margin: 0;
-  padding: 8px 4px;
-  width: 204px;
-}
-.photo-node-right .email-submit {
-  background: url('http://c282314.r14.cf1.rackcdn.com/website-images/email-join.gif');
-  height: 30px;
-  width: 66px;
-  text-indent: -9999999em;
-  border: none;
-  margin-left: -4px;
-}
-.photo-node-right .social-networks {
-  margin-bottom: 10px;
-  clear: both;
-  float: left;
-}
-.photo-node-right .like-facebook {
-  border-top: 1px dotted #888772;
-  border-bottom: 1px dotted #888772;
-  padding: 15px 0;
-  margin: 15px 0;
-}
-.photo-node-right .like-googleplus,
-.photo-node-right .like-twitter {
-  width: 130px;
-  float: left;
-}
+
+
 .right-column table,
 .photo-node-right table {
   margin-bottom: 0;
@@ -1476,6 +1491,12 @@ article,
   float: left;
   display: block;
   }
+  
+article.ads{
+  padding: 0 !important;
+  border-radius: 5px;
+  background: none;
+}  
 
 .pane-photos .view-display-id-page_1 li.views-row{
   background-color: white;
@@ -1559,6 +1580,7 @@ article .node-body{
 
 .node-type{
   padding: 8px 0;
+  line-height: 1;
   }
 
 .node-type a{
@@ -2347,18 +2369,56 @@ width:40px;
   border: none;
 }
 */
+
+/*For blogs.wlf.com*/
 body.sidebar-right.blogs #main{
   width:100% !important;
+  padding:10px !important;
 }
 .blogs .view-all-blog-posts {
-  width:70%;
+  width:68%;
   float:left;
 }
 .blogs #sidebar-right {
-  width:30% !important;
+  width:29% !important;
 }
 
 .blogs #blog-description {
   width:100%;
   height:40px;
+}
+
+.view-all-blog-posts .views-field-field-blog-image-fid {
+  float: left;
+  padding-right: 10px;
+}
+
+.view-all-blog-posts .views-row{
+  clear:both;
+  margin-bottom:10px;
+  padding:10px;
+  background-color: #ececec;
+}
+.view-all-blog-posts .views-field-view-node{
+  clear:both;
+  text-align:right;
+}
+
+.view-all-blog-posts .views-field-view-node .field-content{
+  padding:5px;
+  font-size: 80%;
+  background-color: #d6d6d6;
+  margin-right:5px;
+}
+
+.view-all-blog-posts .views-field-nothing .field-content{
+	font-size: 75%;
+}
+
+.view-all-blog-posts .views-field-body .field-content{
+	font-size: 90%;
+}
+
+.view-all-blog-posts .view-blog-popular .field-content{
+  font-size: 90%;
 }
