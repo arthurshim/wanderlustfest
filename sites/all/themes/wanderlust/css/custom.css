@@ -2,13 +2,7 @@
 
 
 body{
-  background: url('http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg');
-  -webkit-background-size: cover !important;
-  -moz-background-size: cover !important;
-  -o-background-size: cover !important;
-  background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/golden-bg.jpg', sizingMethod='scale')";
+  background: #f3c46c;
   }
 
 body.squaw{
@@ -117,7 +111,7 @@ body.chile{
 }
 
 .page-node #main{
-  background: #fffaf1;  
+  background: #fffaf1;
 }
 .nivo-caption {
   /*  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/jsliderbg.png") repeat scroll 0 0 ;*/
@@ -373,14 +367,6 @@ body.page-activities #main .view-id-activities_page{
   .page-activities .sidebar li.leaf a{
     color: #989679;
   }
-.sidebar .block h2{
-  font-size: 15px;
-  text-transform: uppercase;
-  color: #888772;
-  padding-left: 22px;
-}
-
-
 
 
 
@@ -1203,17 +1189,17 @@ div.view-artist-landing div.view-content div.views-field-title a {
   }
 
 .pane-block-42 .email{
-  padding: 15px 0;  
+  padding: 15px 0;
   border-top: 1px dotted #888772;
   border-bottom: 1px dotted #888772;
-  
+
 }
 
 .social-networks .links{
   float: left;
   border-top: 1px dotted #888772;
   padding: 8px 20px 0 60px;
-  width: 190px;  
+  width: 190px;
 }
 
 .social-networks .links a{
@@ -1232,15 +1218,15 @@ div.view-artist-landing div.view-content div.views-field-title a {
 
 
 .links a.google{
-  background-position: 0 -44px;  
+  background-position: 0 -44px;
   }
 
 .links a.instagram{
-  background-position: -64px -44px;  
+  background-position: -64px -44px;
   }
 
 .links a.youtube{
-  background-position: -93px -44px;  
+  background-position: -93px -44px;
   }
 
 
@@ -1258,17 +1244,17 @@ div.view-artist-landing div.view-content div.views-field-title a {
   margin-bottom: 10px;
   margin-top: 0;
   }
-  
+
 .photo-node-right .social-networks .like-facebook {
 
   }
-  
+
 .photo-node-right .social-networks {
   margin-bottom: 10px;
   clear: both;
   float: left;
   }
-  
+
 .photo-node-right .like-facebook {
 
   margin: 15px 15px 10px 10px;
@@ -1306,7 +1292,7 @@ RIGHT SIDEBAR
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: 'dejavusansbold', helvetica;
-  
+
 }
 
 /* Block Views */
@@ -1491,12 +1477,12 @@ article,
   float: left;
   display: block;
   }
-  
+
 article.ads{
   padding: 0 !important;
   border-radius: 5px;
   background: none;
-}  
+}
 
 .pane-photos .view-display-id-page_1 li.views-row{
   background-color: white;
@@ -2120,7 +2106,7 @@ width:40px;
 
 .footer a{
   color: #fff;
-  text-shadow: 0px 2px 3px #111;  
+  text-shadow: 0px 2px 3px #111;
   }
 
 .velour{
@@ -2370,17 +2356,24 @@ width:40px;
 }
 */
 
-/*For blogs.wlf.com*/
+
+
+/* BLOG INDEX
+------------------------ */
+
 body.sidebar-right.blogs #main{
   width:100% !important;
   padding:10px !important;
 }
+
 .blogs .view-all-blog-posts {
-  width:68%;
+  width: 650px;
+  margin-right: 10px;
   float:left;
 }
+  
 .blogs #sidebar-right {
-  width:29% !important;
+  width: 300px !important;
 }
 
 .blogs #blog-description {
@@ -2388,20 +2381,16 @@ body.sidebar-right.blogs #main{
   height:40px;
 }
 
-.view-all-blog-posts .views-field-field-blog-image-fid {
-  float: left;
-  padding-right: 10px;
-}
 
-.view-all-blog-posts .views-row{
-  clear:both;
-  margin-bottom:10px;
-  padding:10px;
+
+.view-all-blog-posts .views-row {
   background-color: #ececec;
 }
+  
 .view-all-blog-posts .views-field-view-node{
-  clear:both;
   text-align:right;
+  position:  relative;
+  margin-top: -20px;
 }
 
 .view-all-blog-posts .views-field-view-node .field-content{
@@ -2421,4 +2410,118 @@ body.sidebar-right.blogs #main{
 
 .view-all-blog-posts .view-blog-popular .field-content{
   font-size: 90%;
+}
+
+#quicktabs-3 .view-blog-popular .views-field-field-blog-image-fid .field-content{
+  float: left;
+}
+  
+.view-all-blog-posts .views-field-title a{
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000 !important;
+}
+  
+.view-all-blog-posts .views-field-nothing{
+  margin: 0px 0 8px 0;
+  color: gray;
+}
+
+.view-all-blog-posts .views-field-sharethislink{
+  clear: both;
+  border-top: 1px solid #111;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+.view-all-blog-posts .views-field-body{
+  margin-bottom: 10px;
+}
+
+.view-all-blog-posts .views-row{
+  clear: both;
+  margin-bottom:15px;
+  padding: 10px; 
+}
+
+
+.view-all-blog-posts .views-field-field-blog-image-fid{
+
+}
+
+.view-all-blog-posts .views-field-field-blog-image-fid a{ 
+  display: block;
+  float: left;
+  margin-right: 15px;
+  }
+
+
+.blogs #event-info{
+  display: none;
+}
+
+/* BLOG SIDEBAR BLOCKS
+------------------------ */
+
+#sidebar-right .block{
+  background: #ccc;
+  padding: 10px;
+}
+
+
+.sidebar .block h2{
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+
+
+
+#quicktabs-3 ul{
+  margin: 0;
+  padding: 0;
+}
+
+#quicktabs-3 ul a.qt_tab{
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: gray;
+}
+
+#quicktabs-3 ul li{
+  margin-right: 10px;
+}
+
+#quicktabs-3 ul .active a.qt_tab{
+  color: #000;
+}
+
+
+#quicktabs-3 .view-blog-popular .views-field-field-blog-image-fid .field-content {
+  float: left;
+  padding-right: 10px;
+}
+
+
+#quicktabs-3 .view-blog-popular .views-row{
+  clear:both;
+  margin-bottom:10px;
+  padding: 8px 0; 
+  border-bottom: 1px solid #000;  
+  float: left;
+  width: 280px;
+}
+
+.view-blog-popular .views-field-title{
+  line-height: 1;
+}
+
+.view-blog-popular .views-field-title a{
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #000;
+  line-height: 1;
 }
