@@ -29,9 +29,6 @@
 
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/type.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/style.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/custom.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/header.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
 
@@ -385,7 +382,6 @@ jQuery(document).ready(function($) {
 
 
 
-
 <!-- BEGIN LEGEND -->  
 <div id="legend" class="ui-draggable">
   <div id="legend1">
@@ -404,7 +400,7 @@ jQuery(document).ready(function($) {
 <!-- END LEGEND -->  
 
 
-<div id="chile_show" class="chile_disp" style="background: none repeat scroll 0 0 gray;height: 60px;left: 400px;position: absolute;top: 150px;width: 100px;z-index: 999;">Chile this way &darr;</div>
+
 
 
 <!-- BEGIN TOOLBAR -->
@@ -412,32 +408,39 @@ jQuery(document).ready(function($) {
   <div id="help">
     <a class="icon" href="#">Help</a>
     <div class="dialog">
-        <h3>Help</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
+        <div class="content">
+          <h3>Help</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+            </p>
+            <div class="arrow"></div>
+        </div>
     </div>
   </div>
   <div id="about">
     <a class="icon" href="#">About</a>  
     <div class="dialog">
-        <h3>About</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
+        <div class="content">
+    
+          <h3>About</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+          </p>
+          <div class="arrow"></div>
+        </div>
     </div>
 
   </div>
   <div id="mission">
     <a class="icon" href="#">Mission</a>  
     <div class="dialog">
-        <h3>Mission</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
+        <div class="content">
+          <h3>Mission</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+          </p>
+          <div class="arrow"></div>
+        </div>
     </div>
   </div>
 
@@ -693,7 +696,7 @@ jQuery(document).ready(function($) {
 	    $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */. $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
 	 }
 	else {
-            $item = '<div class="site-item"><div class="event-right">';
+      $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
 	    $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
@@ -708,6 +711,8 @@ jQuery(document).ready(function($) {
 
 
 </div>
+<div id="chile_show" class="chile_disp" >This Way to Chile</div>
+
 	  <map name="map">
 	  </map>
 </div>
@@ -857,7 +862,7 @@ if (isMobile.any()) {
         $(this).find('div.innersite').hide();
     });
 	
-	
+	   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
 	/*BALLOON HOVER TODO MAKE TOUCH*/
 		   $(".mark.festival").hover(function() {
 				$(this).animate({
@@ -870,7 +875,7 @@ if (isMobile.any()) {
 
             });
 	
-
+}
 	
 	
 
@@ -986,27 +991,11 @@ $("#connect .icon").toggle(
         }, function() {
             $('#.mark.studio').removeClass('highlight1');
         });
-        /*
-        if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
-         
-		/*jquery rotate for IE *//*
-
-            $("div.mark").hover(function() {
-				$(this).rotate({
-				   angle: 0,
-				   animateTo: 360,
-				   duration: 900
-				});
-            }, function() {
-                $(this).children().fadeOut('fast');
-            });
-
-        } 
-		
-		*/
+      
 		
 /*BALLOON HOVER*/
-		   $(".mark.festival").hover(function() {
+   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
+         		   $(".mark.festival").hover(function() {
 				$(this).animate({
       top: '-=5'
     }, 400);
@@ -1020,6 +1009,10 @@ $("#connect .icon").toggle(
 	$(".mark.festival").stop();
 
             });
+	
+
+        } 
+		
 			
 
 			

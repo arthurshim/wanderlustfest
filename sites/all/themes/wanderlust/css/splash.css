@@ -24,8 +24,14 @@
 }
 
 .mark.studio.studio3294 {
-    left: 983px;
-    top: 53px;
+    left: 1004px;
+    top: 45px;
+}
+
+.innersite.studio3294{
+    left: 751px;
+    top: 386px;
+  
 }
 
 #map-1 .mark.squaw {
@@ -33,39 +39,30 @@
     margin-left: 854px;
 }
 
+.innersite.squaw{
+    top: 336px;
+    margin-left: 894px;  
+}
+
 #map-1 .mark.stratton {
     margin-left: 1108px;
     top: 239px;
 }
 
-#map-1 .mark.cosmopolitan {
-    top: 150px;
-    margin-left: 640px;
+.innersite.stratton{
+  top: 275px;
+  margin-left: 1140px;
 }
 
-#map-1 .mark.standard {
-    top: 50px;
-    margin-left: 280px;
-}
-
-#map-1 .mark.phoenix {
-    top: 200px;
-    margin-left: 450px;
-}
-
-#map-1 .mark.dallas {
-    top: 280px;
-    margin-left: 570px;
-}
-
-#map-1 .mark.atlanta {
-    top: 220px;
-    margin-left: 470px;
-}
 
 #map-1 .mark.nyc {
     margin-left: 1126px;
     top: 232px;
+}
+
+.innersite.nyc{
+    margin-left: 1160px;
+    top: 307px;  
 }
 
 #map-1  .mark.sf {
@@ -73,20 +70,22 @@
     top: 209px;
 }
 
-#map-1 .mark.chicago {
-    top: 255px;
-    margin-left: 480px;
+.innersite.sf{
+    margin-left: 890px;
+    top: 322px;  
 }
+
 
 #map-1 .mark.la {
     margin-left: 874px;
     top: 212px;
 }
 
-#map-1 .mark.williamsburg {
-    top: 210px;
-    margin-left: 350px;
+.innersite.la{
+    margin-left: 914px;
+    top: 362px;  
 }
+
 
 #map-1 .mark.mygroup {
     top: 150px;
@@ -95,7 +94,12 @@
 
 #map-1 .mark.colorado {
     margin-left: 944px;
-    top: 157px;
+    top: 147px;
+}
+
+.innersite.colorado{
+    margin-left: 984px;
+    top: 337px;  
 }
 
 #map-1 .mark.whistler {
@@ -103,14 +107,31 @@
     top: 34px;
 }
 
+.innersite.whistler{
+    margin-left: 884px;
+    top: 259px;  
+}
+
 #map-1 .mark.oahu {
     margin-left: 644px;
     top: 187px;
 }
 
+.innersite.oahu{
+    margin-left: 684px;
+    top: 451px;
+  
+}
+
 #map-1 .mark.chile {
     margin-left: 1119px;
     top: 538px;
+}
+
+.innersite.chile{
+    margin-left: 1159px;
+    top: 841px;
+  
 }
 
 /*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
@@ -286,8 +307,7 @@
 100%	{-ms-transform: rotate(0deg);}
 }
 
-.mark.festival:hover {
-   
+.baloonHover {
     -webkit-animation: baloonish .8s linear 2;
     -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
@@ -372,10 +392,10 @@
   background-position: -18px -250px;    
   width: 320px;
   height: 198px;
-  position: absolute;
+  position: fixed;
   z-index: 200;
-  top: 421px;
-  left: 9px;
+  bottom: 13px;
+  left: 13px;
   cursor: move;
   padding: 0px 21px;
 }
@@ -604,6 +624,31 @@
   top: 9px;
 }
 
+
+#studioinfo .site-marker{
+  background: url('../images/splash-sprite.png');
+  background-position: -168px -195px;  
+  width: 27px;
+  height: 36px;
+  position: absolute;
+  left: -37px;
+  top: 9px;  
+}
+
+
+
+#chile_show{
+  height: 41px;
+  left: 904px;
+  top: 543px;
+  position: absolute;
+  width: 121px;
+  z-index: 999;
+  background: url('../images/splash-sprite.png');
+  background-position: -805px -9px;
+  text-indent: -999em;
+  opacity: 0.9;
+}
 
 .bl DIV {
 
@@ -845,14 +890,21 @@
   background: url('../images/splash-sprite.png');
   background-position: -19px -946px;
   width: 340px;
-  height: 261px;
+  height: 251px;
   position: absolute;
   bottom: 127px;
   font-size: 12px;
-  padding: 0 20px;
+  padding: 0 20px 10px 20px;
   left: 10px;
   text-align: center;
+  font-size: 12px;
+}
 
+#toolbar .dialog .content{
+  height: 230px;
+  width: 342px;
+  margin: 13px 0;
+  overflow-y: scroll;
 }
 
 #toolbar .arrow{
@@ -868,8 +920,12 @@
   font-family: 'revolution';
   text-transform: uppercase;
   font-size: 16px;
-  margin-bottom: 5px;
+  margin: 0 0 10px 0;
   text-align: center;
+}
+
+#toolbar #connect h3{
+  margin-top: 10px;
 }
 
 
