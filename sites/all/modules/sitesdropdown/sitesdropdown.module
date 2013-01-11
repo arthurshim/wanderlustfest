@@ -334,7 +334,7 @@ function sitesdropdown_site_id() {
 	  	}
 
 		 if ($site['field_logo'][0]['filepath']) {
-			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 250px;"><img src="'.$obj->files_filepath.'/'.$site['field_logo'][0]['filepath']  . '" alt=""/></div>';
+			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 250px;"><a href="/"><img src="'.$obj->files_filepath.'/'.$site['field_logo'][0]['filepath']  . '" alt=""/></a></div>';
 	     }
 
 //echo "<pre>"; print_r($item); echo "</pre>";exit;
