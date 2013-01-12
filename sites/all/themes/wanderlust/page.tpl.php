@@ -87,6 +87,13 @@ _gaq.push(['_trackPageview']);
     <?php
       $base = wl_get_base_domain();
       ?>
+
+
+<!-- SHARE THIS JAVASCRIPT -->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693"});</script>
+
   
 </head>
 
@@ -113,7 +120,7 @@ _gaq.push(['_trackPageview']);
     </div>
 
  
-    <!-- BEGIN HEADER -->
+    <!-- BEGIN PAGE.TPL.PHP HEADER -->
     <header id="header" role="banner" class="clearfix">
 
       <div id="event-info">      
@@ -162,7 +169,7 @@ _gaq.push(['_trackPageview']);
       <?php endif; ?>
     </div>
     
-    <div class="body-content">
+    <div class="body-content clearfix">
     
       <div id="main" role="main" class="clearfix">
         <?php if (!empty($messages)): print $messages; endif; ?>

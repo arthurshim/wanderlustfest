@@ -715,16 +715,6 @@ h2.sub-title {
   margin: 0px auto;
 
 }
-.page-media #main,
-.page-news .body-content #main {
-
-}
-.page-media h1#page-title,
-.page-news h1#page-title,
-.page-taxonomy h1#page-title {
-  padding-left: 0;
-  position: absolute;
-}
 
 /* Views (Video/Photos/News) */
 .pane-videos .view-display-id-page_1,
@@ -1423,13 +1413,6 @@ RIGHT SIDEBAR
 }
 
 /* Title Blog*/
-.blog-title {
-    color: #0E4815;
-    font-size: 28px;
-    line-height: 1.2em;
-    margin: 0 0 10px;
-    text-transform: uppercase;
-}
 
 
 
@@ -2415,6 +2398,12 @@ body.sidebar-right.blogs #main{
 #quicktabs-3 .view-blog-popular .views-field-field-blog-image-fid .field-content{
   float: left;
 }
+
+.view-all-blog-posts .views-field-title{
+  line-height: 1.2;
+  margin: 5px 0 0 0;
+  
+}
   
 .view-all-blog-posts .views-field-title a{
   font-size: 22px;
@@ -2428,11 +2417,11 @@ body.sidebar-right.blogs #main{
   color: gray;
 }
 
-.view-all-blog-posts .views-field-sharethislink{
+.view-all-blog-posts .views-field-nothing-1{
   clear: both;
   border-top: 1px solid #111;
-  padding-top: 5px;
-  margin-top: 5px;
+  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .view-all-blog-posts .views-field-body{
@@ -2457,8 +2446,17 @@ body.sidebar-right.blogs #main{
   }
 
 
-.blogs #event-info{
+.blogs #event-info #block-sitesdropdown-1{
   display: none;
+}
+
+#block-block-44 a{
+  font-size: 40px;
+}
+
+
+.node-type-blog .panel-flexible{
+  float: left;
 }
 
 /* BLOG SIDEBAR BLOCKS
@@ -2524,4 +2522,61 @@ body.sidebar-right.blogs #main{
   text-transform: uppercase;
   color: #000;
   line-height: 1;
+}
+
+.view-blog-popular .views-field-totalcount{
+  font-size: 10px;
+  color: gray;
+}
+
+
+/* BLOG NODE
+------------------------ */
+
+.blog-title {
+  color: #0E4815;
+  font-size: 28px;
+  line-height: 1.2em;
+  margin: 15px 0 10px;
+  text-transform: uppercase;
+  font-family: 'dejavusansbold', arial;
+  font-weight: bold;
+}
+
+.node-type-blog .meta{
+  font-size: 11px;
+  color: #ccc;
+  margin: 0 0 15px 0;
+}
+
+.node-type-blog .share-this-links{
+  margin: 15px 0;
+  border-top: 1px solid #ccc; 
+  padding-top: 10px; 
+}
+
+#blogs-related .pane-title{
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#blogs-related td{
+  width: 150px;
+}
+
+#blogs-related .views-field-title{
+  line-height: 1.3;
+}
+
+#blogs-related .views-field-title a{
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  color: #000;
+}
+
+#blogs-related .views-field-name{
+  font-size: 10px;
+  color:#ccc;
 }
