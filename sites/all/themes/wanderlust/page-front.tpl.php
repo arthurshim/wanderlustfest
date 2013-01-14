@@ -42,6 +42,14 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+
+
+  <!-- SET FACEBOOK OPEN GRAPH APP ID -->
+  <meta property="fb:app_id" content="321576251186267"/>
+
+
+
+
 <!--[if IE]>
 <script>
 $(document).ready(function()
