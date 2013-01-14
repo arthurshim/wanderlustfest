@@ -11,13 +11,6 @@
   <?php header("Connection: keep-alive");?>
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
 
-   <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
-   <meta property="og:title" content="Wanderlust Festival 2012"/>
-   <meta property="og:type" content="website"/>
-   <meta property="og:image" content="http://wanderlustfestival.com/wlbird.jpg"/>
-   <meta property="og:site_name" content="Wanderlust"/>
-   <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
-   <meta property="fb:app_id" content="321576251186267"/>
 
     <?php
       $base = wl_get_base_domain();
