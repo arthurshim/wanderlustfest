@@ -39,3 +39,14 @@ function opengraph_meta_nodeapi(&$node, $op, $teaser = NULL, $page = NULL) {
   }
 }
 
+/**
+ * Implements hook_opengraph_meta_ctools_render_alter().
+ */
+function opengraph_meta_ctools_render_alter($info, $page, $args, $contexts, $task, $subtask, $handler) {
+  if ($page && $task['module'] == 'page_manager' && $task['name'] == 'node_view' && !empty($contexts['argument_nid_1']->data)) {
+    $node = $contexts['argument_nid_1']->data;
+    if (!empty($node->opengraph_meta)) {
+      OpenGraphMeta::instance()->render_data($node, $node->opengraph_meta);
+    }
+  }
+}
