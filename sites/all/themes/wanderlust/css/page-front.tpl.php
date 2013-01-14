@@ -11,22 +11,13 @@
   <?php header("Connection: keep-alive");?>
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
 
-
-
-
-
-
    <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
    <meta property="og:title" content="Wanderlust Festival 2012"/>
    <meta property="og:type" content="website"/>
-   <!--<meta property="og:url" content="http://www.wanderlustfestival.com"/>-->
    <meta property="og:image" content="http://wanderlustfestival.com/wlbird.jpg"/>
    <meta property="og:site_name" content="Wanderlust"/>
    <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
    <meta property="fb:app_id" content="321576251186267"/>
-
-
-
 
     <?php
       $base = wl_get_base_domain();
@@ -36,69 +27,54 @@
       if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
-
-
-
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/style.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/custom.css" />
-	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/header.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/type.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
-	<!--remove image hover on IE which does not support transitions between the two images-->
+
 <!--[if IE]>
-<style>
-	
-	
-	.mark.studio:hover {
-    background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
-}
 
-	#map-1 .mark.highlight2 {
-     background: url(/sites/all/themes/wanderlust/images/studio_icon.png) no-repeat;
-}
-
-.mark.studio {
-    height: 17px;
-    width: 17px;
-}
-
-#legend3 .legendtitle {
-    position: relative;
-    right: 5px;
-}
-</style>
 <![endif]-->
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  
 <?php print $scripts; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" type="text/javascript"></script><!--makes it sticky with this -->
 <!--not sure why but we have to call these two scripts again for redirect and drag to work-->
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js"></script>
-<!--[if IE]>
-<script type="text/javascript" src="/sites/all/themes/wanderlust/js/rotate.js"></script>
-<![endif]-->
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 <!--[if IE]>
-	<script>
-	
-   $("div.mark.studio").hover(function() {
-   $(".mark.studio").addClass('highlight3');
-   },
-   function(){
-   $('#.mark.studio').removeClass('highlight3'); 
-   });
-   
-	</script>	
+<script>
+$(document).ready(function()
+{
+
+$('.mark.yoga').bind('mouseenter', function(){
+     $(this).effect("bounce", { times:3 }, 300);
+});
+
+});
+</script>
 <![endif]-->
 
-   
-   
+  <script> $.preloadImages = function()
+{
+       for(var i = 0; i<arguments.length; i++)
+       {
+               $("<img />").attr("src", arguments[i]);
+       }
+}
+
+$(document).ready(function()
+{
+       $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
+});
+   </script>
    
 <script type="text/javascript">
  $(document).ready(function() {
@@ -115,15 +91,87 @@
 	
 		$("#legend1 span").click(function() {
 				$.fancybox.open('#festinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+					$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+		
+			
 	        });
 		$("#legend2 span").click(function() {
 				$.fancybox.open('#yogainfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+				$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+		
+
+
 	        });
 		$("#legend3 span").click(function() {
 				$.fancybox.open('#studioinfo');
-	        }); 
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+			  				$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+	        });
 });
  </script>
+
+
+<!--added on 7,Jan - start-->
+<script type="text/javascript">
+    
+    
+    function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+$(document).ready(function() {
+//	$('#chile_show').hide();
+	//var div_offset = $('#map-1 .mark.chile').offset();
+	//alert ("document-height: " + $(document).height + " element-top: " + div_offset.top);
+	$('#map-1').bind('drag', function( event ) {
+            
+             var chile_inView=isScrolledIntoView('div.mark.chile')
+             
+             if(chile_inView){
+                 $('#chile_show').fadeOut();
+             }else{
+			 $('#chile_show').fadeIn();
+                 
+             }
+		/*if(  event.offsetY > 700) // || event.offsetX > 1000 )
+		{
+			$('#chile_show').hide();
+			//alert("event.offsetY: " + event.offsetY + "; " + "event.offsetX: " + event.offsetX);
+		}
+		else {
+				$('#chile_show').show();
+				//alert("event.offsetY: " + event.offsetY + "; " + "event.offsetX: " + event.offsetX);
+			 }
+        */
+	});
+	
+	
+});
+
+</script>
+<!--end-->
+
 
 <script language="javascript">
 <!--
@@ -153,10 +201,61 @@ function doSubmit(oForm) {
 	 <?php  if (!$f) { ?>
 	 
   <?php print $styles; ?>
-  <?php print $scripts; ?>
-	 
+        <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+      	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+       <?php print $scripts; ?>
+  
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+      
+
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+	 <script type="text/javascript">
+	
+	  
+	  </script>
+
+<script type="text/javascript">
+$.noConflict();
+jQuery(document).ready(function($) {
+	      	  $(".pane-content td").hover(
+	  function () {
+	    jQuery(this).find('a.frimage').addClass('fancybox-thumbs');
+	    
+	  },
+	  function () {
+	    jQuery(this).find('a.frimage').removeClass("fancybox-thumbs");
+	  }
+	);
+      /*
+       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+       */
+      jQuery('.fancybox-thumbs').fancybox({
+	      prevEffect : 'none',
+	      nextEffect : 'none',
+
+	      closeBtn  : true,
+	      arrows    : true,
+	      nextClick : true,
+
+	      helpers : {
+		      thumbs : {
+			      width  : 50,
+			      height : 50
+		      }
+	      }
+      });
+});
+
+</script>
+
 	 <script>
 	  $(document).ready(function(){
+	    
+
+      
     // Floating sidebars on page nodes
     var sidebartop = $('.page-node .panels-flexible-region-node_layout-right').offset().top;
     $(window).scroll(function(){
@@ -166,7 +265,15 @@ function doSubmit(oForm) {
             $('.page-node .panels-flexible-region-node_layout-right').css({position: 'static', margin: '-35px 0 0 0'});
         }
     });
+
 });
+
+
+
+
+
+
+
 </script>
 	 <?php } ?>
 	 
@@ -187,7 +294,7 @@ function doSubmit(oForm) {
   </script>
   
   <div id="container" class="clearfix">
-<?php  if (!$f) { ?>
+    <?php  if (!$f) { ?>
     <div id="skip-link">
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
       <?php if ($primary_links): ?>
@@ -203,8 +310,7 @@ function doSubmit(oForm) {
         <?php print $header; ?>
       </div>
 
-	  <!--TOD make this dynamic-->
-   
+
 
       <div class="tomap">
         <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
@@ -217,6 +323,13 @@ function doSubmit(oForm) {
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
+      <div class="social-media-links">
+        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
+        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a>
+        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank">YouTube</a>
+        <a class="email" >Email</a>        
+      </div>
     </nav> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
@@ -269,7 +382,6 @@ function doSubmit(oForm) {
 
 
 
-
 <!-- BEGIN LEGEND -->  
 <div id="legend" class="ui-draggable">
   <div id="legend1">
@@ -288,6 +400,55 @@ function doSubmit(oForm) {
 <!-- END LEGEND -->  
 
 
+
+
+
+<!-- BEGIN TOOLBAR -->
+<div id="toolbar">
+  <div id="help">
+    <a class="icon" href="#">Help</a>
+    <div class="dialog">
+        <div class="content">
+          <h3>Help</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+            </p>
+            <div class="arrow"></div>
+        </div>
+    </div>
+  </div>
+  <div id="about">
+    <a class="icon" href="#">About</a>  
+    <div class="dialog">
+        <div class="content">
+    
+          <h3>About</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+          </p>
+          <div class="arrow"></div>
+        </div>
+    </div>
+
+  </div>
+  <div id="mission">
+    <a class="icon" href="#">Mission</a>  
+    <div class="dialog">
+        <div class="content">
+          <h3>Mission</h3>
+          <p>
+            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+          </p>
+          <div class="arrow"></div>
+        </div>
+    </div>
+  </div>
+
+  <div id="connect">
+    <a class="icon" href="#">Connect</a>
+    <div class="dialog">
+      <h3>Connect</h3>
+      <div class="email-container clearfix">
 <!-- BEGIN MAILING LIST SIGN UP BOX -->  
 <div id="joinmail">
   <div id="emailClick"></div>
@@ -297,7 +458,7 @@ function doSubmit(oForm) {
     </div>
     <div class="tw-icon">
       <a href="https://twitter.com/wanderlustfest" class="twitter-follow-button" data-show-count="false">Follow @wanderlustfest</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
     </div>
   </div>
   <div class="other-icons">
@@ -305,7 +466,6 @@ function doSubmit(oForm) {
     <a class="instagram-icon" href="http://instagram.com/wanderlustfest" target="_blank"></a>
     <a class="pinterest-icon" href="http://pinterest.com/wanderlustfest/" target="_blank"></a>    
     <a class="youtube-icon" href="http://youtube.com/wanderlustfestival" target="_blank"></a>    
-    <a class="blog-icon" href="http://blog.wanderlustfestival.com" target="_blank"></a>    
   </div>
 </div>
 
@@ -331,76 +491,76 @@ function doSubmit(oForm) {
                   <tr>
                     <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
                     <td valign="middle" style="padding:2px; "><select name='State/Prov' size='1' id="state">
-        <option value=''>Please Select</option>
-<option value="">------ USA ------</option>
-        <option value='AL' >AL</option>
-        <option value='AK' >AK</option>
-        <option value='AZ' >AZ</option>
-        <option value='AR' >AR</option>
-        <option value='CA' >CA</option>
-        <option value='CO' >CO</option>
-        <option value='CT' >CT</option>
-        <option value='DE' >DE</option>
-        <option value='DC' >DC</option>
-        <option value='FL' >FL</option>
-        <option value='GA' >GA</option>
-        <option value='HI' >HI</option>
-        <option value='ID' >ID</option>
-        <option value='IL' >IL</option>
-        <option value='IN' >IN</option>
-        <option value='IA' >IA</option>
-        <option value='KS' >KS</option>
-        <option value='KY' >KY</option>
-        <option value='LA' >LA</option>
-        <option value='ME' >ME</option>
-        <option value='MD' >MD</option>
-        <option value='MA' >MA</option>
-        <option value='MI' >MI</option>
-        <option value='MN' >MN</option>
-        <option value='MS' >MS</option>
-        <option value='MO' >MO</option>
-        <option value='MT' >MT</option>
-        <option value='NE' >NE</option>
-        <option value='NV' >NV</option>
-        <option value='NH' >NH</option>
-        <option value='NJ' >NJ</option>
-        <option value='NM' >NM</option>
-        <option value='NY' >NY</option>
-        <option value='NC' >NC</option>
-        <option value='ND' >ND</option>
-        <option value='OH' >OH</option>
-        <option value='OK' >OK</option>
-        <option value='OR' >OR</option>
-        <option value='PA' >PA</option>
-        <option value='RI' >RI</option>
-        <option value='SC' >SC</option>
-        <option value='SD' >SD</option>
-        <option value='TN' >TN</option>
-        <option value='TX' >TX</option>
-        <option value='UT' >UT</option>
-        <option value='VT' >VT</option>
-        <option value='VA' >VA</option>
-        <option value='WA' >WA</option>
-        <option value='WV' >WV</option>
-        <option value='WI' >WI</option>
-        <option value='WY' >WY</option>
-<option value="">----- CANADA -----</option>
-        <option value='AB' >AB</option>
-        <option value='BC' >BC</option>
-        <option value='LB' >LB</option>
-        <option value='MB' >MB</option>
-        <option value='NB' >NB</option>
-        <option value='NF' >NF</option>
-        <option value='NS' >NS</option>
-        <option value='NT' >NT</option>
-        <option value='ON' >ON</option>
-        <option value='PE' >PE</option>
-        <option value='QC' >QC</option>
-        <option value='SK' >SK</option>
-        <option value='YT' >YT</option>
-<option value="">---------------</option>
-<option value='Other' >OTHER</option>
-      </select></td>
+                      <option value=''>Please Select</option>
+                      <option value="">------ USA ------</option>
+                              <option value='AL' >AL</option>
+                              <option value='AK' >AK</option>
+                              <option value='AZ' >AZ</option>
+                              <option value='AR' >AR</option>
+                              <option value='CA' >CA</option>
+                              <option value='CO' >CO</option>
+                              <option value='CT' >CT</option>
+                              <option value='DE' >DE</option>
+                              <option value='DC' >DC</option>
+                              <option value='FL' >FL</option>
+                              <option value='GA' >GA</option>
+                              <option value='HI' >HI</option>
+                              <option value='ID' >ID</option>
+                              <option value='IL' >IL</option>
+                              <option value='IN' >IN</option>
+                              <option value='IA' >IA</option>
+                              <option value='KS' >KS</option>
+                              <option value='KY' >KY</option>
+                              <option value='LA' >LA</option>
+                              <option value='ME' >ME</option>
+                              <option value='MD' >MD</option>
+                              <option value='MA' >MA</option>
+                              <option value='MI' >MI</option>
+                              <option value='MN' >MN</option>
+                              <option value='MS' >MS</option>
+                              <option value='MO' >MO</option>
+                              <option value='MT' >MT</option>
+                              <option value='NE' >NE</option>
+                              <option value='NV' >NV</option>
+                              <option value='NH' >NH</option>
+                              <option value='NJ' >NJ</option>
+                              <option value='NM' >NM</option>
+                              <option value='NY' >NY</option>
+                              <option value='NC' >NC</option>
+                              <option value='ND' >ND</option>
+                              <option value='OH' >OH</option>
+                              <option value='OK' >OK</option>
+                              <option value='OR' >OR</option>
+                              <option value='PA' >PA</option>
+                              <option value='RI' >RI</option>
+                              <option value='SC' >SC</option>
+                              <option value='SD' >SD</option>
+                              <option value='TN' >TN</option>
+                              <option value='TX' >TX</option>
+                              <option value='UT' >UT</option>
+                              <option value='VT' >VT</option>
+                              <option value='VA' >VA</option>
+                              <option value='WA' >WA</option>
+                              <option value='WV' >WV</option>
+                              <option value='WI' >WI</option>
+                              <option value='WY' >WY</option>
+                      <option value="">----- CANADA -----</option>
+                              <option value='AB' >AB</option>
+                              <option value='BC' >BC</option>
+                              <option value='LB' >LB</option>
+                              <option value='MB' >MB</option>
+                              <option value='NB' >NB</option>
+                              <option value='NF' >NF</option>
+                              <option value='NS' >NS</option>
+                              <option value='NT' >NT</option>
+                              <option value='ON' >ON</option>
+                              <option value='PE' >PE</option>
+                              <option value='QC' >QC</option>
+                              <option value='SK' >SK</option>
+                              <option value='YT' >YT</option>
+                      <option value="">---------------</option>
+                      <option value='Other' >OTHER</option>
+                            </select></td>
                   </tr>
  <tr>
                     <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
@@ -433,46 +593,18 @@ function doSubmit(oForm) {
   
   <?php //$block = module_invoke('simplenews', 'block', 'view', '91'); print $block['content'];   ?>
  </div>
- <!-- END MAILING LIST SIGN UP BOX -->  
- 
-
-
-<!-- BEGIN TOOLBAR -->
-<div id="toolbar">
-  <div id="help">
-    <a href="#">Help</a>
-    <div class="dialog">
-        <h3>Help</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
+      </div>
+ <!-- END MAILING LIST SIGN UP BOX -->    
+<div class="arrow"></div>
+ </div>    
+         
     </div>
-  </div>
-  <div id="about">
-    <a href="#">About</a>  
-    <div class="dialog">
-        <h3>About</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
-    </div>
+    <!-- END CONNECT -->
 
-  </div>
-  <div id="mission">
-    <a href="#">Mission</a>  
-    <div class="dialog">
-        <h3>Mission</h3>
-        <p>
-          Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
-        </p>
-        <div class="arrow"></div>
-    </div>
-  </div>
   <div id="blog">
-    <a href="http://blog.wanderfest.com" target="_blank">Blog</a>
+    <a class="icon" href="http://blog.wanderfest.com" target="_blank">Blog</a>
   </div>
+
 </div>
 <!-- END TOOLBAR -->
 
@@ -504,11 +636,12 @@ function doSubmit(oForm) {
 	}
 	
       if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
-      <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
-	<div class="innersite">	
+      <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>"></div>
+	<div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){
 	   $item =  '<div class="site-item">';
+	   $item .=  '<div class="site-marker"></div>';	   
 	   $item .= '<div class="site-title">' . $site->title . '</div>';
 	   $item .= '<div class="siteevent"><div class="item-date">';
 	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
@@ -520,33 +653,34 @@ function doSubmit(oForm) {
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
 	 }
 	 else {
-            $item = '<div class="site-item"><div class="event-right">';
+      $item = '<div class="site-item"><div class="event-right">';
 	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';	 
 	 }	 
-	
+	 $options = array('html' => TRUE);
 	 if($class == 'festival') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $fests .= '<div class="bl">' . $item .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>';
+	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div></div>';
 	 }elseif($class == 'yoga') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $yogas .= '<div class="bl">' . $item  .  l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save this event as default</div></div>' ;
+
+	   $yogas .= '<div class="bl">' . $item  .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
 	 }
 	 
 	 unset($c);
 	 
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT SITE', 'http://' . $site->purl_prefix . '.' . $base);  ?> </div>
-	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save this event as default</div></div>
-      </div>
+	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
+	</div>
     <?php }
                elseif($class == 'studio') { ?>
-		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
-	<div class="innersite">	
+		      <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>"></div>
+	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
 	<?php
 	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
 	  if($site->extra_fields->field_event_date[0]['value']){
@@ -562,21 +696,23 @@ function doSubmit(oForm) {
 	    $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */. $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
 	 }
 	else {
-            $item = '<div class="site-item"><div class="event-right">';
+      $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
 	    $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
 	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
 	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
-      </div>
-		
+    
+	 
 		
 	  <?php } ?>
 <?php  endforeach;  ?>
 
 
 </div>
+<div id="chile_show" class="chile_disp" >This Way to Chile</div>
+
 	  <map name="map">
 	  </map>
 </div>
@@ -589,7 +725,7 @@ function doSubmit(oForm) {
 <div id="wanderdata">
 <div id="festinfo">
   <span>Wanderlust Festivals</span>
-  <div class="descript">Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis </div>
+  <div class="descript"></div>
  <?php print $fests; ?>
 </div>
 
@@ -648,27 +784,30 @@ function doSubmit(oForm) {
       
 
      <?php   if (!$f) { ?>
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php if (!empty($footertop)): ?>
-      <div class="footertop">
-        <div id="footer-top-inner">
-        <?php print $footertop; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="subhead">
-        <?php if (!empty($footer)): print $footer; endif; ?>
-        <?php print $feed_icons ?>
-      </div>
-      <div class="footer-message">
-        <div class="footer-message-content"><?php print $footer_message; ?></p>
-      </div>
-    </footer> <!-- /#footer -->
+    
+      </div> <!-- /#container -->
+
+    
+  <!-- BEGIN FOOTER -->
+  <footer class="footer">
+    <div class="logos">
+      <div class="velour">Velour Music Group</div>
+      <div class="c3">C3 Presents</div>
+    </div>
+    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+    <div class="footer-links">
+      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+    </div>
+    <div class="site-credits">
+      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
     <?php } print $closure ?>
-  </div> <!-- /#container -->
 </body>
-<script>
-  
+<script><?php  if ($f) {?>
 /*detect if mobile */
 var isMobile = {
     Android: function() {
@@ -700,10 +839,15 @@ if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Op
 
 if (isMobile.any()) {
 
+/*FOR MOBILE*/
+
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
 
 
 	
+
+	
+/*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
 	
     $(".mark").bind('touchend', function(e) {
         $(".mark").stop(true, true);
@@ -717,8 +861,25 @@ if (isMobile.any()) {
     }, function() {
         $(this).find('div.innersite').hide();
     });
+	
+	   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
+	/*BALLOON HOVER TODO MAKE TOUCH*/
+		   $(".mark.festival").hover(function() {
+				$(this).animate({
+      top: '-=7'
+    }, 500);
+            }, function() {
+ 
+	$(".mark.festival").removeAttr('style'); 
+	$(".mark.festival").stop();
 
-    /*hover legend*/
+            });
+	
+}
+	
+	
+
+    /*LEGEND HOVERS*/
 
     /*for flag*/
     $("#legend1 .mark").hover(function() {
@@ -744,30 +905,74 @@ if (isMobile.any()) {
 
 }
  else {
+ /*FOR DESKTOP*/
 
-    $(document).ready(function() {
+$(document).ready(function() {
+
+
 
         $("#map-1").mapz();
         $("#legend").draggable();
-        $("#joinmail").draggable();
+        
+		
+		
+		/*MENU*/
+$("#help .icon").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #help .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #help .dialog').hide();
+  }
+);
 
-        if (!$(this).hasClass("test")) {
+$("#about").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #about .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #about .dialog').hide();
+  }
+);
 
-            $(".mark:not(.legendNo)").hover(function() {
+$("#mission").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #mission .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #mission .dialog').hide();
+  }
+);
 
-                $(this).find('div.innersite').fadeIn();
-                if ($(this).hasClass("festival")) {
-} else if ($(this).hasClass('yoga')) {
-} else if ($(this).hasClass('studio')) {
-}
 
-            }, function() {
-                $(this).find('div.innersite').hide();
-                $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');
-            });
-        }
+$("#connect .icon").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #connect .dialog').fadeIn();
+  },
+  function () {
+    $('#toolbar #connect .dialog').hide();
+  }
+);
+			
 
-        /*hover legend*/
+            $(".mark:not(.legendNo)").mouseover(function() {
+$(".innersite").fadeOut();
+ $(this).next().fadeIn();
+
+});			
+			
+			$(".innersite").mouseleave(function() {
+
+ $(".innersite").fadeOut();
+
+});			
+		
+        
+/*LEGEND HOVERS*/
         $("#legend1 .mark").hover(function() {
             $(".mark.festival").addClass('highlight1');
         }, function() {
@@ -779,41 +984,63 @@ if (isMobile.any()) {
         }, function() {
             $('#.mark.yoga').removeClass('highlight1');
         });
-
-        /*for star only*/
-
-        if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
-            $("div.mark.studio").hover(function() {
-                $(".mark.studio").addClass('highlight1');
+	
+		$("#legend3 .mark").hover(function() {
+            $(".mark.studio").addClass('highlight1');
+        }, function() {
+            $('#.mark.studio').removeClass('highlight1');
+        });
+      
+		
+/*BALLOON HOVER FOR IE*/
+   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
+         		   $(".mark.festival").hover(function() {
+				$(this).animate({
+      top: '-=5'
+    }, 400);
+	
+	$(this).animate({
+      top: '-=459'
+    }, 500);
             }, function() {
-                $('#.mark.studio').removeClass('highlight1');
+ 
+	$(".mark.festival").removeAttr('style'); 
+	$(".mark.festival").stop();
+
             });
-		/*jquery rotate for IE */
+	
 
-            $("div.mark").hover(function() {
-				$(this).rotate({
-				   angle: 0,
-				   animateTo: 360,
-				   duration: 900
-				});
-            }, function() {
-                $(this).children().fadeOut('fast');
-            });
+        } 
+		
+	/*FOR CHROME FIREFIX*/	
+$(".mark.festival").mouseover(function() {
+$(".mark.festival").removeClass("baloonHover");
+$(this).addClass("baloonHover");
+
+});
+
+			
+
+			
+/*FIX FANCYBOX POPUPS*/
+		$(".fancybox-inner").css("overflow", "hidden")
+		
+/*POSITION MAP FOR DESKTOP*/
+		$('#map-1').css('left', '-270px');
+		
+    });
+
+}
+
+/*FOR BOTH MOBILE AND DESKTOP*/
 
 
+<?php } else {?> 
 
-
-        } else {
-            $("div.mark.studio").hover(function() {
-                $(".mark.studio").addClass('highlight2');
-            }, function() {
-                $('#.mark.studio').removeClass('highlight2');
-            });
-        }
-
-        /*position map for desktop*/
-        $('#map-1').css('left', '-270px');
-
+$(document).ready(function()
+{
+  
+/*FOR PHOTOS*/
         $('body').append('<div id="ted_photo_hover"></div>');
         $('#ted_photo_hover').css({
             position: 'absolute'
@@ -846,14 +1073,11 @@ if (isMobile.any()) {
             }, function(e) {
             //    $('#ted_photo_hover').hide();
             });
+			
+			});
+			<?php }?>
+			/*GOOGLE ANALYTICS*/
 
-    });
-
-}
-
-
-
-/*ga for all*/
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-12068308-1']);
 _gaq.push(['_setAllowLinker', true]);

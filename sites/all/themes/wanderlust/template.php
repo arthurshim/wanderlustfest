@@ -289,16 +289,10 @@ function wwanderlust_viewsdisplaytabs_tab_groups($displays, $class) {
   return $out;
 }
 
-
-
-
-
-
 function phptemplate_preprocess_page(&$vars) {
   $scripts = drupal_add_js();
   if(in_array('page-media-photos',$vars['template_files']))
     unset($scripts['all']['module']['sites/all/modules/jquery_update/replace/jquery.min.js']);
   $vars['scripts'] = drupal_get_js('header', $scripts);
 }
-
 

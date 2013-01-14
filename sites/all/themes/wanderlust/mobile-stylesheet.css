@@ -43,17 +43,10 @@ width: 520px;
 input[type=checkbox]
 {
   /* Double-sized Checkboxes */
-  -ms-transform: scale(3); /* IE */
-  -moz-transform: scale(3); /* FF */
-  -webkit-transform: scale(3); /* Safari and Chrome */
-  -o-transform: scale(3); /* Opera */
-}
-
-#site-checkbox {
-    margin-bottom:9px;
-	margin-right:9px;
-}
-#saveDefualt {
-margin-left:6px;
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
 }
 

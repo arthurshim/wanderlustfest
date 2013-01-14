@@ -662,7 +662,7 @@ jQuery(document).ready(function($) {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div></div>';
+	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
 	 }elseif($class == 'yoga') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
@@ -844,7 +844,57 @@ if (isMobile.any()) {
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
 
 
-	
+	/*MARK HOVERS*/
+               $(".mark:not(.legendNo)").bind('touchend', function(e) {
+ 		$(".innersite").fadeOut();
+		$(".innersite").stop(true, true);
+ $(this).next().toggle(500);
+
+ 
+    });
+			   
+	/*MENU*/
+		/*MENU*/
+$("#help .icon").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #help .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #help .dialog').hide();
+  }
+);
+
+$("#about").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #about .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #about .dialog').hide();
+  }
+);
+
+$("#mission").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #mission .dialog').fadeIn();;
+  },
+  function () {
+    $('#toolbar #mission .dialog').hide();
+  }
+);
+
+
+$("#connect .icon").toggle(
+  function () {
+    $('#toolbar .dialog').hide();
+    $('#toolbar #connect .dialog').fadeIn();
+  },
+  function () {
+    $('#toolbar #connect .dialog').hide();
+  }
+);
 
 	
 /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
@@ -897,7 +947,7 @@ if (isMobile.any()) {
 
     /*for star only*/
 
-    $("div.mark.studio").hover(function() {
+    $("#legend3 .mark").hover(function() {
         $(".mark.studio").addClass('highlight1');
     }, function() {
         $('#.mark.studio').removeClass('highlight1');
@@ -958,20 +1008,21 @@ $("#connect .icon").toggle(
   }
 );
 			
-		
-		
-		
-		
 
-  
+            $(".mark:not(.legendNo)").mouseover(function() {
+$(".innersite").fadeOut();
+ $(this).next().fadeIn();
+ setTimeout(function(){$(this).next().fadeOut()},9000)
+ 
 
-            $(".mark:not(.legendNo)").hover(function() {
+});			
+			
+			$(".innersite").mouseleave(function() {
 
-                $(this).next().fadeIn();
-            }, function() {
-                $(this).next().fadeOut();
-                $('div.mark.festival.legendNo, div.mark.studio.legendNo, div.mark.yoga.legendNo').removeClass('highlight');
-            });
+ $(".innersite").fadeOut();
+
+});			
+		
         
 /*LEGEND HOVERS*/
         $("#legend1 .mark").hover(function() {
@@ -993,7 +1044,7 @@ $("#connect .icon").toggle(
         });
       
 		
-/*BALLOON HOVER*/
+/*BALLOON HOVER FOR IE*/
    if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
          		   $(".mark.festival").hover(function() {
 				$(this).animate({
@@ -1013,6 +1064,14 @@ $("#connect .icon").toggle(
 
         } 
 		
+	/*FOR CHROME FIREFIX*/	
+$(".mark.festival").mouseover(function() {
+$(".mark.festival").removeClass("baloonHover");
+$(this).removeClass("baloonHover");
+$(this).addClass("baloonHover");
+
+});
+
 			
 
 			
@@ -1025,6 +1084,8 @@ $("#connect .icon").toggle(
     });
 
 }
+
+/*FOR BOTH MOBILE AND DESKTOP*/
 
 
 <?php } else {?> 

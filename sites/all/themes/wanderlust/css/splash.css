@@ -138,10 +138,10 @@
 #map-1 {
     cursor: move;
     width: 2146px;
-    height: 1170px;
+    height: 1300px;
     position: absolute;
     left: -275px;
-    top: -33px;
+    /*top: -33px;*/
 }
 
 .level {
@@ -273,11 +273,11 @@
 
 @-webkit-keyframes baloonish
 {
-0%		{-webkit-transform: rotate(0deg);}
+0%		{-webkit-transform: rotate(0deg); top:-2px;}
 25%		{-webkit-transform: rotate(2deg);}
 60%		{-webkit-transform: rotate(25deg);}
-75%		{-webkit-transform: rotate(-25deg);}
-90%		{-webkit-transform: rotate(-2deg);}
+75%		{-webkit-transform: rotate(-25deg); }
+90%		{-webkit-transform: rotate(-2deg); }
 100%	{-webkit-transform: rotate(0deg);}
 
 
@@ -286,7 +286,7 @@
 @-moz-keyframes baloonish
 {
 
-0%		{-moz-transform: rotate(0deg);}
+0%		{-moz-transform: rotate(0deg); top:-2px;}
 25%		{-moz-transform: rotate(2deg);}
 60%		{-moz-transform: rotate(5deg);}
 75%		{-moz-transform: rotate(-4deg);}
@@ -308,10 +308,10 @@
 }
 
 .baloonHover {
-    -webkit-animation: baloonish .8s linear 2;
+    -webkit-animation: baloonish 1s linear 1;
     -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
-    -moz-animation: baloonish 1.3s linear 2;
+    -moz-animation: baloonish 1.3s linear 1;
     -moz-transition-timing-function: ease-out;
     -moz-transition-duration: 500ms;
     -ms-animation: baloonish 1.3s linear 2;
