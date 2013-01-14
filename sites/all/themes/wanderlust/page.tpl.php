@@ -86,7 +86,7 @@ _gaq.push(['_trackPageview']);
 <!-- SHARE THIS JAVASCRIPT -->
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693"});</script>
+<script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693",  shorten:false});</script>
 
 
   
@@ -140,7 +140,6 @@ _gaq.push(['_trackPageview']);
         <a class="email" >Email</a>        
       </div>      
     </nav> 
-    <?php endif; ?>
     <!-- END NAVIGATION -->
 
  
