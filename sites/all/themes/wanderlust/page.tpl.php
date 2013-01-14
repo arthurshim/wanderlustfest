@@ -88,6 +88,7 @@ _gaq.push(['_trackPageview']);
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693"});</script>
 
+
   
 </head>
 
@@ -129,9 +130,6 @@ _gaq.push(['_trackPageview']);
     <!-- END HEADER -->
     
     <!-- BEGIN NAVIGATION -->  
-    <?php if ($primary_links || $secondary_links || !empty($navigation)): 
-      #print_r($primary_links);print_r($secondary_links);
-    ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
       <div class="social-media-links">
