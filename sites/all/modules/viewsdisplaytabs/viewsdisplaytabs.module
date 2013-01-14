@@ -86,16 +86,13 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
         // If the separator is at position 0 or does not exist it all, do not group
         $sep = $settings['view_group_separator'][$view->name];
         
-    
-   
-        
       if($subdomain == 'oahu' && $display_data->display_title == 'Healing') {
          $display_data->display_title = 'Surf & Paddle';
       }
 	  
-      if($subdomain == 'oahu' && $display_data->display_title == 'Theater' ) {
+	   if($subdomain == 'oahu' && $display_data->display_title == 'Theater' ) {
 	    $display_data->display_title = 'Movement'; 
-      }
+	   }
       
         if($subdomain == 'chile') {
           switch($display_data->display_title) {
