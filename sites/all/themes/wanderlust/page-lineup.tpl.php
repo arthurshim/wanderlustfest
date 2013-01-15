@@ -1,39 +1,58 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if IE 7]>    <html class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if IE 8]>    <html class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if gt IE 8]> <!--> <html class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
+<!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
+<!--[if gt IE 8]> <!--> <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
+
 <head>
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-   <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
 
-  
   <title><?php print $head_title; ?></title>
-  <?php print $styles; ?>
-
+  <?php header("Connection: keep-alive");?>
   
+  <?php print $styles; ?>
   <?php print $scripts; ?>
-   <!-- <script type="text/javascript" src="sites/all/modules/cufon/js/cufon-yui.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Super_800.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Bold_700.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Akzidenz_Grotesk_BE_Cn_400.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperCondensed_500.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/FuturaBold_700.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/Futura_500.font.js"></script>
-<script type="text/javascript" src="sites/all/libraries/cufon-fonts/SuperGroteskB_500.font.js"></script> -->
+  
+
   
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   
+
+  <!-- SET FACEBOOK OPEN GRAPH APP ID -->
+  <meta property="fb:app_id" content="321576251186267"/>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12068308-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setDomainName', 'wanderlustfestival.com']);
+_gaq.push(['_trackPageview']);
+
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script> 
   	
     <?php
       $base = wl_get_base_domain();
       
       ?>
+      
+<!-- SHARE THIS JAVASCRIPT -->
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693",  shorten:false});</script>
+      
   
   
 </head>
@@ -60,52 +79,37 @@
       <?php endif; ?>
     </div>
 
+    <!-- BEGIN PAGE.TPL.PHP HEADER -->
     <header id="header" role="banner" class="clearfix">
-      
-  
-      
-     <div class="subhead">
-           <hgroup id="site-name-slogan">      
-           <?php print $header; ?>
-           </hgroup>
 
-    <div class="newlogo">
-      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" id="logo"><img src="<?php print  base_path() . path_to_theme() . '/images/new_logo.png'//print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
-   <?php print $topnav; ?>
-    </div>
-
-   <div class="tomap">
-      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
-   </div>
-
-  </div>
-      
-      <?php if ($search_box): ?><?php print $search_box ?><?php endif; ?>
-      
-	    <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
-      <nav id="navigation" role="navigation" class="clearfix ">
-	      <div class="subhead"><?php print $navigation ?></div>
-      </nav> <!-- /#navigation -->
-      <?php endif; ?>
-      
-    </header> <!-- /#header -->
-   
-    <div id="slideshows" role="slideshow" class="slideshowhome">
-      <?php if (!empty($slidemain)): ?>
-      <div class="slidemain">
-        <?php print $slidemain; ?>
+      <div id="event-info">      
+        <?php print $header; ?>
       </div>
-      <?php endif; ?>
-       
-	    <?php if (!empty($slides)): ?>
-      <div class="slides">
-        <?php print $slides; ?>
+
+      <div class="tomap">
+        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="<?php print t('To map'); ?>" /></a>
       </div>
-      <?php endif; ?>
-    </div>
+      
+    </header>
+    <!-- END HEADER -->
+
+    <!-- BEGIN NAVIGATION -->  
+    <nav id="navigation" role="navigation" class="clearfix ">
+      <?php print $navigation ?>
+      <div class="social-media-links">
+        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
+        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a>
+        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank">YouTube</a>
+        <a class="email" >Email</a>        
+      </div>      
+    </nav> 
+    <!-- END NAVIGATION -->
+
+
     
-    <div class="subhead" >
-    
+
+      <!-- BEGIN MAIN CONTENT -->
       <div id="main"  role="main" class="clearfix">
         <?php if (!empty($messages)): print $messages; endif; ?>
         <?php if (!empty($mission)): ?><div id="mission"><?php print $mission; ?></div><?php endif; ?>
@@ -121,28 +125,33 @@
        <?php endif; ?>
      </div> <!-- /#main -->
 
-    </div>
+
       
-    <footer id="footer" role="contentinfo" class="clearfix">
-      <?php if (!empty($footertop)): ?>
-      <div class="footertop">
-        <div id="footer-top-inner">
-        <?php print $footertop; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-      <div class="subhead">
-        <?php if (!empty($footer)): print $footer; endif; ?>
-        <?php print $feed_icons ?>
-      </div>
-      <div class="footer-message">
-        <div class="footer-message-content"><?php print $footer_message; ?></p>
-      </div>
-    </footer> <!-- /#footer -->
-    <!--<script type="text/javascript" src="sites/all/modules/cufon/js/cufon-drupal.js"></script> -->
+   
     <?php print $closure ?>
 
   </div> <!-- /#container -->
+
+
+
+ <!-- BEGIN FOOTER -->
+  <footer class="footer">
+    <div class="logos">
+      <div class="velour">Velour Music Group</div>
+      <div class="c3">C3 Presents</div>
+    </div>
+    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+    <div class="footer-links">
+      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+    </div>
+    <div class="site-credits">
+      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div>
+  </footer>
+  <!-- END FOOTER -->
+
+
 
 </body>
 </html>
