@@ -28,7 +28,8 @@
   font-family: 'MrsEavesOT-Italic';
   font-style: italic;
   color: #603220;
-  width: 1084px;
+  width: 300px;
+  /*width: 1084px; */
   font-size: 14px;
   text-align: center;
   height: 91px;    
@@ -52,21 +53,10 @@
   z-index: -1;
   }
 
-.event-item{
-  margin-left: -847px;    
+.event-item{   
   }
   
 
-/* LOGO
-----------------------------------*/	
-
-.logo {
-  display: block;
-  top: 24px;
-  position: relative;
-  margin: 0 auto;
-  width: 500px;
-  }
 
 
 /* GLOBAL SPLASH CALLOUT
@@ -88,10 +78,6 @@
   z-index: 40;
   position: relative;
   margin: 0 0 0 -1px;
-  }
-
-#navigation ul#main-menu li a {
-  color: #fffbf2;
   }
 
 #navigation ul.nice-menu{
@@ -256,29 +242,6 @@
 
 /* EVENT BANNER
 ----------------------------------*/	
-
-
-#block-sitesdropdown-2 {
- /*  display: block;
-    width: 682px;  */
- width: 446px;
-}
-
-#block-sitesdropdown-2  .left-arr {
-  float: left;
-  width:59px;
-  height:18px;
-  background: url(../images/newleft_arrow.png) no-repeat;
-  margin: 6px 1px 0 0;
-}
-
-#block-sitesdropdown-2  .right-arr {
-  float: right;
-  height:18px;
-  width:59px;
-  background: url(../images/newright_arrow.png) no-repeat;
-  margin: 6px 0 0; 
-}
 
 #block-sitesdropdown-2  .content {
   margin: 10px 0 -4px 10px;

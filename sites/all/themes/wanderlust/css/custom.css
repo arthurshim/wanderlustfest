@@ -113,30 +113,6 @@ body.chile{
 .page-node #main{
   background: #fffaf1;
 }
-.nivo-caption {
-  /*  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/jsliderbg.png") repeat scroll 0 0 ;*/
-    background: url('../images/jsliderbgg.png') repeat scroll 0 0 ;
-    height: 50px;
-    opacity: 15 !important;
-    display: inline !important;
-    }
-    .nivo-controlNav {
-    bottom: 19px;
-    left: 85%;
-    position: absolute;
-}
-.nivo-controlNav a {
-    background: url("http://c282314.r14.cf1.rackcdn.com/website-images/navcontrol.png") no-repeat scroll 0 0 transparent;
-      height: 16px !important;
-    margin-right: 3px;
-    text-indent: -9999px;
-    width: 20px !important;
-
-    }
-.nivo-caption p{
-    font-size:15px;
-    text-transform: uppercase;
-}
 
 .nivo-controlNav a.active {
   background-position: -20px 0 !important;
@@ -331,42 +307,8 @@ body.page-activities #main .view-id-activities_page{
 
 }
 
-.page-activities .jcarousel-skin-default .jcarousel-container-horizontal {
-    height: 102px;
-    margin: auto;
-    padding: 0px 40px 0px 0px;
-    width: 250px !important;
-}
-
-.page-activities .jcarousel-skin-default .jcarousel-next, .jcarousel-skin-default .jcarousel-prev {
-    background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/nodeslider.png");
-    display: block;
-    height: 29px;
-    width: 29px;
-}
 
 
-.page-activities .jcarousel-skin-default .jcarousel-prev-horizontal{
-    background-position: 0 0;
-    left: 225px;
-    position: absolute;
-    top: -36px;
-}
- .page-activities .jcarousel-skin-default .jcarousel-next-horizontal{
-  top: -36px;
-  background-position: 29px;
- }
-
-  .page-activities .sidebar li.leaf{
-    text-transform: uppercase;
-    font-size: 15px;
-    list-style: none;
-    list-style-image: none;
-    border-bottom: 1px solid #96b0a2;
-  }
-  .page-activities .sidebar li.leaf a{
-    color: #989679;
-  }
 
 
 
@@ -383,46 +325,12 @@ tbody {border: 0px!important;}
  margin-left: 0px!important;
 }
 
-.page-media .panels-flexible-row-7-main-row li.pager-previos {
-	position: absolute;
-	left: 10px;
-	top: 48%;
-}
-.page-media .photos-top .view-header {
-	width: 65px;
-	float: left;
-	display: inline;
-	padding-top: 135px;
-}
-.page-media .photos-top .view-footer {
-	width: 65px;
-	float: right;
-	display: inline;
-	padding-top: 135px;
-}
-.page-media .photos-top .view-content {
-	width: 942px;
-	float: left;
-	padding-left: 26px;
-	display: inline;
-	margin: 0 0 0 29px;
-}
 .page-media h1#page-title {
   padding: 0px !important;
   color: #0e4815;
   }
 
-.page-media article {
-	height: 252px!important;
-	padding-top: 10px;
-	position: relative;
-}
-.page-media article #easysocial-box {
-	position: absolute;
-	bottom: 3px;
-	left: 10px;
-}
-
+  
 .page-media .prev{
   background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/nodeslider.png");
   height: 29px;
@@ -485,52 +393,13 @@ tbody {border: 0px!important;}
  margin-left: 0px!important;
 }
 
-.page-media .panels-flexible-row-7-main-row li.pager-previos {
-	position: absolute;
-	left: 10px;
-	top: 48%;
-}
-.page-media .photos-top .view-header {
-	width: 65px;
-	float: left;
-	display: inline;
-	padding-top: 135px;
-  margin: 0 0 0 14px;
-}
-.page-media .photos-top .view-footer {
-	width: 65px;
-	float: right;
-	display: inline;
-	padding-top: 135px;
-}
-.page-media .photos-top .view-content {
-	width: 963px;
-	float: left;
-
-	display: inline;
-}
-
 
 
 
 .page-media h1#page-title {padding-left: 90px; color: #0e4815;}
 
-.page-media article {
-	height: 252px!important;
-	padding-top: 10px;
-	position: relative;
-}
-.page-media article #easysocial-box {
-	position: absolute;
-	bottom: 3px;
-	left: 10px;
-}
+
 .page-media .panels-flexible-row-last .view-content {float: left; display: block;}
-
-.node-type-photos .right-column .views-field-title, .node-type-news .right-column .views-field-title {padding-left: 20px;}
-.node-type-photos .right-column .views-field-title a, .node-type-news .right-column .views-field-title a {color: #303030; font-size: 14px!important;}
-
-#simplenews-block-form-91 .form-item {margin: 0px!important;}
 
 
 
@@ -613,15 +482,7 @@ hr{
   height: 20px;
   margin: 15px 0;
 }
-.node-page .social-networks,
-.news-page .social-networks {
-  vertical-align: middle;
-  line-height: 1;
-  border-top: 1px dotted #3A3A3A;
-  border-bottom: 1px dotted #3A3A3A;
-  margin-right: 15px;
-  padding: 20px 0 20px 0;
-}
+
 .view-id-taxonomy_term .like-facebook,
 .view-id-taxonomy_term .like-twitter,
 .panels-flexible-region-first .like-facebook,
@@ -664,25 +525,6 @@ h2.sub-title {
 }
 
 
-/* Page List */
-.page-list {
-  margin: 0;
-  padding: 0;
-}
-.page-list-row {
-  border-bottom: 1px dotted #888772;
-  clear: both;
-  display: block;
-  list-style: none;
-  padding: 15px 0 20px;
-}
-.page-list-title {
-  color: #6ba265;
-  display: block;
-  font-size: 22px;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-}
 
 
 
@@ -884,38 +726,7 @@ h2.sub-title {
   color: #365f3a !important;
 }
 
-/* Views List Carousel Photos */
-.pane-photos .view-display-id-block_7 {
-  height: 355px;
-  margin-bottom: 35px;
-  position: relative;
-  width: 957px;
-}
-.page-media .photos-top .view-header,
-.page-media .photos-top .view-footer {
-  cursor: pointer;
-  display: block;
-  height: 66px;
-  padding-top: 0;
-  position: absolute;
-  top: 145px;
-  width: 68px;
-  z-index: 1;
-}
-.page-media .photos-top .view-header {
-  left: -72px;
-}
-.page-media .photos-top .view-footer {
-  right: -65px;
-}
-.page-media .photos-top .view-content {
-  padding-left: 0;
-}
-.pane-photos .view-display-id-block_7 .view-content ul {
-  clear: both;
-  margin: 0;
-  padding: 0;
-}
+
 .pane-photos .view-display-id-block_7 li.views-row {
   height: 110px;
   width: 110px;
@@ -998,7 +809,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   text-transform: uppercase;
   font-size: 16px;
   color: #7e9e83 !important;
-  padding: 10px 12px 0 16px;
+  padding: 10px 10px 0 13px;
   margin: 0;
   height: 30px;
   background: #deddce;
@@ -1020,32 +831,6 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   border: none;
 }
 
-div.view-id-artist_landing2 select {
-  width: 290px!important;
-  height: 35px;
-  background: #fcf8ef;
-  border: 1px solid #cbcab9;
-}
-
-div.view-artist-landing div.view-content div.views-field-title a {
-  font-size: 17px;
-}
-
-
-.view-artist-landing .views-field-field-bands-photos-fid img{
-  -moz-box-shadow: 0 2px 4px #6d6d65;
-  -webkit-box-shadow: 0 2px 4px #6d6d65;
-  box-shadow: 0 2px 4px #6d6d65;
-  }
-
-.view-artist-landing{
-  min-height: 300px;
-  }
-
-.view-artist-landing .view-empty{
-  font-size: 12px;
-  font-style: italic;
-  }
 
 
 /*--------------------------------
@@ -2450,6 +2235,10 @@ body.sidebar-right.blogs #main{
   display: none;
 }
 
+#block-block-44{
+  width: 500px;
+}
+
 #block-block-44 a{
   font-size: 40px;
 }
@@ -2457,6 +2246,24 @@ body.sidebar-right.blogs #main{
 
 .node-type-blog .panel-flexible{
   float: left;
+}
+
+
+.read-more-link{
+  position: relative;
+  margin-top: -27px;
+  text-align: right;
+  left: 536px;
+  width: 80px;
+}
+
+.read-more-link a{
+  display: block;
+  background: gray;
+  padding: 5px;
+  width: 80px;  
+  font-size: 12px;
+  text-transform: uppercase;
 }
 
 /* BLOG SIDEBAR BLOCKS
@@ -2580,3 +2387,164 @@ body.sidebar-right.blogs #main{
   font-size: 10px;
   color:#ccc;
 }
+
+
+
+
+
+
+
+ 
+
+/*
+** Formatting for administration page
+**
+** The admin panel styles are a mess. IE has problems with this so this is
+** only a temporary fix. This should be fixed in core.
+*/
+
+
+
+
+div.admin-panel .body {
+  padding: 0 !important;
+}
+
+div.admin .left,
+div.admin .right {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.admin .right .admin-panel {
+  margin-left: 10px;
+}
+
+#block-quicktabs-2 ul{
+   height: 38px;
+   border: solid 2px #bbb9aa;
+   width: 895px;
+  background: url(http://c282314.r14.cf1.rackcdn.com/website-images/2012.jpg) no-repeat;
+  padding-left: 60px;
+  padding-bottom: 0px!important;
+}
+
+#block-quicktabs-2 .content-container {
+    padding: 0px 0px 0 !important;
+}
+#block-quicktabs-2 .container-16 .grid-10 {
+    width: 948px;
+    margin: 0;
+}
+
+#block-quicktabs-2 ul li a {
+    background: none !important;
+    border-color:  transparent!important;
+    border-style: none;
+    border-width: 0px;
+    height: auto;
+    margin:0;
+   padding-left: 10px;
+   padding-right: 10px;
+    text-transform: uppercase;
+    font-family: arial;
+     font-size: 15px;
+     color: #799d81;
+    font-weight: 900;
+}
+#block-quicktabs-2 ul.quicktabs_tab li a.active,#block-quicktabs-2 ul.quicktabs_tab li a:hover{
+  color:#156684;
+}
+#block-quicktabs-2 ul li {
+    
+    display: block;
+    float: left;
+    padding-top: 9px;
+    padding-bottom: 6px;
+    border-left-color:  #bdb8a5!important;
+    border-left-style: solid;
+    border-left-width: 1px;
+ }
+#block-quicktabs-2 .view-artist-landing2 td {
+    padding: 0 25px 22px 0;
+    width: 70px;
+}
+#block-quicktabs-2 .not-front #container {
+    margin-top: 0px;
+}
+#block-quicktabs-2 ul li.active,#block-quicktabs-2 ul li:hover{
+   background: url(/sites/all/themes/wanderlust/images/hover.jpg) repeat scroll 0 0 #dfddce !important;
+}
+#block-quicktabs-2 img{
+/*  border: solid 1px #bdb8a5;*/
+}
+body#block-quicktabs-2 #header{
+   background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup_bg.png");
+}
+
+.page-lineup a active{
+   color: #799D81;
+}
+
+.page-lineup .terms {display: none;}
+
+
+.page-lineup #main {
+  padding: 15px;
+}
+
+ .label[edit-tid-1]{
+   color: #799D81;
+}
+
+.page-lineup .views-field-title{
+  text-transform: uppercase;
+  font-weight: bold;
+  line-height: 1;
+  }
+  
+.page-lineup .view-artist-landing2 td{
+  width: 222px;
+  padding-right: 16px;
+  height: 190px;
+  }
+
+.view-artist-landing2 .view-empty{
+  font-size: 11px;
+  font-style: italic;
+  padding: 0 0 20px 0;
+  }
+
+.page-lineup td.last{
+  padding-right: 0px;
+  }
+
+
+.page-lineup .views-widget-filter-tid_1{
+    color: #799D81;
+    font-weight: normal;
+}
+.page-lineup #edit-tid-1{
+   background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/filterby.jpg");
+   width: 200px;
+}
+
+div.view-id-artist_landing div.viewsdisplaytabs-group-wrapper span.views-throbbing {
+  background: transparent url("/sites/all/themes/wanderlust/images/ajax-loader.gif") center center no-repeat;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  z-index: 999;
+}
+
+div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
+  display: none;
+}
+
+
+
+
+
