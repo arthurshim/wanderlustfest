@@ -17,7 +17,7 @@
       $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
       $subdomain = strtolower(trim($url[0]));
       $f = FALSE;
-      if ($subdomain == 'wonderlustfest') {   /*check  if we on front page  'wanderfest.com' */
+      if ($subdomain == 'wanderfest') {   /*check  if we on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
@@ -42,7 +42,7 @@
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
-<script type="text/javascript" src="http://jackrugile.com/jrumble/js/jquery.jrumble.1.3.min.js"></script>
+
 
   <!-- SET FACEBOOK OPEN GRAPH APP ID -->
   <meta property="fb:app_id" content="321576251186267"/>
@@ -663,7 +663,7 @@ jQuery(document).ready(function($) {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div class="saveDefault">Save as my default</div></div></div></div>';
+	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
 	 }elseif($class == 'yoga') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
@@ -675,7 +675,7 @@ jQuery(document).ready(function($) {
 	 unset($c);
 	 
 	print $item; ?>
-	 <div class="visitsite"><?php print l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>
+	 <div class="visitsite"><?php print l('Vist Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>
 	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
 	</div>
     <?php }
@@ -1067,16 +1067,9 @@ $(".innersite").fadeOut();
 		
 	/*FOR CHROME FIREFIX*/	
 $(".mark.festival").mouseover(function() {
-/*$(".mark.festival").removeClass("baloonHover");
+$(".mark.festival").removeClass("baloonHover");
 $(this).removeClass("baloonHover");
-$(this).addClass("baloonHover");*/
-
-
-$(this).animate({
-top:'-=10'
-}, 1000, function() {
-$(this).css('top','+=10')
-});
+$(this).addClass("baloonHover");
 
 });
 
