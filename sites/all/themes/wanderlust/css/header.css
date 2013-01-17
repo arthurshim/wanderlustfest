@@ -124,8 +124,9 @@
 	color: #ddb57b;
 	padding: 1px 22px 7px;
 	margin: 2px 0;
-	font-family: 'revolution';
+	font-family: 'revolution', helvetica, arial;
 	letter-spacing: 1px;
+	font-weight: normal;
   }
  
 #navigation ul li.last a{

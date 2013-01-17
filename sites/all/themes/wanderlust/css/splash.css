@@ -4,14 +4,14 @@
 #map-1-container #logo {
     background: url('../images/splash-sprite.png');
     width: 479px;
-    height: 202px;
-    background-position: 679px 0px;
+    height: 180px;
+    background-position: 679px -8px;
     position: absolute;
     top: 10px;
     left: 30%;
-    z-index: 999;
+    z-index: 100;
     text-indent: -9999em;
-    border-radius: 0 0 0 80px;
+
 }
 
 
@@ -138,7 +138,7 @@
 #map-1 {
     cursor: move;
     width: 2146px;
-  height: 1328px; 	
+  height: 1350px; 	
     position: absolute;
     left: -275px;
     /*top: -33px;*/
@@ -271,9 +271,11 @@
 
 }
 
+
+/* COMMENTED OUT OLD ANIMATION TEMPORARILY 1/17/12
 @-webkit-keyframes baloonish
 {
-0%		{-webkit-transform: rotate(0deg); top:-2px;}
+0%		{-webkit-transform: rotate(0deg); top:-2px; }
 25%		{-webkit-transform: rotate(2deg);}
 60%		{-webkit-transform: rotate(25deg);}
 75%		{-webkit-transform: rotate(-25deg); }
@@ -319,11 +321,43 @@
     -ms-transition-duration: 500ms;
     animation: baloonish 1.3s linear 2;
     transition-timing-function: ease-out;
-    transition-duration: 500ms;
+    transition-duration: 100ms;
 }
 
+*/
 
 
+/* MARKER HOVER ANIMATIONS
+---------------------------------*/
+
+
+@-webkit-keyframes bob {
+0%		{-webkit-transform: translate(0px,-2px);}
+25%		{-webkit-transform: translate(0px,-8px);}
+50%		{-webkit-transform: translate(0px,-1px); }
+75%		{-webkit-transform: translate(0px,-3px); }
+100%	{-webkit-transform: translate(0px,0px);}  
+}
+
+@-webkit-keyframes bob-flash {
+0%		{-webkit-transform: translate(0px,-2px);}
+25%		{-webkit-transform: translate(0px,-12px); opacity: 0.6;}
+50%		{-webkit-transform: translate(0px,-1px); opacity: 1; }
+75%		{-webkit-transform: translate(0px,-3px); }
+100%	{-webkit-transform: translate(0px,0px);}  
+}
+
+.mark.festival:hover{
+  -webkit-animation: bob 1s;
+}
+
+.mark.highlight1{
+  -webkit-animation: bob-flash 1s;
+}
+
+.mark:hover {
+    z-index: 103 !important;
+}
 
 
 /*(.wanderfest #container {
@@ -331,7 +365,7 @@
 }*/
 
 
-/* MARKER HOVERS
+/* MARKER HOVER MENUS
 ---------------------------------*/
 
 .innersite {
@@ -1005,12 +1039,6 @@ div.mark.legendNo.highlight {
 }*/
 
 
-#map-1 .mark.highlight1 {
-    background-color: #CEA430;
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-}
 
 
 
@@ -1024,14 +1052,9 @@ div.mark.legendNo.highlight {
     overflow: hidden;
 }
 
-.mark:hover {
-    z-index: 103 !important;
-}
-
-.mark {
-    transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-}
 
 
-#wanderdata{position:absolute;  display:none;}
+#wanderdata{
+  position:absolute;  
+  display:none;
+  }
