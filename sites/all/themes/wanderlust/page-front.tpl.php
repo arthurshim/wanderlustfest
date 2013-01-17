@@ -846,12 +846,10 @@ if (isMobile.any()) {
 
 
 	/*MARK HOVERS*/
-               $(".mark:not(.legendNo)").bind('touchend', function(e) {
+  $(".mark:not(.legendNo)").bind('touchend', function(e) {
  		$(".innersite").fadeOut();
 		$(".innersite").stop(true, true);
- $(this).next().toggle(500);
-
- 
+		$(this).next().toggle(500);
     });
 			   
 	/*MENU*/
