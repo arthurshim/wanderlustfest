@@ -28,7 +28,7 @@
 
 @font-face {
   font-family:"RexBold";
-  src:  url("../fonts/Rex_Bold.eot?") format("eot"),
+  src:  url("../fonts/Rex_Bold.eot") format("eot"),
         url("../fonts/Rex_Bold.woff") format("woff"),
         url("../fonts/Rex_Bold.ttf") format("truetype"),
         url("../fonts/Rex_Bold.svg#RexBold") format("svg");
