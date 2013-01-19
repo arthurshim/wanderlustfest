@@ -1,0 +1,59 @@
+/* STYLESHEET FOR BLOG STYLES */
+
+
+/* HEADER
+--------------------------------*/
+
+.blogs #event-info{
+  left: 220px;
+  top: 30px;
+}
+
+.blogs #header{
+  background: #fff;
+}
+
+.blog-logo{
+  
+}
+
+.blogs #navigation{
+  background: url('../images/blog-nav-bar.png') #fff;
+  height: 40px;
+}
+
+.blogs #navigation li a{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 22px !important;
+  font-weight: normal !important;
+}
+
+.menu-path-taxonomy-term-239 a{
+  color: 8f3271 !important; 
+}
+
+
+.menu-path-taxonomy-term-240 a{
+  color: #5c4182 !important;  
+}
+
+.menu-path-taxonomy-term-236 a{
+  color: #388687 !important;  
+}
+
+
+.menu-path-taxonomy-term-238{
+  color: #058042 !important;
+}
+
+.menu-path-taxonomy-term-241 a{
+  color: #c39d37 !important;  
+}
+
+.menu-path-taxonomy-term-237 a{
+  color: #d4793d !important;
+}
+
+.menu-path-taxonomy-term-242 a{
+  color: #d35651 !important;
+}

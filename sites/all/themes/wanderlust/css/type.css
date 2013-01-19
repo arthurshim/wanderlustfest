@@ -71,6 +71,19 @@
 }
 
 
+@font-face {
+    font-family: 'lhf_egyptianregular';
+    src: url('../fonts/lhfegyptian-webfont.eot');
+    src: url('../fonts/lhfegyptian-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lhfegyptian-webfont.woff') format('woff'),
+         url('../fonts/lhfegyptian-webfont.ttf') format('truetype'),
+         url('../fonts/lhfegyptian-webfont.svg#lhf_egyptianregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
 /* GLOBAL TYPE 
 ----------------------------------*/	
 
