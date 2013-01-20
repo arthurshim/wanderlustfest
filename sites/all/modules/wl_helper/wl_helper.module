@@ -10,7 +10,7 @@ function wl_helper_boot() {
   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
   $subdomain = strtolower(trim($url[0]));
   if ($subdomain == 'wanderfest' && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
-    $sid = sites_get_most_recent_visited_site_sid();
+  /*  $sid = sites_get_most_recent_visited_site_sid();
 
     if (!empty($sid)) {
       $prev_site = _sites_get_site($sid);
@@ -18,7 +18,7 @@ function wl_helper_boot() {
 
  
       drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '');
-    }
+    }*/
   }
   else {
     $arr = array(
@@ -39,19 +39,20 @@ function wl_helper_boot() {
 
 function wl_helper_init() {
 	
-  drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
+  //drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
 
   
   $mystring = $_SERVER['HTTP_REFERER'];
-  $find   = '.wanderfest.com';
+//print '<pre>' . print_r($_SERVER['HTTP_REFERER'], 1) . '</pre>';
+  $find   = '.wonderlustfest.com';
   $pos = strpos($mystring, $find);
+ // print '<pre>pos' . print_r($pos, 1) . '</pre>';
   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
   $subdomain = strtolower(trim($url[0]));  
-  if ($subdomain == 'wanderfest' && !$pos) {  /*add  jquery redirect if  user come from external to wanderfest.com*/
-    drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper_map.js');
+  if ($subdomain == 'wonderlustfest' && !$_GET['m']) {
+   // drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper_map.js');
     
   }	
-
 
 
 

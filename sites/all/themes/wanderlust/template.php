@@ -296,3 +296,27 @@ function phptemplate_preprocess_page(&$vars) {
   $vars['scripts'] = drupal_get_js('header', $scripts);
 }
 
+function wanderlust_content_view_multiple_field($items, $field, $values) {
+   
+  if($field['field_name']=='field_photos_images'){
+    $output = '';
+     $i = 0;
+    foreach ($items as $item){
+ 
+          if($i == 0) {
+            $output .= '<p><a class="" data-fancybox-group="thumb"  href="/' . $item . '">' . theme('imagecache', 'node_teaser_image', $item) . '</a></p>';
+           // $output .= '<p><a class="" data-fancybox-group="thumb"  href="/' . $item . '"><img src="/' . $item . '" alt="" width="200" height="150" /></a></p>';
+
+          }
+          else {
+	    
+
+	$output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $item . '">' . theme('imagecache', 'node_teaser_image', $item) . '</a></p>'; 
+          //  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $item . '"><img src="/' . $item . '" alt="" /></a></p>';
+          }
+          $i++;
+
+    }
+    return $output;    
+  }
+}
