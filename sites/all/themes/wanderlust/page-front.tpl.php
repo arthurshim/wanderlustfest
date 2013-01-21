@@ -53,7 +53,7 @@
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js?h"></script>
 
 
-<?php  if($subdomain == 'wanderfest' && !$_GET['m']) {   ?>
+<?php  if($subdomain == 'wanderfest' && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
 <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
  <?php }?>
  

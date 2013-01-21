@@ -207,8 +207,51 @@ function wl_helper_menu() {
     'page callback' => 'wl_feed_live_events_list',
     'access callback' => TRUE,
   );
-
+  
+  $items['getimages'] = array(
+    'page callback' => 'wl_helper_getimages_ajax',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+  );
+    
   return $items;
+}
+
+function wl_helper_getimages_ajax($nid) {
+  if($nid) {
+   $data = db_query("SELECT photos_images.filepath AS filepath
+				  FROM {node} node 
+				  LEFT JOIN {content_field_photos_images} node_data_field_photos_images ON node.vid = node_data_field_photos_images.vid
+				  LEFT JOIN {files} photos_images ON node_data_field_photos_images.field_photos_images_fid = photos_images.fid
+				  WHERE node.nid = %d", $nid);
+    $output = '';
+    $i = 0;
+	while($res = db_fetch_object($data)) {
+	  $i++;
+	  if($i == 1) {
+	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
+	  }
+	//  $output .=  '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->files_node_data_field_photos_images_filepath . '">' . theme('imagecache', 'node_teaser_image', $res->files_node_data_field_photos_images_filepath) . '</a></p>'; 
+      else {
+	  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
+      }
+
+	
+	}
+	
+  }
+  else {
+    $output = t('No images');
+  }
+//print '<pre>' . print_r($output, 1) . '</pre>';
+/*$result = '';
+
+   $result = '<p><a class="hid fancybox-thumbs" href="/files/photos/_MG_3073-Edited_0.jpg" data-fancybox-group="thumb"><img class="imagecache imagecache-node_teaser_image" width="200" height="112" title="" alt="" src="/files/photos/_MG_3073-Edited_0.jpg"></a></p>';
+   $result .= '<p><a class="hid fancybox-thumbs" href="/files/photos/_MG_3033-Edited.jpg" data-fancybox-group="thumb"><img class="imagecache imagecache-node_teaser_image" width="200" height="112" title="" alt="" src="/files/photos/_MG_3033-Edited.jpg"></a></p>';
+
+  print $result;*/
+print $output;
+  exit();
 }
 
 function wl_feed_live_events_list() {

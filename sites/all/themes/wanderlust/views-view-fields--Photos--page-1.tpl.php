@@ -2,7 +2,8 @@
 
 
 
-print $fields['field_photos_images_fid']->content; ?>
+//print $fields['field_photos_images_fid']->content;
+print $fields['filepath']->content; ?>
 <?php print $fields['title']->content; ?>
 <div class="social-networks">
   <div class="like-twitter">

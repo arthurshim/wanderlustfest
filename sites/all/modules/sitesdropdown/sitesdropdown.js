@@ -1,17 +1,45 @@
 Drupal.behaviors.dropdown = function(context) {
-   $(".view-Photos.view-display-id-page_1 li.views-row").hover(
-      function () {
-        $(this).find('a').addClass('fancybox-thumbs');
-	
-      },
-      function () {
-        $(this).find('a').removeClass("fancybox-thumbs");
-      }
-    );
-      /*
-       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-       */
-      $('.fancybox-thumbs').fancybox({
+  $(".view-Photos.view-display-id-page_1  .hnid").hide();                 
+ //***********
+ $('.view-Photos.view-display-id-page_1 li.views-row').bind('mouseleave', function() {           
+            
+});
+ 
+  $('.view-Photos.view-display-id-page_1 li.views-row').click(function() {
+     $(this).find('a').addClass('fancybox-thumbs');
+                     var tt =  $(this).find('.aal');
+                var curr_val = $(this).find('.hnid').text();
+                var new_val = parseInt(curr_val);
+
+            $.ajax({
+                url: '/getimages/' + new_val,
+                type: 'GET',
+                beforeSend: function () {
+                  //  $(".aal").prepend('<p class="loading-text">Loading details...</p>');
+                },
+                success: function (data) {
+                     tt.replaceWith(data);
+                      
+                },
+                complete: function () {
+                 
+                  //console.log($(this));
+     /*$(this).find('a').bind('click');
+       $(this).find('a').click();*/
+     
+                }
+                
+            });
+            
+            
+     $.fancybox.showLoading();
+     
+     setTimeout(
+function() {
+  $.fancybox.hideLoading();
+  $(this).find('a').addClass('fancybox-thumbs');
+  
+           $('.fancybox-thumbs').fancybox({     
 	      prevEffect : 'none',
 	      nextEffect : 'none',
 
@@ -23,9 +51,71 @@ Drupal.behaviors.dropdown = function(context) {
 		      thumbs : {
 			      width  : 50,
 			      height : 50
-		      }
+		      },
+		    title : {
+			type : 'float'
+		    }   
+		      
 	      }
-      });
+      });   
+
+//$('#table tr').bind('click');
+/*
+var c = true;
+if(c == true) {
+   c = false;
+         $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').click();
+   $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').removeClass("fir");
+}*/
+
+     $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').click();
+   $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').removeClass("fir");
+  //  $(this).find('a').addClass('fsssss');
+    // $(this).find('a')[0].click();
+
+},
+3000
+);
+
+ /*
+ $(this).find('a').addClass('fsssss');
+ var s = $(this).find('a:first');
+       $(this).find('a:first').bind('click');
+     console.log(s);*/
+   //  alert(s);
+    //  $(this).find('a:first').click();
+
+
+  });                           
+ 
+ $(".view-Photos.view-display-id-page_1 li.views-row").live("hover", function(event){
+
+});                          
+                           
+                           
+                           
+ //********                          
+   $(".view-Photos.view-display-id-page_1 li.views-row").hover(
+      function () {
+    
+    // $(this).find('a').addClass('fancybox-thumbs');
+     
+
+
+
+
+      //   $(this).find('a').addClass('fancybox-thumbs');
+
+	
+      },
+      function () {
+        $(this).find('a').removeClass("fancybox-thumbs");
+      }
+    );
+      /*
+       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+       */
+   
 }
 
 function onYouTubePlayerReady(playerId) { 

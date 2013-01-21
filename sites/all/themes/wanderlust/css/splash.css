@@ -135,14 +135,7 @@
 }
 
 /*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
-#map-1 {
-    cursor: move;
-    width: 2146px;
-  height: 1350px; 	
-    position: absolute;
-    left: -275px;
-    /*top: -33px;*/
-}
+
 
 .level {
     position: absolute;
@@ -830,29 +823,13 @@
     overflow: hidden;
 }
 
-.wanderfest #map-1-container {
-    height: 800px;
-    /*width: 1350px;*/
-    overflow: hidden !important;
-    position: relative;
-    /*height : 100%;*/
-    width : 100%;
-}
+
 
 .not-logged-in.wanderfest #main {
     display: block !important;
 }
 
-.map-viewport {
-    border: 1px solid black;
-    /*height: 1170px;*/
-    margin: 0 0 20px;
-    overflow: hidden;
-    position: relative;
-    /*width: 1350px;*/
-    height : 800px;
-    width : 1560px;
-}
+
 
 .email-container{
   background: url('../images/splash-sprite.png');
@@ -1015,29 +992,6 @@
 
 
 
-/*
-div.mark.festival.legendNo.highlight {
-   background-color: #CEA430;
-   border-radius:3px;
-
-}
-
-div.mark.festival.legendNo.highlight {
-   background-color: #CEA430;
-   border-radius:3px;
-
-}
-div.mark.yoga.legendNo.highlight {
-   background-color: #CEA430;
-   border-radius:3px;
-
-}
-div.mark.legendNo.highlight {
-   background-color: #CEA430;
-   border-radius:3px;
-
-}*/
-
 
 
 
@@ -1058,3 +1012,35 @@ div.mark.legendNo.highlight {
   position:absolute;  
   display:none;
   }
+  
+  
+  /*map size*/
+  #map-1 {
+    cursor: move;
+    width: 2146px;
+  height: 1350px; 	
+    position: absolute;
+    left: -275px;
+    /*top: -33px;*/
+}
+  
+  
+  .map-viewport {
+    border: 1px solid black;
+    /*height: 1170px;*/
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    /*width: 1350px;*/
+    height : 800px;
+    width : 1560px;
+}
+
+.wanderfest #map-1-container {
+    height: 800px;
+    /*width: 1350px;*/
+    overflow: hidden !important;
+    position: relative;
+    /*height : 100%;*/
+    width : 100%;
+}

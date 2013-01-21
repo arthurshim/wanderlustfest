@@ -296,7 +296,7 @@ function phptemplate_preprocess_page(&$vars) {
   $vars['scripts'] = drupal_get_js('header', $scripts);
 }
 
-function wanderlust_content_view_multiple_field($items, $field, $values) {
+function wwanderlust_content_view_multiple_field($items, $field, $values) {
    
   if($field['field_name']=='field_photos_images'){
     $output = '';
