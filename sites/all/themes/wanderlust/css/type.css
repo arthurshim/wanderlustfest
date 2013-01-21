@@ -4,7 +4,7 @@
 /* FONT-FACE DECLARATIONS
 ----------------------------------*/	
 
-@font-face {
+/*@font-face {
     font-family: 'revolution';
     src: url('../fonts/revolution-webfont.eot');
     src: url('../fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
@@ -13,7 +13,7 @@
          url('../fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 @font-face {
 		font-family: 'MrsEavesOT-Italic';
@@ -26,6 +26,17 @@
 		font-style: normal;
 }
 
+
+@font-face {
+		font-family: 'MrsEavesOT-Bold';
+		src: url('../fonts/mrseavesotbold.eot');
+		src: url('../fonts/mrseavesotbold.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotbold.woff') format('woff'),
+				 url('../fonts/mrseavesotbold.ttf') format('truetype'),
+				 url('../fonts/mrseavesotbold.svg#mrseavesotbold') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
 
 @font-face {
 		font-family: 'MrsEavesOT-Roman';
@@ -98,17 +109,23 @@
 
 
 
+
 /* GLOBAL TYPE 
 ----------------------------------*/	
 
 body {
-  font-family: 'DejaVuSansBook', helvetica;
-  font-size: 100%;
+  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
+  font-size: 12px;
   line-height: 1.5;
   margin: 0;
   padding: 0;
   color: #0b1d0d;
   }
+
+body strong{
+  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
+  font-weight: bold;
+}
 
 /* PAGE NODE TYPE
 ----------------------------------*/	
@@ -140,15 +157,20 @@ h1.title,
   font-size: 18px;
   font-weight: bold;
   line-height: 1.6;
-  }
+  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
+}
   
 .page-body p {
-  line-height: 1.6em;
   margin: 0;
   padding: 0;
-  font-size: 14px;
+
 }
 
+.page-body{
+  font-size: 16px;
+  line-height: 1.4em;
+  
+}
 
   
 article h2,
@@ -157,12 +179,12 @@ article h2 a,
   font-size: 15px;
 	margin-top: 2px; 
 	margin-bottom: 5px;
-	font-family: 'DejaVuSansBold' !important;
+  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
 	line-height: 1.2;
   }
   
   
-h2{
+.node-type-blog h2{
   font-family: 'lhf_egyptianregular', arial !important;
   font-size: 30px !important;   
   color: #388688;

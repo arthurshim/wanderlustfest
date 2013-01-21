@@ -516,8 +516,7 @@ h2.sub-title {
 
 /* Page Body */
 .page-body {
-  font-size: 14px;
-  line-height: 1.5;
+
 }
 .page-body img.imagecache-Thumbnail {
   float: left;
@@ -1000,7 +999,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 .photo-node-right .panel-pane {
   padding: 15px;
   clear: both;
-  margin-top: -30px;
+
 }
 
 .photo-node-right .social-networks {

@@ -53,11 +53,6 @@
   z-index: -1;
   }
 
-.event-item{   
-  }
-  
-
-
 
 /* GLOBAL SPLASH CALLOUT
 ----------------------------------*/	
@@ -119,12 +114,12 @@
 #navigation ul.nice-menu li a{
   display: block;
  	float: left;    
- 	font-size: 16px;
+ 	font-size: 23px;
  	text-transform: uppercase;
 	color: #ddb57b;
-	padding: 1px 22px 7px;
+	padding: 5px 22px 4px;
 	margin: 2px 0;
-	font-family: 'revolution', helvetica, arial;
+	font-family: 'lhf_egyptianregular', helvetica, arial;
 	letter-spacing: 1px;
 	font-weight: normal;
   }
@@ -159,7 +154,7 @@
  	color: #fff;
 	overflow: visible;
 	font-weight: normal !important;
-	font-size: 12px;
+	font-size: 18px;
 	clear: left;
 	float: left;
 	border-right: none !important;

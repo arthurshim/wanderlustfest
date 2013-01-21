@@ -79,13 +79,8 @@ Equation for font sizing:
  */
 
 body {
-  color: #222;
-  font-family: Helvetica neue, helvetica, arial;
-  font-size: 100%;
-  line-height: 1.5;
   margin: 0;
   padding: 0;
-  color: #0b1d0d;
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
