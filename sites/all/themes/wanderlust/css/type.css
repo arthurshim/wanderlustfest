@@ -27,16 +27,16 @@
 }
 
 
-		@font-face {
-				font-family: 'MrsEavesOT-Roman';
-				src: url('../fonts/mrseavesotroman.eot');
-				src: url('../fonts/mrseavesotroman.eot?#iefix') format('embedded-opentype'),
-						 url('../fonts/mrseavesotroman.woff') format('woff'),
-						 url('../fonts/mrseavesotroman.ttf') format('truetype'),
-						 url('../fonts/mrseavesotroman.svg#mrseavesotroman') format('svg');
-				font-weight: normal;
-				font-style: normal;
-		}
+@font-face {
+		font-family: 'MrsEavesOT-Roman';
+		src: url('../fonts/mrseavesotroman.eot');
+		src: url('../fonts/mrseavesotroman.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotroman.woff') format('woff'),
+				 url('../fonts/mrseavesotroman.ttf') format('truetype'),
+				 url('../fonts/mrseavesotroman.svg#mrseavesotroman') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
 
 @font-face {
   font-family:"RexBold";
@@ -96,16 +96,6 @@
 }
 
 
-		@font-face {
-				font-family: 'MrsEavesOT-Roman';
-				src: url('mrseavesotroman.eot');
-				src: url('mrseavesotroman.eot?#iefix') format('embedded-opentype'),
-						 url('mrseavesotroman.woff') format('woff'),
-						 url('mrseavesotroman.ttf') format('truetype'),
-						 url('mrseavesotroman.svg#mrseavesotroman') format('svg');
-				font-weight: normal;
-				font-style: normal;
-		}
 
 
 /* GLOBAL TYPE 
@@ -123,13 +113,15 @@ body {
 /* PAGE NODE TYPE
 ----------------------------------*/	
 
-h1.title {
+
+h1.title,
+.node-type-blog .pane-node-title .pane-content{
   color: #637a20;
-  font-size: 28px;
-  line-height: 1.2em;
-  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 0.8em;
+  margin: 8px 0 8px;
   text-transform: uppercase;
-  font-family: 'revolution';
+  font-family: 'lhf_egyptianregular', arial;
   }
 
 
@@ -169,3 +161,17 @@ article h2 a,
 	line-height: 1.2;
   }
   
+  
+h2{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 30px !important;   
+  color: #388688;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 10px 0 !important;
+  
+}
+
+.pane-blog-related{
+  margin: 30px 0;
+}
