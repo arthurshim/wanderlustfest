@@ -4,7 +4,7 @@
 /* FONT-FACE DECLARATIONS
 ----------------------------------*/	
 
-@font-face {
+/*@font-face {
     font-family: 'revolution';
     src: url('../fonts/revolution-webfont.eot');
     src: url('../fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
@@ -13,7 +13,7 @@
          url('../fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 @font-face {
 		font-family: 'MrsEavesOT-Italic';
@@ -26,9 +26,32 @@
 		font-style: normal;
 }
 
+
+@font-face {
+		font-family: 'MrsEavesOT-Bold';
+		src: url('../fonts/mrseavesotbold.eot');
+		src: url('../fonts/mrseavesotbold.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotbold.woff') format('woff'),
+				 url('../fonts/mrseavesotbold.ttf') format('truetype'),
+				 url('../fonts/mrseavesotbold.svg#mrseavesotbold') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'MrsEavesOT-Roman';
+		src: url('../fonts/mrseavesotroman.eot');
+		src: url('../fonts/mrseavesotroman.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotroman.woff') format('woff'),
+				 url('../fonts/mrseavesotroman.ttf') format('truetype'),
+				 url('../fonts/mrseavesotroman.svg#mrseavesotroman') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
 @font-face {
   font-family:"RexBold";
-  src:  url("../fonts/Rex_Bold.eot?") format("eot"),
+  src:  url("../fonts/Rex_Bold.eot") format("eot"),
         url("../fonts/Rex_Bold.woff") format("woff"),
         url("../fonts/Rex_Bold.ttf") format("truetype"),
         url("../fonts/Rex_Bold.svg#RexBold") format("svg");
@@ -71,28 +94,56 @@
 }
 
 
+@font-face {
+    font-family: 'lhf_egyptianregular';
+    src: url('../fonts/lhfegyptian-webfont.eot');
+    src: url('../fonts/lhfegyptian-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/lhfegyptian-webfont.woff') format('woff'),
+         url('../fonts/lhfegyptian-webfont.ttf') format('truetype'),
+         url('../fonts/lhfegyptian-webfont.svg#lhf_egyptianregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+
 /* GLOBAL TYPE 
 ----------------------------------*/	
 
 body {
-  font-family: 'DejaVuSansBook', helvetica;
-  font-size: 100%;
+  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
+  font-size: 12px;
   line-height: 1.5;
   margin: 0;
   padding: 0;
   color: #0b1d0d;
   }
 
+body strong{
+  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
+  font-weight: bold;
+}
+
+body em{
+  font-family: 'MrsEavesOT-Italic', georgia, 'times new roman';
+  font-style: italic;  
+}
+
 /* PAGE NODE TYPE
 ----------------------------------*/	
 
-h1.title {
+
+h1.title,
+.node-type-blog .pane-node-title .pane-content{
   color: #637a20;
-  font-size: 28px;
-  line-height: 1.2em;
-  margin: 0 0 10px;
+  font-size: 34px;
+  line-height: 0.8em;
+  margin: 8px 0 8px;
   text-transform: uppercase;
-  font-family: 'revolution';
+  font-family: 'lhf_egyptianregular', arial;
   }
 
 
@@ -111,24 +162,48 @@ h1.title {
   font-size: 18px;
   font-weight: bold;
   line-height: 1.6;
-  }
+  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
+}
   
 .page-body p {
-  line-height: 1.6em;
   margin: 0;
   padding: 0;
-  font-size: 14px;
+
+}
+
+.page-body,
+.node-type-artists .panel-col-first .pane-node-body{
+  font-size: 16px;
+  line-height: 1.4em;
 }
 
 
+.views-field-field-bands-url-value a{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 20px;  
+}
   
 article h2,
 article h2 a,
 .pane-photos .view-display-id-page_1 li.views-row{
-  font-size: 15px;
+  font-size: 26px;
 	margin-top: 2px; 
 	margin-bottom: 5px;
-	font-family: 'DejaVuSansBold' !important;
-	line-height: 1.2;
+  font-family: 'lhf_egyptianregular', arial;
+	line-height: 1;
   }
   
+  
+.node-type-blog h2{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 30px !important;   
+  color: #388688;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 10px 0 !important;
+  
+}
+
+.pane-blog-related{
+  margin: 30px 0;
+}
