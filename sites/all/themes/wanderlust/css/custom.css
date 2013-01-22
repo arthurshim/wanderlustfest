@@ -345,6 +345,7 @@ tbody {border: 0px!important;}
 .page-media h1#page-title {
   padding: 0px !important;
   color: #0e4815;
+  position: absolute;
   }
 
   
@@ -430,7 +431,7 @@ tbody {border: 0px!important;}
   -webkit-box-shadow: 0px 0px 8px #666;
   -moz-box-shadow: 0px 0px 8px #666;
   background: #fdfcf2;
-  min-height: 1200px;
+  /*min-height: 1200px;*/
   }
 
 
@@ -653,7 +654,10 @@ h2.sub-title {
 
 .pane-photos .view-display-id-page_1 .view-content ul .views-row-4,
 .pane-photos .view-display-id-page_1 .view-content ul .views-row-8,
-.pane-photos .view-display-id-page_1 .view-content ul .views-row-12{
+.pane-photos .view-display-id-page_1 .view-content ul .views-row-12,
+.pane-videos .view-display-id-page_1 .view-content ul .views-row-4,
+.pane-videos .view-display-id-page_1 .view-content ul .views-row-8,
+.pane-videos .view-display-id-page_1 .view-content ul .views-row-12{
   margin-right: 0 !important;
 }
 
@@ -667,8 +671,6 @@ h2.sub-title {
 .pane-photos .view-display-id-page_1 li.views-row a {
   color: #232323;
   display: block;
-  font-size: 16px;
-  line-height: 16px !important;
   margin: 0;
   padding: 0;
 }
@@ -697,13 +699,19 @@ h2.sub-title {
   width: 70px;
 }
 
-/* Views Videos Top */
+/* VIDEOS INDEX
+--------------------------------*/
 .panels-flexible-region-14-video_top_left {
-  width: 560px;
+  width: 561px !important;
+  margin-right: 0 !important;
 }
+
 .panels-flexible-region-14-video_top_right {
-  width: 408px;
+  width: 373px;
 }
+
+
+
 .panels-flexible-region-14-video_top_right .view-display-id-block_4 {
   border-top: 1px solid #bab9a7;
 }
@@ -729,14 +737,18 @@ h2.sub-title {
   padding: 10px 15px;
   width: 70px;
 }
+
 .panels-flexible-region-14-video_top_right .view-video-title {
   color: #232323;
   display: block;
   height: 67px;
   overflow: hidden;
   padding: 10px 15px 10px 0;
-  width: 295px;
+  width: 255px;
+  font-size: 18px;
+  line-height: 1.1;
 }
+
 .panels-flexible-region-14-video_top_right .view-video-title:hover,
 .panels-flexible-region-14-video_top_right .view-video-title:hover{
   color: #365f3a !important;
@@ -949,6 +961,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   width: 614px;
   margin-right: 36px;
   }
+
 
 
 .right-column,
@@ -1245,9 +1258,7 @@ TEMPORARY STYLES FOR LAUNCH
 /* NODE TEASERS (On homepage and index pages)
 ----------------------------------*/
 
-article,
-.pane-videos .view-display-id-page_1 li.views-row,
-.pane-photos .view-display-id-page_1 li.views-row{
+article{
   background-color: white;
   height: 300px;
   padding: 0 10px 8px;
@@ -1266,7 +1277,14 @@ article.ads{
   background: none;
 }
 
-.pane-photos .view-display-id-page_1 li.views-row{
+article.ads img{
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.pane-photos .view-display-id-page_1 li.views-row,
+.pane-videos .view-display-id-page_1 li.views-row{
   background-color: white;
   height: 300px;
   padding: 0 10px 8px;

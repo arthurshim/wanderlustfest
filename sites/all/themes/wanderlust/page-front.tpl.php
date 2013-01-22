@@ -425,6 +425,7 @@ jQuery(document).ready(function($) {
 
 <!-- BEGIN TOOLBAR -->
 <div id="toolbar">
+  <!-- DISABLED HELP ICON AND DIALOG
   <div id="help">
     <a class="icon" href="#">Help</a>
     <div class="dialog">
@@ -437,6 +438,7 @@ jQuery(document).ready(function($) {
         </div>
     </div>
   </div>
+  -->
   <div id="about">
     <a class="icon" href="#">About</a>  
     <div class="dialog">
@@ -444,7 +446,7 @@ jQuery(document).ready(function($) {
     
           <h3>About</h3>
           <p>
-            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+            Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature.  Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.           
           </p>
           <div class="arrow"></div>
         </div>
@@ -457,7 +459,7 @@ jQuery(document).ready(function($) {
         <div class="content">
           <h3>Mission</h3>
           <p>
-            Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis magna in felis egestas rutrum. Proin wisi libero, vestibulum eget, pulvinar nec, suscipit ut, mi. Integer in arcu ultricies leo dapibus ultricies. Sed rhoncus lobortis dolor. Suspendisse dolor. Mauris sapien velit, pulvinar non, rutrum non, consectetuer eget, metus. Morbi tincidunt lorem at urna. Etiam porta. Ut mauris. Phasellus tristique rhoncus magna. Nam tincidunt consequat urna. Sed tempor.
+            Wanderlust's core mission is to create community around mindful living. Mindful living is a conscious, value-based approach to leading a balanced & fulfilling life.  We focus on yoga, eating well, being green, practicing purpose in our partnerships, creating awareness, showcasing art, and encouraging adventure.           
           </p>
           <div class="arrow"></div>
         </div>
@@ -745,20 +747,26 @@ jQuery(document).ready(function($) {
 <div id="wanderdata">
 <div id="festinfo">
   <span>Wanderlust Festivals</span>
-  <div class="descript"></div>
+  <div class="descript">
+    The Festival is the crown jewel of the Wanderlust experience: unforgettable 4-day summits in locations of awesome natural beauty.  We take everything you treasure about your yoga practice, combine it with all the elements and experiences you seek in nature, throw in some epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, mediation sessions, films and so much more… The result? Newfound friends charting unforeseen journeys together.    
+  </div>
  <?php print $fests; ?>
 </div>
 
 <div id="yogainfo">
  <span>Yoga In The City Events</span>
-   <div class="descript">Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis </div>
+   <div class="descript">
+     Yoga in the City (YITC) takes the pillars of our Wanderlust Festival experience and places them in an urban setting for you to experience a little taste of our epic 4-day adventures in your own backyard. We invite top local instructors to lead large, free charity-focused classes.  Musical performances infuse classes and dance parties are prone to breaking out post-savasana. Vendors, artists and performers weave their flavor into the tapestry of the experience, making it a modern-day yogic celebration coming to your town for you to enjoy on a summers day.   
+    </div>
 
  <?php print $yogas; ?>
 </div>
 
 <div id="studioinfo">
 <span>Wanderlust Yoga Studios</span>
-  <div class="descript">Aliquam lectus orci, adipiscing et, sodales ac, feugiat non, lacus. Ut dictum velit nec est. Quisque posuere, purus sit amet malesuada blandit, sapien sapien auctor arcu, sed pulvinar felis mi sollicitudin tortor. Maecenas volutpat, nisl et dignissim pharetra, urna lectus ultrices est, vel pretium pede turpis id velit. Aliquam sagittis </div>
+  <div class="descript">
+    Wanderlust's mission is always to create community around mindful living, and Wanderlust Studios are the permanent brick-and-mortar temples built for achieving this goal at the local level. Wanderlust studios offer diverse yoga class offerings from accomplished local teachers.  But, moreover, the studios act as centers of community, offering inspiring lectures, live concerts, organic eats, film screenings, fund-raisers, and other events that serve to unite and elevate the community it serves.
+  </div>
 
   <?php print $studios; ?>
 </div>
