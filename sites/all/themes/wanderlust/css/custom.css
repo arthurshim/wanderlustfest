@@ -269,7 +269,7 @@ body.chile{
 
 .node-type-artists .views-field-field-bands-url-value{
   float: left;
-  width: 304px;
+  width: 300px;
   }
 
 .node-type-artists .off .pane-title{
@@ -839,12 +839,12 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover,
 .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover{
-  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center no-repeat;
+  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center repeat-x;
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active,
 .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active{
-  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center no-repeat;
+  background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center repeat-x;
   border: none;
 }
 
@@ -2338,7 +2338,13 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   display: none;
 }
 
+.view-Photos.view-display-id-page_1 img:hover {
+  cursor: pointer;
+}
 
+.view-Photos.view-display-id-page_1 .hnid {
+  display: none;
+}
 
 
 
