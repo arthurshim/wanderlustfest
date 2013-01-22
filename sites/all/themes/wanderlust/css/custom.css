@@ -176,38 +176,63 @@ body.chile{
 
 
 
-.node-type-artists .panel-col-first{
-    width: 626px;
-    margin-top: 10px;
-
-}
 
 .node-type-artists .panel-col-last{
-  width: 293px;
+  width: 300px;
   margin-top: 8px;
-  margin-left: 5px;
+
   }
 
+
+
+.panel-2col-stacked .panel-col-first .inside{
+  margin: 0 !important;
+  }
+
+.panel-2col-stacked .panel-col-last .inside{
+  margin: 0 !important;
+}
 
 .node-type-artists  .views_slideshow_singleframe_slide{
-  height: 410px;
+  height: 439px;
   }
 
 
- .node-type-artists .panel-col-first .pane-node-title {
-    color: #0E4815;
-    font-size: 26px;
-    text-transform: uppercase;
+.node-type-artists .pane-node-title{
+  position: absolute;
+  height: 439px;
 }
+
+ .pane-node-title .pane-content{
+  color: #fff;
+  font-size: 50px;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  position: absolute;
+  margin-left: 20px;
+  z-index: 999;
+  text-shadow: 1px 3px 4px #000;
+  width: 554px;
+  line-height: 0.8;
+  bottom: 20px;
+}
+
 .node-type-artists .panel-col-last .pane-title,
 .node-type-artists  .pane-title{
-    font-size: 16px;
-    text-transform: uppercase;
-    color: #888772;
-    margin-top: 0;
+  font-size: 28px;
+  text-transform: uppercase;
+  color: #388688;
+  margin: 0 0 8px 0;
+  font-family: 'lhf_egyptianregular', arial;
 
 }
 
+
+.view-display-id-block_6 .views-field-nothing .st_fblike_hcount,
+.view-display-id-block_6 .views-field-nothing .st_twitter_hcount,
+.view-display-id-block_6 .views-field-nothing .st_sharethis_hcount{
+  float: left;
+}
 
 .node-type-artists .panel-col-last .panel-pane{
   margin-bottom: 15px;
@@ -227,9 +252,9 @@ body.chile{
 
 
 .node-type-artists .panel-col-first .pane-node-body{
-    font-size: 13px;
-    color:#3b423c;
+    font-size: 16px;
 }
+
 .node-type-artists #page-title{
     display:none;
 }
@@ -244,17 +269,9 @@ body.chile{
 
 .node-type-artists .views-field-field-bands-url-value{
   float: left;
-  width: 237px;
+  width: 304px;
   }
 
-.node-type-artists .pane-artists .view-display-id-block_6 .view-content div.views-row div.views-field-field-bands-facebook-value,
-.node-type-artists .pane-artists .view-display-id-block_6 .view-content div.views-row div.views-field-field-bands-twitter-value,
-.node-type-artists .pane-artists .view-display-id-block_6 .view-content div.views-row div.views-field-nothing {
-  float: left;
-  width: 115px;
-  position: relative;
-  z-index: 999;
-}
 .node-type-artists .off .pane-title{
      border-top: 1px solid;
      border-bottom: 1px solid;
@@ -789,7 +806,6 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   height: 40px;
   background:  #deddce url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup-2013.png") center left no-repeat;
   border: 1px solid #bab9a7;
-  margin-top: 17px;
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li,
@@ -806,13 +822,15 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   -webkit-border-radius: 0;
   display: block;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 26px;
   color: #7e9e83 !important;
-  padding: 10px 10px 0 13px;
+  padding: 10px 12px 0 14px;
   margin: 0;
   height: 30px;
   background: #deddce;
   border: none;
+  font-family: 'lhf_egyptianregular', arial !important;
+
 }
 
 .view-artist-landing2 a.viewsdisplaytabs-tab.active{
@@ -880,7 +898,6 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 .node-type-page .page-body,
 .node-type-webform .page-body,
 .node-type-artists .page-body {
-  margin: 10px 15px 0 0;
   padding-bottom: 40px;
 }
 
@@ -922,9 +939,17 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 /* PAGE NODE LAYOUT
 ----------------------------------*/
 
-.panels-flexible-region-first{
-  width: 650px;
+.not-front.page-node .body-content #main {
+  padding: 15px 22px;
   }
+
+
+.panels-flexible-region-first,
+.node-type-artists .panel-col-first{
+  width: 614px;
+  margin-right: 36px;
+  }
+
 
 .right-column,
 .photo-node-right{
@@ -1285,9 +1310,10 @@ article header h2 a{
   }
 
 article .content{
-  font-size: 12px;
+  font-size: 14px;
 	height: 270px;
   }
+  
 
 article .homepage-table {
 	margin-bottom: 1em!important;
@@ -1623,11 +1649,12 @@ div.carousel-overlay .carousel-overlay-event {
 }
 
 .view-homepage-carousel div.views-field-title a{
-  color: #fefdf3;
-  font-size: 14px;
-  text-shadow: 2px 4px 3px #333;
-  font-family: 'dejavusansbold', helvetica;
-  line-height: 1;
+  color: #fff;
+  font-size: 24px;
+  text-shadow: 1px 2px 3px #000;
+  font-family: 'lhf_egyptianregular', arial;
+  line-height: .8;
+  letter-spacing: 1px;
   }
 
 .view-homepage-carousel .artist-category{
@@ -2232,20 +2259,56 @@ body#block-quicktabs-2 #header{
 .page-lineup .views-field-title{
   text-transform: uppercase;
   font-weight: bold;
-  line-height: 1;
+  line-height: 0.8;
+  text-align: center;
+  width: 220px;
   }
+
+.page-lineup  .view-artist-landing2 .views-field-title .field-content{
+  position: absolute;
+  bottom: 28px;
+  display: block;
+  text-align: center;
+  width: 204px;
+  z-index: 999;
+  padding: 0 8px;
+  
+}
+  
+.page-lineup .views-field-title a{
+  font-family: 'lhf_egyptianregular', arial;
+  font-size: 26px;  
+
+
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 2px 3px #000;
+}  
   
 .page-lineup .view-artist-landing2 td{
   width: 222px;
   padding-right: 16px;
-  height: 190px;
+  height: 160px;
+  position: relative;
   }
 
 .view-artist-landing2 .view-empty{
-  font-size: 11px;
+  font-size: 16px;
   font-style: italic;
   padding: 0 0 20px 0;
   }
+
+
+
+#twtr-widget-1 .twtr-bd p{
+  font-family: 'MrsEavesOT-Roman', georgia  !important;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+#twtr-widget-1 .twtr-bd p em{
+  font-size: 15px;
+}
 
 .page-lineup td.last{
   padding-right: 0px;

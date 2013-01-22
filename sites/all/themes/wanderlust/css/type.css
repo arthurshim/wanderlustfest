@@ -127,6 +127,11 @@ body strong{
   font-weight: bold;
 }
 
+body em{
+  font-family: 'MrsEavesOT-Italic', georgia, 'times new roman';
+  font-style: italic;  
+}
+
 /* PAGE NODE TYPE
 ----------------------------------*/	
 
@@ -166,21 +171,26 @@ h1.title,
 
 }
 
-.page-body{
+.page-body,
+.node-type-artists .panel-col-first .pane-node-body{
   font-size: 16px;
   line-height: 1.4em;
-  
 }
 
+
+.views-field-field-bands-url-value a{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 20px;  
+}
   
 article h2,
 article h2 a,
 .pane-photos .view-display-id-page_1 li.views-row{
-  font-size: 15px;
+  font-size: 26px;
 	margin-top: 2px; 
 	margin-bottom: 5px;
-  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
-	line-height: 1.2;
+  font-family: 'lhf_egyptianregular', arial;
+	line-height: 1;
   }
   
   
