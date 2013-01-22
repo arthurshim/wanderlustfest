@@ -186,11 +186,11 @@ h1.title,
 article h2,
 article h2 a,
 .pane-photos .view-display-id-page_1 li.views-row{
-  font-size: 26px;
-	margin-top: 2px; 
+  font-size: 24px;
+	margin-top: 5px; 
 	margin-bottom: 5px;
   font-family: 'lhf_egyptianregular', arial;
-	line-height: 1;
+	line-height: 0.9;
   }
   
   
