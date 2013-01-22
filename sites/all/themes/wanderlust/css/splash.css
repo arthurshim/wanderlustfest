@@ -1,3 +1,7 @@
+/*GOOGLE MAPS BG COLOR*/
+body{
+background-color:rgb(223, 223, 223) !important;
+}
 /* SPLASH PAGE LOGO
 ---------------------------------*/
 
@@ -1014,33 +1018,69 @@
   }
   
   
+  
+  
+   .wanderfest #map-1-container {
+    height: 1200px;
+    overflow: hidden !important;
+    position: relative;
+    width : 1560px;
+}
+  
+   
+  .map-viewport {
+    border: 1px solid black;
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    height : 1200px;
+    width : 1560px;
+}
+  
+  
   /*map size*/
   #map-1 {
     cursor: move;
     width: 2146px;
-  height: 1350px; 	
+  height: 1170px; 	
     position: absolute;
     left: -275px;
     /*top: -33px;*/
 }
   
   
+  
+  
+  
+  @media only screen and (min-height:300px) and (max-height:768px)  {
+  /*adjusts viewport*/
+  .wanderfest #map-1-container {
+    height: 768px; /*these values reflect the height of viewport, if you see gray at the bottom they are too small for given media query*/
+    overflow: hidden !important;
+    position: relative;
+    width : 1560px;
+}
+  
+   
   .map-viewport {
     border: 1px solid black;
-    /*height: 1170px;*/
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    /*width: 1350px;*/
-    height : 800px;
+    height : 768px;/*these values reflect the height of viewport, if you see gray at the bottom they are too small for given media query*/
     width : 1560px;
 }
-
-.wanderfest #map-1-container {
-    height: 800px;
-    /*width: 1350px;*/
-    overflow: hidden !important;
-    position: relative;
-    /*height : 100%;*/
-    width : 100%;
+  
+  
+  /*map image size adjust*/
+  #map-1 {
+    cursor: move;
+    width: 2340px;
+  height: 1290px; 	/*adjusts where constrain happens on map image if image constrain is cut off at bottom make height more, if extra space after drag than less*/
+    position: absolute;
+    left: -275px;
+   
 }
+  }
+ 
+
