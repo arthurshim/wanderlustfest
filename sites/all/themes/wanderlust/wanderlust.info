@@ -10,7 +10,7 @@ stylesheets[all][] = css/type.css
 stylesheets[all][] = css/style.css
 stylesheets[all][] = css/custom.css
 stylesheets[all][] = css/header.css
-stylesheets[all][] = css/blog.css
+;stylesheets[all][] = css/blog.css
 ;stylesheets[all][] = css/splash.css
 
 
