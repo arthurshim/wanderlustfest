@@ -1,5 +1,7 @@
 Drupal.behaviors.dropdown = function(context) {
-            
+			  				$(window).resize(function() {
+setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
+});            
  
   $('.view-Photos.view-display-id-page_1 li.views-row').click(function() {
      $(this).find('a').addClass('fancybox-thumbs');
@@ -68,6 +70,78 @@ function() {
       function () {
     
     // $(this).find('a').addClass('fancybox-thumbs');
+	
+      },
+      function () {
+        $(this).find('a').removeClass("fancybox-thumbs");
+      }
+    );
+   
+ /*videos*/
+ 
+   $('.view-videos.view-display-id-page_1 li.views-row').click(function() {
+     $("#ajaxvid").replaceWith('<div class="aal"></div>');
+                var tt =  $(this).find('.aal');
+                var curr_val = $(this).find('.hnid').text();
+                var new_val = parseInt(curr_val);
+
+            $.ajax({
+                url: '/getvideo/' + new_val,
+                type: 'GET',
+                beforeSend: function () {
+                  //  $(".aal").prepend('<p class="loading-text">Loading details...</p>');
+                },
+                success: function (data) {
+                     tt.replaceWith(data);
+                      
+                },
+                complete: function () {
+     
+                }
+                
+            });
+            
+     $.fancybox.showLoading();          
+    setTimeout(
+    function() {
+      $.fancybox.hideLoading();
+      $.fancybox.open('#ajaxvid');
+      $(".fancybox-inner").css("overflow", "hidden");
+      setTimeout(function(){$(".fancybox-skin").css("width", "580")},300);
+      setTimeout(function(){$(".fancybox-inner").css( {'height': '360', 'width': '580'})},300);	
+    },
+    2500
+    );
+});    
+   
+   
+   
+   
+    $(".view-videos.view-display-id-page_1 li.views-row").hover(
+      function () {
+  
+      $(this).find('a').addClass('fancybox-thumbs');
+      $('.fancybox-thumbs').fancybox({     
+	      prevEffect : 'none',
+	      nextEffect : 'none',
+
+	      closeBtn  : true,
+	      arrows    : true,
+	      nextClick : true,
+
+	      helpers : {
+		      thumbs : {
+			      width  : 50,
+			      height : 50
+		      },
+		    title : {
+			type : 'float'
+		    }   
+		      
+	      }
+      });   
+      //   $(this).find('a').addClass('fancybox-thumbs');
+
 	
       },
       function () {

@@ -1034,19 +1034,20 @@ $("#connect .icon").toggle(
 );
 			
 
-            $(".mark:not(.legendNo)").mouseover(function() {
-$(".innersite").fadeOut();
- $(this).next().fadeIn();
- setTimeout(function(){$(this).next().fadeOut()},9000)
- 
+       $(".mark:not(.legendNo)").mouseover(function() {
+			
+	$(this).next().delay(790).fadeIn(200);
 
+	
+				
+			
 });			
 			
 			$(".innersite").mouseleave(function() {
+			$(".innersite").fadeOut();
 
- $(".innersite").fadeOut();
-
-});			
+});	
+	
 		
         
 /*LEGEND HOVERS*/

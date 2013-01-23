@@ -213,7 +213,12 @@ function wl_helper_menu() {
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
   );
-    
+  
+  $items['getvideo'] = array(
+    'page callback' => 'wl_helper_getvideo_ajax',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('access content'),
+  );    
   return $items;
 }
 
@@ -241,6 +246,20 @@ function wl_helper_getimages_ajax($nid) {
   }
   else {
     $output = t('No images');
+  }
+
+print $output;
+  exit();
+}
+
+function wl_helper_getvideo_ajax($nid) {
+  if($nid) {
+    $output = '';
+    $node = node_load($nid);
+    $output .= '<div id="ajaxvid" style="display:none;">' . node_view($node) . '</div>';
+  }
+  else {
+    $output = t('No video');
   }
 
 print $output;

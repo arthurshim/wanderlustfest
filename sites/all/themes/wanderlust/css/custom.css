@@ -2359,13 +2359,26 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   display: none;
 }
 
-.view-Photos.view-display-id-page_1 img:hover {
+.view-Photos.view-display-id-page_1 img:hover, .view-videos.view-display-id-page_1 img:hover  {
   cursor: pointer;
 }
 
-.view-Photos.view-display-id-page_1 .hnid {
+.view-Photos.view-display-id-page_1 .hnid, .view-videos.view-display-id-page_1 .hnid{
   display: none;
 }
 
+.ajaxvid {
+  width: 560px;
+  height: 360px;
+  display: none;
+   position: absolute;
+}
 
+.ajaxvid .content{
+  width: 560px;
+  height: 360px;
+}
 
+.ajaxvid .field-field-video-embed {
+   display: none;
+}
