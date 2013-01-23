@@ -42,10 +42,10 @@ function wl_helper_init() {
   //drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
 
   
-  $mystring = $_SERVER['HTTP_REFERER'];
+ // $mystring = $_SERVER['HTTP_REFERER'];
 //print '<pre>' . print_r($_SERVER['HTTP_REFERER'], 1) . '</pre>';
-  $find   = '.wonderlustfest.com';
-  $pos = strpos($mystring, $find);
+//  $find   = '.wonderlustfest.com';
+//  $pos = strpos($mystring, $find);
  // print '<pre>pos' . print_r($pos, 1) . '</pre>';
   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
   $subdomain = strtolower(trim($url[0]));  
@@ -232,24 +232,17 @@ function wl_helper_getimages_ajax($nid) {
 	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
 	  }
 	//  $output .=  '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->files_node_data_field_photos_images_filepath . '">' . theme('imagecache', 'node_teaser_image', $res->files_node_data_field_photos_images_filepath) . '</a></p>'; 
-      else {
-	  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
-      }
-
-	
+	  else {
+	      $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>';
+	    //  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '"><img src="/' . $res->filepath . '" alt="" /></a></p>';
+	  }
 	}
 	
   }
   else {
     $output = t('No images');
   }
-//print '<pre>' . print_r($output, 1) . '</pre>';
-/*$result = '';
 
-   $result = '<p><a class="hid fancybox-thumbs" href="/files/photos/_MG_3073-Edited_0.jpg" data-fancybox-group="thumb"><img class="imagecache imagecache-node_teaser_image" width="200" height="112" title="" alt="" src="/files/photos/_MG_3073-Edited_0.jpg"></a></p>';
-   $result .= '<p><a class="hid fancybox-thumbs" href="/files/photos/_MG_3033-Edited.jpg" data-fancybox-group="thumb"><img class="imagecache imagecache-node_teaser_image" width="200" height="112" title="" alt="" src="/files/photos/_MG_3033-Edited.jpg"></a></p>';
-
-  print $result;*/
 print $output;
   exit();
 }
