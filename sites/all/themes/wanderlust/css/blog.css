@@ -182,7 +182,7 @@ body.sidebar-right.blogs #main{
 
 .view-all-blog-posts .views-field-body{
   margin-bottom: 10px;
-  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
+  font-family: calibri, arial;
   font-size: 16px;
   line-height: 1.3;
   color: #47292b;
@@ -345,7 +345,7 @@ body.sidebar-right.blogs #main{
 }
 
 .node-type-blog .panels-flexible-region-first{
-  width: 622px;
+  width: 608px;
   background: #fff;
   padding: 13px;
   margin-right: 15px;
@@ -373,7 +373,7 @@ body.sidebar-right.blogs #main{
 }
 
 .node-type-blog .views-row{
-  font-family: 'MrsEavesOT-Roman', georgia, 'times new roman';
+  font-family: calibri, arial;
 
 }
 
@@ -395,4 +395,9 @@ body.sidebar-right.blogs #main{
 #blogs-related .views-field-name{
   font-size: 10px;
   color:#ccc;
+}
+
+
+.node-type-blog .panels-flexible-region-last{
+  margin-top: 0 !important;
 }

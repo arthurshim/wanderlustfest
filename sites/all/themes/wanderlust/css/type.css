@@ -138,12 +138,14 @@ body em{
 
 h1.title,
 .node-type-blog .pane-node-title .pane-content{
-  color: #637a20;
+  color: #402b2b;
   font-size: 34px;
   line-height: 0.8em;
   margin: 8px 0 8px;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial;
+  letter-spacing: 1px;
+  font-weight: normal !important;
   }
 
 
@@ -173,8 +175,9 @@ h1.title,
 
 .page-body,
 .node-type-artists .panel-col-first .pane-node-body{
-  font-size: 16px;
-  line-height: 1.4em;
+  font-size: 14px;
+  line-height: 1.5em;
+  color: #474747;
 }
 
 
@@ -196,7 +199,7 @@ article h2 a,
   }
   
   
-.node-type-blog h2{
+#main .node-type-blog h2{
   font-family: 'lhf_egyptianregular', arial !important;
   font-size: 30px !important;   
   color: #388688;

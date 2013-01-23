@@ -976,11 +976,24 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 ----------------------------------*/
 
 .not-front .pane-block{
-  background: #e3f5e4;
+  background: #f3e8ce;
   border-radius: 5px;
   float: left;
   margin-bottom: 15px;
+  border: 1px solid #dfc893;
   }
+
+.right-column h2,
+.photo-node-right h2 {
+  color: #402b2b;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  font-weight: normal !important;
+}
+
 
 #emailClick{
   background: url('../images/site-sprite.png');
@@ -1086,15 +1099,6 @@ RIGHT SIDEBAR
 .right-column table,
 .photo-node-right table {
   margin-bottom: 0;
-}
-.right-column h2,
-.photo-node-right h2 {
-  color: #888772;
-  font-size: 16px;
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  font-family: 'dejavusansbold', helvetica;
-
 }
 
 /* Block Views */
@@ -2382,3 +2386,13 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 .ajaxvid .field-field-video-embed {
    display: none;
 }
+
+
+/* BLOG NODE
+------------------------ */
+
+.node-type-blog .views-row{
+  font-size: 14px;
+}
+
+  
