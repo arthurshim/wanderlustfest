@@ -211,6 +211,8 @@ function wanderlust_preprocess_page(&$vars, $hook) {
     if ($subdomain = array_shift(explode('.', $domain))) {
       $vars['body_classes'] .= ' '. $subdomain;
     }
+
+
     /*
    if($subdomain == 'oahu') {	
 	
@@ -223,6 +225,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
     }    
     */
   }
+
 }
 
 

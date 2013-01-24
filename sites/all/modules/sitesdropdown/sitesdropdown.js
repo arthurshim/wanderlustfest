@@ -80,7 +80,21 @@ function() {
  /*videos*/
  
    $('.view-videos.view-display-id-page_1 li.views-row').click(function() {
-     $("#ajaxvid").replaceWith('<div class="aal"></div>');
+          
+   //  $(this).find('a').addClass("f");                                               
+$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});                                              
+    //$(this).find('a.fancybox-media').click();
+    
+   // setTimeout(function(){$(this).find('.aal').show()},300);	                                                    
+                                                 
+     //       $(this).find('a.f').removeClass("f");                                                
+    /* $("#ajaxvid").replaceWith('<div class="aal"></div>');
                 var tt =  $(this).find('.aal');
                 var curr_val = $(this).find('.hnid').text();
                 var new_val = parseInt(curr_val);
@@ -89,7 +103,7 @@ function() {
                 url: '/getvideo/' + new_val,
                 type: 'GET',
                 beforeSend: function () {
-                  //  $(".aal").prepend('<p class="loading-text">Loading details...</p>');
+                
                 },
                 success: function (data) {
                      tt.replaceWith(data);
@@ -112,12 +126,13 @@ function() {
     },
     2500
     );
+    */
 });    
    
    
    
    
-    $(".view-videos.view-display-id-page_1 li.views-row").hover(
+    $(".view-videos.view-display-id-page_1 li.views-roww").hover(
       function () {
   
       $(this).find('a').addClass('fancybox-thumbs');

@@ -1290,7 +1290,7 @@ article.ads img{
 .pane-photos .view-display-id-page_1 li.views-row,
 .pane-videos .view-display-id-page_1 li.views-row{
   background-color: white;
-  height: 300px;
+  height: 223px;
   padding: 0 10px 8px;
   width: 200px;
   border-radius: 5px;
@@ -2393,6 +2393,10 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 
 .node-type-blog .views-row{
   font-size: 14px;
+}
+
+.aal {
+  display: none;
 }
 
   

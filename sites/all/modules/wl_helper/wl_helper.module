@@ -224,21 +224,24 @@ function wl_helper_menu() {
 
 function wl_helper_getimages_ajax($nid) {
   if($nid) {
-   $data = db_query("SELECT photos_images.filepath AS filepath
+   $data = db_query("SELECT photos_images.filepath AS filepath, node_data_field_photos_images.field_photos_images_data AS tit
 				  FROM {node} node 
 				  LEFT JOIN {content_field_photos_images} node_data_field_photos_images ON node.vid = node_data_field_photos_images.vid
 				  LEFT JOIN {files} photos_images ON node_data_field_photos_images.field_photos_images_fid = photos_images.fid
 				  WHERE node.nid = %d", $nid);
     $output = '';
+    $title = '';
     $i = 0;
 	while($res = db_fetch_object($data)) {
 	  $i++;
+	  $title = @unserialize($res->tit);
+	//  print '<pre>' . print_r($title, 1) . '</pre>';
 	  if($i == 1) {
-	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
+	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb" title ="' . $title['description'] . '" href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
 	  }
 	//  $output .=  '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->files_node_data_field_photos_images_filepath . '">' . theme('imagecache', 'node_teaser_image', $res->files_node_data_field_photos_images_filepath) . '</a></p>'; 
 	  else {
-	      $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>';
+	      $output .= '<p><a class="hid" data-fancybox-group="thumb" title ="' . $title['description'] . '" href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>';
 	    //  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '"><img src="/' . $res->filepath . '" alt="" /></a></p>';
 	  }
 	}
