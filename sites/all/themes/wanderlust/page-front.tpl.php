@@ -664,7 +664,7 @@ jQuery(document).ready(function($) {
 	  if($site->extra_fields->field_event_date[0]['value']){
 	   $item =  '<div class="site-item">';
 	   $item .=  '<div class="site-marker"></div>';	   
-	   $item .= '<div class="site-title">' . $site->title . '</div>';
+	   $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base.'">'. $site->title . '</a></div>';
 	   $item .= '<div class="siteevent"><div class="item-date">';
 	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
 	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
@@ -1036,7 +1036,7 @@ $("#connect .icon").toggle(
 
        $(".mark:not(.legendNo)").mouseover(function() {
 	
-	$(this).next().delay(790).fadeIn(200);
+	$(this).next().delay(500).fadeIn(300);
 
 	
 				
