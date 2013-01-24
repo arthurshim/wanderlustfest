@@ -179,8 +179,6 @@ body.chile{
 
 .node-type-artists .panel-col-last{
   width: 300px;
-  margin-top: 8px;
-
   }
 
 
@@ -244,7 +242,7 @@ body.chile{
 
 
 .node-type-artists .panel-col-first .pane-node-body{
-    font-size: 16px;
+
 }
 
 .node-type-artists #page-title{
@@ -818,7 +816,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper,
 }
 
 .view-id-artist_landing2 .item-list{
-  border-bottom: 1px solid #ffffff;
+
   margin-bottom: 15px;
   }
 
@@ -2346,7 +2344,7 @@ body#block-quicktabs-2 #header{
 }
 
 #twtr-widget-1 .twtr-bd p em{
-  font-size: 15px;
+  font-size: 11px !important
 }
 
 .page-lineup td.last{

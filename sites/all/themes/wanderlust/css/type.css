@@ -150,7 +150,7 @@ h1.title,
 .heading1{
   color: #416647;
   font-size: 28px !important;
-  font-weight: bold;
+  font-weight: normal;
   margin-bottom: 5px;
   line-height: 1.6;
   text-transform: uppercase;
@@ -160,9 +160,12 @@ h1.title,
   
 .heading2{
   color: #6ba265;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: normal;
   line-height: 1.6;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  letter-spacing: 1px;
 }
   
 .page-body p {
@@ -216,4 +219,5 @@ h2.pane-title{
   font-size: 26px;
   text-transform: uppercase;  
   color: #6ba265;
+  margin-bottom: 4px;
 }
