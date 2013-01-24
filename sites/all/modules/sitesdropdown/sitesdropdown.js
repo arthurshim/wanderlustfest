@@ -1,13 +1,11 @@
 Drupal.behaviors.dropdown = function(context) {
-  $(".view-Photos.view-display-id-page_1  .hnid").hide();                 
- //***********
- $('.view-Photos.view-display-id-page_1 li.views-row').bind('mouseleave', function() {           
-            
-});
+			  				$(window).resize(function() {
+setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
+});            
  
   $('.view-Photos.view-display-id-page_1 li.views-row').click(function() {
      $(this).find('a').addClass('fancybox-thumbs');
-                     var tt =  $(this).find('.aal');
+                var tt =  $(this).find('.aal');
                 var curr_val = $(this).find('.hnid').text();
                 var new_val = parseInt(curr_val);
 
@@ -22,10 +20,6 @@ Drupal.behaviors.dropdown = function(context) {
                       
                 },
                 complete: function () {
-                 
-                  //console.log($(this));
-     /*$(this).find('a').bind('click');
-       $(this).find('a').click();*/
      
                 }
                 
@@ -34,7 +28,7 @@ Drupal.behaviors.dropdown = function(context) {
             
      $.fancybox.showLoading();
      
-     setTimeout(
+  setTimeout(
 function() {
   $.fancybox.hideLoading();
   $(this).find('a').addClass('fancybox-thumbs');
@@ -59,39 +53,16 @@ function() {
 	      }
       });   
 
-//$('#table tr').bind('click');
-/*
-var c = true;
-if(c == true) {
-   c = false;
-         $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').click();
-   $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').removeClass("fir");
-}*/
-
      $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').click();
-   $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').removeClass("fir");
-  //  $(this).find('a').addClass('fsssss');
-    // $(this).find('a')[0].click();
+     $('.view-Photos.view-display-id-page_1 li.views-row').find('a.fir:first').removeClass("fir");
 
 },
 3000
 );
 
- /*
- $(this).find('a').addClass('fsssss');
- var s = $(this).find('a:first');
-       $(this).find('a:first').bind('click');
-     console.log(s);*/
-   //  alert(s);
-    //  $(this).find('a:first').click();
-
 
   });                           
- 
- $(".view-Photos.view-display-id-page_1 li.views-row").live("hover", function(event){
-
-});                          
-                           
+                   
                            
                            
  //********                          
@@ -99,11 +70,91 @@ if(c == true) {
       function () {
     
     // $(this).find('a').addClass('fancybox-thumbs');
+	
+      },
+      function () {
+        $(this).find('a').removeClass("fancybox-thumbs");
+      }
+    );
+   
+ /*videos*/
+ 
+   $('.view-videos.view-display-id-page_1 li.views-row').click(function() {
+          
+   //  $(this).find('a').addClass("f");                                               
+$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});                                              
+    //$(this).find('a.fancybox-media').click();
+    
+   // setTimeout(function(){$(this).find('.aal').show()},300);	                                                    
+                                                 
+     //       $(this).find('a.f').removeClass("f");                                                
+    /* $("#ajaxvid").replaceWith('<div class="aal"></div>');
+                var tt =  $(this).find('.aal');
+                var curr_val = $(this).find('.hnid').text();
+                var new_val = parseInt(curr_val);
+
+            $.ajax({
+                url: '/getvideo/' + new_val,
+                type: 'GET',
+                beforeSend: function () {
+                
+                },
+                success: function (data) {
+                     tt.replaceWith(data);
+                      
+                },
+                complete: function () {
      
+                }
+                
+            });
+            
+     $.fancybox.showLoading();          
+    setTimeout(
+    function() {
+      $.fancybox.hideLoading();
+      $.fancybox.open('#ajaxvid');
+      $(".fancybox-inner").css("overflow", "hidden");
+      setTimeout(function(){$(".fancybox-skin").css("width", "580")},300);
+      setTimeout(function(){$(".fancybox-inner").css( {'height': '360', 'width': '580'})},300);	
+    },
+    2500
+    );
+    */
+});    
+   
+   
+   
+   
+    $(".view-videos.view-display-id-page_1 li.views-roww").hover(
+      function () {
+  
+      $(this).find('a').addClass('fancybox-thumbs');
+      $('.fancybox-thumbs').fancybox({     
+	      prevEffect : 'none',
+	      nextEffect : 'none',
 
+	      closeBtn  : true,
+	      arrows    : true,
+	      nextClick : true,
 
-
-
+	      helpers : {
+		      thumbs : {
+			      width  : 50,
+			      height : 50
+		      },
+		    title : {
+			type : 'float'
+		    }   
+		      
+	      }
+      });   
       //   $(this).find('a').addClass('fancybox-thumbs');
 
 	

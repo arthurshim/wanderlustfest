@@ -1,7 +1,9 @@
 /*GOOGLE MAPS BG COLOR*/
+
 body{
-background-color:rgb(223, 223, 223) !important;
+  background-color:rgb(223, 223, 223) !important;
 }
+
 /* SPLASH PAGE LOGO
 ---------------------------------*/
 
@@ -12,14 +14,14 @@ background-color:rgb(223, 223, 223) !important;
     background-position: 679px -8px;
     position: absolute;
     top: 10px;
-    left: 30%;
+    left: 27%;
     z-index: 100;
     text-indent: -9999em;
 
 }
 
 
-/* MAP MARKERS 
+/* MAP MARKERS
 ---------------------------------*/
 
 #map-1-container .mark {
@@ -33,9 +35,9 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.studio3294{
-    left: 751px;
-    top: 386px;
-  
+    left: 718px;
+    top: 383px;
+
 }
 
 #map-1 .mark.squaw {
@@ -45,7 +47,7 @@ background-color:rgb(223, 223, 223) !important;
 
 .innersite.squaw{
     top: 336px;
-    margin-left: 894px;  
+    margin-left: 855px;
 }
 
 #map-1 .mark.stratton {
@@ -55,7 +57,7 @@ background-color:rgb(223, 223, 223) !important;
 
 .innersite.stratton{
   top: 275px;
-  margin-left: 1140px;
+  margin-left: 1106px;
 }
 
 
@@ -65,29 +67,29 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.nyc{
-    margin-left: 1160px;
-    top: 307px;  
+    margin-left: 1123px;
+    top: 307px;
 }
 
 #map-1  .mark.sf {
     margin-left: 850px;
-    top: 209px;
+    top: 203px;
 }
 
 .innersite.sf{
-    margin-left: 890px;
-    top: 322px;  
+    margin-left: 849px;
+    top: 315px;
 }
 
 
 #map-1 .mark.la {
-    margin-left: 874px;
-    top: 212px;
+    margin-left: 876px;
+    top: 215px;
 }
 
 .innersite.la{
-    margin-left: 914px;
-    top: 362px;  
+    margin-left: 873px;
+    top: 362px;
 }
 
 
@@ -102,8 +104,8 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.colorado{
-    margin-left: 984px;
-    top: 337px;  
+    margin-left: 941px;
+    top: 333px;
 }
 
 #map-1 .mark.whistler {
@@ -112,8 +114,8 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.whistler{
-    margin-left: 884px;
-    top: 259px;  
+    margin-left: 848px;
+    top: 259px;
 }
 
 #map-1 .mark.oahu {
@@ -122,9 +124,9 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.oahu{
-    margin-left: 684px;
-    top: 451px;
-  
+    margin-left: 642px;
+    top: 449px;
+
 }
 
 #map-1 .mark.chile {
@@ -133,12 +135,13 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .innersite.chile{
-    margin-left: 1159px;
+    margin-left: 1117px;
     top: 841px;
-  
+
 }
 
-/*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
+/*#map-1-container{ position:relative; width: 1350px; height: 495px;
+overflow:hidden; }*/
 
 
 .level {
@@ -177,7 +180,7 @@ background-color:rgb(223, 223, 223) !important;
 .mark {
     height: 23px;
     width: 24px;
-    cursor: pointer;
+    cursor: default;
     z-index: 1;
     padding: 1px;
 }
@@ -197,18 +200,18 @@ background-color:rgb(223, 223, 223) !important;
   background: url('../images/splash-sprite.png');
   height: 36px;
   width: 26px;
-  background-position: -235px -195px; 
+  background-position: -235px -195px;
   top: 4px;
-  	-webkit-transition-timing-function: ease-out;
+        -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
-	
-	-0-transition-timing-function: ease-out;
+
+        -0-transition-timing-function: ease-out;
     -0-transition-duration: 500ms;
-	
-	-ms-transition-timing-function: ease-out;
+
+        -ms-transition-timing-function: ease-out;
     -ms-transition-duration: 500ms;
-	
-	-moz-transition-timing-function: ease-out;
+
+        -moz-transition-timing-function: ease-out;
     -moz-transition-duration: 500ms;
 }
 
@@ -216,21 +219,21 @@ background-color:rgb(223, 223, 223) !important;
 
 @-webkit-keyframes flagish
 {
-0%		{-webkit-transform: rotate(0deg);}
-20%		{-webkit-transform: rotate(2deg);}
-60%		{-webkit-transform: rotate(7deg);}
-80%		{-webkit-transform: rotate(-7deg);}
-100%	{-webkit-transform: rotate(0deg);}
+0%              {-webkit-transform: rotate(0deg);}
+20%             {-webkit-transform: rotate(2deg);}
+60%             {-webkit-transform: rotate(7deg);}
+80%             {-webkit-transform: rotate(-7deg);}
+100%    {-webkit-transform: rotate(0deg);}
 
 
 }
 @-moz-keyframes flagish
 {
-0%		{-webkit-transform: rotate(0deg);}
-20%		{-webkit-transform: rotate(2deg);}
-60%		{-webkit-transform: rotate(7deg);}
-80%		{-webkit-transform: rotate(-7deg);}
-100%	{-webkit-transform: rotate(0deg);}
+0%              {-webkit-transform: rotate(0deg);}
+20%             {-webkit-transform: rotate(2deg);}
+60%             {-webkit-transform: rotate(7deg);}
+80%             {-webkit-transform: rotate(-7deg);}
+100%    {-webkit-transform: rotate(0deg);}
 
 }
 
@@ -240,8 +243,8 @@ background-color:rgb(223, 223, 223) !important;
 .mark.yoga:hover {
 
     -webkit-animation: flagish .23s linear 3;
-	-moz-animation: flagish 1.3s linear 2;
-	-ms-animation: flagish 1.3s linear 2;
+        -moz-animation: flagish 1.3s linear 2;
+        -ms-animation: flagish 1.3s linear 2;
 }
 
 
@@ -251,16 +254,16 @@ background-color:rgb(223, 223, 223) !important;
     height: 33px;
     width: 24px;
     top: 5px;
-	-webkit-transition-timing-function: ease-out;
+        -webkit-transition-timing-function: ease-out;
     -webkit-transition-duration: 500ms;
-	
-	-0-transition-timing-function: ease-out;
+
+        -0-transition-timing-function: ease-out;
     -0-transition-duration: 500ms;
-	
-	-ms-transition-timing-function: ease-out;
+
+        -ms-transition-timing-function: ease-out;
     -ms-transition-duration: 500ms;
-	
-	-moz-transition-timing-function: ease-out;
+
+        -moz-transition-timing-function: ease-out;
     -moz-transition-duration: 500ms;
 }
 .mark.studio:hover {
@@ -272,12 +275,12 @@ background-color:rgb(223, 223, 223) !important;
 /* COMMENTED OUT OLD ANIMATION TEMPORARILY 1/17/12
 @-webkit-keyframes baloonish
 {
-0%		{-webkit-transform: rotate(0deg); top:-2px; }
-25%		{-webkit-transform: rotate(2deg);}
-60%		{-webkit-transform: rotate(25deg);}
-75%		{-webkit-transform: rotate(-25deg); }
-90%		{-webkit-transform: rotate(-2deg); }
-100%	{-webkit-transform: rotate(0deg);}
+0%              {-webkit-transform: rotate(0deg); top:-2px; }
+25%             {-webkit-transform: rotate(2deg);}
+60%             {-webkit-transform: rotate(25deg);}
+75%             {-webkit-transform: rotate(-25deg); }
+90%             {-webkit-transform: rotate(-2deg); }
+100%    {-webkit-transform: rotate(0deg);}
 
 
 }
@@ -285,12 +288,12 @@ background-color:rgb(223, 223, 223) !important;
 @-moz-keyframes baloonish
 {
 
-0%		{-moz-transform: rotate(0deg); top:-2px;}
-25%		{-moz-transform: rotate(2deg);}
-60%		{-moz-transform: rotate(5deg);}
-75%		{-moz-transform: rotate(-4deg);}
-90%		{-moz-transform: rotate(-2deg);}
-100%	{-moz-transform: rotate(0deg);}
+0%              {-moz-transform: rotate(0deg); top:-2px;}
+25%             {-moz-transform: rotate(2deg);}
+60%             {-moz-transform: rotate(5deg);}
+75%             {-moz-transform: rotate(-4deg);}
+90%             {-moz-transform: rotate(-2deg);}
+100%    {-moz-transform: rotate(0deg);}
 
 }
 
@@ -298,12 +301,12 @@ background-color:rgb(223, 223, 223) !important;
 {
 
 
-0%		{-ms-transform: rotate(0deg);}
-25%		{-ms-transform: rotate(2deg);}
-60%		{-ms-transform: rotate(5deg);}
-75%		{-ms-transform: rotate(-4deg);}
-90%		{-ms-transform: rotate(-2deg);}
-100%	{-ms-transform: rotate(0deg);}
+0%              {-ms-transform: rotate(0deg);}
+25%             {-ms-transform: rotate(2deg);}
+60%             {-ms-transform: rotate(5deg);}
+75%             {-ms-transform: rotate(-4deg);}
+90%             {-ms-transform: rotate(-2deg);}
+100%    {-ms-transform: rotate(0deg);}
 }
 
 .baloonHover {
@@ -329,19 +332,19 @@ background-color:rgb(223, 223, 223) !important;
 
 
 @-webkit-keyframes bob {
-0%		{-webkit-transform: translate(0px,-2px);}
-25%		{-webkit-transform: translate(0px,-8px);}
-50%		{-webkit-transform: translate(0px,-1px); }
-75%		{-webkit-transform: translate(0px,-3px); }
-100%	{-webkit-transform: translate(0px,0px);}  
+0%              {-webkit-transform: translate(0px,-2px);}
+25%             {-webkit-transform: translate(0px,-8px);}
+50%             {-webkit-transform: translate(0px,-1px); }
+75%             {-webkit-transform: translate(0px,-3px); }
+100%    {-webkit-transform: translate(0px,0px);}
 }
 
 @-webkit-keyframes bob-flash {
-0%		{-webkit-transform: translate(0px,-2px);}
-25%		{-webkit-transform: translate(0px,-12px); opacity: 0.6;}
-50%		{-webkit-transform: translate(0px,-1px); opacity: 1; }
-75%		{-webkit-transform: translate(0px,-3px); }
-100%	{-webkit-transform: translate(0px,0px);}  
+0%              {-webkit-transform: translate(0px,-2px);}
+25%             {-webkit-transform: translate(0px,-12px); }
+50%             {-webkit-transform: translate(0px,-1px); }
+75%             {-webkit-transform: translate(0px,-3px); }
+100%    {-webkit-transform: translate(0px,0px);}
 }
 
 .mark.festival:hover{
@@ -358,7 +361,7 @@ background-color:rgb(223, 223, 223) !important;
 
 
 /*(.wanderfest #container {
- width:1350px;   
+ width:1350px;
 }*/
 
 
@@ -379,15 +382,20 @@ background-color:rgb(223, 223, 223) !important;
     font-family: 'MrsEavesOT-Italic';
     font-style: italic;
     margin-left: 284px;
+    font-size: 16px;
+    cursor: default !important;
 }
 
-.site-title {
-    font-weight: bold !important;
-    font-size: 15px;
+.site-title a,
+.site-title{
+    letter-spacing: 1px;
+    font-size: 18px;
     text-transform: uppercase;
-    font-family: revolution;
+    font-family: 'revolution', arial !important;
     font-style: normal;
     line-height: 1.2;
+    color: #000 !important;
+    text-decoration: none !important;
 }
 
 .innersite .site-title{
@@ -428,7 +436,7 @@ background-color:rgb(223, 223, 223) !important;
 
 #legend {
   background-image: url(../images/splash-sprite.png);
-  background-position: -18px -250px;    
+  background-position: -18px -250px;
   width: 320px;
   height: 198px;
   position: fixed;
@@ -614,17 +622,20 @@ background-color:rgb(223, 223, 223) !important;
 /* FESTIVALS, YITC, STUDIOS OVERVIEW DIALOGS
 ---------------------------------*/
 
+.bl .site-title a{
+  font-size: 16px;
+}
 
 .bl {
   float: left;
-  margin: 0 0 14px 0;
+  margin: 0 0 17px 0;
   width: 308px;
   position: relative;
   left: 78px;
   font-family: 'MrsEavesOT-Italic', 'times new roman';
   font-style: italic;
   line-height: 1.2;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .fancybox-inner .site-title{
@@ -640,22 +651,22 @@ background-color:rgb(223, 223, 223) !important;
 
 #festinfo .site-marker{
   background: url('../images/splash-sprite.png');
-  background-position: -264px -195px;  
+  background-position: -264px -195px;
   width: 32px;
   height: 36px;
   position: absolute;
   left: -37px;
-  top: 1px;
+  top: 3px;
 }
 
 #festinfo .site-title{
   color: #47292b;
 
 }
- 
+
 #yogainfo .site-marker{
   background: url('../images/splash-sprite.png');
-  background-position: -235px -195px;  
+  background-position: -235px -195px;
   width: 29px;
   height: 36px;
   position: absolute;
@@ -666,12 +677,12 @@ background-color:rgb(223, 223, 223) !important;
 
 #studioinfo .site-marker{
   background: url('../images/splash-sprite.png');
-  background-position: -168px -195px;  
+  background-position: -168px -195px;
   width: 27px;
   height: 36px;
   position: absolute;
   left: -37px;
-  top: 9px;  
+  top: 9px;
 }
 
 
@@ -711,13 +722,15 @@ background-color:rgb(223, 223, 223) !important;
     color: #000000;
     font-family: 'revolution', arial;
     position: relative;
-    margin: 8px 0 1px 0;
+    margin: 8px 0 3px 0;
 }
 
 .front .fancybox-skin #site-checkbox input {
   width: 16px;
   z-index: 99999;
   float: left;
+  margin: 0;
+  padding: 0;
 }
 
 #festinfo .descript, #yogainfo .descript, #studioinfo .descript {
@@ -727,7 +740,7 @@ background-color:rgb(223, 223, 223) !important;
   width: 600px;
   line-height: 1;
   margin: 0 auto;
-  padding-bottom: 11px;
+  padding-bottom: 13px;
 }
 
 
@@ -736,15 +749,15 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .bl .siteaddress{
-  margin-bottom: 0px;
+  margin-bottom: 3px;
 }
 
 .bl #site-checkbox input{
-  margin: 1px 0 0 0;
+  margin-right: 3px;
 }
 
 #festinfo .site-title{
-  
+
 }
 
 .event-list{
@@ -756,7 +769,7 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 .saveDefault{
-  float: left; 
+  float: left;
   margin-top: 2px;
 }
 
@@ -769,7 +782,7 @@ background-color:rgb(223, 223, 223) !important;
   width: 670px !important;
   height: 443px !important;
   padding: 10px 0px !important;
-  
+
 }
 
 .front .fancybox-skin td {
@@ -819,13 +832,6 @@ background-color:rgb(223, 223, 223) !important;
 }
 
 
-.wanderfest #container {
-    height: 800px;
-    /*width: 1350px;
-    height : 100%;*/
-    width : 100%;
-    overflow: hidden;
-}
 
 
 
@@ -857,9 +863,7 @@ background-color:rgb(223, 223, 223) !important;
   right: 0px;
   bottom: 10px;
   z-index: 999;
-  width: 300px; 
-  /* TEMP STYLE WITH BLOG width: 520px; */
-
+  width: 320px;
 }
 
 #toolbar a.icon{
@@ -869,13 +873,6 @@ background-color:rgb(223, 223, 223) !important;
   text-indent: -999em;
   float: left;
   margin-right: 17px;
-}
-
-
-/* TEMPORARY STYLE TO HIDE BLOG ICON */
-
-#toolbar #blog{
-  display: none;
 }
 
 #help a.icon{
@@ -902,31 +899,8 @@ background-color:rgb(223, 223, 223) !important;
 #connect a.icon{
   background-position: -785px -235px;
   width: 78px;
-  
+
 }
-
-
-/* DISABLE ICON HOVERS FOR NOW 1/4/13
-
-#help a:hover{
-  background-position: -397px -348px;
-}
-
-#about a:hover{
-  background-position: -504px -348px;
-  width: 72px;
-}
-
-#mission a:hover{
-  background-position: -589px -348px;
-  width: 80px;
-}
-
-#blog a:hover{
-  background-position: -696px -348px;
-  width: 70px;
-}
-*/
 
 #toolbar .dialog{
   background: url('../images/splash-sprite.png');
@@ -935,11 +909,13 @@ background-color:rgb(223, 223, 223) !important;
   height: 251px;
   position: absolute;
   bottom: 127px;
+  font-size: 12px;
   padding: 0 20px 10px 20px;
-  left: -109px;
+  left: -108px;
   text-align: center;
+  font-size: 12px;
   font-family: 'MrsEavesOT-Italic', 'Times New Roman';
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.2;
 }
 
@@ -963,12 +939,12 @@ background-color:rgb(223, 223, 223) !important;
   font-family: 'revolution';
   text-transform: uppercase;
   font-size: 16px;
-  margin: 25px 0 10px 0;
+  margin: 5px 0 10px 0;
   text-align: center;
 }
 
 #toolbar #connect h3{
-  margin-top: 13px;
+  margin-top: 15px;
 }
 
 
@@ -992,7 +968,7 @@ background-color:rgb(223, 223, 223) !important;
   left: 335px;
 }
 
-/* TEMPORARY STYLES TO HIDE TOOlBAR DIALOGS UNTIL JQUERY IS READY #alexb */
+
 #toolbar #help .dialog,
 #toolbar #about .dialog,
 #toolbar #mission .dialog,
@@ -1000,7 +976,9 @@ background-color:rgb(223, 223, 223) !important;
   display: none;
 }
 
-
+#toolbar #blog{
+  display: none;
+}
 
 
 
@@ -1020,73 +998,106 @@ background-color:rgb(223, 223, 223) !important;
 
 
 #wanderdata{
-  position:absolute;  
+  position:absolute;
   display:none;
   }
-  
-  
-  
-   /* 
+
+
+
+
+
+
+  .wanderfest #container {
+    height: 1000px;
+    /*width: 1350px;
+    height : 100%;*/
+    width : 100%;
+    overflow: hidden;
+}
+
+
    .wanderfest #map-1-container {
-    height: 1200px;
+    height: 1000px;
     overflow: hidden !important;
     position: relative;
     width : 1560px;
 }
-  
- 
+
+
   .map-viewport {
     border: 1px solid black;
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    height : 1200px;
+    height : 1000px;
     width : 1560px;
 }
-  
-  
- 
+
+
+
   #map-1 {
     cursor: move;
     width: 2146px;
-  height: 1170px; 	
+  height: 1170px;
     position: absolute;
     left: -275px;
-  
-}
-  */
- 
-  
-  /*@media only screen and (min-height:300px) and (max-height:768px)  {*/
-  /*adjusts viewport*/
 
-  .wanderfest #map-1-container {
-    height: 9598px;
-    overflow: hidden !important;
-    position: relative;
-    width : 1590px;
 }
-  
-   
+
+
+  @media only screen and (max-height:768px)  {
+
+
+    .wanderfest #container {
+    height: 1000px;
+
+}
+
+
+   .wanderfest #map-1-container {
+    height: 1000px;
+
+}
+
+
   .map-viewport {
-    border: 1px solid black;
-    margin: 0 0 20px;
-    overflow: hidden;
-    position: relative;
-    height : 9598px;
-    width : 1590px;
-}
-  
-  
-  /*map image size adjust*/
-  #map-1 {
-    cursor: move;
-    width: 2350px;
-    height: 1990px; 	/*adjusts where constrain happens on map image if image constrain is cut off at bottom make height more, if extra space after drag than less*/
-    position: absolute;
-    left: -275px;
-   
-}
- /* }*/
- 
 
+    height : 1000px;
+
+}
+
+
+
+  #map-1 {
+
+  height: 1430px;
+
+
+}
+
+}
+
+
+  @media only screen and (min-width:1500px)  {
+
+
+   .wanderfest #map-1-container {
+
+    width : 1780px;
+}
+
+
+  .map-viewport {
+
+    width : 1780px;
+}
+
+
+
+  #map-1 {
+
+    width: 2446px;
+
+}
+
+}

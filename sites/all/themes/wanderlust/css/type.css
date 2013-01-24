@@ -123,12 +123,10 @@ body {
   }
 
 body strong{
-  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
   font-weight: bold;
 }
 
 body em{
-  font-family: 'MrsEavesOT-Italic', georgia, 'times new roman';
   font-style: italic;  
 }
 
@@ -138,31 +136,36 @@ body em{
 
 h1.title,
 .node-type-blog .pane-node-title .pane-content{
-  color: #637a20;
+  color: #402b2b;
   font-size: 34px;
   line-height: 0.8em;
   margin: 8px 0 8px;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial;
+  letter-spacing: 1px;
+  font-weight: normal !important;
   }
 
 
 .heading1{
   color: #416647;
-  font-size: 22px !important;
-  font-weight: bold;
+  font-size: 28px !important;
+  font-weight: normal;
   margin-bottom: 5px;
   line-height: 1.6;
   text-transform: uppercase;
-  font-family: 'RexBold';
+  font-family: 'lhf_egyptianregular', arial;
+  letter-spacing: 1px;
   }
   
 .heading2{
   color: #6ba265;
-  font-size: 18px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: normal;
   line-height: 1.6;
-  font-family: 'MrsEavesOT-Bold', georgia, 'times new roman';
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  letter-spacing: 1px;
 }
   
 .page-body p {
@@ -173,8 +176,9 @@ h1.title,
 
 .page-body,
 .node-type-artists .panel-col-first .pane-node-body{
-  font-size: 16px;
-  line-height: 1.4em;
+  font-size: 14px;
+  line-height: 1.6em;
+  color: #474747;
 }
 
 
@@ -186,7 +190,7 @@ h1.title,
 article h2,
 article h2 a,
 .pane-photos .view-display-id-page_1 li.views-row,
-.pane-videos .view-display-id-page_1 li.views-row a{
+.pane-videos .view-display-id-page_1 li.views-row{
   font-size: 24px;
 	margin-top: 5px; 
 	margin-bottom: 5px;
@@ -196,7 +200,7 @@ article h2 a,
   }
   
   
-.node-type-blog h2{
+#main .node-type-blog h2{
   font-family: 'lhf_egyptianregular', arial !important;
   font-size: 30px !important;   
   color: #388688;
@@ -208,4 +212,12 @@ article h2 a,
 
 .pane-blog-related{
   margin: 30px 0;
+}
+
+h2.pane-title{
+  font-family: 'lhf_egyptianregular', arial !important;
+  font-size: 26px;
+  text-transform: uppercase;  
+  color: #6ba265;
+  margin-bottom: 4px;
 }

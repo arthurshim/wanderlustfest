@@ -179,8 +179,6 @@ body.chile{
 
 .node-type-artists .panel-col-last{
   width: 300px;
-  margin-top: 8px;
-
   }
 
 
@@ -217,15 +215,7 @@ body.chile{
   bottom: 20px;
 }
 
-.node-type-artists .panel-col-last .pane-title,
-.node-type-artists  .pane-title{
-  font-size: 28px;
-  text-transform: uppercase;
-  color: #388688;
-  margin: 0 0 8px 0;
-  font-family: 'lhf_egyptianregular', arial;
 
-}
 
 
 .view-display-id-block_6 .views-field-nothing .st_fblike_hcount,
@@ -247,12 +237,12 @@ body.chile{
 
 .twtr-widget .twtr-tweet{
   border-bottom: 1px dotted #BDBCAA !important;
-  padding: 7px 0;
+  padding: 2px 0;
   }
 
 
 .node-type-artists .panel-col-first .pane-node-body{
-    font-size: 16px;
+
 }
 
 .node-type-artists #page-title{
@@ -269,7 +259,7 @@ body.chile{
 
 .node-type-artists .views-field-field-bands-url-value{
   float: left;
-  width: 300px;
+  width: 298px;
   }
 
 .node-type-artists .off .pane-title{
@@ -345,7 +335,6 @@ tbody {border: 0px!important;}
 .page-media h1#page-title {
   padding: 0px !important;
   color: #0e4815;
-  position: absolute;
   }
 
   
@@ -462,8 +451,8 @@ tbody {border: 0px!important;}
 
 hr{
   margin: 20px 0;
-  border-bottom: 1px dotted #888772;
-  background: none;
+  background: url('../images/border-bg.png') repeat-x;
+  height: 2px;
   }
 
 .imgupl_floating_none_left{
@@ -578,10 +567,10 @@ h2.sub-title {
 /* Views (Video/Photos/News) */
 .pane-videos .view-display-id-page_1,
 .pane-photos .view-display-id-page_1 {
-  border-top: 1px solid #b1af8b;
+
   margin-top: 10px;
   padding-top: 15px;
-  width: 968px;
+  width: 940px;
 }
 .pane-photos .view-display-id-page_1 {
   border-top: none;
@@ -595,13 +584,16 @@ h2.sub-title {
   float: left;
   width: 400px;
 }
+
 .view-videos h4,
 .view-Photos h4 {
   color: #888772;
-  font-size: 18px;
+  font-size: 28px;
   margin: 0;
   padding: 0;
   text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  
 }
 
 /* Views Filters (Videos/Photos/News) */
@@ -610,8 +602,16 @@ h2.sub-title {
 .view-news .view-filters {
   float: right;
   height: 40px;
-  width: 473px !important;
+  width: 454px !important;
 }
+
+
+.view-Photos .view-filters{
+  position: absolute;
+  top: -47px;
+  right: 7px;
+}
+
 .view-news .view-filters {
   margin-bottom: 10px;
   margin-right: -1px;
@@ -619,11 +619,17 @@ h2.sub-title {
   position: relative;
   z-index: 20;
 }
+
 .view-videos .views-exposed-form .views-exposed-widget,
 .view-Photos .views-exposed-form .views-exposed-widget,
 .view-news .views-exposed-form .views-exposed-widget {
   padding: 0;
 }
+
+.views-widget-filter-tid_1{
+  margin-right: 0 !important;
+}
+
 .view-videos .form-select,
 .view-Photos .form-select,
 .view-news .form-select {
@@ -734,19 +740,22 @@ h2.sub-title {
   display: block;
   height: 67px;
   overflow: hidden;
-  padding: 10px 15px;
+  padding: 7px 15px;
   width: 70px;
 }
 
 .panels-flexible-region-14-video_top_right .view-video-title {
-  color: #232323;
   display: block;
-  height: 67px;
+  height: 50px;
   overflow: hidden;
   padding: 10px 15px 10px 0;
   width: 255px;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 1.1;
+  color: #000;
+  font-family: 'lhf_egyptianregular', arial;
+	line-height: 0.8;
+	text-transform: uppercase;  
 }
 
 .panels-flexible-region-14-video_top_right .view-video-title:hover,
@@ -807,17 +816,22 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper,
 }
 
 .view-id-artist_landing2 .item-list{
-  border-bottom: 1px solid #ffffff;
+
   margin-bottom: 15px;
   }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
 .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
-  margin: 0;
+  margin: 10px 0;
   padding: 0 0 0 68px;
   height: 40px;
   background:  #deddce url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup-2013.png") center left no-repeat;
   border: 1px solid #bab9a7;
+  
+}
+
+.panel-col-last .fb-like-box{
+  background: #fff;
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li,
@@ -975,12 +989,29 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 /* SIDEBAR BLOCKS
 ----------------------------------*/
 
-.not-front .pane-block{
-  background: #e3f5e4;
+.not-front .photo-node-right .pane-block,
+.panel-col-last .panel-pane{
+  background: #f3e8ce;
   border-radius: 5px;
   float: left;
   margin-bottom: 15px;
+  border: 1px solid #dfc893;
+  padding: 15px;
+  clear: both;
   }
+
+.right-column h2,
+.photo-node-right h2,
+.panel-col-last .pane-title  {
+  color: #402b2b;
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin: 0 0 10px;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial;
+  font-weight: normal !important;
+}
+
 
 #emailClick{
   background: url('../images/site-sprite.png');
@@ -992,14 +1023,16 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 .pane-block-42 .email{
   padding: 15px 0;
-  border-top: 1px dotted #888772;
-  border-bottom: 1px dotted #888772;
+  background: url('../images/border-bg.png') repeat-x;
+}
 
+.social-networks .clearfix{
+  background: url('../images/border-bg.png') repeat-x;
 }
 
 .social-networks .links{
   float: left;
-  border-top: 1px dotted #888772;
+  background: url('../images/border-bg.png') repeat-x;
   padding: 8px 20px 0 60px;
   width: 190px;
 }
@@ -1033,12 +1066,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 
 
-
-.photo-node-right .panel-pane {
-  padding: 15px;
-  clear: both;
-
-}
+ 
 
 .photo-node-right .social-networks {
   float: none;
@@ -1087,15 +1115,6 @@ RIGHT SIDEBAR
 .photo-node-right table {
   margin-bottom: 0;
 }
-.right-column h2,
-.photo-node-right h2 {
-  color: #888772;
-  font-size: 16px;
-  margin: 0 0 10px;
-  text-transform: uppercase;
-  font-family: 'dejavusansbold', helvetica;
-
-}
 
 /* Block Views */
 .photo-node-right .view-id-news {
@@ -1137,8 +1156,7 @@ RIGHT SIDEBAR
 .photo-node-right .views-field-title a {
   color: #303030;
   display: block;
-  font-size: 14px !important;
-  margin-bottom: 7px;
+  font-size: 18px !important;
 }
 
 /* Simple News */
@@ -1286,7 +1304,7 @@ article.ads img{
 .pane-photos .view-display-id-page_1 li.views-row,
 .pane-videos .view-display-id-page_1 li.views-row{
   background-color: white;
-  height: 300px;
+  height: 253px;
   padding: 0 10px 8px;
   width: 200px;
   border-radius: 5px;
@@ -1295,7 +1313,7 @@ article.ads img{
   list-style-type: none;
   float: left;
   display: block;
-  margin: 0 20px 15px 0;
+  margin: 0 18px 15px 0;
   padding-top: 10px;
   position: relative;
   }
@@ -2322,13 +2340,11 @@ body#block-quicktabs-2 #header{
 
 
 #twtr-widget-1 .twtr-bd p{
-  font-family: 'MrsEavesOT-Roman', georgia  !important;
-  font-size: 14px;
-  font-weight: normal;
+  font-family: calibri, arial;
 }
 
 #twtr-widget-1 .twtr-bd p em{
-  font-size: 15px;
+  font-size: 11px !important
 }
 
 .page-lineup td.last{
@@ -2359,13 +2375,40 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   display: none;
 }
 
-.view-Photos.view-display-id-page_1 img:hover {
+.view-Photos.view-display-id-page_1 img:hover, .view-videos.view-display-id-page_1 img:hover  {
   cursor: pointer;
 }
 
-.view-Photos.view-display-id-page_1 .hnid {
+.view-Photos.view-display-id-page_1 .hnid, .view-videos.view-display-id-page_1 .hnid{
   display: none;
 }
 
+.ajaxvid {
+  width: 560px;
+  height: 360px;
+  display: none;
+   position: absolute;
+}
+
+.ajaxvid .content{
+  width: 560px;
+  height: 360px;
+}
+
+.ajaxvid .field-field-video-embed {
+   display: none;
+}
 
 
+/* BLOG NODE
+------------------------ */
+
+.node-type-blog .views-row{
+  font-size: 14px;
+}
+
+.aal {
+  display: none;
+}
+
+  
