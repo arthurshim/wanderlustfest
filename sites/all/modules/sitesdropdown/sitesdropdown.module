@@ -151,7 +151,7 @@ function sitesdropdown_create_menu($reset = FALSE) {
 
       $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
       $item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-      $item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_country'][0]['value'].' &middot; '.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
+      $item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
       $data[] = $item;
     endif;
   }
@@ -295,47 +295,53 @@ function sitesdropdown_site_id() {
       $current_site = sites_get_current_site();
    
 	 
-		  if($site['field_event_date'][0]['value']){
+    
+    
+    
+	  /* EVENT INFO FOR ALL SITE HEADERS */
+	  if($site['field_event_date'][0]['value']){
+	  
 	   $item = '<div class="event-item">';
-	 //  $item .= '<div class="event-item-title">'.$site['title'].'</div>';
-	   $item .= '<div class="event-right"><div class="item-date">';
-	 //If event starts / ends on same day, don't repeat day
-	 if (substr($site['field_event_date'][0]['value'], 0 , 10) == substr($site['field_event_date'][0]['value2'], 0 , 10)) {
-	   $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div>';
-	  }   
-	  else {
+	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
+	   $item .= '<div class="item-date">';
+
+    //If event starts / ends on same day, don't repeat day
+    if (substr($site['field_event_date'][0]['value'], 0 , 10) == substr($site['field_event_date'][0]['value2'], 0 , 10)) {
+     $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div>';
+     }   
+    
+    else {
 	    
-//echo "<pre>"; print_r($current_site); echo "</pre>";
-	    /*reformat date for oahu which spans two different months so needs to be reformatted*/
-	    if($current_site->sid == 23) {
-	      
-	         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div>';
-	    }
+    /*reformat date for oahu which spans two different months so needs to be reformatted*/
+    if($current_site->sid == 23) {
+      
+         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
+    }
 		
 		/*display date in normal format month day - day*/
 	    else {
-	       $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div>';
-	    }
-		 
-		 
+	       $item .= date('F j-', strtotime($site['field_event_date'][0]['value'])).date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
+	    }		 
 	   } 
-	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' <br /> '.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';
 	 }
+	 
 	/* event information in header*/
 	 
 	 else {
-       $item = '<div class="event-item"><div class="event-right">';
+     $item = '<div class="event-item"><div class="event-right">';
 	   $item .= '<div class="event-item-title"><a href="'.$site['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_country'][0]['value'].' <br />'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
+	   $item .= '<div class="event-item-address">'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
 	 }
+	 
 	 /*add state image for each header*/
 	 if ($site['field_event_image'][0]['filepath']) {
 	  $item .= '<div class="siteico"><img src="'.$obj->files_filepath.'/' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
 	  	}
 
-		 if ($site['field_logo'][0]['filepath']) {
-			  $item .= '<div class="siteBanner" style=" position: absolute; top: 0; left: 250px;"><a href="/"><img src="'.$obj->files_filepath.'/'.$site['field_logo'][0]['filepath']  . '" alt=""/></a></div>';
-	     }
+	 /* EVENT LOGOS */
+	 if ($site['field_logo'][0]['filepath']) {
+		  $item .= '<div class="siteBanner"><a href="/"><img src="'.$obj->files_filepath.'/'.$site['field_logo'][0]['filepath']  . '" alt=""/></a></div>';
+     }
 
 //echo "<pre>"; print_r($item); echo "</pre>";exit;
 		 //drupal_set_message('<pre>' . print_r($site['field_event_image'][0]['filepath'], 1) . '</pre>');
@@ -505,6 +511,7 @@ function sitesdropdown_homepage($reset = TRUE) {
       while($items = db_fetch_array($result1)) {
 			  $news[] = $items['nid'];  
   		}
+	//	drupal_set_message('<pre>' . print_r($news, 1) . '</pre>');
 	   	foreach($news as $n) {
 		    $news_array[] = node_load($n);  
    		 }

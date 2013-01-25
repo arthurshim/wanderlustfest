@@ -4,7 +4,7 @@
 /* FONT-FACE DECLARATIONS
 ----------------------------------*/	
 
-/*@font-face {
+@font-face {
     font-family: 'revolution';
     src: url('../fonts/revolution-webfont.eot');
     src: url('../fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
@@ -13,7 +13,7 @@
          url('../fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
     font-weight: normal;
     font-style: normal;
-}*/
+}
 
 @font-face {
 		font-family: 'MrsEavesOT-Italic';
@@ -49,50 +49,6 @@
 		font-style: normal;
 }
 
-@font-face {
-  font-family:"RexBold";
-  src:  url("../fonts/Rex_Bold.eot") format("eot"),
-        url("../fonts/Rex_Bold.woff") format("woff"),
-        url("../fonts/Rex_Bold.ttf") format("truetype"),
-        url("../fonts/Rex_Bold.svg#RexBold") format("svg");
-  font-weight:normal;
-  font-style:normal;
-}
-
-@font-face {
-    font-family: 'DejaVuSansBold';
-    src: url('../fonts/DejaVuSans-Bold-webfont.eot');
-    src: url('../fonts/DejaVuSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/DejaVuSans-Bold-webfont.woff') format('woff'),
-         url('../fonts/DejaVuSans-Bold-webfont.ttf') format('truetype'),
-         url('../fonts/DejaVuSans-Bold-webfont.svg#DejaVuSansBold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'DejaVuSansBook';
-    src: url('../fonts/DejaVuSans-webfont.eot');
-    src: url('../fonts/DejaVuSans-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/DejaVuSans-webfont.woff') format('woff'),
-         url('../fonts/DejaVuSans-webfont.ttf') format('truetype'),
-         url('../fonts/DejaVuSans-webfont.svg#DejaVuSansBook') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'DejaVuSansOblique';
-    src: url('../fonts/DejaVuSans-Oblique-webfont.eot');
-    src: url('../fonts/DejaVuSans-Oblique-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/DejaVuSans-Oblique-webfont.woff') format('woff'),
-         url('../fonts/DejaVuSans-Oblique-webfont.ttf') format('truetype'),
-         url('../fonts/DejaVuSans-Oblique-webfont.svg#DejaVuSansOblique') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 @font-face {
     font-family: 'lhf_egyptianregular';
@@ -103,7 +59,6 @@
          url('../fonts/lhfegyptian-webfont.svg#lhf_egyptianregular') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 
@@ -119,7 +74,7 @@ body {
   line-height: 1.5;
   margin: 0;
   padding: 0;
-  color: #0b1d0d;
+  color: #474747;
   }
 
 body strong{
@@ -137,7 +92,7 @@ body em{
 h1.title,
 .node-type-blog .pane-node-title .pane-content{
   color: #402b2b;
-  font-size: 34px;
+  font-size: 32px;
   line-height: 0.8em;
   margin: 8px 0 8px;
   text-transform: uppercase;
@@ -152,7 +107,6 @@ h1.title,
   font-size: 28px !important;
   font-weight: normal;
   margin-bottom: 5px;
-  line-height: 1.6;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial;
   letter-spacing: 1px;
@@ -197,7 +151,8 @@ article h2 a,
   font-family: 'lhf_egyptianregular', arial;
 	line-height: 0.9;
 	text-transform: uppercase;
-  }
+	color: #3b6b60;
+}
   
   
 #main .node-type-blog h2{

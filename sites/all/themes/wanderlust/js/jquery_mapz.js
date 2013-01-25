@@ -114,7 +114,7 @@ $(document).ready(function() {
 			});
 			
 			// Check if map is currently out of bounds, revert to closest position if so
-			if(map.position().left < constraint.position().left) alert('aaa'); map.css('left',constraint.position().left);
+			if(map.position().left < constraint.position().left) /*alert('aaa'); this alerts when constrain is less than image*/ map.css('left',constraint.position().left);
 			if(map.position().top < constraint.position().top) map.css('top',constraint.position().top);
 		}
 		

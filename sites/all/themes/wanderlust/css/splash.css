@@ -1008,7 +1008,7 @@ overflow:hidden; }*/
 
 
   .wanderfest #container {
-    height: 1000px;
+    height: 1030px;
     /*width: 1350px;
     height : 100%;*/
     width : 100%;
@@ -1017,7 +1017,7 @@ overflow:hidden; }*/
 
 
    .wanderfest #map-1-container {
-    height: 1000px;
+    height: 1028px;
     overflow: hidden !important;
     position: relative;
     width : 1560px;
@@ -1029,7 +1029,7 @@ overflow:hidden; }*/
     margin: 0 0 20px;
     overflow: hidden;
     position: relative;
-    height : 1000px;
+    height: 1027px;
     width : 1560px;
 }
 
@@ -1038,7 +1038,8 @@ overflow:hidden; }*/
   #map-1 {
     cursor: move;
     width: 2146px;
-  height: 1170px;
+  
+    height: 1141px;
     position: absolute;
     left: -275px;
 
@@ -1080,24 +1081,33 @@ overflow:hidden; }*/
 
   @media only screen and (min-width:1500px)  {
 
+wanderfest #container {
+    height: 1880px;
+
+}
 
    .wanderfest #map-1-container {
 
-    width : 1780px;
+    width : 1880px;
 }
 
 
   .map-viewport {
 
-    width : 1780px;
+    width : 1880px;
 }
 
 
 
   #map-1 {
 
-    width: 2446px;
+    width: 2149px;
 
 }
 
 }
+
+
+ @media only screen and (max-height:1195px)  {
+ }
+     

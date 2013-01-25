@@ -222,7 +222,7 @@ function doSubmit(oForm) {
         <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
        <?php print $scripts; ?>
-  
+  <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js?Gu"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
@@ -238,6 +238,15 @@ function doSubmit(oForm) {
 <script type="text/javascript">
 $.noConflict();
 jQuery(document).ready(function($) {
+  
+       jQuery('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});
+       
 	      	  $(".pane-content td").hover(
 	  function () {
 	    jQuery(this).find('a.frimage').addClass('fancybox-thumbs');
@@ -250,6 +259,8 @@ jQuery(document).ready(function($) {
       /*
        *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
        */
+
+      
       jQuery('.fancybox-thumbs').fancybox({
 	      prevEffect : 'none',
 	      nextEffect : 'none',
@@ -332,7 +343,7 @@ jQuery(document).ready(function($) {
 
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
-	$im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013/global-splash-callout.jpg" alt="To map" />';   
+	$im = '<img src="/sites/all/themes/wanderlust/images/see-all-events.png" alt="To map" />';   
 	print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE)); ?>
       </div>
       
@@ -862,7 +873,7 @@ var isMobile = {
 };
 
 if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()){
-	   $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.6, maximum-scale=.6">');
+	   $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.4, maximum-scale=1">');
 }
 
 if (isMobile.any()) {
@@ -870,12 +881,11 @@ if (isMobile.any()) {
 /*FOR MOBILE*/
 
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
-
+    window.scrollTo(325,0);
 
 	/*MARK HOVERS*/
   $(".mark:not(.legendNo)").bind('touchend', function(e) {
  		$(".innersite").fadeOut();
-		$(".innersite").stop(true, true);
 		$(this).next().toggle(500);
     });
 			   
