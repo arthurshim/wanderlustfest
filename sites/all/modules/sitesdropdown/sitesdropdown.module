@@ -307,7 +307,7 @@ function sitesdropdown_site_id() {
 
     //If event starts / ends on same day, don't repeat day
     if (substr($site['field_event_date'][0]['value'], 0 , 10) == substr($site['field_event_date'][0]['value2'], 0 , 10)) {
-     $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div>';
+     $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div></div>';
      }   
     
     else {
@@ -315,12 +315,12 @@ function sitesdropdown_site_id() {
     /*reformat date for oahu which spans two different months so needs to be reformatted*/
     if($current_site->sid == 23) {
       
-         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div></div></div>';
+         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
     }
 		
 		/*display date in normal format month day - day*/
 	    else {
-	       $item .= date('F j-', strtotime($site['field_event_date'][0]['value'])).date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div></div>';
+	       $item .= date('F j-', strtotime($site['field_event_date'][0]['value'])).date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
 	    }		 
 	   } 
 	 }
