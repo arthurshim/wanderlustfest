@@ -1402,11 +1402,10 @@ article #easysocial-box .easysocial-widget-twitter{
   }
 
 #views_slideshow_singleframe_pager_Homepage_slider-block_1  {
-  position: relative;
+  position: absolute;
   margin-top: -28px;
-  margin-right: -46px;
   z-index: 100;
-  float: right;
+  right: -40px;
   }
 
 
