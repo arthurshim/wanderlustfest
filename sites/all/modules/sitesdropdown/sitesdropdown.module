@@ -334,9 +334,9 @@ function sitesdropdown_site_id() {
 	 }
 	 
 	 /*add state image for each header*/
-	 if ($site['field_event_image'][0]['filepath']) {
-	  $item .= '<div class="siteico"><img src="'.$obj->files_filepath.'/' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
-	  	}
+	 //if ($site['field_event_image'][0]['filepath']) {
+	 //$item .= '<div class="siteico"><img src="'.$obj->files_filepath.'/' . $site['field_event_image'][0]['filepath']  . '" alt=""/></div>';
+	 //	}
 
 	 /* EVENT LOGOS */
 	 if ($site['field_logo'][0]['filepath']) {
