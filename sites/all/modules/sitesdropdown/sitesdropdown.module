@@ -329,8 +329,8 @@ function sitesdropdown_site_id() {
 	 
 	 else {
      $item = '<div class="event-item"><div class="event-right">';
-	   $item .= '<div class="event-item-title"><a href="'.$site['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].'</div></div></div>';	 
+	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
+	   $item .= '</div></div>';	 
 	 }
 	 
 	 /*add state image for each header*/
@@ -457,8 +457,6 @@ function sitesdropdown_menucreate($node) {
 	 //  print '<pre>'.print_r($site, TRUE).',/pre>';
 	  if($node->field_event_date[0]['value']  && $node->status == 1){
 	   $item = '<div class="event-item">';
-	//   $item .= '<a href="'.$node->field_event_url[0]['url'].'" onclick="_gaq.push([\'_link\',\''. $node->field_event_url[0]['url'] .'\']); return false;"><div class="event-item-title">'.$node->title.'</div>';
-
 	   $item .= '<a href=' . $node->field_event_url[0]['url'] . '><div class="event-item-title">'.$node->title.'</div>';
 	   $item .= '<div class="event-right"><div class="item-date">';
 	  
