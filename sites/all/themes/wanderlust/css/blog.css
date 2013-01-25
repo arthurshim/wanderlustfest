@@ -125,9 +125,7 @@ body.sidebar-right.blogs #main{
 
 
 .view-all-blog-posts .views-row {
-  background-color: #ffffff;
-  border-top: 1px solid #eed5b3;
-  border-bottom: 1px solid #eed4b1;
+
 }
   
 .view-all-blog-posts .views-field-view-node{
@@ -174,7 +172,7 @@ body.sidebar-right.blogs #main{
 
 .view-all-blog-posts .views-field-nothing-1{
   clear: both;
-  background: url('../images/blog-border.gif') repeat-x;
+  background: url('../images/border-bg.png') repeat-x;
   padding-top: 10px;
   margin-top: 10px;
   height: 29px;
@@ -191,7 +189,6 @@ body.sidebar-right.blogs #main{
 .view-all-blog-posts .views-row{
   clear: both;
   margin-bottom:15px;
-  padding: 10px; 
 }
 
 .view-all-blog-posts .share-this-links{
@@ -327,7 +324,7 @@ body.sidebar-right.blogs #main{
 .view-blog-popular .views-field-totalcount,
 .view-blog-popular .views-field-created{
   font-size: 10px;
-  color: gray;
+  color: #b7a581;
   font-family: calibri, arial;
   font-size: 11px;  
   
@@ -346,13 +343,8 @@ body.sidebar-right.blogs #main{
 }
 
 .node-type-blog .panels-flexible-region-first{
-  width: 608px;
-  background: #fff;
-  padding: 13px;
-  margin-right: 15px;
-  border-top: 1px solid #eed5b3;
-  border-bottom: 1px solid #eed4b1;  
-
+  width: 614px;
+  margin-right: 36px;
 }
 
 .blog-title {
@@ -369,7 +361,7 @@ body.sidebar-right.blogs #main{
 
 .node-type-blog .share-this-links{
   margin: 15px 0;
-  background: url('../images/blog-border.gif') repeat-x;
+  background: url('../images/border-bg.png') repeat-x;
   padding-top: 10px; 
 }
 
