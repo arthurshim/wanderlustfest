@@ -330,7 +330,7 @@ function sitesdropdown_site_id() {
 	 else {
      $item = '<div class="event-item"><div class="event-right">';
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
-	   $item .= '</div></div>';	 
+	   $item .= 'See you next year!</div></div>';	 
 	 }
 	 
 	 /*add state image for each header*/
