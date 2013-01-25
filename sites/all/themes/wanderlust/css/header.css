@@ -55,6 +55,12 @@
   top: 23px;
 }
 
+.la .event-item,
+.sf .event-item,
+.nyc .event-item{
+  background-position: 0 -87px !important;
+}
+
 /* GLOBAL SPLASH CALLOUT
 ----------------------------------*/	
 .tomap {

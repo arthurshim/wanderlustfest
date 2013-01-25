@@ -24,10 +24,8 @@ setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': 
                 }
                 
             });
-            
-            
-     $.fancybox.showLoading();
-     
+                       
+  $.fancybox.showLoading();
   setTimeout(
 function() {
   $.fancybox.hideLoading();
@@ -60,15 +58,14 @@ function() {
 3000
 );
 
-
-  });                           
+ });                           
                    
                            
                            
  //********                          
    $(".view-Photos.view-display-id-page_1 li.views-row").hover(
       function () {
-    
+    $(this).find('.bo').replaceWith('<div class="bo"><div class="aal"></div></div>');
     // $(this).find('a').addClass('fancybox-thumbs');
 	
       },
@@ -128,7 +125,19 @@ $('.fancybox-media').fancybox({
     );
     */
 });    
-   
+ 
+$('.panels-flexible-region .content').click(function() {
+  
+                                           
+$('.fancybox-media').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});                                              
+
+});      
    
    
    

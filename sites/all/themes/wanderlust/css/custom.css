@@ -328,7 +328,7 @@ tbody {border: 0px!important;}
 
 
 .not-front .body-content #main {
-  padding: 15px 30px;
+  padding: 15px 22px;
   }
 
 .not-front.page-media #main {
@@ -856,8 +856,13 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 /* SIDEBAR BLOCKS
 ----------------------------------*/
 
+#sidebar-right{
+  width: 300px;
+}
+
 .not-front .photo-node-right .pane-block,
-.panel-col-last .panel-pane{
+.panel-col-last .panel-pane,
+#sidebar-right .block{
   background: #f3e8ce;
   border-radius: 5px;
   float: left;
@@ -869,7 +874,8 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 .right-column h2,
 .photo-node-right h2,
-.panel-col-last .pane-title  {
+.panel-col-last .pane-title,
+#sidebar-right h2 {
   color: #402b2b;
   font-size: 22px;
   letter-spacing: 1px;
@@ -888,7 +894,8 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   margin: 0 auto;
   }
 
-.pane-block-42 .email{
+.pane-block-42 .email,
+#sidebar-right .email{
   padding: 15px 0;
   background: url('../images/border-bg.png') repeat-x;
 }
@@ -935,7 +942,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
  
 
-.photo-node-right .social-networks {
+.social-networks {
   float: none;
   height: auto;
   margin-bottom: 10px;
@@ -946,13 +953,13 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
   }
 
-.photo-node-right .social-networks {
+.social-networks {
   margin-bottom: 10px;
   clear: both;
   float: left;
   }
 
-.photo-node-right .like-facebook {
+.like-facebook {
 
   margin: 15px 15px 10px 10px;
   width: 80px;
@@ -960,7 +967,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   }
 
 
-.photo-node-right .like-twitter {
+.like-twitter {
   width: 150px;
   float: left;
   margin: 15px 0 10px 0;
@@ -1185,6 +1192,9 @@ article.ads img{
   position: relative;
   }
 
+.page-media .view-display-id-page_1 .views-field-title{
+
+}
 
 
 .pane-photos .view-display-id-page_1 li.views-row p{
@@ -1397,7 +1407,7 @@ article #easysocial-box .easysocial-widget-twitter{
   }
 
 .slidemain .views-slideshow-controls-bottom{
-  width: 924px;
+  width: 994px;
   margin: 0 auto;
   }
 
@@ -1405,7 +1415,7 @@ article #easysocial-box .easysocial-widget-twitter{
   position: absolute;
   margin-top: -28px;
   z-index: 100;
-  right: -40px;
+  right: 0px;
   }
 
 
