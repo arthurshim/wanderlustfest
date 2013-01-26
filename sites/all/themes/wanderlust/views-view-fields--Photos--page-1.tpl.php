@@ -4,7 +4,7 @@
 
 //print $fields['field_photos_images_fid']->content;
 print $fields['filepath']->content; ?>
-<?php print $fields['title']->content; ?>
+<div class="views-field-title"><?php print $fields['title']->content; ?></div>
 <div class="social-networks">
   <div class="like-twitter">
     <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
