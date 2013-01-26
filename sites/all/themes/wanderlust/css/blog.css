@@ -142,7 +142,7 @@ body.sidebar-right.blogs #main{
 }
 
 
-#quicktabs-3 .view-blog-popular .views-field-field-blog-image-fid .field-content{
+.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-field-field-blog-image-fid .field-content{
   float: left;
 }
 
@@ -249,22 +249,13 @@ body.sidebar-right.blogs #main{
 /* BLOG SIDEBAR BLOCKS
 ------------------------ */
 
-#sidebar-right .block{
-}
 
-
-.sidebar .block h2{
-}
-
-
-
-
-#quicktabs-3 ul{
+.panels-flexible-region-last .quicktabs_wrapper ul{
   margin: 0 0 5px 0;
   padding: 0;
 }
 
-#quicktabs-3 ul a.qt_tab{
+.panels-flexible-region-last .quicktabs_wrapper ul a.qt_tab{
   font-size: 28px;
   font-weight: normal;
   text-transform: uppercase;
@@ -274,22 +265,22 @@ body.sidebar-right.blogs #main{
 
 }
 
-#quicktabs-3 ul li{
+.panels-flexible-region-last .quicktabs_wrapper ul li{
   margin-right: 10px;
 }
 
-#quicktabs-3 ul .active a.qt_tab{
+.panels-flexible-region-last .quicktabs_wrapper ul .active a.qt_tab{
   color: #402b2b;
 }
 
 
-#quicktabs-3 .view-blog-popular .views-field-field-blog-image-fid .field-content {
+.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-field-field-blog-image-fid .field-content {
   float: left;
   padding-right: 15px;
 }
 
 
-#quicktabs-3 .view-blog-popular .views-row{
+.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-row{
   clear:both;
   margin-bottom:5px;
   padding: 10px 0 0 0; 
