@@ -250,12 +250,14 @@ body.sidebar-right.blogs #main{
 ------------------------ */
 
 
-.panels-flexible-region-last .quicktabs_wrapper ul{
+.panels-flexible-region-last .quicktabs_wrapper ul,
+#sidebar-right .quicktabs_wrapper ul{
   margin: 0 0 5px 0;
   padding: 0;
 }
 
-.panels-flexible-region-last .quicktabs_wrapper ul a.qt_tab{
+.panels-flexible-region-last .quicktabs_wrapper ul a.qt_tab,
+#sidebar-right .quicktabs_wrapper ul a.qt_tab{
   font-size: 28px;
   font-weight: normal;
   text-transform: uppercase;
@@ -265,22 +267,26 @@ body.sidebar-right.blogs #main{
 
 }
 
-.panels-flexible-region-last .quicktabs_wrapper ul li{
+.panels-flexible-region-last .quicktabs_wrapper ul li,
+#sidebar-right .quicktabs_wrapperul li{
   margin-right: 10px;
 }
 
-.panels-flexible-region-last .quicktabs_wrapper ul .active a.qt_tab{
+.panels-flexible-region-last .quicktabs_wrapper ul .active a.qt_tab,
+#sidebar-right .quicktabs_wrapper ul .active a.qt_tab{
   color: #402b2b;
 }
 
 
-.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-field-field-blog-image-fid .field-content {
+.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-field-field-blog-image-fid .field-content ,
+#sidebar-right .quicktabs_wrapper .view-blog-popular .views-field-field-blog-image-fid .field-content {
   float: left;
   padding-right: 15px;
 }
 
 
-.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-row{
+.panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-row,
+#sidebar-right .quicktabs_wrapper .view-blog-popular .views-row{
   clear:both;
   margin-bottom:5px;
   padding: 10px 0 0 0; 
