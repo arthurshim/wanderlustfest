@@ -182,8 +182,6 @@ body.two-sidebars #main {
 body.sidebar-right #main {
   float: left;
   margin: 0;
-  padding: 20px 0 0 0;
-  width: 700px;
 }
 
 /**
