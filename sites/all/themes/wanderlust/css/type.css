@@ -176,3 +176,7 @@ h2.pane-title{
   color: #6ba265;
   margin-bottom: 4px;
 }
+
+blockquote{
+  font-style: italic;
+}
