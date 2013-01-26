@@ -96,7 +96,7 @@
  	}
 
 #navigation ul ul{
-  background: #321307;
+  background: #3b6b60;
  	top: 28px;
 	padding: 0px 10px;
 	width: 195px;
@@ -138,8 +138,9 @@
 	border-right: none !important;
 	}
 
-#navigation ul.nice-menu li a:hover{
-  color: #b69e6d;
+#navigation ul.nice-menu li a:hover,
+#navigation ul.nice-menu li.over > a{
+  color: #402b2b;
 	}
  
 
@@ -160,20 +161,25 @@
 #navigation ul.nice-menu ul li a{
   width: 196px !important;
 	background: none !important;
- 	color: #fff;
+ 	color: #e7e9d5;
 	overflow: visible;
 	font-weight: normal !important;
 	font-size: 18px;
 	clear: left;
 	float: left;
 	border-right: none !important;
-	border-bottom: 1px solid #603220;
+	border-bottom: 1px solid #255248;
 	padding: 8px 0 8px 0 !important;
 	margin: 0 !important;
 	position: relative;
 	z-index: 999;
 	zoom: 1;
   }
+
+#navigation ul.nice-menu ul li a:hover{
+  color: #c2ab7b;  
+}
+
 
 #navigation ul.nice-menu li ul li.first a,
 #navigation ul.nice-menu li.first li a{
