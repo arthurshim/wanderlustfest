@@ -243,6 +243,7 @@
   
 .social-media-links .email{
   background-position: -110px 0px;
+  cursor:pointer;
   }  
 
 .social-media-links .email:hover{
@@ -269,4 +270,18 @@
 
 .pane-content a.hid{
   display: none!important;
+}
+
+/*Email header*/
+.joincontent {
+    position: absolute;
+    top: 192px;
+    left: 439px;
+    z-index: 200;
+    display: none;
+}
+
+#mytable{
+  width: 420px;
+  margin: 2px 141px;
 }

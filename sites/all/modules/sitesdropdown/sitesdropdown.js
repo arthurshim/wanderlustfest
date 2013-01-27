@@ -79,7 +79,7 @@ function() {
    $('.view-videos.view-display-id-page_1 li.views-row').click(function() {
           
    //  $(this).find('a').addClass("f");                                               
-$('.fancybox-media').fancybox({
+$('.fancybox-media, .views-field-title').fancybox({
 		openEffect  : 'none',
 		closeEffect : 'none',
 		helpers : {

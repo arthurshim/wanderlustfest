@@ -601,11 +601,15 @@ h2.sub-title {
 .pane-videos .view-display-id-page_1 li.views-row .like-twitter,
 .pane-photos .view-display-id-page_1 li.views-row .like-twitter {
   width: 110px;
+  bottom: -21px;
+  position: absolute;
 }
 .view-id-taxonomy_term li.views-row .like-facebook,
 .pane-videos .view-display-id-page_1 li.views-row .like-facebook,
 .pane-photos .view-display-id-page_1 li.views-row .like-facebook {
-  width: 70px;
+  position: absolute;
+  left: 108px;
+  bottom: -23px;
 }
 
 /* VIDEOS INDEX
@@ -892,7 +896,8 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   height: 52px;
   width: 272px;
   margin: 0 auto;
-  }
+  cursor: text;
+}
 
 .pane-block-42 .email,
 #sidebar-right .email{
@@ -2367,3 +2372,11 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   color: #111;
 }
   
+  
+  #emailClick3 {
+height: 29px;
+width: 276px;
+cursor: text;
+position: relative;
+top: 21px;
+}

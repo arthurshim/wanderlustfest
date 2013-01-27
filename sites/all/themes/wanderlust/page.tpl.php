@@ -11,6 +11,7 @@
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
   <?php print $scripts; ?>
   
     <!-- IE Fix for HTML5 Tags -->
