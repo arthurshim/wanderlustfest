@@ -896,7 +896,7 @@ jQuery(document).ready(function($) {
 <div id="festinfo">
   <span>Wanderlust Festivals</span>
   <div class="descript">
-    The Festival is the crown jewel of the Wanderlust experience: unforgettable 4-day summits in locations of awesome natural beauty.  We take everything you treasure about your yoga practice, combine it with all the elements and experiences you seek in nature, throw in some epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, mediation sessions, films and so much moreâ€¦ The result? Newfound friends charting unforeseen journeys together.    
+    The Festival is the crown jewel of the Wanderlust experience: unforgettable 4-day summits in locations of awesome natural beauty.  We take everything you treasure about your yoga practice, combine it with all the elements and experiences you seek in nature, throw in some epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, mediation sessions, films and so much more… The result? Newfound friends charting unforeseen journeys together.    
   </div>
  <?php print $fests; ?>
 </div>
@@ -1182,8 +1182,8 @@ $("#connect .icon").toggle(
 			
 
        $(".mark:not(.legendNo)").mouseover(function() {
-	
-	$(this).next().delay(500).fadeIn(300);
+	$(".innersite").fadeOut();
+	$(this).next().stop(true, true).delay(500).fadeIn(1);
 
 	
 				
@@ -1191,6 +1191,7 @@ $("#connect .icon").toggle(
 });			
 			
 			$(".innersite").mouseleave(function() {
+			
 			$(".innersite").fadeOut();
 
 });	
