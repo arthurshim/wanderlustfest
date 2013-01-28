@@ -8,6 +8,7 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
@@ -168,7 +169,7 @@ _gaq.push(['_trackPageview']);
     
     <!-- EMAIL SIGN UP CODE -->
     <div class="email-code">
-      <?php include 'email-signup.php'; ?>
+      <?php print $connect ;?>
     </div>
    
     <div id="slideshows" role="slideshow" class="slideshowhome">
@@ -212,7 +213,7 @@ _gaq.push(['_trackPageview']);
 
 
   <!-- BEGIN FOOTER -->
-  <footer class="footer">
+  <footer class="footer clearfix">
     <div class="logos">
       <div class="velour">Velour Music Group</div>
       <div class="c3">C3 Presents</div>

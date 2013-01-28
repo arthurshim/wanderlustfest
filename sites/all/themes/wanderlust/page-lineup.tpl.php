@@ -8,7 +8,7 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   
@@ -120,7 +120,10 @@ _gaq.push(['_trackPageview']);
     <!-- END NAVIGATION -->
 
 
-    
+    <!-- EMAIL SIGN UP CODE -->
+    <div class="email-code">
+      <?php print $connect ;?>
+    </div>
 
       <!-- BEGIN MAIN CONTENT -->
       <div id="main"  role="main" class="clearfix">
@@ -148,7 +151,7 @@ _gaq.push(['_trackPageview']);
 
 
  <!-- BEGIN FOOTER -->
-  <footer class="footer">
+  <footer class="footer clearfix">
     <div class="logos">
       <div class="velour">Velour Music Group</div>
       <div class="c3">C3 Presents</div>

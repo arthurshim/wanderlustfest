@@ -1804,12 +1804,13 @@ width:40px;
 .footer{
   color: #b69e6d;
   width: 994px;
-  margin: 0 auto;
+  margin: 0 auto 50px auto;
   padding: 10px;
   font-size: 12px;
-  margin-bottom: 50px;
   text-shadow: 1px 1px 0 #fff;
   font-family: helvetica, arial;
+  clear: both;
+  height: 20px;
   }
 
 .footer a{

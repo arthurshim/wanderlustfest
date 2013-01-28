@@ -7,6 +7,8 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
    <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
 
   
@@ -128,6 +130,12 @@ jQuery.noConflict();
 	<?php print $connect ;?> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
+   
+   
+    <!-- EMAIL SIGN UP CODE -->
+    <div class="email-code">
+      <?php print $connect ;?>
+    </div>
    
     <!-- BEGIN CONTENT -->    
     <div class="subhead body-content">

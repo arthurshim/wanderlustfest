@@ -7,6 +7,7 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
@@ -724,7 +725,7 @@ jQuery(document).ready(function($) {
 
     
   <!-- BEGIN FOOTER -->
-  <footer class="footer">
+  <footer class="footer clearfix">
     <div class="logos">
       <div class="velour">Velour Music Group</div>
       <div class="c3">C3 Presents</div>
