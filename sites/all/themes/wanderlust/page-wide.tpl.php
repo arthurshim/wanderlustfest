@@ -92,7 +92,23 @@ _gaq.push(['_trackPageview']);
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693",  shorten:false});</script>
 
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
+  <script>
+jQuery.noConflict();
+(function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
+
+	  </script>
   
 </head>
 
@@ -108,7 +124,7 @@ _gaq.push(['_trackPageview']);
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-
+<?php print $connect ;?> 
   <div id="container" class="clearfix">
 
     <div id="skip-link">

@@ -8,8 +8,8 @@ body{
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='.http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://c282314.r14.cf1.rackcdn.com/website-images/bg-ca2.jpg', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/site-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/site-bg.jpg', sizingMethod='scale')";
   }
 
 #main{
@@ -1155,7 +1155,8 @@ TEMPORARY STYLES FOR LAUNCH
 /* NODE TEASERS (On homepage and index pages)
 ----------------------------------*/
 
-article{
+article,
+td .node{
   background-color: white;
   height: 300px;
   padding: 0 10px 8px;
@@ -1414,7 +1415,7 @@ article #easysocial-box .easysocial-widget-twitter{
 
 #views_slideshow_singleframe_pager_Homepage_slider-block_1  {
   position: absolute;
-  margin-top: -28px;
+  margin-top: -26px;
   z-index: 100;
   right: 0px;
   }
@@ -1498,9 +1499,12 @@ div.carousel-overlay .carousel-overlay-event {
 .slidemain .views-field-title span{
   background: url('../images/section-border-bg.png') bottom repeat-x;
   display: block;
-  padding: 7px 0 0 10px;
+  padding: 8px 0 6px 10px;
   width: 984px;  
   letter-spacing: 1px;
+  line-height: 1;
+  font-size: 18px;
+  
 }
 
 .front .jcarousel-skin-default .jcarousel-item-horizontal {
@@ -2186,7 +2190,7 @@ body#block-quicktabs-2 #header{
   display: block;
   text-align: center;
   width: 204px;
-  z-index: 999;
+  z-index: 9l;
   padding: 0 8px;
   
 }
@@ -2194,10 +2198,9 @@ body#block-quicktabs-2 #header{
 .page-lineup .views-field-title a{
   font-family: 'lhf_egyptianregular', arial;
   font-size: 26px;  
-
-
   text-align: center;
   color: #fff;
+  filter: progid:DXImageTransform.Microsoft.dropShadow(color=#000000,offX=1,offY=1);
   text-shadow: 1px 2px 3px #000;
 }  
   
@@ -2373,10 +2376,97 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 }
   
   
-  #emailClick3 {
-height: 29px;
-width: 276px;
-cursor: text;
-position: relative;
-top: 21px;
+  
+/* EMAIL LIST SIGNUP
+------------------------ */  
+  
+#emailClick3 {
+  height: 29px;
+  width: 276px;
+  cursor: text;
+  position: relative;
+  top: 21px;
+}
+
+/* MAILING LIST DIALOG
+---------------------------------*/
+
+
+
+.fancybox-skin td {
+  padding: 8px !important;
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-size: 13px;
+}
+
+.fancybox-skin .title {
+  font-family: 'lhf_egyptianregular', arial;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin-bottom: 0;
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.fancybox-skin input {
+  padding: 3px;
+  width: 165px;
+}
+
+.fancybox-skin select {
+    width: 176px;
+}
+
+.fancybox-skin #submit {
+    background: #c4581d;
+    padding: 9px 6px 6px 6px;
+    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 174px;
+}
+
+.fancybox-skin #submit:hover {
+    background: #e0611c;
+}
+
+.joincontent {
+    position: absolute;
+    top: 192px;
+    left: 439px;
+    z-index: 200;
+    display: none;
+}
+
+
+
+
+
+.not-logged-in.wanderfest #main {
+    display: block !important;
+}
+
+
+
+.email-container{
+  background: url('../images/splash-sprite.png');
+  background-position: -404px -947px;
+  width: 321px;
+  height: 198px;
+  padding: 14px 0;
+  margin: 0 auto;
+}
+
+#mytable{
+  width: 420px;
+  margin: 2px 141px;
+}
+
+
+
+
+.stwrapper{
+  display: none;
 }

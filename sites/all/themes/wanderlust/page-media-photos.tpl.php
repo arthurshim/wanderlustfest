@@ -22,7 +22,7 @@
       
 
 	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>zz
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,7 +34,21 @@
  
  $(document).ready(function() {
 
+ (function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
 });
+
+
+
+
+
 </script>
 
   <!-- SET FACEBOOK OPEN GRAPH APP ID -->
@@ -93,6 +107,7 @@
       </div>      
     </nav> 
     <?php endif; ?>
+	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
    
     <!-- BEGIN CONTENT -->    

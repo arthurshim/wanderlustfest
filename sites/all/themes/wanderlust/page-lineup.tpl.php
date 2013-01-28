@@ -15,8 +15,21 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   
-
-  
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+    <script>
+jQuery.noConflict();
+(function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
+	  </script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

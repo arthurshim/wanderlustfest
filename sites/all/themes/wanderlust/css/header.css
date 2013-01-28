@@ -48,7 +48,7 @@
   text-align: left;
   height: 45px;    
   font-size: 18px;  
-  background: url('../images/event-type-icons.png') left top no-repeat;
+  background: url('../images/event-type-icons.png') left 4px no-repeat;
   padding-left: 39px;  
   line-height: 1.2;
   font-weight: bold;
@@ -127,7 +127,7 @@
 	color: #3b6b60;
 	padding: 6px 18px 2px;
 	margin: 0;
-	font-family: 'lhf_egyptianregular', helvetica, arial;
+	font-family: 'lhf_egyptianregular', 'revolution', helvetica, arial;
 	letter-spacing: 1px;
 	font-weight: normal !important;
 	line-height: 1;

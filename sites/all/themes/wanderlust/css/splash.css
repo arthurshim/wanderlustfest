@@ -239,6 +239,15 @@ overflow:hidden; }*/
 }
 
 
+@-moz-keyframes flagish
+{
+0%              {-ms-transform: rotate(0deg);}
+20%             {-ms-transform: rotate(2deg);}
+60%             {-ms-transform: rotate(7deg);}
+80%             {-ms-transform: rotate(-7deg);}
+100%    {-ms-transform: rotate(0deg);}
+
+}
 
 
 .mark.yoga:hover {
@@ -346,6 +355,14 @@ overflow:hidden; }*/
 50%             {-webkit-transform: translate(0px,-1px); }
 75%             {-webkit-transform: translate(0px,-3px); }
 100%    {-webkit-transform: translate(0px,0px);}
+}
+
+@-webkit-keyframes bob-flash {
+0%              {-ms-transform: translate(0px,-2px);}
+25%             {-ms-transform: translate(0px,-12px); }
+50%             {-ms-transform: translate(0px,-1px); }
+75%             {-ms-transform: translate(0px,-3px); }
+100%    {-ms-transform: translate(0px,0px);}
 }
 
 .mark.festival:hover{
@@ -719,7 +736,7 @@ overflow:hidden; }*/
     text-align: center;
     width: 100%;
     font-size: 18px;
-    font-weight: bold;
+    font-weight: normal;
     color: #000000;
     font-family: 'revolution', arial;
     position: relative;
@@ -924,7 +941,7 @@ overflow:hidden; }*/
   height: 230px;
   width: 342px;
   margin: 13px 0;
-  overflow-y: scroll;
+  overflow-y: hidden;
 }
 
 #toolbar .arrow{
@@ -942,6 +959,7 @@ overflow:hidden; }*/
   font-size: 16px;
   margin: 5px 0 10px 0;
   text-align: center;
+  font-weight: normal;
 }
 
 #toolbar #connect h3{

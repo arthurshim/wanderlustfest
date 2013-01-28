@@ -18,11 +18,11 @@
 	 <?php print $scripts; ?>
 
       <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js"></script><!--where did swf object go? paste it here-->
-   <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
    	     <script type="text/javascript">
          var $jq = jQuery.noConflict();
-    </script> 
-<script type="text/javascript" src="/sites/all/modules/emfield/includes/js/swfobject_api.js"></script>
+      </script> 
+      <script type="text/javascript" src="/sites/all/modules/emfield/includes/js/swfobject_api.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
       
@@ -50,6 +50,24 @@ $jq('.fancybox-media, .views-field-title').fancybox({
 	});                                              
 });    
 });
+
+
+
+	 
+
+	
+jQuery.noConflict();
+(function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
+
+	 
 </script>
 
   <!-- SET FACEBOOK OPEN GRAPH APP ID -->
@@ -107,6 +125,7 @@ $jq('.fancybox-media, .views-field-title').fancybox({
         <a class="email" >Email</a>        
       </div>      
     </nav> 
+	<?php print $connect ;?> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
    
