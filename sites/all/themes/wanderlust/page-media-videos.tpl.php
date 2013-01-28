@@ -14,16 +14,22 @@
   <?php print $styles; ?>
         <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
-       <?php print $scripts; ?>
-  
-      <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js?Gu"></script><!--where did swf object go? paste it here-->
-      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+
+	 <?php print $scripts; ?>
+
+      <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js"></script><!--where did swf object go? paste it here-->
+   <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+   	     <script type="text/javascript">
+         var $jq = jQuery.noConflict();
+    </script> 
+<script type="text/javascript" src="/sites/all/modules/emfield/includes/js/swfobject_api.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
       
 
 	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
 	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,7 +40,15 @@
 <script type="text/javascript">
  
  $(document).ready(function() {
-
+ $('.view-videos.view-display-id-page_1 li.views-row').click(function() {                                           
+$jq('.fancybox-media, .views-field-title').fancybox({
+		openEffect  : 'none',
+		closeEffect : 'none',
+		helpers : {
+			media : {}
+		}
+	});                                              
+});    
 });
 </script>
 
