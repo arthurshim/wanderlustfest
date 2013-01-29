@@ -118,7 +118,8 @@
 /* PARENT ITEMS
 ----------------------------------*/	
 
-#navigation ul.nice-menu li a{
+#navigation ul.nice-menu li a,
+#navigation ul.nice-menu li .nolink{
   display: block;
  	float: left;    
  	font-size: 22px;
@@ -138,7 +139,8 @@
 	}
 
 #navigation ul.nice-menu li a:hover,
-#navigation ul.nice-menu li.over > a{
+#navigation ul.nice-menu li.over > a,
+#navigation ul.nice-menu li.over > .nolink{
   color: #402b2b;
 	}
  
