@@ -169,10 +169,6 @@ jQuery.noConflict();
 
   <!-- BEGIN FOOTER -->
   <footer class="footer">
-    <div class="logos">
-      <div class="velour">Velour Music Group</div>
-      <div class="c3">C3 Presents</div>
-    </div>
     <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
     <div class="footer-links">
       <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |

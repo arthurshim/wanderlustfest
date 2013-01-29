@@ -6,7 +6,7 @@ $(".page-media .video-top-right a").click(function(e) {
 
   function videoShow (data) {
 	$('div.panels-flexible-region-14-video_top_left-inside .pane-videos .pane-content').html('<div id="ytapiplayer"></div>');  
-    var params = { allowScriptAccess: "always" };
+    var params = { allowScriptAccess: "always" , wmode: "opaque"};
     var atts = { id: "myytplayer" };
 	var string = 'http://www.youtube.com/v/' + data.video;
 	var string2 = '?enablejsapi=1&playerapiid=ytplayer&version=3';

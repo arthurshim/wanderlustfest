@@ -24,7 +24,7 @@
       
 
 	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>zz
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -150,10 +150,6 @@
 
   <!-- BEGIN FOOTER -->
   <footer class="footer">
-    <div class="logos">
-      <div class="velour">Velour Music Group</div>
-      <div class="c3">C3 Presents</div>
-    </div>
     <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
     <div class="footer-links">
       <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |

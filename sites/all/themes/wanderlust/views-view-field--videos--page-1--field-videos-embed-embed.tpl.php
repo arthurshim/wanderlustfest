@@ -1,7 +1,7 @@
 <?php
 print '<div class="hnid">'. $row->nid . '</div>';
 if($row->node_data_field_videos_embed_field_videos_embed_provider == 'youtube') {
-    $url = 'http://www.youtube.com/watch?v=' . $row->node_data_field_videos_embed_field_videos_embed_value;
+    $url = 'http://www.youtube.com/watch?v=' . $row->node_data_field_videos_embed_field_videos_embed_value.'?wmode=transparent';
 }elseif($row->node_data_field_videos_embed_field_videos_embed_provider == 'vimeo') {
     $url = 'http://vimeo.com/' . $row->node_data_field_videos_embed_field_videos_embed_value;
 }
