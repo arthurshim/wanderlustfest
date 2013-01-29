@@ -121,7 +121,7 @@ $(document).ready(function()
 				$.fancybox.open('#mytable');
 	});
 	
-		$("#legend1 span").click(function() {
+		$("#legend1 .legendtitle").click(function() {
 				$.fancybox.open('#festinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
@@ -132,7 +132,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 		
 			
 	        });
-		$("#legend2 span").click(function() {
+		$("#legend2 .legendtitle").click(function() {
 				$.fancybox.open('#yogainfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
@@ -144,7 +144,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 
 
 	        });
-		$("#legend3 span").click(function() {
+		$("#legend3 .legendtitle").click(function() {
 				$.fancybox.open('#studioinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
@@ -604,7 +604,7 @@ jQuery(document).ready(function($) {
 	 unset($c);
 	 
 	print $item; ?>
-	 <div class="visitsite"><?php print l('Vist Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>
+	 <!--<div class="visitsite"><?php print l('Vist Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>-->
 	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
 	</div>
     <?php }
@@ -627,12 +627,12 @@ jQuery(document).ready(function($) {
 	 }
 	else {
       $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
-	    $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
+	    $item .= '<div class="site-title"><a target="_blank" href="'.$site->extra_fields->field_event_url[0]['url'].'">' . $site->extra_fields->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
 	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
-	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
+	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
     
 	 
 		
