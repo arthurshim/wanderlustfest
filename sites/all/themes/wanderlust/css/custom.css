@@ -722,7 +722,6 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
 .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a{
-  -webkit-border-radius: 0;
   display: block;
   text-transform: uppercase;
   font-size: 26px;
@@ -733,6 +732,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   background: #deddce;
   border: none;
   font-family: 'lhf_egyptianregular', arial !important;
+  font-weight: normal !important;
 
 }
 
@@ -1853,7 +1853,7 @@ width:40px;
 
 .copy{
   float: left;
-  margin-right: 60px;
+  margin-right: 250px;
   }
 
 .footer-links{
@@ -2189,6 +2189,7 @@ body#block-quicktabs-2 #header{
   line-height: 0.8;
   text-align: center;
   width: 220px;
+  position: relative;
   }
 
 .page-lineup  .view-artist-landing2 .views-field-title .field-content{
@@ -2197,8 +2198,8 @@ body#block-quicktabs-2 #header{
   display: block;
   text-align: center;
   width: 204px;
-  z-index: 9l;
-  padding: 0 8px;
+  z-index: 9;
+
   
 }
   
@@ -2209,6 +2210,9 @@ body#block-quicktabs-2 #header{
   color: #fff;
   filter: progid:DXImageTransform.Microsoft.dropShadow(color=#000000,offX=1,offY=1);
   text-shadow: 1px 2px 3px #000;
+  display: block;
+  width: 208px;
+  padding: 0 8px;  
 }  
   
 .page-lineup .view-artist-landing2 td{
