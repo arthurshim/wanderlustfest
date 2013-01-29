@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
@@ -7,6 +7,8 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
    <meta property="fb:admins" content="1407657,1149492126,515565663,508316132,6911729"/>
 
   
@@ -22,7 +24,7 @@
       
 
 	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
-	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
+	<script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>zz
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -34,7 +36,21 @@
  
  $(document).ready(function() {
 
+ (function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
 });
+
+
+
+
+
 </script>
 
   <!-- SET FACEBOOK OPEN GRAPH APP ID -->
@@ -93,7 +109,14 @@
       </div>      
     </nav> 
     <?php endif; ?>
+	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
+   
+    <!-- EMAIL SIGN UP CODE -->
+    <div class="email-code">
+      <?php print $connect ;?>
+    </div>
+   
    
     <!-- BEGIN CONTENT -->    
     <div class="subhead body-content">

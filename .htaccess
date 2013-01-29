@@ -7,6 +7,13 @@
   Order allow,deny
 </FilesMatch>
 
+
+<FilesMatch "\.(ttf|otf|eot|woff)$">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "http://mydomain.com"
+    </IfModule>
+</FilesMatch>
+
 # Don't show directory listings for URLs which map to a directory.
 Options -Indexes
 
@@ -109,6 +116,12 @@ DirectoryIndex index.php
   #subdoomain redirect
   #RewriteCond %{HTTP_HOST} ^yitc\.wanderlustfestival\.com$ [NC]
   #RewriteRule ^(.*)$ http://nyc.wanderlustfestival.com/$1 [L,R=301]
+
+
+# Rules for @font-face embedding
+
+
+
 
   ### BOOST START ###
 #  AddDefaultCharset utf-8

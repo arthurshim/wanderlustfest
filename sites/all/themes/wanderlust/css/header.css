@@ -41,17 +41,16 @@
   position: absolute;
   left: 0;
   width: 200px;
-  font-family: 'MrsEavesOT-Italic';
-  font-style: italic;
+  font-family: 'MrsEavesOT-Italic', georgia;
   color: #513319;
   font-size: 14px;
   text-align: left;
   height: 45px;    
   font-size: 18px;  
-  background: url('../images/event-type-icons.png') left top no-repeat;
+  background: url('../images/event-type-icons.png') left 4px no-repeat;
   padding-left: 39px;  
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: normal;
   top: 23px;
 }
 
@@ -119,7 +118,8 @@
 /* PARENT ITEMS
 ----------------------------------*/	
 
-#navigation ul.nice-menu li a{
+#navigation ul.nice-menu li a,
+#navigation ul.nice-menu li .nolink{
   display: block;
  	float: left;    
  	font-size: 22px;
@@ -139,7 +139,8 @@
 	}
 
 #navigation ul.nice-menu li a:hover,
-#navigation ul.nice-menu li.over > a{
+#navigation ul.nice-menu li.over > a,
+#navigation ul.nice-menu li.over > .nolink{
   color: #402b2b;
 	}
  
@@ -243,6 +244,7 @@
   
 .social-media-links .email{
   background-position: -110px 0px;
+  cursor:pointer;
   }  
 
 .social-media-links .email:hover{
@@ -269,4 +271,18 @@
 
 .pane-content a.hid{
   display: none!important;
+}
+
+/*Email header*/
+.joincontent {
+    position: absolute;
+    top: 192px;
+    left: 439px;
+    z-index: 200;
+    display: none;
+}
+
+#mytable{
+  width: 420px;
+  margin: 2px 141px;
 }

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<!--page.tpl.php -->
+<!doctype html>
+<!--page-wide.tpl.php -->
 <!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
@@ -8,6 +8,8 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
@@ -92,7 +94,23 @@ _gaq.push(['_trackPageview']);
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693",  shorten:false});</script>
 
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
+  <script>
+jQuery.noConflict();
+(function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
+
+	  </script>
   
 </head>
 
@@ -108,7 +126,7 @@ _gaq.push(['_trackPageview']);
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-
+<?php print $connect ;?> 
   <div id="container" class="clearfix">
 
     <div id="skip-link">
@@ -146,7 +164,12 @@ _gaq.push(['_trackPageview']);
     </nav> 
     <!-- END NAVIGATION -->
 
-    
+
+    <!-- EMAIL SIGN UP CODE -->
+    <div class="email-code">
+      <?php print $connect ;?>
+    </div>
+      
     <div class="subhead body-content">
     
       <div id="main"  role="main" class="clearfix">
@@ -171,7 +194,7 @@ _gaq.push(['_trackPageview']);
 
 
  <!-- BEGIN FOOTER -->
-  <footer class="footer">
+  <footer class="footer clearfix">
     <div class="logos">
       <div class="velour">Velour Music Group</div>
       <div class="c3">C3 Presents</div>

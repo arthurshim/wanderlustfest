@@ -17,6 +17,7 @@ stylesheets[all][] = css/blog.css
 ;scripts[] = js/js_combined.js
 scripts[] = js/jquery_cookie.js
 scripts[] = js/jquery_cookie1.js
+scripts[] = js/ie.js
 
 
 ; scripts[] = js/wanderlust.js

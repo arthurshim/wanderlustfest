@@ -1,7 +1,8 @@
+
 Drupal.behaviors.dropdown = function(context) {
-			  				$(window).resize(function() {
+			 /* 				$(window).resize(function() {
 setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
-});            
+});          */  
  
   $('.view-Photos.view-display-id-page_1 li.views-row').click(function() {
      $(this).find('a').addClass('fancybox-thumbs');
@@ -76,10 +77,10 @@ function() {
    
  /*videos*/
  
-   $('.view-videos.view-display-id-page_1 li.views-row').click(function() {
+   $('.view-videos.view-display-id-page_1 li.views-roww').click(function() {
           
    //  $(this).find('a').addClass("f");                                               
-$('.fancybox-media').fancybox({
+$jq('.fancybox-media, .views-field-title').fancybox({
 		openEffect  : 'none',
 		closeEffect : 'none',
 		helpers : {

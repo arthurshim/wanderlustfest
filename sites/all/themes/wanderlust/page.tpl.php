@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--page.tpl.php -->
 <!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
@@ -8,10 +8,27 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
   <?php print $scripts; ?>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+	  	  <script>
+jQuery.noConflict();
+(function($) {
+  $(function() {
+ 
+  	$(".email").click(function() {
+				$.fancybox.open('#mytable');
+	});
+	
+  });
+})(jQuery);
+	  </script>
   
     <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -144,12 +161,16 @@ _gaq.push(['_trackPageview']);
         <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
         <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a>
         <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank">YouTube</a>
-        <a class="email" >Email</a>        
+        <a class="email">Email</a>        
       </div>      
     </nav> 
+	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
-
- 
+    
+    <!-- EMAIL SIGN UP CODE -->
+    <div class="email-code">
+      <?php print $connect ;?>
+    </div>
    
     <div id="slideshows" role="slideshow" class="slideshowhome">
       <?php if (!empty($slidemain)): ?>
@@ -192,7 +213,7 @@ _gaq.push(['_trackPageview']);
 
 
   <!-- BEGIN FOOTER -->
-  <footer class="footer">
+  <footer class="footer clearfix">
     <div class="logos">
       <div class="velour">Velour Music Group</div>
       <div class="c3">C3 Presents</div>
