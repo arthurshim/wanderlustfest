@@ -41,8 +41,7 @@
   position: absolute;
   left: 0;
   width: 200px;
-  font-family: 'MrsEavesOT-Italic';
-  font-style: italic;
+  font-family: 'MrsEavesOT-Italic', georgia;
   color: #513319;
   font-size: 14px;
   text-align: left;
@@ -51,7 +50,7 @@
   background: url('../images/event-type-icons.png') left 4px no-repeat;
   padding-left: 39px;  
   line-height: 1.2;
-  font-weight: bold;
+  font-weight: normal;
   top: 23px;
 }
 

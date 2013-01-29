@@ -4,10 +4,10 @@
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if gt IE 8]> <!--> <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" />
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->

@@ -1274,7 +1274,7 @@ article .node-body{
   }
 
 .node-type a{
-  font-family: 'MrsEavesOT-Italic';
+  font-family: 'MrsEavesOT-Italic', georgia;
   font-size: 18px;
   color: #b69e6d;
   text-transform: lowercase;
