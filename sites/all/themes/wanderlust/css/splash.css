@@ -514,16 +514,19 @@ overflow:hidden; }*/
   color: #47292b;
   top: 7px;
   position: relative;
+  cursor: pointer;
 }
 
 #legend2 .legendtitle {
   color: #a67d01;
   position: relative;
   top: 9px;
+  cursor: pointer;
 }
 
 #legend3 .legendtitle {
   color: #ac5b0e;
+  cursor: pointer;
 }
 
 .highlight {
