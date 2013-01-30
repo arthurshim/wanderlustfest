@@ -18,7 +18,7 @@
       $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
       $subdomain = strtolower(trim($url[0]));
       $f = FALSE;
-      if ($subdomain == 'wanderfest') {   /*check  if we're on front page  'wanderfest.com' */
+      if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') {   /*check  if we're on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
@@ -54,7 +54,7 @@
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js?h"></script>
 
 
-<?php  if($subdomain == 'wanderfest' && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
+<?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
 <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
  <?php }?>
  
@@ -113,8 +113,8 @@ $(document).ready(function()
  $(document).ready(function() {
  $('input[type=checkbox]').change(function(){
    if ($(this).is(":checked")){
-       $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '.wanderfest.com'});     
-       $(location).attr('href', 'http://' +  $(this).attr('name') + '.wanderfest.com');
+       $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
+       $(location).attr('href', 'http://' +  $(this).attr('name') + '<?php print '.' . $subdomain . '.com';?>');
    }
   });
 	$("#emailClick").click(function() {
