@@ -604,7 +604,7 @@ jQuery(document).ready(function($) {
 	 unset($c);
 	 
 	print $item; ?>
-	 <!--<div class="visitsite"><?php print l('Vist Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>-->
+	 <div class="visitsite"><?php print l('Vist Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>
 	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
 	</div>
     <?php }
@@ -632,7 +632,7 @@ jQuery(document).ready(function($) {
 	 }	 
 	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
-	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
+	 <div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>
     
 	 
 		
@@ -1025,6 +1025,8 @@ $(this).addClass("baloonHover");
 
 $(document).ready(function()
 {
+
+   FB.XFBML.parse();
   
 /*FOR PHOTOS*/
         $('body').append('<div id="ted_photo_hover"></div>');
