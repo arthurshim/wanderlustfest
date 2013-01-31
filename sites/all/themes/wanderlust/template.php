@@ -323,7 +323,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
       </tr>
       <tr>
         <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='Zip/PostalCode' id="postal_code" /></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='ZipCode' id="postal_code" /></td>
       </tr>
       <tr>
         <td valign="middle" style="padding:2px; ">Country<span style="color:#841D0A;"></span></td>
