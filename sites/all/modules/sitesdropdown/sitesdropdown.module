@@ -301,7 +301,7 @@ function sitesdropdown_site_id() {
 	  /* EVENT INFO FOR ALL SITE HEADERS */
 	  if($site['field_event_date'][0]['value']){
 	  
-	   $item = '<div class="event-item">';
+	   $item = '<div class="event-item"><div class="site-marker"></div>';
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
 	   $item .= '<div class="item-date">';
 

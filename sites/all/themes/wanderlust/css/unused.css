@@ -294,3 +294,43 @@ div.admin-panel {
   padding: 0;
 }
 
+
+
+
+
+// CUT FROM TYPE.CSS
+
+
+@font-face {
+		font-family: 'MrsEavesOT-Italic';
+		src: url('../fonts/mrseavesotitalic.eot');
+		src: url('../fonts/mrseavesotitalic.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotitalic.woff') format('woff'),
+				 url('../fonts/mrseavesotitalic.ttf') format('truetype'),
+				 url('../fonts/mrseavesotitalic.svg#mrseavesotitalic') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+
+@font-face {
+		font-family: 'MrsEavesOT-Bold';
+		src: url('../fonts/mrseavesotbold.eot');
+		src: url('../fonts/mrseavesotbold.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotbold.woff') format('woff'),
+				 url('../fonts/mrseavesotbold.ttf') format('truetype'),
+				 url('../fonts/mrseavesotbold.svg#mrseavesotbold') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}
+
+@font-face {
+		font-family: 'MrsEavesOT-Roman';
+		src: url('../fonts/mrseavesotroman.eot');
+		src: url('../fonts/mrseavesotroman.eot?#iefix') format('embedded-opentype'),
+				 url('../fonts/mrseavesotroman.woff') format('woff'),
+				 url('../fonts/mrseavesotroman.ttf') format('truetype'),
+				 url('../fonts/mrseavesotroman.svg#mrseavesotroman') format('svg');
+		font-weight: normal;
+		font-style: normal;
+}

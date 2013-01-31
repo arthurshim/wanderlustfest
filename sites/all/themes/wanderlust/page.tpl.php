@@ -147,7 +147,7 @@ _gaq.push(['_trackPageview']);
       </div>
 
       <div class="tomap">
-        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="/sites/all/themes/wanderlust/images/see-all-events.png" alt="<?php print t('To map'); ?>" /></a>
+        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events.png" alt="<?php print t('To map'); ?>" /></a>
       </div>
       
     </header>
@@ -164,7 +164,6 @@ _gaq.push(['_trackPageview']);
         <a class="email">Email</a>        
       </div>      
     </nav> 
-	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
     
     <!-- EMAIL SIGN UP CODE -->
