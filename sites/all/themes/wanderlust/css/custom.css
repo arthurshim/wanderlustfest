@@ -1161,7 +1161,7 @@ TEMPORARY STYLES FOR LAUNCH
 article,
 td .node{
   background-color: white;
-  height: 300px;
+  height: 240px;
   padding: 0 10px 8px;
   width: 200px;
   border-radius: 5px;
@@ -2481,4 +2481,8 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 
 .stwrapper{
   display: none;
+}
+
+#thankyou{
+display:none;
 }

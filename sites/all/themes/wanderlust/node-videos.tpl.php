@@ -32,6 +32,9 @@ print '<div class="node-title homenodes"><h2><a href="' . $url . '" class="fancy
       </div>
 
 
+
+<?php /* COMMENTED OUT SOCIAL BUTTONS
+
 <div id="easysocial-box">
 
   <span class="easysocial-widget-twitter">
@@ -43,6 +46,11 @@ print '<div class="node-title homenodes"><h2><a href="' . $url . '" class="fancy
   </span>
 
 </div>
+
+*/ ?>
+
+
+
   </div>
 </div>
 
