@@ -126,7 +126,6 @@ jQuery.noConflict();
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-<?php print $connect ;?> 
   <div id="container" class="clearfix">
 
     <div id="skip-link">

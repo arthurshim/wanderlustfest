@@ -127,7 +127,6 @@ jQuery.noConflict();
         <a class="email" >Email</a>        
       </div>      
     </nav> 
-	<?php print $connect ;?> 
     <?php endif; ?>
     <!-- END NAVIGATION -->
    

@@ -164,7 +164,6 @@ _gaq.push(['_trackPageview']);
         <a class="email">Email</a>        
       </div>      
     </nav> 
-	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
     
     <!-- EMAIL SIGN UP CODE -->

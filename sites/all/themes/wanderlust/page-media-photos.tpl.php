@@ -109,7 +109,6 @@
       </div>      
     </nav> 
     <?php endif; ?>
-	<?php print $connect ;?> 
     <!-- END NAVIGATION -->
    
     <!-- EMAIL SIGN UP CODE -->
