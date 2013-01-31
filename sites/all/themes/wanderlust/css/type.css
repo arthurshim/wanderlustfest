@@ -6,59 +6,66 @@
 
 @font-face {
     font-family: 'lhf_egyptianregular';
-    src: url('../fonts/lhfegyptian-webfont.eot');
-    src: url('../fonts/lhfegyptian-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/lhfegyptian-webfont.woff') format('woff'),
-         url('../fonts/lhfegyptian-webfont.ttf') format('truetype'),
-         url('../fonts/lhfegyptian-webfont.svg#lhf_egyptianregular') format('svg');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.eot');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.woff') format('woff'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.ttf') format('truetype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.svg#lhf_egyptianregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'revolution';
-    src: url('../fonts/revolution-webfont.eot');
-    src: url('../fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/revolution-webfont.woff') format('woff'),
-         url('../fonts/revolution-webfont.ttf') format('truetype'),
-         url('../fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/revolution-webfont.eot');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/revolution-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/revolution-webfont.woff') format('woff'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/revolution-webfont.ttf') format('truetype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/revolution-webfont.svg#revolutionrevolution') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
+
+
 @font-face {
-		font-family: 'MrsEavesOT-Italic';
-		src: url('../fonts/mrseavesotitalic.eot');
-		src: url('../fonts/mrseavesotitalic.eot?#iefix') format('embedded-opentype'),
-				 url('../fonts/mrseavesotitalic.woff') format('woff'),
-				 url('../fonts/mrseavesotitalic.ttf') format('truetype'),
-				 url('../fonts/mrseavesotitalic.svg#mrseavesotitalic') format('svg');
-		font-weight: normal;
-		font-style: normal;
+    font-family: 'baskerville_fsregular';
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Regular-webfont.eot');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Regular-webfont.woff') format('woff'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Regular-webfont.ttf') format('truetype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Regular-webfont.svg#baskerville_fsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 
 @font-face {
-		font-family: 'MrsEavesOT-Bold';
-		src: url('../fonts/mrseavesotbold.eot');
-		src: url('../fonts/mrseavesotbold.eot?#iefix') format('embedded-opentype'),
-				 url('../fonts/mrseavesotbold.woff') format('woff'),
-				 url('../fonts/mrseavesotbold.ttf') format('truetype'),
-				 url('../fonts/mrseavesotbold.svg#mrseavesotbold') format('svg');
-		font-weight: normal;
-		font-style: normal;
+    font-family: 'baskerville_fsbold_italic';
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-BoldItalic-webfont.eot');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-BoldItalic-webfont.woff') format('woff'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-BoldItalic-webfont.ttf') format('truetype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-BoldItalic-webfont.svg#baskerville_fsbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 @font-face {
-		font-family: 'MrsEavesOT-Roman';
-		src: url('../fonts/mrseavesotroman.eot');
-		src: url('../fonts/mrseavesotroman.eot?#iefix') format('embedded-opentype'),
-				 url('../fonts/mrseavesotroman.woff') format('woff'),
-				 url('../fonts/mrseavesotroman.ttf') format('truetype'),
-				 url('../fonts/mrseavesotroman.svg#mrseavesotroman') format('svg');
-		font-weight: normal;
-		font-style: normal;
+    font-family: 'baskerville_fsitalic';
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Italic-webfont.eot/Baskerville-Italic-webfont.eot');
+    src: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Italic-webfont.woff') format('woff'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Italic-webfont.ttf') format('truetype'),
+         url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/Baskerville-Italic-webfont.svg#baskerville_fsitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+
 
 
 

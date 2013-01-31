@@ -3,13 +3,13 @@
 
 
 body{
-  background: url('../images/site-bg.jpg') no-repeat center top fixed !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg') no-repeat center top fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
   -o-background-size: cover !important;
   background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/site-bg.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/site-bg.jpg', sizingMethod='scale')";
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale')";
   }
 
 #main{
@@ -45,7 +45,7 @@ body{
 
 .front .jcarousel-skin-default .jcarousel-next, 
 .jcarousel-skin-default .jcarousel-prev {
-  background: url('../images/site-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   display: block;
   height: 29px;
   width: 30px;
@@ -355,7 +355,7 @@ tbody {border: 0px!important;}
 
 hr{
   margin: 20px 0;
-  background: url('../images/border-bg.png') repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
   height: 2px;
   }
 
@@ -880,6 +880,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   border: 1px solid #dfc893;
   padding: 15px;
   clear: both;
+  width: 274px;
   }
 
 .right-column h2,
@@ -897,7 +898,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 
 #emailClick{
-  background: url('../images/site-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   background-position: 0px -74px;
   height: 52px;
   width: 272px;
@@ -908,16 +909,16 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 .pane-block-42 .email,
 #sidebar-right .email{
   padding: 15px 0;
-  background: url('../images/border-bg.png') repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
 }
 
 .social-networks .clearfix{
-  background: url('../images/border-bg.png') repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
 }
 
 .social-networks .links{
   float: left;
-  background: url('../images/border-bg.png') repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
   padding: 8px 20px 0 60px;
   width: 190px;
 }
@@ -926,7 +927,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   display: block;
   width: 28px;
   height: 28px;
-  background: url('../images/site-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   float: left;
   margin-right: 15px;
   text-indent: -999em;
@@ -1280,7 +1281,7 @@ article .node-body{
   }
 
 .node-type a{
-  font-family: 'MrsEavesOT-Italic', georgia;
+  font-family: 'baskerville_fsitalic', georgia;
   font-size: 18px;
   color: #b69e6d;
   text-transform: lowercase;
@@ -1428,7 +1429,7 @@ article #easysocial-box .easysocial-widget-twitter{
 
 
 .slidemain .views-slideshow-controls-bottom a{
-  background-image: url('../images/site-sprite.png');
+  background-image: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   padding: 14px 0 0 0;
   height /**/: 14px;
   overflow: hidden;
@@ -1461,7 +1462,7 @@ article #easysocial-box .easysocial-widget-twitter{
   max-width:1138px;
   margin:auto;
   height: 225px;
-  background: url('../images/section-border-bg.png') bottom repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') bottom repeat-x;
   }
 
 div.carousel-overlay {
@@ -1498,12 +1499,12 @@ div.carousel-overlay .carousel-overlay-event {
   margin: 6px 0;
   color: #3b6b60;
   font-size: 18px;
-  font-family: 'MrsEavesOT-Italic';
-  background: url('../images/section-border-bg.png') repeat-x;
+  font-family: 'baskerville_fsitalic';
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') repeat-x;
   }
 
 .slidemain .views-field-title span{
-  background: url('../images/section-border-bg.png') bottom repeat-x;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') bottom repeat-x;
   display: block;
   padding: 8px 0 6px 10px;
   width: 984px;  
@@ -1560,26 +1561,26 @@ div.carousel-overlay .carousel-overlay-event {
 
 
 .view-homepage-carousel div.views-field-title {
-
-	width: 158px;
+	width: 170px;
 	position: absolute;
 	text-align: center;
-  padding: 0 10px;
-	bottom: 15px;
+  padding: 5px 4px 3px 4px;
+	bottom: 0px;
 	left: 0;
 	z-index: 10;
 	color: #fff;
 	text-transform: uppercase;
 	line-height: 1 !important;
+	background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/artist-title-bg.png');
 }
 
 .view-homepage-carousel div.views-field-title a{
   color: #fff;
-  font-size: 24px;
-  text-shadow: 1px 2px 3px #000;
+  font-size: 22px;
   font-family: 'lhf_egyptianregular', arial;
   line-height: .8;
   letter-spacing: 1px;
+  font-weight: normal;
   }
 
 .view-homepage-carousel .artist-category{
@@ -1826,7 +1827,7 @@ width:40px;
 
 .velour{
   display: block;
-  background: url('../images/site-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   width: 91px;
   height: 20px;
   background-position: -149px 0;
@@ -1840,7 +1841,7 @@ width:40px;
 
 .c3{
   display: block;
-  background: url('../images/site-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   width: 28px;
   height: 43px;
   background-position: -241px 0;
@@ -2406,7 +2407,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 
 .fancybox-skin td {
   padding: 8px !important;
-  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-family: 'baskerville_fsitalic', 'times new roman';
   font-size: 13px;
 }
 
@@ -2431,7 +2432,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 .fancybox-skin #submit {
     background: #c4581d;
     padding: 9px 6px 6px 6px;
-    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-family: 'baskerville_fsitalic', 'times new roman';
     font-size: 18px;
     color: #fff;
     border: none;
@@ -2462,7 +2463,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 
 
 .email-container{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -404px -947px;
   width: 321px;
   height: 198px;

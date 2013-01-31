@@ -8,9 +8,9 @@ body{
 ---------------------------------*/
 
 #map-1-container #logo {
-    background: url('../images/splash-sprite.png');
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
     width: 479px;
-    height: 180px;
+    height: 147px;
     background-position: 679px -8px;
     position: absolute;
     top: 10px;
@@ -191,14 +191,14 @@ overflow:hidden; }*/
 }
 
 .mark.festival {
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   height: 36px;
   width: 27px;
   background-position: -264px -195px;
 }
 
 .mark.yoga {
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   height: 36px;
   width: 26px;
   background-position: -235px -195px;
@@ -388,7 +388,7 @@ overflow:hidden; }*/
 
 .innersite {
     display: none;
-    background: url('../images/splash-sprite.png');
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
     background-position: -695px -464px !important;
     width: 205px;
     height: auto;
@@ -397,8 +397,8 @@ overflow:hidden; }*/
     z-index: 999999 !important;
     padding: 11px;
     text-align: center;
-    font-family: 'MrsEavesOT-Italic';
-    font-style: italic;
+    font-family: 'baskerville_fsitalic';
+    
     margin-left: 284px;
     font-size: 16px;
     cursor: default !important;
@@ -427,15 +427,15 @@ overflow:hidden; }*/
 }
 
 .siteaddress {
-    font-family: 'MrsEavesOT-Italic';
-    font-style: italic;
+    font-family: 'baskerville_fsitalic';
+    
     color: #c04b0d !important;
     margin-bottom: 8px;
 }
 
 .siteevent {
-    font-family: 'MrsEavesOT-Italic';
-    font-style: italic;
+    font-family: 'baskerville_fsitalic';
+    
     color: #c04b0d !important;
 }
 
@@ -453,7 +453,7 @@ overflow:hidden; }*/
 }
 
 #legend {
-  background-image: url(../images/splash-sprite.png);
+  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png);
   background-position: -18px -250px;
   width: 320px;
   height: 198px;
@@ -536,7 +536,7 @@ overflow:hidden; }*/
 }
 
 .legendtitle span{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -294px -195px;
   width: 34px;
   text-indent: -999em;
@@ -555,7 +555,7 @@ overflow:hidden; }*/
 ---------------------------------*/
 
 #joinmail {
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -35px -47px;
   height: 52px;
   width: 272px;
@@ -564,9 +564,9 @@ overflow:hidden; }*/
 
 #joinmail .title {
     color: #603220;
-    font-family: 'MrsEavesOT-Italic';
+    font-family: 'baskerville_fsitalic', georgia;
     font-size: 18px;
-    font-style: italic;
+    
     font-weight: bold;
     margin: 10px 0 8px 12px;
     text-align: left;
@@ -606,7 +606,7 @@ overflow:hidden; }*/
 }
 
 .other-icons a {
-    background: url('../images/splash-sprite.png');
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
     display: block;
     float: left;
     width: 28px;
@@ -653,8 +653,8 @@ overflow:hidden; }*/
   width: 308px;
   position: relative;
   left: 78px;
-  font-family: 'MrsEavesOT-Italic', 'times new roman';
-  font-style: italic;
+  font-family: 'baskerville_fsitalic', 'georiga';
+  
   line-height: 1.2;
   font-size: 14px;
 }
@@ -664,14 +664,14 @@ overflow:hidden; }*/
 }
 
 .fancybox-inner .bl a{
-  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-family: 'baskerville_fsitalic', 'georgia';
   color: #033904;
   text-transform: capitalize;
   text-decoration: underline;
 }
 
 #festinfo .site-marker{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -264px -195px;
   width: 32px;
   height: 36px;
@@ -686,7 +686,7 @@ overflow:hidden; }*/
 }
 
 #yogainfo .site-marker{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -235px -195px;
   width: 29px;
   height: 36px;
@@ -697,7 +697,7 @@ overflow:hidden; }*/
 
 
 #studioinfo .site-marker{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -168px -195px;
   width: 27px;
   height: 36px;
@@ -715,7 +715,7 @@ overflow:hidden; }*/
   position: absolute;
   width: 121px;
   z-index: 999;
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -805px -9px;
   text-indent: -999em;
   opacity: 0.9;
@@ -756,8 +756,8 @@ overflow:hidden; }*/
 
 #festinfo .descript, #yogainfo .descript, #studioinfo .descript {
   text-align: center;
-  font-family: 'MrsEavesOT-Italic', 'times new roman';
-  font-size: 15px;
+  font-family: 'baskerville_fsregular', georgia;
+  font-size: 14px;
   width: 600px;
   line-height: 1;
   margin: 0 auto;
@@ -798,7 +798,7 @@ overflow:hidden; }*/
 ---------------------------------*/
 
 .front .fancybox-skin {
-  background: url('../images/splash-sprite.png') no-repeat !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png') no-repeat !important;
   background-position: -20px -466px !important;
   width: 670px !important;
   height: 443px !important;
@@ -808,7 +808,7 @@ overflow:hidden; }*/
 
 .front .fancybox-skin td {
     padding: 8px !important;
-    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-family: 'baskerville_fsitalic', 'times new roman';
     font-size: 13px;
 }
 
@@ -832,7 +832,7 @@ overflow:hidden; }*/
 .front .fancybox-skin #submit {
     background: #c4581d;
     padding: 9px 6px 6px 6px;
-    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-family: 'baskerville_fsitalic', 'times new roman';
     font-size: 18px;
     color: #fff;
     border: none;
@@ -863,7 +863,7 @@ overflow:hidden; }*/
 
 
 .email-container{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -404px -947px;
   width: 321px;
   height: 198px;
@@ -888,7 +888,7 @@ overflow:hidden; }*/
 }
 
 #toolbar a.icon{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   height: 109px;
   display: block;
   text-indent: -999em;
@@ -924,7 +924,7 @@ overflow:hidden; }*/
 }
 
 #toolbar .dialog{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -19px -946px;
   width: 340px;
   height: 251px;
@@ -935,7 +935,7 @@ overflow:hidden; }*/
   left: -108px;
   text-align: center;
   font-size: 12px;
-  font-family: 'MrsEavesOT-Italic', 'Times New Roman';
+  font-family: 'baskerville_fsitalic', 'Times New Roman';
   font-size: 15px;
   line-height: 1.2;
 }
@@ -948,7 +948,7 @@ overflow:hidden; }*/
 }
 
 #toolbar .arrow{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -349px -195px;
   height: 14px;
   width: 16px;
