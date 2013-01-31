@@ -930,12 +930,12 @@ overflow:hidden; }*/
   height: 251px;
   position: absolute;
   bottom: 127px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 0 20px 10px 20px;
   left: -108px;
   text-align: center;
   font-size: 12px;
-  font-family: 'baskerville_fsitalic', 'Times New Roman';
+  font-family: 'baskerville_fsregular', 'Times New Roman';
   font-size: 15px;
   line-height: 1.2;
 }

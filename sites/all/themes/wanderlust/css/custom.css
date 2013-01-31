@@ -104,22 +104,18 @@ body{
 
 
 .node-type-artists .pane-node-title{
-  position: absolute;
-  height: 439px;
 }
 
 .node-type-artists .pane-node-title .pane-content{
-  color: #fff;
+  color: #402b2b;
   font-size: 50px;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial;
-  position: absolute;
-  margin-left: 20px;
   z-index: 999;
-  text-shadow: 1px 3px 4px #000;
   width: 554px;
   line-height: 0.8;
   bottom: 20px;
+  font-weight: normal;
 }
 
 
@@ -1557,7 +1553,7 @@ div.carousel-overlay .carousel-overlay-event {
   margin-top: 20px;
   }
 
-/* css-method */
+/* HOMEPAGE SLIDESHOWS */
 
 
 .view-homepage-carousel div.views-field-title {
@@ -2195,7 +2191,7 @@ body#block-quicktabs-2 #header{
 
 .page-lineup  .view-artist-landing2 .views-field-title .field-content{
   position: absolute;
-  bottom: 28px;
+  bottom: 5px;
   display: block;
   text-align: center;
   width: 204px;
@@ -2209,12 +2205,16 @@ body#block-quicktabs-2 #header{
   font-size: 26px;  
   text-align: center;
   color: #fff;
-  filter: progid:DXImageTransform.Microsoft.dropShadow(color=#000000,offX=1,offY=1);
-  text-shadow: 1px 2px 3px #000;
   display: block;
-  width: 208px;
-  padding: 0 8px;  
+  width: 214px;
+  padding: 5px 4px 3px 4px;  
+	background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/artist-title-bg.png');
+  
 }  
+
+
+
+
   
 .page-lineup .view-artist-landing2 td{
   width: 222px;
