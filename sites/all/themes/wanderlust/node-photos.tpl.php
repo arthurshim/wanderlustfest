@@ -40,13 +40,13 @@ if ($teaser) {
 
   <span class="easysocial-widget-twitter">
     <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-    <a href="https://twitter.com/share" data-url="<?php echo $node_url; ?>"class="twitter-share-button">Tweet</a>
+    <a href="https://twitter.com/share" data-count="horizontal" data-url="<?php echo $node_url; ?>"class="twitter-share-button">Tweet</a>
   </span>
-  <span class="easysocial-widget-facebook">
-    <iframe src="//www.facebook.com/plugins/like.php?href=<?php $curr_url = check_plain("http://" .$_SERVER['HTTP_HOST'] .$node_url); echo $curr_url; ?>;send=false&amp;layout=button_count&amp;width=87&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:87px; height:21px;" allowTransparency="true"></iframe>
-
-  
-  
+  <span class="easysocial-widget-facebook"> <!--usually $node_url outputs relative url but here it seems to be outputting absolute-->
+    <iframe src="//www.facebook.com/plugins/like.php?href=<?php echo $node_url; ?>;send=false&amp;layout=button_count&amp;width=87&amp;show_faces=true&amp;action=like&amp;colorscheme=light&amp;font&amp;height=21" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:87px; height:21px;" allowTransparency="true"></iframe>
+<script>
+    FB.XFBML.parse();
+  </script>
   </span>
 
 </div>

@@ -359,7 +359,7 @@ jQuery(document).ready(function($) {
 
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
-	$im = '<img src="/sites/all/themes/wanderlust/images/see-all-events.png" alt="To map" />';   
+	$im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events.png" alt="To map" />';   
 	print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE)); ?>
       </div>
       
@@ -542,7 +542,7 @@ jQuery(document).ready(function($) {
 
 <div class="map-viewport">
 <div id="map-1" >
-<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
+<img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
   
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
