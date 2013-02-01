@@ -41,6 +41,7 @@ function wl_helper_init() {
 	
   //drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
 
+  //drupal_set_header('Access-Control-Allow-Origin: *');
   
  // $mystring = $_SERVER['HTTP_REFERER'];
 //print '<pre>' . print_r($_SERVER['HTTP_REFERER'], 1) . '</pre>';
