@@ -5,6 +5,7 @@
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if gt IE 8]> <!--> <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
 <head>
+<!--sched-->
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
@@ -13,6 +14,8 @@
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
   <?php print $scripts; ?>
   
     <!-- IE Fix for HTML5 Tags -->
@@ -95,12 +98,13 @@ _gaq.push(['_trackPageview']);
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
   <script>
+  
 /*jQuery.noConflict();*/ 
 (function($) {
   $(function() {
  
   	$(".email").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
 	
   });
@@ -145,7 +149,9 @@ _gaq.push(['_trackPageview']);
       
     </header>
     <!-- END HEADER -->
-    
+       <div class="email-code">
+      <?php print $connect ;?>
+    </div>
     <!-- BEGIN NAVIGATION -->  
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
@@ -161,9 +167,7 @@ _gaq.push(['_trackPageview']);
 
 
     <!-- EMAIL SIGN UP CODE -->
-    <div class="email-code">
-      <?php print $connect ;?>
-    </div>
+ 
       
     <div class="subhead body-content">
     

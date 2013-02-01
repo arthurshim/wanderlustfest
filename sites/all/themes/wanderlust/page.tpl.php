@@ -23,7 +23,7 @@ jQuery.noConflict();
   $(function() {
  
   	$(".email").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
 	
   });

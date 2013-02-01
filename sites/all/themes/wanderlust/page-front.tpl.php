@@ -56,7 +56,12 @@
 
 
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
+<script>
+document.write("<h1>Redirecting to your chosen Wanderlust Adventure!</h1>"); 
+</script>
 <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
+
+
  <?php }?>
  
 <script type="text/javascript">
@@ -119,7 +124,7 @@ $(document).ready(function()
    }
   });
 	$("#emailClick").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
 	
 		$("#legend1 .legendtitle").click(function() {
@@ -279,9 +284,8 @@ jQuery(document).ready(function($) {
 	  
 	  
 	  	$(".email").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
-	
 	
 	  
 });
@@ -1081,13 +1085,31 @@ _gaq.push(['_trackPageview']);
 $(document).ready(function() {
 	$('#email').click(function() {
 	
-	//	alert('email click: yes');
+		//alert(oo);
 
+		$('#newsletter #submit').hover(function() {
+		  var oo = $('#newsletter').serialize();
+		  $.post('/testmail.php', {oo}, function(data){
+                      alert(data);                                                       
+                  });
+		  
+	/*	$.ajax({
+			type:        'POST',
+			url:       '/testmail.php', //  $('#newsletter').attr('action'),
+		//	contentType: "application/json; charset=utf-8",
+	    //    dataType:    'jsonp',
+	        crossDomain:  true,
+			data:        $('#newsletter').serialize(),
+			success:     function(){ alert("success");	},
+			error:      function(){ alert('Sending Mail: failed'); }
+			});*/
+		return false;
+     
+		}); 
 		
-			$('#mytable #submit').click(function() {
+		/*	$('#newsletter #submit').click(function() {
      
 
-	//	alert('submit click: yes');
 
 		$.ajax({
 			type:        'POST',
@@ -1106,7 +1128,7 @@ $(document).ready(function() {
 	      
 	      
 		}); 
-		
+		*/
 		
 		
 		

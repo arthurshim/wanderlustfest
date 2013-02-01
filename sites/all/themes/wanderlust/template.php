@@ -230,9 +230,10 @@ function wanderlust_preprocess_page(&$vars, $hook) {
   
   <div id="thankyou"> Thank you for signing up!</div>
   <div class="joincontent">
-    <table id="mytable" border="0" cellpadding="0" cellspacing="0">
+        <form method='get' id="newsletter"  name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6'>
+
+    <table border="0" cellpadding="0" cellspacing="0">
   
-      <form method='get' id="newsletter" name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6'>
       <tr>
         <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
       </tr>
@@ -368,9 +369,9 @@ function wanderlust_preprocess_page(&$vars, $hook) {
         </td>
         <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Subscribe' /></td>
       </tr>
-    </form>
+   
 </table>
-  
+   </form>
  </div>
 EOF;
 }
