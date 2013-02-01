@@ -3,16 +3,16 @@
 
 
 body{
-  background-image: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg");
-  background-position: center top !important;
+  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg);
+  background-position: center top;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  -webkit-background-size: cover !important;
-  -moz-background-size: cover !important;
-  -o-background-size: cover !important;
-  background-size: cover !important;
-  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale');
-  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale')";
+  -webkit-background-size: cover ;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale')";*/
   margin: 0;
   padding: 0;
   font-family: calibri, helvetica, arial;
