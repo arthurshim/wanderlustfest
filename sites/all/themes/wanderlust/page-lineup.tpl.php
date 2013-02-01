@@ -9,6 +9,7 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta property="fb:app_id" content="321576251186267"/>
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   
@@ -29,6 +30,20 @@ jQuery.noConflict();
 	
   });
 })(jQuery);
+
+
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12068308-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setDomainName', 'wanderlustfestival.com']);
+_gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
 	  </script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -36,25 +51,8 @@ jQuery.noConflict();
   <![endif]-->
   
 
-  <!-- SET FACEBOOK OPEN GRAPH APP ID -->
-  <meta property="fb:app_id" content="321576251186267"/>
-
-<script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-12068308-1']);
-_gaq.push(['_setAllowLinker', true]);
-_gaq.push(['_setDomainName', 'wanderlustfestival.com']);
-_gaq.push(['_trackPageview']);
 
 
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script> 
   	
     <?php
       $base = wl_get_base_domain();
