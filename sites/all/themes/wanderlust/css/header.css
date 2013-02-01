@@ -206,7 +206,6 @@
 	margin: 0 !important;
 	position: relative;
 	z-index: 999;
-	zoom: 1;
   }
 
 #navigation ul.nice-menu ul li a:hover{
