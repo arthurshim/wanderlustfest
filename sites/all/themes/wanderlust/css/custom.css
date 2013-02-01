@@ -3,11 +3,8 @@
 
 
 body{
-  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg);
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  -webkit-background-size: cover ;
+  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg") no-repeat fixed center top;
+  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
