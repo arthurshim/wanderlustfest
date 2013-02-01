@@ -3,7 +3,7 @@
 
 /* FONT-FACE DECLARATIONS
 ----------------------------------*/	
-
+/* LOCAL VERSION
 @font-face {
     font-family: "lhf_egyptianregular";
     src: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.eot");
@@ -14,9 +14,9 @@
     font-weight: normal;
     font-style: normal;
 }
+*/
 
 
-/* LOCAL VERSION
 @font-face {
     font-family: 'lhf_egyptianregular';
     src: url('../fonts/lhfegyptian-webfont.eot');
@@ -27,7 +27,7 @@
     font-weight: normal;
     font-style: normal;
 }
-*/
+
 
 @font-face {
     font-family: 'revolution';
@@ -87,14 +87,7 @@
 /* GLOBAL TYPE 
 ----------------------------------*/	
 
-body {
-  font-family: calibri, helvetica, arial;
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 0;
-  padding: 0;
-  color: #474747;
-  }
+ 
 
 body strong{
   font-weight: bold;

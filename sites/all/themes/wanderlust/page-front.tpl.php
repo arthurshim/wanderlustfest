@@ -56,7 +56,12 @@
 
 
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
+<script>
+document.write("<h1>Redirecting to your chosen Wanderlust Adventure!</h1>"); 
+</script>
 <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
+
+
  <?php }?>
  
 <script type="text/javascript">
@@ -119,7 +124,7 @@ $(document).ready(function()
    }
   });
 	$("#emailClick").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
 	
 		$("#legend1 .legendtitle").click(function() {
@@ -279,9 +284,8 @@ jQuery(document).ready(function($) {
 	  
 	  
 	  	$(".email").click(function() {
-				$.fancybox.open('#mytable');
+				$.fancybox.open('#newsletter');
 	});
-	
 	
 	  
 });
@@ -631,7 +635,7 @@ jQuery(document).ready(function($) {
 	    $item .= '<div class="site-title"><a target="_blank" href="'.$site->extra_fields->field_event_url[0]['url'].'">' . $site->extra_fields->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
-	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
+	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('Visit Website', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
 	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
     
@@ -857,6 +861,10 @@ $("#connect .icon").toggle(
 }
 	
 	
+	
+	
+
+	
 
     /*LEGEND HOVERS*/
 
@@ -954,6 +962,14 @@ $("#connect .icon").toggle(
 
 });	
 	
+		
+	 // MAKE ENTIRE INNERSITE DIV CLICKABLE & LINKED
+  	$(".innersite").click(function(){
+       window.location=$(this).find("a").attr("href"); 
+       return false;
+    });		
+		
+		
 		
         
 /*LEGEND HOVERS*/
@@ -1081,13 +1097,11 @@ _gaq.push(['_trackPageview']);
 $(document).ready(function() {
 	$('#email').click(function() {
 	
-	//	alert('email click: yes');
-
+		//alert(oo);
 		
-			$('#mytable #submit').click(function() {
+		$('#newsletter #submit').click(function() {
      
 
-	//	alert('submit click: yes');
 
 		$.ajax({
 			type:        'POST',
@@ -1106,7 +1120,7 @@ $(document).ready(function() {
 	      
 	      
 		}); 
-		
+	
 		
 		
 		

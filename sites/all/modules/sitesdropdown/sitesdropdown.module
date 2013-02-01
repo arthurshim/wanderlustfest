@@ -303,6 +303,8 @@ function sitesdropdown_site_id() {
 	  
 	   $item = '<div class="event-item"><div class="site-marker"></div>';
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
+	   $item .= '<div class="event-item-address">'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].', '.$site['field_event_country'][0]['value'].'</div>';
+
 	   $item .= '<div class="item-date">';
 
     //If event starts / ends on same day, don't repeat day
