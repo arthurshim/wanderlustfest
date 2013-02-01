@@ -334,7 +334,7 @@ tbody {border: 0px!important;}
 
 .panel-pane tbody td {
   padding-right: 16px;
-  padding-bottom: 0px;
+  padding-bottom: 8px;
   padding-top: 8px;
   }
 
@@ -910,13 +910,18 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 .social-networks .clearfix{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
+  clear: both;
+  float: left;
+  width: 274px;
+  height: 50px;
 }
 
 .social-networks .links{
   float: left;
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
-  padding: 8px 20px 0 60px;
-  width: 190px;
+  padding: 12px 20px 0 60px;
+  width: 194px;
+  height: 23px;
 }
 
 .social-networks .links a{
@@ -1160,10 +1165,12 @@ TEMPORARY STYLES FOR LAUNCH
 
 article,
 td .node{
+  position: relative;
   background-color: white;
   height: 240px;
   padding: 0 10px 8px;
   width: 200px;
+  behavior: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-radius.htc);
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -1233,16 +1240,14 @@ article header h2 a{
   }
 
 article .content{
-  font-size: 14px;
-	height: 270px;
+  font-size: 13px;
 	line-height: 1.3;
 	color: #474747;
   }
   
 
 article .homepage-table {
-	margin-bottom: 1em!important;
-	height: 255px!important;
+
   }
 
 article h2 a{
@@ -1278,7 +1283,7 @@ article .node-body{
 
 .node-type a{
   font-family: 'baskerville_fsitalic', georgia;
-  font-size: 18px;
+  font-size: 15px;
   color: #b69e6d;
   text-transform: lowercase;
   }
@@ -2073,7 +2078,12 @@ width:40px;
 
 
 
+/* NEWS INDEX
+--------------------------------*/
 
+.view-id-news td{
+  padding: 0 0px 16px 0;
+}
 
 
  
@@ -2084,6 +2094,12 @@ width:40px;
 ** The admin panel styles are a mess. IE has problems with this so this is
 ** only a temporary fix. This should be fixed in core.
 */
+
+
+
+
+
+
 
 
 
@@ -2485,4 +2501,37 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 
 #thankyou{
 display:none;
+}
+
+
+
+/* WANDERLUST UMBRELLA THEME
+--------------------------------*/
+
+.wanderfest .event-item,
+.wanderlustfestival .event-item,
+.wonderlustfest .event-item{
+  display: none;
+}
+
+.wanderfest .siteBanner,
+.wanderlustfestival .siteBanner,
+.wonderlustfest .siteBanner{
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
+  background-position: 0 -189px;
+  width: 435px;
+  height: 53px;
+  margin-top: 19px;
+}
+
+.wanderfest .siteBanner img,
+.wanderlustfestival .siteBanner img,
+.wonderlustfest .siteBanner img{
+  display: none;
+}
+
+.wanderfest .social-media-links,
+.wanderlustfestival .social-media-links,
+.wonderlustfest .social-media-links{
+  display: none;
 }

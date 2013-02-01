@@ -1,3 +1,25 @@
+
+
+# BEGIN REQUIRED FOR WEBFONTS
+
+
+AddType image/svg+xml svg svgz
+AddEncoding gzip svgz
+AddType application/vnd.ms-fontobject eot
+AddType font/truetype ttf
+AddType font/opentype otf
+AddType application/x-font-woff woff
+
+<FilesMatch "\.(ttf|otf|eot|woff|svg|/sites/all/themes/wanderlust/css/type.css)$">
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
+</FilesMatch>
+
+# END REQUIRED FOR WEBFONTS
+
+
+
 #
 # Apache/PHP/Drupal settings:
 #
@@ -8,11 +30,11 @@
 </FilesMatch>
 
 
-<FilesMatch "\.(ttf|otf|eot|woff)$">
-    <IfModule mod_headers.c>
-        Header set Access-Control-Allow-Origin "http://mydomain.com"
-    </IfModule>
-</FilesMatch>
+
+
+
+
+
 
 # Don't show directory listings for URLs which map to a directory.
 Options -Indexes

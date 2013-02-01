@@ -43,7 +43,7 @@
  
  $(document).ready(function() {
  $('.view-videos.view-display-id-page_1 li.views-row').click(function() {                                           
-$jq('.fancybox-media, .views-field-title').fancybox({
+$jq('.fancybox-media').fancybox({
 		openEffect  : 'none',
 		closeEffect : 'none',
 		helpers : {
@@ -53,9 +53,6 @@ $jq('.fancybox-media, .views-field-title').fancybox({
 });    
 });
 
-
-
-	 
 
 	
 jQuery.noConflict();
@@ -69,6 +66,18 @@ jQuery.noConflict();
   });
 })(jQuery);
 
+
+
+  var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-12068308-1']);
+_gaq.push(['_setAllowLinker', true]);
+_gaq.push(['_setDomainName', 'wanderlustfestival.com']);
+_gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 	 
 </script>
 
