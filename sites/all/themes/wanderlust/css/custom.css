@@ -10,6 +10,8 @@ body{
   background-size: cover !important;
   filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale');
   -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg', sizingMethod='scale')";
+  margin: 0;
+  padding: 0;
   }
 
 #main{
