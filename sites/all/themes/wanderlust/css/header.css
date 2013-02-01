@@ -40,17 +40,15 @@
 .event-item{
   position: absolute;
   left: 0;
-  width: 200px;
+  width: 246px;
   font-family: 'baskerville_fsitalic', georgia;
   color: #513319;
-  font-size: 14px;
+  font-size: 16px;
   text-align: left;
   height: 45px;    
-  font-size: 18px;  
-
   line-height: 1.2;
   font-weight: normal;
-  top: 23px;
+  top: 15px;
 }
 
 .site-marker{
@@ -59,7 +57,7 @@
   width: 28px;
   float: left;
   margin-right: 10px;  
-  margin-top: -2px;
+  margin-top: 5px;
 }
 
 .la .site-marker,
