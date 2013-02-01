@@ -1087,7 +1087,7 @@ $(document).ready(function() {
 	
 		//alert(oo);
 
-		$('#newsletter #submit').hover(function() {
+		$('#newsletter #submit').click(function() {
 		  var oo = $('#newsletter').serialize();
 		  $.post('/testmail.php', {oo}, function(data){
                       alert(data);                                                       
