@@ -635,7 +635,7 @@ jQuery(document).ready(function($) {
 	    $item .= '<div class="site-title"><a target="_blank" href="'.$site->extra_fields->field_event_url[0]['url'].'">' . $site->extra_fields->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
-	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
+	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('Visit Website', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
 	print $item; ?>
 	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
     
@@ -861,6 +861,10 @@ $("#connect .icon").toggle(
 }
 	
 	
+	
+	
+
+	
 
     /*LEGEND HOVERS*/
 
@@ -958,6 +962,14 @@ $("#connect .icon").toggle(
 
 });	
 	
+		
+	 // MAKE ENTIRE INNERSITE DIV CLICKABLE & LINKED
+  	$(".innersite").click(function(){
+       window.location=$(this).find("a").attr("href"); 
+       return false;
+    });		
+		
+		
 		
         
 /*LEGEND HOVERS*/
@@ -1086,28 +1098,8 @@ $(document).ready(function() {
 	$('#email').click(function() {
 	
 		//alert(oo);
-
-		$('#newsletter #submit').click(function() {
-		  var oo = $('#newsletter').serialize();
-		  $.post('/testmail.php', {oo}, function(data){
-                      alert(data);                                                       
-                  });
-		  
-	/*	$.ajax({
-			type:        'POST',
-			url:       '/testmail.php', //  $('#newsletter').attr('action'),
-		//	contentType: "application/json; charset=utf-8",
-	    //    dataType:    'jsonp',
-	        crossDomain:  true,
-			data:        $('#newsletter').serialize(),
-			success:     function(){ alert("success");	},
-			error:      function(){ alert('Sending Mail: failed'); }
-			});*/
-		return false;
-     
-		}); 
 		
-		/*	$('#newsletter #submit').click(function() {
+		$('#newsletter #submit').click(function() {
      
 
 
@@ -1128,7 +1120,7 @@ $(document).ready(function() {
 	      
 	      
 		}); 
-		*/
+	
 		
 		
 		
