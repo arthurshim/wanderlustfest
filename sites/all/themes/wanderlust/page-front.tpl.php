@@ -53,6 +53,8 @@
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js?h"></script>
 
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js?h"></script>
+<script type="text/javascript" src="/sites/all/themes/wanderlust/js/modernizr.custom.63526.js?h"></script>
+
 
 
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
@@ -962,6 +964,19 @@ $("#connect .icon").toggle(
 
 });	
 	
+	
+	
+// FALLBACK MARK ANIMATION FOR IE
+if(!Modernizr.csstransitions) { // Test if CSS transitions are supported
+  $(function() {
+      $('.mark').hover(function(){
+          $(this).animate({top:'-=8px'},{queue:false,duration:500});
+      }, function(){
+          $(this).animate({top:'+=8px'},{queue:false,duration:500});
+      });
+  });
+}
+	
 		
 	 // MAKE ENTIRE INNERSITE DIV CLICKABLE & LINKED
   	$(".innersite").click(function(){
@@ -969,8 +984,40 @@ $("#connect .icon").toggle(
        return false;
     });		
 		
-		
-		
+
+/*  
+$(window).load(function () {
+    // Get the css browser code (ie: -moz-)
+    var bcode = $.keyframe.browserCode();
+
+    // Setup the initial transform style.
+    $('.mark').css(bcode + 'transform');
+
+    // Adding a new animation sequences (keyframe)
+    $.fn.addKeyframe([{
+        name: "bob",
+            "0%": bcode + "transform:translate(0px,-2px)",
+            "25%": bcode + "transform:translate(0px,-8px)",
+            "50%": bcode + "transform:translate(0px,-1px)",
+            "75%": bcode + "transform:translate(0px,-3px)",
+            "100%": bcode + "transform:translate(0px,0px)"
+    }]);
+
+    $('.mark').hover(function () {
+        $(this).playKeyframe({
+            name: 'bob',
+            duration: 1000,
+            timingFunction: 'ease',
+            delay: 0,
+            repeat: 1
+        });
+    }, function () {
+        $('.mark').resetKeyframe();
+    });
+
+});
+
+		*/
         
 /*LEGEND HOVERS*/
         $("#legend1 .mark").hover(function() {
