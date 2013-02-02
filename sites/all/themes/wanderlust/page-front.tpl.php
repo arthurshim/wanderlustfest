@@ -967,14 +967,22 @@ $("#connect .icon").toggle(
 	
 	
 // FALLBACK MARK ANIMATION FOR IE
-if(!Modernizr.csstransitions) { // Test if CSS transitions are supported
-  $(function() {
-      $('.mark').hover(function(){
-          $(this).animate({top:'-=8px'},{queue:false,duration:500});
-      }, function(){
-          $(this).animate({top:'+=8px'},{queue:false,duration:500});
-      });
-  });
+if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
+    $(function () {
+        $(".mark").hover(function () {
+            if ($(this).data("bouncing") == false || $(this).data("bouncing") == undefined) {
+                $(this).effect("bounce", {
+                    direction: 'up',
+                    distance: 10,
+                    times: 1
+                });
+                $(this).data("bouncing", true);
+            }
+        }, function () {
+            $(this).data("bouncing", false);
+        });
+
+    });
 }
 	
 		
