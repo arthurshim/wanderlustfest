@@ -3,10 +3,9 @@
 
 /* FONT-FACE DECLARATIONS
 ----------------------------------*/	
-/* LOCAL VERSION
+
 @font-face {
     font-family: "lhf_egyptianregular";
-    src: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.eot");
     src: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.eot?#iefix") format('embedded-opentype'),
          url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.woff") format('woff'),
          url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-fonts/lhfegyptian-webfont.ttf") format('truetype'),
@@ -14,9 +13,9 @@
     font-weight: normal;
     font-style: normal;
 }
-*/
 
 
+/* LOCAL VERSION
 @font-face {
     font-family: 'lhf_egyptianregular';
     src: url('../fonts/lhfegyptian-webfont.eot');
@@ -27,7 +26,7 @@
     font-weight: normal;
     font-style: normal;
 }
-
+*/
 
 @font-face {
     font-family: 'revolution';
@@ -192,3 +191,19 @@ h2.pane-title{
 blockquote{
   font-style: italic;
 }
+
+
+#navigation ul.nice-menu li a,
+#navigation ul.nice-menu li .nolink{
+  display: block;
+ 	float: left;    
+ 	font-size: 22px;
+ 	text-transform: uppercase;
+	color: #3b6b60;
+	padding: 6px 18px 2px;
+	margin: 0;
+	font-family: 'lhf_egyptianregular', helvetica, arial;
+	letter-spacing: 1px;
+	font-weight: normal !important;
+	line-height: 1;
+  }

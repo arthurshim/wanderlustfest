@@ -148,20 +148,7 @@
 /* PARENT ITEMS
 ----------------------------------*/	
 
-#navigation ul.nice-menu li a,
-#navigation ul.nice-menu li .nolink{
-  display: block;
- 	float: left;    
- 	font-size: 22px;
- 	text-transform: uppercase;
-	color: #3b6b60;
-	padding: 6px 18px 2px;
-	margin: 0;
-	font-family: 'lhf_egyptianregular', helvetica, arial;
-	letter-spacing: 1px;
-	font-weight: normal !important;
-	line-height: 1;
-  }
+
  
 #navigation ul li.last a{
 	background: none;
