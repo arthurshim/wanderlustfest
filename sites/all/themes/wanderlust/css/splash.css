@@ -427,6 +427,10 @@ overflow:hidden; }*/
   cursor: pointer !important;
 }
 
+.innersite .venue{
+  display: none;
+}
+
 .site-title a,
 .site-title{
   letter-spacing: 1px;

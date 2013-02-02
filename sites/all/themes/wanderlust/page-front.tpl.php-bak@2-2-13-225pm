@@ -8,10 +8,7 @@
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />
-  <title><?php   $base = wl_get_base_domain();
-   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
-   $subdomain = strtolower(trim($url[0]));
-   if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   ?> Wanderlust Festival - Find Your True North <?php } else { print $head_title; } ?></title>
+  <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
   
   
@@ -30,16 +27,20 @@
 
     <?php
  //    drupal_set_header('Access-Control-Allow-Origin: *');
+      $base = wl_get_base_domain();
+      $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+      $subdomain = strtolower(trim($url[0]));
       $f = FALSE;
       if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   /*check  if we're on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
+
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/type.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
 
-<!--[if lte IE 7]>
-	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/css/ie7.css" />
+<!--[if IE]>
+
 <![endif]-->
 
   <!-- IE Fix for HTML5 Tags -->
@@ -61,7 +62,7 @@
 <!-- REDIRECT MESSAGE-->
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
   <script>
-    document.write("<div id='redirect1'><h1>Redirecting you to your Wanderlust Adventure!</h1></div>"); 
+    document.write("<h1><span class='redirect'>Redirecting you to your Wanderlust Adventure!</span></h1>"); 
   </script>
   
   <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
@@ -510,7 +511,7 @@ jQuery(document).ready(function($) {
 	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
 	   } 
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
-	    $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
 	  }
 	 
 	  else {

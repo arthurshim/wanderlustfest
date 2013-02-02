@@ -230,7 +230,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
   
   <div id="thankyou"> Thank you for signing up!</div>
   <div class="joincontent">
-        <form method='get' id="newsletter"  name='oi_form' action='http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6'>
+        <form method='get' id="newsletter"  name='oi_form' action='http://www.wanderfest.com/testmail.php'>
 
     <table border="0" cellpadding="0" cellspacing="0">
   
