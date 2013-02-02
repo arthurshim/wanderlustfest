@@ -154,7 +154,7 @@ body.sidebar-right.blogs #main{
   
 .view-all-blog-posts .views-field-title a{
   font-size: 28px;
-  font-weight: bold;
+  font-weight: normal;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial !important;
   letter-spacing: 1px;
