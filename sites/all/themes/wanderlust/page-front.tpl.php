@@ -10,6 +10,18 @@
   <meta name="viewport" content="width=device-width" />
   <title><?php print $head_title; ?></title>
   <?php header("Connection: keep-alive");?>
+  
+  
+  <!-- CUSTOM FACEBOOK OG META TAGS FOR SPLASH & HOMEPAGE -->
+  <meta property="og:title" content="Wanderlust Festival 2013"/>
+  <meta property="og:image" content="http://wanderfest.com/sites/all/themes/wanderlust/images/fb-logo.jpg"/>
+  <meta property="og:site_name" content="Wanderlust Festival"/>
+  <meta property="og:type" content="website"/>  
+  <meta property="og:url" content="http://<?php $base = wl_get_base_domain(); $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST'])); print $base; ?>"/>  
+  <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
+	
+  
+  
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
 
 
