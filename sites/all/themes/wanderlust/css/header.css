@@ -67,26 +67,33 @@
 }
 
 
-@-webkit-keyframes bob{
-  0%        {-webkit-transform: translate(0px,-2px);}
-  25%       {-webkit-transform: translate(0px,-8px);}
-  50%       {-webkit-transform: translate(0px,-1px); }
-  75%       {-webkit-transform: translate(0px,-3px); }
-  100%      {-webkit-transform: translate(0px,0px);}
+
+
+/* SITE MARKER ANIMATION
+----------------------------------*/	
+
+@-webkit-keyframes bob {
+0%              {-webkit-transform: translate(0px,-2px);}
+25%             {-webkit-transform: translate(0px,-8px);}
+50%             {-webkit-transform: translate(0px,-1px);}
+75%             {-webkit-transform: translate(0px,-3px);}
+100%            {-webkit-transform: translate(0px,0px);}
 }
 
-@-moz-keyframes bob{
-  0%        {-webkit-transform: translate(0px,-2px);}
-  25%       {-webkit-transform: translate(0px,-8px);}
-  50%       {-webkit-transform: translate(0px,-1px); }
-  75%       {-webkit-transform: translate(0px,-3px); }
-  100%      {-webkit-transform: translate(0px,0px);}
+@-moz-keyframes bob {
+0%              {-moz-transform: translate(0px,-2px);}
+25%             {-moz-transform: translate(0px,-8px);}
+50%             {-moz-transform: translate(0px,-1px);}
+75%             {-moz-transform: translate(0px,-3px);}
+100%            {-moz-transform: translate(0px,0px);}
 }
+
 
 .site-marker:hover{
   -webkit-animation: bob 1s;
-  -moz-animation:  bob 1s;
-  -o-animation:  bob 1s;
+  -moz-animation: bob 1s;  
+  -o-animation: bob 1s;    
+  animation: bob 1s; 
 }
 
 

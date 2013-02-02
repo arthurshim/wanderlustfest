@@ -252,9 +252,9 @@ overflow:hidden; }*/
 
 .mark.yoga:hover {
 
-    -webkit-animation: flagish .23s linear 3;
-        -moz-animation: flagish 1.3s linear 2;
-        -ms-animation: flagish 1.3s linear 2;
+    -webkit-animation: bob 1s ;
+        -moz-animation: bob 1s;
+        -ms-animation: bob 1s;
 }
 
 
