@@ -19,7 +19,7 @@
       $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
       $subdomain = strtolower(trim($url[0]));
       $f = FALSE;
-      if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') {   /*check  if we're on front page  'wanderfest.com' */
+      if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   /*check  if we're on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
 
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/modules/admin_menu/admin_menu.css" />
@@ -35,36 +35,27 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  
-<?php// print $scripts;?>
-
-
-
-
 
 
 <!--cut and paste $scripts variable -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="/misc/drupal.js?h"></script>
 <script type="text/javascript" src="/sites/all/modules/pngfix/jquery.pngFix.js?h"></script>
-
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/js_combined.js?h"></script>
-
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js?h"></script>
-
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js?h"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/modernizr.custom.63526.js?h"></script>
 
 
+<!-- REDIRECT MESSAGE-->
+<?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
+  <script>
+    document.write("<h1><span class='redirect'>Redirecting you to your Wanderlust Adventure!</span></h1>"); 
+  </script>
+  
+  <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
 
-<?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
-<script>
-document.write("<h1>Redirecting to your chosen Wanderlust Adventure!</h1>"); 
-</script>
-<script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
-
-
- <?php }?>
+<?php }?>
  
 <script type="text/javascript">
   <!--//--><![CDATA[//><!--
@@ -462,7 +453,7 @@ jQuery(document).ready(function($) {
 
 <div class="map-viewport">
 <div id="map-1" >
-<img  class="level" src="<?php print base_path() . path_to_theme() ; ?>/images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
+<img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
   
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
@@ -507,25 +498,34 @@ jQuery(document).ready(function($) {
 	  else {
 	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
 	   } 
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
-	 }
-	 else {
+	  }
+	 
+	  else {
       $item = '<div class="site-item"><div class="event-right">';
 	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';	 
-	 }	 
+	    
+	  }
+	  	 
 	 $options = array('html' => TRUE);
 	 if($class == 'festival') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
-	   $fests .= '<div class="event-list"><div class="bl ">' . $item .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
-	 }elseif($class == 'yoga') {
+
+	   // FESTIVALS POPOVER DISPLAY
+	   $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	   
+	   }elseif($class == 'yoga') {
 	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
 	    $c = 'checked="checked"';
 	   }
 
-	   $yogas .= '<div class="bl">' . $item  .  l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options) .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
+	   // YITC POPOVER DISPLAY
+	   $yogas .= '<div class="bl">' . $item  .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
 	 }
 	 
 	 unset($c);
@@ -559,7 +559,7 @@ jQuery(document).ready(function($) {
 	    $item .= '<div class="site-title"><a target="_blank" href="'.$site->extra_fields->field_event_url[0]['url'].'">' . $site->extra_fields->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
 	 }	 
-	 $studios .= '<div class="bl">' .  $item . '<div class="visitsite">' . l('Visit Website', "{$site->extra_fields->field_event_url[0]['url']}") . '</div></div>';
+	 $studios .= '<div class="bl">' .  $item . '</div>';
 	print $item; ?>
 	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
     
@@ -1009,88 +1009,33 @@ if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
 }
 	
 		
-// MAKE ENTIRE INNERSITE DIV CLICKABLE & LINKED
-$(".innersite").click(function(){
+// MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
+$(".innersite,.bl").click(function(){
    window.location=$(this).find("a").attr("href"); 
    return false;
 });		
 		
 
-/*  
-$(window).load(function () {
-    // Get the css browser code (ie: -moz-)
-    var bcode = $.keyframe.browserCode();
-
-    // Setup the initial transform style.
-    $('.mark').css(bcode + 'transform');
-
-    // Adding a new animation sequences (keyframe)
-    $.fn.addKeyframe([{
-        name: "bob",
-            "0%": bcode + "transform:translate(0px,-2px)",
-            "25%": bcode + "transform:translate(0px,-8px)",
-            "50%": bcode + "transform:translate(0px,-1px)",
-            "75%": bcode + "transform:translate(0px,-3px)",
-            "100%": bcode + "transform:translate(0px,0px)"
-    }]);
-
-    $('.mark').hover(function () {
-        $(this).playKeyframe({
-            name: 'bob',
-            duration: 1000,
-            timingFunction: 'ease',
-            delay: 0,
-            repeat: 1
-        });
-    }, function () {
-        $('.mark').resetKeyframe();
-    });
-
+// LEGEND HOVERS
+$("#legend1 .mark").hover(function() {
+    $(".mark.festival").addClass('highlight1');
+    }, function() {
+    $('#.mark.festival').removeClass('highlight1');
 });
 
-		*/
-        
-/*LEGEND HOVERS*/
-        $("#legend1 .mark").hover(function() {
-            $(".mark.festival").addClass('highlight1');
-        }, function() {
-            $('#.mark.festival').removeClass('highlight1');
-        });
+$("#legend2 .mark").hover(function() {
+    $(".mark.yoga").addClass('highlight1');
+    }, function() {
+    $('#.mark.yoga').removeClass('highlight1');
+});
 
-        $("#legend2 .mark").hover(function() {
-            $(".mark.yoga").addClass('highlight1');
-        }, function() {
-            $('#.mark.yoga').removeClass('highlight1');
-        });
-	
-		$("#legend3 .mark").hover(function() {
-            $(".mark.studio").addClass('highlight1');
-        }, function() {
-            $('#.mark.studio').removeClass('highlight1');
-        });
-      
-		
-/*BALLOON HOVER FOR IE
-   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
-         		   $(".mark.festival").hover(function() {
-				$(this).animate({
-      top: '-=5'
-    }, 400);
-	
-	$(this).animate({
-      top: '-=459'
-    }, 500);
-            }, function() {
- 
-	$(".mark.festival").removeAttr('style'); 
-	$(".mark.festival").stop();
+$("#legend3 .mark").hover(function() {
+    $(".mark.studio").addClass('highlight1');
+    }, function() {
+    $('#.mark.studio').removeClass('highlight1');
+});
 
-            });
-	
 
-        } 
-		*/
-		
 		
 	/*FOR CHROME FIREFIX*/	
 $(".mark.festival").mouseover(function() {

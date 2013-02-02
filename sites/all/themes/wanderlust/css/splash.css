@@ -364,6 +364,12 @@ overflow:hidden; }*/
   animation: bob 1s;    
 }
 
+.site-marker:hover{
+  -webkit-animation: bob 1s;
+  -moz-animation: bob 1s;  
+  -o-animation: bob 1s;    
+  animation: bob 1s;      
+}
 
 @-webkit-keyframes bob-flash {
 0%              {-webkit-transform: translate(0px,-2px);}
@@ -679,9 +685,13 @@ overflow:hidden; }*/
   position: relative;
   left: 78px;
   font-family: 'baskerville_fsitalic', 'georiga';
-  
+  cursor: pointer;
   line-height: 1.2;
   font-size: 14px;
+}
+
+.bl:hover{
+  opacity: 0.8;
 }
 
 .fancybox-inner .site-title{
@@ -792,6 +802,7 @@ overflow:hidden; }*/
 
 .bl .item-date{
   margin-top: 3px;
+  margin-bottom: 2px;
 }
 
 .bl .siteaddress{
@@ -1040,70 +1051,83 @@ overflow:hidden; }*/
 
 
 
+/* REDIRECT MESSAGE
+---------------------------------*/
+
+.redirect{
+  font-size: 30px;
+  font-family: 'baskerville_fsitalic', arial;
+  position: absolute;
+  top: 40px;
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  left: 33%;
+}
 
 
+
+/* CONTAINER
+---------------------------------*/
 
 .wanderfest #main {
-    display: none;
+  display: none;
 }
 
 .wanderfest {
-    margin: 0px;
-    overflow: hidden;
+  margin: 0px;
+  overflow: hidden;
 }
-
-
 
 #wanderdata{
   position:absolute;
   display:none;
-  }
-
-
-
-
-
-
-  .wanderfest #container {
-    height: 1030px;
-    /*width: 1350px;
-    height : 100%;*/
-    width : 100%;
-    overflow: hidden;
 }
 
-
-   .wanderfest #map-1-container {
-    height: 1028px;
-    overflow: hidden !important;
-    position: relative;
-    width : 1560px;
+.wanderfest #container {
+  height: 1030px;
+  /*width: 1350px;
+  height : 100%;*/
+  width : 100%;
+  overflow: hidden;
 }
 
-
-  .map-viewport {
-    border: 1px solid black;
-    margin: 0 0 20px;
-    overflow: hidden;
-    position: relative;
-    height: 1027px;
-    width : 1560px;
+.wanderfest #map-1-container {
+  height: 1028px;
+  overflow: hidden !important;
+  position: relative;
+  width : 1560px;
 }
 
-
-
-  #map-1 {
-    cursor: move;
-    width: 2146px;
-   z-index: 20;
-    height: 1141px;
-    position: absolute;
-    left: -275px;
-	
+.map-viewport {
+  border: 1px solid black;
+  margin: 0 0 20px;
+  overflow: hidden;
+  position: relative;
+  height: 1027px;
+  width : 1560px;
 }
+
+#map-1 {
+  cursor: move;
+  width: 2146px;
+  z-index: 20;
+  height: 1141px;
+  position: absolute;
+  left: -275px;
+}
+  
 .mapz-constraint{
- z-index: 5;
- }
+  z-index: 5;
+}
+
+
+
+
+
+/* MEDIA QUERIES
+---------------------------------*/
+
 
   @media only screen and (max-height:768px)  {
 
@@ -1169,4 +1193,6 @@ wanderfest #container {
 
  @media only screen and (max-height:1195px)  {
  }
+     
+     
      
