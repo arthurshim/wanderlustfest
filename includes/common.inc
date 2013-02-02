@@ -1852,7 +1852,8 @@ function drupal_get_css($css = NULL) {
   // browser-caching. The string changes on every update or full cache
   // flush, forcing browsers to load a new copy of the files, as the
   // URL changed.
-  $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
+  //$query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
+  $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 2);
 
   foreach ($css as $media => $types) {
     // If CSS preprocessing is off, we still need to output the styles.
@@ -1897,9 +1898,11 @@ function drupal_get_css($css = NULL) {
     if ($is_writable && $preprocess_css) {
       // Prefix filename to prevent blocking by firewalls which reject files
       // starting with "ad*".
-      $filename = 'css_'. md5(serialize($types) . $query_string) .'.css';
+      //$filename = 'css_'. md5(serialize($types) . $query_string) .'.css';
+      $filename = 'css_'. md5(serialize($types)) .'.css';
       $preprocess_file = drupal_build_css_cache($types, $filename);
-      $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($preprocess_file) .'" />'."\n";
+      //$output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($preprocess_file) .'" />'."\n";
+      $output .= '<link type="text/css" rel="stylesheet" media="'. $media .'" href="'. file_create_url($preprocess_file) . $query_string .'" />'."\n";
     }
   }
 
@@ -2261,7 +2264,8 @@ function drupal_get_js($scope = 'header', $javascript = NULL) {
   // URL changed. Files that should not be cached (see drupal_add_js())
   // get time() as query-string instead, to enforce reload on every
   // page request.
-  $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
+  //$query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
+  $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 2);
 
   // For inline Javascript to validate as XHTML, all Javascript containing
   // XHTML needs to be wrapped in CDATA. To make that backwards compatible
@@ -2300,9 +2304,11 @@ function drupal_get_js($scope = 'header', $javascript = NULL) {
   if ($is_writable && $preprocess_js && count($files) > 0) {
     // Prefix filename to prevent blocking by firewalls which reject files
     // starting with "ad*".
-    $filename = 'js_'. md5(serialize($files) . $query_string) .'.js';
+    //$filename = 'js_'. md5(serialize($files) . $query_string) .'.js';
+    $filename = 'js_'. md5(serialize($files)) .'.js';
     $preprocess_file = drupal_build_js_cache($files, $filename);
-    $preprocessed .= '<script type="text/javascript" src="'. file_create_url($preprocess_file) .'"></script>'."\n";
+    //$preprocessed .= '<script type="text/javascript" src="'. file_create_url($preprocess_file) .'"></script>'."\n";
+    $preprocessed .= '<script type="text/javascript" src="'. file_create_url($preprocess_file) . $query_string . '"></script>'."\n";
   }
 
   // Keep the order of JS files consistent as some are preprocessed and others are not.
