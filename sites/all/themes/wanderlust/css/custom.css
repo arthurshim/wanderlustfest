@@ -726,14 +726,14 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   text-transform: uppercase;
   font-size: 26px;
   color: #7e9e83 !important;
-  padding: 10px 12px 10px 14px;
+  padding: 10px 17px 10px 18px;
   margin: 0;
   height: 20px;
   background: #deddce;
   border: none;
   font-family: 'lhf_egyptianregular', arial !important;
   font-weight: normal !important;
-
+  border-radius: 0;
 }
 
 .view-artist-landing2 a.viewsdisplaytabs-tab.active{
