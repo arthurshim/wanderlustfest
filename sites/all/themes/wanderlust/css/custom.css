@@ -1401,9 +1401,19 @@ article #easysocial-box .easysocial-widget-twitter{
   width: 994px !important;
   }
 
-.slidemain #views_slideshow_singleframe_main_Homepage_slider-block_1 .emvideo {
+#video-container{
+  width: 994px;
+  background: blue;
+  height: 472px;
+  position: absolute;
+  z-index: 99;
   }
 
+#video-container iframe,
+#video-container embed{
+  position: relative;
+  z-index: 10;
+  }
 
 .slidemain #views_slideshow_singleframe_main_Homepage_slider-block_1 .emvideo object{
   -moz-box-shadow: 0px 0px 5px #777661;
@@ -2415,6 +2425,9 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 /* MAILING LIST DIALOG
 ---------------------------------*/
 
+.fancybox-skin{
+  background: #f3e8ce !important;
+}
 
 
 .fancybox-skin td {
@@ -2531,3 +2544,5 @@ display:none;
 .wonderlustfest .social-media-links{
   display: none;
 }
+
+
