@@ -16,12 +16,32 @@
   
   
   <!-- CUSTOM FACEBOOK OG META TAGS FOR SPLASH & HOMEPAGE -->
-  <meta property="og:title" content="Wanderlust Festival 2013"/>
+  <meta property="og:title" content="
+  <?php 
+    list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); 
+    if ($subdomain == 'squaw'){
+      print 'Wanderlust California 2013';
+    }
+    if ($subdomain == 'stratton'){
+      print 'Wanderlust Stratton 2013';
+    }
+    if ($subdomain == 'whistler'){
+      print 'Wanderlust Whistler 2013';
+    }
+    if ($subdomain == 'Colorado'){
+      print 'Wanderlust Colorado 2013';
+    }
+    else{
+      print 'Wanderlust Festival 2013';
+    }
+
+    
+  ?>"/>
   <meta property="og:image" content="http://wanderfest.com/sites/all/themes/wanderlust/images/fb-logo.jpg"/>
   <meta property="og:site_name" content="Wanderlust Festival"/>
   <meta property="og:type" content="website"/>  
-  <meta property="og:url" content="http://<?php $base = wl_get_base_domain(); $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST'])); print $base; ?>"/>  
-  <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
+  <meta property="og:url" content="http://<?php print $_SERVER['HTTP_HOST']; ?>"/>  
+  <meta property="og:description" content="Wanderlust is a 4-day adventure that combines yoga, music, nature and inspiration.  Find your true north."/>
 	
   
   
@@ -1076,6 +1096,14 @@ $(this).addClass("baloonHover");
 
 $(document).ready(function()
 {
+
+// STOP HOME SLIDESHOW AFTER CLICKING YOUTUBE VIDEO
+
+$(.views_slideshow_singleframe_slide).click(function(){
+  $(this).css('background:red');
+});
+
+
   
 /*FOR PHOTOS*/
         $('body').append('<div id="ted_photo_hover"></div>');
