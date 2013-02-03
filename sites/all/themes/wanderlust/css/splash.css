@@ -31,66 +31,47 @@ body{
 }
 
 .mark.studio.studio3294 {
-    left: 1004px;
-    top: 45px;
+    left: 967px;
+    top: 167px;
 }
 
-.innersite.studio3294{
-    left: 718px;
-    top: 383px;
-
-}
+ 
 
 #map-1 .mark.squaw {
     top: 337px;
     margin-left: 854px;
 }
 
-.innersite.squaw{
-    top: 336px;
-    margin-left: 855px;
-}
-
+ 
 #map-1 .mark.stratton {
     margin-left: 1108px;
-    top: 239px;
+    top: 251px;
 }
 
-.innersite.stratton{
-  top: 275px;
-  margin-left: 1106px;
-}
-
+ 
 
 #map-1 .mark.nyc {
     margin-left: 1126px;
-    top: 232px;
+    top: 262px;
 }
 
-.innersite.nyc{
-    margin-left: 1123px;
-    top: 307px;
-}
+ 
 
 #map-1  .mark.sf {
     margin-left: 850px;
-    top: 203px;
+    top: 232px;
 }
 
-.innersite.sf{
-    margin-left: 849px;
-    top: 315px;
-}
-
+ 
 
 #map-1 .mark.la {
     margin-left: 876px;
-    top: 215px;
+    top: 274px;
 }
 
-.innersite.la{
-    margin-left: 873px;
-    top: 362px;
+.innersite{
+    left: -250px !important;
+    top: 0 !important;
 }
 
 
@@ -101,48 +82,37 @@ body{
 
 #map-1 .mark.colorado {
     margin-left: 944px;
-    top: 147px;
+    top:214px;
 }
 
 .innersite.colorado{
-    margin-left: 941px;
-    top: 333px;
+    left: -250px;
+    top: 0;
 }
 
 #map-1 .mark.whistler {
     margin-left: 844px;
-    top: 34px;
+    top: 110px;
 }
 
 .innersite.whistler{
-    margin-left: 848px;
-    top: 259px;
+
+  left: -250px;
+    top: 0;
 }
 
 #map-1 .mark.oahu {
     margin-left: 644px;
-    top: 187px;
+    top: 277px;
 }
 
-.innersite.oahu{
-    margin-left: 642px;
-    top: 449px;
-
-}
+ 
 
 #map-1 .mark.chile {
     margin-left: 1119px;
-    top: 538px;
+    top: 636px;
 }
 
-.innersite.chile{
-    margin-left: 1117px;
-    top: 841px;
-
-}
-
-/*#map-1-container{ position:relative; width: 1350px; height: 495px;
-overflow:hidden; }*/
 
 
 .level {
@@ -155,15 +125,6 @@ overflow:hidden; }*/
 .current-level {
     z-index: 20;
 }
-
-/*.map-viewport {
-    border: 1px solid black;
-    height: 530px;
-    margin: 0 0 20px;
-    overflow: hidden;
-    position: relative;
-    width: 1350px;
-}*/
 
 
 #map {
@@ -190,30 +151,23 @@ overflow:hidden; }*/
     z-index: 103 !important;
 }
 
-.mark.festival {
+.festival .icon,
+.icon.festival{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   height: 36px;
   width: 27px;
   background-position: -264px -195px;
+  padding-right: 5px;
 }
 
-.mark.yoga {
+.yoga .icon,
+.icon.yoga {
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   height: 36px;
   width: 26px;
-  background-position: -235px -195px;
+  background-position: -235px -164px;
   top: 4px;
-        -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 500ms;
-
-        -0-transition-timing-function: ease-out;
-    -0-transition-duration: 500ms;
-
-        -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 500ms;
-
-        -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 500ms;
+  padding-right: 5px;
 }
 
 
@@ -250,7 +204,7 @@ overflow:hidden; }*/
 }
 
 
-.mark.yoga:hover {
+.yoga .icon:hover {
 
     -webkit-animation: bob 1s ;
         -moz-animation: bob 1s;
@@ -259,24 +213,24 @@ overflow:hidden; }*/
 
 
 
-.mark.studio {
-    background: url(../images/studio.png) no-repeat;
-    height: 33px;
-    width: 24px;
-    top: 5px;
-        -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 500ms;
-
-        -0-transition-timing-function: ease-out;
-    -0-transition-duration: 500ms;
-
-        -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 500ms;
-
-        -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 500ms;
+.icon.studio, .studio .icon {
+  background: url(../images/studio.png) no-repeat;
+  height: 33px;
+  width: 24px;
+  top: 5px;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 500ms;
+  
+  -0-transition-timing-function: ease-out;
+  -0-transition-duration: 500ms;
+  
+  -ms-transition-timing-function: ease-out;
+  -ms-transition-duration: 500ms;
+  
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 500ms;
 }
-.mark.studio:hover {
+.studio .icon:hover {
     background: url(../images/studio_hover.png) no-repeat;
 
 }
@@ -357,7 +311,7 @@ overflow:hidden; }*/
 100%            {-moz-transform: translate(0px,0px);}
 }
 
-.mark.festival:hover{
+.festival .icon:hover{
   -webkit-animation: bob 1s;
   -moz-animation: bob 1s;  
   -o-animation: bob 1s;    
@@ -387,7 +341,7 @@ overflow:hidden; }*/
 100%            {-moz-transform: translate(0px,0px);}
 }
 
-.mark.highlight1{
+.icon.highlight1{
   -webkit-animation: bob-flash 1s;
   -moz-animation: bob-flash 1s;
   -o-animation: bob-flash 1s;
@@ -487,6 +441,12 @@ overflow:hidden; }*/
     margin-right: 7px;
 }
 
+
+
+/* LEGEND STYLES
+---------------------------------*/
+
+
 #legend {
   background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png);
   background-position: -18px -250px;
@@ -500,13 +460,15 @@ overflow:hidden; }*/
   padding: 0px 21px;
 }
 
-#legend .mark {
+#legend .icon {
     margin-right: 4px;
+    margin-top: 2px;
+    width: 28px;
+    padding-right: 5px;
 }
 
 #legend1 {
     margin-top:68px;
-
     height: 39px;
 }
 
@@ -518,31 +480,33 @@ overflow:hidden; }*/
     height: 39px;
 }
 
-#legend1 .mark {
+#legend1 .icon {
     float: left;
 }
 
-#legend2 .mark {
+#legend2 .icon {
     float: left;
 
 }
 
-#legend3 .mark {
+#legend3 .icon {
     float: left;
 }
 
 #legend3 .legendtitle {
     position: relative;
-    top: 13px;
+    top: 11px;
+
 }
 
 #legend .legendtitle {
-  padding-left: 40px;
+  margin-left: 5px;
   text-transform: uppercase;
   font-family: 'revolution', arial;
   font-size: 13px;
   cursor: auto;
   letter-spacing: 1px;
+  float: left;  
 }
 
 #legend1 .legendtitle{
@@ -572,14 +536,15 @@ overflow:hidden; }*/
 
 .legendtitle span{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
-  background-position: -294px -195px;
+  background-position: -294px -164px;
   width: 34px;
   text-indent: -999em;
   display: block;
   position: absolute;
   top: 3px;
   cursor: pointer;
-  right: 10px;
+  float: left;
+  left: 235px;
 }
 
 .legendtitle:hover{
@@ -753,7 +718,7 @@ overflow:hidden; }*/
   top: 543px;
   position: absolute;
   width: 121px;
-  z-index: 999;
+  z-index: 99;
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -805px -9px;
   text-indent: -999em;

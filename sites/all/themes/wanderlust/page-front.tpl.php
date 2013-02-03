@@ -462,15 +462,15 @@ jQuery(document).ready(function($) {
 <!-- BEGIN LEGEND -->  
 <div id="legend" class="ui-draggable">
   <div id="legend1">
-    <div class="mark festival legendNo"></div>
+    <div class="icon festival legendNo"></div>
     <div class="legendtitle">Wanderlust Festivals <span>i</span></div><br>
   </div>
   <div id="legend2">
-    <div class="mark yoga legendNo"></div>
+    <div class="icon yoga legendNo"></div>
     <div class="legendtitle">Yoga in the City events <span>i</span></div><br>
   </div>
   <div id="legend3">
-    <div class="mark studio legendNo"></div>
+    <div class="icon studio legendNo"></div>
     <div class="legendtitle">Wanderlust Yoga Studios <span>i</span></div><br>
   </div>
 </div>
@@ -511,66 +511,86 @@ jQuery(document).ready(function($) {
       
       
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
-  <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>"></div>
-	<div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
+  
+  <!-- BEGIN DIV CLASS="MARK" -->
+  <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
+    <div class="icon"></div>
+  
+    <div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
 	<?php 
 	  if($site->extra_fields->field_event_date[0]['value']){
-	   $item =  '<div class="site-item">';
-	   $item .=  '<div class="site-marker"></div>';	   
-	   $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base.'">'. $site->title . '</a></div>';
-	   $item .= '<div class="siteevent"><div class="item-date">';
+      $item =  '<div class="site-item">';
+      $item .=  '<div class="site-marker"></div>';	   
+      $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base.'">'. $site->title . '</a></div>';
+      $item .= '<div class="siteevent"><div class="item-date">';
+      
+      // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
+      if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
+        $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
+      }   
 
-	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE THE SAME
-	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
-	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
-	  }   
-
-	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
-	  else {
-	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
-	   } 
+  	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
+  	  else {
+  	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
+  	   } 
+	    
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
 	    $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
 	  }
 	 
 	  else {
-      $item = '<div class="site-item"><div class="event-right">';
+      $item .= '<div class="site-item"><div class="event-right">';
 	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
 	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';	 
+	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div>';	 
 	    
 	  }
 	  	 
 	 $options = array('html' => TRUE);
-	 if($class == 'festival') {
-	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
-	    $c = 'checked="checked"';
-	   }
 
-	   // FESTIVALS POPOVER DISPLAY
-	   $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+    // FESTIVALS POPOVER DISPLAY
+    if($class == 'festival') {
+      if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+        $c = 'checked="checked"';
+      }
+      $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
 	   
-	   }elseif($class == 'yoga') {
-	   if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
-	    $c = 'checked="checked"';
-	   }
-
-	   // YITC POPOVER DISPLAY
-	   $yogas .= '<div class="bl">' . $item  .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
-	 }
+    // YITC POPOVER DISPLAY
+    }elseif($class == 'yoga') {
+      if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+        $c = 'checked="checked"';
+      }
+      $yogas .= '<div class="bl">' . $item  .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
+  	 }
 	 
-	 unset($c);
+  	 unset($c);
 	 
 	print $item; ?>
-	 <!--<div class="visitsite"><?php print l('Visit Website &raquo;', 'http://' . $site->purl_prefix . '.' . $base, $options);  ?> </div>-->
-	<div id="site-checkbox"><input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default</div>
+	
+	
+	<!-- SAVE AS DEFAULT CHECKBOX-->
+	<div id="site-checkbox">
+  	<input type="checkbox" value="0" name="<?php print $site->purl_prefix; ?>"<?php if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix): ?> checked="checked"<?php endif; ?> onClick="SetCookie('mysite', '<?php print $site->purl_prefix; ?>', 30);">Save as my default
+  </div>
+  
+  </div>
+  <!-- END DIV CLASS="MARK"-->
+  
 	</div>
-    <?php }
-               elseif($class == 'studio') { ?>
+	
+	
+	
+	
+	
+  <?php }
+  
+  elseif($class == 'studio') { ?>
 	
 	<!-- BEGIN STUDIO MARKERS -->	      
-  <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>"></div>
+  <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
+  <div class="icon"></div>
 	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
+
 	<?php
 	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
 	  if($site->extra_fields->field_event_date[0]['value']){
@@ -594,10 +614,10 @@ jQuery(document).ready(function($) {
 	print $item; ?>
 	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
     
-	 
+	 </div>
 		
 	  <?php } ?>
-<?php  endforeach;  ?>
+<?php endforeach;  ?>
 
 
 </div>
@@ -829,7 +849,7 @@ if (isMobile.any()) {
     window.scrollTo(325,0);
 
 	/*MARK HOVERS*/
-  $(".mark:not(.legendNo)").bind('touchend', function(e) {
+  $(".icon:not(.legendNo)").bind('touchend', function(e) {
  		$(".innersite").fadeOut();
 		$(this).next().toggle(500);
     });
@@ -885,12 +905,12 @@ $("#toolbar").click(function(e) {
 	
 /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
 	
-    $(".mark").bind('touchend', function(e) {
-        $(".mark").stop(true, true);
+    $(".icon").bind('touchend', function(e) {
+        $(".icon").stop(true, true);
         $(this).find('div.innersite').toggle(500);
     });
 
-    $(".mark:not(.legendNo)").hover(function() {
+    $(".icon:not(.legendNo)").hover(function() {
 
         $(this).find('div.innersite').fadeIn();
 
@@ -925,169 +945,158 @@ $("#toolbar").click(function(e) {
     /*LEGEND HOVERS*/
 
     /*for flag*/
-    $("#legend1 .mark").hover(function() {
-        $(".mark.festival").addClass('highlight1');
+    $("#legend1 .icon").hover(function() {
+        $(".icon").addClass('highlight1');
     }, function() {
-        $('#.mark.festival').removeClass('highlight1');
+        $('#.icon').removeClass('highlight1');
     });
     /*for green star*/
 
-    $("#legend2 .mark").hover(function() {
-        $(".mark.yoga").addClass('highlight1');
+    $("#legend2 .icon").hover(function() {
+        $(".icon.yoga").addClass('highlight1');
     }, function() {
-        $('#.mark.yoga').removeClass('highlight1');
+        $('#.icon.yoga').removeClass('highlight1');
     });
 
     /*for star only*/
 
-    $("#legend3 .mark").hover(function() {
-        $(".mark.studio").addClass('highlight1');
+    $("#legend3 .icon").hover(function() {
+        $(".icon.studio").addClass('highlight1');
     }, function() {
-        $('#.mark.studio').removeClass('highlight1');
+        $('#.icon.studio').removeClass('highlight1');
     });
 
 }
  else {
- /*FOR DESKTOP*/
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+// JAVASCRIPT FOR DESKTOP 
 
-$(document).ready(function() {
+$(document).ready(function () {
+    $("#map-1").mapz();
+    $("#legend").draggable();
 
+    // TOOLBAR MENU
 
+    $("#help .icon").toggle(
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #help .dialog').fadeIn();;
+    },
+    function () {
+        $('#toolbar #help .dialog').hide();
+    });
 
-        $("#map-1").mapz();
-        $("#legend").draggable();
-        
-		
-		
-/*TOOLBAR MENU */
-		
-$("#help .icon").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #help .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #help .dialog').hide();
-  }
-);
+    $("#about").toggle(
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #about .dialog').fadeIn();;
+    },
+    function () {
+        $('#toolbar #about .dialog').hide();
+    });
 
-$("#about").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #about .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #about .dialog').hide();
-  }
-);
+    $("#mission").toggle(
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #mission .dialog').fadeIn();;
+    },
+    function () {
+        $('#toolbar #mission .dialog').hide();
+    });
 
-$("#mission").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #mission .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #mission .dialog').hide();
-  }
-);
+    $("#connect .icon").toggle(
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #connect .dialog').fadeIn();
+    },
+    function () {
+        $('#toolbar #connect .dialog').hide();
+    });
+    
+    // INNERSITE HOVERS WHEN OVER MARKERS
+    $(".mark:not(.legendNo)").hover(function () {
+        $(this).find('.innersite').fadeIn();
+    },
+    function() {
+        $(this).find('.innersite').fadeOut();
+    });
 
+    // FALLBACK MARKER ANIMATION FOR IE
+    if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
+        $(function () {
+            $(".icon").hover(function () {
+                if ($(this).data("bouncing") == false || $(this).data("bouncing") == undefined) {
+                    $(this).effect("bounce", {
+                        direction: 'up',
+                        distance: 10,
+                        times: 1
+                    });
+                    $(this).data("bouncing", true);
+                }
+            }, function () {
+                $(this).data("bouncing", false);
+            });
 
-$("#connect .icon").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #connect .dialog').fadeIn();
-  },
-  function () {
-    $('#toolbar #connect .dialog').hide();
-  }
-);
-			
-
-       $(".mark:not(.legendNo)").mouseover(function() {
-	$(".innersite").fadeOut();
-	$(this).next().stop(true, true).delay(830).fadeIn('slow');
-
-	
-				
-			
-});			
-			
-			$(".innersite").mouseleave(function() {
-			
-			$(".innersite").fadeOut();
-
-});	
-	
-	
-	
-// FALLBACK MARKER ANIMATION FOR IE
-if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
-    $(function () {
-        $(".mark").hover(function () {
-            if ($(this).data("bouncing") == false || $(this).data("bouncing") == undefined) {
-                $(this).effect("bounce", {
-                    direction: 'up',
-                    distance: 10,
-                    times: 1
-                });
-                $(this).data("bouncing", true);
-            }
-        }, function () {
-            $(this).data("bouncing", false);
         });
+    }
 
-    });
-}
-	
-		
-// MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
-$(".innersite,.bl").click(function(){
-   window.location=$(this).find("a").attr("href"); 
-   return false;
-});		
-		
-
-// LEGEND HOVERS
-$("#legend1 .mark").hover(function() {
-    $(".mark.festival").addClass('highlight1');
-    }, function() {
-    $('#.mark.festival').removeClass('highlight1');
-});
-
-$("#legend2 .mark").hover(function() {
-    $(".mark.yoga").addClass('highlight1');
-    }, function() {
-    $('#.mark.yoga').removeClass('highlight1');
-});
-
-$("#legend3 .mark").hover(function() {
-    $(".mark.studio").addClass('highlight1');
-    }, function() {
-    $('#.mark.studio').removeClass('highlight1');
-});
-
-
-		
-	/*FOR CHROME FIREFIX*/	
-$(".mark.festival").mouseover(function() {
-$(".mark.festival").removeClass("baloonHover");
-$(this).removeClass("baloonHover");
-$(this).addClass("baloonHover");
-
-});
-
-			
-
-			
-/*FIX FANCYBOX POPUPS*/
-		$(".fancybox-inner").css("overflow", "hidden")
-		
-/*POSITION MAP FOR DESKTOP*/
-		$('#map-1').css('left', '-270px');
-		
+    // MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
+    $(".innersite,.bl").click(function () {
+        window.location = $(this).find("a").attr("href");
+        return false;
     });
 
+    // LEGEND HOVERS
+    $("#legend1 .icon").hover(function () {
+        $(".festival .icon, .festival.icon").addClass('highlight1');
+    }, function () {
+        $('.festival .icon, .festival.icon').removeClass('highlight1');
+    });
+
+    $("#legend2 .icon").hover(function () {
+        $(".yoga .icon, .yoga.icon").addClass('highlight1');
+    }, function () {
+        $('.yoga .icon, .yoga.icon').removeClass('highlight1');
+    });
+
+    $("#legend3 .icon").hover(function () {
+        $(".studio .icon, .studio.icon").addClass('highlight1');
+    }, function () {
+        $('.studio .icon, .studio.icon').removeClass('highlight1');
+    });
+
+    // FOR CHROME FIREFIX
+    $(".mark.festival").mouseover(function () {
+        $(".mark.festival").removeClass("baloonHover");
+        $(this).removeClass("baloonHover");
+        $(this).addClass("baloonHover");
+
+    });
+
+    // FIX FANCYBOX POPUPS
+    $(".fancybox-inner").css("overflow", "hidden")
+
+    // POSITION MAP FOR DESKTOP
+    $('#map-1').css('left', '-270px');
+
+});
+
 }
+
+
+
+
+
+
+
 
 /*FOR BOTH MOBILE AND DESKTOP*/
 
