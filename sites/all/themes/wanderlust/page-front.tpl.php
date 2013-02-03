@@ -102,7 +102,6 @@
 
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js"></script>
-
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
@@ -237,16 +236,13 @@ function doSubmit(oForm) {
   return false;
 }
 //-->
-
-
-
 </script>
      
 
-     <?php } ?>
-	 <?php  if (!$f) { ?>
+      <?php } ?>
+      <?php  if (!$f) { ?>
 	 
-  <?php print $styles; ?>
+	    <?php print $styles; ?>
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
       <?php print $scripts; ?>
@@ -258,96 +254,57 @@ function doSubmit(oForm) {
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 
-<script type="text/javascript">
-$.noConflict();
-jQuery(document).ready(function($) {
-  
-       jQuery('.fancybox-media').fancybox({
-		openEffect  : 'none',
-		closeEffect : 'none',
-		helpers : {
-			media : {}
-		}
-	});
-       
-	      	  $(".pane-content td").hover(
-	  function () {
-	    jQuery(this).find('a.frimage').addClass('fancybox-thumbs');
-	    
-	  },
-	  function () {
-	    jQuery(this).find('a.frimage').removeClass("fancybox-thumbs");
-	  }
-	);
-      /*
-       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-       */
-
+      <script type="text/javascript">
+      $.noConflict();
+      jQuery(document)
+          .ready(function ($) {
+          jQuery('.fancybox-media')
+              .fancybox({
+              openEffect: 'none',
+              closeEffect: 'none',
+              helpers: {
+                  media: {}
+              }
+          });
+          $(".pane-content td")
+              .hover(
       
-      jQuery('.fancybox-thumbs').fancybox({
-	      prevEffect : 'none',
-	      nextEffect : 'none',
-
-	      closeBtn  : true,
-	      arrows    : true,
-	      nextClick : true,
-
-	      helpers : {
-		      thumbs : {
-			      width  : 50,
-			      height : 50
-		      }
-	      }
+          function () {
+              jQuery(this)
+                  .find('a.frimage')
+                  .addClass('fancybox-thumbs');
+          },
+      
+          function () {
+              jQuery(this)
+                  .find('a.frimage')
+                  .removeClass("fancybox-thumbs");
+          });
+          /*
+           *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+           */
+          jQuery('.fancybox-thumbs')
+              .fancybox({
+              prevEffect: 'none',
+              nextEffect: 'none',
+              closeBtn: true,
+              arrows: true,
+              nextClick: true,
+              helpers: {
+                  thumbs: {
+                      width: 50,
+                      height: 50
+                  }
+              }
+          });
+          $(".email")
+              .click(function () {
+              $.fancybox.open('#newsletter');
+          });
       });
-	  
-	  
-	  
-	  
-	  
-	  	$(".email").click(function() {
-				$.fancybox.open('#newsletter');
-	});
-	
-	  
-});
-
-
-
-
-
-</script>
-
-	 <script>
-	  $(document).ready(function(){
-	    
-
-      
-    // Floating sidebars on page nodes
-    var sidebartop = $('.page-node .panels-flexible-region-node_layout-right').offset().top;
-    $(window).scroll(function(){
-        if( $(window).scrollTop() > sidebartop ) {
-            $('.page-node .panels-flexible-region-node_layout-right').css({position: 'fixed', top: '40px', margin: '0 0 0 650px'});
-        } else {
-            $('.page-node .panels-flexible-region-node_layout-right').css({position: 'static', margin: '-35px 0 0 0'});
-        }
-    });
-
-	
-	
-	
-	<!--header email-->
-	
-
-});
-
-
-
-
-</script>
-
+      </script>
 
 	 <?php } ?>
-	 
 	 
  </head>
 
@@ -373,7 +330,6 @@ jQuery(document).ready(function($) {
       <?php endif; ?>
     </div>
     
-    
     <!-- BEGIN HEADER -->
     <header id="header" role="banner" class="clearfix">
 
@@ -381,12 +337,11 @@ jQuery(document).ready(function($) {
         <?php print $header; ?>
       </div>
 
-
-
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
-	$im = '<img src="/sites/all/themes/wanderlust/images/see-all-events.png" alt="To map" />';   
-	print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE)); ?>
+          $im = '<img src="/sites/all/themes/wanderlust/images/see-all-events.png" alt="To map" />';   
+          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE)); 
+        ?>
       </div>
       
     </header>
@@ -405,48 +360,44 @@ jQuery(document).ready(function($) {
       </div>
     </nav> 
     <?php endif; ?>
-	
-
-<!--header email popup-->
-<?php print $connect ;?>
+    <!-- HEADER EMAIL POPUP-->
+    <?php print $connect ;?>
     <!-- END NAVIGATION -->
       
 
     <?php
     }
     
-      if ($f) {  ?>
+    if ($f) {  ?>
       
- <?php
-     $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value ASC", 'event');
-    while($items = db_fetch_array($result)) {
-	  $nodes[] = $items;
-    }
-      $q = 'SELECT * FROM {sites}';                   //get all sites; 
-      $res = db_query($q);
+    <?php
+      $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value ASC", 'event');
+      while ($items = db_fetch_array($result)) {
+          $nodes[] = $items;
+      }
+      $q    = 'SELECT * FROM {sites}'; //get all sites; 
+      $res  = db_query($q);
       $nids = array();
-    while($row = db_fetch_object($res)) {
-    if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
-        if ($node = node_load($nid)) {                   /* load event node*/
-          $row->extra_fields = $node;
-	  if($node->field_event_hide[0]['value'] == 'enabled') {
-	    $nids[]  = $node->nid;
-	  }
-        }
-      }    
-      $sites[$row->sid] = $row;
-    }
-    
-    foreach($nodes as $s) {
-      if(!in_array($s['nid'], $nids)) {
-	 $row->extra_fields = node_load($s['nid']);
-	  //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
-	  $sites['studio' . $s['nid']] = $row;
-      }  
-    }
-    
-    
-    
+      while ($row = db_fetch_object($res)) {
+          if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
+              if ($node = node_load($nid)) {
+                  /* load event node*/
+                  $row->extra_fields = $node;
+                  if ($node->field_event_hide[0]['value'] == 'enabled') {
+                      $nids[] = $node->nid;
+                  }
+              }
+          }
+          $sites[$row->sid] = $row;
+      }
+      
+      foreach ($nodes as $s) {
+          if (!in_array($s['nid'], $nids)) {
+              $row->extra_fields           = node_load($s['nid']);
+              //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
+              $sites['studio' . $s['nid']] = $row;
+          }
+      }
     ?>
       
 <div id="map-1-container">   
@@ -483,31 +434,29 @@ jQuery(document).ready(function($) {
 
 
 <div class="map-viewport">
-<div id="map-1" >
-<img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
+  <div id="map-1">
+  <img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
   
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
+    <?php 
       
-      <?php 
-      
-          foreach($site->extra_fields->taxonomy as $n) {
-	  if($n->tid == 93) {
-	     $class = 'festival'; 
-	  }
-	  elseif($n->tid == 92) {
-	    $class = 'yoga';
-	  }
-	  elseif($n->tid == 94) {
-	    $class = ''; 
-	  }
-	  elseif($n->tid == 180) {
-	    $class = 'studio'; 
-	  }
-
-	}
+    foreach($site->extra_fields->taxonomy as $n) {
+  	  if($n->tid == 93) {
+  	     $class = 'festival'; 
+  	  }
+  	  elseif($n->tid == 92) {
+  	    $class = 'yoga';
+  	  }
+  	  elseif($n->tid == 94) {
+  	    $class = ''; 
+  	  }
+  	  elseif($n->tid == 180) {
+  	    $class = 'studio'; 
+  	  }
+    }
 	
-      if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
       
       
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
@@ -517,55 +466,58 @@ jQuery(document).ready(function($) {
     <div class="icon"></div>
   
     <div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
-	<?php 
-	  if($site->extra_fields->field_event_date[0]['value']){
-      $item =  '<div class="site-item">';
-      $item .=  '<div class="site-marker"></div>';	   
-      $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base.'">'. $site->title . '</a></div>';
-      $item .= '<div class="siteevent"><div class="item-date">';
-      
-      // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
-      if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
-        $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
-      }   
 
-  	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
-  	  else {
-  	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
-  	   } 
-	    
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
-	    $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div></div>';
-	  }
-	 
-	  else {
-      $item .= '<div class="site-item"><div class="event-right">';
-	    $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'].'</div>';	 
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'].', '.$site->extra_fields->field_event_country[0]['value'].'</div></div>';	 
-	    
-	  }
-	  	 
-	 $options = array('html' => TRUE);
-
+    <?php
+    if ($site->extra_fields->field_event_date[0]['value']) {
+        $item = '<div class="site-item">';
+        $item .= '<div class="site-marker"></div>';
+        $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteevent"><div class="item-date">';
+        
+        // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
+        if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
+            $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
+        }
+        
+        // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
+        else {
+            $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+        }
+        
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
+    }
+    
+    else {
+        $item .= '<div class="site-item"><div class="event-right">';
+        $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div>';
+    }
+    
+    $options = array(
+        'html' => TRUE
+    );
+    
     // FESTIVALS POPOVER DISPLAY
-    if($class == 'festival') {
-      if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
-        $c = 'checked="checked"';
-      }
-      $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
-	   
-    // YITC POPOVER DISPLAY
-    }elseif($class == 'yoga') {
-      if(isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
-        $c = 'checked="checked"';
-      }
-      $yogas .= '<div class="bl">' . $item  .  '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c .  'onClick="SetCookie(\'mysite\', ' .  $site->purl_prefix . ', 30);">Save as my default</div></div>' ;
-  	 }
-	 
-  	 unset($c);
-	 
-	print $item; ?>
+    if ($class == 'festival') {
+        if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+            $c = 'checked="checked"';
+        }
+        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+        
+        // YITC POPOVER DISPLAY
+    } elseif ($class == 'yoga') {
+        if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
+            $c = 'checked="checked"';
+        }
+        $yogas .= '<div class="bl">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);">Save as my default</div></div>';
+    }
+    
+    unset($c);
+    
+    print $item;
+    ?>
 	
 	
 	<!-- SAVE AS DEFAULT CHECKBOX-->
@@ -586,41 +538,40 @@ jQuery(document).ready(function($) {
   
   elseif($class == 'studio') { ?>
 	
+	
 	<!-- BEGIN STUDIO MARKERS -->	      
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
-  <div class="icon"></div>
-	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
+    <div class="icon"></div>
+  	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
 
-	<?php
-	//drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
-	  if($site->extra_fields->field_event_date[0]['value']){
-	   $item =  '<div class="site-item">';
-	   $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
-	   $item .= '<div class="siteevent"><div class="item-date">';
-	  if (substr($site->extra_fields->field_event_date[0]['value'], 0 , 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0 , 10)) {
-	    $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])).'</div>';
-	  }   
-	  else {
-	    $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])).' '.date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])).'</div>';	 
-	   } 
-	    $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */. $site->extra_fields->field_event_city[0]['value'].', '. $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
-	 }
-	else {
-      $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
-	    $item .= '<div class="site-title"><a target="_blank" href="'.$site->extra_fields->field_event_url[0]['url'].'">' . $site->extra_fields->title . '</a></div>';
-	    $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'].'</div></div></div>';	 
-	 }	 
-	 $studios .= '<div class="bl">' .  $item . '</div>';
-	print $item; ?>
-	 <!--<div class="visitsite"><?php print l('VISIT', "{$site->extra_fields->field_event_url[0]['url']}");  ?> </div>-->
-    
-	 </div>
+    	<?php
+      //drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+      if ($site->extra_fields->field_event_date[0]['value']) {
+          $item = '<div class="site-item">';
+          $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
+          $item .= '<div class="siteevent"><div class="item-date">';
+          if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
+              $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
+          } else {
+              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+          }
+          $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+      } else {
+          $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
+          $item .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
+          $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+      }
+      $studios .= '<div class="bl">' . $item . '</div>';
+      print $item;
+      ?>
+	
+    </div>
 		
 	  <?php } ?>
-<?php endforeach;  ?>
+	  
+	  <?php endforeach;  ?>
 
-
-</div>
+  </div>
 
 
 <!-- BEGIN TOOLBAR -->
@@ -637,13 +588,11 @@ jQuery(document).ready(function($) {
             <div class="arrow"></div>
         </div>
     </div>
-  </div>
-  -->
+  </div>-->
   <div id="about">
     <a class="icon" href="#">About</a>  
     <div class="dialog">
         <div class="content">
-    
           <h3>About</h3>
           <p>
             Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature.  Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.           
@@ -671,32 +620,30 @@ jQuery(document).ready(function($) {
     <div class="dialog">
       <h3>Connect</h3>
       <div class="email-container clearfix">
-<!-- BEGIN MAILING LIST SIGN UP BOX -->  
-<div id="joinmail">
-  <div id="emailClick"></div>
-  <div class="fb-tw">
-    <div class="fb-icon">
-      <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fwanderlust&amp;send=false&amp;layout=button_count&amp;width=85&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=217615481632986" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:21px;" allowTransparency="true"></iframe>
-    </div>
-    <div class="tw-icon">
-      <a href="https://twitter.com/wanderlustfest" class="twitter-follow-button" data-show-count="false">Follow @wanderlustfest</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
-    </div>
-  </div>
-  <div class="other-icons">
-    <a class="google-icon" href="https://plus.google.com/111241266781662158832" target="_blank"></a>
-    <a class="instagram-icon" href="http://instagram.com/wanderlustfest" target="_blank"></a>
-    <a class="pinterest-icon" href="http://pinterest.com/wanderlustfest/" target="_blank"></a>    
-    <a class="youtube-icon" href="http://youtube.com/wanderlustfestival" target="_blank"></a>    
-  </div>
-</div>
-
- <?php print $connect ;?>
+      <!-- BEGIN MAILING LIST SIGN UP BOX -->  
+      <div id="joinmail">
+        <div id="emailClick"></div>
+        <div class="fb-tw">
+          <div class="fb-icon">
+            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Ffacebook.com%2Fwanderlust&amp;send=false&amp;layout=button_count&amp;width=85&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=21&amp;appId=217615481632986" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:85px; height:21px;" allowTransparency="true"></iframe>
+          </div>
+          <div class="tw-icon">
+            <a href="https://twitter.com/wanderlustfest" class="twitter-follow-button" data-show-count="false">Follow @wanderlustfest</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>    
+          </div>
+        </div>
+        <div class="other-icons">
+          <a class="google-icon" href="https://plus.google.com/111241266781662158832" target="_blank"></a>
+          <a class="instagram-icon" href="http://instagram.com/wanderlustfest" target="_blank"></a>
+          <a class="pinterest-icon" href="http://pinterest.com/wanderlustfest/" target="_blank"></a>    
+          <a class="youtube-icon" href="http://youtube.com/wanderlustfestival" target="_blank"></a>    
+        </div>
+      </div>      
+      <?php print $connect ;?>
       </div>
- <!-- END MAILING LIST SIGN UP BOX -->    
-<div class="arrow"></div>
- </div>    
-         
+      <!-- END MAILING LIST SIGN UP BOX -->    
+      <div class="arrow"></div>
+      </div>             
     </div>
     <!-- END CONNECT -->
 
@@ -752,10 +699,11 @@ jQuery(document).ready(function($) {
 </div>
 </div>    
 <?php  
-      } 
-        else {  /*if not front page - print slide and other content */?> 
+      } else {  
+      
+      /*if not front page - print slide and other content */?> 
 
-        <div id="slideshows" role="slideshow" class="slideshowhome">
+      <div id="slideshows" role="slideshow" class="slideshowhome">
       <?php if (!empty($slidemain)): ?>
       <div class="slidemain-container">
         <div class="slidemain">
@@ -809,165 +757,157 @@ jQuery(document).ready(function($) {
   </footer>
   <!-- END FOOTER -->
 
-    <?php } print $closure ?>
+  <?php } print $closure ?>
 
-<script><?php  if ($f) {?>
-/*detect if mobile */
+
+
+
+<script>
+
+<?php  if ($f) {?>
+
+// DETECT IF MOBILE
 var isMobile = {
-    Android: function() {
+    Android: function () {
         return navigator.userAgent.match(/Android/i);
     },
-    BlackBerry: function() {
+    BlackBerry: function () {
         return navigator.userAgent.match(/BlackBerry/i);
     },
-    iOS: function() {
+    iOS: function () {
         return navigator.userAgent.match(/iPhone|iPod/i);
     },
-	iPAD: function() {
+    iPAD: function () {
         return navigator.userAgent.match(/iPad/i);
-    },	
-    Opera: function() {
+    },
+    Opera: function () {
         return navigator.userAgent.match(/Opera Mini/i);
     },
-    Windows: function() {
+    Windows: function () {
         return navigator.userAgent.match(/IEMobile/i);
     },
-    any: function() {
+    any: function () {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.iPAD() || isMobile.Opera() || isMobile.Windows());
     }
 };
 
-if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()){
-	   $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.4, maximum-scale=1">');
+if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) {
+    $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.4, maximum-scale=1">');
 }
+
+
+
+// FOR MOBILE
 
 if (isMobile.any()) {
 
-/*FOR MOBILE*/
-
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
-    window.scrollTo(325,0);
-
-	/*MARK HOVERS*/
-  $(".icon:not(.legendNo)").bind('touchend', function(e) {
- 		$(".innersite").fadeOut();
-		$(this).next().toggle(500);
+    window.scrollTo(325, 0);
+    
+    /*MARK HOVERS*/
+    $(".icon:not(.legendNo)").bind('touchend', function (e) {
+        $(".innersite").fadeOut();
+        $(this).next().toggle(500);
     });
-			   
-	/*MENU*/
-$("#help .icon").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #help .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #help .dialog').hide();
-  }
-);
-
-$("#about").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #about .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #about .dialog').hide();
-  }
-);
-
-$("#mission").click(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #mission .dialog').fadeIn();;
-  },
-  function () {
-    $('#toolbar #mission .dialog').hide();
-  }
-);
-
-$("#connect").toggle(
-  function () {
-    $('#toolbar .dialog').hide();
-    $('#toolbar #connect .dialog').fadeIn();
-  },
-  function () {
-    $('#toolbar #connect .dialog').hide();
-  }
-);
-
-$(document).click(function(){
-  $('.dialog').hide();
-})
-
-$("#toolbar").click(function(e) {
-  e.stopPropagation();
-});
-	
-/*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/	
-	
-    $(".icon").bind('touchend', function(e) {
+    
+    /*MENU*/
+    $("#help .icon").toggle(
+    
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #help .dialog').fadeIn();;
+    },
+    
+    function () {
+        $('#toolbar #help .dialog').hide();
+    });
+    
+    $("#about").toggle(
+    
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #about .dialog').fadeIn();;
+    },
+    
+    function () {
+        $('#toolbar #about .dialog').hide();
+    });
+    
+    $("#mission").click(
+    
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #mission .dialog').fadeIn();;
+    },
+    
+    function () {
+        $('#toolbar #mission .dialog').hide();
+    });
+    
+    $("#connect").toggle(
+    
+    function () {
+        $('#toolbar .dialog').hide();
+        $('#toolbar #connect .dialog').fadeIn();
+    },
+    
+    function () {
+        $('#toolbar #connect .dialog').hide();
+    });
+    
+    $(document).click(function () {
+        $('.dialog').hide();
+    })
+    
+    $("#toolbar").click(function (e) {
+        e.stopPropagation();
+    });
+    
+    /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/
+    
+    $(".icon").bind('touchend', function (e) {
         $(".icon").stop(true, true);
         $(this).find('div.innersite').toggle(500);
     });
-
-    $(".icon:not(.legendNo)").hover(function() {
-
+    
+    $(".icon:not(.legendNo)").hover(function () {
+    
         $(this).find('div.innersite').fadeIn();
-
-    }, function() {
+    
+    }, function () {
         $(this).find('div.innersite').hide();
     });
-	
-	   if (document.all && document.documentMode && 8 || 9 === document.documentMode) {
-	
-	/*BALLOON HOVER TODO MAKE TOUCH
-		   $(".mark.festival").hover(function() {
-				$(this).animate({
-      top: '-=7'
-    }, 500);
-            }, function() {
- 
-            $(".mark.festival").removeAttr('style'); 
-            $(".mark.festival").stop();
-
-            });
-            
-            */
-	
-}
-	
-	
-	
-	
-
-	
-
+    
+    if (document.all && document.documentMode && 8 || 9 === document.documentMode) {}
+    
+    
     /*LEGEND HOVERS*/
-
+    
     /*for flag*/
-    $("#legend1 .icon").hover(function() {
+    $("#legend1 .icon").hover(function () {
         $(".icon").addClass('highlight1');
-    }, function() {
+    }, function () {
         $('#.icon').removeClass('highlight1');
     });
     /*for green star*/
-
-    $("#legend2 .icon").hover(function() {
+    
+    $("#legend2 .icon").hover(function () {
         $(".icon.yoga").addClass('highlight1');
-    }, function() {
+    }, function () {
         $('#.icon.yoga').removeClass('highlight1');
     });
-
+    
     /*for star only*/
-
-    $("#legend3 .icon").hover(function() {
+    
+    $("#legend3 .icon").hover(function () {
         $(".icon.studio").addClass('highlight1');
-    }, function() {
+    }, function () {
         $('#.icon.studio').removeClass('highlight1');
     });
+    
+    }
 
-}
- else {
+else {
  
  
  
@@ -977,7 +917,7 @@ $("#toolbar").click(function(e) {
  
  
  
-// JAVASCRIPT FOR DESKTOP 
+// FOR DESKTOP 
 
 $(document).ready(function () {
     $("#map-1").mapz();
@@ -1103,48 +1043,49 @@ $(document).ready(function () {
 
 <?php } else {?> 
 
-$(document).ready(function()
-{
+$(document).ready(function () {
 
+    /*FOR PHOTOS*/
+    $('body').append('<div id="ted_photo_hover"></div>');
+    $('#ted_photo_hover').css({
+        position: 'absolute'
+    });
 
-  
-/*FOR PHOTOS*/
-        $('body').append('<div id="ted_photo_hover"></div>');
+    $('#ted_photo_hover').offset({
+        top: 500,
+        left: 500
+    });
+    $('.ted_photo').hover(function (e) {
+        var name = $(this).children('.ted_photo_data').html();
+        var answer = $(this).children('a').children('img').attr('title');
+        var eventName = $(this).children('a').children('img').attr('alt');
+
+        var hoverText = "";
+        hoverText += "Name: " + name + '<br>\r\n';
+        hoverText += "Event: " + eventName + '<br>\r\n';
+        hoverText += '"' + answer + '"';
+        //    $('#ted_photo_hover').show();
+        $('#ted_photo_hover').html(hoverText);
         $('#ted_photo_hover').css({
-            position: 'absolute'
+            top: e.pageY,
+            left: e.pageX
         });
+        divoff = $('#ted_photo_hover').offset();
+        //    alert(e.pageX +' '+ e.pageY);
+        //    $(this).children('a').children('img').attr('title', hoverText);
+        //    $(this).children('img').attr('title', hoverText);
+        //        $('#ted_photo_hover').css({'left': e.pageX + 'px', 'bottom': e.pageY + 'px', 'position': 'absolute'});
+    }, function (e) {
+        //    $('#ted_photo_hover').hide();
+    });
 
-        $('#ted_photo_hover').offset({
-            top: 500,
-            left: 500
-        });
-        $('.ted_photo').hover(function(e) {
-            var name = $(this).children('.ted_photo_data').html();
-            var answer = $(this).children('a').children('img').attr('title');
-            var eventName = $(this).children('a').children('img').attr('alt');
+});
 
-            var hoverText = "";
-            hoverText += "Name: " + name + '<br>\r\n';
-            hoverText += "Event: " + eventName + '<br>\r\n';
-            hoverText += '"' + answer + '"';
-            //    $('#ted_photo_hover').show();
-            $('#ted_photo_hover').html(hoverText);
-            $('#ted_photo_hover').css({
-                top: e.pageY,
-                left: e.pageX
-            });
-            divoff = $('#ted_photo_hover').offset();
-            //    alert(e.pageX +' '+ e.pageY);
-            //    $(this).children('a').children('img').attr('title', hoverText);
-            //    $(this).children('img').attr('title', hoverText);
-            //        $('#ted_photo_hover').css({'left': e.pageX + 'px', 'bottom': e.pageY + 'px', 'position': 'absolute'});
-            }, function(e) {
-            //    $('#ted_photo_hover').hide();
-            });
+
+<?php }?>
 			
-			});
-			<?php }?>
-			/*GOOGLE ANALYTICS*/
+			
+/*GOOGLE ANALYTICS*/
 
 var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-12068308-1']);
@@ -1165,8 +1106,6 @@ $(document).ready(function() {
 		//alert(oo);
 		
 		$('#newsletter #submit').click(function() {
-     
-
 
 		$.ajax({
 			type:        'POST',
@@ -1179,16 +1118,8 @@ $(document).ready(function() {
 			error:      function(){ alert('Sending Mail: failed'); }
 			});
 		return false;
-	    
-	      
-	      
-	      
-	      
+	       
 		}); 
-	
-		
-		
-		
 		
 	});
 });
