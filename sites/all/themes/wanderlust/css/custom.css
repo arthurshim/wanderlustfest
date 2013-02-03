@@ -696,9 +696,15 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   margin: 10px 0;
   padding: 0 0 0 68px;
   height: 40px;
-  background:  #deddce url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup-2013.png") center left no-repeat;
+  background:  #deddce url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/lineup-2013.jpg") center left no-repeat;
   border: 1px solid #bab9a7;
-  
+  background-position: 0 0;
+}
+
+.sf .view-artist-landing2 .viewsdisplaytabs-tab-group,
+.nyc .view-artist-landing2 .viewsdisplaytabs-tab-group,
+.la .view-artist-landing2 .viewsdisplaytabs-tab-group{
+  background-position: 0 -41px !important;
 }
 
 .panel-col-last .fb-like-box{
@@ -720,9 +726,9 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   text-transform: uppercase;
   font-size: 26px;
   color: #7e9e83 !important;
-  padding: 10px 12px 0 14px;
+  padding: 10px 12px 10px 14px;
   margin: 0;
-  height: 30px;
+  height: 20px;
   background: #deddce;
   border: none;
   font-family: 'lhf_egyptianregular', arial !important;
@@ -743,6 +749,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active{
   background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center repeat-x;
   border: none;
+  border-radius: 0;
 }
 
 
