@@ -92,6 +92,14 @@ Drupal.behaviors.viewsSlideshowSingleFrame = function (context) {
       settings.opts.fx = settings.effect;
     }
 
+
+    // Pause on clicking of the slide.
+
+    $('#video-container').hover(function() { 
+        viewsSlideshowSingleFramePause(settings);
+        $('#video-container').hide();
+    });
+
     // Pause on hover.
     if (settings.pause == 1) {
       $('#views_slideshow_singleframe_teaser_section_' + settings.vss_id).hover(function() {
@@ -103,12 +111,7 @@ Drupal.behaviors.viewsSlideshowSingleFrame = function (context) {
       });
     }
 
-    // Pause on clicking of the slide.
-    if (settings.pause_on_click == 1) {
-      $('#views_slideshow_singleframe_teaser_section_' + settings.vss_id).click(function() { 
-        viewsSlideshowSingleFramePause(settings);
-      });
-    }
+
 
     // Add additional settings.
 		if (settings.advanced != "\n") {

@@ -1097,12 +1097,6 @@ $(this).addClass("baloonHover");
 $(document).ready(function()
 {
 
-// STOP HOME SLIDESHOW AFTER CLICKING YOUTUBE VIDEO
-
-$(.views_slideshow_singleframe_slide).click(function(){
-  $(this).css('background:red');
-});
-
 
   
 /*FOR PHOTOS*/
