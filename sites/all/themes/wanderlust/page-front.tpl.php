@@ -19,18 +19,27 @@
   <meta property="og:title" content="
   <?php 
     list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); 
+    
     if ($subdomain == 'squaw'){
       print 'Wanderlust California 2013';
     }
-    if ($subdomain == 'stratton'){
+    elseif ($subdomain == 'stratton'){
       print 'Wanderlust Stratton 2013';
     }
-    if ($subdomain == 'whistler'){
+    elseif ($subdomain == 'whistler'){
       print 'Wanderlust Whistler 2013';
     }
-    if ($subdomain == 'Colorado'){
+    elseif ($subdomain == 'colorado'){
       print 'Wanderlust Colorado 2013';
     }
+    elseif ($subdomain == 'chile'){
+      print 'Wanderlust Chile 2013';
+    }
+    elseif ($subdomain == 'oahu'){
+      print 'Wanderlust Oahu 2013';
+    }
+
+
     else{
       print 'Wanderlust Festival 2013';
     }
