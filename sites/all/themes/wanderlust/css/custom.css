@@ -2222,13 +2222,18 @@ body#block-quicktabs-2 #header{
 
 .page-lineup  .view-artist-landing2 .views-field-title .field-content{
   position: absolute;
-  bottom: 5px;
+  bottom: 0px;
   display: block;
   text-align: center;
   width: 204px;
   z-index: 9;
   left: 0;
   
+}
+
+.page-lineup .views-field-field-bands-photos-fid a{
+  display: block;
+  height: 144px;
 }
   
 .page-lineup .views-field-title a{
