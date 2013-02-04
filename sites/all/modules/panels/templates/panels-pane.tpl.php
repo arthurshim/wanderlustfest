@@ -18,6 +18,11 @@
  *   data including the contexts and all of the other panes being displayed.
  */
 ?>
+   <?php  //drupal_set_message('</pre>' . print_r( $pane->subtype != ' $pane->subtype', 1) . '</pre>'); ?>
+     <?php  if ($pane->subtype == 'artist_tweets' && (strlen(strip_tags($content)) <= 95)){ ?>
+      <?php    
+      }
+      else { ?>
 <div class="<?php print $classes; ?>" <?php print $id; ?>>
   <?php if ($admin_links): ?>
     <div class="admin-links panel-hide">
@@ -35,10 +40,12 @@
     </div>
   <?php endif; ?>
 
+
   <div class="pane-content">
     <?php print $content; ?>
   </div>
 
+ 
   <?php if ($links): ?>
     <div class="links">
       <?php print $links; ?>
@@ -51,3 +58,4 @@
     </div>
   <?php endif; ?>
 </div>
+  <?php  } ?>

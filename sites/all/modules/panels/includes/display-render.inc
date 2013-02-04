@@ -60,7 +60,9 @@ function panels_render_pane($content, $pane, &$display) {
     }
   }
 
-  if (!empty($content->content)) {
+ // if (!empty($content->content)) {
+     // Empty cck fields still output <!-- /content-field -->, so check that too.
+  if (!empty($content->content) && trim($content->content) != '<!-- /content-field -->') {
     if (!empty($pane->style['style'])) {
       $style = panels_get_style($pane->style['style']);
 
