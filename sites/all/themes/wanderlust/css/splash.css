@@ -12,9 +12,10 @@ body{
     width: 479px;
     height: 147px;
     background-position: 679px -8px;
-    position: absolute;
+    position: fixed;
     top: 10px;
-    left: 27%;
+    left: 50%;
+    margin-left: -240px;
     z-index: 100;
     text-indent: -9999em;
 
@@ -898,7 +899,7 @@ body{
   position: fixed;
   right: 0px;
   bottom: 10px;
-  z-index: 99;
+  z-index: 999;
   width: 320px;
 }
 
