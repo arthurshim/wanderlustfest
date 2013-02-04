@@ -228,7 +228,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
 
   $vars['connect'] = <<<EOF
   
-  <div id="thankyou"> Thank you for signing up!</div>
+  <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
   <div class="joincontent">
         <form method='post' id="newsletter"  name='oi_form' action='/testmail.php'>
 

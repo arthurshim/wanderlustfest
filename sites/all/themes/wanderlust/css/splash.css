@@ -14,7 +14,7 @@ body{
     background-position: 679px -8px;
     position: fixed;
     top: 28px;
-    left: 50%;
+    left: 51%;
     margin-left: -240px;
     z-index: 100;
     text-indent: -9999em;
@@ -223,8 +223,8 @@ body{
   -webkit-transition-timing-function: ease-out;
   -webkit-transition-duration: 500ms;
   
-  -0-transition-timing-function: ease-out;
-  -0-transition-duration: 500ms;
+  -o-transition-timing-function: ease-out;
+  -o-transition-duration: 500ms;
   
   -ms-transition-timing-function: ease-out;
   -ms-transition-duration: 500ms;
@@ -1033,31 +1033,6 @@ margin-top:10px;
 
 
 
-/* REDIRECT MESSAGE
----------------------------------*/
-
-#redirect1{
-  position: absolute;
-  top: 20px;
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
-  left: 50%;
-  margin-left: -250px;
-  z-index: 9999;
-  padding: 10px;
-  background: #f5d6b0;
-  border: 1px solid #bd8349;
-}
-
-#redirect1 h1{
-  font-size: 14px;
-  font-weight: normal !important;
-  font-family: 'baskerville_fsitalic', georgia;
-  padding: 0 !important;
-  margin: 0 !important;
-  font-style: italic;
-}
 
 /* CONTAINER
 ---------------------------------*/
