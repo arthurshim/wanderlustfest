@@ -179,8 +179,8 @@ _gaq.push(['_trackPageview']);
   <footer class="footer">
     <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
     <div class="footer-links">
-      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
-      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+      <a href="/privacy-policy">Privacy Policy</a> |
+      <a href="/terms-of-use">Terms of Use</a>
     </div>
     <div class="site-credits">
       Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
