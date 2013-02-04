@@ -718,6 +718,7 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   margin: 0;
   padding: 0;
   border-left: 1px solid #bab9a7;
+  line-height: 1;
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
@@ -1790,7 +1791,8 @@ html.js span.views-throbbing {
     z-index:9;
 }
 
-.messages{
+.messages,
+#thankyou{
   background: #ffeec1;
   padding: 5px;
   border: 1px solid #9c6b63;
@@ -2515,7 +2517,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 }
 
 #thankyou{
-display:none;
+  display:none;
 }
 
 
