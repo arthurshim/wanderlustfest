@@ -2537,14 +2537,15 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   display: none;
 }
 
-.wanderfest .siteBanner,
-.wanderlustfestival .siteBanner,
-.wonderlustfest .siteBanner{
+.wanderfest .siteBanner a,
+.wanderlustfestival .siteBanner a,
+.wonderlustfest .siteBanner a{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite.png');
   background-position: 0 -189px;
   width: 435px;
   height: 53px;
   margin-top: 19px;
+  display: block;
 }
 
 .wanderfest .siteBanner img,
