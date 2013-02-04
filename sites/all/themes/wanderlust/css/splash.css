@@ -356,7 +356,7 @@ body{
 }
 
 
-/*(.wanderfest #container {
+/* #container {
  width:1350px;
 }*/
 
@@ -871,7 +871,7 @@ body{
 
 
 
-.not-logged-in.wanderfest #main {
+.not-logged-in #main {
     display: block !important;
 }
 
@@ -1039,11 +1039,11 @@ body{
 /* CONTAINER
 ---------------------------------*/
 
-.wanderfest #main {
+#main {
   display: none;
 }
 
-.wanderfest {
+body, .page-home {
   margin: 0px;
   overflow: hidden;
 }
@@ -1053,7 +1053,7 @@ body{
   display:none;
 }
 
-.wanderfest #container {
+ #container {
   height: 1030px;
   /*width: 1350px;
   height : 100%;*/
@@ -1061,7 +1061,7 @@ body{
   overflow: hidden;
 }
 
-.wanderfest #map-1-container {
+#map-1-container {
   height: 1028px;
   overflow: hidden !important;
   position: relative;
@@ -1101,13 +1101,13 @@ body{
   @media only screen and (max-height:768px)  {
 
 
-    .wanderfest #container {
+     #container {
     height: 1000px;
 
 }
 
 
-   .wanderfest #map-1-container {
+    #map-1-container {
     height: 1000px;
 
 }
@@ -1138,7 +1138,7 @@ wanderfest #container {
 
 }
 
-   .wanderfest #map-1-container {
+    #map-1-container {
 
     width : 1880px;
 }
