@@ -192,9 +192,9 @@ jQuery.noConflict();
 $.fancybox.close();
   });
 })(jQuery);
-$('#thankyou').show(1000); 
+$('#thankyou').fadeIn(1000); 
 
-setTimeout(function(){$('#thankyou').hide(1000); },4000)
+setTimeout(function(){$('#thankyou').fadeOut(1000); },4000)
 
 
 

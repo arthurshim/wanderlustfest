@@ -404,7 +404,7 @@ function doSubmit(oForm) {
         <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
         <td valign="middle" style="padding:2px; ">
           <select name='State/Prov' size='1' id="state">
-          <option value=''>Please Select</option>
+          <option value=''></option>
           <option value="">------ USA ------</option>
                   <option value='AL' >AL</option>
                   <option value='AK' >AK</option>
@@ -483,9 +483,10 @@ function doSubmit(oForm) {
         <td valign="middle" style="padding:2px; ">Country<span style="color:#841D0A;"></span></td>
         <td valign="middle" style="padding:2px; ">
           <select name='Country' size='1' id="country">
-            <option value=''>Please Select</option>
+            <option value=''></option>
             <option value='United States' >United States</option>
             <option value='Canada' >Canada</option>
+            <option value='Canada' >Chile</option>            
             <option value='Other' >OTHER</option>
           </select>
         </td>
@@ -494,7 +495,7 @@ function doSubmit(oForm) {
         <td valign="middle" style="padding:2px; ">Which event most interests you?</td>
         <td valign="middle" style="padding:2px; ">
           <select name='EventName' size='1' id="EventName">
-            <option value=''>Please Select</option>
+            <option value=''></option>
             <option value='ALL' >All Events</option>
             <option value='VT' >Wanderlust Vermont</option>
             <option value='CA' >Wanderlust California</option>
@@ -511,7 +512,19 @@ function doSubmit(oForm) {
       <tr>
         <td valign="middle" style="padding:2px; ">
           How did you hear about us? </td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='HearAbout' /></td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='HearAbout' size='1' id="country">
+            <option value=''></option>
+            <option value='friend' >A friend told me</option>
+            <option value='teacher' >A teacher told me</option>
+            <option value='studio' >At my studio</option>
+            <option value='magazine' >In a magazine</option>
+            <option value='website' >Through your website</option>
+            <option value='blog' >In a blog or other website</option>
+            <option value='poster' >Saw a poster or flyer</option>
+            <option value='bannerad' >Saw a banner ad</option>
+            <option value='other' >Other</option>
+          </select>          </td>
       </tr>
       <tr>
         <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
