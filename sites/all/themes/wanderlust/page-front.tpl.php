@@ -38,10 +38,8 @@
     elseif ($subdomain == 'oahu'){
       print 'Wanderlust Oahu 2013';
     }
-
-
     else{
-      print 'Wanderlust Festival 2013';
+      print 'Wanderlust Festival';
     }
 
     
