@@ -58,5 +58,21 @@ input[type=checkbox]
 margin-right: 19px;
 margin-bottom: 6px;
 }
+/*reset checkboxes for ipad only*/
+ @media only screen and (max-device-width: 1024px) and (orientation : landscape)
+{
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.0); 
+}
+}
+  
+@media only screen and (max-device-width: 768px) and (orientation : portrait)
+{
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.0); 
+}
+}
 
 

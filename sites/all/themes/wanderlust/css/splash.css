@@ -1,7 +1,7 @@
 /*GOOGLE MAPS BG COLOR*/
 
 body{
-  background-color:rgb(223, 223, 223) !important;
+  background-color: #a9d4c3
 }
 
 /* SPLASH PAGE LOGO
@@ -13,7 +13,7 @@ body{
     height: 147px;
     background-position: 679px -8px;
     position: fixed;
-    top: 10px;
+    top: 28px;
     left: 50%;
     margin-left: -240px;
     z-index: 100;
@@ -146,6 +146,7 @@ body{
     cursor: default;
     z-index: 1;
     padding: 1px;
+    padding-right: 12px;
 }
 
 .mark:hover {
@@ -316,7 +317,7 @@ body{
   -webkit-animation: bob 1s;
   -moz-animation: bob 1s;  
   -o-animation: bob 1s;    
-  animation: bob 1s;    
+  animation: bob 1s;
 }
 
 .site-marker:hover{
@@ -326,34 +327,19 @@ body{
   animation: bob 1s;      
 }
 
-@-webkit-keyframes bob-flash {
-0%              {-webkit-transform: translate(0px,-2px);}
-25%             {-webkit-transform: translate(0px,-8px);}
-50%             {-webkit-transform: translate(0px,-1px),opacity:1;}
-75%             {-webkit-transform: translate(0px,-3px),opacity:0.1;}
-100%            {-webkit-transform: translate(0px,0px);}
-}
-
-@-moz-keyframes bob-flash {
-0%              {-moz-transform: translate(0px,-2px);}
-25%             {-moz-transform: translate(0px,-8px);}
-50%             {-moz-transform: translate(0px,-1px),opacity:1;}
-75%             {-moz-transform: translate(0px,-3px),opacity:0.1;}
-100%            {-moz-transform: translate(0px,0px);}
-}
 
 .icon.highlight1{
-  -webkit-animation: bob-flash 1s;
-  -moz-animation: bob-flash 1s;
-  -o-animation: bob-flash 1s;
-  animation: bob-flash 1s;      
+  -webkit-animation: bob 1s;
+  -moz-animation: bob 1s;
+  -o-animation: bob 1s;
+  animation: bob 1s;      
 }
 
 
 
 
 .mark:hover {
-    z-index: 103 !important;
+
 }
 
 
@@ -692,7 +678,7 @@ body{
 
 #yogainfo .site-marker{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
-  background-position: -235px -195px;
+  background-position: -235px -164px;
   width: 29px;
   height: 36px;
   position: absolute;
@@ -963,6 +949,16 @@ body{
   overflow-y: hidden;
 }
 
+#killBill {
+float: right;
+cursor: pointer;
+}
+#killBill2 {
+float: right;
+cursor: pointer;
+margin-top:10px;
+}
+
 #toolbar .arrow{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
   background-position: -349px -195px;
@@ -1018,24 +1014,50 @@ body{
   display: none;
 }
 
+#thankyou{
+  background: #ffeec1;
+  padding: 20px 5px;
+  border: 1px solid #9c6b63;
+  margin: 10px auto;
+  width: 400px;
+  position: fixed;
+  top: 200px;
+  z-index: 99;
+  left: 50%;
+  margin-left: -200px;
+  text-align: center;
+  font-size: 18px;
+  font-family: 'baskerville_fsitalic';
+  display: none;
+}
 
 
 
 /* REDIRECT MESSAGE
 ---------------------------------*/
 
-.redirect{
-  font-size: 30px;
-  font-family: 'baskerville_fsitalic', arial;
+#redirect1{
   position: absolute;
-  top: 40px;
-  width: 450px;
+  top: 20px;
+  width: 500px;
   margin: 0 auto;
   text-align: center;
-  left: 33%;
+  left: 50%;
+  margin-left: -250px;
+  z-index: 9999;
+  padding: 10px;
+  background: #f5d6b0;
+  border: 1px solid #bd8349;
 }
 
-
+#redirect1 h1{
+  font-size: 14px;
+  font-weight: normal !important;
+  font-family: 'baskerville_fsitalic', georgia;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-style: italic;
+}
 
 /* CONTAINER
 ---------------------------------*/

@@ -160,7 +160,55 @@ _gaq.push(['_trackPageview']);
     </div>
   </footer>
   <!-- END FOOTER -->
+<script>
 
+$(document).ready(function() {
+
+		//alert(oo);
+		
+		$('#newsletter #submit').click(function() {
+		
+          a = $("input#email").val();
+          b = $("input#firstname").val();
+          c = $("input#lastname").val();
+          d = $("#state option:selected").text();
+          e = $("input#postal_code").val();
+          f = $("#country option:selected").text();
+          g = $("#EventName option:selected").text();
+          h = $("#hearabout option:selected").text();
+
+          var dataString = 'email=' + a + '&FirstName=' + b + '&LastName=' + c +'&State/Prov=' + d + '&ZipCode=' + e +'&Country=' + f + '&EventName=' + g + '&HearAbout=' + h; 
+
+     //alert(dataString);
+
+          $.ajax ({
+               type: 'POST',
+               data: dataString,
+               url: $('#newsletter').attr('action'),
+               success: function(){
+                    
+
+jQuery.noConflict();
+(function($) {
+  $(function() {
+$.fancybox.close();
+  });
+})(jQuery);
+$('#thankyou').show(1000); 
+
+setTimeout(function(){$('#thankyou').hide(1000); },4000)
+
+
+
+               }
+          });
+		return false;
+	       
+		}); 
+
+});
+
+</script>
 
 
 </body>

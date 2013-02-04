@@ -57,7 +57,9 @@
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/type.css" />
 	<link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/wanderlust/css/splash.css" />
 	<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="all" />
-
+	
+	
+	
 <!--[if lte IE 7]>
 	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/css/ie7.css" />
 <![endif]-->
@@ -81,7 +83,11 @@
 <!-- REDIRECT MESSAGE-->
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
   <script>
-    document.write("<div id='redirect1'><h1>Redirecting you to your Wanderlust Adventure!</h1></div>"); 
+    document.write("<div id='redirect1'><h1>Redirecting you to your Wanderlust Adventure!</h1></div>");
+    $(document).ready(function() {
+      $('#legend').css('display','none');
+      $('.front').css('background', '-webkit-gradient(linear,left top,left bottom,from(#a9d4c3),to(#d8fbed))');
+    });
   </script>
   
   <script type="text/javascript" src="/sites/all/modules/wl_helper/wl_helper_map.js?h"></script>  
@@ -107,8 +113,8 @@
 <script type="text/javascript" src="sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 
 
-  <!-- SET FACEBOOK OPEN GRAPH APP ID -->
-  <meta property="fb:app_id" content="321576251186267"/>
+<!-- SET FACEBOOK OPEN GRAPH APP ID -->
+<meta property="fb:app_id" content="321576251186267"/>
 
 
 
@@ -137,6 +143,10 @@ $(document).ready(function()
    </script>
    
 <script type="text/javascript">
+
+  jQuery(document).ready(function ($) {
+
+
  $(document).ready(function() {
  $('input[type=checkbox]').change(function(){
    if ($(this).is(":checked")){
@@ -181,11 +191,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				
 	        });
 });
- </script>
 
-
-<!--added on 7,Jan - start-->
-<script type="text/javascript">
     
     
     function isScrolledIntoView(elem)
@@ -215,6 +221,8 @@ $(document).ready(function() {
 	
 });
 
+
+}); //end no conflict
 </script>
 <!--end-->
 
@@ -349,6 +357,7 @@ function doSubmit(oForm) {
     <!-- END HEADER -->
     
     <!-- BEGIN NAVIGATION -->  
+	 
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
@@ -362,7 +371,152 @@ function doSubmit(oForm) {
     </nav> 
     <?php endif; ?>
     <!-- HEADER EMAIL POPUP-->
-    <?php print $connect ;?>
+    
+
+  <div class="joincontent">
+        <form method='post' id="newsletter"  name='oi_form' action='/testmail.php'>
+
+    <table border="0" cellpadding="0" cellspacing="0">
+  
+      <tr>
+        <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
+      </tr>
+      <tr>
+        <td width="180" valign="middle" style="padding:2px; ">Email*<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">First Name<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Last Name<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='State/Prov' size='1' id="state">
+          <option value=''>Please Select</option>
+          <option value="">------ USA ------</option>
+                  <option value='AL' >AL</option>
+                  <option value='AK' >AK</option>
+                  <option value='AZ' >AZ</option>
+                  <option value='AR' >AR</option>
+                  <option value='CA' >CA</option>
+                  <option value='CO' >CO</option>
+                  <option value='CT' >CT</option>
+                  <option value='DE' >DE</option>
+                  <option value='DC' >DC</option>
+                  <option value='FL' >FL</option>
+                  <option value='GA' >GA</option>
+                  <option value='HI' >HI</option>
+                  <option value='ID' >ID</option>
+                  <option value='IL' >IL</option>
+                  <option value='IN' >IN</option>
+                  <option value='IA' >IA</option>
+                  <option value='KS' >KS</option>
+                  <option value='KY' >KY</option>
+                  <option value='LA' >LA</option>
+                  <option value='ME' >ME</option>
+                  <option value='MD' >MD</option>
+                  <option value='MA' >MA</option>
+                  <option value='MI' >MI</option>
+                  <option value='MN' >MN</option>
+                  <option value='MS' >MS</option>
+                  <option value='MO' >MO</option>
+                  <option value='MT' >MT</option>
+                  <option value='NE' >NE</option>
+                  <option value='NV' >NV</option>
+                  <option value='NH' >NH</option>
+                  <option value='NJ' >NJ</option>
+                  <option value='NM' >NM</option>
+                  <option value='NY' >NY</option>
+                  <option value='NC' >NC</option>
+                  <option value='ND' >ND</option>
+                  <option value='OH' >OH</option>
+                  <option value='OK' >OK</option>
+                  <option value='OR' >OR</option>
+                  <option value='PA' >PA</option>
+                  <option value='RI' >RI</option>
+                  <option value='SC' >SC</option>
+                  <option value='SD' >SD</option>
+                  <option value='TN' >TN</option>
+                  <option value='TX' >TX</option>
+                  <option value='UT' >UT</option>
+                  <option value='VT' >VT</option>
+                  <option value='VA' >VA</option>
+                  <option value='WA' >WA</option>
+                  <option value='WV' >WV</option>
+                  <option value='WI' >WI</option>
+                  <option value='WY' >WY</option>
+          <option value="">----- CANADA -----</option>
+                  <option value='AB' >AB</option>
+                  <option value='BC' >BC</option>
+                  <option value='LB' >LB</option>
+                  <option value='MB' >MB</option>
+                  <option value='NB' >NB</option>
+                  <option value='NF' >NF</option>
+                  <option value='NS' >NS</option>
+                  <option value='NT' >NT</option>
+                  <option value='ON' >ON</option>
+                  <option value='PE' >PE</option>
+                  <option value='QC' >QC</option>
+                  <option value='SK' >SK</option>
+                  <option value='YT' >YT</option>
+          <option value="">---------------</option>
+          <option value='Other' >OTHER</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='ZipCode' id="postal_code" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Country<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='Country' size='1' id="country">
+            <option value=''>Please Select</option>
+            <option value='United States' >United States</option>
+            <option value='Canada' >Canada</option>
+            <option value='Other' >OTHER</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Which event most interests you?</td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='EventName' size='1' id="EventName">
+            <option value=''>Please Select</option>
+            <option value='ALL' >All Events</option>
+            <option value='VT' >Wanderlust Vermont</option>
+            <option value='CA' >Wanderlust California</option>
+            <option value='CO' >Wanderlust Colorado</option>
+            <option value='BC' >Wanderlust Whistler</option>
+            <option value='CH' >Wanderlust Chile</option>
+            <option value='HI' >Wanderlust O'ahu</option>
+            <option value='NYC' >Yoga in the City NYC</option>
+            <option value='LA' >Yoga in the City LA</option>
+            <option value='SF' >Yoga in the City SF</option>
+          </select>
+        </td>
+      </tr>      
+      <tr>
+        <td valign="middle" style="padding:2px; ">
+          How did you hear about us? </td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='HearAbout' /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
+          <input type='hidden' name='goto' value='' />
+          <input type='hidden' name='iehack' value='&#9760;' />
+        </td>
+        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Subscribe' /></td>
+      </tr>
+   
+</table>
+   </form>
+ </div>
     <!-- END NAVIGATION -->
       
 
@@ -370,7 +524,7 @@ function doSubmit(oForm) {
     }
     
     if ($f) {  ?>
-      
+       <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
     <?php
       $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value ASC", 'event');
       while ($items = db_fetch_array($result)) {
@@ -594,6 +748,7 @@ function doSubmit(oForm) {
     <a class="icon" href="#">About</a>  
     <div class="dialog">
         <div class="content">
+	      <div id="killBill">X</div>
           <h3>About</h3>
           <p>
             Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature.  Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.           
@@ -607,6 +762,7 @@ function doSubmit(oForm) {
     <a class="icon" href="#">Mission</a>  
     <div class="dialog">
         <div class="content">
+		  <div id="killBill">X</div>
           <h3>Mission</h3>
           <p>
             Wanderlust's core mission is to create community around mindful living. Mindful living is a conscious, value-based approach to leading a balanced & fulfilling life.  We focus on yoga, eating well, being green, practicing purpose in our partnerships, creating awareness, showcasing art, and encouraging adventure.           
@@ -619,6 +775,7 @@ function doSubmit(oForm) {
   <div id="connect">
     <a class="icon" href="#">Connect</a>
     <div class="dialog">
+	 <div id="killBill2">X</div>
       <h3>Connect</h3>
       <div class="email-container clearfix">
       <!-- BEGIN MAILING LIST SIGN UP BOX -->  
@@ -676,7 +833,7 @@ function doSubmit(oForm) {
 <div id="festinfo">
   <span>Wanderlust Festivals</span>
   <div class="descript">
-    The Festival is the crown jewel of the Wanderlust experience: unforgettable 4-day summits in locations of awesome natural beauty.  We take everything you treasure about your yoga practice, combine it with all the elements and experiences you seek in nature, throw in some epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, mediation sessions, films and so much more... The result? Newfound friends charting unforeseen journeys together.    
+    Wanderlust Festivals are the crown jewels of the Wanderlust experience: unforgettable 4-day summits in locations of stunning natural beauty. Take everything you treasure about your yoga practice, then throw in epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, films and much more.
   </div>
  <?php print $fests; ?>
 </div>
@@ -749,7 +906,7 @@ function doSubmit(oForm) {
   <footer class="footer clearfix">
     <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
     <div class="footer-links">
-      <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> |
+      <a href="<?php global $base_url; print $base_url; ?>/terms-of-use">Terms of Use</a> |
       <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
     </div>
     <div class="site-credits">
@@ -856,10 +1013,22 @@ if (isMobile.any()) {
         $('#toolbar #connect .dialog').hide();
     });
     
-    $(document).click(function () {
-        $('.dialog').hide();
-    })
     
+		$('#killBill').click(function () {
+    	$('#toolbar #help .dialog, #toolbar #about .dialog, #toolbar #mission .dialog, #toolbar #connect .dialog').hide();
+
+    });
+	
+		$('#connect a.icon').click(function () {
+
+		$('#killBill2').click(function () {
+    	$(' #toolbar #connect .dialog').hide();
+
+    });
+		
+    });
+	
+	
     $("#toolbar").click(function (e) {
         e.stopPropagation();
     });
@@ -915,7 +1084,7 @@ else {
  
  
  
- 
+  jQuery(document).ready(function ($) {
  
  
 // FOR DESKTOP 
@@ -962,6 +1131,22 @@ $(document).ready(function () {
         $('#toolbar #connect .dialog').hide();
     });
     
+	$('#killBill').click(function () {
+    	$('#toolbar #help .dialog, #toolbar #about .dialog, #toolbar #mission .dialog, #toolbar #connect .dialog').hide();
+
+    });
+	
+		
+		$('#connect a.icon').click(function () {
+
+		$('#killBill2').click(function () {
+    	$(' #toolbar #connect .dialog').hide();
+
+    });
+		
+    });
+	
+	
     // INNERSITE HOVERS WHEN OVER MARKERS
     $(".mark:not(.legendNo)").hover(function () {
         $(this).find('.innersite').fadeIn();
@@ -969,6 +1154,8 @@ $(document).ready(function () {
     function() {
         $(this).find('.innersite').fadeOut();
     });
+	
+	
 
     // FALLBACK MARKER ANIMATION FOR IE
     if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
@@ -1030,7 +1217,12 @@ $(document).ready(function () {
 
 });
 
-}
+}); //end no conflict
+
+
+
+
+} //end else
 
 
 
@@ -1099,30 +1291,55 @@ _gaq.push(['_trackPageview']);
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 
-  	<?php  header('Access-Control-Allow-Origin: *'); ?>
-  
+ 
 $(document).ready(function() {
-	$('#email').click(function() {
-	
+
 		//alert(oo);
 		
 		$('#newsletter #submit').click(function() {
+		
+          a = $("input#email").val();
+          b = $("input#firstname").val();
+          c = $("input#lastname").val();
+          d = $("#state option:selected").text();
+          e = $("input#postal_code").val();
+          f = $("#country option:selected").text();
+          g = $("#EventName option:selected").text();
+          h = $("#hearabout option:selected").text();
 
-		$.ajax({
-			type:        'POST',
-			url:         $('#newsletter').attr('action'),
-			contentType: "application/json; charset=utf-8",
-	        dataType:    'jsonp',
-	        crossDomain:  true,
-			data:        $('#newsletter').serialize(),
-			success:     function(json){ alert("success");	},
-			error:      function(){ alert('Sending Mail: failed'); }
-			});
+          var dataString = 'email=' + a + '&FirstName=' + b + '&LastName=' + c +'&State/Prov=' + d + '&ZipCode=' + e +'&Country=' + f + '&EventName=' + g + '&HearAbout=' + h; 
+
+     //alert(dataString);
+
+          $.ajax ({
+               type: 'POST',
+               data: dataString,
+               url: $('#newsletter').attr('action'),
+               success: function(){
+                    
+
+jQuery.noConflict();
+(function($) {
+  $(function() {
+$.fancybox.close();
+  });
+  
+  $('#thankyou').fadeIn(1000); 
+    setTimeout(function(){$('#thankyou').fadeOut(1000); },4000);
+    $('#toolbar #connect .dialog').hide();
+  
+  
+})(jQuery);
+
+
+
+
+               }
+          });
 		return false;
 	       
 		}); 
-		
-	});
+
 });
 
 </script>
