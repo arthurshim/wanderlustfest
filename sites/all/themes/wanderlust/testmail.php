@@ -12,7 +12,10 @@ header('Access-Control-Allow-Origin: *');
  
     $url = 'https://subscribe.hearstmags.com/api/circ/xml/Transaction';
   
-		$post_data ="email=test2@40test.com&FirstName=test&LastName=test2&State2FProv=AZ&ZipCode=45852&Country=United+States&EventName=VT&HearAbout=&goto=&iehack=%E2%98%A0";
+		//$post_data ="email=test2@40test.com&FirstName=test&LastName=test2&State2FProv=AZ&ZipCode=45852&Country=United+States&EventName=VT&HearAbout=&goto=&iehack=%E2%98%A0";
+		
+		$post_data ="email=$_REQUEST['email']&FirstName=$_REQUEST['FirstName']&LastName=$_REQUEST['LastName']&State2FProv=$_REQUEST['State/Prov']&ZipCode=$_REQUEST['ZipCode']&Country=$_REQUEST['Country']&EventName=$_REQUEST['EventName']&HearAbout=&goto=&iehack=%E2%98%A0";
+		
                 $ch = curl_init();  
 		curl_setopt($ch, CURLOPT_URL,"http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6");
 		curl_setopt($ch, CURLOPT_POST,1);
