@@ -143,7 +143,7 @@ $jq('.fancybox-media').fancybox({
    
    
    
-    $(".view-videos.view-display-id-page_1 li.views-roww").hover(
+    $jq(".view-videos.view-display-id-page_1 li.views-roww").hover(
       function () {
   
       $(this).find('a').addClass('fancybox-thumbs');
