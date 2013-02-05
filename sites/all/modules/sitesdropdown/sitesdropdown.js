@@ -65,20 +65,20 @@ function() {
                            
                            
  //********                          
-   $(".view-Photos.view-display-id-page_1 li.views-row").hover(
+   $jq(".view-Photos.view-display-id-page_1 li.views-row").hover(
       function () {
-    $(this).find('.bo').replaceWith('<div class="bo"><div class="aal"></div></div>');
+    $jq(this).find('.bo').replaceWith('<div class="bo"><div class="aal"></div></div>');
     // $(this).find('a').addClass('fancybox-thumbs');
 	
       },
       function () {
-        $(this).find('a').removeClass("fancybox-thumbs");
+        $jq(this).find('a').removeClass("fancybox-thumbs");
       }
     );
    
  /*videos*/
  
-   $('.view-videos.view-display-id-page_1 li.views-roww').click(function() {
+   $jq('.view-videos.view-display-id-page_1 li.views-roww').click(function() {
           
    //  $(this).find('a').addClass("f");                                               
 $jq('.fancybox-media, .views-field-title').fancybox({
@@ -128,10 +128,10 @@ $jq('.fancybox-media, .views-field-title').fancybox({
     */
 });    
  
-$('.panels-flexible-region .content').click(function() {
+$jq('.panels-flexible-region .content').click(function() {
   
                                            
-$('.fancybox-media').fancybox({
+$jq('.fancybox-media').fancybox({
 		openEffect  : 'none',
 		closeEffect : 'none',
 		helpers : {
@@ -143,11 +143,11 @@ $('.fancybox-media').fancybox({
    
    
    
-    $(".view-videos.view-display-id-page_1 li.views-roww").hover(
+    $jq(".view-videos.view-display-id-page_1 li.views-roww").hover(
       function () {
   
-      $(this).find('a').addClass('fancybox-thumbs');
-      $('.fancybox-thumbs').fancybox({     
+      $jq(this).find('a').addClass('fancybox-thumbs');
+      $jq('.fancybox-thumbs').fancybox({     
 	      prevEffect : 'none',
 	      nextEffect : 'none',
 
@@ -181,7 +181,7 @@ $('.fancybox-media').fancybox({
 }
 
 function onYouTubePlayerReady(playerId) { 
-  $('div.emfield-emvideo object').each(function() {
+  $jq('div.emfield-emvideo object').each(function() {
     playerId = $(this).attr('id');
   
     if (this.addEventListener) {
@@ -215,7 +215,7 @@ function stopCycle(state, playerId) {
   }
 }
 
-$(document).ready(function() {
+$jq(document).ready(function() {
   $("#views_slideshow_singleframe_teaser_section_Homepage_slider-block_1 .views_slideshow_singleframe_slide div.views-row div.views-field-field-image-fid-1 span.field-content").each(function() {
    var copy = $("a", (this)).html();
    if($("a", (this)).attr("href") == "" || !$("a", (this)).attr('href')) {
