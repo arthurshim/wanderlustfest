@@ -143,11 +143,11 @@ $jq('.fancybox-media').fancybox({
    
    
    
-    $jq(".view-videos.view-display-id-page_1 li.views-roww").hover(
+    $(".view-videos.view-display-id-page_1 li.views-roww").hover(
       function () {
   
-      $jq(this).find('a').addClass('fancybox-thumbs');
-      $jq('.fancybox-thumbs').fancybox({     
+      $(this).find('a').addClass('fancybox-thumbs');
+      $('.fancybox-thumbs').fancybox({     
 	      prevEffect : 'none',
 	      nextEffect : 'none',
 
@@ -181,7 +181,7 @@ $jq('.fancybox-media').fancybox({
 }
 
 function onYouTubePlayerReady(playerId) { 
-  $jq('div.emfield-emvideo object').each(function() {
+  $('div.emfield-emvideo object').each(function() {
     playerId = $(this).attr('id');
   
     if (this.addEventListener) {
@@ -215,7 +215,7 @@ function stopCycle(state, playerId) {
   }
 }
 
-$jq(document).ready(function() {
+$(document).ready(function() {
   $("#views_slideshow_singleframe_teaser_section_Homepage_slider-block_1 .views_slideshow_singleframe_slide div.views-row div.views-field-field-image-fid-1 span.field-content").each(function() {
    var copy = $("a", (this)).html();
    if($("a", (this)).attr("href") == "" || !$("a", (this)).attr('href')) {
