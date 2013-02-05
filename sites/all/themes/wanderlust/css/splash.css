@@ -14,7 +14,7 @@ body{
     background-position: 679px -8px;
     position: fixed;
     top: 28px;
-    left: 51%;
+    left: 50%;
     margin-left: -240px;
     z-index: 100;
     text-indent: -9999em;
@@ -27,7 +27,7 @@ body{
 
 #map-1-container .mark {
     position: relative;
-    z-index: 100;
+    z-index: 99;
     cursor: pointer;
 }
 
@@ -223,8 +223,8 @@ body{
   -webkit-transition-timing-function: ease-out;
   -webkit-transition-duration: 500ms;
   
-  -o-transition-timing-function: ease-out;
-  -o-transition-duration: 500ms;
+  -0-transition-timing-function: ease-out;
+  -0-transition-duration: 500ms;
   
   -ms-transition-timing-function: ease-out;
   -ms-transition-duration: 500ms;
@@ -1030,6 +1030,7 @@ margin-top:10px;
   font-family: 'baskerville_fsitalic';
   display: none;
 }
+
 
 
 
