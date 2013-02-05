@@ -48,12 +48,12 @@ function wl_helper_init() {
 //  $find   = '.wonderlustfest.com';
 //  $pos = strpos($mystring, $find);
  // print '<pre>pos' . print_r($pos, 1) . '</pre>';
-  $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
-  $subdomain = strtolower(trim($url[0]));  
-  if ($subdomain == 'wonderlustfest' && !$_GET['m']) {
+ // $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+ // $subdomain = strtolower(trim($url[0]));  
+  //if ($subdomain == 'wonderlustfest' && !$_GET['m']) {
    // drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper_map.js');
     
-  }	
+ // }	
 
 
 
