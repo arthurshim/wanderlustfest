@@ -216,6 +216,8 @@ function stopCycle(state, playerId) {
 }
 
 $(document).ready(function() {
+  var $jq = jQuery.noConflict();
+
   $jq("#views_slideshow_singleframe_teaser_section_Homepage_slider-block_1 .views_slideshow_singleframe_slide div.views-row div.views-field-field-image-fid-1 span.field-content").each(function() {
    var copy = $("a", (this)).html();
    if($("a", (this)).attr("href") == "" || !$("a", (this)).attr('href')) {
