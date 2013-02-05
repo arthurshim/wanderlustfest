@@ -18,6 +18,9 @@
       	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
         <?php print $scripts; ?>
         <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
+	   	     <script type="text/javascript">
+         var $jq = jQuery.noConflict();
+      </script> 
         <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
         <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
 	    <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
@@ -30,6 +33,7 @@
 <script type="text/javascript">
  
  $(document).ready(function() {
+ 
 
  (function($) {
   $(function() {
