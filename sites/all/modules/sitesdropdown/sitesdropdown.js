@@ -142,10 +142,9 @@ $jq('.fancybox-media').fancybox({
 });      
    
    
-   
+  /* 
     $jq(".view-videos.view-display-id-page_1 li.views-roww").hover(
       function () {
-  
       $(this).find('a').addClass('fancybox-thumbs');
       $('.fancybox-thumbs').fancybox({     
 	      prevEffect : 'none',
@@ -166,19 +165,14 @@ $jq('.fancybox-media').fancybox({
 		      
 	      }
       });   
-      //   $(this).find('a').addClass('fancybox-thumbs');
-
-	
       },
       function () {
         $(this).find('a').removeClass("fancybox-thumbs");
       }
     );
-      /*
-       *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
-       */
+
    
-}
+}*/
 
 function onYouTubePlayerReady(playerId) { 
   $('div.emfield-emvideo object').each(function() {

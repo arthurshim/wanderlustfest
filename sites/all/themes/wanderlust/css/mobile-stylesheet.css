@@ -30,28 +30,24 @@ left: 35px;
 position:absolute;
 }
 
-input[type=checkbox] {width:30px; height:30px;}
 
 #toolbar {
-position: absolute;
+
 right: 0px;
 bottom: 10px;
 z-index: 999;
 width: 520px;
 }
 
-input[type=checkbox]
-{
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2.4); /* IE */
-  -moz-transform: scale(2.4); /* FF */
-  -webkit-transform: scale(2.4); /* Safari and Chrome */
-  -o-transform: scale(2.4); /* Opera */
-}
 
 #site-checkbox {
     margin-bottom:9px;
 	margin-right:9px;
+}
+
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.7); 
 }
 
 #site-checkbox input {
@@ -74,5 +70,4 @@ input[type=checkbox]
   -webkit-transform: scale(1.0); 
 }
 }
-
 
