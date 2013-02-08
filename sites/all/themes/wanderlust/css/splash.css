@@ -8,16 +8,16 @@ body{
 ---------------------------------*/
 
 #map-1-container #logo {
-    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
-    width: 479px;
-    height: 147px;
-    background-position: 679px -8px;
-    position: fixed;
-    top: 28px;
-    left: 51%;
-    margin-left: -240px;
-    z-index: 100;
-    text-indent: -9999em;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  width: 479px;
+  height: 147px;
+  background-position: 679px -8px;
+  position: fixed;
+  top: 28px;
+  left: 52%;
+  margin-left: -240px;
+  z-index: 100;
+  text-indent: -9999em;
 
 }
 
@@ -353,7 +353,7 @@ body{
 
 .innersite {
   display: none;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('../images/splash-sprite.png') !important;
   background-position: -695px -464px !important;
   width: 205px;
   height: auto;
@@ -366,6 +366,11 @@ body{
   margin-left: 284px;
   font-size: 16px;
   cursor: pointer !important;
+}
+
+.innersite:hover{
+  background: url('../images/splash-sprite.png') !important;
+  background-position: -694px -668px !important; 
 }
 
 .innersite .venue{
@@ -384,9 +389,13 @@ body{
   text-decoration: none !important;
 }
 
+.site-title a:hover{
+  color: #c3731a !important;
+}
+
 .innersite .item-date{
   margin-bottom: 6px;
-  }
+}
 
 .innersite .site-title{
   margin-top: 13px;
@@ -403,16 +412,14 @@ body{
 }
 
 .siteaddress {
-    font-family: 'baskerville_fsitalic';
-    
-    color: #c04b0d !important;
-    margin-bottom: 8px;
+  font-family: 'baskerville_fsitalic';    
+  color: #c04b0d !important;
+  margin-bottom: 8px;
 }
 
 .siteevent {
-    font-family: 'baskerville_fsitalic';
-    
-    color: #c04b0d !important;
+  font-family: 'baskerville_fsitalic';
+  color: #c04b0d !important;
 }
 
 .visitsite a {
@@ -886,12 +893,12 @@ body{
   right: 0px;
   bottom: 10px;
   z-index: 99;
-  width: 320px;
+  width: 240px;
 }
 
 #toolbar a.icon{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
-  height: 109px;
+  background: url('../images/splash-sprite.png');
+  height: 82px;
   display: block;
   text-indent: -999em;
   float: left;
@@ -905,13 +912,13 @@ body{
 }
 
 #about a.icon{
-  background-position: -504px -235px;
-  width: 72px;
+  background-position: -473px -235px;
+  width: 50px;
 }
 
 #mission a.icon{
-  background-position: -584px -235px;
-  width: 93px;
+  background-position: -535px -235px;
+  width: 73px;
 }
 
 #blog a.icon{
@@ -920,8 +927,8 @@ body{
 }
 
 #connect a.icon{
-  background-position: -785px -235px;
-  width: 78px;
+  background-position: -689px -235px;
+  width: 58px;
 
 }
 
@@ -931,10 +938,10 @@ body{
   width: 340px;
   height: 251px;
   position: absolute;
-  bottom: 127px;
+  bottom: 97px;
   font-size: 14px;
   padding: 0 20px 10px 20px;
-  left: -108px;
+  left: -154px;
   text-align: center;
   font-size: 12px;
   font-family: 'baskerville_fsregular', 'Times New Roman';
@@ -991,11 +998,11 @@ margin-top:10px;
 }
 
 #toolbar #mission .arrow{
-  left: 237px;
+  left: 250px;
 }
 
 #toolbar #about .arrow{
-  left: 132px;
+  left: 174px;
 }
 
 #toolbar #connect .arrow{
