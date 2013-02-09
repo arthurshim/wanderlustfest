@@ -131,18 +131,7 @@ $(document).ready(function()
 </script>
 <![endif]-->
 
-  <script> $.preloadImages = function()
-{
-       for(var i = 0; i<arguments.length; i++)
-       {
-               $("<img />").attr("src", arguments[i]);
-       }
-}
-$(document).ready(function()
-{
-       $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
-});
-   </script>
+
    
 <script type="text/javascript">
 
@@ -150,12 +139,13 @@ $(document).ready(function()
 
 
  $(document).ready(function() {
+  /*
  $('input[type=checkbox]').change(function(){
    if ($(this).is(":checked")){
-       $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
-       $(location).attr('href', 'http://' +  $(this).attr('name') + '<?php print '.' . $subdomain . '.com';?>');
+       $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php //print '.' . $subdomain . '.com';?>'});     
+       $(location).attr('href', 'http://' +  $(this).attr('name') + '<?php //print '.' . $subdomain . '.com';?>');
    }
-  });
+  });*/
 	$("#emailClick").click(function() {
 				$.fancybox.open('#newsletter');
 	});
@@ -218,6 +208,34 @@ $(document).ready(function() {
 			 $('#chile_show').fadeIn();
                  
              }
+			 
+			 
+			 /*
+			 function addEvent(obj, evt, fn) {
+    if (obj.addEventListener) {
+        obj.addEventListener(evt, fn, false);
+    }
+    else if (obj.attachEvent) {
+        obj.attachEvent("on" + evt, fn);
+    }
+}
+//ripped code from stack overflow does not work as expected
+addEvent(document, "mouseout", function(e) {
+    e = e ? e : window.event;
+    var from = e.relatedTarget || e.toElement;
+    if (!from || from.nodeName == "HTML") {
+        // stop your drag event here
+        // for now we can just use an alert
+       $(document).trigger("mouseup");
+	   $(window).trigger("mouseup");
+
+	   	//on drag do this but stop when mouse up
+    }
+});
+*/	
+	
+
+			 
 	});
 	
 	
@@ -496,6 +514,7 @@ function doSubmit(oForm) {
             $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
         }
         
+        
         $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
         $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
     }
@@ -516,14 +535,14 @@ function doSubmit(oForm) {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
-        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . '><div id="saveDefualt">Save as my default</div></div></div></div>';
         
         // YITC POPOVER DISPLAY
     } elseif ($class == 'yoga') {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
-        $yogas .= '<div class="bl">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);">Save as my default</div></div>';
+        $yogas .= '<div class="bl">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . '>Save as my default</div></div>';
     }
     
     unset($c);
@@ -1035,8 +1054,8 @@ $(document).ready(function () {
 
     // MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
     $(".innersite,.bl").click(function () {
-        window.location = $(this).find("a").attr("href");
-        return false;
+    //    window.location = $(this).find("a").attr("href");
+     //   return false;
     });
 
     // LEGEND HOVERS
