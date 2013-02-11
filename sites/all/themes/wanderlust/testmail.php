@@ -13,7 +13,7 @@ header('Access-Control-Allow-Origin: *');
     $url = 'https://subscribe.hearstmags.com/api/circ/xml/Transaction';
   
 		//$post_data ="email=test2@40test.com&FirstName=test&LastName=test2&State2FProv=AZ&ZipCode=45852&Country=United+States&EventName=VT&HearAbout=&goto=&iehack=%E2%98%A0";
-		
+	// print 'result' . print_r($_REQUEST, 1);	
 		$post_data ="email=$_REQUEST['email']&FirstName=$_REQUEST['FirstName']&LastName=$_REQUEST['LastName']&State2FProv=$_REQUEST['State/Prov']&ZipCode=$_REQUEST['ZipCode']&Country=$_REQUEST['Country']&EventName=$_REQUEST['EventName']&HearAbout=&goto=&iehack=%E2%98%A0";
 		
                 $ch = curl_init();  
@@ -33,5 +33,17 @@ header('Access-Control-Allow-Origin: *');
 
  print 'result' . print_r($res, 1);
 
+ 
+ 	/*$request_url = 'http://track.namastelight.com/oi/1/7a247953b9dcd02ea3275d0b3195bce6';
+	$request_headers = array('Content-Type' => 'application/x-www-form-urlencoded');
+	$request_method = 'POST';
+	$request_retry = 1;
+	
+	
+	$post_data ="email=$_REQUEST['email']&FirstName=$_REQUEST['FirstName']&LastName=$_REQUEST['LastName']&State2FProv=$_REQUEST['State/Prov']&ZipCode=$_REQUEST['ZipCode']&Country=$_REQUEST['Country']&EventName=$_REQUEST['EventName']&HearAbout=&goto=&iehack=%E2%98%A0";
+
+	// Send the request.
+	$result = drupal_http_request($request_url, $request_headers, $request_method, $post_data, $request_retry);
+	 print '<pre>result' . print_r($result, 1) . '</pre>';*/
 
 ?> 

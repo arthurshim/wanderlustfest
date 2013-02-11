@@ -107,11 +107,6 @@
   jQuery.extend(Drupal.settings, {"basePath":"\/","imagebrowser":{"basepath":"\/","filepath":"files","modulepath":"sites\/all\/modules\/imagebrowser"},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views","carousels":{"jcarousel-view--homepage-carousel--block-1":{"skin":"default","visible":5,"navigation":"before","animation":"slow","start":1,"autoPause":1,"scroll":5,"selector":".jcarousel-view--homepage-carousel--block-1"}}},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)files","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":0,"disable_zoom":0,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"","node_link_target":0,"image_count":"","video_count":"","page_count":"","lite_press_x_close":"press \u003ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\u003e\u003ckbd\u003ex\u003c\/kbd\u003e\u003c\/a\u003e to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":"lightbox_ungrouped","custom_trigger_classes":"img.ibimage","disable_for_gallery_lists":1,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":1,"slideshow_automatic_exit":1,"show_play_pause":0,"pause_on_next_click":0,"pause_on_previous_click":1,"loop_slides":0,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0},"nice_menus_options":{"delay":"40","speed":"fast"},"extlink":{"extTarget":"_blank","extClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto"},"viewsSlideshowSingleFrame":{"#views_slideshow_singleframe_main_Homepage_slider-block_1":{"num_divs":10,"id_prefix":"#views_slideshow_singleframe_main_","div_prefix":"#views_slideshow_singleframe_div_","vss_id":"Homepage_slider-block_1","timeout":"8000","sort":1,"effect":"fade","speed":"700","start_paused":0,"delay":"0","fixed_height":"1","random":"0","pause":"1","pause_on_click":"1","pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","remember_slide":0,"remember_slide_days":"1","controls":"0","items_per_slide":"1","pager":"2","pager_type":"Numbered","pager_hover":"2","pager_click_to_page":0,"image_count":"0","nowrap":"0","sync":"1","advanced":"cleartype: true,\ncleartypeNoBg: true","ie":{"cleartype":"true","cleartypenobg":"false"}}}});
   //--><!]]>
   </script>
-  <script type="text/javascript">
-  <!--//--><![CDATA[//><!--
-  $(document).ready(function(){ $('#branding, #mailing-list, #nav li a, #container').pngFix(); });
-  //--><!]]>
-</script>
 
 
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
@@ -135,7 +130,6 @@ $(document).ready(function()
 });
 </script>
 <![endif]-->
-
   <script> $.preloadImages = function()
 {
        for(var i = 0; i<arguments.length; i++)
@@ -148,6 +142,7 @@ $(document).ready(function()
        $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
 });
    </script>
+
    
 <script type="text/javascript">
 
@@ -159,7 +154,14 @@ $(document).ready(function()
    if ($(this).is(":checked")){
        $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
        $(location).attr('href', 'http://' +  $(this).attr('name') + '<?php print '.' . $subdomain . '.com';?>');
+   } else if ($(this).prop("checked", false))
+   
+   {
+   
+          $.cookie("mysite", $(this).attr('name'), {expires:-10, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
+
    }
+   
   });
 	$("#emailClick").click(function() {
 				$.fancybox.open('#newsletter');
@@ -1039,7 +1041,7 @@ $(document).ready(function () {
     }
 
     // MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
-    $(".innersite,.bl").click(function () {
+    $(".site-item").click(function () {
         window.location = $(this).find("a").attr("href");
         return false;
     });
