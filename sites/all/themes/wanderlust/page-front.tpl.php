@@ -130,7 +130,18 @@ $(document).ready(function()
 });
 </script>
 <![endif]-->
-
+  <script> $.preloadImages = function()
+{
+       for(var i = 0; i<arguments.length; i++)
+       {
+               $("<img />").attr("src", arguments[i]);
+       }
+}
+$(document).ready(function()
+{
+       $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
+});
+   </script>
 
    
 <script type="text/javascript">
@@ -143,7 +154,14 @@ $(document).ready(function()
    if ($(this).is(":checked")){
        $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
        $(location).attr('href', 'http://' +  $(this).attr('name') + '<?php print '.' . $subdomain . '.com';?>');
+   } else if ($(this).prop("checked", false))
+   
+   {
+   
+          $.cookie("mysite", $(this).attr('name'), {expires:-10, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
+
    }
+   
   });
 	$("#emailClick").click(function() {
 				$.fancybox.open('#newsletter');
@@ -1023,7 +1041,7 @@ $(document).ready(function () {
     }
 
     // MAKE ENTIRE INNERSITE & BIL DIVS CLICKABLE TO VISIT WEBSITE
-    $(".innersite,.bl").click(function () {
+    $(".site-item").click(function () {
         window.location = $(this).find("a").attr("href");
         return false;
     });
