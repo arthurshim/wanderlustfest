@@ -132,7 +132,7 @@ h1.title,
   
 .heading2{
   color: #6ba265;
-  font-size: 24px;
+  font-size: 24px !important;
   font-weight: normal;
   line-height: 1.6;
   text-transform: uppercase;
