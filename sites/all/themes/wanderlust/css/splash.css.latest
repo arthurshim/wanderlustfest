@@ -1073,11 +1073,10 @@ body, .page-home {
   position: relative;
   width : 1560px;
   height:910px;
-    border: 1px solid black;
 }
 
 .map-viewport {
-
+  border: 1px solid black;
   margin: 0 0 20px;
   overflow: hidden;
   position: relative;
@@ -1136,14 +1135,14 @@ body, .page-home {
 
 
     #map-1-container {
-    height: 595px;
+    height: 610px;
 
 }
 
 
   .map-viewport {
 
-    height : 595px;
+    height : 610px;
 
 }
 
@@ -1158,14 +1157,14 @@ body, .page-home {
 
 
     #map-1-container {
-    height: 760px;
+    height: 780px;
 
 }
 
 
   .map-viewport {
 
-    height : 760px;
+    height : 780px;
 
 }
 
@@ -1177,14 +1176,14 @@ body, .page-home {
 
 
     #map-1-container {
-    height: 790px;
+    height: 810px;
 
 }
 
 
   .map-viewport {
 
-    height : 790px;
+    height : 810px;
 
 }
 
@@ -1196,14 +1195,14 @@ body, .page-home {
 
 
     #map-1-container {
-    height: 855px;
+    height: 910px;
 
 }
 
 
   .map-viewport {
 
-    height : 855px;
+    height : 910px;
 
 }
 

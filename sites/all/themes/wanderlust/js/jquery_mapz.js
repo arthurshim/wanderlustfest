@@ -28,9 +28,9 @@ $(document).ready(function() {
   
 		var viewport = this.parent('.map-viewport');
 		var map = this;
-
+	$('.mapz-constraint').remove();
 		var constraint = $(document.createElement('div')).addClass('mapz-constraint').css('position','absolute').appendTo(viewport);
-		
+	
 		// Add current-level class to first map level
 		map.children(".level:first").addClass('current-level');
 		
