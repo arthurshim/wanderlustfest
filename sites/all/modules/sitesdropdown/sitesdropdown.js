@@ -1,4 +1,3 @@
-
 Drupal.behaviors.dropdown = function(context) {
 			 /* 				$(window).resize(function() {
 setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
@@ -226,3 +225,4 @@ $(document).ready(function() {
   
       
 });
+}

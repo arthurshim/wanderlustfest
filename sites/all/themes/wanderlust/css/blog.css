@@ -4,16 +4,16 @@
 /* HEADER
 --------------------------------*/
 
-.blogs #event-info{
+.journal #event-info{
   left: 242px;
   top: 16px;
 }
 
-.blogs #header{
+.journal #header{
   background: #fff;
 }
 
-.blogs #header{
+.journal #header{
   background: url('../images/blog-stamp.jpg') no-repeat #ffffff;
   background-position: 22px 14px;
 }
@@ -22,19 +22,19 @@
   
 }
 
-.blogs .social-media-links{
+.journal .social-media-links{
   display: none;
 }
 
 /* BLOG NAV
 --------------------------------*/
 
-.blogs #navigation{
+.journal #navigation{
   background: url('../images/blog-nav-bar.png') #fff;
   height: 40px;
 }
 
-.blogs #navigation li a{
+.journal #navigation li a{
   font-family: 'lhf_egyptianregular', arial !important;
   font-size: 22px !important;
   font-weight: normal !important;
@@ -76,7 +76,7 @@
   color: #d35651 !important;
 }
 
-.blogs #navigation ul.nice-menu li a{
+.journal #navigation ul.nice-menu li a{
   margin: 10px 0 0 0;
 }
 
@@ -84,7 +84,7 @@
 /* BLOG BODY
 --------------------------------*/
 
-body.blogs{
+body.journal{
   background: url('../images/blog-bg.jpg') no-repeat center center fixed !important;
   -webkit-background-size: cover !important;
   -moz-background-size: cover !important;
@@ -92,7 +92,7 @@ body.blogs{
   background-size: cover !important;
   }
   
-.blogs .body-content{
+.journal .body-content{
   background: #fff3de;
 }
 
@@ -102,22 +102,22 @@ body.blogs{
 /* BLOG INDEX
 ------------------------ */
 
-body.sidebar-right.blogs #main{
+body.sidebar-right.journal #main{
   width:100% !important;
   padding:10px !important;
 }
 
-.blogs .view-all-blog-posts {
+.journal .view-all-blog-posts {
   width: 650px;
   margin-right: 10px;
   float:left;
 }
   
-.blogs #sidebar-right {
+.journal #sidebar-right {
   width: 300px !important;
 }
 
-.blogs #blog-description {
+.journal #blog-description {
   width:100%;
   height:40px;
 }
@@ -206,7 +206,7 @@ body.sidebar-right.blogs #main{
   }
 
 
-.blogs #event-info #block-sitesdropdown-1{
+.journal #event-info #block-sitesdropdown-1{
   display: none;
 }
 

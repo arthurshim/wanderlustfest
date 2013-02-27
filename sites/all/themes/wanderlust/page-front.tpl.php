@@ -49,14 +49,11 @@
   <meta property="og:type" content="website"/>  
   <meta property="og:url" content="http://<?php print $_SERVER['HTTP_HOST']; ?>"/>  
   <meta property="og:description" content="Wanderlust is a 4-day adventure that combines yoga, music, nature and inspiration.  Find your true north."/>
-	
-  
-  
+	  
   <!--not sure why but we need to call scripts from variable cutting and pasting breaks redirect-->
 
 
     <?php
- //    drupal_set_header('Access-Control-Allow-Origin: *');
       $f = FALSE;
       if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   /*check  if we're on front page  'wanderfest.com' */
 	  $f = TRUE;  /*set  true  for check display  slider   or map  in bottom*/ ?>
@@ -121,28 +118,6 @@
 
 
 
-<!--[if IE]>
-<script>
-$(document).ready(function()
-{
-
-
-});
-</script>
-<![endif]-->
-  <script> $.preloadImages = function()
-{
-       for(var i = 0; i<arguments.length; i++)
-       {
-               $("<img />").attr("src", arguments[i]);
-       }
-}
-$(document).ready(function()
-{
-       $.preloadImages("sites/all/themes/wanderlust/images/studio_hover.png");
-});
-   </script>
-
    
 <script type="text/javascript">
 
@@ -187,8 +162,6 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 				
 		
-
-
 	        });
 		$("#legend3 .legendtitle").click(function() {
 				$.fancybox.open('#studioinfo');
@@ -201,9 +174,8 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 	        });
 });
 
-    
-    
-    function isScrolledIntoView(elem)
+       
+    function IntoView(elem)
 {
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
@@ -217,7 +189,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 $(document).ready(function() {
 	$('#map-1').bind('drag', function( event ) {
             
-             var chile_inView=isScrolledIntoView('div.mark.chile')
+             var chile_inView=IntoView('div.mark.chile')
              
              if(chile_inView){
                  $('#chile_show').fadeOut();
@@ -422,10 +394,65 @@ function doSubmit(oForm) {
 <div id="map-1-container">   
 
 
-<div id="logo">
-  Wanderlust Festivals 
-  Find Your True North
+<div id="logo-container">
+  <div class="logo">Wanderlust Festival</div>
+ <!-- <div class="logo-animation">
+    <div id="yoga" class="left" style="display:none;">yoga</div>
+    <div id="music" class="right" style="display:none;">music</div>
+    <div id="nature" class="left" style="display:none;">nature</div>
+    <div id="talks" class="left" style="display:none;">speakeasy talks</div>
+    <div id="hikes" class="right" style="display:none;">hikes</div>
+    <div id="organic" class="right" style="display:none;">organic & local foods</div>
+    <div id="wine" class="left" style="display:none;">wine tastings</div>
+    <div id="meditation" class="right" style="display:none;">meditation</div>
+    <div id="find" class="left">Find your</div>
+    <div id="north" class="right">true north</div>
+  </div>-->
 </div>
+
+ <script type="text/javascript">
+var $body = $('body'),
+        cycle;
+    
+    (cycle = function () {
+    
+        $('#find').delay(4000).fadeOut(1000);
+        $('#yoga').delay(5000).fadeIn(1000);
+        
+        $('#north').delay(6000).fadeOut(1000);
+        $('#music').delay(7000).fadeIn(1000);
+        
+        $('#yoga').delay(3000).fadeOut(1000);
+        $('#nature').delay(10000).fadeIn(1000);
+        
+        $('#music').delay(3000).fadeOut(1000);
+        $('#hikes').delay(12000).fadeIn(1000);
+        
+        $('#nature').delay(3000).fadeOut(1000);
+        $('#talks').delay(15000).fadeIn(1000);
+        
+        $('#hikes').delay(3000).fadeOut(1000);
+        $('#organic').delay(17000).fadeIn(1000);
+        
+        $('#talks').delay(3000).fadeOut(1000);
+        $('#wine').delay(20000).fadeIn(1000);
+        
+        $('#organic').delay(3000).fadeOut(1000);
+        $('#meditation').delay(22000).fadeIn(1000);
+        
+        $('#wine').delay(3000).fadeOut(1000);
+        $('#meditation').delay(1000).fadeOut(1000);
+        
+        $('#find').delay(21000).fadeIn(1000);
+        $('#north').delay(19000).fadeIn(1000, cycle);
+    
+    })();
+   
+ </script>
+ 
+ 
+
+  <div style="visibility:hidden; height:1px; width:1px;"><img src="/sites/all/themes/wanderlust/images/studio_hover.png"></div>
 
 
 
@@ -517,7 +544,8 @@ function doSubmit(oForm) {
     $options = array(
         'html' => TRUE
     );
-    
+            $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+
     // FESTIVALS POPOVER DISPLAY
     if ($class == 'festival') {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
@@ -531,10 +559,12 @@ function doSubmit(oForm) {
             $c = 'checked="checked"';
         }
         $yogas .= '<div class="bl">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);">Save as my default</div></div>';
+
     }
     
     unset($c);
-    
+	
+
     print $item;
     ?>
 	
@@ -954,7 +984,13 @@ else {
 // FOR DESKTOP 
 
 $(document).ready(function () {
+
+$(window).resize(function() {
+     $("#map-1").mapz();
+});
+
     $("#map-1").mapz();
+
     $("#legend").draggable();
 
     // TOOLBAR MENU
@@ -1100,7 +1136,18 @@ $(document).ready(function () {
 
 <?php } else {?> 
 
+
+
+
+
+
+
+
+
 $(document).ready(function () {
+
+    /*LOGO ANIMATIONS*/
+    
 
     /*FOR PHOTOS*/
     $('body').append('<div id="ted_photo_hover"></div>');
