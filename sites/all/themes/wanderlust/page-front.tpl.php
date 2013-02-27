@@ -396,7 +396,7 @@ function doSubmit(oForm) {
 
 <div id="logo-container">
   <div class="logo">Wanderlust Festival</div>
-  <div class="logo-animation">
+ <!-- <div class="logo-animation">
     <div id="yoga" class="left" style="display:none;">yoga</div>
     <div id="music" class="right" style="display:none;">music</div>
     <div id="nature" class="left" style="display:none;">nature</div>
@@ -407,7 +407,7 @@ function doSubmit(oForm) {
     <div id="meditation" class="right" style="display:none;">meditation</div>
     <div id="find" class="left">Find your</div>
     <div id="north" class="right">true north</div>
-  </div>
+  </div>-->
 </div>
 
  <script type="text/javascript">
