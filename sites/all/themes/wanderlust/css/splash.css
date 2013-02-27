@@ -18,7 +18,7 @@ body{
 }
 
 .logo{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png'); /*url('../images/splash-sprite.png');*/
   width: 479px;
   height: 147px;
   background-position: 679px -8px;
