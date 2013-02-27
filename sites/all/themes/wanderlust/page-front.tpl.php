@@ -394,10 +394,64 @@ function doSubmit(oForm) {
 <div id="map-1-container">   
 
 
-<div id="logo">
-  Wanderlust Festivals 
-  Find Your True North
+<div id="logo-container">
+  <div class="logo">Wanderlust Festival</div>
+  <div class="logo-animation">
+    <div id="yoga" class="left" style="display:none;">yoga</div>
+    <div id="music" class="right" style="display:none;">music</div>
+    <div id="nature" class="left" style="display:none;">nature</div>
+    <div id="talks" class="left" style="display:none;">speakeasy talks</div>
+    <div id="hikes" class="right" style="display:none;">hikes</div>
+    <div id="organic" class="right" style="display:none;">organic & local foods</div>
+    <div id="wine" class="left" style="display:none;">wine tastings</div>
+    <div id="meditation" class="right" style="display:none;">meditation</div>
+    <div id="find" class="left">Find your</div>
+    <div id="north" class="right">true north</div>
+  </div>
 </div>
+
+ <script type="text/javascript">
+var $body = $('body'),
+        cycle;
+    
+    (cycle = function () {
+    
+        $('#find').delay(4000).fadeOut(1000);
+        $('#yoga').delay(5000).fadeIn(1000);
+        
+        $('#north').delay(6000).fadeOut(1000);
+        $('#music').delay(7000).fadeIn(1000);
+        
+        $('#yoga').delay(3000).fadeOut(1000);
+        $('#nature').delay(10000).fadeIn(1000);
+        
+        $('#music').delay(3000).fadeOut(1000);
+        $('#hikes').delay(12000).fadeIn(1000);
+        
+        $('#nature').delay(3000).fadeOut(1000);
+        $('#talks').delay(15000).fadeIn(1000);
+        
+        $('#hikes').delay(3000).fadeOut(1000);
+        $('#organic').delay(17000).fadeIn(1000);
+        
+        $('#talks').delay(3000).fadeOut(1000);
+        $('#wine').delay(20000).fadeIn(1000);
+        
+        $('#organic').delay(3000).fadeOut(1000);
+        $('#meditation').delay(22000).fadeIn(1000);
+        
+        $('#wine').delay(3000).fadeOut(1000);
+        $('#meditation').delay(1000).fadeOut(1000);
+        
+        $('#find').delay(21000).fadeIn(1000);
+        $('#north').delay(19000).fadeIn(1000, cycle);
+    
+    })();
+   
+ </script>
+ 
+ 
+
   <div style="visibility:hidden; height:1px; width:1px;"><img src="/sites/all/themes/wanderlust/images/studio_hover.png"></div>
 
 
@@ -490,7 +544,7 @@ function doSubmit(oForm) {
     $options = array(
         'html' => TRUE
     );
-            $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> buy tickets</a></div>';
+            $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
 
     // FESTIVALS POPOVER DISPLAY
     if ($class == 'festival') {
@@ -1082,7 +1136,18 @@ $(window).resize(function() {
 
 <?php } else {?> 
 
+
+
+
+
+
+
+
+
 $(document).ready(function () {
+
+    /*LOGO ANIMATIONS*/
+    
 
     /*FOR PHOTOS*/
     $('body').append('<div id="ted_photo_hover"></div>');
