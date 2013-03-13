@@ -486,8 +486,10 @@ var $body = $('body'),
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
     <?php 
-      
+           
     foreach($site->extra_fields->taxonomy as $n) {
+
+      
   	  if($n->tid == 93) {
   	     $class = 'festival'; 
   	  }
@@ -519,20 +521,38 @@ var $body = $('body'),
         $item .= '<div class="site-marker"></div>';
         $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
         $item .= '<div class="siteevent"><div class="item-date">';
-        
+      //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
         // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
-        if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
-            $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
-        }
-        
-        // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
-        else {
-            $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
-        }
+	
+/*	if ($class == 'yoga') {
+	   $item .= 'Dates coming soon' . '</div>';
+	}
+	else {*/
+	  if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
+	      $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
+	  }
+	  
+	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
+	  else {
+	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	  }
+//	}
+
         
         $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
         $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
     }
+      elseif(!$site->extra_fields->field_event_date[0]['value'] && $class == 'yoga') {
+        $item = '<div class="site-item">';
+        $item .= '<div class="site-marker"></div>';
+        $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteevent"><div class="item-date">';
+      //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
+        // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
+        $item .= 'Dates coming soon' . '</div>';
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
+    } 
     
     else {
         $item .= '<div class="site-item"><div class="event-right">';
@@ -599,6 +619,7 @@ var $body = $('body'),
           $item = '<div class="site-item">';
           $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
           $item .= '<div class="siteevent"><div class="item-date">';
+	  
           if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
               $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
           } else {
