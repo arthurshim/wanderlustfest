@@ -1512,8 +1512,8 @@ div.carousel-overlay .carousel-overlay-event {
 
 
 
-.slidemain .views-field-title,
-.slidemain .views-field-title a{
+.front .slidemain .views-field-title,
+.front .slidemain .views-field-title a{
   width: 994px;
   margin: 6px 0;
   color: #3b6b60;
@@ -1522,7 +1522,7 @@ div.carousel-overlay .carousel-overlay-event {
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') repeat-x;
   }
 
-.slidemain .views-field-title span{
+.front .slidemain .views-field-title span{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') bottom repeat-x;
   display: block;
   padding: 8px 0 6px 10px;

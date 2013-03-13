@@ -485,3 +485,6 @@ function wwanderlust_content_view_multiple_field($items, $field, $values) {
     return $output;    
   }
 }
+
+
+
