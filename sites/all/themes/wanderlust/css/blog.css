@@ -38,7 +38,7 @@
 
 .journal #navigation ul li{
   float: none;
-  display: inline;
+  display: inline-block;
 }
 
 
@@ -58,37 +58,44 @@
 }
 
 .menu-path-taxonomy-term-239 a,
-.Inspiration a{
+.Inspiration a,
+.Inspiration{
   color: #8f3271 !important; 
 }
 
 .menu-path-taxonomy-term-240 a,
-.Mindfulness a{
+.Mindfulness a,
+.Mindfulness{
   color: #5c4182 !important;  
 }
 
 .menu-path-taxonomy-term-236 a,
-.Adventure a{
+.Adventure a,
+.Adventure{
   color: #388687 !important;  
 }
 
 .menu-path-taxonomy-term-238 a,
+.Eco,
 .Eco a{
   color: #058042 !important;
 }
 
 .menu-path-taxonomy-term-241 a,
-.Nourish a{
+.Nourish a,
+.Nourish{
   color: #c39d37 !important;  
 }
 
 .menu-path-taxonomy-term-237 a,
-.Community a{
+.Community a,
+.Community{
   color: #d4793d !important;
 }
 
 .menu-path-taxonomy-term-242 a,
-.Yoga a{
+.Yoga a,
+.Yoga{
   color: #d35651 !important;
 }
 
@@ -102,13 +109,14 @@
 
 body.journal{
   background: #fffef8;
+  font-size: 14px;
   }
   
 .journal .body-content{
 
 }
 
-.journal .body-content #main{
+.front.journal .body-content #main{
   background: url('../images/border-bg.png') top repeat-x;
   padding: 18px 0;
 }
@@ -122,6 +130,19 @@ body.journal{
   margin-right: 20px;  
 }
 
+.view-all-blog-posts.view-display-id-block_1  .views-field-nothing-1,
+.view-all-blog-posts.view-display-id-block_3  .views-field-nothing-1{
+  clear: none !important;
+  width: 320px;
+  float: left;
+  background: none !important;
+  border: none !important;
+}
+
+.view-all-blog-posts.view-display-id-block_1 .views-field-body,
+.view-all-blog-posts.view-display-id-block_3 .views-field-body{
+  margin-top: 15px;
+}
 
 
 /* BLOG SECONDARY POSTS
@@ -131,17 +152,30 @@ body.journal{
 }
 
 
-.view-all-blog-posts.view-display-id-block_2 .views-row{
- 
+.view-all-blog-posts.view-display-id-block_2 div{
+  width: 310px;
+  margin-right: 26px;
 }
 
 #block-views-all_blog_posts-block_2{
   background: url('../images/border-bg.png') top repeat-x; 
   padding-top: 10px;
+  margin-top: 8px;
 }
+
+
+
 
 /* BLOG INDEX
 ------------------------ */
+
+.journal.page-ablogs .body-content #main{
+  padding: 0;
+}
+
+.journal .body-content #main{
+  padding: 0;
+}
 
 body.sidebar-right.journal #main{
   width:100% !important;
@@ -150,7 +184,7 @@ body.sidebar-right.journal #main{
 
 .journal .view-all-blog-posts.view-display-id-page_1 {
   width: 650px;
-  margin-right: 10px;
+  margin-right: 20px;
   float:left;
 }
   
@@ -204,21 +238,37 @@ body.sidebar-right.journal #main{
   
 .view-all-blog-posts .views-field-nothing,
 .meta{
-  margin: 0px 0 8px 0;
+  margin: 6px 0 18px 0;
   color: #bc8d54;
   font-family: 'baskerville_fsitalic', georgia, 'times new roman';
   font-size: 16px;
   line-height: 1;
+
+}
+
+.view-all-blog-posts.view-display-id-page_1 .views-field-nothing{
+
 }
 
 .view-all-blog-posts .views-field-nothing-1{
   clear: both;
   background: url('../images/border-bg.png') repeat-x;
   padding-top: 10px;
-  margin-top: 10px;
+  margin-top: 15px;
   height: 29px;
   border-bottom: 1px solid #eedac0;
   padding-bottom: 10px;
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.journal .item-list ul{
+  padding: 0;
+}
+
+.journal .item-list .pager{
+  text-align: left;
 }
 
 .view-all-blog-posts .views-field-body{
@@ -239,6 +289,7 @@ body.sidebar-right.journal #main{
 
 .view-all-blog-posts .views-field-field-blog-image-fid{
   float: left;
+  margin-right: 15px;  
 }
 
 .view-display-id-block_2.view-all-blog-posts .views-field-field-blog-image-fid img{
@@ -248,7 +299,7 @@ body.sidebar-right.journal #main{
 .view-all-blog-posts .views-field-field-blog-image-fid a{ 
   display: block;
   float: left;
-  margin-right: 15px;
+
   margin-bottom: 10px;
   }
 
@@ -344,7 +395,7 @@ body.sidebar-right.journal #main{
   padding: 10px 0 0 0; 
   background: url('../images/border-bg.png') repeat-x;
   float: left;
-  width: 270px;
+  width: 300px;
 }
 
 .view-blog-popular .views-field-title{
@@ -436,4 +487,49 @@ body.sidebar-right.journal #main{
 
 .node-type-blog .panels-flexible-region-last{
   margin-top: 0 !important;
+}
+
+
+/* SIDEBAR BLOCKS
+--------------------------------*/
+
+.journal #sidebar-right .block,
+.journal .photo-node-right .pane-block{
+  padding: 10px 0;
+  background: none;
+  border: none;
+}
+
+/* BLOG DETAIL PAGE
+--------------------------------*/
+
+.pane-blog-related{
+  background: url('../images/border-bg.png') top repeat-x;
+  padding-top: 10px;
+}
+
+.pane-blog-related h2{
+  margin-top: 15px;
+}
+
+/* BLOG CATEGORY PAGE
+--------------------------------*/
+.view-all-blog-posts.view-display-id-page_2 {
+  width: 650px;
+  margin-right: 20px;
+  float: left;
+}
+
+#block-views-all_blog_posts-block_3,
+#block-views-all_blog_posts-block_2 .content{
+  background: url('../images/border-bg.png') bottom repeat-x;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+#block-views-all_blog_posts-block_2 .content{
+  padding-bottom: 0;
 }

@@ -330,7 +330,7 @@ function doSubmit(oForm) {
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
           $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events.png" alt="To map" />';   
-          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE)); 
+          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
         ?>
       </div>
       
@@ -341,7 +341,7 @@ function doSubmit(oForm) {
 	 
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
-      <?php print $navigation ?>
+      <?php  print $navigation ?>
       <div class="social-media-links">
         <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
         <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
@@ -381,6 +381,17 @@ function doSubmit(oForm) {
           }
           $sites[$row->sid] = $row;
       }
+     
+
+      
+      
+ function cmp($a, $b) {
+      return strcmp(strtotime($a->extra_fields->field_event_date[0]['value']), strtotime($b->extra_fields->field_event_date[0]['value']));
+  }
+
+   usort($sites, "cmp");   
+   
+
       
       foreach ($nodes as $s) {
           if (!in_array($s['nid'], $nids)) {
@@ -481,7 +492,8 @@ var $body = $('body'),
 
 <div class="map-viewport">
   <div id="map-1">
-  <img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map.jpg" width="2146" height="1170" usemap="#map" alt="" />
+    <img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map-v2.jpg" width="4000" height="1500" usemap="#map" alt="" />
+    
   
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
@@ -521,13 +533,10 @@ var $body = $('body'),
         $item .= '<div class="site-marker"></div>';
         $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
         $item .= '<div class="siteevent"><div class="item-date">';
+
       //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
         // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
-	
-/*	if ($class == 'yoga') {
-	   $item .= 'Dates coming soon' . '</div>';
-	}
-	else {*/
+
 	  if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
 	      $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
 	  }
@@ -536,12 +545,28 @@ var $body = $('body'),
 	  else {
 	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
 	  }
-//	}
+
 
         
         $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
         $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
+	   
+	   
+	   /*if there is a date and is yoga display register now else buy tickets*/
+	   if ($class !== 'yoga') {
+		$item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+        }
+
+     
+	   else if ($class == 'yoga') {
+	    $item .= '<div class="site-register"><a href="http://' . $site->purl_prefix . '.' . $base .'/register'. '"> Register now</a></div>';
+        }
+		
+		
+
     }
+	
+	/*if no date and is yoga*/
       elseif(!$site->extra_fields->field_event_date[0]['value'] && $class == 'yoga') {
         $item = '<div class="site-item">';
         $item .= '<div class="site-marker"></div>';
@@ -549,22 +574,24 @@ var $body = $('body'),
         $item .= '<div class="siteevent"><div class="item-date">';
       //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
         // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
-        $item .= 'Dates coming soon' . '</div>';
-        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
-        $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
+        $item .= 'Stay tuned for more info' . '</div>';
+      //  $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '</div></div>';
     } 
     
-    else {
+    else { /*TODO remove this*/
         $item .= '<div class="site-item"><div class="event-right">';
         $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
         $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
         $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div>';
-    }
+        $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+
+	}
     
     $options = array(
         'html' => TRUE
     );
-            $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+            
 
     // FESTIVALS POPOVER DISPLAY
     if ($class == 'festival') {
@@ -728,16 +755,9 @@ var $body = $('body'),
 <!-- END TOOLBAR -->
 
 
-
-
-
-
-
-<div id="chile_show" class="chile_disp" >This Way to Chile</div>
-
-	  <map name="map">
-	  </map>
-</div>
+  <div id="chile_show" class="chile_disp" >This Way to Chile</div>
+  	 <map name="map"></map>
+  </div>
 
 </div>
       
@@ -995,9 +1015,7 @@ if (isMobile.any()) {
 else {
  
  
- 
- 
- 
+
  
   jQuery(document).ready(function ($) {
  
@@ -1013,6 +1031,9 @@ $(window).resize(function() {
     $("#map-1").mapz();
 
     $("#legend").draggable();
+	
+	  // POSITION MAP FOR DESKTOP
+    $('#map-1').css('left', '-1270px');
 
     // TOOLBAR MENU
 
@@ -1081,7 +1102,7 @@ $(window).resize(function() {
     // FALLBACK MARKER ANIMATION FOR IE
     if (!Modernizr.csstransitions) { // Test if CSS transitions are supported
         $(function () {
-            $(".icon").hover(function () {
+            $("#legend .icon, .mark .icon").hover(function () {
                 if ($(this).data("bouncing") == false || $(this).data("bouncing") == undefined) {
                     $(this).effect("bounce", {
                         direction: 'up',
@@ -1133,8 +1154,7 @@ $(window).resize(function() {
     // FIX FANCYBOX POPUPS
     $(".fancybox-inner").css("overflow", "hidden")
 
-    // POSITION MAP FOR DESKTOP
-    $('#map-1').css('left', '-270px');
+  
 
 });
 

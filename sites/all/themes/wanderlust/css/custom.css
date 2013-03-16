@@ -1469,7 +1469,7 @@ article #easysocial-box .easysocial-widget-twitter{
   opacity: 0.8;
   }
 
-.slidemain{
+.front .slidemain{
   height: 528px;
   margin:auto;
   }
@@ -2381,7 +2381,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
     box-shadow: inset 0px 0px 8px #847048, 0px 1px 0px #847048;
     color: #f0f0f0;
     text-shadow: 0px 0px 3px rgba(0,0,0, .5);
-    padding: 1px 8px !important;
+    padding: 3px 9px !important;
     border-radius: 3px;
     margin-right: 5px !important;
     font-weight: normal;

@@ -1,4 +1,12 @@
 Drupal.behaviors.dropdown = function(context) {
+    
+        $(".deschiden").hover(function () {
+    
+        $(this).find('div.termdescr').fadeIn();
+    
+    }, function () {
+        $(this).find('div.termdescr').hide();
+    });
 			 /* 				$(window).resize(function() {
 setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
 });          */  
