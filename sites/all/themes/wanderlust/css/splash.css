@@ -18,7 +18,7 @@ body{
 }
 
 .logo{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png'); /*url('../images/splash-sprite.png');*/
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png'); /*url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');*/
   width: 479px;
   height: 147px;
   background-position: 679px -8px;
@@ -49,68 +49,59 @@ body{
 }
 
 
-/* MAP MARKERS
----------------------------------*/
-
-#map-1-container .mark {
-    position: relative;
-    z-index: 99;
-    cursor: pointer;
-}
-
-.mark.studio.studio3294 {
-    left: 967px;
-    top: 167px;
-}
-
- 
-
-#map-1 .mark.squaw {
-    top: 337px;
-    margin-left: 854px;
-}
-
- 
-#map-1 .mark.stratton {
-    margin-left: 1108px;
-    top: 251px;
-}
-
- 
-
-#map-1 .mark.nyc {
-    margin-left: 1126px;
-    top: 262px;
-}
-
- 
-
-#map-1  .mark.sf {
-    margin-left: 850px;
-    top: 232px;
-}
-
- 
-
-#map-1 .mark.la {
-    margin-left: 876px;
-    top: 274px;
-}
-
 .innersite{
     left: -250px !important;
     top: 0 !important;
 }
 
 
+/* MAP MARKERS
+---------------------------------*/
+
+#map-1-container .mark {
+    position: absolute;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.mark.studio.studio3294 {
+    left: 1948px;
+    top: 481px;
+}
+
+#map-1 .mark.squaw {
+    top: 401px;
+    left: 1769px;
+}
+
+#map-1 .mark.stratton {
+    left: 2122px;
+    top: 337px;
+}
+
+#map-1 .mark.nyc {
+    left: 2150px;
+    top: 377px;
+}
+
+#map-1  .mark.sf {
+    left: 1758px;
+    top: 369px;
+}
+
+#map-1 .mark.la {
+    left: 1801px;
+    top: 460px;
+}
+
 #map-1 .mark.mygroup {
     top: 150px;
-    margin-left: 650px;
+    left: 650px;
 }
 
 #map-1 .mark.colorado {
-    margin-left: 944px;
-    top:214px;
+    left: 1884px;
+    top:392px;
 }
 
 .innersite.colorado{
@@ -119,26 +110,23 @@ body{
 }
 
 #map-1 .mark.whistler {
-    margin-left: 844px;
-    top: 110px;
+    left: 1762px;
+    top: 310px;
 }
 
 .innersite.whistler{
-
   left: -250px;
     top: 0;
 }
 
 #map-1 .mark.oahu {
-    margin-left: 644px;
-    top: 277px;
+    left: 1478px;
+    top: 571px;
 }
 
- 
-
 #map-1 .mark.chile {
-    margin-left: 1119px;
-    top: 636px;
+    left: 2173px;
+    top: 1063px;
 }
 
 
@@ -182,7 +170,7 @@ body{
 
 .festival .icon,
 .icon.festival{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   height: 36px;
   width: 27px;
   background-position: -264px -195px;
@@ -191,7 +179,7 @@ body{
 
 .yoga .icon,
 .icon.yoga {
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   height: 36px;
   width: 26px;
   background-position: -235px -164px;
@@ -233,13 +221,6 @@ body{
 }
 
 
-.yoga .icon:hover {
-
-    -webkit-animation: bob 1s ;
-        -moz-animation: bob 1s;
-        -ms-animation: bob 1s;
-}
-
 
 
 .icon.studio, .studio .icon {
@@ -259,65 +240,12 @@ body{
   -moz-transition-timing-function: ease-out;
   -moz-transition-duration: 500ms;
 }
+
 .studio .icon:hover {
     background: url(../images/studio_hover.png) no-repeat;
 
 }
 
-
-/* COMMENTED OUT OLD ANIMATION TEMPORARILY 1/17/12
-@-webkit-keyframes baloonish
-{
-0%              {-webkit-transform: rotate(0deg); top:-2px; }
-25%             {-webkit-transform: rotate(2deg);}
-60%             {-webkit-transform: rotate(25deg);}
-75%             {-webkit-transform: rotate(-25deg); }
-90%             {-webkit-transform: rotate(-2deg); }
-100%    {-webkit-transform: rotate(0deg);}
-
-
-}
-
-@-moz-keyframes baloonish
-{
-
-0%              {-moz-transform: rotate(0deg); top:-2px;}
-25%             {-moz-transform: rotate(2deg);}
-60%             {-moz-transform: rotate(5deg);}
-75%             {-moz-transform: rotate(-4deg);}
-90%             {-moz-transform: rotate(-2deg);}
-100%    {-moz-transform: rotate(0deg);}
-
-}
-
-@-ms-keyframes baloonish
-{
-
-
-0%              {-ms-transform: rotate(0deg);}
-25%             {-ms-transform: rotate(2deg);}
-60%             {-ms-transform: rotate(5deg);}
-75%             {-ms-transform: rotate(-4deg);}
-90%             {-ms-transform: rotate(-2deg);}
-100%    {-ms-transform: rotate(0deg);}
-}
-
-.baloonHover {
-    -webkit-animation: baloonish 1s linear 1;
-    -webkit-transition-timing-function: ease-out;
-    -webkit-transition-duration: 500ms;
-    -moz-animation: baloonish 1.3s linear 1;
-    -moz-transition-timing-function: ease-out;
-    -moz-transition-duration: 500ms;
-    -ms-animation: baloonish 1.3s linear 2;
-    -ms-transition-timing-function: ease-out;
-    -ms-transition-duration: 500ms;
-    animation: baloonish 1.3s linear 2;
-    transition-timing-function: ease-out;
-    transition-duration: 100ms;
-}
-
-*/
 
 
 /* MARKER HOVER ANIMATIONS
@@ -347,6 +275,13 @@ body{
   animation: bob 1s;
 }
 
+
+.yoga .icon:hover {
+  -webkit-animation: bob 1s ;
+  -moz-animation: bob 1s;
+  -ms-animation: bob 1s;
+}
+
 .site-marker:hover{
   -webkit-animation: bob 1s;
   -moz-animation: bob 1s;  
@@ -354,8 +289,7 @@ body{
   animation: bob 1s;      
 }
 
-
-.icon.highlight1{
+#legend .icon.highlight1{
   -webkit-animation: bob 1s;
   -moz-animation: bob 1s;
   -o-animation: bob 1s;
@@ -363,24 +297,12 @@ body{
 }
 
 
-
-
-.mark:hover {
-
-}
-
-
-/* #container {
- width:1350px;
-}*/
-
-
 /* MARKER HOVER MENUS
 ---------------------------------*/
 
 .innersite {
   display: none;
-  background: url('../images/splash-sprite.png') !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png') !important;
   background-position: -695px -464px !important;
   width: 205px;
   height: auto;
@@ -396,7 +318,7 @@ body{
 }
 
 .innersite:hover{
-  background: url('../images/splash-sprite.png') !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png') !important;
   background-position: -694px -668px !important; 
 }
 
@@ -434,7 +356,8 @@ body{
   margin-bottom: 1px;
 }
 
-.innersite .site-tickets a{
+.innersite .site-tickets a,
+.site-register a{
   color: #000;
   font-size: 14px;
 }
@@ -474,7 +397,7 @@ body{
 
 
 #legend {
-  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png);
+  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png);
   background-position: -18px -250px;
   width: 320px;
   height: 198px;
@@ -561,7 +484,7 @@ body{
 }
 
 .legendtitle span{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -294px -164px;
   width: 34px;
   text-indent: -999em;
@@ -581,7 +504,7 @@ body{
 ---------------------------------*/
 
 #joinmail {
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -35px -47px;
   height: 52px;
   width: 272px;
@@ -632,7 +555,7 @@ body{
 }
 
 .other-icons a {
-    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
     display: block;
     float: left;
     width: 28px;
@@ -693,6 +616,10 @@ body{
   font-size: 14px;
 }
 
+.fancybox-inner #yogainfo .site-title{
+  width: 176px;
+}
+
 .fancybox-inner .bl a{
   font-family: 'baskerville_fsitalic', 'georgia';
   color: #033904;
@@ -701,7 +628,7 @@ body{
 }
 
 #festinfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -264px -195px;
   width: 32px;
   height: 36px;
@@ -716,7 +643,7 @@ body{
 }
 
 #yogainfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -235px -164px;
   width: 29px;
   height: 36px;
@@ -727,7 +654,7 @@ body{
 
 
 #studioinfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -168px -195px;
   width: 27px;
   height: 36px;
@@ -740,12 +667,12 @@ body{
 
 #chile_show{
   height: 41px;
-  left: 904px;
-  top: 543px;
+  left: 1904px;
+  top: 683px;
   position: absolute;
   width: 121px;
   z-index: 99;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -805px -9px;
   text-indent: -999em;
   opacity: 0.9;
@@ -792,6 +719,7 @@ body{
   line-height: 1.3;
   margin: 0 auto;
   padding-bottom: 13px;
+  letter-spacing: 1px;
 }
 
 
@@ -823,6 +751,29 @@ body{
 .saveDefault{
   float: left;
   margin-top: 2px;
+}
+
+.innersite .site-tickets a,
+.innersite .site-register a{
+  margin: 3px auto;
+}
+
+.site-tickets a{
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background-position: -774px -243px;
+  width: 88px;
+  height: 20px;
+  text-indent: -999em;
+  display: block;
+}
+
+.site-register a{
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background-position: -774px -263px;
+  width: 101px;
+  height: 20px;
+  text-indent: -999em;
+  display: block;
 }
 
 /* MAILING LIST DIALOG
@@ -914,7 +865,7 @@ body{
 
 
 .email-container{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -404px -947px;
   width: 321px;
   height: 198px;
@@ -939,7 +890,7 @@ body{
 }
 
 #toolbar a.icon{
-  background: url('../images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   height: 82px;
   display: block;
   text-indent: -999em;
@@ -975,7 +926,7 @@ body{
 }
 
 #toolbar .dialog{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -19px -946px;
   width: 340px;
   height: 251px;
@@ -1009,7 +960,7 @@ margin-top:10px;
 }
 
 #toolbar .arrow{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -349px -195px;
   height: 14px;
   width: 16px;
@@ -1112,27 +1063,29 @@ body, .page-home {
   
   overflow: hidden !important;
   position: relative;
-  width : 1560px;
-  height:910px;
-    border: 1px solid black;
-}
+  border: 1px solid black;
+  height:900px;
+  width : 1440px;
 
+}/*	
+width : 2 * map.width() - viewport.width(),
+2 * 4000 - 2000*/
 .map-viewport {
 
   margin: 0 0 20px;
   overflow: hidden;
   position: relative;
-  height:910px;
-  width : 1560px;
+  height:900px;
+  width : 1440px;
 }
 
 #map-1 {
   cursor: move;
-  width: 2146px;
   z-index: 20;
-  height: 1170px;
   position: absolute;
-  left: -275px;/*map image make full height and width*/
+  left: -275px;
+  height: 1500px;         /*map image make full height and width*/
+  width: 4000px;
 }
   
 .mapz-constraint{
@@ -1178,14 +1131,59 @@ height:1170px;
 }
 }
 
-@media only screen and (min-width: 1550px) {
-#container,#map-1-container,.map-viewport {
-width:1800px;
+/*width*/
+
+@media only screen and (max-width: 1024px) {
+#map-1-container,.map-viewport {
+width:1024px;
 }
 }
 
-     
-.yoga .site-tickets {display:none;}
+@media only screen and (min-width: 1025px) and (max-width: 1280px) {
+#map-1-container,.map-viewport {
+width:1280px;
+}
+}
+
+@media only screen and (min-width: 1281px) and (max-width: 1366px) {
+#map-1-container,.map-viewport {
+width:1366px;
+}
+}
+
+@media only screen and (min-width: 1367px) and (max-width: 1440px) {
+#map-1-container,.map-viewport {
+width:1440px;
+}
+}
+
+@media only screen and (min-width: 1441px) and (max-width: 1600px) {
+#map-1-container,.map-viewport {
+width:1600px;
+}
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1680px) {
+#map-1-container,.map-viewport {
+width:1680px;
+}
+}
+
+@media only screen and (min-width: 1681px) and (max-width: 1920px) {
+#map-1-container,.map-viewport {
+width:1920px;
+}
+}
+
+
+
+
+
+
+
+
+
+    
      
      
      
