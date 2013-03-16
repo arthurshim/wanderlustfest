@@ -126,21 +126,7 @@ _gaq.push(['_trackPageview']);
       <?php print $connect ;?>
     </div>
    
-    <div id="slideshows" role="slideshow" class="slideshowhome">
-      <?php if (!empty($slidemain)): ?>
-      <div class="slidemain-container">
-        <div class="slidemain">
-          <?php print $slidemain; ?>
-        </div>
-      </div>
-      <?php endif; ?>
-       
-	    <?php if (!empty($slides)): ?>
-      <div class="slides">
-        <?php print $slides; ?>
-      </div>
-      <?php endif; ?>
-    </div>
+
     
     <div class="body-content clearfix">
     
@@ -150,6 +136,21 @@ _gaq.push(['_trackPageview']);
         <?php if (!empty($title)): ?><h1 class="title" id="page-title"><?php print $title ?></h1><?php endif; ?>
         <?php if (!empty($tabs)): ?><div class="tabs-wrapper clearfix"><?php print $tabs; ?></div><?php endif; ?>
         <?php if (!empty($help)): print $help; endif; ?>
+        <?php if (!empty($slidemain)): ?>
+        <div class="slidemain-container">
+          <div class="slidemain">
+            <?php print $slidemain; ?>
+          </div>
+        </div>
+        <?php endif; ?>
+         
+  	    <?php if (!empty($slides)): ?>
+        <div class="slides">
+          <?php print $slides; ?>
+        </div>
+        <?php endif; ?>
+
+        
         <?php print $content; ?>
         
         <?php if (!empty($right)): ?>

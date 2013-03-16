@@ -1,0 +1,1013 @@
+/* SPLASH PAGE LOGO
+---------------------------------*/
+
+#map-1-container #logo {
+    background: url('../images/splash-sprite.png');
+    width: 514px;
+    height: 202px;
+    background-position: 679px 0px;
+    position: absolute;
+    top: 10px;
+    left: 30%;
+    z-index: 999;
+    text-indent: -9999em;
+    border-radius: 0 0 0 80px;
+}
+
+
+/* MAP MARKERS 
+---------------------------------*/
+
+#map-1-container .mark {
+    position: relative;
+    z-index: 100;
+}
+
+.mark.studio.studio3294 {
+    left: 1004px;
+    top: 45px;
+}
+
+.innersite.studio3294{
+    left: 751px;
+    top: 386px;
+  
+}
+
+#map-1 .mark.squaw {
+    top: 337px;
+    margin-left: 854px;
+}
+
+.innersite.squaw{
+    top: 336px;
+    margin-left: 894px;  
+}
+
+#map-1 .mark.stratton {
+    margin-left: 1108px;
+    top: 239px;
+}
+
+.innersite.stratton{
+  top: 275px;
+  margin-left: 1140px;
+}
+
+
+#map-1 .mark.nyc {
+    margin-left: 1126px;
+    top: 232px;
+}
+
+.innersite.nyc{
+    margin-left: 1160px;
+    top: 307px;  
+}
+
+#map-1  .mark.sf {
+    margin-left: 850px;
+    top: 209px;
+}
+
+.innersite.sf{
+    margin-left: 890px;
+    top: 322px;  
+}
+
+
+#map-1 .mark.la {
+    margin-left: 874px;
+    top: 212px;
+}
+
+.innersite.la{
+    margin-left: 914px;
+    top: 362px;  
+}
+
+
+#map-1 .mark.mygroup {
+    top: 150px;
+    margin-left: 650px;
+}
+
+#map-1 .mark.colorado {
+    margin-left: 944px;
+    top: 147px;
+}
+
+.innersite.colorado{
+    margin-left: 984px;
+    top: 337px;  
+}
+
+#map-1 .mark.whistler {
+    margin-left: 844px;
+    top: 34px;
+}
+
+.innersite.whistler{
+    margin-left: 884px;
+    top: 259px;  
+}
+
+#map-1 .mark.oahu {
+    margin-left: 644px;
+    top: 187px;
+}
+
+.innersite.oahu{
+    margin-left: 684px;
+    top: 451px;
+  
+}
+
+#map-1 .mark.chile {
+    margin-left: 1119px;
+    top: 538px;
+}
+
+.innersite.chile{
+    margin-left: 1159px;
+    top: 841px;
+  
+}
+
+/*#map-1-container{ position:relative; width: 1350px; height: 495px; overflow:hidden; }*/
+#map-1 {
+    cursor: move;
+    width: 2146px;
+    height: 1328px;
+    position: absolute;
+    left: -275px;
+    /*top: -33px;*/
+}
+
+.level {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+
+.current-level {
+    z-index: 20;
+}
+
+/*.map-viewport {
+    border: 1px solid black;
+    height: 530px;
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    width: 1350px;
+}*/
+
+
+#map {
+    background: url(../images/map2.png) no-repeat;
+    background-position: 50% 0;
+    height: 810px;
+    width: 994px;
+}
+
+.innersite:hover {
+    cursor: pointer;
+    z-index: 999;
+}
+
+.mark {
+    height: 23px;
+    width: 24px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 1px;
+}
+
+.mark:hover {
+    z-index: 103 !important;
+}
+
+.mark.festival {
+  background: url('../images/splash-sprite.png');
+  height: 36px;
+  width: 27px;
+  background-position: -264px -195px;
+}
+
+.mark.yoga {
+  background: url('../images/splash-sprite.png');
+  height: 36px;
+  width: 26px;
+  background-position: -235px -195px; 
+  top: 4px;
+  	-webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+	
+	-0-transition-timing-function: ease-out;
+    -0-transition-duration: 500ms;
+	
+	-ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+	
+	-moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+}
+
+
+
+@-webkit-keyframes flagish
+{
+0%		{-webkit-transform: rotate(0deg);}
+20%		{-webkit-transform: rotate(2deg);}
+60%		{-webkit-transform: rotate(7deg);}
+80%		{-webkit-transform: rotate(-7deg);}
+100%	{-webkit-transform: rotate(0deg);}
+
+
+}
+@-moz-keyframes flagish
+{
+0%		{-webkit-transform: rotate(0deg);}
+20%		{-webkit-transform: rotate(2deg);}
+60%		{-webkit-transform: rotate(7deg);}
+80%		{-webkit-transform: rotate(-7deg);}
+100%	{-webkit-transform: rotate(0deg);}
+
+}
+
+
+
+
+.mark.yoga:hover {
+
+    -webkit-animation: flagish .23s linear 3;
+	-moz-animation: flagish 1.3s linear 2;
+	-ms-animation: flagish 1.3s linear 2;
+}
+
+
+
+.mark.studio {
+    background: url(../images/studio.png) no-repeat;
+    height: 33px;
+    width: 24px;
+    top: 5px;
+	-webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+	
+	-0-transition-timing-function: ease-out;
+    -0-transition-duration: 500ms;
+	
+	-ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+	
+	-moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+}
+.mark.studio:hover {
+    background: url(../images/studio_hover.png) no-repeat;
+
+}
+
+@-webkit-keyframes baloonish
+{
+0%		{-webkit-transform: rotate(0deg); top:-2px;}
+25%		{-webkit-transform: rotate(2deg);}
+60%		{-webkit-transform: rotate(25deg);}
+75%		{-webkit-transform: rotate(-25deg); }
+90%		{-webkit-transform: rotate(-2deg); }
+100%	{-webkit-transform: rotate(0deg);}
+
+
+}
+
+@-moz-keyframes baloonish
+{
+
+0%		{-moz-transform: rotate(0deg); top:-2px;}
+25%		{-moz-transform: rotate(2deg);}
+60%		{-moz-transform: rotate(5deg);}
+75%		{-moz-transform: rotate(-4deg);}
+90%		{-moz-transform: rotate(-2deg);}
+100%	{-moz-transform: rotate(0deg);}
+
+}
+
+@-ms-keyframes baloonish
+{
+
+
+0%		{-ms-transform: rotate(0deg);}
+25%		{-ms-transform: rotate(2deg);}
+60%		{-ms-transform: rotate(5deg);}
+75%		{-ms-transform: rotate(-4deg);}
+90%		{-ms-transform: rotate(-2deg);}
+100%	{-ms-transform: rotate(0deg);}
+}
+
+.baloonHover {
+    -webkit-animation: baloonish 1s linear 1;
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 500ms;
+    -moz-animation: baloonish 1.3s linear 1;
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 500ms;
+    -ms-animation: baloonish 1.3s linear 2;
+    -ms-transition-timing-function: ease-out;
+    -ms-transition-duration: 500ms;
+    animation: baloonish 1.3s linear 2;
+    transition-timing-function: ease-out;
+    transition-duration: 500ms;
+}
+
+
+
+
+
+/*(.wanderfest #container {
+ width:1350px;   
+}*/
+
+
+/* MARKER HOVERS
+---------------------------------*/
+
+.innersite {
+    display: none;
+    background-color: #FFFFFF;
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    position: absolute;
+    z-index: 999999 !important;
+    border: 1px solid #b69866;
+    padding: 8px;
+    text-align: center;
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    margin-left: 284px;
+}
+
+.site-title {
+    font-weight: bold !important;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: revolution;
+    font-style: normal;
+    margin-top: 6px;
+}
+
+.siteaddress {
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    color: #c04b0d !important;
+    margin-bottom: 8px;
+}
+
+.siteevent {
+    font-family: 'MrsEavesOT-Italic';
+    font-style: italic;
+    color: #c04b0d !important;
+}
+
+.visitsite a {
+    color: #3d8283 !important;
+    font-family: revolution;
+    font-style: normal;
+}
+
+#map-1-container .item-date,
+#map-1-container .visitsite {
+    margin-bottom: 8px;
+}
+
+#site-checkbox input {
+    margin-right: 7px;
+}
+
+#legend {
+  background-image: url(../images/splash-sprite.png);
+  background-position: -18px -250px;    
+  width: 320px;
+  height: 198px;
+  position: fixed;
+  z-index: 200;
+  bottom: 13px;
+  left: 13px;
+  cursor: move;
+  padding: 0px 21px;
+}
+
+#legend .mark {
+    margin-right: 4px;
+}
+
+#legend1 {
+    margin-top:68px;
+
+    height: 39px;
+}
+
+#legend2 {
+    height: 39px;
+}
+
+#legend3 {
+    height: 39px;
+}
+
+#legend1 .mark {
+    float: left;
+}
+
+#legend2 .mark {
+    float: left;
+
+}
+
+#legend3 .mark {
+    float: left;
+}
+
+#legend3 .legendtitle {
+    position: relative;
+    top: 13px;
+}
+
+#legend .legendtitle {
+  padding-left: 40px;
+  text-transform: uppercase;
+  font-family: 'revolution', arial;
+  font-size: 13px;
+  cursor: auto;
+  letter-spacing: 1px;
+}
+
+#legend1 .legendtitle{
+  color: #47292b;
+  top: 8px;
+  position: relative;
+}
+
+#legend2 .legendtitle {
+  color: #a67d01;
+  position: relative;
+  top: 11px;
+}
+
+#legend3 .legendtitle {
+  color: #ac5b0e;
+}
+
+.highlight {
+    background-color: #F9C125;
+    -moz-border: radius 5px;
+    border-radius: 5px;
+}
+
+.legendtitle span{
+  background: url('../images/splash-sprite.png');
+  background-position: -294px -195px;
+  width: 34px;
+  text-indent: -999em;
+  display: block;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+  right: 10px;
+}
+
+.legendtitle span:hover{
+  opacity: 0.7;
+}
+
+/* GET SOCIAL WIDGET
+---------------------------------*/
+
+#joinmail {
+  background: url('../images/splash-sprite.png');
+  background-position: -35px -47px;
+  height: 52px;
+  width: 272px;
+  margin: 0 auto;
+}
+
+#joinmail .title {
+    color: #603220;
+    font-family: 'MrsEavesOT-Italic';
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    margin: 10px 0 8px 12px;
+    text-align: left;
+}
+
+#joinmail .touch {
+    background-image: url(/sites/all/themes/wanderlust/images/kepp_touch.png);
+    width: 314px;
+    height: 13px;
+    margin: -20px 0 0;
+}
+
+#emailClick {
+    height: 29px;
+    width: 276px;
+    cursor: text;
+    position: relative;
+    top: 21px;
+}
+
+.fb-icon {
+    position: absolute;
+    top: 137px;
+    left: 75px;
+}
+
+.tw-icon {
+    position: absolute;
+    top: 137px;
+    left: 207px;
+}
+
+.other-icons {
+    position: absolute;
+    top: 184px;
+    left: 94px;
+}
+
+.other-icons a {
+    background: url('../images/splash-sprite.png');
+    display: block;
+    float: left;
+    width: 28px;
+    height: 28px;
+    margin-right: 22px;
+}
+
+.other-icons a:hover {
+    opacity: 0.8;
+}
+
+.google-icon {
+    background-position: -20px -194px !important;
+}
+
+.instagram-icon {
+    background-position: -81px -194px !important;
+}
+
+.pinterest-icon {
+    background-position: -50px -194px !important;
+}
+
+.youtube-icon {
+    background-position: -111px -194px !important;
+}
+
+.blog-icon {
+    background-position: -141px -194px !important;
+}
+
+
+
+/* FESTIVALS, YITC, STUDIOS OVERVIEW DIALOGS
+---------------------------------*/
+
+
+.bl {
+  float: left;
+  margin: 0 0 17px 0;
+  width: 308px;
+  position: relative;
+  left: 78px;
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  font-style: italic;
+  line-height: 1.3;
+  font-size: 13px;
+}
+
+.fancybox-inner .site-title{
+  font-size: 16px;
+}
+
+.fancybox-inner .bl a{
+  font-family: 'MrsEavesOT-Italic', 'times new roman';
+  color: #033904;
+  text-transform: capitalize;
+  text-decoration: underline;
+}
+
+#festinfo .site-marker{
+  background: url('../images/splash-sprite.png');
+  background-position: -264px -195px;  
+  width: 32px;
+  height: 36px;
+  position: absolute;
+  left: -37px;
+  top: 9px;
+}
+
+#festinfo .site-title{
+  color: #47292b;
+
+}
+ 
+#yogainfo .site-marker{
+  background: url('../images/splash-sprite.png');
+  background-position: -235px -195px;  
+  width: 29px;
+  height: 36px;
+  position: absolute;
+  left: -37px;
+  top: 9px;
+}
+
+
+#studioinfo .site-marker{
+  background: url('../images/splash-sprite.png');
+  background-position: -168px -195px;  
+  width: 27px;
+  height: 36px;
+  position: absolute;
+  left: -37px;
+  top: 9px;  
+}
+
+
+
+#chile_show{
+  height: 41px;
+  left: 904px;
+  top: 543px;
+  position: absolute;
+  width: 121px;
+  z-index: 999;
+  background: url('../images/splash-sprite.png');
+  background-position: -805px -9px;
+  text-indent: -999em;
+  opacity: 0.9;
+}
+
+.bl DIV {
+
+}
+
+.bl .siteevent {
+
+}
+
+#festinfo, #yogainfo, #studioinfo {
+  width: 636px;
+}
+
+
+#festinfo span, #yogainfo span, #studioinfo span{
+    display: block;
+    text-align: center;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000000;
+    font-family: 'revolution', arial;
+    position: relative;
+    top: 18px;
+}
+
+.front .fancybox-skin #site-checkbox input {
+  width: 16px;
+  z-index: 99999;
+}
+
+#festinfo .descript, #yogainfo .descript, #studioinfo .descript {
+  text-align: center;
+  font-size: 10px;
+}
+
+
+.bl .item-date{
+  margin-top: 3px;
+}
+
+.bl .siteaddress{
+  margin-bottom: 3px;
+}
+
+.bl #site-checkbox input{
+  margin-right: 3px;
+}
+
+#festinfo .site-title{
+  
+}
+
+.event-list{
+  margin-top: 30px;
+}
+
+.bl #site-checkbox{
+  color: #033904;
+  margin-top: 3px;
+}
+
+/* MAILING LIST DIALOG
+---------------------------------*/
+
+.front .fancybox-skin {
+  background: url('../images/splash-sprite.png') no-repeat !important;
+  background-position: -20px -466px !important;
+  width: 670px !important;
+  height: 443px !important;
+  padding: 10px 0px !important;
+  
+}
+
+.front .fancybox-skin td {
+    padding: 8px !important;
+    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-size: 13px;
+}
+
+.front .fancybox-skin .title {
+    font-family: 'revolution', arial;
+    text-transform: uppercase;
+    font-size: 22px;
+    margin-bottom: 0;
+}
+
+.front .fancybox-skin input {
+    padding: 3px;
+    width: 165px;
+    font-family: 'DejaVuSans', helvetica;
+}
+
+.front .fancybox-skin select {
+    width: 176px;
+}
+
+.front .fancybox-skin #submit {
+    background: #c4581d;
+    padding: 9px 6px 6px 6px;
+    font-family: 'MrsEavesOT-Italic', 'times new roman';
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 174px;
+}
+
+.front .fancybox-skin #submit:hover {
+    background: #e0611c;
+}
+
+.joincontent {
+    position: absolute;
+    top: 192px;
+    left: 439px;
+    z-index: 200;
+    display: none;
+}
+
+
+.wanderfest #container {
+    height: 800px;
+    /*width: 1350px;
+    height : 100%;*/
+    width : 100%;
+    overflow: hidden;
+}
+
+.wanderfest #map-1-container {
+    height: 800px;
+    /*width: 1350px;*/
+    overflow: hidden !important;
+    position: relative;
+    /*height : 100%;*/
+    width : 100%;
+}
+
+.not-logged-in.wanderfest #main {
+    display: block !important;
+}
+
+.map-viewport {
+    border: 1px solid black;
+    /*height: 1170px;*/
+    margin: 0 0 20px;
+    overflow: hidden;
+    position: relative;
+    /*width: 1350px;*/
+    height : 800px;
+    width : 1560px;
+}
+
+.email-container{
+  background: url('../images/splash-sprite.png');
+  background-position: -404px -947px;
+  width: 321px;
+  height: 198px;
+  padding: 14px 0;
+  margin: 0 auto;
+}
+
+#mytable{
+  width: 420px;
+  margin: 9px 141px;
+}
+
+/* TOOLBAR
+---------------------------------*/
+
+#toolbar{
+  position: fixed;
+  right: 0px;
+  bottom: 10px;
+  z-index: 999;
+  width: 520px;
+}
+
+#toolbar a.icon{
+  background: url('../images/splash-sprite.png');
+  height: 109px;
+  display: block;
+  text-indent: -999em;
+  float: left;
+  margin-right: 17px;
+}
+
+#help a.icon{
+  background-position: -384px -235px;
+  width: 102px;
+
+}
+
+#about a.icon{
+  background-position: -504px -235px;
+  width: 72px;
+}
+
+#mission a.icon{
+  background-position: -584px -235px;
+  width: 93px;
+}
+
+#blog a.icon{
+  background-position: -696px -235px;
+  width: 70px;
+}
+
+#connect a.icon{
+  background-position: -785px -235px;
+  width: 78px;
+  
+}
+
+
+/* DISABLE ICON HOVERS FOR NOW 1/4/13
+
+#help a:hover{
+  background-position: -397px -348px;
+}
+
+#about a:hover{
+  background-position: -504px -348px;
+  width: 72px;
+}
+
+#mission a:hover{
+  background-position: -589px -348px;
+  width: 80px;
+}
+
+#blog a:hover{
+  background-position: -696px -348px;
+  width: 70px;
+}
+*/
+
+#toolbar .dialog{
+  background: url('../images/splash-sprite.png');
+  background-position: -19px -946px;
+  width: 340px;
+  height: 251px;
+  position: absolute;
+  bottom: 127px;
+  font-size: 12px;
+  padding: 0 20px 10px 20px;
+  left: 10px;
+  text-align: center;
+  font-size: 12px;
+}
+
+#toolbar .dialog .content{
+  height: 230px;
+  width: 342px;
+  margin: 13px 0;
+  overflow-y: scroll;
+}
+
+#toolbar .arrow{
+  background: url('../images/splash-sprite.png');
+  background-position: -349px -195px;
+  height: 14px;
+  width: 16px;
+  bottom: -13px;
+  position: absolute;
+}
+
+#toolbar h3{
+  font-family: 'revolution';
+  text-transform: uppercase;
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  text-align: center;
+}
+
+#toolbar #connect h3{
+  margin-top: 10px;
+}
+
+
+#toolbar #help .arrow{
+  left: 35px;
+}
+
+#toolbar #blog .arrow{
+  left: 11px;
+}
+
+#toolbar #mission .arrow{
+  left: 237px;
+}
+
+#toolbar #about .arrow{
+  left: 132px;
+}
+
+#toolbar #connect .arrow{
+  left: 335px;
+}
+
+/* TEMPORARY STYLES TO HIDE TOOlBAR DIALOGS UNTIL JQUERY IS READY #alexb */
+#toolbar #help .dialog,
+#toolbar #about .dialog,
+#toolbar #mission .dialog,
+#toolbar #connect .dialog {
+  display: none;
+}
+
+
+
+
+/*
+div.mark.festival.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+
+div.mark.festival.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+div.mark.yoga.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}
+div.mark.legendNo.highlight {
+   background-color: #CEA430;
+   border-radius:3px;
+
+}*/
+
+
+#map-1 .mark.highlight1 {
+    background-color: #CEA430;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+}
+
+
+
+
+.wanderfest #main {
+    display: none;
+}
+
+.wanderfest {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.mark:hover {
+    z-index: 103 !important;
+}
+
+.mark {
+    transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+}

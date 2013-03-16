@@ -33,7 +33,7 @@ function wonderlust_breadcrumb($breadcrumb) {
 function wanderlust_links($links, $attributes = array('class' => 'links'), $heading = '') {
   global $language;
   $output = '';
-
+//drupal_set_message('<pre>' . print_r($links, 1) . '</pre>');
   if (count($links) > 0) {
     // Treat the heading first if it is present to prepend it to the
     // list of links.
@@ -404,6 +404,10 @@ function wanderlust_menu_item($link, $has_children, $menu = '', $in_active_trail
   $title = str_replace(' ', '-', strip_tags($link));
   $class .= ' ' . drupal_strtolower($title);
   
+  
+ //drupal_set_message('<pre>' . print_r($title, 1) . '</pre>');
+  
+  
   return '<li class="' . $class . '">' . $link . $menu . "</li>\n";
 }
 //add google analytics code to outbound links
@@ -486,5 +490,73 @@ function wwanderlust_content_view_multiple_field($items, $field, $values) {
   }
 }
 
+function wanderlust_nice_menus_build($menu, $depth = -1, $trail = NULL) {
+  $output = '';
+  // Prepare to count the links so we can mark first, last, odd and even.
+  $index = 0;
+  $count = 0;
+  foreach ($menu as $menu_count) {
+    if ($menu_count['link']['hidden'] == 0) {
+      $count++;
+    }
+  }
+  
 
-
+  
+  // Get to building the menu.
+  foreach ($menu as $menu_item) {
+    $mlid = $menu_item['link']['mlid'];
+    // Check to see if it is a visible menu item.
+    if (!isset($menu_item['link']['hidden']) || $menu_item['link']['hidden'] == 0) {
+      // Check our count and build first, last, odd/even classes.
+      $index++;
+      $first_class = $index == 1 ? ' first ' : '';
+      $oddeven_class = $index % 2 == 0 ? ' even ' : ' odd ';
+      $last_class = $index == $count ? ' last ' : '';
+      // Build class name based on menu path
+      // e.g. to give each menu item individual style.
+      // Strip funny symbols.
+      $clean_path = str_replace(array('http://', 'www', '<', '>', '&', '=', '?', ':', '.'), '', $menu_item['link']['href']);
+      // Convert slashes to dashes.
+      $clean_path = str_replace('/', '-', $clean_path);
+      $class = 'menu-path-'. $clean_path;
+      if ($trail && in_array($mlid, $trail)) {
+        $class .= ' active-trail';
+      }
+      // If it has children build a nice little tree under it.
+      if ((!empty($menu_item['link']['has_children'])) && (!empty($menu_item['below'])) && $depth != 0) {
+        // Keep passing children into the function 'til we get them all.
+        $children = theme('nice_menus_build', $menu_item['below'], $depth, $trail);
+        // Set the class to parent only of children are displayed.
+        $parent_class = ($children && ($menu_item['link']['depth'] <= $depth || $depth == -1)) ? 'menuparent ' : '';
+        
+       
+          
+        $output .= '<li class="menu-' . $mlid . ' ' . $parent_class . $class . $first_class . $oddeven_class . $last_class .'">'. theme('menu_item_link', $menu_item['link']);
+        // Check our depth parameters.
+        if ($menu_item['link']['depth'] <= $depth || $depth == -1) {
+          // Build the child UL only if children are displayed for the user.
+          if ($children) {
+            $output .= '<ul>';
+            $output .= $children;
+            $output .= "</ul>\n";
+          }
+        }
+        $output .= "</li>\n";
+      }
+      else {
+         // drupal_set_message('<pre>' . print_r($menu_item['link']['menu_name'], 1) . '</pre>');
+  /*      if($menu_item['link']['menu_name'] == 'menu-blogs-primary-links') {
+          
+          $term = taxonomy_get_term((int)substr($menu_item['link']['link_path'], 14));
+        //  drupal_set_message('<pre>' . print_r($term->description, 1) . '</pre>');
+          $output .= '<li class="menu-' . $mlid . ' ' . $class . $first_class . $oddeven_class . $last_class .'">'. theme('menu_item_link', $menu_item['link']) .'<div class="termdescr">' . $term->description . '</div></li>'."\n";
+        } else {*/
+          $output .= '<li class="menu-' . $mlid . ' ' . $class . $first_class . $oddeven_class . $last_class .'">'. theme('menu_item_link', $menu_item['link']) .'</li>'."\n";
+  //      }
+     
+      }
+    }
+  }
+  return $output;
+}

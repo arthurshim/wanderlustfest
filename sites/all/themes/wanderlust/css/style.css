@@ -323,6 +323,10 @@ div#edit-search-block-form-1-wrapper label {
   padding: 0;
 }
 
+.item-list .pager li{
+  padding: 0;
+}
+
 ul.links li {
   margin: 0;
   padding: 0;
@@ -635,3 +639,58 @@ div.view div.views-admin-links li a {
 #webform-client-form-2728 .form-item label {width: 200px; display: inline-block!important; font-weight: normal!important;}
 
 #webform-client-form-2728 #webform-component-choose-list {margin-left: 220px;}
+
+.termdescr {
+    display: none;
+    position: absolute;
+    text-align: center;
+    width: 200px;
+    z-index: 9999;
+    background-color: yellow;
+    padding: 24px;
+    margin-left: 18px;
+}
+
+.deschiden {
+  height: 16px;
+  width: 16px;
+}
+
+.deschiden:hover {
+  cursor: pointer;
+}
+
+#block-block-45 {
+    background: url('../images/icon-23874_640.png') no-repeat  !important;; 
+   /* background-position: 50% 0;*/
+    height: 352px;
+    width: 300px  !important;
+}
+
+.deschiden.term236 {
+  margin: 38px 0 0 140px;
+}
+
+.deschiden.term237 {
+  margin: 16px 0 0 139px;
+}
+
+.deschiden.term238 {
+  margin: 16px 0 0 139px;
+}
+
+.deschiden.term239 {
+  margin: 16px 0 0 139px;
+}
+
+.deschiden.term240 {
+  margin: 16px 0 0 142px;
+}
+
+.deschiden.term241 {
+  margin: 16px 0 0 139px;
+}
+
+.deschiden.term242 {
+  margin: 16px 0 0 139px;
+}
