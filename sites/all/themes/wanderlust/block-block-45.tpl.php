@@ -13,7 +13,7 @@
 
   foreach($terms as $term) {
     //drupal_set_message('<pre>' . print_r($term, 1) . '</pre>');
-   print '<div class="deschiden  term' .  $term->tid .'"><div class="termdescr"><div class="categtitle">' . l($term->name, "taxonomy/term/{$term->tid}") . '</div>' . $term->description . '</div></div>';
+   print '<div class="deschiden  term' .  $term->tid .'">' .  l($term->name, "taxonomy/term/{$term->tid}", array('attributes' => array('class' => 'toblog')))  . '<div class="termdescr"><div class="categtitle">' . l($term->name, "taxonomy/term/{$term->tid}") . '</div>' . $term->description . '</div></div>';
 
     }
   ?>
