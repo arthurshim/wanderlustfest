@@ -63,10 +63,20 @@
   color: #8f3271 !important; 
 }
 
+.menu-path-taxonomy-term-239 a.active,
+.menu-path-taxonomy-term-239 a:hover{
+  text-shadow: 0 0 9px #8f3271;
+}
+
 .menu-path-taxonomy-term-240 a,
 .Mindfulness a,
 .Mindfulness{
   color: #5c4182 !important;  
+}
+
+.menu-path-taxonomy-term-240 a.active,
+.menu-path-taxonomy-term-240 a:hover{
+  text-shadow: 0 0 9px #5c4182;
 }
 
 .menu-path-taxonomy-term-236 a,
@@ -75,10 +85,20 @@
   color: #388687 !important;  
 }
 
+.menu-path-taxonomy-term-236 a.active,
+.menu-path-taxonomy-term-236 a:hover{
+  text-shadow: 0 0 9px #388687;
+}
+
 .menu-path-taxonomy-term-238 a,
 .Eco,
 .Eco a{
   color: #058042 !important;
+}
+
+.menu-path-taxonomy-term-238 a.active,
+.menu-path-taxonomy-term-238 a:hover{
+  text-shadow: 0 0 9px #058042;
 }
 
 .menu-path-taxonomy-term-241 a,
@@ -87,16 +107,32 @@
   color: #c39d37 !important;  
 }
 
+.menu-path-taxonomy-term-241 a.active,
+.menu-path-taxonomy-term-241 a:hover{
+  text-shadow: 0 0 9px #c39d37;
+}
+
 .menu-path-taxonomy-term-237 a,
 .Community a,
 .Community{
   color: #d4793d !important;
 }
 
+
+.menu-path-taxonomy-term-237 a.active,
+.menu-path-taxonomy-term-237 a:hover{
+  text-shadow: 0 0 9px #d4793c;
+}
+
 .menu-path-taxonomy-term-242 a,
 .Yoga a,
 .Yoga{
   color: #d35651 !important;
+}
+
+.menu-path-taxonomy-term-242 a.active,
+.menu-path-taxonomy-term-242 a:hover{
+  text-shadow: 0 0 9px #d35651;
 }
 
 .journal #navigation ul.nice-menu li a{
@@ -350,7 +386,7 @@ body.sidebar-right.journal #main{
 
 .panels-flexible-region-last .quicktabs_wrapper ul,
 #sidebar-right .quicktabs_wrapper ul{
-  margin: 0 0 5px 0;
+  margin: 0 0 9px 0;
   padding: 0;
 }
 
@@ -532,4 +568,92 @@ body.sidebar-right.journal #main{
 
 #block-views-all_blog_posts-block_2 .content{
   padding-bottom: 0;
+}
+
+
+/* BLOG FOOTER
+--------------------------------*/
+
+.journal .footer .footer-links{
+  text-align: center;
+  width: 70%;
+  list-style: none;
+}
+
+.journal .footer .footer-links li{
+  display: inline;
+  padding: 0 20px;
+  border-right: 1px solid #be9059;
+}
+
+.journal .footer .footer-links li.last{
+  border: none;
+}
+
+.journal .footer .footer-links a{
+  display: inline-block;
+  font-family: calibri;
+  font-size: 15px;
+}
+
+/* BLOG CHAKRA MENU
+--------------------------------*/
+
+.termdescr {
+    display: none;
+    position: absolute;
+    text-align: center;
+    width: 270px;
+    z-index: 9999;
+    padding: 10px;
+    top: 280px;
+    left: 5px;
+}
+
+.deschiden {
+  height: 16px;
+  width: 16px;
+}
+
+.deschiden:hover {
+  cursor: pointer;
+}
+
+#block-block-45 {
+    background: url('../images/chakra-menu.png') no-repeat center 47px !important;
+   /* background-position: 50% 0;*/
+    height: 352px;
+    width: 300px  !important;
+}
+
+.deschiden.term236 {
+  margin: 38px 0 0 143px;
+}
+
+.deschiden.term237 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden.term238 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden.term239 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden.term240 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden.term241 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden.term242 {
+  margin: 16px 0 0 143px;
+}
+
+.deschiden a.toblog {
+  display: none;
 }

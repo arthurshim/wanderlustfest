@@ -7,10 +7,20 @@ Drupal.behaviors.dropdown = function(context) {
     }, function () {
         $(this).find('div.termdescr').hide();
     });
+	
+	
+	
+            $('.deschiden').click(function() {	      
+	       window.location.href = $(this).find('a').attr('href');
+	    });
+	
 			 /* 				$(window).resize(function() {
 setTimeout(function(){$(".body-content-photos .fancybox-inner").css( {'height': '360', 'width': '570'})},300);
 });          */  
     var $jq = jQuery.noConflict();
+    
+
+    
  $jq('.view-Photos.view-display-id-page_1 li.views-row').click(function() {
  
      $jq(this).find('a').addClass('fancybox-thumbs');

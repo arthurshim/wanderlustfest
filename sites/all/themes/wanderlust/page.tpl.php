@@ -169,15 +169,33 @@ _gaq.push(['_trackPageview']);
 
   <!-- BEGIN FOOTER -->
   <footer class="footer clearfix">
-    <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
-    <div class="footer-links">
-      <a href="/privacy-policy">Privacy Policy</a> |
-      <a href="/terms-of-use">Terms of Use</a>
-    </div>
-    <div class="site-credits">
-      Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
-    </div>
-  </footer>
+    <?php if($section_title != 'blog'){
+      print '
+        <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+        <div class="footer-links">
+          <a href="/privacy-policy">Privacy Policy</a> |
+          <a href="/terms-of-use">Terms of Use</a>
+        </div>
+        <div class="site-credits">
+          Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+        </div>
+      </footer>';
+    }else {
+      print '
+        <ul class="footer-links">
+          <li><a target="_blank" href="http://wanderlustfestival.com">wanderlustfestival.com</a></li>
+          <li><a target="_blank" href="http://wanderlustfestival.com/contact">Contact</a></li>
+          <li><a target="_blank" href="http://wanderlustfestival.com/our-mission">Our Mission</a></li>
+          <li><a target="_blank" href="http://wanderlustfestival.com/privacy-policy">Privacy Policy</a></li>
+          <li class="last"><a target="_blank" href="http://wanderlustfestival.com/terms-of-use">Terms of Use</a></li>
+
+        </ul>
+        <div class="site-credits">
+          Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+        </div>
+      </footer>';      
+    }
+  ?>
   <!-- END FOOTER -->
 
 <script>
