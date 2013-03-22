@@ -66,7 +66,7 @@ function wl_helper_init() {
   //purl_prefix
   //[extra_fields][field_event_hide][0] [value] => enabled
   if (!empty($site) && $user->uid != 1 && $user->uid != 4482) {
-    if(isset($_COOKIE['mysite'])  &&  $_COOKIE['mysite'] == $site->purl_prefix && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {
+    if(isset($_COOKIE['mysite'])  &&  $_COOKIE['mysite'] == $site->purl_prefix && $site->extra_fields->field_event_hide[0]['value'] == 'disabled') {
         //drupal_set_message('<pre>' . print_r($_COOKIE['mysite']. 'aa', 1) . '</pre>');
 	drupal_goto('http://' . wl_get_base_domain(), array('m' => 1));
     }
