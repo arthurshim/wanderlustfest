@@ -176,7 +176,11 @@ DirectoryIndex index.php
   RewriteCond %{REQUEST_URI} =/
   RewriteRule ^(.*)$ index.php?q=ablogs [L,QSA]
 
-  # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
+  RewriteCond %{HTTP_HOST} =journal.wanderfest.com
+  RewriteCond %{REQUEST_URI} =/
+  RewriteRule ^(.*)$ index.php?q=ablogs [L,QSA]
+  
+# Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico

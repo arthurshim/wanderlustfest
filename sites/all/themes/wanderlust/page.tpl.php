@@ -62,11 +62,7 @@ _gaq.push(['_trackPageview']);
 <!-- SHARE THIS JAVASCRIPT -->
 <script type="text/javascript">var switchTo5x=true;</script>
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "8257ea56-556c-4bcc-90d4-07b6f18c3693",  shorten:false});</script>
-
-
-<!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-50f8566e53913b95"></script>-->
+<script type="text/javascript">stLight.options({publisher: "5e0b73dd-6559-4b5d-bdf8-8623897da18a", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
   
 </head>
@@ -102,7 +98,7 @@ _gaq.push(['_trackPageview']);
       </div>
 
       <div class="tomap">
-        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events.png" alt="<?php print t('To map'); ?>" /></a>
+        <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="<?php print t('To map'); ?>" /></a>
       </div>
       
     </header>
@@ -188,11 +184,13 @@ _gaq.push(['_trackPageview']);
           <li><a target="_blank" href="http://wanderlustfestival.com/our-mission">Our Mission</a></li>
           <li><a target="_blank" href="http://wanderlustfestival.com/privacy-policy">Privacy Policy</a></li>
           <li class="last"><a target="_blank" href="http://wanderlustfestival.com/terms-of-use">Terms of Use</a></li>
-
         </ul>
         <div class="site-credits">
-          Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
-        </div>
+          <div class="blog-search">'.
+          
+          $reasons__search = module_invoke('search', 'block', 'view', 0); 
+          print  $reasons__search['content']
+        .'</div></div>
       </footer>';      
     }
   ?>

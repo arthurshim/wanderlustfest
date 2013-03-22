@@ -14,9 +14,9 @@ function wl_helper_boot() {
 
     if (!empty($sid)) {
       $prev_site = _sites_get_site($sid);
-      
 
- 
+
+
       drupal_goto('http://' . $prev_site->purl_prefix . '.' . wl_get_base_domain() . '');
     }*/
   }
@@ -28,32 +28,32 @@ function wl_helper_boot() {
       'standard' => 8,
       'colorado' => 21,
       'whistler' => 22,
-      'oahu' => 23,    
-      'chile' => 24,            
+      'oahu' => 23,
+      'chile' => 24,
     );
-    
+
 /*    @sites_set_current_site(_sites_get_site($arr[$subdomain]));
     sites_set_current_site_cookie();*/
   }
 }
 
 function wl_helper_init() {
-	
-  //drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css'); 
+
+  //drupal_add_css(drupal_get_path('module','wl_helper') . '/wl_helper.css');
 
   //drupal_set_header('Access-Control-Allow-Origin: *');
-  
+
  // $mystring = $_SERVER['HTTP_REFERER'];
 //print '<pre>' . print_r($_SERVER['HTTP_REFERER'], 1) . '</pre>';
 //  $find   = '.wonderlustfest.com';
 //  $pos = strpos($mystring, $find);
  // print '<pre>pos' . print_r($pos, 1) . '</pre>';
  // $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
- // $subdomain = strtolower(trim($url[0]));  
+ // $subdomain = strtolower(trim($url[0]));
   //if ($subdomain == 'wonderlustfest' && !$_GET['m']) {
    // drupal_add_js(drupal_get_path('module','wl_helper') . '/wl_helper_map.js');
-    
- // }	
+
+ // }
 
 
 
@@ -61,16 +61,26 @@ function wl_helper_init() {
   global $user;
   $site = sites_get_current_site();
   // If current site is disabled, redirect to default site.
+
+ // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+  //purl_prefix
+  //[extra_fields][field_event_hide][0] [value] => enabled
   if (!empty($site) && $user->uid != 1 && $user->uid != 4482) {
+    if(isset($_COOKIE['mysite'])  &&  $_COOKIE['mysite'] == $site->purl_prefix && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {
+        //drupal_set_message('<pre>' . print_r($_COOKIE['mysite']. 'aa', 1) . '</pre>');
+	drupal_goto('http://' . wl_get_base_domain(), array('m' => 1));
+    }
+    
+    
 	$disabled = array();
     $disabled = wl_helper_disabled_sites();
-  
-    
+
+
     if (in_array($site->sid, $disabled)) {
-    //  drupal_goto('http://oahu.' . wl_get_base_domain());
+      drupal_goto('http://' . wl_get_base_domain(), array('m' => 1));
     }
   }
-  
+
   if (isset($_GET['set_purl_base_domain']) && $_GET['set_purl_base_domain'] == '1') {
     variable_set('purl_base_domain', 'http://' . wl_get_base_domain());
   }
@@ -78,7 +88,7 @@ function wl_helper_init() {
   // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
 /*  if ($_GET['q'] != 'live-events-list.json') {
     global $user;
-    
+
     if ((!($site)) && ($_GET['q'] != 'front-splash') && $user->uid != 1) {
       $sid = sites_get_most_recent_visited_site_sid();
 
@@ -121,7 +131,7 @@ function wl_helper_sites_node_access_alter(&$permitted, $node) {
 }
 
 
-/* DISABLED BY ARTHUR 11-14-12 
+/* DISABLED BY ARTHUR 11-14-12
 function wl_helper_cron() {
   // Update cached Twitter statuses for all stored Twitter usernames
   $field = content_fields($GLOBALS['_artist_node_twitter_field']);
@@ -201,32 +211,32 @@ function wl_helper_menu() {
     'page callback' => 'wl_page_splash',
     'access callback' => TRUE,
   );
-  
+
   $items['live-events-list.json'] = array(
     'title' => '',
     'description' => '',
     'page callback' => 'wl_feed_live_events_list',
     'access callback' => TRUE,
   );
-  
+
   $items['getimages'] = array(
     'page callback' => 'wl_helper_getimages_ajax',
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
   );
-  
+
   $items['getvideo'] = array(
     'page callback' => 'wl_helper_getvideo_ajax',
     'type' => MENU_CALLBACK,
     'access arguments' => array('access content'),
-  );    
+  );
   return $items;
 }
 
 function wl_helper_getimages_ajax($nid) {
   if($nid) {
    $data = db_query("SELECT photos_images.filepath AS filepath, node_data_field_photos_images.field_photos_images_data AS tit
-				  FROM {node} node 
+				  FROM {node} node
 				  LEFT JOIN {content_field_photos_images} node_data_field_photos_images ON node.vid = node_data_field_photos_images.vid
 				  LEFT JOIN {files} photos_images ON node_data_field_photos_images.field_photos_images_fid = photos_images.fid
 				  WHERE node.nid = %d", $nid);
@@ -238,15 +248,15 @@ function wl_helper_getimages_ajax($nid) {
 	  $title = @unserialize($res->tit);
 	//  print '<pre>' . print_r($title, 1) . '</pre>';
 	  if($i == 1) {
-	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb" title ="' . $title['description'] . '" href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>'; 
+	    	 $output .= '<p><a class="hid fir" data-fancybox-group="thumb" title ="' . $title['description'] . '" href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>';
 	  }
-	//  $output .=  '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->files_node_data_field_photos_images_filepath . '">' . theme('imagecache', 'node_teaser_image', $res->files_node_data_field_photos_images_filepath) . '</a></p>'; 
+	//  $output .=  '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->files_node_data_field_photos_images_filepath . '">' . theme('imagecache', 'node_teaser_image', $res->files_node_data_field_photos_images_filepath) . '</a></p>';
 	  else {
 	      $output .= '<p><a class="hid" data-fancybox-group="thumb" title ="' . $title['description'] . '" href="/' . $res->filepath . '">' . theme('imagecache', 'node_teaser_image', $res->filepath) . '</a></p>';
 	    //  $output .= '<p><a class="hid" data-fancybox-group="thumb"  href="/' . $res->filepath . '"><img src="/' . $res->filepath . '" alt="" /></a></p>';
 	  }
 	}
-	
+
   }
   else {
     $output = t('No images');
@@ -381,10 +391,16 @@ function wl_helper_get_fbook_app_id() {
 
 
 function wl_helper_views_pre_render(&$view) {
+
   if ($view->name == 'artist_landing') {
     if (count($view->result) <= 1) {
       $view->result = array();
     }
+  }
+  if ($view->name == 'all_blog_posts') {
+    //$view->display['page_1']->display_options['path']='/';
+    //$view->display['page_1']->handler->options['path'] = '/';
+    //file_put_contents('v.txt', print_r($view->display['page_1'],true));
   }
 }
 
@@ -397,7 +413,7 @@ function wl_helper_form_views_exposed_form_alter(&$form, &$form_state) {
   foreach ($sites as $site) {
     $sids[$site->tid] = $site->sid;
   }
-  
+
   $field_name = 'field_event_hide';
   $field = content_fields($field_name);
   $db_info = content_database_info($field);
@@ -405,8 +421,8 @@ function wl_helper_form_views_exposed_form_alter(&$form, &$form_state) {
   unset($form['tid_1']['#options'][33]);
   unset($options['All']);
   unset($options[33]);
-  
-  
+
+
   foreach ($options as $tid => $value) {
     $nid = sites_extra_fields_get_associated_nid($sids[$tid]);
     $vid = db_result(db_query("SELECT n.vid FROM {node} n WHERE n.nid = %d", $nid));
@@ -425,16 +441,16 @@ function wl_helper_disabled_sites() {
  /* if($user->uid == 1) {
      drupal_set_message('<pre>' . print_r($sites , 1) . '<pre>');
   }*/
- 
-  
+
+
   foreach ($sites as $site) {
- //   if ($site->sid == 23 && $user->uid ==0)  continue; 
+ //   if ($site->sid == 23 && $user->uid ==0)  continue;
     $sids[] = $site->sid;
   }
   $field_name = 'field_event_hide';
   $field = content_fields($field_name);
   $db_info = content_database_info($field);
-  
+
   $disabled = array();
   if(!empty($sids)):
   foreach ($sids as $sid) {
@@ -444,7 +460,7 @@ function wl_helper_disabled_sites() {
     if ($status == 'disabled') $disabled[] = $sid;
   }
   endif;
-  
+
   return $disabled;
 }
 
@@ -469,7 +485,7 @@ function wlw_helper_preprocess_views_view(&$vars) {
         // If the separator is at position 0 or does not exist it all, do not group
         $sep = $settings['view_group_separator'][$view->name];
         if ($sep && strpos($display_data->display_title, $sep)) {
-            
+
           list($group, $title) = explode($sep, $display_data->display_title);
         }
         else {
@@ -495,9 +511,9 @@ function wlw_helper_preprocess_views_view(&$vars) {
 
     // Build header, exclude displays that are attachments (or we'll end up
     // with two sets of tabs)
-   
+
      unset($displays[0][5]);
- 
+
     if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
       $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
     }
@@ -515,3 +531,31 @@ function wlw_helper_preprocess_views_view(&$vars) {
     drupal_add_js('misc/jquery.form.js');
   }
 }
+
+function wl_helper_menu_alter(&$items) {
+  /*
+  file_put_contents('m.txt', print_r($items,true));
+*/
+/* //This works but we don't need it now
+  $ob = $items['blog'];
+  unset ($items['blog']);
+  $items['_blog'] = $ob;
+
+  $ob = $items['blog/%user_uid_optional'];
+  unset ($items['blog/%user_uid_optional']);
+  $items['_blog/%user_uid_optional'] = $ob;
+
+  $ob = $items['blog/%user/feed'];
+  unset ($items['blog/%user/feed']);
+  $items['_blog/%user/feed'] = $ob;
+
+  $ob = $items['blog/feed'];
+  unset ($items['blog/feed']);
+  $items['_blog/feed'] = $ob;
+*/
+}
+/*
+function wl_helper_views_pre_render(&$view) {
+  file_put_contents('v.txt', print_r($view,true), FILE_APPEND);
+}
+*/
