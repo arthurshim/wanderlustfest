@@ -329,7 +329,7 @@ function doSubmit(oForm) {
 
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
-          $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events.png" alt="To map" />';   
+          $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="To map" />';   
           print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
         ?>
       </div>
@@ -377,6 +377,7 @@ function doSubmit(oForm) {
                   if ($node->field_event_hide[0]['value'] == 'enabled') {
                       $nids[] = $node->nid;
                   }
+		 // print '<pre>' . print_r($node->field_event_hide[0]['value'], 1) . '</pre>';
               }
           }
           $sites[$row->sid] = $row;
@@ -516,7 +517,7 @@ var $body = $('body'),
   	  }
     }
 	
-    if($site->extra_fields->status == 1 && isset($site->purl_prefix)/* && $site->extra_fields->field_event_hide[0]['value'] == 'enabled'*/) {  ?>
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {  ?>
       
       
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	

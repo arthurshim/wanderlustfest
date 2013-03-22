@@ -143,6 +143,11 @@
 /* BLOG BODY
 --------------------------------*/
 
+.journal .body-content a:hover,
+.journal .body-content a span:hover{
+  color: #e1bf6d !important;
+}
+
 body.journal{
   background: #fffef8;
   font-size: 14px;
@@ -576,8 +581,9 @@ body.sidebar-right.journal #main{
 
 .journal .footer .footer-links{
   text-align: center;
-  width: 70%;
+  width: 66%;
   list-style: none;
+  margin: 0;
 }
 
 .journal .footer .footer-links li{
@@ -599,15 +605,20 @@ body.sidebar-right.journal #main{
 /* BLOG CHAKRA MENU
 --------------------------------*/
 
+#block-block-45 h2{
+ font-size: 28px;
+ text-align: center;
+}
+
 .termdescr {
-    display: none;
-    position: absolute;
-    text-align: center;
-    width: 270px;
-    z-index: 9999;
-    padding: 10px;
-    top: 280px;
-    left: 5px;
+  display: none;
+  position: absolute;
+  text-align: center;
+  width: 270px;
+  z-index: 9999;
+  padding: 10px;
+  top: 280px;
+  left: 5px;
 }
 
 .deschiden {
@@ -656,4 +667,66 @@ body.sidebar-right.journal #main{
 
 .deschiden a.toblog {
   display: none;
+}
+
+
+/* BLOG SEARCH BOX
+--------------------------------*/
+
+#search-block-form-1 label{
+  display: none;
+}
+
+.blog-search .form-item{
+  width: 228px;
+  float: left;
+  margin-right: 8px;
+}
+
+.blog-search .form-text{
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite-v2.png');
+  background-position: 0px -270px;
+  width: 208px;
+  height: 4px;
+  border: none;
+  padding: 10px;
+}
+
+input.form-submit{
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite-v2.png');
+  background-position: -238px -270px;
+  width: 34px;
+  height: 24px;
+  border: none;
+  text-indent: -999em;
+  display: block;
+  position: relative;
+  top: 12px;
+}
+
+/* BLOG SEARCH RESULTS
+--------------------------------*/
+.search-results .title{
+  font-size: 28px;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial !important;
+  letter-spacing: 1px;
+  line-height: .9 !important;  
+}
+
+.box h2{
+   font-size: 28px;
+  font-weight: normal;
+  text-transform: uppercase;
+  font-family: 'lhf_egyptianregular', arial !important;
+  letter-spacing: 1px;
+  line-height: .9 !important;   
+}
+
+.search-results dd{
+  margin: 15px 0;
+  background: url('../images/border-bg.png') bottom repeat-x;
+  padding-bottom: 8px;
+  margin-bottom: 25px;  
 }

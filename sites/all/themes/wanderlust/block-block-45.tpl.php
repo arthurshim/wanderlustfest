@@ -1,8 +1,7 @@
 <section id="block-<?php print $block->module .'-'. $block->delta; ?>" class="block block-<?php print $block->module ?> clearfix">
 
-  <?php if (!empty($block->subject)): ?>
-    <h2><?php print $block->subject ?></h2>
-  <?php endif;?>
+
+  <h2>Explore the Blog</h2>
 
   <div class="content">
     <?php

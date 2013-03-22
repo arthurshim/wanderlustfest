@@ -184,7 +184,7 @@ $cookie_domain = '.wanderfest.com';
  *
  * Remove the leading hash signs to enable.
  */
- 
+
 $conf = array(
 	 'theme_default' => 'wanderlust',
 	 'maintenance_theme' => 'wanderlust',
@@ -273,7 +273,7 @@ $conf['cacherouter'] = array(
   // Never cache forms!
   'cache_form' => array(
     'engine' => 'db',
-  ),  
+  ),
 );
 
 
@@ -285,3 +285,13 @@ $conf['cache_inc'] ='sites/all/modules/memcache/memcache.inc';
 
 // Varnish
 // $conf['x_forwarded_for_header'] = 'X_REAL_FORWARDED_FOR';
+/*
+function custom_url_rewrite_outbound(&$path, &$options, $original_path) {
+  file_put_contents('u_out.txt', print_r($original_path, true)."\n",FILE_APPEND);
+}
+
+function custom_url_rewrite_inbound(&$result, $path, $path_language) {
+ file_put_contents('u_in.txt', print_r($result, true)."\n".print_r($path, true)."\n",FILE_APPEND);
+}
+
+*/
