@@ -601,6 +601,11 @@ body.sidebar-right.journal #main{
   width: 66%;
   list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.journal .site-credits{
+  padding-right: 20px;
 }
 
 .journal .footer .footer-links li{
@@ -690,6 +695,10 @@ body.sidebar-right.journal #main{
 /* BLOG SEARCH BOX
 --------------------------------*/
 
+.blog-search{
+  margin-top: -12px;
+}
+
 #search-block-form-1 label{
   display: none;
 }
@@ -713,8 +722,8 @@ body.sidebar-right.journal #main{
 .blog-search input.form-text{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite-v2.png');
   background-position: 0px -270px;
-  width: 208px;
-  height: 12px;
+  width: 220px;
+  height: 15px;
   padding: 5px;
   border: none;
  /* padding: 10px;
@@ -760,4 +769,8 @@ input.form-submit{
   background: url('../images/border-bg.png') bottom repeat-x;
   padding-bottom: 8px;
   margin-bottom: 25px;  
+}
+
+.journal .footer{
+  margin-top: 50px;
 }
