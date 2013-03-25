@@ -499,7 +499,7 @@ var $body = $('body'),
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
     <?php 
-           
+       //     print '<pre>' . print_r($site->purl_prefix, 1) . '</pre>';
     foreach($site->extra_fields->taxonomy as $n) {
 
       

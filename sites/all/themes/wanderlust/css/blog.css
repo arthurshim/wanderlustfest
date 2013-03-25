@@ -36,6 +36,12 @@
   width: 960px;
 }
 
+* + html .journal #navigation ul.nice-menu,
+* + html .journal #navigation ul li{
+display: inline;
+
+}
+
 .journal #navigation ul li{
   float: none;
   display: inline-block;
@@ -193,6 +199,8 @@ body.journal{
 }
 
 
+
+
 .view-all-blog-posts.view-display-id-block_2 div{
   width: 310px;
   margin-right: 26px;
@@ -204,11 +212,20 @@ body.journal{
   margin-top: 8px;
 }
 
+* html + #block-views-all_blog_posts-block_2{
+  float: left;
+  background: yellow;
+}
 
 
 
 /* BLOG INDEX
 ------------------------ */
+
+#block-views-all_blog_posts-block_1{
+  clear: both;
+  overflow: hidden;
+}
 
 .journal.page-ablogs .body-content #main{
   padding: 0;
@@ -677,19 +694,32 @@ body.sidebar-right.journal #main{
   display: none;
 }
 
+.search-form .container-inline{
+  clear: both;
+  float: left;
+  height: 50px;
+  width: 100%;
+}
+
+.search-form #edit-keys-wrapper,
 .blog-search .form-item{
   width: 228px;
   float: left;
   margin-right: 8px;
+
 }
 
-.blog-search .form-text{
+.search-form #edit-keys,
+.blog-search input.form-text{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-sprite-v2.png');
   background-position: 0px -270px;
   width: 208px;
-  height: 4px;
+  height: 12px;
+  padding: 5px;
   border: none;
-  padding: 10px;
+ /* padding: 10px;
+  text-indent: -999em;*/
+  float: left;
 }
 
 input.form-submit{
@@ -698,10 +728,11 @@ input.form-submit{
   width: 34px;
   height: 24px;
   border: none;
-  text-indent: -999em;
+  text-indent: -999999em;
   display: block;
   position: relative;
   top: 12px;
+  font-size: 1%;
 }
 
 /* BLOG SEARCH RESULTS
