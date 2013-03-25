@@ -214,3 +214,9 @@ blockquote{
 	font-weight: normal !important;
 	line-height: 1;
   }
+  
+.nyc #navigation ul.nice-menu li a,
+.chi #navigation ul.nice-menu li a,
+.sf #navigation ul.nice-menu li a{
+  padding: 6px 28px 2px;
+}
