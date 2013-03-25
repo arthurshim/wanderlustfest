@@ -499,6 +499,8 @@ function sitesdropdown_homepage($reset = TRUE) {
     echo "<pre>"; print_r($sids); die;
   }
   $sids = implode(',', $sids);
+  
+
 /*	if($user->uid == 1) {
 		print_r($sids);
 	}*/
@@ -523,19 +525,41 @@ function sitesdropdown_homepage($reset = TRUE) {
  
 $res = db_query("SELECT node.nid as nid
 		           FROM {node} node
-		           WHERE node.type in ('advertisement') ORDER BY RAND()  LIMIT 0,2;");
+			   LEFT JOIN term_node site ON site.nid = node.nid
+		           WHERE node.type in ('advertisement')  AND (site.tid IN ($sids)) ORDER BY RAND()  LIMIT 0,2;");
 
  
 
 
 $as = array();
  while($obj = db_fetch_object($res)){
-
+  // drupal_set_message('<pre>' . print_r($obj->nid,1) . '</pre>');
 //  $img = theme('imagecache', '200x300', $obj->files_filepath);
 //   $as[] = '<div class="content"><a href="' . $obj->link . '"><img class="imagecache imagecache-200x300" title="" alt="" src="' . $obj->files_filepath . '"></a></div>';
   $as[] = $obj->nid;
 }
 
+  if(empty($as)) {
+     $res = db_result(db_query("SELECT node.nid as nid
+			     FROM {node} node
+			     LEFT JOIN term_node site ON site.nid = node.nid
+			     WHERE node.type in ('advertisement')  AND (site.tid = 33);"));
+    if($res) {
+     $as[] = $res;
+     $as[] = $res;
+    }
+  }
+
+$c = count($as);
+if(count($as) < 2) {
+  $res = db_result(db_query("SELECT node.nid as nid
+		           FROM {node} node
+			   LEFT JOIN term_node site ON site.nid = node.nid
+		           WHERE node.type in ('advertisement')  AND (site.tid = 33);"));
+ if($res) $as[] = $res;
+//  drupal_set_message('<pre>' . print_r($as,1) . '</pre>');
+  
+}
 
       $result2 = db_query("SELECT node.nid AS nid, node_weight.sticky AS node_weight_sticky FROM node node  LEFT JOIN node node_weight ON node.nid = node_weight.nid LEFT JOIN term_node site ON site.nid = node.nid WHERE node.type in ('callouts')  AND node.status = 1 ORDER BY node_weight_sticky DESC LIMIT 0,2;", $sids);
       while($item = db_fetch_array($result2)) {

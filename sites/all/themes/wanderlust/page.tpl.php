@@ -3,7 +3,7 @@
 <!--[if lt IE 7]> <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie6 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 7]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie7 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
-<!--[if gt IE 8]> <!--> <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
+<!--[if gt IE 8]>  <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
 <head>
   <?php print $head; ?>
   <!-- Set the viewport width to device width for mobile -->
@@ -177,6 +177,7 @@ _gaq.push(['_trackPageview']);
         </div>
       </footer>';
     }else {
+        $reasons__search = module_invoke('search', 'block', 'view', 0); 
       print '
         <ul class="footer-links">
           <li><a target="_blank" href="http://wanderlustfestival.com">wanderlustfestival.com</a></li>
@@ -186,11 +187,7 @@ _gaq.push(['_trackPageview']);
           <li class="last"><a target="_blank" href="http://wanderlustfestival.com/terms-of-use">Terms of Use</a></li>
         </ul>
         <div class="site-credits">
-          <div class="blog-search">'.
-          
-          $reasons__search = module_invoke('search', 'block', 'view', 0); 
-          print  $reasons__search['content']
-        .'</div></div>
+          <div class="blog-search">'.   $reasons__search['content']  .'</div></div>
       </footer>';      
     }
   ?>
