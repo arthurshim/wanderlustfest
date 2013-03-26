@@ -627,7 +627,7 @@ body.sidebar-right.journal #main{
 /* BLOG CHAKRA MENU
 --------------------------------*/
 
-#block-block-45 h2{
+#block-block-47 h2{
  font-size: 28px;
  text-align: center;
 }
@@ -652,7 +652,7 @@ body.sidebar-right.journal #main{
   cursor: pointer;
 }
 
-#block-block-45 {
+#block-block-47 {
     background: url('../images/chakra-menu.png') no-repeat center 47px !important;
    /* background-position: 50% 0;*/
     height: 352px;
@@ -773,4 +773,9 @@ input.form-submit{
 
 .journal .footer{
   margin-top: 50px;
+}
+
+.page-search .box {
+  float: left;
+  width: 684px;
 }
