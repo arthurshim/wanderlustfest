@@ -633,7 +633,7 @@ var $body = $('body'),
 	
   <?php }
   
-  elseif($class == 'studio') { ?>
+  elseif($class == 'studio' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
 	
 	
 	<!-- BEGIN STUDIO MARKERS -->	      
@@ -642,7 +642,7 @@ var $body = $('body'),
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
 
     	<?php
-      //drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+    //  drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
       if ($site->extra_fields->field_event_date[0]['value']) {
           $item = '<div class="site-item">';
           $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
