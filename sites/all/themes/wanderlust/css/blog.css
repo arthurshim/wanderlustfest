@@ -45,8 +45,14 @@ display: inline;
 .journal #navigation ul li{
   float: none;
   display: inline-block;
+  margin: 0 24px 0;
 }
 
+.journal #navigation ul.nice-menu li a, 
+.journal #navigation ul.nice-menu li .nolink{
+  padding: 2px 4px 0px 4px !important;
+  line-height: 0.8;
+}
 
 
 .journal #navigation{
@@ -71,7 +77,8 @@ display: inline;
 
 .menu-path-taxonomy-term-239 a.active,
 .menu-path-taxonomy-term-239 a:hover{
-  text-shadow: 0 0 9px #8f3271;
+  background: #8f3271;
+  color: #fff !important;
 }
 
 .menu-path-taxonomy-term-240 a,
@@ -82,7 +89,9 @@ display: inline;
 
 .menu-path-taxonomy-term-240 a.active,
 .menu-path-taxonomy-term-240 a:hover{
-  text-shadow: 0 0 9px #5c4182;
+  background: #5c4182;
+  color: #fff !important;
+  
 }
 
 .menu-path-taxonomy-term-236 a,
@@ -93,7 +102,9 @@ display: inline;
 
 .menu-path-taxonomy-term-236 a.active,
 .menu-path-taxonomy-term-236 a:hover{
-  text-shadow: 0 0 9px #388687;
+  background: #388687;
+  color: #fff !important;
+  
 }
 
 .menu-path-taxonomy-term-238 a,
@@ -104,7 +115,9 @@ display: inline;
 
 .menu-path-taxonomy-term-238 a.active,
 .menu-path-taxonomy-term-238 a:hover{
-  text-shadow: 0 0 9px #058042;
+  background: #058042;
+  color: #fff !important;
+  
 }
 
 .menu-path-taxonomy-term-241 a,
@@ -115,7 +128,9 @@ display: inline;
 
 .menu-path-taxonomy-term-241 a.active,
 .menu-path-taxonomy-term-241 a:hover{
-  text-shadow: 0 0 9px #c39d37;
+  background: #c39d37;
+  color: #fff !important;
+  
 }
 
 .menu-path-taxonomy-term-237 a,
@@ -127,7 +142,9 @@ display: inline;
 
 .menu-path-taxonomy-term-237 a.active,
 .menu-path-taxonomy-term-237 a:hover{
-  text-shadow: 0 0 9px #d4793c;
+  background: #d4793c;
+  color: #fff !important;
+  
 }
 
 .menu-path-taxonomy-term-242 a,
@@ -138,7 +155,9 @@ display: inline;
 
 .menu-path-taxonomy-term-242 a.active,
 .menu-path-taxonomy-term-242 a:hover{
-  text-shadow: 0 0 9px #d35651;
+  background: #d35651 !important;
+  color: #fff !important;
+  
 }
 
 .journal #navigation ul.nice-menu li a{
@@ -639,13 +658,26 @@ body.sidebar-right.journal #main{
   width: 270px;
   z-index: 9999;
   padding: 10px;
-  top: 280px;
-  left: 5px;
+  top:284px;
+  font-size: 12px;
+  left: 10px;
+  line-height: 1.4;
 }
 
-.deschiden {
+.deschiden a.toblog{
   height: 16px;
   width: 16px;
+  position: absolute;
+  left: 143px;  
+  display: block;
+  text-indent: -999em;
+}
+
+.categtitle{
+  font-family: 'lhf_egyptianregular', arial !important;
+  text-transform: uppercase;
+  font-size: 20px;
+  line-height: 1;
 }
 
 .deschiden:hover {
@@ -659,35 +691,41 @@ body.sidebar-right.journal #main{
     width: 300px  !important;
 }
 
-.deschiden.term236 {
-  margin: 38px 0 0 143px;
+.deschiden.term236 a.toblog{
+  top: 113px;
 }
 
-.deschiden.term237 {
-  margin: 16px 0 0 143px;
+.deschiden.term237 a.toblog{
+  position: absolute;
+  left: 143px;
+  top: 211px;
 }
 
-.deschiden.term238 {
-  margin: 16px 0 0 143px;
+.deschiden.term238 a.toblog{
+  position: absolute;
+  top: 146px;
+  left: 143px;
 }
 
-.deschiden.term239 {
-  margin: 16px 0 0 143px;
+.deschiden.term239 a.toblog{
+  position: absolute;
+  top: 47px;
+  left: 143px;
 }
 
-.deschiden.term240 {
-  margin: 16px 0 0 143px;
+.deschiden.term240 a.toblog{
+  top: 80px;
 }
 
-.deschiden.term241 {
-  margin: 16px 0 0 143px;
+.deschiden.term241 a.toblog{
+  top: 178px;
 }
 
-.deschiden.term242 {
-  margin: 16px 0 0 143px;
+.deschiden.term242 a.toblog{
+  top: 244px;
 }
 
-.deschiden a.toblog {
+.deschiden a.toblog a{
   display: none;
 }
 
