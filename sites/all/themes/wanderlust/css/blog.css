@@ -684,6 +684,7 @@ body.sidebar-right.journal #main{
   cursor: pointer;
 }
 
+#block-block-44,
 #block-block-47 {
     background: url('../images/chakra-menu.png') no-repeat center 47px !important;
    /* background-position: 50% 0;*/
