@@ -26,6 +26,17 @@
   display: none;
 }
 
+.journal .tomap a{
+  background: url('../images/see-all-blog.gif') no-repeat;
+  width: 208px;
+  height: 84px;
+  display: block;
+}
+
+.journal .tomap img{
+  display: none;
+}
+
 /* BLOG NAV
 --------------------------------*/
 
