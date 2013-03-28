@@ -749,7 +749,7 @@ var $body = $('body'),
     <!-- END CONNECT -->
 
   <div id="blog">
-    <a class="icon" href="http://blog.wanderfest.com" target="_blank">Blog</a>
+    <a class="icon" href="http://journal.wanderlustfestival.com" target="_blank">Blog</a>
   </div>
 
 </div>
