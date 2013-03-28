@@ -84,9 +84,14 @@ body{
     top: 377px;
 }
 
-#map-1  .mark.sf {
+#map-1 .mark.sf {
     left: 1758px;
     top: 369px;
+}
+
+#map-1 .mark.chi {
+left: 2026px;
+top: 351px;
 }
 
 #map-1 .mark.la {
