@@ -370,7 +370,9 @@ function doSubmit(oForm) {
       $res  = db_query($q);
       $nids = array();
       while ($row = db_fetch_object($res)) {
+//	 drupal_set_message('<pre>' . print_r($res, 1) . '</pre>');
           if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
+	    
               if ($node = node_load($nid)) {
                   /* load event node*/
                   $row->extra_fields = $node;
@@ -395,6 +397,7 @@ function doSubmit(oForm) {
 
       
       foreach ($nodes as $s) {
+	 
           if (!in_array($s['nid'], $nids)) {
               $row->extra_fields           = node_load($s['nid']);
               //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
@@ -498,7 +501,11 @@ var $body = $('body'),
   
   <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
-    <?php 
+    <?php
+    if(!$site->title) {
+        
+    }
+
        //     print '<pre>' . print_r($site->purl_prefix, 1) . '</pre>';
     foreach($site->extra_fields->taxonomy as $n) {
 
@@ -517,7 +524,8 @@ var $body = $('body'),
   	  }
     }
 	
-    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {  ?>
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio') {
+     // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');?>
       
       
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
@@ -634,7 +642,7 @@ var $body = $('body'),
   <?php }
   
   elseif($class == 'studio' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
-	
+      
 	
 	<!-- BEGIN STUDIO MARKERS -->	      
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
@@ -643,7 +651,8 @@ var $body = $('body'),
 
     	<?php
     //  drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
-      if ($site->extra_fields->field_event_date[0]['value']) {
+      if (isset($site->extra_fields->field_event_date[0]['value'])) {
+	unset($item);
           $item = '<div class="site-item">';
           $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
           $item .= '<div class="siteevent"><div class="item-date">';
@@ -660,11 +669,11 @@ var $body = $('body'),
           $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
       }
       $studios .= '<div class="bl">' . $item . '</div>';
-      print $item;
-      ?>
+      print $item;?>
+
 	
     </div>
-		
+	</div>	
 	  <?php } ?>
 	  
 	  <?php endforeach;  ?>
