@@ -134,9 +134,10 @@ top: 351px;
     top: 1063px;
 }
 
-#map-1 .studio3962.studio {
-   left: 1888px;
-    top: 481px;
+#map-1 .studio3969.studio {
+   left: 2146px;
+    
+   top: 313px;
 }
 
 .level {
@@ -894,7 +895,7 @@ top: 351px;
   right: 0px;
   bottom: 10px;
   z-index: 99;
-  width: 240px;
+  width: 320px;
 }
 
 #toolbar a.icon{
@@ -1018,7 +1019,6 @@ margin-top:10px;
 }
 
 #toolbar #blog{
-  display: none;
 }
 
 #thankyou{
