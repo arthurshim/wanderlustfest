@@ -4,6 +4,17 @@ body{
   background-color: #a9d4c3
 }
 
+a:active{
+  outline: none !important; 
+}
+
+a:focus{
+  -moz-outline-style: none !important;
+}
+
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
+
 /* SPLASH PAGE LOGO
 ---------------------------------*/
 
