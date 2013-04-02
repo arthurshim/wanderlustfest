@@ -844,6 +844,44 @@ var $body = $('body'),
 
      <?php   if (!$f) { ?>
     
+    
+    <!-- CODE FOR CUSTOM ADS ON YITC SITES -->
+    <?php 
+    list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); 
+    
+    if ($subdomain == 'la' || $subdomain == 'nyc' || $subdomain == 'chi'){
+      print '<img class="thankyou-partners" src="/sites/all/themes/wanderlust/images/thankyou-partners.png">
+      <ul class="sponsor-logos">
+                <li><a target="_blank" href="http://www.health.com/"><img src="/sites/all/themes/wanderlust/images/health.png"></a></li>
+                <li><a target="_blank"  href="http://www.avocadosfrommexico.com/"><img src="/sites/all/themes/wanderlust/images/avocados.png"></a></li>
+                <li><a target="_blank"  href="http://www.evolutionfresh.com/"><img src="/sites/all/themes/wanderlust/images/evolution.png"></a></li>
+                <li><a target="_blank"  href="http://lyfekitchen.com/"><img src="/sites/all/themes/wanderlust/images/lyfe.png"></a></li>                                                
+                <li><a target="_blank"  href="http://www.lunabar.com/"><img src="/sites/all/themes/wanderlust/images/luna.png"></a></li>                
+                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcespringwater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
+      </ul>';
+    }
+
+    elseif ($subdomain == 'sf'){
+      print '<img class="thankyou-partners" src="/sites/all/themes/wanderlust/images/thankyou-partners.png">
+      <ul class="sponsor-logos">
+                <li><a target="_blank"  href="http://www.avocadosfrommexico.com/"><img src="/sites/all/themes/wanderlust/images/avocados.png"></a></li>
+                <li><a target="_blank"  href="http://www.evolutionfresh.com/"><img src="/sites/all/themes/wanderlust/images/evolution.png"></a></li>
+                <li><a target="_blank"  href="http://lyfekitchen.com/"><img src="/sites/all/themes/wanderlust/images/lyfe.png"></a></li>                                                
+                <li><a target="_blank"  href="http://www.lunabar.com/"><img src="/sites/all/themes/wanderlust/images/luna.png"></a></li>                
+                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcespringwater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
+      </ul>';
+    }
+
+ 
+
+    else{
+    }
+
+    
+  ?>
+    
+    
+    
       </div> <!-- /#container -->
 
     
