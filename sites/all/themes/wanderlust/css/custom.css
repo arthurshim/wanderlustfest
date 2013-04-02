@@ -2589,8 +2589,13 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   list-style: none;
   display: inline-block;
   margin-right: 56px;
+  float: left;
 }
 
 .sponsor-logos li.last{
   margin-right: 0;
+}
+
+.sf .sponsor-logos{
+  width: 733px;
 }
