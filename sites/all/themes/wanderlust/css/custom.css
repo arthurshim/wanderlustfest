@@ -2569,3 +2569,28 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 }
 
 
+/* YITC SPONSOR ADS
+--------------------------------*/
+
+.thankyou-partners{
+  margin: 0px auto 20px auto;
+  width: 425px;
+  display: block;
+}
+
+.sponsor-logos{
+  width: 920px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.sponsor-logos li{
+  list-style: none;
+  display: inline-block;
+  margin-right: 56px;
+}
+
+.sponsor-logos li.last{
+  margin-right: 0;
+}
