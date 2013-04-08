@@ -154,7 +154,7 @@ _gaq.push(['_trackPageview']);
     </div>
     <!-- BEGIN NAVIGATION -->  
     <nav id="navigation" role="navigation" class="clearfix ">
-      <?php // print $navigation ?>
+      <?php print $navigation ?>
       <div class="social-media-links">
         <a class="facebook" href="http://facebook.com/wanderlust" target="_blank">Facebook</a>
         <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a>
