@@ -491,8 +491,14 @@ body.sidebar-right.journal #main{
   padding: 10px 0 0 0; 
   background: url('../images/border-bg.png') repeat-x;
   float: left;
-  width: 300px;
+  width: 280px;
 }
+
+.journal .panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-row,
+.journal #sidebar-right .quicktabs_wrapper .view-blog-popular .views-row{
+  width: 300px !important;
+}
+
 
 .view-blog-popular .views-field-title{
   line-height: 1;
