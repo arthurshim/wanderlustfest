@@ -95,6 +95,7 @@ _gaq.push(['_trackPageview']);
     <header id="header" role="banner" class="clearfix">
 
       <div id="event-info">      
+        <?php print $language_region; ?>
         <?php print $header; ?>
       </div>
 

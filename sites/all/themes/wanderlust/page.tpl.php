@@ -100,6 +100,8 @@ _gaq.push(['_trackPageview']);
 
       <div id="event-info">      
         <?php print $header; ?>
+        <?php print $language_region; ?>
+        
       </div>
 
       <div class="tomap">

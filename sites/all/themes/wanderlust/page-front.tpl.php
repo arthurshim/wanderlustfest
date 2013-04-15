@@ -13,8 +13,6 @@
    $subdomain = strtolower(trim($url[0]));
    if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   ?> Wanderlust Festival - Find Your True North <?php } else { print $head_title; } ?></title>
   <?php header("Connection: keep-alive");?>
-  
-  
   <!-- CUSTOM FACEBOOK OG META TAGS FOR SPLASH & HOMEPAGE -->
   <meta property="og:title" content="
   <?php 
@@ -73,7 +71,6 @@
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
 
-
 <!--cut and paste $scripts variable -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="/misc/drupal.js?h"></script>
@@ -82,7 +79,6 @@
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js?h"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js?h"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/modernizr.custom.63526.js?h"></script>
-
 
 <!-- REDIRECT MESSAGE-->
 <?php  if(($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') && !$_GET['m'] && isset($_COOKIE["mysite"])) {   ?>
@@ -104,8 +100,6 @@
   jQuery.extend(Drupal.settings, {"basePath":"\/","imagebrowser":{"basepath":"\/","filepath":"files","modulepath":"sites\/all\/modules\/imagebrowser"},"jcarousel":{"ajaxPath":"\/jcarousel\/ajax\/views","carousels":{"jcarousel-view--homepage-carousel--block-1":{"skin":"default","visible":5,"navigation":"before","animation":"slow","start":1,"autoPause":1,"scroll":5,"selector":".jcarousel-view--homepage-carousel--block-1"}}},"lightbox2":{"rtl":0,"file_path":"\/(\\w\\w\/)files","default_image":"\/sites\/all\/modules\/lightbox2\/images\/brokenimage.jpg","border_size":10,"font_color":"000","box_color":"fff","top_position":"","overlay_opacity":"0.8","overlay_color":"000","disable_close_click":1,"resize_sequence":0,"resize_speed":400,"fade_in_speed":400,"slide_down_speed":600,"use_alt_layout":0,"disable_resize":0,"disable_zoom":0,"force_show_nav":0,"show_caption":1,"loop_items":0,"node_link_text":"","node_link_target":0,"image_count":"","video_count":"","page_count":"","lite_press_x_close":"press \u003ca href=\"#\" onclick=\"hideLightbox(); return FALSE;\"\u003e\u003ckbd\u003ex\u003c\/kbd\u003e\u003c\/a\u003e to close","download_link_text":"","enable_login":false,"enable_contact":false,"keys_close":"c x 27","keys_previous":"p 37","keys_next":"n 39","keys_zoom":"z","keys_play_pause":"32","display_image_size":"original","image_node_sizes":"()","trigger_lightbox_classes":"","trigger_lightbox_group_classes":"","trigger_slideshow_classes":"","trigger_lightframe_classes":"","trigger_lightframe_group_classes":"","custom_class_handler":"lightbox_ungrouped","custom_trigger_classes":"img.ibimage","disable_for_gallery_lists":1,"disable_for_acidfree_gallery_lists":true,"enable_acidfree_videos":true,"slideshow_interval":5000,"slideshow_automatic_start":1,"slideshow_automatic_exit":1,"show_play_pause":0,"pause_on_next_click":0,"pause_on_previous_click":1,"loop_slides":0,"iframe_width":600,"iframe_height":400,"iframe_border":1,"enable_video":0},"nice_menus_options":{"delay":"40","speed":"fast"},"extlink":{"extTarget":"_blank","extClass":0,"extSubdomains":1,"extExclude":"","extInclude":"","extAlert":0,"extAlertText":"This link will take you to an external web site. We are not responsible for their content.","mailtoClass":"mailto"},"viewsSlideshowSingleFrame":{"#views_slideshow_singleframe_main_Homepage_slider-block_1":{"num_divs":10,"id_prefix":"#views_slideshow_singleframe_main_","div_prefix":"#views_slideshow_singleframe_div_","vss_id":"Homepage_slider-block_1","timeout":"8000","sort":1,"effect":"fade","speed":"700","start_paused":0,"delay":"0","fixed_height":"1","random":"0","pause":"1","pause_on_click":"1","pause_when_hidden":0,"pause_when_hidden_type":"full","amount_allowed_visible":"","remember_slide":0,"remember_slide_days":"1","controls":"0","items_per_slide":"1","pager":"2","pager_type":"Numbered","pager_hover":"2","pager_click_to_page":0,"image_count":"0","nowrap":"0","sync":"1","advanced":"cleartype: true,\ncleartypeNoBg: true","ie":{"cleartype":"true","cleartypenobg":"false"}}}});
   //--><!]]>
   </script>
-
-
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_mapz.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
@@ -115,10 +109,6 @@
 <!-- SET FACEBOOK OPEN GRAPH APP ID -->
 <meta property="fb:app_id" content="321576251186267"/>
 
-
-
-
-   
 <script type="text/javascript">
 
   jQuery(document).ready(function ($) {
@@ -160,8 +150,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
-				
-		
+					
 	        });
 		$("#legend3 .legendtitle").click(function() {
 				$.fancybox.open('#studioinfo');
@@ -173,7 +162,6 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				
 	        });
 });
-
        
     function IntoView(elem)
 {
@@ -202,11 +190,9 @@ $(document).ready(function() {
 	
 });
 
-
 }); //end no conflict
 </script>
 <!--end-->
-
 
 <script language="javascript">
 <!--
@@ -227,12 +213,10 @@ function doSubmit(oForm) {
 }
 //-->
 </script>
-     
 
       <?php } ?>
       <?php  if (!$f) { ?>
-	 
-	    <?php print $styles; ?>
+	  <?php print $styles; ?>
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
       <?php print $scripts; ?>
@@ -243,7 +227,6 @@ function doSubmit(oForm) {
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-
       <script type="text/javascript">
       $.noConflict();
       jQuery(document)
@@ -270,7 +253,9 @@ function doSubmit(oForm) {
                   .find('a.frimage')
                   .removeClass("fancybox-thumbs");
           });
-          /*
+          
+		  
+		  /*
            *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
            */
           jQuery('.fancybox-thumbs')
@@ -319,21 +304,23 @@ function doSubmit(oForm) {
         <a href="#navigation" class="element-invisible element-focusable"><?php print t('Skip to navigation'); ?></a>
       <?php endif; ?>
     </div>
-    
+
     <!-- BEGIN HEADER -->
     <header id="header" role="banner" class="clearfix">
 
       <div id="event-info">      
+  
+        <?php print $language_region; ?>
+	
         <?php print $header; ?>
+        
       </div>
-
       <div class="tomap">	
         <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
           $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="To map" />';   
           print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
         ?>
       </div>
-      
     </header>
     <!-- END HEADER -->
     

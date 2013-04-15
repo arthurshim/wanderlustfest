@@ -207,12 +207,19 @@ function wanderlust_preprocess_node(&$vars, $hook) {
 function wanderlust_preprocess_page(&$vars, $hook) {
   if (isset($_SERVER['HTTP_HOST'])) {
     $domain = preg_replace('`^www.`', '', $_SERVER['HTTP_HOST']);
+    $subdomain = array_shift(explode('.', $domain));
+    if(isset($subdomain) && $subdomain == 'journal' ) {
+      $vars['head_title'] = str_replace("|", '', $vars['head_title']);
+    }
     
-    if ($subdomain = array_shift(explode('.', $domain))) {
+    if ($subdomain) {
       $vars['body_classes'] .= ' '. $subdomain;
     }
 
-
+ /* $domain = preg_replace('`^www.`', '', $_SERVER['HTTP_HOST']);
+  if($domain == 'journal') {
+  
+  }*/
     /*
    if($subdomain == 'oahu') {	
 	
@@ -552,6 +559,7 @@ function wanderlust_nice_menus_build($menu, $depth = -1, $trail = NULL) {
         //  drupal_set_message('<pre>' . print_r($term->description, 1) . '</pre>');
           $output .= '<li class="menu-' . $mlid . ' ' . $class . $first_class . $oddeven_class . $last_class .'">'. theme('menu_item_link', $menu_item['link']) .'<div class="termdescr">' . $term->description . '</div></li>'."\n";
         } else {*/
+  //drupal_set_message('<pre>' . print_r($menu_item['link'] , 1) . '<pre>');
           $output .= '<li class="menu-' . $mlid . ' ' . $class . $first_class . $oddeven_class . $last_class .'">'. theme('menu_item_link', $menu_item['link']) .'</li>'."\n";
   //      }
      

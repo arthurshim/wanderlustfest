@@ -32,6 +32,8 @@ regions[header] = Header
 regions[slidemain]= Slider
 regions[slides]= Slider Bottom
 
+regions[language_region]= Language
+
 regions[content] = Content
 regions[navigation] = Navigation
 regions[topnav]= Top Navigation
