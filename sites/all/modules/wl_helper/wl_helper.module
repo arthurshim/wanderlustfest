@@ -56,13 +56,28 @@ function wl_helper_init() {
  // }
 
 
-
+  if (isset($_GET['set_purl_base_domain']) && $_GET['set_purl_base_domain'] == '1') {
+    variable_set('purl_base_domain', 'http://' . wl_get_base_domain());
+  }
 
   global $user;
   $site = sites_get_current_site();
   // If current site is disabled, redirect to default site.
+  global $language;
+  $languages = language_list();
+  if($site->purl_prefix != 'squaw') {
+    $new_lang_code = 'en';
+    if (isset($languages[$new_lang_code])) {
+      $language = $languages[$new_lang_code];
+    }
+  } /*else {
+     $new_lang_code = 'en';
+     $language = $languages[$new_lang_code];
+  }*/
 
- // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+
+
+//  drupal_set_message('<pre>' . print_r($language->language, 1) . '</pre>');
   //purl_prefix
   //[extra_fields][field_event_hide][0] [value] => enabled
   if (!empty($site) && $user->uid != 1 && $user->uid != 4482) {
@@ -81,10 +96,8 @@ function wl_helper_init() {
     }
   }
 
-  if (isset($_GET['set_purl_base_domain']) && $_GET['set_purl_base_domain'] == '1') {
-    variable_set('purl_base_domain', 'http://' . wl_get_base_domain());
-  }
 
+//drupal_set_message('<pre>' . print_r(wl_get_base_domain(), 1) . '</pre>');
   // only read the cookie and redirect if we're not on one of the subdomains already, we're not on the splash page, and the user is not the superuser
 /*  if ($_GET['q'] != 'live-events-list.json') {
     global $user;

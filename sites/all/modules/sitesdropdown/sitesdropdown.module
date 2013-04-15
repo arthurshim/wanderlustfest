@@ -5,6 +5,9 @@ function sitesdropdown_init() {
   //   [field_event_image][0] [filepath]
 
 global $user;
+
+
+
   if ($user->uid == 1) {
  if(arg(0) == 'node') {
     //  $node = node_load(arg(1));
