@@ -15,7 +15,8 @@
 
 .journal #header{
   background: url('../images/blog-stamp.jpg') no-repeat #fffef8;
-  background-position: 22px 14px;
+  background-position: 22px 28px;
+  height: 147px;
 }
 
 .blog-logo{
@@ -24,6 +25,10 @@
 
 .journal .social-media-links{
   display: none;
+}
+
+.journal .tomap{
+  top: 37px;
 }
 
 .journal .tomap a{
