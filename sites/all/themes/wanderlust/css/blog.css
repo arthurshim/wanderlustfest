@@ -82,7 +82,8 @@ display: inline;
 
 .menu-path-taxonomy-term-236 a,
 .Inspiration a,
-.Inspiration{
+.Inspiration,
+.term236 a{
   color: #8f3271 !important; 
 }
 
@@ -94,7 +95,8 @@ display: inline;
 
 .menu-path-taxonomy-term-237 a,
 .Mindfulness a,
-.Mindfulness{
+.Mindfulness,
+.term237 a{
   color: #5c4182 !important;  
 }
 
@@ -107,7 +109,8 @@ display: inline;
 
 .menu-path-taxonomy-term-238 a,
 .Adventure a,
-.Adventure{
+.Adventure,
+.term238 a{
   color: #388687 !important;  
 }
 
@@ -120,7 +123,8 @@ display: inline;
 
 .menu-path-taxonomy-term-239 a,
 .Eco,
-.Eco a{
+.Eco a,
+.term239 a{
   color: #058042 !important;
 }
 
@@ -133,7 +137,8 @@ display: inline;
 
 .menu-path-taxonomy-term-240 a,
 .Nourish a,
-.Nourish{
+.Nourish,
+.term240 a{
   color: #c39d37 !important;  
 }
 
@@ -146,7 +151,8 @@ display: inline;
 
 .menu-path-taxonomy-term-241 a,
 .Community a,
-.Community{
+.Community,
+.term241 a{
   color: #d4793d !important;
 }
 
@@ -160,7 +166,8 @@ display: inline;
 
 .menu-path-taxonomy-term-242 a,
 .Yoga a,
-.Yoga{
+.Yoga,
+.term242 a{
   color: #d35651 !important;
 }
 
@@ -226,7 +233,7 @@ body.journal{
 --------------------------------*/
 
 .view-id-all_blog_posts.view-display-id-block_2 .views-field-title{
-   height: 50px;
+   height: 70px;
 }
 
 .view-id-all_blog_posts.view-display-id-block_2 .views-field-nothing{
@@ -250,7 +257,7 @@ body.journal{
 #block-views-all_blog_posts-block_2{
   background: url('../images/border-bg.png') top repeat-x; 
   padding-top: 10px;
-  margin-top: 8px;
+  margin-top: 20px;
 }
 
 * html + #block-views-all_blog_posts-block_2{
@@ -348,6 +355,10 @@ body.sidebar-right.journal #main{
 .view-all-blog-posts.view-display-id-page_1 .views-field-nothing{
 
 }
+
+#block-views-all_blog_posts-block_1 .view-all-blog-posts .views-field-nothing-1{
+  margin-bottom: 0px;
+  }
 
 .view-all-blog-posts .views-field-nothing-1{
   clear: both;

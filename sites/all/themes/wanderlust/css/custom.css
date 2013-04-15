@@ -2600,6 +2600,44 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   width: 733px;
 }
 
+
+/* MISC
+--------------------------------*/
+
 #main p{
   font-size: 14px;
+}
+
+
+/* LANGUAGE SWITCHER
+--------------------------------*/
+
+
+/* HIDE LANGUAGE SWITCHER FOR NON-ADMINS */
+.not-logged-in #block-locale-0{
+  display: none;
+}
+
+#block-locale-0{
+  position: absolute;
+  top: -10px;
+  width: 180px;
+}
+
+#block-locale-0 ul{
+  padding: 0;
+}
+
+#block-locale-0 li{
+  display: inline;
+  list-style: none;
+  margin-right: 10px;
+  font-weight: bold;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+#block-locale-0 li a{
+  font-weight: bold;
+  text-transform: uppercase;  
 }
