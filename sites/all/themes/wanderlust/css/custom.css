@@ -2641,3 +2641,40 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   font-weight: bold;
   text-transform: uppercase;  
 }
+
+/*
+ * Events list block 
+ */
+ 
+div.pane-events-list .views-field-title{
+  font-family: 'lhf_egyptianregular', arial !important;
+  text-transform: uppercase;
+  font-size: 22px;
+  text-align: center;
+  line-height: 1;
+  color: #fff;
+  padding: 5px 0 2px 0px;
+}
+
+div.pane-events-list{
+  float: left;
+}
+ 
+div.pane-events-list .view-events-list .views-row{
+  text-align: center;
+  margin-bottom: 20px;
+} 
+ 
+div.pane-events-list .view-events-list .views-row-1 .views-field-title{
+  background: #cc3e3f;
+}
+
+div.pane-events-list .view-events-list .views-row-2 .views-field-title{
+  background: #e67437;
+}
+div.pane-events-list .view-events-list .views-row-3 .views-field-title{
+  background: #cc8a2c;
+}
+div.pane-events-list .view-events-list .views-row-4 .views-field-title{
+  background: #006559;
+}

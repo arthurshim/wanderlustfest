@@ -13,6 +13,18 @@
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
   <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+<?php  global $language;
+    if($language->language == 'fr') { ?>
+  <style>  
+#emailClick {
+background: url('/sites/all/themes/wanderlust/images/site-sprite_fr.png');
+background-position: 0px -74px;
+height: 52px;
+width: 272px;
+margin: 0 auto;
+cursor: text;
+}<?php } else {} ?>
+</style>
   <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
@@ -100,7 +112,13 @@ _gaq.push(['_trackPageview']);
 
       <div id="event-info">      
         <?php print $header; ?>
-        <?php print $language_region; ?>
+        <?php
+	$site = sites_get_current_site();	
+	if($site->purl_prefix == 'tremblant') {
+	  $block = module_invoke('locale', 'block', 'view', 0);
+	  print '<div class="swlang">' . $block['content'] . '</div>';
+	}	
+	//print $language_region; ?>
         
       </div>
 
@@ -172,8 +190,22 @@ _gaq.push(['_trackPageview']);
 
   <!-- BEGIN FOOTER -->
   <footer class="footer clearfix">
-    <?php if($section_title != 'blog'){
-      print '
+    <?php
+     if($section_title != 'blog'){
+        global $language;
+        if($language->language == 'fr') {
+	       print '
+        <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
+        <div class="footer-links">' .
+          l('Politique de confidentialité', 'node/4080') . ' | ' . l('Conditions d\'utilisation', 'node/4079')
+       . '</div>
+        <div class="site-credits">
+          site web par  <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+        </div>
+      </footer>'; 	  
+	}
+	else {
+	       print '
         <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
         <div class="footer-links">
           <a href="/privacy-policy">Privacy Policy</a> |
@@ -182,7 +214,8 @@ _gaq.push(['_trackPageview']);
         <div class="site-credits">
           Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
         </div>
-      </footer>';
+      </footer>'; 
+	}  
     }else {
         $reasons__search = module_invoke('search', 'block', 'view', 0); 
       print '

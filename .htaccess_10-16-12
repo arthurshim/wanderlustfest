@@ -1,0 +1,94 @@
+
+IndexIgnore .htaccess */.??* *~ *# */HEADER* */README* */_vti*
+
+<Limit GET POST>
+order deny,allow
+deny from all
+allow from all
+</Limit>
+<Limit PUT DELETE>
+order deny,allow
+deny from all
+</Limit>
+AuthName wanderlustfestival.com
+
+
+RewriteEngine on
+RewriteBase /
+
+
+RewriteCond %{REQUEST_URI} !^/server-status
+RewriteCond %{REQUEST_URI} !^/plesk-stat
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+
+
+
+  ### BOOST START ###
+  AddDefaultCharset utf-8
+  FileETag None
+  <FilesMatch "(\.html|\.json)$">
+    <IfModule mod_headers.c>
+      Header set Expires "Sun, 19 Nov 1978 05:00:00 GMT"
+      Header set Cache-Control "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+    </IfModule>
+  </FilesMatch>
+  <IfModule mod_mime.c>
+    AddCharset utf-8 .html
+    AddCharset utf-8 .css
+    AddCharset utf-8 .js
+    AddCharset utf-8 .json
+  </IfModule>
+  <FilesMatch "(\.html)$">
+    ForceType text/html
+  </FilesMatch>
+  <FilesMatch "(\.json|\.js)$">
+    ForceType text/javascript
+  </FilesMatch>
+  <FilesMatch "(\.css)$">
+    ForceType text/css
+  </FilesMatch>
+
+  # NORMAL - Cached css & js files
+  RewriteCond %{DOCUMENT_ROOT}/cache/perm/%{SERVER_NAME}%{REQUEST_URI}_\.css -s
+  RewriteRule .* cache/perm/%{SERVER_NAME}%{REQUEST_URI}_\.css [L,QSA,T=text/css]
+  RewriteCond %{DOCUMENT_ROOT}/cache/perm/%{SERVER_NAME}%{REQUEST_URI}_\.js -s
+  RewriteRule .* cache/perm/%{SERVER_NAME}%{REQUEST_URI}_\.js [L,QSA,T=text/javascript]
+
+  # Caching for anonymous users
+  # Skip boost IF not get request OR uri has wrong dir OR cookie is set OR request came from this server OR https request
+  RewriteCond %{REQUEST_METHOD} !^(GET|HEAD)$ [OR]
+  RewriteCond %{REQUEST_URI} (^/(admin|cache|misc|modules|sites|system|openid|themes|node/add))|(/(comment/reply|edit|user|user/(login|password|register))$) [OR]
+  RewriteCond %{HTTP_COOKIE} DRUPAL_UID [OR]
+  RewriteCond %{HTTP:Pragma} no-cache [OR]
+  RewriteCond %{HTTP:Cache-Control} no-cache [OR]
+  RewriteCond %{HTTPS} on
+  RewriteRule .* - [S=2]
+
+  # NORMAL
+  RewriteCond %{DOCUMENT_ROOT}/cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html -s
+  RewriteRule .* cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.html [L,T=text/html]
+  RewriteCond %{DOCUMENT_ROOT}/cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.json -s
+  RewriteRule .* cache/normal/%{SERVER_NAME}%{REQUEST_URI}_%{QUERY_STRING}\.json [L,T=text/javascript]
+
+  ### BOOST END ###
+
+
+ 
+ 
+ 
+ 
+ 
+   
+RewriteCond %{HTTP_HOST} ^wanderlustfestival.com$ [NC]
+RewriteRule ^$ http://whistler.wanderlustfestival.com [L,R=301]
+
+#RewriteCond %{HTTP_HOST} .* www.wanderlustfestival.com$ [NC]
+#RewriteRule ^$ http://whistler.wanderlustfestival.com [L,R=301]
+
+RewriteCond %{HTTP_HOST} ^www.wanderlustfestival.com$ [NC]
+RewriteRule (.*) http://whistler.wanderlustfestival.com [R=301,L]
+
+
+ php_value memory_limit 300M

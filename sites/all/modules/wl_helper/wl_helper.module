@@ -65,7 +65,7 @@ function wl_helper_init() {
   // If current site is disabled, redirect to default site.
   global $language;
   $languages = language_list();
-  if($site->purl_prefix != 'squaw') {
+  if($site->purl_prefix != 'tremblant') {
     $new_lang_code = 'en';
     if (isset($languages[$new_lang_code])) {
       $language = $languages[$new_lang_code];

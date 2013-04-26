@@ -232,8 +232,175 @@ function wanderlust_preprocess_page(&$vars, $hook) {
     }    
     */
   }
+  
+  global $language;
+  
+  if($language->language == 'fr') {
+      $vars['connect'] = <<<EOF
+  
+  <div id="thankyou">Merci pour votre inscription! Vous devriez recevoir un email de confirmation sous peu.</div>
+  <div class="joincontent">
+        <form method='post' id="newsletter"  name='oi_form' action='/testmail.php'>
 
-  $vars['connect'] = <<<EOF
+    <table border="0" cellpadding="0" cellspacing="0">
+  
+      <tr>
+        <td colspan="2"><p class="title">Wanderlust liste Inscription postale</p></td>
+      </tr>
+      <tr>
+        <td width="180" valign="middle" style="padding:2px; ">Email*<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Nom de baptême<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Nom de famille<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">État / Province<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='State/Prov' size='1' id="state">
+          <option value=''></option>
+          <option value="">------ USA ------</option>
+                  <option value='AL' >AL</option>
+                  <option value='AK' >AK</option>
+                  <option value='AZ' >AZ</option>
+                  <option value='AR' >AR</option>
+                  <option value='CA' >CA</option>
+                  <option value='CO' >CO</option>
+                  <option value='CT' >CT</option>
+                  <option value='DE' >DE</option>
+                  <option value='DC' >DC</option>
+                  <option value='FL' >FL</option>
+                  <option value='GA' >GA</option>
+                  <option value='HI' >HI</option>
+                  <option value='ID' >ID</option>
+                  <option value='IL' >IL</option>
+                  <option value='IN' >IN</option>
+                  <option value='IA' >IA</option>
+                  <option value='KS' >KS</option>
+                  <option value='KY' >KY</option>
+                  <option value='LA' >LA</option>
+                  <option value='ME' >ME</option>
+                  <option value='MD' >MD</option>
+                  <option value='MA' >MA</option>
+                  <option value='MI' >MI</option>
+                  <option value='MN' >MN</option>
+                  <option value='MS' >MS</option>
+                  <option value='MO' >MO</option>
+                  <option value='MT' >MT</option>
+                  <option value='NE' >NE</option>
+                  <option value='NV' >NV</option>
+                  <option value='NH' >NH</option>
+                  <option value='NJ' >NJ</option>
+                  <option value='NM' >NM</option>
+                  <option value='NY' >NY</option>
+                  <option value='NC' >NC</option>
+                  <option value='ND' >ND</option>
+                  <option value='OH' >OH</option>
+                  <option value='OK' >OK</option>
+                  <option value='OR' >OR</option>
+                  <option value='PA' >PA</option>
+                  <option value='RI' >RI</option>
+                  <option value='SC' >SC</option>
+                  <option value='SD' >SD</option>
+                  <option value='TN' >TN</option>
+                  <option value='TX' >TX</option>
+                  <option value='UT' >UT</option>
+                  <option value='VT' >VT</option>
+                  <option value='VA' >VA</option>
+                  <option value='WA' >WA</option>
+                  <option value='WV' >WV</option>
+                  <option value='WI' >WI</option>
+                  <option value='WY' >WY</option>
+          <option value="">----- CANADA -----</option>
+                  <option value='AB' >AB</option>
+                  <option value='BC' >BC</option>
+                  <option value='LB' >LB</option>
+                  <option value='MB' >MB</option>
+                  <option value='NB' >NB</option>
+                  <option value='NF' >NF</option>
+                  <option value='NS' >NS</option>
+                  <option value='NT' >NT</option>
+                  <option value='ON' >ON</option>
+                  <option value='PE' >PE</option>
+                  <option value='QC' >QC</option>
+                  <option value='SK' >SK</option>
+                  <option value='YT' >YT</option>
+          <option value="">---------------</option>
+          <option value='Other' >OTHER</option>
+          </select></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
+        <td valign="middle" style="padding:2px; "><input type='text' name='ZipCode' id="postal_code" /></td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Pays<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='Country' size='1' id="country">
+            <option value=''></option>
+            <option value='United States' >United States</option>
+            <option value='Canada' >Canada</option>
+            <option value='Chile' >Canada</option>            
+            <option value='Other' >OTHER</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; ">Auquel cas la plupart vous intéresse?</td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='EventName' size='1' id="EventName">
+            <option value=''></option>
+            <option value='ALL' >Tous les événements</option>
+            <option value='VT' >Wanderlust Vermont</option>
+            <option value='CA' >Wanderlust California</option>
+            <option value='CO' >Wanderlust Colorado</option>
+            <option value='BC' >Wanderlust Whistler</option>
+            <option value='CH' >Wanderlust Chile</option>
+            <option value='HI' >Wanderlust O'ahu</option>
+            <option value='NYC' >Yoga in the City NYC</option>
+            <option value='LA' >Yoga in the City LA</option>
+            <option value='SF' >Yoga in the City SF</option>
+          </select>
+        </td>
+      </tr>      
+      <tr>
+        <td valign="middle" style="padding:2px; ">
+          Comment avez-vous entendu parler de nous? </td>
+        <td valign="middle" style="padding:2px; ">
+          <select name='HearAbout' size='1' id="country">
+            <option value=''></option>
+            <option value='friend' >Un ami m'a dit</option>
+            <option value='teacher' >Un professeur m'a dit</option>
+            <option value='studio' >À mon studio</option>
+            <option value='magazine' >In a magazine</option>
+            <option value='website' >Dans un magazine</option>
+            <option value='blog' >Dans un blog ou un autre site</option>
+            <option value='poster' >Vu une affiche ou un dépliant</option>
+            <option value='bannerad' >Vu une bannière publicitaire</option>
+            <option value='other' >Autre</option>
+          </select>        
+        </td>
+      </tr>
+      <tr>
+        <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
+          <input type='hidden' name='goto' value='' />
+          <input type='hidden' name='iehack' value='&#9760;' />
+        </td>
+        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Souscrire' /></td>
+      </tr>
+   
+</table>
+   </form>
+ </div>
+EOF;
+  }
+  else {
+      $vars['connect'] = <<<EOF
   
   <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
   <div class="joincontent">
@@ -395,6 +562,9 @@ function wanderlust_preprocess_page(&$vars, $hook) {
    </form>
  </div>
 EOF;
+    
+  }
+
 }
 
 
@@ -567,4 +737,8 @@ function wanderlust_nice_menus_build($menu, $depth = -1, $trail = NULL) {
     }
   }
   return $output;
+}
+
+function wanderlust_preprocess_panels_pane(&$vars) {
+  $vars['title'] = t($vars['title']);
 }

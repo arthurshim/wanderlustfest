@@ -95,7 +95,14 @@ _gaq.push(['_trackPageview']);
     <header id="header" role="banner" class="clearfix">
 
       <div id="event-info">      
-        <?php print $language_region; ?>
+            <?php
+	$site = sites_get_current_site();	
+	if($site->purl_prefix == 'tremblant') {
+	  $block = module_invoke('locale', 'block', 'view', 0);
+	  print '<div class="swlang">' . $block['content'] . '</div>';
+	}	
+	//print $language_region; ?>
+	
         <?php print $header; ?>
       </div>
 

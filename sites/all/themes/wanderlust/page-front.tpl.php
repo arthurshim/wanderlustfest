@@ -310,15 +310,27 @@ function doSubmit(oForm) {
 
       <div id="event-info">      
   
-        <?php print $language_region; ?>
+          <?php
+	$site = sites_get_current_site();	
+	if($site->purl_prefix == 'tremblant') {
+	  $block = module_invoke('locale', 'block', 'view', 0);
+	  print '<div class="swlang">' . $block['content'] . '</div>';
+	}	
+	//print $language_region; ?>
 	
         <?php print $header; ?>
         
       </div>
       <div class="tomap">	
-        <?php  /* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
+        <?php
+		if(  $language->language == 'en'){
+		/* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
           $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="To map" />';   
           print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
+		  } else {
+		  $im = '<img src="/sites/all/themes/wanderlust/see-all-events-v2_fr.png" alt="To map" />';   
+          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
+		  }
         ?>
       </div>
     </header>
@@ -518,6 +530,7 @@ var $body = $('body'),
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
   
   <!-- BEGIN DIV CLASS="MARK" -->
+  <a href="http://<?php print $site->purl_prefix . '.' . $base?>">
   <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
     <div class="icon"></div>
   
@@ -621,7 +634,7 @@ var $body = $('body'),
   <!-- END DIV CLASS="MARK"-->
   
 	</div>
-	
+</a>		
 	
 	
 	
@@ -631,7 +644,8 @@ var $body = $('body'),
   elseif($class == 'studio' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
       
 	
-	<!-- BEGIN STUDIO MARKERS -->	      
+	<!-- BEGIN STUDIO MARKERS -->	
+	<a target="_blank" href="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
     <div class="icon"></div>
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
@@ -661,6 +675,7 @@ var $body = $('body'),
 	
     </div>
 	</div>	
+	</a>
 	  <?php } ?>
 	  
 	  <?php endforeach;  ?>
@@ -864,7 +879,6 @@ var $body = $('body'),
     else{
     }
 
-    
   ?>
     
     
@@ -876,12 +890,27 @@ var $body = $('body'),
   <footer class="footer clearfix">
     <div class="copy">&copy; <?php echo date("Y"); ?> Wanderlust Festival LLC.</div>
     <div class="footer-links">
+    <?php  
+    global $language;
+    if($language->language == 'fr') { ?>
+	 <?php print l('Conditions d\'utilisation', 'node/4079'); ?> |
+	  <?php print l('Politique de confidentialit&#233', 'node/4080', array('html' => true)); ?> 
+      <?php } else { ?>
       <a href="<?php global $base_url; print $base_url; ?>/terms-of-use">Terms of Use</a> |
-      <a href="<?php print $base_url; ?>/terms-of-use">Terms of Use</a>
+	  <a href="<?php global $base_url; print $base_url; ?>/privacy-policy">Privacy Policy</a> 
+  
+      <?php } ?>
     </div>
+	<?php  
+
+    if($language->language == 'fr') { ?>
     <div class="site-credits">
+      site web par <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
+    </div> <?php } else {?>
+	<div class="site-credits">
       Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
     </div>
+	   <?php } ?>
   </footer>
   <!-- END FOOTER -->
 
