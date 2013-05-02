@@ -1,0 +1,2642 @@
+commit e40fc73cf8befec55f08e7860194ae73a53abdc6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 8 19:13:26 2013 +0000
+
+    new social tracking code for GA
+
+commit e95e1e1fdf2ae5d0d31036b117bae9d7e34df81f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 8 19:02:54 2013 +0000
+
+    changed blog sidebar width
+
+commit 4c648a878c36c9a63292355eee20703913dfc3f0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 8 18:56:45 2013 +0000
+
+    page wide font size change
+
+commit 33ca65066e7aee2632e93d8cceb6d2f5af5c6d37
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 8 18:55:30 2013 +0000
+
+    added nav to page-wide
+
+commit bba1e44efebee4c2299c1827195a7e00274e1ff4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Apr 2 22:48:19 2013 +0000
+
+    sponsor logs
+
+commit f9fcfa3f99b7abead85c9cef79548faba051889a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Apr 2 22:39:08 2013 +0000
+
+    new sponsor logs on page front
+
+commit 64a645341f9236312d2e84f433827cd8f4d8affc
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Apr 2 22:38:53 2013 +0000
+
+    new sponsor logos on yitc sites
+
+commit 97dfe22c4aa572da065d7c02701c2f55694f040c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Apr 2 16:58:38 2013 +0000
+
+    new splash styyles for blog button in ff
+
+commit 5f9bad486a5fb838605b6345620129c5bdfaeb7b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 1 15:40:57 2013 +0000
+
+    new homepage styles
+
+commit 96b0dccb153f4e7e26b91258a512c228a31b3681
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 1 15:39:22 2013 +0000
+
+    new homepage styles
+
+commit dff28e311edb15e933c5ceb4e5fdfc93121a7779
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Apr 1 13:11:36 2013 +0000
+
+    added blog
+
+commit 31d64371ab60d543588f607863be7ff90ed4ae03
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Mar 30 15:34:08 2013 +0000
+
+    update git ignore
+
+commit 5176beab0d9075c61c73c4798c1ed11a028ba550
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Mar 30 14:43:31 2013 +0000
+
+    update menu and studio markers
+
+commit f1d1b6ca6275b864f1451e490fdebefddc2e244b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:23:39 2013 +0000
+
+    new blog chakra menu styles
+
+commit acccd15dc143769e502ed761b488d7625c7155de
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:21:03 2013 +0000
+
+    added see all blog img
+
+commit 5846e36f9bf048bc8207ee4821a214c2c02c7e08
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:19:46 2013 +0000
+
+    new blog view all locations image
+
+commit 69d4d890d192ad13e841dabd838c3fc6d8665402
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:09:56 2013 +0000
+
+    new blog styles
+
+commit 669e37c90e9ba02bdd2c21e161bbd7aa4123016d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:05:25 2013 +0000
+
+    new blog link on splash
+
+commit 3fbff8f30b7922c19aac1a53aca289f62c1cff62
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 22:05:09 2013 +0000
+
+    new blog color coding
+
+commit e74699bd81a1030d4219fa0ad937f35138c38601
+Merge: 0e8a46b 1d871f5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 21:19:48 2013 +0000
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0e8a46bfab21d73e7a46a2b5cab6016b470d4f98
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Mar 28 21:18:17 2013 +0000
+
+    blog
+
+commit 1d871f57d3b076a0e7e7b25e63afbc28c8a022a2
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Mar 26 10:38:26 2013 -0500
+
+    changed chicago flag placement
+
+commit 55a7a968fe33d28a1734006aff13e03d352eefce
+Merge: 93de1fb 75d7e74
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Mar 26 09:44:51 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 75d7e74f5c7186ef4a70eb335409333916495a8d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Mar 26 14:40:59 2013 +0000
+
+    add if hidden to splash for studio
+
+commit 93de1fb425aebe08d86bbc2f45348260914a2190
+Merge: d66e644 ded635a
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Mar 25 17:49:03 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ded635ac05642512ddd9a13986cfc031cf0aedf7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Mar 25 22:43:48 2013 +0000
+
+    new spacing for yitc nav
+
+commit d66e644eef313f96a5c69ed324a3827ec5007907
+Merge: 31c332c 7738097
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Mar 25 17:31:24 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 7738097befea77d7cc92af8f2090bffc604840ab
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Mar 25 22:28:47 2013 +0000
+
+    ad default
+
+commit a83623f93bc4bee74a094b6d82efa4cc7c9b5af7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Mar 25 19:54:39 2013 +0000
+
+    ads site specific query and search
+
+commit 31c332c6d0771c0928672bbb04a4ec8d35c2a808
+Merge: 5d6c243 51d507a
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Mar 22 10:51:21 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 51d507ac59f0bcc98a984b0f72b1a5fa00d32b12
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Mar 22 15:50:55 2013 +0000
+
+    wl helper and splash
+
+commit 5d6c24352a847a23728c260194775f4abc47c429
+Merge: ece53b6 15d0858
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Mar 22 08:40:34 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 15d085872c484e9b1a81753816df5a05fcf13319
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Mar 22 13:28:23 2013 +0000
+
+    search default sites fixes
+
+commit 26b066dd6dfd496905af4606b24d75676807ba79
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Mar 19 06:25:41 2013 +0000
+
+    blog and fix to splash
+
+commit ece53b64bd6e73bd696c49659d5e95a6cb33a831
+Merge: 956f3be 26b066d
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Mar 19 01:24:57 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 956f3be3e7e28020f0825be32f52537bccabe29c
+Merge: 7a6a9d4 3c4696c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Mar 15 22:08:54 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 3c4696ce3141e7d4ae78a404a2bd5f3ccf790880
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Mar 16 01:00:34 2013 +0000
+
+    new blog changes
+
+commit 33b4f695d36e2460646258d2b45dd37d6add706e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Mar 16 00:57:30 2013 +0000
+
+    rm splash-copy.css
+
+commit f996daa2af31aa0a36c878193c8af47cf91a4591
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Mar 16 00:56:34 2013 +0000
+
+    new changes to splash map markers innersites and popups
+
+commit 7a6a9d4d7487466c5fe4449b449cdb12dddc2e7c
+Merge: c265560 e03f483
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Mar 13 09:16:39 2013 -0500
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit e03f48330d1cedb103f666e01f6ab89ff06651a6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Mar 13 14:00:20 2013 +0000
+
+    some css and empty dates text on markers
+
+commit c2655609871340f4f7ef411fb80fc1e8c10aca96
+Merge: cb2e31e 8159113
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Feb 27 17:49:20 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 815911302fa5ec9dcf1c3be0bda71cb561d2914f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Feb 27 23:46:15 2013 +0000
+
+    fix
+
+commit cb2e31e7b48c64a8a1e47af590dc002401b17654
+Merge: d686bfd 3dc6c27
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Feb 27 13:50:16 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 3dc6c270292f6dc4947f029acb3b769c8ef8ea02
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Feb 27 19:38:15 2013 +0000
+
+    changed css for sprite
+
+commit 7ddd5f0700618d74fc521c911ef9637eaeab418d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Feb 27 19:28:44 2013 +0000
+
+    commented animation
+
+commit db65760f102466f84d1137f8c13b96a74c35fa61
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Feb 27 18:51:09 2013 +0000
+
+    merge this
+
+commit e5b1628b4047658dbc79f413430a97dea2d03e9e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 18 17:19:58 2013 +0000
+
+    fix map add buy now links fix sitesdrop down
+
+commit d686bfd082735d16c16fb3315749affa42f5244e
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 12 17:19:54 2013 -0600
+
+    changed heading 2 style arthur
+
+commit d3cf4ffb232c069cb38e7e871d1e4721dc0fc283
+Merge: f7b04d4 665cda9
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sun Feb 10 19:03:29 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 665cda9d3e4673ddf175265870fc9b96821d5953
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 11 01:01:24 2013 +0000
+
+    git ignore
+
+commit f7b04d474b07b035d7d9414a46ba7eb201b15722
+Merge: ce6ed7e 9028178
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sun Feb 10 18:53:19 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 9028178b6b434de913bb489c53b42ff13423d0b0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 11 00:28:36 2013 +0000
+
+    uncheck box and unset cookie
+
+commit f7d6bc1a8a97653dc160736b9b155b707f4a2367
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 9 16:34:55 2013 +0000
+
+    revert uncheck
+
+commit d85861585cf4e5b573c94ce5389bc98dab892f3d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 9 16:23:59 2013 +0000
+
+    uncheck cookies
+
+commit d01a7b1b05fc28208c27de3c690f4fea1f7c3761
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 8 20:46:23 2013 +0000
+
+    modified gitignore to include htaccess arthur
+
+commit 07f3793fb878720121f1c32e12b5d35ba4521afc
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 8 20:11:59 2013 +0000
+
+    new splash tweaks arthur
+
+commit 5385c9281e915a79e6736c92ca91cb536ea69c28
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Feb 6 15:12:25 2013 +0000
+
+    png fix some mobile styles
+
+commit 383956c37ad1fd3cd83755734109dae45ebb5637
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:54:45 2013 +0000
+
+    added another instance of jq inside document ready
+
+commit 171cc19d7100881a937a5a5da38b12aa08ce8643
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:51:02 2013 +0000
+
+    jq
+
+commit ce6ed7eba6e93a9fb3094b56d71375e3ce9a077e
+Merge: 5151a8d 171cc19
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 5 10:50:59 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 5151a8d7a1ba11c043363e22ad05191ab2fca7de
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 5 10:49:52 2013 -0600
+
+    new htaccess redirect arthur
+
+commit 3a14688e20e5135e2eee2f9c8ccb53388de2b058
+Merge: 38c87f2 639334b
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 5 10:49:18 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 639334b2b5c4d608c58b3be31faf2c98c52f243f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:48:37 2013 +0000
+
+    jq
+
+commit 38c87f2aa75f481c8eaf60941cc79d7b0396858f
+Merge: 60ea8ec 0690067
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 5 10:46:32 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 069006763e3f76ae8d2505032dca498af102ee42
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:45:07 2013 +0000
+
+    remove $jq on videos
+
+commit 60ea8ec5b822de1a781e345935f2a1f51f11a850
+Merge: bfdfc14 2f0453c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Feb 5 10:39:48 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2f0453c153c884da9e70358c5b41e57c7dd931d2
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:39:45 2013 +0000
+
+    no conflict
+
+commit d981c58ce961a7e0c523c2523d92cda40d5b12dd
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 16:30:27 2013 +0000
+
+    js fix robots and lineup page
+
+commit bfdfc146cf542673e76b4d8acc6980c824ca6c5d
+Merge: 54e1770 ecf399c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 21:12:27 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ecf399c2583b4d2def1d00ba15d8ffa38d860bfa
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 03:09:35 2013 +0000
+
+    no conflict
+
+commit 54e1770662cc4f2d1a76de40aced770fb5c7e6ce
+Merge: 3e274e7 0d13ed3
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 20:07:22 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0d13ed33e2f1b0e7658db474a59966dbbaee96df
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 01:47:27 2013 +0000
+
+    51% splash fix
+
+commit 40a86b6febcf4f7e11070965db3c8190699e88d3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 01:18:59 2013 +0000
+
+    hovers
+
+commit d3cba30b227b97090440ef34463a381820c0852d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 00:47:54 2013 +0000
+
+    new artist css arthur
+
+commit 3e274e736c0b9e174cd05e49fa26d8779a3cf954
+Merge: 3d52839 d3cba30
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 18:47:46 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 45523bb33900433baffcd810679f6d1bf768d6eb
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Feb 5 00:45:39 2013 +0000
+
+    new artist css arthur
+
+commit 3d5283953280e43e44784cdad585f04265102acf
+Merge: 2bcc867 45523bb
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 18:45:35 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2bcc8678c656fec54d334f4b60bc386b5a3048c6
+Merge: ce4e5e1 3218e4b
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 17:00:24 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 3218e4b45ee5ad4b4a529470e89016ca99f6738d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 22:59:57 2013 +0000
+
+    new changes arthur
+
+commit ff4be5002fb691314d15dd90cb3a58eb1d31bd76
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 21:35:13 2013 +0000
+
+    changed effect for thank you arthur
+
+commit 800a06178cb35111a4635951913929025c225c00
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 21:24:18 2013 +0000
+
+     changes to fb og arthur
+
+commit ce4e5e14888f05cd1019b909df595a6a180ddf7c
+Merge: 72bf6a3 800a061
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 15:24:11 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 26ae25da67e613ff795e6bfd58a520c73f752872
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 21:22:40 2013 +0000
+
+     changes to fb og arthur
+
+commit 72bf6a3c532a62df043941a707ca9950a462ac9a
+Merge: 578ca23 26ae25d
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 15:22:32 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 04a31bcaa5369c1c5d3f7a770ef26f268a5418c8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 21:09:01 2013 +0000
+
+    css tewaks arthur
+
+commit 578ca238fb7e2694a2e7e930ee66e1b031bbb0b8
+Merge: ff20f97 04a31bc
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 15:08:51 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 32f2e897b77a272443057ce8c44822a47caa48bf
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 20:58:06 2013 +0000
+
+    artist node update arthur
+
+commit ff20f97979f33d6f2583fc0a7d3a6334c3e04e90
+Merge: eb00ccf 32f2e89
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 14:57:53 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit bab18a7f6a6f75902d57226055662e7d688eeb3a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 20:56:24 2013 +0000
+
+    artist node update arthur
+
+commit eb00ccf9fc890b77385a3e6cc2a8cd22ad490c5e
+Merge: 604a948 bab18a7
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 14:56:13 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 59359346688ae2a029f78855c9a7d109b8e4dfb6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 20:39:31 2013 +0000
+
+    panels changes alex
+
+commit 604a94883e98ff9aab14e5f3f2868f918390a295
+Merge: 5cba9cc 5935934
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 14:39:22 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 4085770458f7998c18775e5d6e96fe2ad65a8580
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 20:38:07 2013 +0000
+
+    new changes arthur
+
+commit 5cba9ccd026b875759c0e06004aba0a747d1de42
+Merge: 839a54d 4085770
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 14:37:58 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit b8e5c2a24d253bd99e54d7e8a8dba598d93b18b5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 18:59:35 2013 +0000
+
+    added how did you hear about us fields to email arthur
+
+commit af3fd64b74e0c3802fde42e338763611153c61e3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 18:09:36 2013 +0000
+
+    new splash css arthur
+
+commit 839a54d700db195ffd97914b561c7b5f508e98fd
+Merge: 7cbe0a2 af3fd64
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 12:09:25 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0435c3ec63765b3f8d34fbd6900475f9bfed0d48
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 18:08:18 2013 +0000
+
+    new splash css arthur
+
+commit 7cbe0a26285992a0629fb7b957fafb3a91f785e1
+Merge: 65938d4 0435c3e
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 12:08:09 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit a370aa4fa70495548915adb781ac821ee173e0db
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 17:59:55 2013 +0000
+
+    changes to splash css arthur
+
+commit 65938d4d64cd338e519765bb5ba8f9d14dec3201
+Merge: 2be0365 a370aa4
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 11:59:48 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 681d685d9b3c08d7e4da4cf578e59988b3d9cc1a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 17:38:54 2013 +0000
+
+    line height chnage on artist-landing1 arthur
+
+commit 2be0365646f45e205ed79dfba24b9b1b1ab8038e
+Merge: 0efc4b6 681d685
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 11:38:54 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0efc4b6f4ca28794efad652f8fefb248334fca36
+Merge: 896e793 9c7933c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Mon Feb 4 09:00:32 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 9c7933cacfee0c9fb2f62454bef8c8960ce5add3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Feb 4 15:00:07 2013 +0000
+
+    new footer code arthur
+
+commit f0851141bcdd70cf3b858a99949e24230f9767e6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 05:03:01 2013 +0000
+
+    new page-front backups arthur
+
+commit 5464375f6395962746b409d7a7ba3de5e90fa70a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 05:02:28 2013 +0000
+
+    new page-front backups arthur
+
+commit c89e485f491336684d90aa2951e8e61aec09c6ae
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 05:01:03 2013 +0000
+
+    changed where will your wanderlust image arthur
+
+commit 4051adc5d605662b119d910b0afa48218cf8b3ec
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 04:44:26 2013 +0000
+
+    new page front backup arthur
+
+commit 896e7937f298efff34e1b129b28c6f4e124ea38f
+Merge: 1032175 4051adc
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 22:44:24 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 14d4da9de7b6739225384a8742abb6b2da940e02
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 04:43:18 2013 +0000
+
+    added ie7.css arthur
+
+commit 2cf01690fa28418410f61ea2a510d2c285bcdfd1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 04:42:51 2013 +0000
+
+    tidyed up page-front arthur
+
+commit 68bd3277c5159360b7c8361c9661b3da1144a174
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 04:23:31 2013 +0000
+
+    changed splash page hover html and js arthur
+
+commit 103217591819b6e13ff2912bb7c5e0a69e0e6680
+Merge: b053416 68bd327
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 22:23:26 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit b0534167b6d1b7230cacd7509b028bda7cfbaca1
+Merge: 558b3f6 7b65a57
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 20:09:00 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 7b65a574d235768191475663703dac7d8aa520a9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 02:08:29 2013 +0000
+
+    video fixes for homepage arthur
+
+commit f374720ea91d1fe663d2300ddc289395fcfe7192
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 02:07:00 2013 +0000
+
+    video fixes for homepage arthur
+
+commit 558b3f661df33ac237768e28ae3ef39384693e71
+Merge: d9af46e f374720
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 20:06:52 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 86132273ac757d191a0e91608b6cf457c8ceaec0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 02:02:18 2013 +0000
+
+    video fixes for homepage arthur
+
+commit d9af46e8a19e18f491a9c9f0f32ff6eb1bc059f2
+Merge: 796f23f 8613227
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 20:02:08 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 6fa2689e084dbabdadb31a6c819005368d370d84
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 01:47:21 2013 +0000
+
+    video fixes for homepage arthur
+
+commit 796f23ffead62a905ca6714b414172906610b70e
+Merge: 60e97ad 6fa2689
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 19:47:13 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0c0b03ea2bd28458185d7370ea435ba567b1c239
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 01:45:25 2013 +0000
+
+    video fixes for homepage arthur
+
+commit 60e97adc0f7399f1e9550ea44d43e27e7958a4c6
+Merge: 37d7928 0c0b03e
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 19:45:17 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 6a66d0c35f539e2b44f302fd6d91e68717cb9789
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 01:44:01 2013 +0000
+
+    video fixes for homepage arthur
+
+commit 37d792891f530116c4aa05b9973a6fe4475a9fe4
+Merge: 2224efa 6a66d0c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 19:43:53 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2224efa4ea671f755ca1e56dc605f6ec477034f6
+Merge: 5b31de5 0fa1fdc
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 19:42:21 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 0fa1fdc55a5a8ddad747c3d2b5b9a2245bcddf80
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Feb 3 01:40:54 2013 +0000
+
+    fixed homepage slideshow video issue arthur
+
+commit d0636549b605ee513457195318327b4b932b0acd
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 22:44:45 2013 +0000
+
+    css arthur
+
+commit 5b31de5ac93d893b2717e975058dfe759838a270
+Merge: 2b40321 d063654
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 16:44:42 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ae18ec44cd640a2795253c6256131803c0c92b4d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 22:23:33 2013 +0000
+
+    css changes arthur
+
+commit 2b40321b7545b47c10896d51a95db44464e1ef77
+Merge: ef561cc ae18ec4
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 16:23:27 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit c958785e8c3be0179c150044a3e19ca109a0ebb1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 22:18:13 2013 +0000
+
+    css changes arthur
+
+commit ef561cce3041190faf1f973d830cf5e69a5d3080
+Merge: 89c29b0 c958785
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 16:18:08 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 6a692298a1e8e65eb8a485714a0e76126679ce3c
+Merge: d4db577 d9bfa85
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 21:51:09 2013 +0000
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit d4db57746fc769788c2666da8f10d0fe48b89361
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 21:48:53 2013 +0000
+
+    arthurs changes start of ajax curl alex
+
+commit 89c29b0b2cd4d3e1b8cc7d1160929c049330c2c3
+Merge: 65e8c93 008cb7e
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 15:07:20 2013 -0600
+
+    Merge branch 'master' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit d9bfa85b62f26de75650857c988ff165145110eb
+Merge: 65e8c93 008cb7e
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 15:04:47 2013 -0600
+
+    Merge branch 'master' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 65e8c9307bda95cabace6bbd7a6b2299bc40fb1a
+Author: nohup <rahul@nohup.in>
+Date:   Sat Feb 2 15:04:08 2013 -0600
+
+    Aggregated file name patch, removes query string from md5
+
+commit 008cb7e3be95e3113c30b095eb2587b8d91e4034
+Author: nohup <rahul@nohup.in>
+Date:   Sat Feb 2 14:54:11 2013 -0600
+
+    Aggregated file name patch, removes query string from md5
+
+commit 614288e87372b2eb38f91e19985d4fc8205b899f
+Merge: 8b5f468 8aa51c3
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Feb 2 14:22:20 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 6aae0622342e97c75b9720a916dafd51eea4d46e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 19:25:25 2013 +0000
+
+    new fb og img arthur
+
+commit 8ca2e5014e9774fcb44a4179648048dd42758f1e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 19:25:08 2013 +0000
+
+    new fb meta tags arthur
+
+commit 8aa51c3806f2e75acbdfd4fbd65a503fbe9ceba7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 18:38:29 2013 +0000
+
+    added wanderlustfestival as subdomain, tweaked festivals bl div arthur
+
+commit ac046159f6dff4a1b9e53b47a6555bdc455e0bcb
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 17:11:27 2013 +0000
+
+    splash: moved toolbar code underneath markers in page-front,fixed ie hover animations for markers, added modernizr js to wanderlust.info arthur
+
+commit fde8df56b7162c26cb805b0ecb1e266ad55cd48e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 05:02:42 2013 +0000
+
+    commiting all changes arthur
+
+commit c457fd8d4ed4e9ccf3af1afa2b2f8bd25a218425
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 05:02:24 2013 +0000
+
+    new page-front backup arthur
+
+commit bec554b8fa64e32469f9ed00690363486ec06db9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 05:01:55 2013 +0000
+
+    modified htaccess arthur
+
+commit 5fb799229cf927ba340678a4d33150c50a6a8a6b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 04:59:30 2013 +0000
+
+    new animation for ie arthur
+
+commit b91d6e8f98aa5eb7eb1c64d66ad2dc73d2c24af1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 04:33:03 2013 +0000
+
+    new ie fallback animations arthur
+
+commit 5e5892d654b573c2a601e95b38ca19571ee835e2
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 04:32:11 2013 +0000
+
+    added modernizr script arthur
+
+commit ba2b37574371b3da33eae0d1ff854e910f0aea80
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 04:31:54 2013 +0000
+
+    new mark animation fallback for ie arthur
+
+commit edbf31d1d1a725db26fba22a49c108758fc7917e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Feb 2 04:31:35 2013 +0000
+
+    css tweaks arthur
+
+commit 8b5f468ff2bd53c113a121a66999edb58e10bc81
+Merge: 16c351f 79da412
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 16:35:49 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 79da412b2a35c9506621682d1b77e8745c3da0e2
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 20:39:29 2013 +0000
+
+    made innersite clickable arthur
+
+commit 1729d788abd5acf56e8ea243ca11a97915dce409
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 20:22:00 2013 +0000
+
+    added address fields to header arthur
+
+commit a6512a10332c1180364fa53d5d5c720655b977b1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 19:34:38 2013 +0000
+
+    page-front
+
+commit 3f366419237f08a57da83d7ddd364639ffe9fd5f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 19:33:14 2013 +0000
+
+     js fixesto email and redirect
+
+commit bef477e3293b49045c722f39d3e5ca79faf0c4a5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 19:26:12 2013 +0000
+
+    css changes
+
+commit 17678a81e6e60cd47ef9546c64e2d457001c03e3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 17:49:33 2013 +0000
+
+    css tweak arthur
+
+commit 16c351f47945fb344f84a71df90fdb074cc2275a
+Merge: c108f53 17678a8
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 11:49:31 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit fb92bd1cae8b1e3164db5f5249e59c4f6490b9b4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:46:15 2013 +0000
+
+    css tweak arthur
+
+commit c108f53d6214a75464818ec0a9649790594a79fa
+Merge: 19fdafb fb92bd1
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:46:13 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 19fdafb0bfb7c2598e747783e3c0b92973519e16
+Merge: 1226066 db075df
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:44:48 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit db075df77db2d94ff8fc265bbdf54c253560ae21
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:44:45 2013 +0000
+
+    css tweak arthur
+
+commit 1da81bc3ae96062046c221af3b07fef0f4b5863e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:21:38 2013 +0000
+
+    css tweak arthur
+
+commit 12260662e0e237290f4e7d82c77a21be5469eba7
+Merge: c4d8afb 1da81bc
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:21:34 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ea59c11b990d466c605b3ab4e7ba2cfb4c300613
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:20:29 2013 +0000
+
+    css tweak arthur
+
+commit c4d8afb0ca0b158244d296bea29673ddb40c1070
+Merge: 7f2a6f9 ea59c11
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:20:25 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit d0d1563682bf35df8ce6297ee9c960fd6f9f2dbc
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:16:20 2013 +0000
+
+    css tweak arthur
+
+commit 7f2a6f9f74573b8c821c4f3530ed8b83feafa5c0
+Merge: 3e7d857 d0d1563
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:16:13 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 8ae2c4d377f864ac1856e95d98c3428dea1374b9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:05:43 2013 +0000
+
+    css tweak arthur
+
+commit 3e7d857626f99f0500b7d46a5b0d146564e093a4
+Merge: 9b9eecf 8ae2c4d
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 10:05:39 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ef7a6dca75b6288dbacd8a26efa5bcd5cf36061d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 16:00:41 2013 +0000
+
+    css tweak arthur
+
+commit 4a4b66c3bb348a7d442a28cfeba233b126f855fc
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 15:59:13 2013 +0000
+
+    css tweak arthur
+
+commit 1de81085a2ad79353c6e88ced733682cc5eaa8ef
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 15:54:26 2013 +0000
+
+    css tweak arthur
+
+commit 9b9eecf8c0f32a331e824a092dc56b24a3845415
+Merge: b96ded4 1de8108
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 09:54:20 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit b96ded4bcf66d7f6aefd8a1add7efdf707b5cb09
+Merge: 1be3c78 6c55b6a
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 09:51:15 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 6c55b6a7eda0855f670322afa3d6b29ec5179a65
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 15:51:13 2013 +0000
+
+    css tweaks arthur
+
+commit 1be3c78fea854422359a91226ae5277e596da68b
+Merge: e7c0897 fa75187
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Feb 1 08:33:14 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit fa7518743042ab55d9ddd7ea095668bc4fa2729c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 14:32:45 2013 +0000
+
+    rm cufon fonts arthur
+
+commit 8519fa4c2f3c58260612727d06914580a95619fc
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 04:43:53 2013 +0000
+
+    fonts, video click, google analytics
+
+commit 7f8a9b7866500d8a13895841975b70d094e38572
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 04:23:11 2013 +0000
+
+    changes to page tpls arthur
+
+commit ab423814a314bc999f6cf89b6e3e1f1fbe586b66
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 04:22:34 2013 +0000
+
+    changes to fonot-face arthur
+
+commit 3fdfbbf04cb72f86850fdc892acbfe3d143d58c8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Feb 1 04:22:16 2013 +0000
+
+    css changes arthur
+
+commit e7c0897b63d3b98af8e42994d8868795c154a615
+Merge: 15cb574 482c88f
+Author: alex borsody <asborsody@gmail.com>
+Date:   Thu Jan 31 22:04:40 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 482c88f6c38f8aeffb9823fced2781e072fe51d0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 16:32:16 2013 +0000
+
+    rm social buttons from photos and vdieos arthur
+
+commit fc9199b1b3cf436280ebf2969eb28c48781fb756
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 16:26:38 2013 +0000
+
+    rm social buttons on homepage arthur
+
+commit 15cb574bcefae7e7812d9d3f5bcab2f20850481d
+Merge: 626f8e0 9543286
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Jan 30 22:11:56 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 9543286926de1223f64e7d2b3e486a783ec349a7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 04:11:34 2013 +0000
+
+    updated animation on header site marker arthur
+
+commit ffaf986fd7646ad872927a6b3f20e631147dff1c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 03:51:32 2013 +0000
+
+    removed duplicate  variable arthur
+
+commit ac2d56a7ea9399ce83cc8c8e78c321a922d179aa
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 03:49:02 2013 +0000
+
+    updated zip code field to number field arthur
+
+commit b469bf58e95682f0a5e779d55def1deff4e59515
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 03:35:12 2013 +0000
+
+    added field to email signup form arthur
+
+commit 9a267ee7cf9fdaf18cde1a58b0941f8949492c64
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 02:17:07 2013 +0000
+
+    new artist lineup and node page css arthur
+
+commit 262ddd448258c60fb4f4400976c429d8f3173d74
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:54:49 2013 +0000
+
+    changed header where will your wanderlust img to cdn image arthur
+
+commit 3306ef351c059af59b147f367f745596c066d7f1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:48:57 2013 +0000
+
+    new img arthur
+
+commit 8b180a50cd91e338056e6d35cc8b75a033a1c95d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:48:31 2013 +0000
+
+    made changes to innersite menus arthur
+
+commit 002bcac006a3b54eaec03d611831d28f533c9ea4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:48:14 2013 +0000
+
+    moved all images to rackspace cdn arthur
+
+commit 53bc2b0b3b441b264d7b607e67bec666b0c260b6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:23:46 2013 +0000
+
+    rm rex bold arthur
+
+commit d7444a2ad276ca4acfb5cf154bacf8e7362154d0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:23:20 2013 +0000
+
+    rm lh egyptian arhur
+
+commit 2b7e97e6864c3e0a30f88baacab56a301e6a206f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 31 01:22:08 2013 +0000
+
+    new baskerville fonts arthur
+
+commit f75a592f92ec6167544cb9560598dec582ee8e40
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 30 22:04:38 2013 +0000
+
+    new splash css arthur
+
+commit 626f8e0f4504cbd67d6f21360ec3be4a8f59fbac
+Merge: 74f186e 2c74354
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Jan 30 10:39:05 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2c74354b770994a227fbdb16db61123ec745c061
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 30 16:17:14 2013 +0000
+
+    dynamic cookie twitter
+
+commit cf70fb3e677bfc96c769b7c5c18e36e49a6f057e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 22:58:40 2013 +0000
+
+    new changes to splash arthur
+
+commit 74f186e55d18a6cc5a7c7b10f0ce4a120cd45caf
+Merge: c22d6bd 76f3e92
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 29 16:50:26 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 76f3e922c30243d82c9de94f06b49febb1eabc77
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 22:20:55 2013 +0000
+
+    rm footer logos arthur
+
+commit 29c9c38793abc1883b86a94b58850aa0159c8d44
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 22:20:27 2013 +0000
+
+    reverted youtube module theme file arthur
+
+commit 1d528103146645ce1fcdff1bfa428b088782de5a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 20:30:01 2013 +0000
+
+    new tweaks arthur
+
+commit c22d6bd607f4df32ed3f16a64fcc3434f76e0e12
+Merge: fc9145b 3c3ed15
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 29 11:35:30 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 3c3ed15e9dbb2d143a02e5f7a3187aed81714ae4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 17:34:51 2013 +0000
+
+    add modules that allows menu links with no href arthur
+
+commit 47c417fc239599d0dc4729a757524b6e2f335ad6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 00:44:21 2013 +0000
+
+    lh font arthur
+
+commit 7d6a69844bd21d5f2e20bb6f2ba0bb5a91f9b168
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 29 00:43:43 2013 +0000
+
+    css changes
+
+commit 6d97967248a8cae739e6afe779fd58f65df70c81
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 23:45:06 2013 +0000
+
+    new doctype declaration arthur
+
+commit ebab14fb986479623a4a5a50d3ef8500f7e40520
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 23:30:25 2013 +0000
+
+    added ie meta property and claerfix on footer
+
+commit d013e0b66ec915e245aca82b035053c21953b18e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 22:46:07 2013 +0000
+
+    fancybox connect variable and fonts
+
+commit 600e22708eeb4faa9794b4e693f4c7856e805dd7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 22:26:07 2013 +0000
+
+    rm fonts
+
+commit 05928e505f874eb0414a30341a757eda7804e8cf
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 15:36:43 2013 +0000
+
+    videos fix
+
+commit d64fb7df2b5807ef90313cc22f75941aa169d29f
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 28 02:57:30 2013 +0000
+
+    animations stop
+
+commit e62dfa952d516e3ef6f4a71e65410f9582e7aaec
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Jan 27 20:29:49 2013 +0000
+
+    fancybox email
+
+commit fc9145b14fc2d9001b4cb89ddfa9e31f62bac13a
+Merge: 62d3bd7 4576464
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Jan 26 10:48:41 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 4576464b5758ff2134a4bca8f3dc9cc67c764970
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 16:48:34 2013 +0000
+
+    new styles arthur
+
+commit 62d3bd7f149ef64e79fb0cea4d04cd37e70dabfd
+Merge: e3f47cf 33b4881
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Jan 26 10:43:12 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 33b4881865747f0f8a95ab727083f814410de7d0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 16:43:08 2013 +0000
+
+    new main col width arthur
+
+commit e3f47cf02ca2cf2665ea94b5c3217a08b3aeb534
+Merge: d8163f8 85fbf44
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Jan 26 10:30:11 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 85fbf442e50a54dae02930431fcf7490632ebb23
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 16:30:07 2013 +0000
+
+    blogs arthur
+
+commit d8163f87dbdcb9426b9413f82ebb558ec89232cf
+Merge: d8cb3e9 f5ab207
+Author: alex borsody <asborsody@gmail.com>
+Date:   Sat Jan 26 10:10:26 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit f5ab20747d00774f1d829a865819d0b05db1483d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 16:10:09 2013 +0000
+
+    blogs css
+
+commit d8cb3e99be6e9a7cfc4459538089afd6b64856a8
+Merge: ade8e85 b845e41
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 21:37:10 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit b845e41955678deaf176d6754b4364bd3e74cc65
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:37:00 2013 +0000
+
+    nodeformsettingss arthur
+
+commit ade8e858f5219d792821e730e590c225a5f5924c
+Merge: 7826d64 3da9df3
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 21:32:24 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 3da9df34af6bd0c155a142ef0a3440dc03392b32
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:32:18 2013 +0000
+
+    vert tabs arthur
+
+commit 7826d64fa289993dfe9a96c2d61440cb9c462f35
+Merge: 9e7f592 ecde1b7
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 21:17:35 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ecde1b7844216c1ab73e99b2486dbab763c703b7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:17:17 2013 +0000
+
+    new admin themes arthur
+
+commit e2708ca6308f547bf061a88a88e8e29e872820cd
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:17:05 2013 +0000
+
+    new admin themes arthur
+
+commit 9e7f5928b78b3bc58838e1a8b9386fa81aa353db
+Merge: 2bb97d4 e95334c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 21:10:02 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit e95334cc3a3baa297bbaa3d9ceb1358c1ef85bd2
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:09:51 2013 +0000
+
+    new video nodes
+
+commit bcfe18f7193d4f0b543938d9d1203b12dc9827f1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:09:31 2013 +0000
+
+    adding alex's changes arthur
+
+commit 8df362ce0f07205bb586119d09e8bbfec2d8e551
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 03:08:21 2013 +0000
+
+    new changes arthur
+
+commit 2bb97d4f1765e7114dadc0940e596bc2f4f55e25
+Merge: 4bde01f ea3f162
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 20:58:04 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit ea3f162a42f00ccbf849a767fb11e7228c09ad2d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 02:57:52 2013 +0000
+
+    rm modules arthur
+
+commit 4bde01f74a974d4e1ec8e61df4fe6b73a86603c7
+Merge: d053e83 7c40e29
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 20:57:09 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 7c40e29f3616a83ca330cbae05d97d871c4d9706
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 02:56:46 2013 +0000
+
+    rem more modules arthur
+
+commit d053e831431ede1e717eafbcf8cfb71d23b7004a
+Merge: 860ef89 239984b
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:39:32 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 239984b5858d612e7c6383809e1835a447d35325
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:39:25 2013 +0000
+
+    readded videos arthur
+
+commit 860ef89ed58b3b4a58bffadf772b7d564871f307
+Merge: eee6e21 2d18d17
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:36:46 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2d18d17ad7ec2d9f379ccbae6b3586b7abe5eabb
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:36:32 2013 +0000
+
+    added video content type arthur
+
+commit eee6e217ba2f0d832bb55528916c74af7ecc9f22
+Merge: 9a55f55 d839e15
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:22:27 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit d839e150c91fc23a3a8df85b93df94bb656dbc12
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:22:13 2013 +0000
+
+    rm unused modules arthur
+
+commit 9b3470741163caad136c8283e259b2441b64be21
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:20:48 2013 +0000
+
+    rm unused modules arthur
+
+commit 9a55f550567715a0595bc49bad8d06b3dcfd98b0
+Merge: 961f296 40cc8a3
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:19:28 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 40cc8a3a3adb173c05fce4d1e626e7260e9ae939
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:19:21 2013 +0000
+
+    rm unused modules arthur
+
+commit 961f2960ab82b5e7f8400ada79388370c01ea935
+Merge: 234bf3e 5cc02e3
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:17:06 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 5cc02e3613d10989380ac289faf2e4994ff08040
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:16:50 2013 +0000
+
+    rem unused modules arthur
+
+commit 234bf3e2ac4d25d7adcabf6cce2a6fc8509b4ac4
+Merge: 99b0ccb af2e072
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 19:02:40 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit af2e0720df924df63a6b16a74f7dd23c6d811fb8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 01:02:06 2013 +0000
+
+    removed unused modules arthur
+
+commit 0f03143ca6db43f4e8b1a84aa8fa0bc0d912d659
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 00:58:24 2013 +0000
+
+    removed unused modules arthur
+
+commit 99b0ccb0eb8314091d6b5f8799a4089cc474799c
+Merge: b89ac5d 2dd43c2
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 18:20:24 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 2dd43c29462e7e42ccb026efe29dc03bbf9f1a67
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 26 00:20:01 2013 +0000
+
+    hover menu styles arthur
+
+commit b89ac5d9a64fafe838178973010e5a287d2467c6
+Merge: c2814b3 911d8fa
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 17:18:49 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 911d8fafae165d4239843e17fcc45b938c662cd3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 23:18:28 2013 +0000
+
+    photos arthur
+
+commit 9d3deb59d239001346b3307cc6f29add52954d39
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 23:17:53 2013 +0000
+
+    changes to event item arthur
+
+commit f321f6ff4bc82ef541877d1599339090bb769e06
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 23:17:32 2013 +0000
+
+    new changes arthur
+
+commit c2814b3a26bb6ab538183863d73c27a47c66a379
+Merge: a7538fb 85071fd
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 16:05:29 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 85071fd2cf30429ba1944cfe0b78c15215423779
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 22:05:17 2013 +0000
+
+    sitesdropdown arthur
+
+commit a7538fb54109c0dc9ec5640eb22361fc4fdaaec3
+Merge: 3877a2c 24d6017
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 16:03:05 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 24d601708336e10d4e4623246f5769c8924a9189
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 22:02:55 2013 +0000
+
+    sitesdropdown arthur
+
+commit 3877a2c237d83e5894f0846be299c310c4c2f49c
+Merge: 72a65ea d11cd85
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 16:00:17 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit d11cd8589f4ff2f51ae1333cf2106444735ceec3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:59:47 2013 +0000
+
+    new css
+
+commit ba8d34b1478379d3e233557c89daf997790c58d5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:59:37 2013 +0000
+
+    sitesdropdown arthur
+
+commit 72a65ea95ed6e21f5fcc4962d8da06d32d30a363
+Merge: 4d55e87 b670eb7
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 15:58:17 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit b670eb741d43289b52f4208784f8e06a50355f0e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:58:05 2013 +0000
+
+    sitesdropdown arthur
+
+commit 4d55e8747b3906ffe686a70e802a4ba3186922d3
+Merge: 48747b3 88bae7d
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 15:15:52 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 88bae7d079b6a7962849b40f944b062c3a320877
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:15:43 2013 +0000
+
+    sitesdropdown arthur
+
+commit 48747b3f4f1a35497bdcbbbd7610da4c5bcb11bf
+Merge: 39e8b3e 11a6575
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 15:13:43 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 11a657576519aa0fc209e8e5d628c9ad1db6bb2d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:13:31 2013 +0000
+
+    nav changes arthur
+
+commit 39e8b3ea97cd2e7e032dd22426c27583f264382d
+Merge: c3578fe 46a531d
+Author: alex borsody <asborsody@gmail.com>
+Date:   Fri Jan 25 15:07:38 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 46a531d2ac627fc90dcf0cb54506226eb34d2cb0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:06:52 2013 +0000
+
+    new header arthur
+
+commit 67c206e7ac4f053c834d81b2f2cbdaca8e7e81b5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:06:26 2013 +0000
+
+    new images arthur
+
+commit 5f325671a485f6083025a03da0a977bfb72fced6
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 25 21:05:53 2013 +0000
+
+    new theme arthur
+
+commit c2fb7c85ddec37bfeef345da683e3de667783429
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 23:57:30 2013 +0000
+
+    alex's changes from wanderlust hq
+
+commit c3578fe33cf4f5ff4d98b7bbf4b50900be7f197c
+Merge: 7da518d a6e347c
+Author: alex borsody <asborsody@gmail.com>
+Date:   Thu Jan 24 15:48:01 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit a6e347ca6c1f3673cbef96f473ed7ec5d82de3c9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 21:45:40 2013 +0000
+
+    new border arthur
+
+commit 2f07827f507bf9cd6fe5ff35187fa034d1066aad
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 21:45:12 2013 +0000
+
+    new styles arthur
+
+commit 259ab07f666fe1fe5478e715702b8ec292c2861c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 20:14:49 2013 +0000
+
+    restyled videos, photos, blog arthur
+
+commit 456c96cf9c5dd2d1d580c2ba40b19db6eb9565a4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 20:14:18 2013 +0000
+
+     changed ajax dialog styles and removed blog from toolbar on splash arthur
+
+commit 58548fc629b056fdf844ae31728baca343e68522
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 24 15:14:33 2013 +0000
+
+    videos
+
+commit 6a5c6d81cf15b0107fefe6a9201350de82b33e0c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 23 23:10:21 2013 +0000
+
+    new css for blog arthur
+
+commit d6e13b0a34049554ea52abb885b827bdbdaac6af
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 23 20:45:25 2013 +0000
+
+    photos
+
+commit 18bceb58a83265f5bc0dc4ecf3e496a024e13191
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 23 07:44:54 2013 +0000
+
+    clean up code in custom modules, map for 768 height and arthur styles
+
+commit 7da518dc739dfb7057bab03ada11508dd3272bc4
+Merge: 34392d2 e3d8ae0
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 22 19:52:28 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit e3d8ae0a767b95670ac7a82f9b2b348bad73f815
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 23 01:52:11 2013 +0000
+
+    new styles for photos, videos and blog arthur
+
+commit b043f2a1bf196cac76d29d12e2972188727162cf
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 22 23:23:38 2013 +0000
+
+    new styles arthur
+
+commit 34392d207e22db35532acaca97887973fc13e497
+Merge: 26608b8 4102da5
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 22 12:51:01 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 4102da516bba8db3b5b3d261362cc40aa03a7f64
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 22 18:50:48 2013 +0000
+
+    new styles arthur
+
+commit 26608b86eb0045cc57f921feb476efc30ad906a5
+Merge: 216d17e c39c2cd
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 22 12:39:54 2013 -0600
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit 216d17e10720515456ee8c0cf0bc3c980936cd4a
+Author: alex borsody <asborsody@gmail.com>
+Date:   Tue Jan 22 12:39:48 2013 -0600
+
+    saved splash with recent version arthur
+
+commit c39c2cd3dc72544038f5b0be56b26bae07eeee63
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 22 18:37:00 2013 +0000
+
+    commiting splash arthur
+
+commit 5e16eb7cdd20f71836db8af961a628c43c17c8f1
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 22 18:18:04 2013 +0000
+
+    updated lineup styles arthur
+
+commit 8797b46e2b8714210ab3801d8e9e3546ba787533
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 22 03:24:04 2013 +0000
+
+    updated global styles for lineup and static pages arthur
+
+commit cc1f438b315a019fbb5919b11371514f322eb117
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 21 23:33:46 2013 +0000
+
+    updates to genearl site splash arthur
+
+commit 0e68bfaf66bc5df433650fdff49035fe8c75afdb
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 21 22:44:08 2013 +0000
+
+    changes to blog styles arthur
+
+commit 44a80ab749b450f634f6c1dd7673933c44f4460a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 21 16:17:03 2013 +0000
+
+    load photos with ajax
+
+commit bfe7cba5794efee4ced6f4c53385b74ec6834ea8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Jan 20 00:50:21 2013 +0000
+
+    wl helper module and ie for map
+
+commit a2222afc944d2c7d3fe5b156f1c4e3acf927b3f5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Jan 20 00:00:08 2013 +0000
+
+     new blog bg image arthur
+
+commit cd6f4666f5f2338c1973165cc0398b8ac44341db
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 19 23:59:44 2013 +0000
+
+    new blog styles arthur
+
+commit 7430267e0df28775aceab7b8c68398a13a1e9e03
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 19 23:04:51 2013 +0000
+
+    new blog css arthur
+
+commit 34e3e00d9618d816cc1c2d98c6c40a5c970d89d0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 19 23:04:39 2013 +0000
+
+    new blog images arthur
+
+commit fd586ceb452cf896c83354f15c4f76482d8fd198
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 19 23:04:09 2013 +0000
+
+    new fonts for blog arthur
+
+commit 1a4c438ad720d4210806e4094a34251abcb55a5d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 19 23:03:13 2013 +0000
+
+    new blog styles arthur
+
+commit 782b002d667b79fe9a9f04ee5f170d700a2c2e4c
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 17 22:02:59 2013 +0000
+
+    changed javascripts for share this/addthis arthur
+
+commit 58f5e2a673bedb375558289cf758847708a8f1c3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 17 22:01:48 2013 +0000
+
+    changed revolution font-face properties arthur
+
+commit c0b2ae7e5809d93f8b5dcbe8223bacbf69fc2e37
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 17 22:01:27 2013 +0000
+
+    backups of old files arthur
+
+commit 0dacdfba813c342674b7fd9aaf34a2b8545df441
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 17 21:59:42 2013 +0000
+
+    changed splash page marker hover animations arthur
+
+commit 3aab75c84ec47ffb1dfbfdd2b53ce8272646a9a4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 17 21:59:13 2013 +0000
+
+    changed revolution fonts to include more glyphs arthur
+
+commit ea03efc016684e9949837901ab43979105a027d4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 16 18:56:15 2013 +0000
+
+    updated splash css page-front and sprite arthur
+
+commit eb7bb3e10dcf6b09787ffec21dd1fe0b1be506dd
+Author: alex borsody <asborsody@gmail.com>
+Date:   Wed Jan 16 10:11:15 2013 -0600
+
+    modified splash css
+
+commit b969991ab82f23ddb6855942d105543472f6a322
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 20:37:51 2013 +0000
+
+    updated page wide -arthur
+
+commit 1d8d62a7026da5f48fc03e842a3d678fa7b1515b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 20:36:59 2013 +0000
+
+    new stylesheet with deprecated styles from old verison of site -arthur
+
+commit 4eae50163bbc402aebdf0192b7e48b99279b8602
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 20:36:35 2013 +0000
+
+    modified page-wide for schedule pages -arthur
+
+commit 917506e0da49f0c2b525a97c34c22a1466570d27
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 20:36:21 2013 +0000
+
+    restored page-front.tpl.php copied from staging -arthur
+
+commit 6c2a389ed4ce518869c338762ab62972e3929b83
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 14:10:07 2013 +0000
+
+    modified artist lineup pages arthur
+
+commit 0aed0fb89344ab6bdf1e0b546da29ccd03164de8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 14:09:50 2013 +0000
+
+    modified splash dialog backgrounds and marker hovers arthur
+
+commit 133ddd63849b6783d1a7897efc2435811931cff9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 15 14:09:10 2013 +0000
+
+    removed unecessary styles arthur
+
+commit 53453e3d4effc5dc19ecc8d3ba068ef9cb616707
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 21:25:58 2013 +0000
+
+    readded drupal seven theme for admin pages arthur
+
+commit a3ccdde4c13210e3a4eee9f52f843b599152bf9b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 19:36:32 2013 +0000
+
+    added fb app id arthur
+
+commit 14cf9645a751b0224ec2cdf3a24607ac59795017
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 19:30:55 2013 +0000
+
+    opengraph meta patch arthur
+
+commit b54c65ad6d10a716b5693bd4540cfe766d9c8c10
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 19:27:53 2013 +0000
+
+    added xmls to html tag for fb sharing arthur
+
+commit 4f858a0eb185423b474202adb69ad0c61392cf0b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 19:27:13 2013 +0000
+
+    patched opengraph meta module to work with panels nodes for fb sharing arthur
+
+commit f457493f0c8ef78fa70caf59219e6c41c4ae2658
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 19:05:51 2013 +0000
+
+    revamped fb sharing for nodes arthur
+
+commit 6c9cc9da91c3bab5139ae8524cac3e4ad9bda898
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 18:41:30 2013 +0000
+
+    modified page.tpl.php arthur
+
+commit e5dde4c0b99e33407a06c78fa5042401da7ad24a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 14 18:32:23 2013 +0000
+
+    modified page.tpl.php nav area arthur
+
+commit b173819abf602f5983ac124412ad32ed6c0c317b
+Merge: f37640c 5a8b9e6
+Author: nohup <rahul@nohup.in>
+Date:   Mon Jan 14 18:26:48 2013 +0000
+
+    All pending splash changes on dev
+
+commit f37640c73c2b0d84f22811e06f832f78f3656fe0
+Merge: e7abd10 8332f60
+Author: nohup <rahul@nohup.in>
+Date:   Mon Jan 14 18:19:49 2013 +0000
+
+    All pending splash changes on dev
+
+commit 5a8b9e60a3f2fc5158781622f353384128f12a90
+Merge: d2238c4 8332f60
+Author: nohup <rahul@nohup.in>
+Date:   Sun Jan 13 21:14:22 2013 -0600
+
+    Merging changes from master to splash for staging
+
+commit e7abd10cb5b623ead9ebb21a3167f72c6c63367d
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 12 22:43:39 2013 +0000
+
+    new module for custom taxonomy views for blog arthur
+
+commit addba927465567d3779c7184e4f7993fd9d0266e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sat Jan 12 22:43:01 2013 +0000
+
+    style blog index and blog node arthur
+
+commit d2238c460036cdc09595a47db320dfef74cc0c18
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 21:20:17 2013 +0000
+
+    removed unecessary file
+
+commit c1acba5caa5fecee80ce0d92be044180793c5c77
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 21:18:43 2013 +0000
+
+    chnaged blog styles
+
+commit 16dd187615af286ab486061843322fbc7b134add
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:09:12 2013 +0000
+
+    added link to logo in header
+
+commit a7698d6ca2d5554ce6b37cbf6c2a041cb81ec2f7
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:08:34 2013 +0000
+
+    new site sprite
+
+commit ac639fdc736b8af904dd254eec26737667385825
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:08:09 2013 +0000
+
+    site splash
+
+commit 073b76494abd37b0628a80b829dd6d71475fca86
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:07:31 2013 +0000
+
+    new splash sprite
+
+commit 3e65ab4e1c080ff6b2946fefd7cfa088d1743bdd
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:06:57 2013 +0000
+
+    modified styles on static page templates
+
+commit fc6cbcbe9273d45e924be7795ca6ed73356afea8
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:05:56 2013 +0000
+
+    modified splash page to incl chile marker
+
+commit 3616758aebae695d2e69c6eea86f714e730cc827
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 11 02:05:32 2013 +0000
+
+    changed homepage node appearance
+
+commit 91bfc1c03376f7de08f34dbb0bcd91ba41110b7a
+Author: freeenergy <asborsody@gmail.com>
+Date:   Thu Jan 10 16:58:16 2013 +0000
+
+    more on markers and photos homepage
+
+commit 409abd46be2ad4bd46f45fa54f4e54d64d159ac5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:52:05 2013 +0000
+
+    added a type.css to head section
+
+commit bb2bb75ef4c13bb07b87fadec267d4ad651a9765
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:42:31 2013 +0000
+
+    new css
+
+commit b30ffd15067c3a474391693a7e430ac19d215b05
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:42:08 2013 +0000
+
+    changed logo html
+
+commit ca4c922dc4a578b6526380c19e69a287769a6e90
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:41:55 2013 +0000
+
+    changed logo html
+
+commit c688500ab133ae13aaebda7dbf29518b4b1f82ff
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:41:49 2013 +0000
+
+    changed logo html
+
+commit 7d6f5ba35176bb146d2e0fa152ae0c90c62f49a9
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:39:34 2013 +0000
+
+    site splash sprite
+
+commit 9c636a7e0af9c82641de5839555ba1a6d4c21625
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:38:59 2013 +0000
+
+    added revolution woff
+
+commit 334d6d22e589167e0d69fa7962ec3b4691146978
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 18:29:33 2013 +0000
+
+    added filepath to site logo and state icon
+
+commit 305bbdf899ebfa24a50bf527381473237268aad0
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:29:10 2013 +0000
+
+    added social media links in nav
+
+commit 04bc09bb1485d61966d7a1381b0237b08dfb6a1e
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:29:02 2013 +0000
+
+    added social media links in nav
+
+commit 249e5874ccfd92b7bbe5e223f76d0fdffb49f9b4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:28:50 2013 +0000
+
+    added social media links in nav
+
+commit 924a0bdfae8e7f1b80bbc50439d825353ed47b3b
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:27:52 2013 +0000
+
+    new css styles
+
+commit cb85c23ea40fedc9f031d15187ece1ad4610e1b2
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:27:44 2013 +0000
+
+    new css styles
+
+commit 55839621a1eb917c569fccc68e4126563a3a1aa5
+Author: freeenergy <asborsody@gmail.com>
+Date:   Wed Jan 9 03:27:32 2013 +0000
+
+    new splash styles
+
+commit ca2462d4e785263e32e4bf72ac5e966584cb57df
+Author: freeenergy <asborsody@gmail.com>
+Date:   Tue Jan 8 21:31:57 2013 +0000
+
+    chile this way
+
+commit a868469e4616834c5a07f4c20bf71a2822ba83a4
+Author: freeenergy <asborsody@gmail.com>
+Date:   Mon Jan 7 04:39:46 2013 +0000
+
+    so more animations
+
+commit c1c6a5f51f99a13f33e42fc34279adf2b8f9b8ae
+Author: nohup <rahul@nohup.in>
+Date:   Sun Jan 6 01:55:51 2013 -0800
+
+    Blog chakra image
+
+commit 7138c7cd7f1589a51c8e69c89c55f92f82a6ae9c
+Merge: de19973 6b4b7c9
+Author: nohup <rahul@nohup.in>
+Date:   Sun Jan 6 01:32:14 2013 -0800
+
+    Merge branch 'splash' of https://github.com/arthurshim/wanderlustfest into splash
+
+commit de19973cf3f2c8069f2e1df0435ce65c3128d858
+Author: nohup <rahul@nohup.in>
+Date:   Sun Jan 6 01:31:25 2013 -0800
+
+    Blog sidebar changes
+
+commit 6b4b7c98df2537c698abbc9bb4efe62ef50608b3
+Author: freeenergy <asborsody@gmail.com>
+Date:   Sun Jan 6 05:54:34 2013 +0000
+
+    jquery and css on map
+
+commit b47c3d8e2d48ea98067be16ec4ffd05b8421e583
+Author: freeenergy <asborsody@gmail.com>
+Date:   Fri Jan 4 22:08:10 2013 +0000
+
+    map full height and width, added info boxes
+
+commit 8332f60ac50322343e6899085667243084fa2f02
+Author: nohup <rahul@nohup.in>
+Date:   Thu Jan 3 13:04:50 2013 -0600
+
+    Varnish and apache config files added
+
+commit 89b49d7946de063c950ab3b73dad44cadd6ad061
+Author: freeenergy <rahul@nohup.in>
+Date:   Thu Jan 3 16:01:05 2013 +0000
+
+    htaccess for blogs by rahul some themeing and javascript
+
+commit fbd03772f5b892dac5e85a25c3b7c6abe2f57162
+Author: freeenergy <rahul@nohup.in>
+Date:   Wed Jan 2 16:31:28 2013 +0000
+
+    fixed photos and header and viewport mobile
+
+commit 06b84e5fd23fd8cbb4d38b897d78883c09185f50
+Author: freeenergy <rahul@nohup.in>
+Date:   Mon Dec 31 07:15:02 2012 +0000
+
+    jquery animation on homepage for hovers for IE only
+
+commit cc38be96e4a3c38b7bf6a3ef70bc3fa11d19ea93
+Author: freeenergy <rahul@nohup.in>
+Date:   Sat Dec 29 16:44:26 2012 +0000
+
+    optimize photos and mobile styling
+
+commit 19741b20ce6b0981bf5644db7aad8347129737d4
+Author: freeenergy <rahul@nohup.in>
+Date:   Fri Dec 28 06:34:01 2012 +0000
+
+    changes to splash and mobile
+
+commit 161dd2a7ab5ebd77c99e5495eb9473d4976ec49b
+Author: freeenergy <rahul@nohup.in>
+Date:   Thu Dec 27 16:42:06 2012 +0000
+
+    ie rotate transition on mark:hover
+
+commit fe53e1b23b4759fbd8be76c11dafd3828d5fcffe
+Author: freeenergy <rahul@nohup.in>
+Date:   Wed Dec 26 17:57:52 2012 +0000
+
+    add fancybox some fixes for ie9
+
+commit c3347e2e522e99b962b81ba92b8c0a0012d83494
+Author: freeenergy <rahul@nohup.in>
+Date:   Wed Dec 26 04:26:28 2012 +0000
+
+    email form popup but maps is sticky
+
+commit 9bfd9f969c290d460d44f23a3fcee6f570dd4ea6
+Author: freeenergy <rahul@nohup.in>
+Date:   Tue Dec 25 17:09:29 2012 +0000
+
+    username test
+
+commit be2346e179f28c65545593e662a94b8c9612b87b
+Author: freeenergy <rahul@nohup.in>
+Date:   Tue Dec 25 17:07:43 2012 +0000
+
+    mobile if statement for jquery and hovers
+
+commit 4bffe502a22d2ae0a5a431e907b0947b96537d44
+Author: freeenergy <rahul@nohup.in>
+Date:   Mon Dec 24 18:17:51 2012 +0000
+
+    css3 transitions fixed jquery easing error with drop down menu on photos page
+
+commit e26b5f5820bea056960f302fad5d2c7187a88934
+Author: freeenergy <rahul@nohup.in>
+Date:   Sun Dec 23 17:57:21 2012 +0000
+
+    photos and transitions on splash
+
+commit c08be1d3f4bfa660b8cb045736e7e3eca77b994f
+Author: freeenergy <rahul@nohup.in>
+Date:   Fri Dec 21 18:24:06 2012 +0000
+
+    photos
+
+commit 28d51c147c9b42856de7bd4d15a224fdefea8c16
+Author: nohup <rahul@nohup.in>
+Date:   Thu Dec 20 22:12:12 2012 +0000
+
+    fancybox
+
+commit b256950c8322b5a08fe6aece39210619aaf8687b
+Author: nohup <rahul@nohup.in>
+Date:   Thu Dec 20 17:06:01 2012 +0000
+
+    add classes to markers make markers different images, sign up form and other jquery for splash
+
+commit c135b53daf3af007d22373e1a191198ad88553e7
+Author: nohup <rahul@nohup.in>
+Date:   Wed Dec 19 21:12:39 2012 +0000
+
+    add classes and icons for markers on splash map depending on event
+
+commit 797eb590acacd44c161f5e246177bc5aba24fe58
+Author: nohup <rahul@nohup.in>
+Date:   Wed Dec 19 14:18:29 2012 +0000
+
+    fix to artist menu tabs oahu chilesome styling from menu arthurs css old html. ned to fix this
+
+commit 3074a469b0b0d61f1b768fe64687b60bbf8f8555
+Author: nohup <rahul@nohup.in>
+Date:   Tue Dec 18 18:44:38 2012 +0000
+
+    mostly header changes
+
+commit 968073c65fbaf96c955a0a229efa6d9a4805bff0
+Author: nohup <rahul@nohup.in>
+Date:   Mon Dec 17 23:14:11 2012 +0000
+
+    hover stylings
+
+commit 8eb0e937631d13f2ee9060f9078ee0854d4515e0
+Author: nohup <rahul@nohup.in>
+Date:   Mon Dec 17 21:01:13 2012 +0000
+
+    updated map hovers
+
+commit 8230e95633a6789cb30f3d7763f192a66095bf44
+Author: nohup <rahul@nohup.in>
+Date:   Mon Dec 17 21:00:18 2012 +0000
+
+    added font-face stylesheet
+
+commit 38ef4b2ea68914985a2c1e356f9ed473c73b2939
+Author: nohup <rahul@nohup.in>
+Date:   Mon Dec 17 20:59:48 2012 +0000
+
+    added font-face fonts
+
+commit 4c6ad12157287eb81b052edf06007b6c1abcbdcd
+Author: nohup <rahul@nohup.in>
+Date:   Mon Dec 17 18:04:33 2012 +0000
+
+    map constraints
+
+commit ff6ec980b7c9b88a42f3d8c6f85b0def2bbc31e5
+Author: nohup <rahul@nohup.in>
+Date:   Sat Dec 15 15:30:34 2012 +0000
+
+    new header
+
+commit 562b8c2c32c5fc3d0765d046c7ecdb71a03fed74
+Author: nohup <rahul@nohup.in>
+Date:   Sat Dec 15 02:21:21 2012 +0000
+
+    splash, ads, view tabs
+
+commit 33ab2f80c87e23edaeccd029541602e40c794de0
+Author: root <root@wanderlust.(none)>
+Date:   Fri Dec 14 08:35:31 2012 -0600
+
+    views tabs
+
+commit bd4bae4e4045185a0892a63400f2c6614ad49492
+Author: root <root@wanderlust.(none)>
+Date:   Thu Nov 29 16:03:42 2012 -0600
+
+    changed header css
+
+commit c7fd0233aa2fdee9b25448115001e9ce9a77acd2
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:27:00 2012 -0600
+
+    changes to template.php
+
+commit 39e4a201a7dfd1e8e76d30596a44a8ced8dc7876
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:26:45 2012 -0600
+
+    changes to page-chil.tpl.php
+
+commit c7c61ef4fc6fed436e4d1dda40a31da0f8e1aee6
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:26:23 2012 -0600
+
+    removed modules-backup
+
+commit fa83fbf810984ca4c7ae32b0767fb63bfbb739f1
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:26:02 2012 -0600
+
+    removed peroxide
+
+commit c87e3e07fb5677a83ecd9d97a7f26709dba92b0f
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:25:10 2012 -0600
+
+    removed haml_engine
+
+commit 2f2aa5f46dae07092581b57e19ca504fc0dc86a1
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:23:13 2012 -0600
+
+    modified page.tpl.php facebook metatags
+
+commit a6e6b333367060b2f122e4db37b8a5b53214655a
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 28 16:22:39 2012 -0600
+
+    css changes
+
+commit bc8c9ec9e5504e23f56a7caeedd02081361c2138
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 14 14:25:39 2012 -0600
+
+    changes to chile splash
+
+commit b60af0c421e1c2b579f4f3ce98e92ba8a44252b9
+Author: root <root@wanderlust.(none)>
+Date:   Wed Nov 14 14:25:13 2012 -0600
+
+    changes to css
+
+commit 2f8444942b404df6a51cca47efd7a9a5b9a42dbc
+Author: nohup <rahul@nohup.in>
+Date:   Wed Nov 14 11:27:08 2012 -0600
+
+    made changes to header for chile
+
+commit 6ce38682c9b810420064856e586a5b2e71129230
+Author: nohup <rahul@nohup.in>
+Date:   Wed Nov 14 11:26:54 2012 -0600
+
+    modified chile page tpl
+
+commit 9167c972193b4f2f2cb9fd82c3bd07e461f7cc24
+Author: nohup <rahul@nohup.in>
+Date:   Wed Nov 14 11:26:34 2012 -0600
+
+    commented out twitter config settings and added chile to sites array
+
+commit f350ca39c00cd64b2218407f7dba40c3ab6686c7
+Author: nohup <rahul@nohup.in>
+Date:   Wed Nov 14 11:25:58 2012 -0600
+
+    changed css files
+
+commit c1c96cd042e46930da52893fc55d97b1ca97b4a1
+Author: nohup <rahul@nohup.in>
+Date:   Fri Nov 9 20:00:57 2012 +0000
+
+    Added gitignore
+
+commit e7f40832c5cb9dee090413134603dfdfbff73834
+Author: nohup <rahul@nohup.in>
+Date:   Fri Nov 9 19:46:26 2012 +0000
+
+    Adding wadnerfest.com with site specific settings, removed default/settings.php
+
+commit 7c37fa66f59d21d36df747b0be81b49ba390c186
+Author: nohup <rahul@nohup.in>
+Date:   Fri Nov 9 19:20:43 2012 +0000
+
+    Typo fixed and virtualhost settings fixed
+
+commit bf5cfed849448b9506cc37ca0d34e30fd6b5421f
+Author: nohup <rahul@nohup.in>
+Date:   Fri Nov 9 19:18:43 2012 +0000
+
+    Settings moved to default and wanderfest.com removed
+
+commit fc9b4f2de5e4720d0c3c48894cb7192b70096047
+Author: nohup <rahul@nohup.in>
+Date:   Fri Nov 9 19:17:53 2012 +0000
+
+    Changes for mod_fcgi
+
+commit 9bc0ccd42f4813af144eb38471023af5dec7990f
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 20:15:54 2012 +0000
+
+    Howto aded and allowoveride settings fixed
+
+commit dd6b2112d3325cb96d1e9737ae393f3a070aa3d2
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 19:39:23 2012 +0000
+
+    Readme fixed
+
+commit e79baa655a6c888997ce4f341ab3bd6c2f5abf0d
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 19:34:52 2012 +0000
+
+    Readme fixed
+
+commit 11b24abd093d66a5e3e8fcacd863c3f665fbd6cf
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 19:30:13 2012 +0000
+
+    Readme added. wl_prod.sql domain name changed
+
+commit cf483dfb6c1692082018491f9fe7751472281222
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 11:01:24 2012 -0600
+
+    Prod database added to git
+
+commit df7558e6a684292cadd95ae2312ef70a835a2db6
+Author: nohup <rahul@nohup.in>
+Date:   Mon Nov 5 08:46:55 2012 -0600
+
+    Synced production changes
+
+commit 2cea6d6988553b592a5e465e5585a0507efee5b6
+Author: Rahul Khanna <rahul@nohup.in>
+Date:   Fri Nov 2 04:22:22 2012 -0500
+
+    Initial commit
+
+commit c2e5641cfc0ac9e8983701c74e9110627538aaa4
+Author: Rahul Khanna <rahul@nohup.in>
+Date:   Fri Nov 2 04:20:31 2012 -0500
+
+    Initial commit
+
+commit 1d362fad206544f2c87c806cf90ed2f0cbacb99a
+Author: Rahul Khanna <rahul@nohup.in>
+Date:   Thu Nov 1 23:43:23 2012 -0700
+
+    Initial commit
