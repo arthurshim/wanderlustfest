@@ -26,7 +26,7 @@
         print truncate_utf8(strip_tags($node->content['body']['#value']), 100, TRUE, TRUE); 
       }
       if ( $count < 9 && $count > 5 ){
-        print truncate_utf8(strip_tags($node->content['body']['#value']), 70, TRUE, TRUE); 
+        print truncate_utf8(strip_tags($node->content['body']['#value']), 60, TRUE, TRUE); 
       } ?>
   </div>
     <?php
