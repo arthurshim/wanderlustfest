@@ -2678,3 +2678,25 @@ div.pane-events-list .view-events-list .views-row-3 .views-field-title{
 div.pane-events-list .view-events-list .views-row-4 .views-field-title{
   background: #006559;
 }
+
+
+
+
+
+/* EMAIL SIGN UP PAGE
+--------------------------------*/
+
+#email-signup-page input{
+  width: 160px;
+  padding: 4px;
+}
+
+#email-signup-page select{
+  width: 170px;
+  }
+  
+#email-signup-page td{  
+  padding: 4px 0;
+  width: 200px;
+  height: 30px;
+}
