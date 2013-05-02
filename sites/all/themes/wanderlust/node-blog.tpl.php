@@ -23,7 +23,7 @@
       $text = "$node->title"; 
       $count = count(explode(" ", $text)); 
       if ( $count < 6 ){
-        print truncate_utf8(strip_tags($node->content['body']['#value']), 100, TRUE, TRUE); 
+        print truncate_utf8(strip_tags($node->content['body']['#value']), 80, TRUE, TRUE); 
       }
       if ( $count > 5 ){
         print truncate_utf8(strip_tags($node->content['body']['#value']), 50, TRUE, TRUE); 
