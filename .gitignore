@@ -5,3 +5,11 @@ cache
 cache*
 .htaccess
 robots.txt
+_git_old
+db
+backups
+sites/all/modules/varnish/
+sites/all/modules/varnish/*
+sites/all/modules/expire/
+sites/all/modules/expire/*
+backups
