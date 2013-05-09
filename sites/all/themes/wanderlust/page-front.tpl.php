@@ -410,18 +410,18 @@ function doSubmit(oForm) {
 
 <div id="logo-container">
   <div class="logo">Wanderlust Festival</div>
- <!-- <div class="logo-animation">
-    <div id="yoga" class="left" style="display:none;">yoga</div>
-    <div id="music" class="right" style="display:none;">music</div>
-    <div id="nature" class="left" style="display:none;">nature</div>
-    <div id="talks" class="left" style="display:none;">speakeasy talks</div>
-    <div id="hikes" class="right" style="display:none;">hikes</div>
-    <div id="organic" class="right" style="display:none;">organic & local foods</div>
-    <div id="wine" class="left" style="display:none;">wine tastings</div>
-    <div id="meditation" class="right" style="display:none;">meditation</div>
-    <div id="find" class="left">Find your</div>
-    <div id="north" class="right">true north</div>
-  </div>-->
+  <div class="logo-animation">
+    <div id="yoga-left" class="left" style="display:none;">yoga</div>
+    <div id="music-right" class="right" style="display:none;">music</div>
+    <div id="nature-left" class="left" style="display:none;">nature</div>
+    <div id="talks-left" class="left" style="display:none;">speakeasy talks</div>
+    <div id="hikes-right" class="right" style="display:none;">hikes</div>
+    <div id="organic-right" class="right" style="display:none;">organic & local foods</div>
+    <div id="wine-left" class="left" style="display:none;">wine tastings</div>
+    <div id="meditation-right" class="right" style="display:none;">meditation</div>
+    <div id="find-left" class="left">Find your</div>
+    <div id="north-right" class="right">true north</div>
+  </div>
 </div>
 
  <script type="text/javascript">
@@ -430,37 +430,48 @@ var $body = $('body'),
     
     (cycle = function () {
     
-        $('#find').delay(4000).fadeOut(1000);
-        $('#yoga').delay(5000).fadeIn(1000);
+       var $body = $('body'),
+        cycle;
+    
+    (cycle = function () {
+      setTimeout(function(){$('#find-left').fadeOut(1000)},4000);
+	 setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
+      setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
+       setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
+        setTimeout(function(){$('#yoga-left').fadeOut(1000)},8000);
+        setTimeout(function(){$('#nature-left').fadeIn(1000)},10000); 
+		setTimeout(function(){$('#music-right').fadeOut(1000)},10000);
+		setTimeout(function(){$('#hikes-right').fadeIn(1000)}, 11000);
+		setTimeout(function(){$('#nature-left').fadeOut(1000)},13000);
+		setTimeout(function(){$('#talks-left').fadeIn(1000)},14000);
+		setTimeout(function(){$('#hikes-right').fadeOut(1000)},14000);
+		setTimeout(function(){$('#organic-right').fadeIn(1000)},15000); 
+		setTimeout(function(){$('#talks-left').fadeOut(1000)},17000);
+		setTimeout(function(){$('#wine-left').fadeIn(1000)},18000);
+		setTimeout(function(){$('#organic-right').fadeOut(1000)},18000); 
+		setTimeout(function(){$('#meditation-right').fadeIn(1000)},19000);
+		setTimeout(function(){$('#wine-left').fadeOut(1000)},21000);
+		setTimeout(function(){$('#meditation-right').fadeOut(1000)},22000);
+		setTimeout(function(){$('#find-left').fadeIn(1000)},34000);
+       setTimeout(function(){$('#north-right').fadeIn(1000, cycle)},38000);
         
-        $('#north').delay(6000).fadeOut(1000);
-        $('#music').delay(7000).fadeIn(1000);
         
-        $('#yoga').delay(3000).fadeOut(1000);
-        $('#nature').delay(10000).fadeIn(1000);
-        
-        $('#music').delay(3000).fadeOut(1000);
-        $('#hikes').delay(12000).fadeIn(1000);
-        
-        $('#nature').delay(3000).fadeOut(1000);
-        $('#talks').delay(15000).fadeIn(1000);
-        
-        $('#hikes').delay(3000).fadeOut(1000);
-        $('#organic').delay(17000).fadeIn(1000);
-        
-        $('#talks').delay(3000).fadeOut(1000);
-        $('#wine').delay(20000).fadeIn(1000);
-        
-        $('#organic').delay(3000).fadeOut(1000);
-        $('#meditation').delay(22000).fadeIn(1000);
-        
-        $('#wine').delay(3000).fadeOut(1000);
-        $('#meditation').delay(1000).fadeOut(1000);
-        
-        $('#find').delay(21000).fadeIn(1000);
-        $('#north').delay(19000).fadeIn(1000, cycle);
+	  
+	  
     
     })();
+	
+
+ 
+
+        
+	  
+	  
+    
+    })();
+	
+
+ 
    
  </script>
  
