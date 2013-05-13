@@ -870,7 +870,7 @@ var $body = $('body'),
                 <li><a target="_blank"  href="http://www.evolutionfresh.com/"><img src="/sites/all/themes/wanderlust/images/evolution.png"></a></li>
                 <li><a target="_blank"  href="http://lyfekitchen.com/"><img src="/sites/all/themes/wanderlust/images/lyfe.png"></a></li>                                                
                 <li><a target="_blank"  href="http://www.lunabar.com/"><img src="/sites/all/themes/wanderlust/images/luna.png"></a></li>                
-                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcespringwater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
+                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcewater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
       </ul>';
     }
 
@@ -881,7 +881,7 @@ var $body = $('body'),
                 <li><a target="_blank"  href="http://www.evolutionfresh.com/"><img src="/sites/all/themes/wanderlust/images/evolution.png"></a></li>
                 <li><a target="_blank"  href="http://lyfekitchen.com/"><img src="/sites/all/themes/wanderlust/images/lyfe.png"></a></li>                                                
                 <li><a target="_blank"  href="http://www.lunabar.com/"><img src="/sites/all/themes/wanderlust/images/luna.png"></a></li>                
-                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcespringwater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
+                <li class="last"><a target="_blank"  href="https://www.facebook.com/resourcewater"><img src="/sites/all/themes/wanderlust/images/resource.png"></a></li>                
       </ul>';
     }
 
