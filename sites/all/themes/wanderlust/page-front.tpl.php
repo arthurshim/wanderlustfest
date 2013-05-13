@@ -438,7 +438,7 @@ var $body = $('body'),
 	 setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
       setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
        setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
-        setTimeout(function(){$('#yoga-left').fadeOut(1000)},8000);
+        setTimeout(function(){$('#yoga-left').fadeOut(1000)},9000);
         setTimeout(function(){$('#nature-left').fadeIn(1000)},10000); 
 		setTimeout(function(){$('#music-right').fadeOut(1000)},10000);
 		setTimeout(function(){$('#hikes-right').fadeIn(1000)}, 11000);
@@ -452,8 +452,8 @@ var $body = $('body'),
 		setTimeout(function(){$('#meditation-right').fadeIn(1000)},19000);
 		setTimeout(function(){$('#wine-left').fadeOut(1000)},21000);
 		setTimeout(function(){$('#meditation-right').fadeOut(1000)},22000);
-		setTimeout(function(){$('#find-left').fadeIn(1000)},34000);
-       setTimeout(function(){$('#north-right').fadeIn(1000, cycle)},38000);
+		setTimeout(function(){$('#find-left').fadeIn(1000)},28000);
+       setTimeout(function(){$('#north-right').fadeIn(1000, cycle)},30000);
         
         
 	  
