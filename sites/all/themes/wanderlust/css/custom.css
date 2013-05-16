@@ -2612,6 +2612,40 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 /* LANGUAGE SWITCHER
 --------------------------------*/
 
+.swlang{
+  top: 75px;
+  left: 934px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 90px;
+}
+
+.swlang ul{
+  padding: 0;
+  margin: 0;
+}
+
+.swlang li{
+  list-style: none;
+  display: inline;
+}
+
+.swlang a{
+  width: 22px;
+  display: inline-block;
+  text-indent: -9999em;
+  background: url('../images/flags.png') no-repeat;
+
+  }
+
+.swlang .en a{
+  margin-right: 2px;
+}
+
+.swlang .fr a{
+  background-position: -22px 0;  
+}
 
 /* HIDE LANGUAGE SWITCHER FOR NON-ADMINS */
 .not-logged-in #block-locale-0{
