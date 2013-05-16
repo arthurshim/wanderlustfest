@@ -742,6 +742,12 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   border-radius: 0;
 }
 
+.i18n-fr div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
+.i18n-fr.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a{
+  padding: 10px 10px 10px 10px;
+  font-size: 24px;
+}
+
 .view-artist-landing2 a.viewsdisplaytabs-tab.active{
   color: #7e9e83 !important;
   }
