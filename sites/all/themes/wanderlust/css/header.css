@@ -48,7 +48,7 @@
   height: 45px;    
   line-height: 1.2;
   font-weight: normal;
-  top: 15px;
+  top: 13px;
 }
 
 .site-marker{
@@ -101,7 +101,7 @@
 ----------------------------------*/	
 .tomap {
   position: absolute;
-  top: 28px;
+  top: 26px;
   right: 11px;
   }
 
