@@ -70,7 +70,15 @@ function wl_helper_init() {
     if (isset($languages[$new_lang_code])) {
       $language = $languages[$new_lang_code];
     }
-  } /*else {
+  }
+  elseif($site->purl_prefix == 'tremblant' &&  isset($_COOKIE['wanlang'])) {
+    $new_lang_code = $_COOKIE['wanlang'];
+    if (isset($languages[$new_lang_code])) {
+      $language = $languages[$new_lang_code];
+    }
+  }
+  
+  /*else {
      $new_lang_code = 'en';
      $language = $languages[$new_lang_code];
   }*/

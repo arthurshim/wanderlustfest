@@ -10,7 +10,8 @@
   <meta name="viewport" content="width=device-width" />
   <title><?php   $base = wl_get_base_domain();
    $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
-   $subdomain = strtolower(trim($url[0]));
+   $subdomain  =  strtolower(trim($url[0]));
+   
    if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   ?> Wanderlust Festival - Find Your True North <?php } else { print $head_title; } ?></title>
   <?php header("Connection: keep-alive");?>
   <!-- CUSTOM FACEBOOK OG META TAGS FOR SPLASH & HOMEPAGE -->
@@ -94,6 +95,7 @@
 
 <?php }?>
  
+
  
 <script type="text/javascript">
   <!--//--><![CDATA[//><!--
@@ -115,6 +117,7 @@
 
 
  $(document).ready(function() {
+   
  $('input[type=checkbox]').change(function(){
    if ($(this).is(":checked")){
        $.cookie("mysite", $(this).attr('name'), {expires:30, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
@@ -424,20 +427,16 @@ function doSubmit(oForm) {
   </div>
 </div>
 
- <script type="text/javascript">
-var $body = $('body'),
-        cycle;
-    
+<script type="text/javascript">
+(function(jQuery){jQuery.winFocus||(jQuery.extend({winFocus:function(b){function c(a){a=a||window.event;a.hidden=a.type in{focus:"visible",focusin:"visible",pageshow:"visible",blur:"hidden",focusout:"hidden",pagehide:"hidden"}?"focusout"===a.type:this[d];jQuery(window).data("visible",!a.hidden);jQuery.winFocus.methods.exeCB(a)}var d="hidden";d in document?document.addEventListener("visibilitychange",c):(d="mozHidden")in document?document.addEventListener("mozvisibilitychange",c):(d="webkitHidden")in document?
+document.addEventListener("webkitvisibilitychange",c):(d="msHidden")in document?document.addEventListener("msvisibilitychange",c):"onfocusin"in document?document.onfocusin=document.onfocusout=c:window.onpageshow=window.onpagehide=window.onfocus=window.onblur=c;for(x in arguments)"object"==typeof arguments[x]?(arguments[x].blur&&(jQuery.winFocus.methods.blur=arguments[x].blur),arguments[x].focus&&(jQuery.winFocus.methods.focus=arguments[x].focus),arguments[x].blurFocus&&(jQuery.winFocus.methods.blurFocus=
+arguments[x].focus)):"function"==typeof arguments[x]&&(void 0===jQuery.winFocus.methods.blurFocus?jQuery.winFocus.methods.blurFocus=arguments[x]:(jQuery.winFocus.methods.blur=jQuery.winFocus.methods.blurFocus,jQuery.winFocus.methods.blurFocus=void 0,jQuery.winFocus.methods.focus=arguments[x]))}}),jQuery.winFocus.methods={blurFocus:void 0,blur:void 0,focus:void 0,exeCB:function(b){jQuery.winFocus.methods.blurFocus?jQuery.winFocus.methods.blurFocus(b,!b.hidden):b.hidden?jQuery.winFocus.methods.blur&&
+jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.methods.focus(b)}})})(jQuery);
     (cycle = function () {
-    
-       var $body = $('body'),
-        cycle;
-    
-    (cycle = function () {
-      setTimeout(function(){$('#find-left').fadeOut(1000)},4000);
-	 setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
-      setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
-       setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
+        setTimeout(function(){$('#find-left').fadeOut(1000)},4000); 
+	    setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
+        setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
+        setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
         setTimeout(function(){$('#yoga-left').fadeOut(1000)},9000);
         setTimeout(function(){$('#nature-left').fadeIn(1000)},10000); 
 		setTimeout(function(){$('#music-right').fadeOut(1000)},10000);
@@ -453,28 +452,17 @@ var $body = $('body'),
 		setTimeout(function(){$('#wine-left').fadeOut(1000)},21000);
 		setTimeout(function(){$('#meditation-right').fadeOut(1000)},22000);
 		setTimeout(function(){$('#find-left').fadeIn(1000)},28000);
-       setTimeout(function(){$('#north-right').fadeIn(1000, cycle)},30000);
-        
-        
-	  
-	  
+        setTimeout(function(){$('#north-right').fadeIn(1000, cycle)},30000);
     
     })();
-	
+	    $.winFocus(function(event, isVisible) {
+		$.fx.off = true;
+        $('#music-right, #nature-left, #hikes-right, talks-left, #hikes-right, #north-right, #find-left, #meditation-right, #wine-left, #organic-right ').hide();
+		$.fx.off = false;
+		}); 
 
- 
 
-        
-	  
-	  
-    
-    })();
-	
-
- 
-   
- </script>
- 
+</script>
  
 
   <div style="visibility:hidden; height:1px; width:1px;"><img src="/sites/all/themes/wanderlust/images/studio_hover.png"></div>
@@ -1261,7 +1249,15 @@ $(window).resize(function() {
 
 
 $(document).ready(function () {
-
+  
+  $(".swlang li a").click(function() {
+    if($(this).parent().hasClass('fr') ) {
+      $.cookie("wanlang", 'fr', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});
+    }
+    else if($(this).parent().hasClass('en')) {
+       $.cookie("wanlang", 'en', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});  
+    }
+  });
     /*LOGO ANIMATIONS*/
     
 
@@ -1302,7 +1298,8 @@ $(document).ready(function () {
 });
 
 
-<?php }?>
+<?php }
+?>
 			
 			
 /*GOOGLE ANALYTICS*/
@@ -1320,6 +1317,7 @@ _gaq.push(['_trackPageview']);
 
    jQuery(document).ready(function ($) {
 	$(document).ready(function() {
+	  
 
 		//alert(oo);
 		
