@@ -1,13 +1,13 @@
 
 .wanderfest #container {
-    height: 1130px;
-    width: 1870px;
+    height: 1500px;
+    width: 3470px;
 }
 
 .wanderfest #map-1-container {
     position: relative;
-    height: 1130px;
-    width: 1870px;
+    height: 1500px;
+    width: 3470px;
 }
 
 .not-logged-in.wanderfest #main {
@@ -18,15 +18,15 @@
     border: 1px solid black;
     margin: 0 0 20px;
     position: relative;
-	height: 1130px;
-    width: 1870px;
+	height: 1500px;
+    width: 3470px;
    
 }
 
 
 #legend {
-top: 220px;
-left: 35px;
+top: 720px;
+left: 195px;
 position:absolute;
 }
 

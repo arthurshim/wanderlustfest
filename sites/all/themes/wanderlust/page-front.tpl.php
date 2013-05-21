@@ -63,9 +63,9 @@
 	
 	
 	
-<!--[if lte IE 7]>
+  <!--[if lte IE 7]>
 	<link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/css/ie7.css" />
-<![endif]-->
+  <![endif]-->
 
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -113,7 +113,7 @@
 
 <script type="text/javascript">
 
-  jQuery(document).ready(function ($) {
+ jQuery(document).ready(function ($) {
 
 
  $(document).ready(function() {
@@ -125,9 +125,7 @@
    } else if ($(this).prop("checked", false))
    
    {
-   
           $.cookie("mysite", $(this).attr('name'), {expires:-10, path: '/', domain: '<?php print '.' . $subdomain . '.com';?>'});     
-
    }
    
   });
@@ -142,9 +140,7 @@
 					$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
-				
-		
-			
+							
 	        });
 		$("#legend2 .legendtitle").click(function() {
 				$.fancybox.open('#yogainfo');
@@ -189,10 +185,7 @@ $(document).ready(function() {
                  
              }
 	});
-	
-	
 });
-
 }); //end no conflict
 </script>
 <!--end-->
@@ -211,7 +204,6 @@ function doSubmit(oForm) {
   } else {
     return true;
   }
-  
   return false;
 }
 //-->
@@ -529,7 +521,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
   
   <!-- BEGIN DIV CLASS="MARK" -->
-  <a href="http://<?php print $site->purl_prefix . '.' . $base?>">
+  <a title="http://<?php print $site->purl_prefix . '.' . $base?>" > <!--value title-->
   <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
     <div class="icon"></div>
   
@@ -644,7 +636,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
       
 	
 	<!-- BEGIN STUDIO MARKERS -->	
-	<a target="_blank" href="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
+	<a title="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
     <div class="icon"></div>
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
@@ -957,6 +949,9 @@ if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Op
 
 if (isMobile.any()) {
 
+
+$('#removeMobileLink a').remove();
+
     $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
     window.scrollTo(325, 0);
     
@@ -1077,29 +1072,29 @@ if (isMobile.any()) {
 
 else {
  
- 
-
- 
   jQuery(document).ready(function ($) {
  
  
 // FOR DESKTOP 
 
 $(document).ready(function () {
-
-$(window).resize(function() {
-     $("#map-1").mapz();
-});
+	//only make markers clickable on ipad
+	$(".mark a:nth-child(1)").click(function () {
+		window.location = $(this).attr('title')
+    });
+	//Make map full screen
+	$(window).resize(function() {
+		$("#map-1").mapz();
+	});
 
     $("#map-1").mapz();
 
     $("#legend").draggable();
 	
-	  // POSITION MAP FOR DESKTOP
+	// POSITION MAP FOR DESKTOP
     $('#map-1').css('left', '-1270px');
 
     // TOOLBAR MENU
-
     $("#help .icon").toggle(
     function () {
         $('#toolbar .dialog').hide();
@@ -1229,24 +1224,9 @@ $(window).resize(function() {
 } //end else
 
 
-
-
-
-
-
-
 /*FOR BOTH MOBILE AND DESKTOP*/
 
-
 <?php } else {?> 
-
-
-
-
-
-
-
-
 
 $(document).ready(function () {
   
@@ -1258,8 +1238,7 @@ $(document).ready(function () {
        $.cookie("wanlang", 'en', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});  
     }
   });
-    /*LOGO ANIMATIONS*/
-    
+
 
     /*FOR PHOTOS*/
     $('body').append('<div id="ted_photo_hover"></div>');

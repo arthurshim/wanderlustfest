@@ -29,6 +29,7 @@ _gaq.push(['_trackPageview']);
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
+  <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
   
    <meta property="og:description" content="Wanderlust is a one-of-a-kind festival bringing together the world's leading yoga teachers, top musical acts and DJs, renowned speakers, top chefs and winemakers, and much, much more -- all in a setting of breathtaking natural beauty."/>
    <meta property="og:title" content="Wanderlust Festival 2012"/>
@@ -326,7 +327,14 @@ $(function() {
 <script>
 
 $(document).ready(function() {
-
+    $(".swlang li a").click(function() {
+    if($(this).parent().hasClass('fr') ) {
+      $.cookie("wanlang", 'fr', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});
+    }
+    else if($(this).parent().hasClass('en')) {
+       $.cookie("wanlang", 'en', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});  
+    }
+  });
 		//alert(oo);
 		
 		$('#newsletter #submit').click(function() {

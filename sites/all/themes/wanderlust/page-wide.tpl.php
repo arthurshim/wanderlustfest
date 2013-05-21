@@ -22,7 +22,7 @@
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  
+  <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
  
   <!-- SET FACEBOOK OPEN GRAPH APP ID -->
   <meta property="fb:app_id" content="321576251186267"/>
@@ -207,7 +207,14 @@ _gaq.push(['_trackPageview']);
 <script>
 
 $(document).ready(function() {
-
+  $(".swlang li a").click(function() {
+    if($(this).parent().hasClass('fr') ) {
+      $.cookie("wanlang", 'fr', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});
+    }
+    else if($(this).parent().hasClass('en')) {
+       $.cookie("wanlang", 'en', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});  
+    }
+  });
 		//alert(oo);
 		
 		$('#newsletter #submit').click(function() {

@@ -17,6 +17,7 @@
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
+      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/jquery_cookie.js"></script>
 	  	  <script>
 jQuery.noConflict();
 (function($) {
@@ -195,7 +196,14 @@ _gaq.push(['_trackPageview']);
 
 <script>
 $(document).ready(function() {
-
+  $(".swlang li a").click(function() {
+    if($(this).parent().hasClass('fr') ) {
+      $.cookie("wanlang", 'fr', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});
+    }
+    else if($(this).parent().hasClass('en')) {
+       $.cookie("wanlang", 'en', {expires:30, path: '/', domain: '<?php print '.' . $base ;?>'});  
+    }
+  });
 		//alert(oo);
 		
 		$('#newsletter #submit').click(function() {
