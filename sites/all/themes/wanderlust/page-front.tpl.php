@@ -521,7 +521,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
   
   <!-- BEGIN DIV CLASS="MARK" -->
-  <a title="http://<?php print $site->purl_prefix . '.' . $base?>" > <!--value title-->
+  <a href="http://<?php print $site->purl_prefix . '.' . $base?>" > <!--value title-->
   <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
     <div class="icon"></div>
   
@@ -1079,9 +1079,11 @@ else {
 
 $(document).ready(function () {
 	//only make markers clickable on ipad
+	/*
 	$(".mark a:nth-child(1)").click(function () {
 		window.location = $(this).attr('title')
-    });
+    });*/
+	
 	//Make map full screen
 	$(window).resize(function() {
 		$("#map-1").mapz();
