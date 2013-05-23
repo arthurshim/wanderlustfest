@@ -138,7 +138,49 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
           //drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
         }
           
-       
+        if($subdomain == 'tremblant') {
+          switch($display_data->display_title) {
+            case 'All':
+               $display_data->display_title = t('All');
+              break;
+            
+              case 'Yoga':
+               $display_data->display_title = t('Yoga'); 
+              break;
+            
+              case 'Music':
+               $display_data->display_title = t('Music');
+              break;
+            
+              case 'Speakeasy':
+               $display_data->display_title = t('Speakeasy');               
+              break;
+            
+              case 'Meditation':
+               $display_data->display_title = t('Meditation');
+              break;
+            
+              case 'Healing':
+               $display_data->display_title = t('Healing');
+              break;
+            
+              case 'Art':
+               $display_data->display_title = t('Art');
+              break;            
+            
+              case 'Theater':
+               $display_data->display_title = t('Theater');
+              break;
+            
+              case 'Outdoors':
+               $display_data->display_title = t('Outdoors');
+              break;
+            default:
+            break;
+          }
+
+        //  drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
+        }
             
         if ($sep && strpos($display_data->display_title, $sep)) {
             
