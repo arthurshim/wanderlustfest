@@ -225,7 +225,6 @@ _gaq.push(['_trackPageview']);
 
 <script>
 $(document).ready(function() {
- $(document).ready(function () {
   
   $(".swlang li a").click(function() {
     if($(this).parent().hasClass('fr') ) {

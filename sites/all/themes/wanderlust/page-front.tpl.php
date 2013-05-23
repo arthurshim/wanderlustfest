@@ -636,7 +636,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
       
 	
 	<!-- BEGIN STUDIO MARKERS -->	
-	<a title="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
+	<a href="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
     <div class="icon"></div>
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
