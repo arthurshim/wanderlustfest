@@ -108,6 +108,14 @@ $(function() {
         <div class="subhead">
            <hgroup id="site-name-slogan">      
            <?php print $header; ?>
+           <?php
+	$site = sites_get_current_site();	
+	if($site->purl_prefix == 'tremblant') {
+	  $block = module_invoke('locale', 'block', 'view', 0);
+	  print '<div class="swlang">' . $block['content'] . '</div>';
+	}	
+	//print $language_region; ?>
+
            </hgroup>
 
     <div class="newlogo">

@@ -141,6 +141,14 @@ _gaq.push(['_trackPageview']);
 
       <div id="event-info">      
         <?php print $header; ?>
+        <?php
+	$site = sites_get_current_site();	
+	if($site->purl_prefix == 'tremblant') {
+	  $block = module_invoke('locale', 'block', 'view', 0);
+	  print '<div class="swlang">' . $block['content'] . '</div>';
+	}	
+	//print $language_region; ?>
+
       </div>
 
       <div class="tomap">
