@@ -2617,8 +2617,8 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 --------------------------------*/
 
 .swlang{
-  top: 75px;
-  left: 934px;
+  top: -27px;
+  left: 785px;
   z-index: 999;
   margin: 0;
   padding: 0;
@@ -2637,19 +2637,29 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 }
 
 .swlang a{
-  width: 22px;
+  width: 166px;
   display: inline-block;
   text-indent: -9999em;
-  background: url('../images/flags.png') no-repeat;
-
+  background: url('../images/lang-switcher.gif') no-repeat;
+  height: 20px;
   }
 
 .swlang .en a{
   margin-right: 2px;
+
+}
+
+.swlang .active{
+  display: none;
+}
+
+.swlang a:hover{
+  opacity: 0.8;
 }
 
 .swlang .fr a{
-  background-position: -22px 0;  
+  background-position:  0 -20px;  
+  
 }
 
 /* HIDE LANGUAGE SWITCHER FOR NON-ADMINS */
