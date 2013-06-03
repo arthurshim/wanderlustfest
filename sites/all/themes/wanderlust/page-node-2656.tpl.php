@@ -76,9 +76,18 @@ jQuery.noConflict();
    <?php print $topnav; ?>
     </div>
 
-   <div class="tomap">
-      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
-   </div>
+     <div class="tomap">	
+        <?php
+		if(  $language->language == 'en'){
+		/* add  $_GET['m']  value  to check where  user  came, from site or  external.  and do redirect or not  */
+          $im = '<img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="To map" />';   
+          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
+		  } else {
+		  $im = '<img src="/sites/all/themes/wanderlust/images/see-all-events-fr.png" alt="To map" />';   
+          print l($im, "http://{$base}", array( 'query' => array('m' => '1'), 'html' => TRUE));
+		  }
+        ?>
+      </div>
 
   </div>
       
@@ -202,14 +211,22 @@ setTimeout(function(){$('#thankyou').hide(1000); },4000)
 });
 
 </script>
-  <script type="text/javascript">
+<script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 1020182989;
 var google_conversion_label = "NKVFCIGI3AQQzYO75gM";
 var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
-
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1020182989/?value=0&amp;label=NKVFCIGI3AQQzYO75gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-12068308-1']);
   _gaq.push(['_setDomainName', 'wanderlustfestival.com']);
@@ -222,6 +239,5 @@ var google_remarketing_only = true;
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-  
 </body>
 </html>

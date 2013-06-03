@@ -1337,15 +1337,22 @@ $.fancybox.close();
 });
 });
 </script>
-
-  <script type="text/javascript">
+<script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 1020182989;
 var google_conversion_label = "NKVFCIGI3AQQzYO75gM";
 var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
-
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/1020182989/?value=0&amp;label=NKVFCIGI3AQQzYO75gM&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+<script>
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-12068308-1']);
   _gaq.push(['_setDomainName', 'wanderlustfestival.com']);
