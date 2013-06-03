@@ -30,18 +30,6 @@ jQuery.noConflict();
 })(jQuery);
 
 
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-12068308-1']);
-  _gaq.push(['_setDomainName', 'wanderlustfestival.com']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
 </script>
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
@@ -221,6 +209,18 @@ var google_conversion_label = "NKVFCIGI3AQQzYO75gM";
 var google_custom_params = window.google_tag_params;
 var google_remarketing_only = true;
 /* ]]> */
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-12068308-1']);
+  _gaq.push(['_setDomainName', 'wanderlustfestival.com']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 </script>
   
 </body>
