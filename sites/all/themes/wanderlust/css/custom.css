@@ -2757,3 +2757,156 @@ cursor: text;
   width: 200px;
   height: 30px;
 }
+
+
+
+
+
+
+
+/* TICKETS & MISC PAGE STYLES (FROM JAKE LAUB)
+--------------------------------*/
+
+table.tkts {
+	background-color: rgba(255,255,255,0.5); 
+	border: 1px solid gray;  
+	width:605px; 
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	border-radius: 5px;
+	vert-align: middle !important;
+}
+td.tkts-head {
+	background-color: #3a6a60; 
+	color:white; 
+	padding: 10px 10px 5px 10px !important; 
+	font-size:25px;
+	font-family: 'lhf_egyptianregular',arial;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+.tkts tr {
+	border: 1px solid gray;
+}
+.tkts td {
+	vertical-align: middle;
+}
+.yoga-plus-header {
+	padding:5px 5px 0px 10px; 
+	font-size:15px;	
+}
+.shaded {
+	background-color: rgb(170, 201, 185); 	
+}
+.yoga-plus-pricing {
+	width: 410px;
+	padding:5px 5px 5px 10px; 
+	vertical-align: middle;
+}
+.yoga-plus-header {
+	border: 1px solid gray;  
+	background-color: #c2c2c2;		
+}
+.yoga-plus-header td:first-child {
+	padding: 10px 10px 0px 10px;
+	width: 60px;
+	font-family: 'lhf_egyptianregular',arial;
+	letter-spacing: 1px;
+	font-size: 22px;
+	line-height: 25px;
+	text-transform: uppercase;
+}
+.yoga-plus-header td:nth-child(2) {
+	font-weight: normal;
+	padding:5px 5px 5px 10px; 
+	line-height: 16px;
+	font-size: 13px;
+}
+.tall { /* makes the td taller when there is no price warning so button has breathing room */
+	padding: 15px 5px 15px 10px !important;
+}
+.sold-out
+	{ 	
+	color: gray;	
+	padding:0px 5px 5px 10px; 
+	border-top: none;
+}
+.sold-out td:nth-child(3), td.sold-out {
+	text-align: center;	
+}
+.add-to-cart  {
+	font-size: 15px;
+	width: 125px;
+	padding:5px; 
+	font-weight: bold; 
+	text-align: center;
+	letter-spacing: 1px;
+}
+.add-to-cart-multiday {
+	font-size: 14px;
+	padding:5px;
+	font-weight: bold; 
+	text-align: center;
+	width: 125px;
+}
+.add-to-cart a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #3a6a60;
+	padding: 8px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px; 
+	-moz-border-radius: 3px; 
+}
+.add-to-cart a:hover {
+	background-color: #c48f3d;
+}
+.add-to-cart-multiday a {
+	color: white;
+	text-decoration: none;
+	font-weight: bold;
+	background-color: #3a6a60;
+	padding: 3px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px; 
+	-moz-border-radius: 2px; 
+	margin-top: 3px;
+	display: inline-block;
+	min-width: 20px;
+}
+.add-to-cart-multiday a:hover {
+	background-color: #c48f3d;
+}
+.name {
+	padding: 5px 5px 5px 10px;
+	width: 60px;
+	letter-spacing: 1px;
+	font-size: 15px;
+	line-height: 17px;
+	font-weight: bold;
+}
+.info {
+	font-weight: normal;
+	padding:5px; 
+	line-height: 16px;
+	font-size: 13px;
+}
+.price {
+	text-align: center;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.tkts-end{
+	padding-left: 10px;
+	line-height: 16px;
+	font-size: 13px;
+}
+li.tkts {
+	margin:4px 0;
+}
+span.price-warning {
+	font-size: 12px;
+	font-style: italic;
+}
