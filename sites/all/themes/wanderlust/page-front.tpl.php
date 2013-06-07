@@ -160,6 +160,51 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 				
 	        });
+			
+		
+
+		if (document.cookie.indexOf("visited") >= 0) {
+  
+}
+else {
+
+	$.fancybox({
+			'padding'		: 0,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'width'			: 640,
+			'height'		: 385,
+			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
+			'type'			: 'swf',
+			'swf'			: {
+			'wmode'				: 'transparent',
+			'allowfullscreen'	: 'true'
+			}
+		});
+
+
+  // set a new cookie
+  //expiry = new Date();
+ // expiry.setTime(date.getTime()+(9000*60*1000)); // never
+
+  // Date()'s toGMTSting() method will format the date correctly for a cookie
+    document.cookie = "visited=yes";
+
+}
+		
+		
+		
+		
+	
+
+
+
+	
+			
+			
+			
+			
 });
        
     function IntoView(elem)
@@ -521,11 +566,11 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <!-- BEGIN FESTIVAL & YITC MARKERS -->	
   
   <!-- BEGIN DIV CLASS="MARK" -->
-  <a href="http://<?php print $site->purl_prefix . '.' . $base?>" > <!--value title-->
-  <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
+  <!--value title-->
+    <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
     <div class="icon"></div>
-  
     <div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
+	<div class="xSplash"></div>
 
     <?php
     if ($site->extra_fields->field_event_date[0]['value']) {
@@ -625,7 +670,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <!-- END DIV CLASS="MARK"-->
   
 	</div>
-</a>		
+	
 	
 	
 	
@@ -636,11 +681,11 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
       
 	
 	<!-- BEGIN STUDIO MARKERS -->	
-	<a href="<?php print $site->extra_fields->field_event_url[0]['url']?> ">	
+
   <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
     <div class="icon"></div>
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
-
+	<div class="xSplash"></div>
     	<?php
     //  drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
       if (isset($site->extra_fields->field_event_date[0]['value'])) {
@@ -666,7 +711,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	
     </div>
 	</div>	
-	</a>
+	
 	  <?php } ?>
 	  
 	  <?php endforeach;  ?>
@@ -1150,11 +1195,14 @@ $(document).ready(function () {
 	
 	
     // INNERSITE HOVERS WHEN OVER MARKERS
-    $(".mark:not(.legendNo)").hover(function () {
+    $(".mark:not(.legendNo)").click(function () {
         $(this).find('.innersite').fadeIn();
-    },
-    function() {
-        $(this).find('.innersite').fadeOut();
+    });
+	
+	
+	 $(".xSplash").click(function (event) {
+         event.stopPropagation();
+        $('.innersite').fadeOut();
     });
 	
 	

@@ -1,0 +1,152 @@
+<html>
+<head>
+  <title>Mobile Splash Page</title>
+  <link href="css/mobile-stylesheet.css" type="text/css" rel="stylesheet">  
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>  <script type="text/javascript">
+    
+    $(document).ready(function() {
+      $(".toolbar a").click(function(){
+        $(this).next().toggle();
+      }); 
+      
+      $(".toolbar .close").click(function(){
+        $(".content").hide();
+      }); 
+      
+    });
+
+  </script>
+</head>
+
+<body class="splash-mobile">
+  <div class="header">
+    <h1><img src="images/splash-mobile-logo.gif"></h1>
+  </div>
+
+  <h2>Wanderlust Festivals</h2>
+  
+  <div class="section">
+    <ul>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>Wanderlust California</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>Wanderlust Vermont</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>Wanderlust Whistler</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>Wanderlust Colorado</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>                  
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>Wanderlust Tremblant</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li> 
+    </ul>
+  </div>
+
+  <h2>Wanderlust Yoga In the City</h2>
+  
+  <div class="section">
+    <ul>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>YITC San Francisco</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>YITC New York</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>YITC Chicago</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <p class="date">July 18-21, 2013</p>
+        <h3>YITC Seattle</h3>
+        <p class="date">Squaw Valley &bull; North Lake Tahoe, CA, USA</p>        
+      </a>
+      </li>                  
+
+    </ul>
+  </div>  
+   
+ <h2>Wanderlust Studios</h2>
+  
+  <div class="section">
+    <ul>
+      <li>
+      <a href="#">
+        <h3>Montreal</h3>
+        <p class="date">Montreal, QB</p>        
+      </a>
+      </li>
+      <li>
+      <a href="#">
+        <h3>Austin</h3>
+        <p class="date">Austin, TX</p>        
+      </a>
+      </li>                
+
+    </ul>
+  </div>  
+   
+  <div class="toolbar">
+    <ul>
+      <li>
+        <a href="#">ABOUT</a>
+        <div class="content">
+          <div class="wrapper">
+          <div class="close"></div>
+          <h5>About</h5>
+          Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature. Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.
+          </div>
+        </div>
+      </li>
+      <li><a href="#">MISSION</a>
+        <div class="content">
+          <div class="wrapper">
+          <div class="close"></div>
+          <h5>Mission</h5>
+          Wanderlust's core mission is to create community around mindful living. Mindful living is a conscious, value-based approach to leading a balanced & fulfilling life. We focus on yoga, eating well, being green, practicing purpose in our partnerships, creating awareness, showcasing art, and encouraging adventure.          
+          </div>
+        </div>      
+      </li>
+      <li class="last"><a href="http://journal.wanderlustfestival.com" target="_blank">BLOG</a></li>
+    </ul>
+  </div>
+   
+</body>
+
+</html>

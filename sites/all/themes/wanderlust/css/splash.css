@@ -351,6 +351,7 @@ top: 351px;
 .innersite:hover{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png') !important;
   background-position: -694px -668px !important; 
+  z-index:9999;
 }
 
 .innersite .venue{
@@ -360,7 +361,7 @@ top: 351px;
 .site-title a,
 .site-title{
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 19px;
   text-transform: uppercase;
   font-family: 'revolution', arial !important;
   font-style: normal;
@@ -1061,7 +1062,13 @@ margin-top:10px;
 }
 
 
- 
+.xSplash {  
+background: url(/sites/all/themes/wanderlust/js/fancybox/source/fancybox_sprite.png); 
+height: 30px;
+width: 30px;
+background-size: 38px 123px;
+float: left;
+}
 
 /* CONTAINER
 ---------------------------------*/
