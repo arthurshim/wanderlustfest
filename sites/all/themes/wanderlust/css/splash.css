@@ -354,6 +354,8 @@ top: 351px;
   z-index:9999;
 }
 
+#map-1-container .mark.activemarker{z-index:100;}
+
 .innersite .venue{
   display: none;
 }
