@@ -169,12 +169,12 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 else {
 
 	$.fancybox({
-			'padding'		: 0,
+			'padding'		: 10,
 			'autoScale'		: false,
 			'transitionIn'	: 'none',
 			'transitionOut'	: 'none',
-			'width'			: 640,
-			'height'		: 385,
+			'width'			: 670,
+			'height'		: 403,
 			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
 			'type'			: 'swf',
 			'swf'			: {
@@ -195,14 +195,26 @@ else {
 		
 		
 		
+		$('#aboutFancy').click(function () {
+	
+	
+		$.fancybox({
+			'padding'		: 10,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'width'			: 670,
+			'height'		: 403,
+			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
+			'type'			: 'swf',
+			'swf'			: {
+			'wmode'				: 'transparent',
+			'allowfullscreen'	: 'true'
+			}
+		});
+
+		  });
 		
-	
-
-
-
-	
-			
-			
 			
 			
 });
@@ -567,7 +579,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   
   <!-- BEGIN DIV CLASS="MARK" -->
   <!--value title-->
-    <div class="mark activemarker <?php print $site->purl_prefix . ' ' . $class;?>">
+    <div class="mark <?php print $site->purl_prefix . ' ' . $class;?>">
     <div class="icon"></div>
     <div class="innersite <?php print $site->purl_prefix . ' ' . $class;?>" >	
 	<div class="xSplash"></div>
@@ -682,7 +694,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	
 	<!-- BEGIN STUDIO MARKERS -->	
 
-  <div class="mark activemarker <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
+  <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
     <div class="icon"></div>
   	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
 	<div class="xSplash"></div>
@@ -741,8 +753,9 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	      <div id="killBill">X</div>
           <h3>About</h3>
           <p>
-            Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature.  Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.           
-          </p>
+            Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature.  Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.
+		  </p>
+		  <div id="aboutFancy">Watch Video Highlights from Wanderlust 2012</a></div>   
           <div class="arrow"></div>
         </div>
     </div>
@@ -1050,13 +1063,33 @@ $('#removeMobileLink a').remove();
     function () {
         $('#toolbar #connect .dialog').hide();
     });
+	
+	
+	
+		$.fancybox({
+			'padding'		: 10,
+			'autoScale'		: false,
+			'transitionIn'	: 'none',
+			'transitionOut'	: 'none',
+			'width'			: 670,
+			'height'		: 403,
+			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
+			'type'			: 'swf',
+			'swf'			: {
+			'wmode'				: 'transparent',
+			'allowfullscreen'	: 'true'
+			}
+		});
+
     
     
 		$('#killBill').click(function () {
     	$('#toolbar #help .dialog, #toolbar #about .dialog, #toolbar #mission .dialog, #toolbar #connect .dialog').hide();
 
     });
-	
+		
+		
+		
 		$('#connect a.icon').click(function () {
 
 		$('#killBill2').click(function () {
@@ -1194,17 +1227,23 @@ $(document).ready(function () {
     });
 	
 	
-    // INNERSITE HOVERS WHEN OVER MARKERS
+    // TRIGGER INNERSITE HOVERS WHEN CLICKING ON MARKERS
     $(".mark:not(.legendNo)").click(function () {
-	    $('.innersite').hide();
+  	  $('.innersite').hide();
+      $(this).addClass('activemarker')
         $(this).find('.innersite').fadeIn();
+
+    
     });
-	
-	
-	 $(".xSplash").click(function (event) {
-         event.stopPropagation();
+
+	  // CLOSE INNERSITES
+	  $(".xSplash").click(function () {    
+	  event.stopPropagation();
+     $(this).parents('.mark').removeClass('activemarker')
+	 
         $('.innersite').fadeOut();
     });
+	
 	
 	
 

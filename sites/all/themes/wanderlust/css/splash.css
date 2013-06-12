@@ -826,10 +826,11 @@ top: 351px;
 
 }
 
-.front .fancybox-inner{
-  background: url('../images/window-bottom.png') no-repeat bottom;
-  padding: 0 0 10px 0;
-  }
+
+.front .fancybox-inner {
+background: url('../images/window-bottom.png') no-repeat bottom;
+padding: 0px 6px 8px 10px;
+}
 
 
 .front .fancybox-skin td {
@@ -847,7 +848,7 @@ top: 351px;
 }
 
 .front .fancybox-inner{
-  width: 668px !important;
+  width: 649px !important;
 }
 
 .front .fancybox-skin #newsletter{
@@ -958,6 +959,17 @@ top: 351px;
 
 }
 
+#aboutFancy {
+    position: relative;
+    top: 7px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#aboutFancy:hover {
+
+}
+
 #toolbar .dialog{
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
   background-position: -19px -946px;
@@ -971,7 +983,7 @@ top: 351px;
   text-align: center;
   font-size: 12px;
   font-family: 'baskerville_fsregular', 'Times New Roman';
-  font-size: 15px;
+  font-size: 14.3px;
   line-height: 1.2;
 }
 
@@ -1069,7 +1081,9 @@ background: url(/sites/all/themes/wanderlust/js/fancybox/source/fancybox_sprite.
 height: 30px;
 width: 30px;
 background-size: 38px 123px;
-float: left;
+position: absolute;
+right: -10px;
+top: -10px;
 }
 
 /* CONTAINER
