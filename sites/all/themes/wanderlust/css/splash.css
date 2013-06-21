@@ -1086,6 +1086,11 @@ right: -10px;
 top: -10px;
 }
 
+
+.splash-mobile {
+display:none;
+}
+
 /* CONTAINER
 ---------------------------------*/
 

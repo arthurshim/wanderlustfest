@@ -18,26 +18,31 @@
 .splash-mobile{
   width: 100%;
   background: #f8fff3;
+  display:block;
 }
 
 .header{
   background: #dbe7d7;
   width: 100%;
 }
+html{
+  height: 100%;
+}
 
 body{
-  padding: 0;
+  padding: 0 0 300px 0;
   margin: 0;
   font-family: arial;
-  color: #fff;
-  padding-bottom: 135px;
+  color: #3b6b60;
+  font-size: 12px;
 }
 
 h1{
   color: #47292b;
   text-transform: uppercase;
   margin: 0;
-  padding: 15px 20px;  
+  padding: 5px 10px;  
+
 }
 
 h1 img{
@@ -48,8 +53,8 @@ h1 img{
 h2{
   background: #bf9d6a;
   text-transform: uppercase;
-  font-size: 2em;
-  padding: 2px 20px 15px 20px;
+  font-size: 1em;
+  padding: 2px 10px 8px 10px;
   margin: 0;  
   color: #f8fff3;
   font-family: 'revolution';
@@ -60,7 +65,7 @@ h2{
 
 .section{
   color: #3b6b60;
-  font-family: calibri, arial;
+  font-family: calibri, arial !important;
   font-weight: normal;
 }
 
@@ -69,16 +74,16 @@ h2{
   padding: 0;
 }
 
-.section li{
+.section li,
+.bl{
   list-style-type: none;
   padding: 0;
   margin: 0;
   border-bottom: 1px solid #416b5f;
-  padding: 0 20px;
+  padding: 8px 10px;
 }
 
 .section a{
-  padding: 18px 0;
   color: #3b6b60;
   text-decoration: none;
   display: block;  
@@ -91,17 +96,21 @@ h2{
   padding: 0;
 }
 
-.section h3{
-  margin: -4px 0 15px 0;
+.site-title a,
+.bl a{
+  margin: 0px 0 5px 0;
   text-transform: uppercase;
   font-family: 'revolution';
-  font-size: 4em;
+  font-size: 2.1em !important;
   font-weight: normal;
   line-height: 1;
   padding: 0;
+  color: #3b6b60 !important;
 }
 
-
+.toolbar{
+  padding-bottom: 30px;
+}
 
 .toolbar ul{
   padding: 0 0;
@@ -109,7 +118,7 @@ h2{
   width: 100%;
   margin: 0;
   position: fixed;
-  bottom: 0;
+  bottom: 0px;
   z-index: 10;
 }
 
@@ -118,10 +127,10 @@ h2{
 }
 
 .toolbar li a{
-  font-size: 3em;
+  font-size: 1.5em;
   color: #f8fff3;
   background: #8e5d08;
-  padding: 25px 0 38px 0;
+  padding: 5px 0 14px 0;
   width: 33%;  
   display: block;
   float: left;
@@ -131,6 +140,7 @@ h2{
   text-decoration: none;
   font-weight: normal;
   border-top: 4px solid #efd6b1;
+  line-height: 1;
 }
 
 .toolbar li.last a{
@@ -146,9 +156,10 @@ h2{
   padding: 40px 0;
   height: 100%;
   z-index: -2;
-  font-size: 3em;
+  font-size: 1em;
   text-align: center;
   padding-top: 60px;
+  color: #fff;
 }
 
 .toolbar .wrapper{
@@ -158,8 +169,8 @@ h2{
 
 .close{
   background: url('../images/splash-mobile-close.png');
-  height: 58px;
-  width: 58px;
+  height: 28px;
+  width: 28px;
   display: block;
   top: 30px;
   position: absolute;
@@ -178,82 +189,48 @@ h5{
   display: none;
 }
 
+.hide {
+display:none;
+}
 
-/* MAP VIEW STYLES
+/* CSS OVERRIDES
 ----------------------------------- */
 
-
-.wanderfest #container {
-    height: 1500px;
-    width: 3470px;
+.site-tickets,
+.site-register{
+  display: none;
 }
 
-.wanderfest #map-1-container {
-    position: relative;
-    height: 1500px;
-    width: 3470px;
+#container{
+  overflow: visible;
 }
 
-.not-logged-in.wanderfest #main {
-    display: block !important;
+.siteevent,
+.siteaddress,
+.item-date{
+  line-height: 1;
+  font-family: 'calibri', helvetica, arial;
+  color: #3b6b60 !important;
+  margin: 0;
+  font-size: 12px !important;
 }
 
-.map-viewport {
-    border: 1px solid black;
-    margin: 0 0 20px;
-    position: relative;
-	height: 1500px;
-    width: 3470px;
-   
+.bl{
+  float: none;
+  margin: 0;
+  position: static;
+  width: auto;
 }
 
-
-#legend {
-top: 720px;
-left: 195px;
-position:absolute;
+.siteaddress{
+  display: inline;
+  margin-right: 10px;
 }
 
-
-#toolbar {
-
-right: 0px;
-bottom: 10px;
-z-index: 999;
-width: 520px;
+.siteaddress.venue{
+ 
 }
 
-
-#site-checkbox {
-    margin-bottom:9px;
-	margin-right:9px;
+.bl br{
+  display: none;
 }
-
-input[type=checkbox]
-{
-  -webkit-transform: scale(1.7); 
-}
-
-#site-checkbox input {
-margin-right: 19px;
-margin-bottom: 6px;
-}
-/*reset checkboxes for ipad only*/
- @media only screen and (max-device-width: 1024px) and (orientation : landscape)
-{
-input[type=checkbox]
-{
-  -webkit-transform: scale(1.0); 
-}
-}
-  
-@media only screen and (max-device-width: 768px) and (orientation : portrait)
-{
-input[type=checkbox]
-{
-  -webkit-transform: scale(1.0); 
-}
-}
-
-
-
