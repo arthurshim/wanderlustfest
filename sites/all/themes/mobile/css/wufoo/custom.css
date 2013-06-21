@@ -1,0 +1,73 @@
+/* - - - - - - - - - - - - - - - - - - - - -
+
+ Title : Wanderlust 2012 - Wufoo
+ Author : Root Down
+ URL : http://wanderlustfestival.com
+
+ Last Updated : 7/20/12
+
+- - - - - - - - - - - - - - - - - - - - - */
+
+
+
+li.yogaaid{
+  background: url('http://wanderlustfestival.com/sites/all/themes/wanderlust/images/yogaaid.jpg') no-repeat 0 40px;
+}
+
+#instruct230{
+  padding: 10px 0 0 230px;
+}
+
+#instruct117{
+  height: 150px;
+  overflow: scroll;
+}
+
+.thankyou{
+  background: #afe3f7;
+  padding: 13px !important;
+  font-size: 14px;
+  border: 1px solid #0194d1;
+  margin-top: 15px;
+}
+
+.thankyou h3, .no-border h3{
+  border: none !important;
+}
+
+li.charity label {
+  padding-right:190px;
+  height:150px;
+}
+/*Ganga Action Parivar*/
+li.charity label[for="Field232_0"] {
+  background: url('http://yogaaid.com/assets/profile_large/d43f70ff-3e4e-4136-b1ed-8bf064f8d787.png') no-repeat right top;
+}
+/*Yoga Across America*/
+li.charity label[for="Field232_1"] {
+  background: url('http://yogaaid.com/assets/profile_large/c011e571-301a-4617-9865-ff29845bf463.png') no-repeat right top;
+}
+/*Yoga Gangsters*/
+li.charity label[for="Field232_2"] {
+  background: url('http://yogaaid.com/assets/profile_large/468c8bfb-8bb3-42f7-9cff-b19f29e4b9d7.png') no-repeat right top;
+}
+/*Off the Mat*/
+li.charity label[for="Field232_3"] {
+  background: url('http://yogaaid.com/assets/profile_large/a7c22637-b153-4c05-b1fb-eba86ee1aca0.png') no-repeat right top;
+}
+/*Africa Yoga Project*/
+li.charity label[for="Field232_4"] {
+  background: url('http://yogaaid.com/assets/profile_large/b497856c-6094-419d-99c7-0aaca9c559c3.png') no-repeat right top;
+}
+/*4 OneWorld*/
+li.charity label[for="Field232_5"] {
+  background: url('http://yogaaid.com/assets/profile_large/05b8e92c-a97f-431b-adf5-20f4f3156a72.png') no-repeat right top;
+}
+
+.padding-10 h3{
+  padding:10px 0 !important;
+}
+
+#container, html.embed {
+  background: none !important;
+}

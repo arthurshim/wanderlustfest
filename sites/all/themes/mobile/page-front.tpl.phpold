@@ -1,0 +1,451 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php print $language->language ?>" xml:lang="<?php print $language->language ?>">
+<head>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>  <script type="text/javascript">
+    
+    $(document).ready(function() {
+      $(".toolbar a").click(function(){
+        $(this).next().toggle();
+      }); 
+      
+      $(".toolbar .close").click(function(){
+        $(".content").hide();
+      }); 
+      
+    });
+	
+	
+
+  </script>
+  <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/mobile/css/mobile-stylesheet.css" />
+  <title><?php print $head_title ?></title>
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+</head>
+
+
+    <?php
+	
+	$base = wl_get_base_domain();
+   
+
+     $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value ASC", 'event');
+
+      while ($items = db_fetch_array($result)) {
+          $nodes[] = $items;
+      }
+      
+      
+      $q    = 'SELECT * FROM {sites}'; //get all sites; 
+      $res  = db_query($q);
+      $nids = array();
+      while ($row = db_fetch_object($res)) {
+	 drupal_set_message('<pre>' . print_r($base, 1) . '</pre>');
+          if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
+	    
+              if ($node = node_load($nid)) {
+                  /* load event node*/
+                  $row->extra_fields = $node;
+                  if ($node->field_event_hide[0]['value'] == 'enabled') {
+                      $nids[] = $node->nid;
+                  }
+		 // print '<pre>' . print_r($node->field_event_hide[0]['value'], 1) . '</pre>';
+              }
+          }
+          $sites[$row->sid] = $row;
+      }
+     
+
+      
+      
+ function cmp($a, $b) {
+      return strcmp(strtotime($a->extra_fields->field_event_date[0]['value']), strtotime($b->extra_fields->field_event_date[0]['value']));
+  }
+
+   usort($sites, "cmp");   
+   
+  
+      
+      foreach ($nodes as $s) {
+	 
+          if (!in_array($s['nid'], $nids)) {
+              $row->extra_fields           = node_load($s['nid']);
+              //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
+              $sites['studio' . $s['nid']] = $row;
+          }
+      }
+	  
+	  
+	  
+	  
+	   //  print '<pre>' . print_r($sites, 1) . '</pre>';
+	  
+	  
+	  
+	//  if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio') {
+    // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');?>
+      
+      
+  <!-- BEGIN FESTIVAL & YITC MARKERS -->	
+  
+  <!-- BEGIN DIV CLASS="MARK" -->
+  <!--value title-->
+
+  <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
+      
+    <?php
+    if(!$site->title) {
+        
+    }
+
+       //     print '<pre>' . print_r($site->purl_prefix, 1) . '</pre>';
+    foreach($site->extra_fields->taxonomy as $n) {
+
+      
+  	  if($n->tid == 93) {
+  	     $class = 'festival'; 
+  	  }
+  	  elseif($n->tid == 92) {
+  	    $class = 'yoga';
+  	  }
+  	  elseif($n->tid == 94) {
+  	    $class = ''; 
+  	  }
+  	  elseif($n->tid == 180) {
+  	    $class = 'studio'; 
+  	  }
+    }
+	
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio') {
+     // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');?>
+      
+      
+  <!-- BEGIN FESTIVAL & YITC MARKERS -->	
+  
+  <!-- BEGIN DIV CLASS="MARK" -->
+  <!--value title-->
+  
+
+    <?php
+    if ($site->extra_fields->field_event_date[0]['value']) {
+        $item = '<div class="site-item">';
+        $item .= '<div class="site-marker"></div>';
+        $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteevent"><div class="item-date">';
+
+      //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
+        // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
+
+	  if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
+	      $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
+	  }
+	  
+	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
+	  else {
+	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	  }
+
+
+        
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '<div class="siteaddress venue">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div></div>';
+	   
+	   
+	   /*if there is a date and is yoga display register now else buy tickets*/
+	   if ($class !== 'yoga') {
+		$item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+        }
+
+     
+	   else if ($class == 'yoga') {
+	    $item .= '<div class="site-register"><a href="http://' . $site->purl_prefix . '.' . $base .'/register'. '"> Register now</a></div>';
+        }
+		
+		
+
+    }
+	
+	/*if no date and is yoga*/
+      elseif(!$site->extra_fields->field_event_date[0]['value'] && $class == 'yoga') {
+        $item = '<div class="site-item">';
+        $item .= '<div class="site-marker"></div>';
+        $item .= '<div class="site-title"><a href="http://' . $site->purl_prefix . '.' . $base . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteevent"><div class="item-date">';
+      //   print '<pre>' . print_r($site->extra_fields->field_event_date[0]['value'], 1) . '</pre>';
+        // CODE FOR DATE WHEN START & ENDING DATE ARE THE SAME
+        $item .= 'Stay tuned for more info' . '</div>';
+      //  $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '</div></div>';
+    } 
+    
+    else { /*TODO remove this*/
+        $item .= '<div class="site-item"><div class="event-right">';
+        $item .= '<div class="site-title"><a href="' . $site->extra_fields->field_event_url[0]['value'] . '">' . $site->title . '</a></div>';
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . '</div>';
+        $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . ', ' . $site->extra_fields->field_event_country[0]['value'] . '</div></div>';
+        $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+
+	}
+    
+    $options = array(
+        'html' => TRUE
+    );
+            
+			
+			
+			//festivals mobile
+     if ($class == 'festival') {
+      
+        $fests1 .= '<li>' . $item . '</li>';
+        
+        // yoga mobile
+    } elseif ($class == 'yoga') {
+      
+        $yogas1 .= '<li>' . $item . '</li>';
+
+    } 	elseif($class == 'studio' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { 
+      $studios1 .= '<li>' . $item . '</li>';
+}
+    
+
+	
+
+   // print $item;
+
+			
+
+    // FESTIVALS POPOVER DISPLAY
+    if ($class == 'festival') {
+   
+        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+        
+        // YITC POPOVER DISPLAY
+    } elseif ($class == 'yoga') {
+  
+        $yogas .= '<div class="bl">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);">Save as my default</div></div>';
+
+    }
+
+
+  //  print $item;
+    ?>
+	
+	
+	<!-- SAVE AS DEFAULT CHECKBOX-->
+
+  
+  </div>
+  <!-- END DIV CLASS="MARK"-->
+  
+	</div>
+	
+	
+	
+	
+	
+  <?php }
+  
+  elseif($class == 'studio' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') { ?>
+      
+	
+	<!-- BEGIN STUDIO MARKERS -->	
+
+  <div class="mark <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>">
+    <div class="icon"></div>
+  	<div class="innersite <?php print 'studio' . $site->extra_fields->nid . ' ' . $class;?>" >	
+	<div class="xSplash"></div>
+    	<?php
+    //  drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');
+      if (isset($site->extra_fields->field_event_date[0]['value'])) {
+	unset($item);
+          $item = '<div class="site-item">';
+          $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
+          $item .= '<div class="siteevent"><div class="item-date">';
+	  
+          if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
+              $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
+          } else {
+              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+          }
+          $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+      } else {
+          $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
+          $item .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
+          $item .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+      }
+      $studios .= '<div class="bl">' . $item . '</div>';
+     // print $item;?>
+
+	
+    </div>
+	</div>	
+	
+	  <?php } ?>
+	  
+	  <?php endforeach;  ?>
+
+
+   
+   
+<body >
+
+
+<div class="splash-mobile">
+  <div class="header">
+    <h1><img src="/sites/all/themes/wanderlust/images/splash-mobile-logo.gif"></h1>
+  </div>  
+  <h2>Wanderlust Festivals</h2>
+  
+  <div class="section">
+    <ul>
+       <?php print $fests1; ?>
+    </ul>
+  </div>
+
+  <h2>Wanderlust Studios</h2>
+  
+  <div class="section">
+    <ul>
+      <?php print $studios; ?>
+    </ul>
+  </div>
+   
+  <h2>Wanderlust Yoga in The City</h2>
+  
+  <div class="section">
+    <ul>
+      <?php print $yogas1; ?>
+    </ul>
+  </div> 
+   
+  <div class="toolbar">
+    <ul>
+      <li>
+        <a href="#">ABOUT</a>
+        <div class="content">
+          <div class="wrapper">
+          <div class="close"></div>
+          <h5>About</h5>
+          Wanderlust Festival is the largest celebration of its kind in the world: a 4-day celebration of yoga, music, and nature. Bringing together thousands of people from myriad backgrounds to experience adventure and transformation, Wanderlust provides the opportunity to bring your yoga practice to new heights, to enjoy the freedom of live music and to follow your spirit of adventure in spectacular outdoor settings, all the while creating community with like-minded seekers.
+          </div>
+        </div>
+      </li>
+      <li><a href="#">MISSION</a>
+        <div class="content">
+          <div class="wrapper">
+          <div class="close"></div>
+          <h5>Mission</h5>
+          Wanderlust's core mission is to create community around mindful living. Mindful living is a conscious, value-based approach to leading a balanced & fulfilling life. We focus on yoga, eating well, being green, practicing purpose in our partnerships, creating awareness, showcasing art, and encouraging adventure.          
+          </div>
+        </div>      
+      </li>
+      <li class="last"><a href="http://journal.wanderlustfestival.com" target="_blank">BLOG</a></li>
+    </ul>
+  </div>
+   
+</div>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
