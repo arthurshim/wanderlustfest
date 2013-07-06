@@ -270,7 +270,7 @@ class OpenGraphMeta {
           case self::LOCALITY:
           case self::REGION:
           case self::COUNTRY_NAME:
-            $v = htmlspecialchars(htmlspecialchars_decode($v));
+            $v = hhtml_entity_decode($v, ENT_COMPAT, 'UTF-8');
             break;
           case self::LATITUDE:
           case self::LONGITUDE:

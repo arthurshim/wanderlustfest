@@ -34,7 +34,7 @@ function mobile_theme_init() {
    
 
 
-    if ($subdomain == 'wanderfest' ) { 
+ if ($subdomain == 'wanderfest'  || $subdomain == 'wanderlustfestival' ) {
         $mobile_device = $method();
       //  $theme = variable_get('mobile_theme_selection', 'default');
 	if ($mobile_device) {
@@ -46,25 +46,7 @@ function mobile_theme_init() {
 	}
     }
    
- /* 
-   if ($url !== 'wanderfest.com' ) { 
-  
-  print 'iplement mobile thee';
-  
-  
-    $theme = variable_get('mobile_theme_selection', 'default');
-    if ($theme != 'default') { 
-      global $custom_theme;
-      $custom_theme = $theme; 
-	  
-    }
-	} */
-  
-  
-  
-  
-  
-  
+
   
   
 }

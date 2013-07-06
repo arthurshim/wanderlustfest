@@ -1,0 +1,79 @@
+
+/* MAP VIEW STYLES
+----------------------------------- */
+
+
+.wanderfest #container {
+    height: 1500px;
+    width: 3470px;
+}
+
+.wanderfest #map-1-container {
+    position: relative;
+    height: 1500px;
+    width: 3470px;
+}
+
+.not-logged-in.wanderfest #main {
+    display: block !important;
+}
+
+.map-viewport {
+    border: 1px solid black;
+    margin: 0 0 20px;
+    position: relative;
+	height: 1500px;
+    width: 3470px;
+   
+}
+
+
+#legend {
+top: 720px;
+left: 195px;
+position:absolute;
+}
+
+
+#toolbar {
+
+right: 0px;
+bottom: 10px;
+z-index: 999;
+width: 520px;
+}
+
+
+#site-checkbox {
+    margin-bottom:9px;
+	margin-right:9px;
+}
+
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.7); 
+}
+
+#site-checkbox input {
+margin-right: 19px;
+margin-bottom: 6px;
+}
+/*reset checkboxes for ipad only*/
+ @media only screen and (max-device-width: 1024px) and (orientation : landscape)
+{
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.0); 
+}
+}
+  
+@media only screen and (max-device-width: 768px) and (orientation : portrait)
+{
+input[type=checkbox]
+{
+  -webkit-transform: scale(1.0); 
+}
+}
+
+
+
