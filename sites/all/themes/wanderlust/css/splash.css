@@ -162,6 +162,18 @@ top: 351px;
    top: 313px;
 }
 
+
+#map-1 .mark.austin {
+left: 1968px;
+top: 481px;
+}
+
+.innersite.austin{
+  left: -250px;
+    top: 0;
+}
+
+
 .level {
     position: absolute;
     left: 0;
