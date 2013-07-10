@@ -12,7 +12,8 @@
    $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
    $subdomain  =  strtolower(trim($url[0]));
    
-   if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   ?> Wanderlust Festival - Find Your True North <?php } else { print $head_title; } ?></title>
+   if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {   ?> Wanderlust Festival - Find Your True North <?php } else if ($subdomain == 'austin')  {?> Wanderlust Festival ~ November 8-10, 2013 ~ Austin, TX ~ A Yoga & Music Block Party <?php } else { print $head_title; } ?>
+   </title>
   <?php header("Connection: keep-alive");?>
   <!-- CUSTOM FACEBOOK OG META TAGS FOR SPLASH & HOMEPAGE -->
   <meta property="og:title" content="
