@@ -2910,3 +2910,28 @@ span.price-warning {
 	font-size: 12px;
 	font-style: italic;
 }
+
+
+
+add-to-cart-left-long {
+width: auto;
+text-align: left;
+}
+.heading2-line2 {
+line-height: .9;
+}
+img.float-right {
+float:right;
+margin: 0 0 10px 15px;
+}
+img.float-left {
+float:left;
+margin: 0 15px 10px 0px;
+}
+.white-box {
+background-color: rgba(255,255,255,0.5); 
+border: 1px solid gray; 
+width: 600px; 
+padding: 10px; 
+margin-bottom: 15px;
+}
