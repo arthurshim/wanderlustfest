@@ -54,11 +54,10 @@ jQuery.noConflict();
       ?>
 
 
-<!-- SHARE THIS JAVASCRIPT -->
-<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "5e0b73dd-6559-4b5d-bdf8-8623897da18a", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
+<!-- ADD THIS JAVASCRIPT -->
+<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5139106c1fc5da6c"></script>
   
 </head>
 
