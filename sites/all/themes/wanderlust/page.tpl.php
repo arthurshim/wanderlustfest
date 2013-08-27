@@ -193,7 +193,7 @@ jQuery.noConflict();
       </footer>'; 
 	}  
     }else {
-        $reasons__search = module_invoke('search', 'block', 'view', 0); 
+        //$reasons__search = module_invoke('search', 'block', 'view', 0); 
       print '
         <ul class="footer-links">
           <li><a target="_blank" href="http://wanderlustfestival.com">wanderlustfestival.com</a></li>
@@ -203,7 +203,7 @@ jQuery.noConflict();
           <li class="last"><a target="_blank" href="http://wanderlustfestival.com/terms-of-use">Terms of Use</a></li>
         </ul>
         <div class="site-credits">
-          <div class="blog-search">'.   $reasons__search['content']  .'</div></div>
+          Site by <a href="http://rootdownmedia.com" target="_blank">Root Down</a>
       </footer>';      
     }
   ?>
