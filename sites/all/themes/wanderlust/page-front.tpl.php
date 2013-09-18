@@ -36,7 +36,7 @@
       print 'Wanderlust Chile 2013';
     }
     elseif ($subdomain == 'oahu'){
-      print 'Wanderlust Oahu 2013';
+      print 'Wanderlust Oahu 2014';
     }
     else{
       print 'Wanderlust Festival';
