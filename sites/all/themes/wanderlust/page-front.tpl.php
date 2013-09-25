@@ -176,8 +176,8 @@ else {
 			'transitionOut'	: 'none',
 			'width'			: 670,
 			'height'		: 403,
-			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
-			'type'			: 'swf',
+			'href'			: 'http://www.youtube.com/embed/22yflfKRRPQ?fs=1&autoplay=1',
+			'type'			: 'iframe',
 			'swf'			: {
 			'wmode'				: 'transparent',
 			'allowfullscreen'	: 'true'
@@ -1074,7 +1074,7 @@ $('#removeMobileLink a').remove();
 			'transitionOut'	: 'none',
 			'width'			: 670,
 			'height'		: 403,
-			'href'			: 'http://www.youtube.com/v/ayQHNiC0HeA?fs=1&autoplay=1',
+			'href'			: 'http://www.youtube.com/watch?v=22yflfKRRPQ?fs=1&autoplay=1',
 			'type'			: 'swf',
 			'swf'			: {
 			'wmode'				: 'transparent',
