@@ -1174,6 +1174,7 @@ $(document).ready(function () {
 	
 	// POSITION MAP FOR DESKTOP
     $('#map-1').css('left', '-1270px');
+    $('#map-1').css('top', '-140px');
 
     // TOOLBAR MENU
     $("#help .icon").toggle(

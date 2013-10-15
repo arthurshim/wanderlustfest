@@ -163,6 +163,10 @@ top: 351px;
     top: 571px;
 }
 
+.innersite.oahu{
+	top: -150px !important;
+}
+
 #map-1 .mark.chile {
     left: 2173px;
     top: 1063px;
