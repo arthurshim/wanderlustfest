@@ -66,6 +66,7 @@ a:focus{
 }
 
 
+
 /* MAP MARKERS
 ---------------------------------*/
 
@@ -374,6 +375,11 @@ top: 481px;
   margin-left: 284px;
   font-size: 16px;
   cursor: pointer !important;
+}
+
+.studio .innersite{
+	padding: 11px 14px !important;
+	width: 203px !important;
 }
 
 .innersite:hover{
