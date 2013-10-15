@@ -245,18 +245,18 @@ function wanderlust_preprocess_page(&$vars, $hook) {
     <table border="0" cellpadding="0" cellspacing="0">
   
       <tr>
-        <td colspan="2"><p class="title">Wanderlust liste Inscription postale</p></td>
+        <td colspan="2"><p class="title">Cyberlettre Wanderlust</p></td>
       </tr>
       <tr>
-        <td width="180" valign="middle" style="padding:2px; ">Email*<span style="color:#841D0A;"></span></td>
+        <td width="180" valign="middle" style="padding:2px; ">Courriel*<span style="color:#841D0A;"></span></td>
         <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
       </tr>
       <tr>
-        <td valign="middle" style="padding:2px; ">Nom de baptême<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">Prénom<span style="color:#841D0A;"></span></td>
         <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
       </tr>
       <tr>
-        <td valign="middle" style="padding:2px; ">Nom de famille<span style="color:#841D0A;"></span></td>
+        <td valign="middle" style="padding:2px; ">Nom<span style="color:#841D0A;"></span></td>
         <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
       </tr>
       <tr>
@@ -351,7 +351,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
         </td>
       </tr>
       <tr>
-        <td valign="middle" style="padding:2px; ">Auquel cas la plupart vous intéresse?</td>
+        <td valign="middle" style="padding:2px; ">Quel événement vous intéresse le plus?</td>
         <td valign="middle" style="padding:2px; ">
           <select name='EventName' size='1' id="EventName">
             <option value=''></option>
@@ -391,7 +391,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
           <input type='hidden' name='goto' value='' />
           <input type='hidden' name='iehack' value='&#9760;' />
         </td>
-        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Souscrire' /></td>
+        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Abonnez-moi' /></td>
       </tr>
    
 </table>
