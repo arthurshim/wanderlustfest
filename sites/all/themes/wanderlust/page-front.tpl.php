@@ -134,6 +134,17 @@
 				$.fancybox.open('#newsletter');
 	});
 	
+	
+	
+	$( document ).ready(function() {
+	$.fancybox.open('#festinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+					$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});	
+	});
+	
 		$("#legend1 .legendtitle").click(function() {
 				$.fancybox.open('#festinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
@@ -163,7 +174,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 	        });
 			
 		
-
+/*
 		if (document.cookie.indexOf("visited") >= 0) {
   
 }
@@ -194,7 +205,7 @@ else {
 
 }
 		
-		
+	*/	
 		
 		$('#aboutFancy').click(function () {
 	
@@ -547,9 +558,12 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     <img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map-v2.jpg" width="4000" height="1500" usemap="#map" alt="" />
     
   
-  <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
+  <?php
+  $nowtime = time();
+  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
     <?php
+
     if(!$site->title) {
         
     }
@@ -586,6 +600,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	<div class="xSplash"></div>
 
     <?php
+
     if ($site->extra_fields->field_event_date[0]['value']) {
         $item = '<div class="site-item">';
         $item .= '<div class="site-marker"></div>';
@@ -600,8 +615,16 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	  }
 	  
 	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
-	  else {
-	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	  else {    	    
+	    $a = date('n', strtotime($site->extra_fields->field_event_date[0]['value']));
+	    $b = date('n', strtotime($site->extra_fields->field_event_date[0]['value2']));
+	    if ($a == $b) {
+	      	  $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+
+	    }
+	    else {
+	     	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	    }
 	  }
 
 
@@ -612,8 +635,14 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	   
 	   /*if there is a date and is yoga display register now else buy tickets*/
 	   if ($class !== 'yoga') {
-		$item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+	      	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
+		if ($nowtime < $evetime) {
+		       $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+		    }
+		  elseif ($nowtime > $evetime) {
+		       $item .= '<div class="site-ticketsget"><a href="http://wanderlustfestival.com/early-bird-alert"> Get 2014 alerts</a></div>';
         }
+		  }	
 
      
 	   else if ($class == 'yoga') {
@@ -656,7 +685,14 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
-        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	
+	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
+	if ($nowtime < $evetime) {
+	      $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	}
+	elseif ($nowtime > $evetime) {
+	    $festspast .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	}
         
         // YITC POPOVER DISPLAY
     } elseif ($class == 'yoga') {
@@ -707,12 +743,20 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
           $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
           $item .= '<div class="siteevent"><div class="item-date">';
 	  
+	  
+	  
+	  
+	  
+	  
+	  
           if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
               $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
           } else {
-              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+
+	    
+              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) .'</div>';
           }
-          $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+          $item .= '<div class="siteaddress">'   /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
       } else {
           $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
           $item .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
@@ -832,7 +876,12 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <div class="descript">
     Wanderlust Festivals are the crown jewels of the Wanderlust experience: unforgettable 4-day summits in locations of stunning natural beauty. Take everything you treasure about your yoga practice, then throw in epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, films and much more.
   </div>
+ <span class="upcoming-events">Upcoming Events</span>
+  
  <?php print $fests; ?>
+ <br>
+ <span class="past-events">Past Events</span>
+   <?php print $festspast; ?> 
 </div>
 
 <div id="yogainfo">

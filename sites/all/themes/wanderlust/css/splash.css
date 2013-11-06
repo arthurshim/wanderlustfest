@@ -247,7 +247,21 @@ top: 481px;
   padding-right: 5px;
 }
 
+.past-events{
+  font-size: 17px !important;
+  border-top: 1px solid #ccaf81;
+  clear: both;
+  padding: 10px 0px;
+  color: #7e6b4d !important;
+}
 
+.upcoming-events{
+  font-size: 17px !important;
+  clear: both;
+  padding: 5px 0px;
+  color: #7e6b4d !important;  
+  margin: 0;
+}
 
 @-webkit-keyframes flagish
 {
@@ -769,7 +783,9 @@ top: 481px;
     font-family: 'revolution', arial;
     position: relative;
     margin: 8px 0 6px 0;
+
 }
+
 
 .front .fancybox-skin #site-checkbox input {
   width: 16px;
@@ -1182,7 +1198,6 @@ width : 2 * map.width() - viewport.width(),
 .mapz-constraint{
   z-index: 5;
 }
-
 
 
 
