@@ -164,6 +164,22 @@ top: 351px;
     top: 571px;
 }
 
+#map-1 .mark.sydney{
+  top: 1095px;
+  left: 565px;
+}
+
+#map-1 .mark.melbourne{
+  top: 1138px;
+  left: 534px;
+}
+
+#map-1 .mark.auckland{
+  top: 1123px;
+  left: 754px;
+}
+
+
 .innersite.oahu{
 	top: -150px !important;
 }
