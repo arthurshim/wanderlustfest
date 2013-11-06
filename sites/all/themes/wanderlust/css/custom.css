@@ -706,7 +706,10 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   background-position: 0 0;
 }
 
-.oahu .view-artist-landing2 .viewsdisplaytabs-tab-group{
+.oahu .view-artist-landing2 .viewsdisplaytabs-tab-group,
+.akl .view-artist-landing2 .viewsdisplaytabs-tab-group,
+.mel .view-artist-landing2 .viewsdisplaytabs-tab-group,
+.syd .view-artist-landing2 .viewsdisplaytabs-tab-group{
   background-position: 0 -41px !important;
 }
 
