@@ -665,8 +665,14 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	   /*if there is a date and is yoga display register now else buy tickets*/
 	   if ($class !== 'yoga') {
 	      	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
-		if ($nowtime < $evetime) {
-		       $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+    if ($nowtime < $evetime) {
+		       /*If Chile site, point Tickets link to specific site */
+		       if ($site->purl_prefix == 'chile'){
+		          $item .= '<div class="site-tickets"><a href="https://welcu.com/wanderlust/wanderlust-festival-2014"> Buy Tickets</a></div>';  		       
+		       }
+		       else{
+    		       $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+		       }
 		    }
 		  elseif ($nowtime > $evetime) {
 		       $item .= '<div class="site-ticketsget"><a href="http://wanderlustfestival.com/early-bird-alert"> Get 2014 alerts</a></div>';
