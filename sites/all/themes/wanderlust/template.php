@@ -399,8 +399,101 @@ function wanderlust_preprocess_page(&$vars, $hook) {
  </div>
 EOF;
   }
+
+    elseif ($subdomain == 'syd' || $subdomain == 'mel' || $subdomain == 'akl' ){
+    $vars['connect'] = <<<EOF
+      <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
+
+      <div class="joincontent">
+
+        <form method="get" id="newsletter" accept-charset="UTF-8" name="oi_form" action="http://track.namastelight.com/oi/1/92a45964f82fb7263b40ad8f7703b1cb">
+          <table border="0" cellpadding="0" cellspacing="0">
+
+          <tr>
+            <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
+          </tr>
+          <tr>
+            <td width="180" valign="middle" style="padding:2px; ">
+              Email
+            </td>
+            <td valign="middle" style="padding:2px; ">
+              <input type='text' name='email'/><br />
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="middle" style="padding:2px; ">
+              First Name
+            </td>
+            <td valign="middle" style="padding:2px; ">
+              <input type='text' name='FirstName' />
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="middle" style="padding:2px; ">
+              Last Name 
+            </td>
+
+            <td valign="middle" style="padding:2px; ">          
+              <input type='text' name='LastName' /><br />
+            </td>
+          </tr>
+
+          <tr>          
+            <td valign="middle" style="padding:2px; ">
+              How did you hear about us?
+            </td>
+
+            <td valign="middle" style="padding:2px; ">
+              <select name='Howdidyouhearaboutus' size='1' id="country">
+                <option value=''></option>
+                <option value='friend' >A friend told me</option>
+                <option value='teacher' >A teacher told me</option>
+                <option value='studio' >At my studio</option>
+                <option value='magazine' >In a magazine</option>
+                <option value='website' >Through your website</option>
+                <option value='blog' >In a blog or other website</option>
+                <option value='poster' >Saw a poster or flyer</option>
+                <option value='bannerad' >Saw a banner ad</option>
+                <option value='other' >Other</option>
+              </select>           
+            </td>
+          </tr>
+
+          <tr>
+            <td valign="middle" style="padding:2px; ">
+              Which event most interests you: 
+            </td>
+            <td valign="middle" style="padding:2px; ">
+              <select name='Whicheventmostinterestsyou'  size='1' id="event">
+                <option value=''></option>
+                <option value='auckland' >Wanderlust Auckland</option>
+                <option value='melbourne' >Wanderlust Melbourne</option>
+                <option value='sydeny' >Wanderlust Sydney</option>
+                <option value='other' >Other Wanderlust Events</option>                
+              </select>                         
+            </td>
+          </tr>
+
+          <input type='hidden' name='goto' value='' />
+          <input type='hidden' name='iehack' value='&#9760;' />
+          <td valign="middle" style="padding:2px; ">
+          <input type='submit' onClick="" id="submit" value='Subscribe' /></td>
+          
+          </table>
+        </form>
+      </div>      
+EOF;
+  }
+
+
+
+
+
+  
   else {
-      $vars['connect'] = <<<EOF
+    $vars['connect'] = <<<EOF
   
   <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
   <div class="joincontent">
