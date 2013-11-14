@@ -406,7 +406,7 @@ EOF;
 
       <div class="joincontent">
 
-        <form method="get" id="newsletter" accept-charset="UTF-8" name="oi_form" action="http://track.namastelight.com/oi/1/92a45964f82fb7263b40ad8f7703b1cb">
+        <form method='post' id="newsletter"  name='oi_form' action='/testmail-aus.php'>
           <table border="0" cellpadding="0" cellspacing="0">
 
           <tr>
@@ -463,14 +463,14 @@ EOF;
 
           <tr>
             <td valign="middle" style="padding:2px; ">
-              Which event most interests you: 
+              Which event most interests you?
             </td>
             <td valign="middle" style="padding:2px; ">
               <select name='Whicheventmostinterestsyou'  size='1' id="event">
                 <option value=''></option>
                 <option value='auckland' >Wanderlust Auckland</option>
                 <option value='melbourne' >Wanderlust Melbourne</option>
-                <option value='sydeny' >Wanderlust Sydney</option>
+                <option value='sydney' >Wanderlust Sydney</option>
                 <option value='other' >Other Wanderlust Events</option>                
               </select>                         
             </td>
