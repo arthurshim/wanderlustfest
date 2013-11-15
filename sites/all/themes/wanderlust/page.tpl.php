@@ -224,7 +224,7 @@ jQuery.noConflict();
       print '
         <ul class="footer-links">
           <li><a target="_blank" href="http://wanderlustfestival.com">wanderlustfestival.com</a></li>
-          <li><a target="_blank" href="http://wanderlustfestival.com/contact">Contact</a></li>
+          <li><a target="_blank" href="http://wanderlustfestival.com/contact-us">Contact</a></li>
           <li><a target="_blank" href="http://wanderlustfestival.com/our-mission">Our Mission</a></li>
           <li><a target="_blank" href="http://wanderlustfestival.com/privacy-policy">Privacy Policy</a></li>
           <li class="last"><a target="_blank" href="http://wanderlustfestival.com/terms-of-use">Terms of Use</a></li>
