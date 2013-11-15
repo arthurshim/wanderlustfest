@@ -703,14 +703,14 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   height: 40px;
   background:  #deddce url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/lineup-2013.jpg") center left no-repeat;
   border: 1px solid #bab9a7;
-  background-position: 0 0;
+  background-position: 0 -41px !important;
+
 }
 
 .oahu .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .akl .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .mel .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .syd .view-artist-landing2 .viewsdisplaytabs-tab-group{
-  background-position: 0 -41px !important;
 }
 
 .panel-col-last .fb-like-box{
