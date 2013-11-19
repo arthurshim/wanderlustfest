@@ -400,13 +400,13 @@ function wanderlust_preprocess_page(&$vars, $hook) {
 EOF;
   }
 
-    elseif ($subdomain == 'syd' || $subdomain == 'mel' || $subdomain == 'akl' ){
+    elseif ($subdomain == 'la' || $subdomain == 'mel' || $subdomain == 'akl' ){
     $vars['connect'] = <<<EOF
       <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
 
       <div class="joincontent">
 
-        <form method='post' id="newsletter"  name='oi_form' action='/testmail-aus.php'>
+        <form method='post' id="newsletter"  name='oi_form' action='/testmail2.php'>
           <table border="0" cellpadding="0" cellspacing="0">
 
           <tr>
@@ -446,7 +446,7 @@ EOF;
             </td>
 
             <td valign="middle" style="padding:2px; ">
-              <select name='Howdidyouhearaboutus' size='1' id="country">
+              <select name='Howdidyouhearaboutus' size='1' >
                 <option value=''></option>
                 <option value='friend' >A friend told me</option>
                 <option value='teacher' >A teacher told me</option>
@@ -466,7 +466,7 @@ EOF;
               Which event most interests you?
             </td>
             <td valign="middle" style="padding:2px; ">
-              <select name='Whicheventmostinterestsyou'  size='1' id="event">
+              <select name='Whicheventmostinterestsyou'  size='1'>
                 <option value=''></option>
                 <option value='auckland' >Wanderlust Auckland</option>
                 <option value='melbourne' >Wanderlust Melbourne</option>

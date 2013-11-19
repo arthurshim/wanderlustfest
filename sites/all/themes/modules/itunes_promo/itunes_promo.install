@@ -1,0 +1,85 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Holds iTunes promo codes 
+ */
+
+//////////////////////////////////////////////////////////////////////////////
+// Core API hooks
+
+
+/**
+ * Implementation of hook_install().
+ */
+function itunes_promo_install() {
+  // Create tables.
+  drupal_install_schema('itunes_promo');
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function itunes_promo_uninstall() {
+  db_query("DELETE FROM {variable} WHERE name LIKE '%s_%%'", 'itunes_promo');
+  cache_clear_all('variables', 'cache');
+  // Delete tables.
+  drupal_uninstall_schema('itunes_promo');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function itunes_promo_schema() {
+  $schema['itunes_promo'] = array(
+    'description' => t('iTunes promo codes'),
+    'fields' => array(
+      'code' => array(
+        'description' => 'iTunes promo code',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'ip' => array(
+        'description' => 'IP Address of user retrieving code',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'cookie' => array(
+        'description' => 'Cookie used to determine if user has retrieved download code before - based on original session name',
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'campaign' => array(
+        'description' => 'Name of the campaign code is associated with',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'retrieved' => array(
+        'description' => t('UNIX timestamp for the time code was retrieved'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'clicked' => array(
+        'description' => t('UNIX timestamp for the time code was clicked'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'index' => array('ip'),
+  );
+  return $schema;
+
+}

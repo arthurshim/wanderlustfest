@@ -1,0 +1,209 @@
+<?php
+
+function sites_extra_fields_siteapi(&$alter, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'load site':
+      if ($nid = sites_extra_fields_get_associated_nid($alter->sid)) {
+        if ($node = node_load($nid)) {
+          $alter->extra_fields = $node;
+        }
+      }
+      break;
+      
+    case 'after insert site':
+    case 'after update site':
+      $form_id = $a4;
+      $form_state = $a3;
+      $nid = $form_state['values']['sites_extra_fields_nid'];
+      if ($nid > 0) {
+        variable_set('sites_extra_fields_site_' . $alter->sid . '_nid', $nid);
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
+function sites_extra_fields_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
+  switch ($op) {
+    case 'delete':
+      global $conf;
+      foreach ($conf as $key => $val) {
+        if (substr($key, 0, strlen('sites_extra_fields_site_')) == 'sites_extra_fields_site_') {
+          if ($val == $node->nid) {
+            variable_del($key);
+          }
+        }
+      }
+      break;
+      
+    default:
+      break;
+  }
+}
+
+function sites_extra_fields_get_associated_nid($sid) {
+  return variable_get('sites_extra_fields_site_' . $sid . '_nid', FALSE);
+}
+
+function sites_extra_fields_form_alter(&$form, $form_state, $form_id) {
+  // dsm(variable_get('sites_extra_fields_node_types', array()));
+  // dsm(array($form, $form_state));
+  // add node types checkboxes to main Sites settings form
+  if ($form_id == 'sites_settings_form') {
+    $form['sites_extra_fields'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Sites Extra Fields',
+    );
+    
+    $options = array();
+    foreach (node_get_types('types') as $type) {
+      $options[$type->type] = t($type->name);
+    }
+    
+    $form['sites_extra_fields']['sites_extra_fields_node_types'] = array(
+      '#type' => 'checkboxes',
+      '#title' => 'Which node types can be used to store extra fields for sites?',
+      '#options' => $options,
+      '#default_value' => variable_get('sites_extra_fields_node_types', array()),
+    );
+  }
+  // add node selector to node forms
+  else if ($form_id == 'sites_site_form') {
+    $form['sites_extra_fields'] = array(
+      '#type' => 'fieldset',
+      '#title' => 'Sites Extra Fields',
+    );
+    
+    $options = array(0 => '<none selected>');
+    $types = variable_get('sites_extra_fields_node_types', array());
+    $placeholders = array();
+    $args = array();
+    foreach($types as $type) {
+      $placeholders[] = "'%s'";
+      $args[] = $type;
+    }
+    $res = db_query("SELECT nid, title, type FROM {node} WHERE type IN (" . implode(',', $placeholders) . ") ORDER BY type ASC", $args);
+    while ($row = db_fetch_object($res)) {
+      $options[$row->nid] = "[{$row->type}] {$row->title}";
+    }
+    $form['sites_extra_fields']['sites_extra_fields_nid'] = array(
+      '#type' => 'select',
+      '#title' => 'Node to store extra data for this site',
+      '#options' => $options,
+      '#default_value' => variable_get('sites_extra_fields_site_' . $form['site_id']['#value'] . '_nid', 0),
+    );
+  }
+}
+
+function sites_extra_fields_sites_maintenance_tasks() {
+  // clean up the variable table
+  $tasks = array();
+  $tasks[] = array(
+    'description' => 'Delete invalid site/node associations (between a site and a deleted node or a node and a deleted site).',
+    'callback' => 'sites_extra_fields_cull_invalid_site_node_associations',
+  );
+  
+  return $tasks;
+}
+
+function sites_extra_fields_cull_invalid_site_node_associations() {
+  global $conf;
+  foreach ($conf as $key => $val) {
+    if (substr($key, 0, strlen('sites_extra_fields_site_')) == 'sites_extra_fields_site_') {
+      if ($val) {
+        $sid = (int)substr($key, strlen('sites_extra_fields_site_'));
+        $site = _sites_get_site($sid);
+        if (!$site || !$site->sid) {
+          variable_del($key);
+        }
+        else {
+          $node = node_load((int)$val);
+          if (!$node || !$node->nid) {
+            variable_del($key);
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implementation of hook_token_list().
+ */
+function sites_extra_fields_token_list($type = 'all') {
+  $list = array(); // list of tokens to return
+  $info = _content_type_info();
+  $types = variable_get('sites_extra_fields_node_types', array());
+  $fields = array();
+  foreach ($types as $type => $enabled) {
+    if ($enabled) {
+      $fields = array_merge($fields, $info['content types'][$type]['fields']);
+    }
+  }
+  $field_types = _content_field_types();
+  $sub_list = array();
+  foreach ($fields as $field) {
+    $function = $field_types[$field['type']]['module'] . '_token_list';
+    if (function_exists($function)) {
+      $sub_list = $function('field');
+      foreach ($sub_list as $category => $token_list) {
+        foreach ($token_list as $token => $description) {
+          $list['Current site: CCK '. $category]['current-site-' . $field['field_name'] .'-'. $token] = $description;
+        }
+      }
+    }
+  }
+  
+  // get all standard node tokens as well
+  $n = node_token_list('node');
+  foreach ($n['node'] as $k => $v) {
+    $list['Current site']['current-site-' . $k] = $v;
+  }
+  return $list;
+}
+
+/**
+ * Implementation of hook_token_values().
+ */
+function sites_extra_fields_token_values($type, $object = NULL) {
+  $tokens = array();
+  //if ($type == 'node') {
+  if ($site = sites_get_current_site()) {
+    if ($site->extra_fields) {
+      $node = $site->extra_fields;
+      // Prevent against invalid 'nodes' built by broken 3rd party code.
+      if (isset($node->type)) {
+        $type = content_types($node->type);
+        $node->build_mode = 'token';
+        $node->content = array();
+        content_view($node);
+        // The formatted values will only be known after the content has been rendered.
+        drupal_render($node->content);
+        content_alter($node);
+
+        $field_types = _content_field_types();
+        foreach ($type['fields'] as $field) {
+          $items = $node->{$field['field_name']};
+          $function = $field_types[$field['type']]['module'] . '_token_values';
+          if (!empty($items) && function_exists($function)) {
+            $token_values = $function('field', $items);
+            foreach ($token_values as $token => $value) {
+              $tokens['current-site-' . $field['field_name'] .'-'. $token] = $value;
+            }
+          }
+        }
+      }
+    }
+  }
+  //}
+  
+  foreach (node_token_values('node', $object) as $k => $v) {
+    $tokens['current-site-' . $k] = $v;
+  }
+  
+  return $tokens;
+}
+

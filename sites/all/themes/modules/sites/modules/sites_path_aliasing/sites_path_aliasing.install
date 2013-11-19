@@ -1,0 +1,110 @@
+<?php
+
+// $Id$
+
+/**
+ * Implementaton of hook_install().
+ */
+function sites_path_aliasing_install() {
+  drupal_install_schema('sites_path_aliasing');
+}
+
+/**
+ * Implementation of hook_uninstall()
+ */
+function sites_path_aliasing_uninstall() {
+  drupal_uninstall_schema('sites_path_aliasing');
+}
+
+/**
+ * Implementaton of hook_enable().
+ */
+function sites_path_aliasing_enable() {
+  $weight = db_result(db_query("SELECT weight FROM {system} WHERE name = 'purl'"));
+  if ($weight !== NULL) {
+    $weight++;
+    db_query("UPDATE {system} SET weight = %d WHERE name = 'sites_path_aliasing' AND type = 'module'", $weight);
+  }
+  else {
+    // default weight is 1, although this should never happen
+    db_query("UPDATE {system} SET weight = -15 WHERE name = 'sites_path_aliasing' AND type = 'module'", $weight);
+  }
+}
+
+/**
+ * Implementation of hook_schema()
+ */
+function sites_path_aliasing_schema() {
+  $schema = array();
+  $schema['sites_sid_spid'] = array(
+    'description' => t('sites_sid_spid'),
+    'fields' => array(
+      'sid' => array(
+        'description' => t('The site id.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'primary key' => TRUE,
+        'unique' => TRUE,
+        'default' => 0,
+      ),
+      'spid' => array(
+        'description' => t('The shared-path record id.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'primary key' => TRUE,
+        'unique' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array(
+      'sid' => array('sid'),
+      'spid' => array('spid'),
+    ),
+    'primary key' => array('sid', 'spid'),
+  );
+  
+  $schema['sites_shared_paths'] = array(
+    'description' => t('sites_shared_paths'),
+    'fields' => array(
+      'spid' => array(
+        'description' => t('The shared-path record id.'),
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'primary key' => TRUE,
+        'unique' => TRUE,
+      ),
+      'pid' => array(
+        'description' => t('The url_alias table path id.'),
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'primary key' => TRUE,
+        'unique' => TRUE,
+        'default' => 0,
+      ),
+      'alias' => array(
+        'description' => t('The shared path alias.'),
+        'type' => 'varchar',
+        'length' => 96,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'sites'=> array(
+        'description' => t('Comma-separated list of site IDs (denormalized data to prevent an extra query every page load).'),
+        'type' => 'varchar',
+        'length' => 64,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+    ),
+    'primary key' => array('spid'),
+  );
+  
+  $schema['cache_sites_shared_paths'] = drupal_get_schema_unprocessed('system', 'cache');
+  $schema['cache_sites_shared_paths']['description'] = 'Caches shared aliases for quicker lookup';
+
+  return $schema;
+}

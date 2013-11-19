@@ -1,0 +1,15 @@
+name = Image FUpload (CCK)
+description = "Allows uploading several images all at once to ImageField module"
+core = 6.x
+package = CCK
+dependencies[] = image_fupload
+dependencies[] = content
+dependencies[] = filefield
+dependencies[] = imagefield
+dependencies[] = imagecache
+; Information added by drupal.org packaging script on 2011-09-01
+version = "6.x-3.x-dev"
+core = "6.x"
+project = "image_fupload"
+datestamp = "1314836968"
+

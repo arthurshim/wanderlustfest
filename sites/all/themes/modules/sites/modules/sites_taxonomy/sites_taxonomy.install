@@ -1,0 +1,107 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * Sites Taxonomy install file.
+ */
+ 
+/**
+ * Implementaton of hook_enable().
+ */
+function sites_taxonomy_enable() {
+  $weight = db_result(db_query("SELECT weight FROM {system} WHERE name = 'sites'"));
+  if ($weight) {
+    $weight++;
+    db_query("UPDATE {system} SET weight = %d WHERE name = 'sites_taxonomy' AND type = 'module'", $weight);
+  }
+}
+ 
+/**
+ * Implementation of hook_install()
+ *
+ * Adds field 'tid' to main Sites module table.
+ */
+function sites_taxonomy_install() {
+  $module_name = 'sites_taxonomy';
+  
+  variable_set('sites_taxonomy_hide_sites_on_node_form', 1);
+  
+  // Set field properties
+  $spec = array(
+    'description' => t('The tid of the term associated with this site.'),
+    'type' => 'int',
+    'unsigned' => TRUE,
+  );
+
+  // Create an index for 'tid'
+  $keys['indexes'] = array('tid' => array('tid'));
+
+  // Add the column to the table
+  $ret = array();
+  db_add_field($ret, 'sites', 'tid', $spec, $keys);
+  
+  // Check for query errors
+  for ($i = 0; $i < count($ret); $i++) {
+    if ($ret[$i]['success'] !== TRUE) {
+      $installation_failed = TRUE;
+      break;
+    }
+  }
+  
+  if ($installation_failed) {
+    drupal_set_message(st('Table installation for the %name module was unsuccessful. The tables may need to be installed by hand.  See %name.install file for a list of the installation queries.', array('%name' => $module_name)), 'error');
+  }
+  else {
+    // Set the weight of the sites_taxonomy module in the system table
+    // so that it comes after the main Sites module.
+    $res = db_query("SELECT weight FROM {system} WHERE name = 'sites' AND type = 'module'");
+    $weight = (int)db_result($res);
+    db_query("UPDATE {system} SET weight = %d WHERE name = 'sites_taxonomy' AND type = 'module'", $weight + 5);
+    drupal_set_message(st('The %name module was installed successfully.', array('%name' => $module_name)));
+  }
+}
+
+/**
+ * Implementation of hook_schema_alter()
+ *
+ * Informs drupal_get_schema() of the field addition to 'sites'.
+ */
+function sites_taxonomy_schema_alter(&$schema) {
+  $schema['sites']['fields']['tid'] = array(
+    'description' => t('The tid of the term associated with this site.'),
+    'type' => 'int',
+    'unsigned' => TRUE,
+  );
+}
+
+/**
+ * Implementation of hook_uninstall()
+ *
+ * Drops field 'tid' from table 'sites'.
+ */
+function sites_taxonomy_uninstall() {
+  $module_name = 'sites_taxonomy';
+  
+  variable_del('sites_taxonomy_vid');
+  
+  // remove 'tid' field from sites table
+  $ret = array();
+  db_drop_index($ret, 'sites', 'tid');
+  db_drop_field($ret, 'sites', 'tid');
+  
+  // Check for query errors
+  for ($i = 0; $i < count($ret); $i++) {
+    if ($ret[$i]['success'] !== TRUE) {
+      $installation_failed = TRUE;
+      break;
+    }
+  }
+
+  if ($installation_failed) {
+    drupal_set_message(st('Table uninstallation for the %name module was unsuccessful. The tables may need to be installed by hand.  See %name.install file for a list of the installation queries.', array('%name' => $module_name)), 'error');
+  }
+  else {
+    drupal_set_message(st('The %name module was uninstalled successfully.', array('%name' => $module_name)));
+  }
+}

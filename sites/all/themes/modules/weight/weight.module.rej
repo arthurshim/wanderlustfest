@@ -1,0 +1,63 @@
+***************
+*** 165,218 ****
+  }
+  
+  /**
+-  * Generate JS code for selecting individual node weights on admin page
+-  */
+- function weight_node_selector($nid) {
+-   static $js_included;
+- 
+-   if (!$js_included) {
+-     $path = drupal_get_path('module', 'weight');
+-     drupal_add_js($path .'/httpRequest.js', 'module', 'header', TRUE);
+-     $js_included = TRUE;
+-     drupal_add_css($path .'/weight.css');
+-   }
+- 
+-   $selector_template = "<select style=\"margin: 0;\"
+-     onchange='httpRequest(\"GET\", \"" . base_path() .
+-     "?q=admin/node/weight/_weight_change/\" + [NID] + \"/\" +
+-     this.options[this.selectedIndex].value,true)' >";
+- 
+-   // Get more stuff about the node.
+-   $node = db_fetch_object(db_query("SELECT nid, `status`, sticky, promote, translate, moderate FROM {node} WHERE nid = %d", $nid));
+- 
+-   // Convert to our weight range.
+-   _weight_decode($node);
+-   $weight = $node->node_weight;
+- 
+-   // Ugly bit of javascript we use for each dropdown to submit weight changes
+-   // in the background. Relies on even uglier httpRequest.js file that comes
+-   // with this module. Ironically, Ajax makes me feel dirty.
+- 
+-   $weight_range = variable_get('weight_range', 20);
+-   for ($i = - $weight_range; $i <= $weight_range; ++$i) {
+-     $selector_template .= "<option value='$i'". ($i == $node->node_weight ? " selected='selected'" : '') .">$i</option>";
+-   }
+-   $selector_template .= '</select>';
+-   $weight_selector = str_replace('[NID]', $nid, $selector_template);
+- 
+-   $status = $node->status ? t('published') : NULL;
+-   $status .= $node->sticky ? '<br />'. t('sticky') : NULL;
+-   $status .= $node->promote ? '<br />'. t('promoted') : NULL;
+-   $status .= $node->translate ? '<br />'. t('translate') : NULL;
+-   $status .= $node->moderate ? '<br />'. t('moderated') : NULL;
+- 
+-   return array(
+-     'selector' => '<div class="weight-selector">'. $weight_selector .'</div>',
+-     'status' => $status,
+-     );
+- }
+- 
+- /**
+   * Implementation of hook_form_alter().
+   *
+   * This is where we tweak the admin/content/node to include our weight
+--- 152,157 ----
+  }
+  
+  /**
+   * Implementation of hook_form_alter().
+   *
+   * This is where we tweak the admin/content/node to include our weight

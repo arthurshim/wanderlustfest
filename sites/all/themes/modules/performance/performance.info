@@ -1,0 +1,11 @@
+name = Performance Logging
+description = Logs detailed and/or summary page generation time and memory consumption for page requests.
+package = Development
+core = 6.x
+
+; Information added by drupal.org packaging script on 2012-01-25
+version = "6.x-1.29"
+core = "6.x"
+project = "performance"
+datestamp = "1327519547"
+

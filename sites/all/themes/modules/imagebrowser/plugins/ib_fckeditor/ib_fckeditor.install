@@ -1,0 +1,9 @@
+<?php
+
+function ib_fckeditor_install() {
+  //Do Nothing
+}
+
+function ib_fckeditor_uninstall() {
+  //Do Nothing
+}

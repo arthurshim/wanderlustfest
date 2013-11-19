@@ -1,0 +1,193 @@
+<?php
+// $Id: node_page.module,v 1.2 2010/01/15 15:32:26 denraf Exp $
+
+/**
+ * @file
+ * The node_page module allows you to configure a page-template, just by name.
+ *
+ * It respects existing template suggestions, it just adds one. When no template has been configured, no template suggestion is being made.
+ */
+
+/**
+ * Implementation of hook_perm().
+ */
+function node_page_perm() {
+  return array('administer node templates');
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+function node_page_nodeapi(&$node, $op) {
+
+  switch ($op) {
+    case 'insert':
+
+      if (isset($node->template)) {
+        db_query("INSERT INTO {node_page} (nid, template) VALUES ('%d', '%s')", $node->nid, $node->template);
+      }
+      break;
+
+    case 'update':
+
+      $template = db_result(db_query("SELECT template FROM {node_page} WHERE nid = '%d'", $node->nid));
+      if (isset($node->template)) {
+        if (empty($template)) {
+          db_query("INSERT INTO {node_page} (nid, template) VALUES ('%d', '%s')", $node->nid, $node->template);
+        }
+        else {
+          db_query("UPDATE {node_page} SET template = '%s' WHERE nid = '%d'", $node->template, $node->nid);
+        }
+      }
+      else {
+        db_query("DELETE FROM {node_page} WHERE nid = '%d'", $node->nid);
+      }
+      break;
+
+    case 'delete':
+
+      db_query("DELETE FROM {node_page} WHERE nid = '%d'", $node->nid);
+      break;
+
+    case 'load':
+    case 'prepare':
+
+      $template = db_result(db_query("SELECT template FROM {node_page} WHERE nid = '%d'", $node->nid));
+
+      if (empty($template)) {
+        if (variable_get('template_'. $node->type, FALSE)) {
+          $template = variable_get('template_'. $node->type, FALSE);
+        }
+        else {
+          $template = 'default';
+        }
+      }
+
+      $node->template = $template;
+
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_node_type().
+ */
+function node_page_node_type($op, $info) {
+
+  switch ($op) {
+    case 'delete':
+      variable_del('template_'. $info->type);
+      break;
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function node_page_form_alter(&$form, $form_state, $form_id) {
+
+  if ($form['#node']->type .'_node_form' == $form_id) {
+    $form['template'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Template settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+      '#access' => user_access('administer node templates')
+    );
+    $template = $form['#node']->template;
+
+    $form['template']['template'] = array(
+      '#type' => 'select',
+      '#title' => 'Template',
+      '#description' => 'Select the template to be used for showing this node',
+      '#default_value' => $template,
+      '#options' => _page_templates(),
+      '#access' => user_access('administer node templates')
+    );
+    $form['template']['#item'] = $template;
+  }
+}
+
+/**
+ * Implementation of hook_form_FORM_ID_alter().
+ */
+function node_page_form_node_type_form_alter(&$form, &$from_state) {
+
+  if (isset($form['identity']['type'])) {
+    $form['template'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Template settings'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+
+    $form['template']['template'] = array(
+      '#type' => 'select',
+      '#title' => 'Template',
+      '#description' => 'Select the template to be used for showing this node',
+      '#default_value' => variable_get('template_'. $form['#node_type']->type, 'node'),
+      '#options' => _page_templates()
+    );
+    $form['template']['#item'] = $template;
+  }
+}
+
+function _page_templates() {
+
+  $theme = variable_get('theme_default', 'garland');
+  $theme_path = drupal_get_path('theme', $theme) .'/';
+  $options = array('default' => 'default');
+
+  $handler = opendir($theme_path);
+  while ($file = readdir($handler)) {
+    if ($file != '.' && $file != '..' && drupal_substr($file, 0, 4) == 'page') {
+      $name = drupal_substr($file, 0, -8);  // name without .tpl.php
+      $options[$name] = $name;
+    }
+  }
+  closedir($handler);
+
+  return $options;
+}
+
+/**
+ * Implementation of hook_preprocess_page().
+ */
+function node_page_preprocess_page(&$variables) {
+
+  if (drupal_substr(request_uri(), -5) != '/edit') {
+    if ($variables['node']->template != 'default') {
+      $variables['template_files'][] = $variables['node']->template;
+    }
+  }
+}
+
+/**
+ * Implementation of hook_preprocess_node().
+ */
+function node_page_preprocess_node(&$variables) {
+
+  if (drupal_substr(request_uri(), -5) != '/edit') {
+    if ($variables['template'] != 'default') {
+      $template = 'node-'. drupal_substr($variables['template'], 5);
+      $variables['template_files'][] = $template;
+    }
+  }
+}
+
+/**
+* Implementation of hook_content_extra_fields().
+* Allow the node page fields to be sorted in the node edit forms.
+*/
+function node_page_content_extra_fields($type_name) {
+
+  if (!empty($type_name)) {
+    $extra = array();
+    $extra['template'] = array(
+      'label' => t('Page Template'),
+      'description' => t('The page template used'),
+      'weight' => 10,
+    );
+    return $extra;
+  }
+}

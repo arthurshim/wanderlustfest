@@ -1,0 +1,9 @@
+<?php
+
+function ib_wysiwyg_install() {
+  //Do Nothing
+}
+
+function ib_wysiwyg_uninstall() {
+  //Do Nothing
+}

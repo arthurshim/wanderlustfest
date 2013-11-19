@@ -1,0 +1,6 @@
+; $Id;
+name = Wanderlust Custom Videos
+core = 6.x
+description = Creates custom Ajaxed views video display
+
+scripts[] = wanderlust_custom_videos.js

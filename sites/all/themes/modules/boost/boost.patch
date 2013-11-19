@@ -1,0 +1,39 @@
+--- boost.admin.inc	2012-03-30 19:36:29.231466746 -0500
++++ boost.admin.inc.old	2012-03-30 19:26:46.801466723 -0500
+@@ -337,12 +337,6 @@
+     '#default_value' => BOOST_MULTISITE_SINGLE_DB,
+     '#description'   => t('Enabling will allow for correct multi-site caching, in cases where different content is served from the same Drupal installation, based on domain. Examples: Multi-site with a single/shared database, site translation detection based on domain, and the contributed "Domain Access" module.'),
+   );
+-  $form['directories']['boost_determine_host_from_http'] = array(
+-    '#type'          => 'checkbox',
+-    '#title'         => t('Determine host from HTTP request, not $base_url'),
+-    '#default_value' => BOOST_DETERMINE_HOST_FROM_HTTP,
+-    '#description'   => t('Enabling will have Boost look to the original HTTP request to determine the domain - Enable if you are using multiple domains or subdomains but have set $base_url in settings.php.'),
+-  );
+   if (!BOOST_MULTISITE_SINGLE_DB) {
+ //     $form['directories']['boost_host'] = array(
+ //       '#type'          => 'textfield',
+--- boost.module	2012-03-30 23:14:54.110624225 -0500
++++ boost.module.old	2012-03-30 19:26:34.520633380 -0500
+@@ -39,7 +39,6 @@
+ // Dir & File Structure
+ define('BOOST_ROOT_CACHE_DIR',       variable_get('boost_root_cache_dir', 'cache'));
+ define('BOOST_MULTISITE_SINGLE_DB',  variable_get('boost_multisite_single_db', TRUE));
+-define('BOOST_DETERMINE_HOST_FROM_HTTP',  variable_get('boost_determine_host_from_http', FALSE));
+ define('BOOST_NORMAL_DIR',           variable_get('boost_normal_dir', 'normal'));
+ define('BOOST_GZIP_DIR',             variable_get('boost_gzip_dir', 'normal'));
+ define('BOOST_PERM_NORMAL_DIR',      variable_get('boost_perm_normal_dir', 'perm'));
+@@ -2855,12 +2854,7 @@
+   }
+ 
+   $parts = parse_url($base_url);
+-  if (BOOST_DETERMINE_HOST_FROM_HTTP) {
+-    $host = $_SERVER['HTTP_HOST'];
+-  }
+-  else {
+-    $host = !empty($host) ? $host : $parts['host'];
+-  }
++  $host = !empty($host) ? $host : $parts['host'];
+   $parts['path'] = isset($parts['path']) ? $parts['path'] : '/';
+   $subdir = implode('/', array_filter(explode('/', (!empty($base_path)) ? $base_path : $parts['path'])));
+ 

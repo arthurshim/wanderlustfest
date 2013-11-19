@@ -1,0 +1,15 @@
+#ted_photo_hover {
+  font-size: 1em;
+  position: absolute;
+  display: block;
+  background-color: #FFF;
+  border: 1px solid black;
+}
+
+.ted_photo_data {
+  display: none;
+}
+
+.ted_photo {
+  border: 1px solid black;
+}

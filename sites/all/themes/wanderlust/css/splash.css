@@ -253,6 +253,16 @@ top: 481px;
   padding-right: 5px;
 }
 
+.training .icon,
+.icon.training{
+  background: url(../images/teachertraining.png) no-repeat; 
+  height: 42px;
+  width: 39px;
+  background-position: 0px 0px; 
+  padding-right: 5px;
+}
+
+
 .yoga .icon,
 .icon.yoga {
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
@@ -365,6 +375,12 @@ top: 481px;
   animation: bob 1s;
 }
 
+.training .icon:hover{
+  -webkit-animation: bob 1s;
+  -moz-animation: bob 1s;  
+  -o-animation: bob 1s;    
+  animation: bob 1s;
+}
 
 .yoga .icon:hover {
   -webkit-animation: bob 1s ;
@@ -495,10 +511,11 @@ top: 481px;
 
 
 #legend {
-  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png);
-  background-position: -18px -250px;
-  width: 320px;
-  height: 198px;
+  /*background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png);
+  background-position: -18px -250px;*/
+  background: url(../images/Legendbg.png) no-repeat;
+  width: 408px;
+  height: 249px;
   position: fixed;
   z-index: 200;
   bottom: 13px;
@@ -512,6 +529,28 @@ top: 481px;
     margin-top: 2px;
     width: 28px;
     padding-right: 5px;
+}
+
+#legend1 .icon {
+ background-position: -260px -195px;
+}
+
+#legend2 .icon {
+ background-position: -230px -164px;
+}
+
+#legend3 .icon {
+ background-position: 8px 0px;
+}
+
+
+
+#legend4 .icon {
+     margin-right: 0;
+    margin-top: 2px;
+    padding-right: 0;
+    width: 39px;
+    background-position: -2px 2px;
 }
 
 #legend1 {
@@ -546,6 +585,16 @@ top: 481px;
 
 }
 
+#legend4 .icon {
+    float: left;
+}
+
+#legend4 .legendtitle {
+    position: relative;
+    top: 11px;
+
+}
+
 #legend .legendtitle {
   margin-left: 5px;
   text-transform: uppercase;
@@ -560,6 +609,11 @@ top: 481px;
   color: #47292b;
   top: 7px;
   position: relative;
+  cursor: pointer;
+}
+
+#legend4 .legendtitle{
+  color: #47292b;
   cursor: pointer;
 }
 
@@ -591,7 +645,7 @@ top: 481px;
   top: 3px;
   cursor: pointer;
   float: left;
-  left: 235px;
+  left: 282px;
 }
 
 .legendtitle:hover{
@@ -761,6 +815,17 @@ top: 481px;
   top: 9px;
 }
 
+#traininginfo .site-marker{
+  background: url(../images/teachertraining.png) no-repeat; 
+  width: 39px;
+  height: 42px;
+  position: absolute;
+  left: -44px;
+  top: 9px;
+}
+
+
+
 
 
 #chile_show{
@@ -789,7 +854,7 @@ top: 481px;
 }
 
 
-#festinfo span, #yogainfo span, #studioinfo span{
+#festinfo span, #yogainfo span, #studioinfo span, #traininginfo span{
     display: block;
     text-align: center;
     width: 100%;
@@ -811,7 +876,7 @@ top: 481px;
   padding: 0;
 }
 
-#festinfo .descript, #yogainfo .descript, #studioinfo .descript {
+#festinfo .descript, #yogainfo .descript, #studioinfo .descript, #traininginfo .descript {
   text-align: center;
   font-family: 'baskerville_fsregular', georgia;
   font-size: 14px;
@@ -882,7 +947,7 @@ top: 481px;
 .front .fancybox-skin {
   background: url('../images/window-top.png') no-repeat;
   width: 670px !important;
-
+  overflow-y: visible;
   padding: 8px 0 0px 0px !important;
 
 }

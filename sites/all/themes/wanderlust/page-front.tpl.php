@@ -24,16 +24,16 @@
       print 'Wanderlust California 2013';
     }
     elseif ($subdomain == 'stratton'){
-      print 'Wanderlust Stratton 2013';
+      print 'Wanderlust Stratton 2014';
     }
     elseif ($subdomain == 'whistler'){
-      print 'Wanderlust Whistler 2013';
+      print 'Wanderlust Whistler 2014';
     }
     elseif ($subdomain == 'colorado'){
-      print 'Wanderlust Colorado 2013';
+      print 'Wanderlust Colorado 2014';
     }
     elseif ($subdomain == 'chile'){
-      print 'Wanderlust Chile 2013';
+      print 'Wanderlust Chile 2014';
     }
     elseif ($subdomain == 'oahu'){
       print 'Wanderlust Oahu 2014';
@@ -163,8 +163,19 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 					
 	        });
+		
 		$("#legend3 .legendtitle").click(function() {
 				$.fancybox.open('#studioinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+			  				$(window).resize(function() {
+setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});
+				
+	        });
+		
+				$("#legend4 .legendtitle").click(function() {
+				$.fancybox.open('#traininginfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 			  				$(window).resize(function() {
@@ -573,6 +584,10 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     <div class="icon studio legendNo"></div>
     <div class="legendtitle">Wanderlust Yoga Studios <span>i</span></div><br>
   </div>
+    <div id="legend4">
+    <div class="icon training legendNo"></div>
+    <div class="legendtitle">Wanderlust Teacher Training <span>i</span></div><br>
+  </div>
 </div>
 <!-- END LEGEND -->  
 
@@ -600,7 +615,6 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
        //     print '<pre>' . print_r($site->purl_prefix, 1) . '</pre>';
     foreach($site->extra_fields->taxonomy as $n) {
 
-      
   	  if($n->tid == 93) {
   	     $class = 'festival'; 
   	  }
@@ -612,6 +626,9 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   	  }
   	  elseif($n->tid == 180) {
   	    $class = 'studio'; 
+  	  }
+	  elseif($n->tid == 601) {
+  	    $class = 'training'; 
   	  }
     }
 	
@@ -730,7 +747,18 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	}
         
         // YITC POPOVER DISPLAY
-    } elseif ($class == 'yoga') {
+    }
+    elseif ($class == 'training') {
+	  $item2 = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
+          $item2 .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
+          $item2 .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	  
+	  $training .= '<div class="bl">' . $item2 . '</div>';
+
+        // YITC POPOVER DISPLAY
+    }
+    
+    elseif ($class == 'yoga') {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
@@ -792,6 +820,11 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
               $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) .'</div>';
           }
           $item .= '<div class="siteaddress">'   /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+     
+     
+     
+     
+     
       } else {
           $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
           $item .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
@@ -936,6 +969,16 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
   <?php print $studios; ?>
 </div>
+
+<div id="traininginfo">
+<span>Wanderlust Teacher Training</span>
+  <div class="descript">
+    Wanderlust's Teacher Training ...... 
+  </div>
+
+  <?php print $training; ?>
+</div>
+
 </div>    
 <?php  
       } else {  
@@ -1231,6 +1274,12 @@ $('#removeMobileLink a').remove();
         $('#.icon.studio').removeClass('highlight1');
     });
     
+    $("#legend4 .icon").hover(function () {
+        $(".icon.training").addClass('highlight1');
+    }, function () {
+        $('#.icon.training').removeClass('highlight1');
+    });
+	
     }
 
 else {
@@ -1375,6 +1424,12 @@ $(document).ready(function () {
         $(".studio .icon, .studio.icon").addClass('highlight1');
     }, function () {
         $('.studio .icon, .studio.icon').removeClass('highlight1');
+    });
+    
+    $("#legend4 .icon").hover(function () {
+        $(".training .icon, .training.icon").addClass('highlight1');
+    }, function () {
+        $('.training .icon, .training.icon').removeClass('highlight1');
     });
 
     // FOR CHROME FIREFIX

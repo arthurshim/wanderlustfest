@@ -1,0 +1,6 @@
+name = Wanderlust Sites Dropdown
+description = Creates block with a dropdown list of wanderlust sites.
+package = WanderLust Custom
+core = 6.x
+
+scripts[] = sitesdropdown.js

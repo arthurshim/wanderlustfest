@@ -1,0 +1,12 @@
+; $Id: node_page.info,v 1.1 2009/08/31 18:35:49 denraf Exp $
+core = 6.x
+name = Node Page Template
+description = Adds an option to a node to select a specific page template
+
+
+; Information added by drupal.org packaging script on 2010-01-15
+version = "6.x-1.2"
+core = "6.x"
+project = "node_page"
+datestamp = "1263570313"
+
