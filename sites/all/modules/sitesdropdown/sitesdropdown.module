@@ -338,9 +338,16 @@ function sitesdropdown_site_id() {
     }		
 		/*display date in normal format month day - day*/
      else {
-	      
+	      /*translate month to spanish for chili*/
               if ($current_site->purl_prefix == 'chile' ) {
-	        $date = format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j-' , $timezone = NULL, "es") . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'j, Y' , $timezone = NULL, "es");
+		  $a = date('n', strtotime($site['field_event_date'][0]['value']));
+		  $b = date('n', strtotime($site['field_event_date'][0]['value2']));
+		  if ($a == $b) {
+			 $date = format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j -' , $timezone = NULL, "es") . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'j, Y' , $timezone = NULL, "es");	 
+		  }
+		  else {
+			$date .=  format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j-' , $timezone = NULL, "es") . ' ' . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'F j, Y', $timezone = NULL, "es") ;
+		   }	 
 	      }
 	      
 	      else {
