@@ -335,12 +335,31 @@ function sitesdropdown_site_id() {
     if($current_site->sid == 23) {
       
          $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
-    }
-		
+    }		
 		/*display date in normal format month day - day*/
-	    else {
-	       $item .= date('F j-', strtotime($site['field_event_date'][0]['value'])).date('j, Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
-	    }		 
+     else {
+	      
+              if ($current_site->purl_prefix == 'chile' ) {
+	        $date = format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j-' , $timezone = NULL, "es") . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'j, Y' , $timezone = NULL, "es");
+	      }
+	      
+	      else {
+			
+		//$date = date('F j-', strtotime($site['field_event_date'][0]['value'])).date('j, Y', strtotime($site['field_event_date'][0]['value2']));
+		
+		  $a = date('n', strtotime($site['field_event_date'][0]['value']));
+		  $b = date('n', strtotime($site['field_event_date'][0]['value2']));
+		  if ($a == $b) {
+			 $date .= date('F j -', strtotime($site['field_event_date'][0]['value'])) . ' ' . date('j, Y', strtotime($site['field_event_date'][0]['value2']));
+		   }
+		   else {
+			$date .= date('F j -', strtotime($site['field_event_date'][0]['value'])) . ' ' . date('F j, Y', strtotime($site['field_event_date'][0]['value2']));
+		   }
+		
+	      }    
+	       $item .= $date .'</div></div>';
+	    }
+  
 	   } 
 	 }
 	 

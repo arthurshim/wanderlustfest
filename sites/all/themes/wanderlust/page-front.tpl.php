@@ -632,7 +632,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   	  }
     }
 	
-    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio') {
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio' && $class != 'training' ) {
      // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');?>
       
       
@@ -682,18 +682,18 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	   /*if there is a date and is yoga display register now else buy tickets*/
 	   if ($class !== 'yoga') {
 	      	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
-    if ($nowtime < $evetime) {
-		       /*If Chile site, point Tickets link to specific site */
-		       if ($site->purl_prefix == 'chile'){
-		          $item .= '<div class="site-tickets"><a href="https://welcu.com/wanderlust/wanderlust-festival-2014"> Buy Tickets</a></div>';  		       
-		       }
-		       else{
-    		       $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
-		       }
+		if ($nowtime < $evetime) {
+				   /*If Chile site, point Tickets link to specific site */
+				   if ($site->purl_prefix == 'chile'){
+				      $item .= '<div class="site-tickets"><a href="https://welcu.com/wanderlust/wanderlust-festival-2014"> Buy Tickets</a></div>';  		       
+				   }
+				   else{
+				   $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+				   }
+				}
+			      elseif ($nowtime > $evetime) {
+				   $item .= '<div class="site-ticketsget"><a href="http://wanderlustfestival.com/early-bird-alert"> Get 2014 alerts</a></div>';
 		    }
-		  elseif ($nowtime > $evetime) {
-		       $item .= '<div class="site-ticketsget"><a href="http://wanderlustfestival.com/early-bird-alert"> Get 2014 alerts</a></div>';
-        }
 		  }	
 
      
@@ -748,15 +748,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
         
         // YITC POPOVER DISPLAY
     }
-    elseif ($class == 'training') {
-	  $item2 = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
-          $item2 .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
-          $item2 .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
-	  
-	  $training .= '<div class="bl">' . $item2 . '</div>';
 
-        // YITC POPOVER DISPLAY
-    }
     
     elseif ($class == 'yoga') {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
@@ -837,7 +829,19 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     </div>
 	</div>	
 	
-	  <?php } ?>
+       <?php } elseif ($class == 'training' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {
+	  $item2 = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
+          $item2 .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
+          $item2 .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	  
+	  $training .= '<div class="bl">' . $item2 . '</div>';
+
+        // YITC POPOVER DISPLAY
+       }
+
+	  
+	  
+	  ?>
 	  
 	  <?php endforeach;  ?>
 
