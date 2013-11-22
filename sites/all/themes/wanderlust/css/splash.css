@@ -29,7 +29,7 @@ a:focus{
 }
 
 .logo{
-  background: url('/sites/all/themes/wanderlust/images/splash-sprite-v2.png'); /*url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');*/
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   width: 479px;
   height: 147px;
   background-position: 679px -8px;
@@ -246,7 +246,7 @@ top: 481px;
 
 .festival .icon,
 .icon.festival{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   height: 36px;
   width: 27px;
   background-position: -264px -195px;
@@ -265,7 +265,7 @@ top: 481px;
 
 .yoga .icon,
 .icon.yoga {
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   height: 36px;
   width: 26px;
   background-position: -235px -164px;
@@ -408,7 +408,7 @@ top: 481px;
 
 .innersite {
   display: none;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png') !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png') !important;
   background-position: -695px -464px !important;
   width: 205px;
   height: auto;
@@ -429,7 +429,7 @@ top: 481px;
 }
 
 .innersite:hover{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png') !important;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png') !important;
   background-position: -694px -668px !important; 
   z-index:9999;
 }
@@ -511,9 +511,8 @@ top: 481px;
 
 
 #legend {
-  /*background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png);
-  background-position: -18px -250px;*/
-  background: url(../images/Legendbg.png) no-repeat;
+  background-image: url(http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png);
+  background-position: -12px -463px;
   width: 408px;
   height: 249px;
   position: fixed;
@@ -636,7 +635,7 @@ top: 481px;
 }
 
 .legendtitle span{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -294px -164px;
   width: 34px;
   text-indent: -999em;
@@ -656,7 +655,7 @@ top: 481px;
 ---------------------------------*/
 
 #joinmail {
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -35px -47px;
   height: 52px;
   width: 272px;
@@ -707,7 +706,7 @@ top: 481px;
 }
 
 .other-icons a {
-    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
     display: block;
     float: left;
     width: 28px;
@@ -780,7 +779,7 @@ top: 481px;
 }
 
 #festinfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -264px -195px;
   width: 32px;
   height: 36px;
@@ -795,7 +794,7 @@ top: 481px;
 }
 
 #yogainfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -235px -164px;
   width: 29px;
   height: 36px;
@@ -806,7 +805,7 @@ top: 481px;
 
 
 #studioinfo .site-marker{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -168px -195px;
   width: 27px;
   height: 36px;
@@ -835,7 +834,7 @@ top: 481px;
   position: absolute;
   width: 121px;
   z-index: 99;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -805px -9px;
   text-indent: -999em;
   opacity: 0.9;
@@ -924,7 +923,7 @@ top: 481px;
 }
 
 .site-tickets a{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -774px -243px;
   width: 88px;
   height: 20px;
@@ -933,7 +932,7 @@ top: 481px;
 }
 
 .site-register a{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -774px -263px;
   width: 101px;
   height: 20px;
@@ -980,6 +979,7 @@ padding: 0px 6px 8px 10px;
 
 .front .fancybox-inner{
   width: 649px !important;
+  overflow-y: scroll !important;
 }
 
 .front .fancybox-skin #newsletter{
@@ -1031,7 +1031,7 @@ padding: 0px 6px 8px 10px;
 
 
 .email-container{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -404px -947px;
   width: 321px;
   height: 198px;
@@ -1056,7 +1056,7 @@ padding: 0px 6px 8px 10px;
 }
 
 #toolbar a.icon{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   height: 82px;
   display: block;
   text-indent: -999em;
@@ -1102,7 +1102,7 @@ padding: 0px 6px 8px 10px;
 }
 
 #toolbar .dialog{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -19px -946px;
   width: 340px;
   height: 251px;
@@ -1136,7 +1136,7 @@ margin-top:10px;
 }
 
 #toolbar .arrow{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v2.png');
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
   background-position: -349px -195px;
   height: 14px;
   width: 16px;
