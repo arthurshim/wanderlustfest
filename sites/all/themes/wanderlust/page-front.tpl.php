@@ -253,6 +253,9 @@ else {
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
+
+
+
 $(document).ready(function() {
 	$('#map-1').bind('drag', function( event ) {
             
@@ -264,8 +267,16 @@ $(document).ready(function() {
 			 $('#chile_show').fadeIn();
                  
              }
+			 
+			 
 	});
 });
+
+
+
+			 
+
+
 }); //end no conflict
 </script>
 <!--end-->
@@ -934,6 +945,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 
   <div id="chile_show" class="chile_disp" >This Way to Chile</div>
+    <div id="syd_show" class="chile_disp" >Sydney This Way</div>
   	 <map name="map"></map>
   </div>
 

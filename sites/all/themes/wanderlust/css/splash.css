@@ -840,6 +840,20 @@ top: 481px;
   opacity: 0.9;
 }
 
+#syd_show{
+  height: 41px;
+  left: 137px;
+  top: 188px;
+  position: absolute;
+  width: 180px;
+  z-index: 99;
+  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/splash-sprite-v3.png');
+  background-position: -792px -59px;
+  text-indent: -999em;
+  opacity: 0.9;
+}
+
+
 .bl DIV {
 
 }
