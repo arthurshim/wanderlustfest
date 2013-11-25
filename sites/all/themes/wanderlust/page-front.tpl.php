@@ -268,6 +268,15 @@ $(document).ready(function() {
                  
              }
 			 
+			 var syd_inView=IntoView('div.mark.syd')
+             
+             if(syd_inView){
+                 $('#syd_show').fadeOut();
+             }else{
+			 $('#syd_show').fadeIn();
+                 
+             }
+			 
 			 
 	});
 });
