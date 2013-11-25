@@ -555,6 +555,7 @@ arguments[x].focus)):"function"==typeof arguments[x]&&(void 0===jQuery.winFocus.
 jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.methods.focus(b)}})})(jQuery);
     (cycle = function () {
         setTimeout(function(){$('#find-left').fadeOut(1000)},4000); 
+		$('#find-left').fadeOut(1000); //fix for splash/lightbox
 	    setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
         setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
         setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
@@ -1123,192 +1124,6 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 <script>
 
-<?php  if ($f) {?>
-
-// DETECT IF MOBILE
-var isMobile = {
-    Android: function () {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function () {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function () {
-        return navigator.userAgent.match(/iPhone|iPod/i);
-    },
-    iPAD: function () {
-        return navigator.userAgent.match(/iPad/i);
-    },
-    Opera: function () {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function () {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function () {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.iPAD() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-
-if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) {
-    $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.4, maximum-scale=1">');
-}
-
-
-
-// FOR MOBILE
-
-if (isMobile.any()) {
-
-
-$('#removeMobileLink a').remove();
-
-    $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
-    window.scrollTo(325, 0);
-    
-    /*MARK HOVERS*/
-    $(".icon:not(.legendNo)").bind('touchend', function (e) {
-        $(".innersite").fadeOut();
-        $(this).next().toggle(500);
-    });
-    
-    /*MENU*/
-    $("#help .icon").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #help .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #help .dialog').hide();
-    });
-    
-    $("#about").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #about .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #about .dialog').hide();
-    });
-    
-    $("#mission").click(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #mission .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #mission .dialog').hide();
-    });
-    
-    $("#connect").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #connect .dialog').fadeIn();
-    },
-    
-    function () {
-        $('#toolbar #connect .dialog').hide();
-    });
-	
-	
-	
-		$.fancybox({
-			'padding'		: 10,
-			'autoScale'		: false,
-			'transitionIn'	: 'none',
-			'transitionOut'	: 'none',
-			'width'			: 670,
-			'height'		: 403,
-			'href'			: 'http://www.youtube.com/watch?v=22yflfKRRPQ?fs=1&autoplay=1',
-			'type'			: 'swf',
-			'swf'			: {
-			'wmode'				: 'transparent',
-			'allowfullscreen'	: 'true'
-			}
-		});
-
-    
-    
-		$('#killBill').click(function () {
-    	$('#toolbar #help .dialog, #toolbar #about .dialog, #toolbar #mission .dialog, #toolbar #connect .dialog').hide();
-
-    });
-		
-		
-		
-		$('#connect a.icon').click(function () {
-
-		$('#killBill2').click(function () {
-    	$(' #toolbar #connect .dialog').hide();
-
-    });
-		
-    });
-	
-	
-    $("#toolbar").click(function (e) {
-        e.stopPropagation();
-    });
-    
-    /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/
-    
-    $(".icon").bind('touchend', function (e) {
-        $(".icon").stop(true, true);
-        $(this).find('div.innersite').toggle(500);
-    });
-    
-    $(".icon:not(.legendNo)").hover(function () {
-    
-        $(this).find('div.innersite').fadeIn();
-    
-    }, function () {
-        $(this).find('div.innersite').hide();
-    });
-    
-    if (document.all && document.documentMode && 8 || 9 === document.documentMode) {}
-    
-    
-    /*LEGEND HOVERS*/
-    
-    /*for flag*/
-    $("#legend1 .icon").hover(function () {
-        $(".icon").addClass('highlight1');
-    }, function () {
-        $('#.icon').removeClass('highlight1');
-    });
-    /*for green star*/
-    
-    $("#legend2 .icon").hover(function () {
-        $(".icon.yoga").addClass('highlight1');
-    }, function () {
-        $('#.icon.yoga').removeClass('highlight1');
-    });
-    
-    /*for star only*/
-    
-    $("#legend3 .icon").hover(function () {
-        $(".icon.studio").addClass('highlight1');
-    }, function () {
-        $('#.icon.studio').removeClass('highlight1');
-    });
-    
-    $("#legend4 .icon").hover(function () {
-        $(".icon.training").addClass('highlight1');
-    }, function () {
-        $('#.icon.training').removeClass('highlight1');
-    });
-	
-    }
-
-else {
- 
   jQuery(document).ready(function ($) {
  
  
@@ -1477,13 +1292,6 @@ $(document).ready(function () {
 
 
 
-} //end else
-
-
-/*FOR BOTH MOBILE AND DESKTOP*/
-
-<?php } else {?> 
-
 $(document).ready(function () {
   
   $(".swlang li a").click(function() {
@@ -1532,11 +1340,7 @@ $(document).ready(function () {
 
 });
 
-
-<?php }
-?>
-			
-			
+		
 /*GOOGLE ANALYTICS*/
 
 
