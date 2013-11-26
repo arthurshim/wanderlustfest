@@ -1123,7 +1123,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 
 <script>
-   <?php  if (!$f) { ?>
+   <?php  if ($f) { ?>
   jQuery(document).ready(function ($) {
  
  
