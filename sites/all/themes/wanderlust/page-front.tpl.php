@@ -175,7 +175,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 	        });
 		
 				$("#legend4 .legendtitle").click(function() {
-				$.fancybox.open('#traininginfo');
+				$.fancybox.open('#traininginfo');s
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 			  				$(window).resize(function() {
@@ -184,40 +184,6 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				
 	        });
 			
-		
-/*
-		if (document.cookie.indexOf("visited") >= 0) {
-  
-}
-else {
-
-	$.fancybox({
-			'padding'		: 10,
-			'autoScale'		: false,
-			'transitionIn'	: 'none',
-			'transitionOut'	: 'none',
-			'width'			: 670,
-			'height'		: 403,
-			'href'			: 'http://www.youtube.com/embed/22yflfKRRPQ?fs=1&autoplay=1',
-			'type'			: 'iframe',
-			'swf'			: {
-			'wmode'				: 'transparent',
-			'allowfullscreen'	: 'true'
-			}
-		});
-
-
-  // set a new cookie
-  //expiry = new Date();
- // expiry.setTime(date.getTime()+(9000*60*1000)); // never
-
-  // Date()'s toGMTSting() method will format the date correctly for a cookie
-    document.cookie = "visited=yes";
-
-}
-		
-	*/	
-		
 		$('#aboutFancy').click(function () {
 	
 	
@@ -317,7 +283,6 @@ function doSubmit(oForm) {
       <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js?Gu"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
-      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
