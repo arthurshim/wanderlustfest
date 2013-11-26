@@ -1123,12 +1123,11 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 
 <script>
-
+   <?php  if (!$f) { ?>
   jQuery(document).ready(function ($) {
  
  
 // FOR DESKTOP 
-
 $(document).ready(function () {
 	//only make markers clickable on ipad
 	/*
@@ -1290,6 +1289,7 @@ $(document).ready(function () {
 }); //end no conflict
 
 
+   <?php } else {}?>
 
 
 $(document).ready(function () {

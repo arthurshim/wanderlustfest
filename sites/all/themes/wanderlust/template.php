@@ -400,7 +400,7 @@ function wanderlust_preprocess_page(&$vars, $hook) {
 EOF;
   }
 
-    elseif ($subdomain == 'la' || $subdomain == 'mel' || $subdomain == 'akl' ){
+    elseif ($subdomain == 'mel' || $subdomain == 'akl' || $subdomain == 'syd' ){
     $vars['connect'] = <<<EOF
       <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
 
