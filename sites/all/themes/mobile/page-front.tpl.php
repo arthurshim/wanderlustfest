@@ -27,6 +27,8 @@
 
 <?php
     $base = wl_get_base_domain();
+    
+   
    $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
    $subdomain  =  strtolower(trim($url[0])); 
     if ($subdomain == 'wanderfest' || $subdomain == 'wonderlustfest' || $subdomain == 'wanderlustfestival') {
@@ -106,21 +108,21 @@
 
 	
 	
-     $base = wl_get_base_domain();
-     $result = db_query("SELECT n.nid FROM node n INNER JOIN content_type_event cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value DESC", 'event');
+   //  $base = wl_get_base_domain();
+     $result = db_query("SELECT n.nid FROM {node} n INNER JOIN {content_type_event} cte ON n.nid = cte.nid where n.type = '%s'  and n.status = 1 ORDER BY cte.field_event_date_value DESC", 'event');
 
       while ($items = db_fetch_array($result)) {
           $nodes[] = $items;
       }
       
-      
+   
       $q    = 'SELECT * FROM {sites}'; //get all sites; 
       $res  = db_query($q);
       $nids = array();
       while ($row = db_fetch_object($res)) {
-	// drupal_set_message('<pre>' . print_r($base, 1) . '</pre>');
+	  
           if ($nid = sites_extra_fields_get_associated_nid($row->sid)) {
-	    
+	     
               if ($node = node_load($nid)) {
                   /* load event node*/
                   $row->extra_fields = $node;
@@ -138,13 +140,15 @@
 	   // print '<pre>' . print_r(date("m.d.y", $row->extra_fields->field_event_date[0]['value']), 1) . '</pre>';
 	 //   print '<pre>' . print_r(date("m.d.y", $now), 1) . '</pre>';
 	 
-	 $x = strtotime(date("m.d.y", $now));
+	 $x =  $now;
 	 $z = strtotime(date("m.d.y", strtotime($row->extra_fields->field_event_date[0]['value'])));
 	//   print '<pre>' . $x . ' = ' .  print_r($z, 1) . '</pre>';
-	   if($x > $z) {	   
+	   if($x > $z) {
+	   
 	     $sexpired[$row->sid] = $row;
 	   }   
 	   else{
+
 	     $sites[$row->sid] = $row;
 	   }
          
@@ -162,6 +166,7 @@
     }
     return ($a < $b) ? -1 : 1;
   }
+  
 
    usort($sites, "compare");   
    usort($sexpired, "compare");   
@@ -172,7 +177,9 @@
               //drupal_set_message('<pre>' . print_r($row->extra_fields, 1) . '</pre>');
               $sites['studio' . $s['nid']] = $row;
           }
-      }  
+      }
+      
+      
 	   //  print '<pre>' . print_r($sites, 1) . '</pre>';
 	  
 	  
