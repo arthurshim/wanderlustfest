@@ -1,0 +1,5 @@
+name = WL: Partners Menu
+description = Show displays of the partners  view in a menu.
+core = 6.x
+
+package = Wanderlust

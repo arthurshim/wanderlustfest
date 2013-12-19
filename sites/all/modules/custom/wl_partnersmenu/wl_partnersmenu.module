@@ -1,0 +1,186 @@
+<?php
+
+/**
+ * @file
+ * WL: Partners menu - a module to show the displays of the artist_landing view as a menu.
+ */
+
+
+/**
+ * Implementation of hook_block().
+ */
+function wl_partnersmenu_block($op = 'list', $delta = 0, $edit = array()) {
+  switch ($op) {
+    case 'list':
+        $block[0]['info'] = t('WL: Partners Menu');
+      break;
+    
+    case 'view':
+        $block['content'] = wl_partnersmenu_get_data();
+      break;
+  }
+  
+  return $block;
+}// function wl_artistmenu_block().
+
+
+/**
+ * Build menu of artist_landing displays.
+ */
+function wl_partnersmenu_get_data() {
+  global $base_path;
+  $node = node_load(arg(1));
+  $terms = taxonomy_node_get_terms_by_vocabulary($node, 1, 'name');
+  $partners_type = array_shift(array_keys($terms));
+  
+  $view = views_get_view('partners');
+  $empty = !(bool) count($view->result);
+  $settings = variable_get('viewsdisplaytabs_settings', array());
+  $show = ( $empty ? $empty && $settings['view_show_empty'][$view->name] == 1 : true );
+  
+  $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
+  $subdomain = strtolower(trim($url[0]));
+
+   if ($settings['view_enabled'][$view->name] == 1 && $show) {
+    $selected_displays = $settings['view_displays'][$view->name];
+
+    // Collect displays and build grouping array
+    // If no displays are selected, include all displays
+    foreach ($view->display as $display_name => $display_data) {
+      if (!$selected_displays || !count($selected_displays) || in_array($display_name, $selected_displays)) {
+       $display_data->display_title = t($display_data->display_title);
+      //  drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
+      
+      
+      
+      
+        // Allow grouping of tabs with grouping separator in titles/names: group[sep]title
+        // If the separator is at position 0 or does not exist it all, do not group
+        $sep = $settings['view_group_separator'][$view->name];
+        
+              if($subdomain == 'oahu' && $display_data->display_title == 'Healing') {
+         $display_data->display_title = t('Surf & Paddle');
+      }
+	  
+      if($subdomain == 'oahu' && $display_data->display_title == 'Theater' ) {
+	    $display_data->display_title = ('Movement'); 
+      }
+      
+        if($subdomain == 'chile') {
+          switch($display_data->display_title) {
+            case 'All':
+               $display_data->display_title = 'lo único';
+              break;
+            
+              case 'Yoga':
+               $display_data->display_title = 'Yoga'; 
+              break;
+            
+              case 'Music':
+               $display_data->display_title = 'Música';
+              break;
+            
+              case 'Speakeasy':
+               $display_data->display_title = 'Speakeasy';               
+              break;
+            
+              case 'Meditation':
+               $display_data->display_title = 'Meditación';
+              break;
+            
+              case 'Healing':
+               $display_data->display_title = 'Curación';
+              break;
+            
+              case 'Art':
+               $display_data->display_title = 'Arte';
+              break;            
+            
+              case 'Theater':
+               $display_data->display_title = 'Teatro';
+              break;
+            
+              case 'Outdoors':
+               $display_data->display_title = 'Fuera de casa';
+              break;
+            default:
+            break;
+          }
+
+          //drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
+        }
+        
+        if($subdomain == 'tremblant') {
+          switch($display_data->display_title) {
+            case 'All':
+               $display_data->display_title = t('All');
+              break;
+            
+              case 'Yoga':
+               $display_data->display_title = t('Yoga'); 
+              break;
+            
+              case 'Music':
+               $display_data->display_title = t('Music');
+              break;
+            
+              case 'Speakeasy':
+               $display_data->display_title = t('Speakeasy');               
+              break;
+            
+              case 'Meditation':
+               $display_data->display_title = t('Meditation');
+              break;
+            
+              case 'Healing':
+               $display_data->display_title = t('Healing');
+              break;
+            
+              case 'Art':
+               $display_data->display_title = t('Art');
+              break;            
+            
+              case 'Theater':
+               $display_data->display_title = t('Theater');
+              break;
+            
+              case 'Outdoors':
+               $display_data->display_title = t('Outdoors');
+              break;
+            default:
+            break;
+          }
+
+        //  drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
+        }
+	
+        if ($sep && strpos($display_data->display_title, $sep)) {
+          list($group, $title) = explode($sep, $display_data->display_title);
+        }
+        else {
+          $title = $display_data->display_title;
+          $group = 0;
+        }
+
+        // Set current tab as active based on artist type
+        $active = ( $display_data->display_title == $partners_type );
+
+        // Build a grouping array for later
+        // @TODO: Pass the path of the display as well, provided it has been set
+        // (true for page displays).
+        $displays[$group][] = theme('viewsdisplaytabs_tab', $title, 'partners', $view->name, $display_name, $active);
+      }
+    }
+       if($subdomain == 'oahu') {
+         unset($displays[0][6]);
+      }
+      
+    // Build header, exclude displays that are attachments (or we'll end up
+    // with two sets of tabs)
+    if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
+      $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
+    }
+  }
+  
+  return $header;
+}// function wl_artistmenu_get_data().
