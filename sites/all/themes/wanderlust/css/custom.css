@@ -85,7 +85,8 @@ body{
 
 
 
-.node-type-artists .panel-col-last{
+.node-type-artists .panel-col-last,
+.node-type-partners .panel-col-last{
   width: 300px;
   }
 
@@ -98,20 +99,21 @@ body{
   margin: 0 !important;
 }
 
-.node-type-artists  .views_slideshow_singleframe_slide{
+.node-type-artists  .views_slideshow_singleframe_slide,
+.node-type-partners  .views_slideshow_singleframe_slide{
   height: 430px;
   }
 
-.node-type-artists .pane-artists .view-id-artists.view-display-id-block_1{
+.node-type-artists .pane-artists .view-id-artists.view-display-id-block_1,
+.node-type-partners .pane-artists .view-id-artists.view-display-id-block_1{
   height: 430px;
 }
 
 
 
-.node-type-artists .pane-node-title{
-}
 
-.node-type-artists .pane-node-title .pane-content{
+.node-type-artists .pane-node-title .pane-content,
+.node-type-partners .pane-node-title .pane-content{
   color: #402b2b;
   font-size: 50px;
   text-transform: uppercase;
@@ -133,7 +135,8 @@ body{
   float: left;
 }
 
-.node-type-artists .panel-col-last .panel-pane{
+.node-type-artists .panel-col-last .panel-pane,
+.node-type-partners .panel-col-last .panel-pane{
   margin-bottom: 15px;
   }
 
@@ -150,14 +153,14 @@ body{
   }
 
 
-.node-type-artists .panel-col-first .pane-node-body{
 
-}
 
-.node-type-artists #page-title{
+.node-type-artists #page-title,
+.node-type-partners #page-title{
     display:none;
 }
-.node-type-artists .view-display-id-block_6 .view-content {
+.node-type-artists .view-display-id-block_6 .view-content ,
+.node-type-partners .view-display-id-block_6 .view-content {
   border-bottom: 1px solid #bdbcaa;
   border-top: 1px solid #bdbcaa;
   clear: both;
@@ -166,12 +169,14 @@ body{
   padding: 7px 0 0 0;
 }
 
-.node-type-artists .views-field-field-bands-url-value{
+.node-type-artists .views-field-field-bands-url-value,
+.node-type-partners .views-field-field-bands-url-value{
   float: left;
   width: 298px;
   }
 
-.node-type-artists .off .pane-title{
+.node-type-artists .off .pane-title,
+.node-type-partners .off .pane-title{
      border-top: 1px solid;
      border-bottom: 1px solid;
     padding-bottom: 14px;
@@ -687,7 +692,9 @@ h2.sub-title {
  */
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper {
+div.view-id-partners div.viewsdisplaytabs-group-wrapper,
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper {
   margin: 0;
 }
 
@@ -697,15 +704,16 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper,
   }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
   margin: 10px 0;
   padding: 0 0 0 68px;
   height: 40px;
   background:  #deddce url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/lineup-2013.jpg") center left no-repeat;
   border: 1px solid #bab9a7;
   background-position: 0 -41px !important;
-
-}
+  }
 
 .oahu .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .akl .view-artist-landing2 .viewsdisplaytabs-tab-group,
@@ -718,7 +726,9 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li{
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li,
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li{
   display: block;
   float: left;
   margin: 0;
@@ -728,7 +738,9 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a{
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a{
   display: block;
   text-transform: uppercase;
   font-size: 26px;
@@ -752,12 +764,16 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
   }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover{
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover,
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a:hover{
   background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center repeat-x;
 }
 
 div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active,
-.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active{
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active,
+.not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-active{
   background: url("http://c282314.r14.cf1.rackcdn.com/website-images/active-lineup.png") center center repeat-x;
   border: none;
   border-radius: 0;
@@ -812,7 +828,8 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 .node-type-news .pane-node-body,
 .node-type-page .page-body,
 .node-type-webform .page-body,
-.node-type-artists .page-body {
+.node-type-artists .page-body,
+.node-type-partners .page-body{
   padding-bottom: 40px;
 }
 
@@ -860,7 +877,8 @@ div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplayta
 
 
 .panels-flexible-region-first,
-.node-type-artists .panel-col-first{
+.node-type-artists .panel-col-first,
+.node-type-partners .panel-col-first{
   width: 614px;
   margin-right: 36px;
   }
@@ -2205,14 +2223,19 @@ body#block-quicktabs-2 #header{
    background-image: url("http://c282314.r14.cf1.rackcdn.com/website-images/lineup_bg.png");
 }
 
-.page-lineup a active{
+.page-lineup a active,
+.page-partners a active{
    color: #799D81;
 }
 
-.page-lineup .terms {display: none;}
+.page-lineup .terms,
+.page-partners a active{
+display: none;}
 
 
-.page-lineup #main {
+.page-lineup #main,
+.page-partners #main ,
+{
   padding: 15px;
 }
 
@@ -2220,7 +2243,8 @@ body#block-quicktabs-2 #header{
    color: #799D81;
 }
 
-.page-lineup .views-field-title{
+.page-lineup .views-field-title,
+.page-partners .views-field-title{
   text-transform: uppercase;
   font-weight: bold;
   line-height: 0.8;
@@ -2229,7 +2253,8 @@ body#block-quicktabs-2 #header{
   position: relative;
   }
 
-.page-lineup  .view-artist-landing2 .views-field-title .field-content{
+.page-lineup  .view-artist-landing2 .views-field-title .field-content,
+.page-partners .view-partners .views-field-title .field-content{
   position: absolute;
   bottom: 0px;
   display: block;
@@ -2240,12 +2265,14 @@ body#block-quicktabs-2 #header{
   
 }
 
-.page-lineup .views-field-field-bands-photos-fid a{
+.page-lineup .views-field-field-bands-photos-fid a,
+.page-partners .views-field-field-bands-photos-fid a{
   display: block;
   height: 144px;
 }
   
-.page-lineup .views-field-title a{
+.page-lineup .views-field-title a,
+.page-partners .views-field-title a{
   font-family: 'lhf_egyptianregular', arial;
   font-size: 26px;  
   text-align: center;
@@ -2261,14 +2288,16 @@ body#block-quicktabs-2 #header{
 
 
   
-.page-lineup .view-artist-landing2 td{
+.page-lineup .view-artist-landing2 td,
+.page-partners .view-partners td{
   width: 222px;
   padding-right: 16px;
   height: 160px;
   position: relative;
   }
 
-.view-artist-landing2 .view-empty{
+.view-artist-landing2 .view-empty,
+.view-partners .view-empty{
   font-size: 16px;
   font-style: italic;
   padding: 0 0 20px 0;
@@ -2284,12 +2313,14 @@ body#block-quicktabs-2 #header{
   font-size: 11px !important
 }
 
-.page-lineup td.last{
+.page-lineup td.last,
+.page-partners td.last{
   padding-right: 0px;
   }
 
 
-.page-lineup .views-widget-filter-tid_1{
+.page-lineup .views-widget-filter-tid_1,
+.page-partners .views-widget-filter-tid_1{
     color: #799D81;
     font-weight: normal;
 }
@@ -2944,9 +2975,4 @@ margin-bottom: 15px;
 
 .addthis_toolbox{
   margin-bottom: 15px;
-}
-
-.front .fancybox-inner {
-  height: 500px !important;
-  overflow-y: scroll !important;
 }
