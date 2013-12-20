@@ -139,18 +139,18 @@
 	$( document ).ready(function() {
 	$.fancybox.open('#festinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
-				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+			//	setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 					$(window).resize(function() {
-setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+//setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });	
 	});
 	
 		$("#legend1 .legendtitle").click(function() {
 				$.fancybox.open('#festinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
-				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+	//			setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 					$(window).resize(function() {
-setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+//setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 							
 	        });
@@ -158,7 +158,7 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				$.fancybox.open('#yogainfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-				$(window).resize(function() {
+			$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 					
@@ -168,22 +168,12 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				$.fancybox.open('#studioinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-			  				$(window).resize(function() {
+		  				$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 				
 	        });
-		
-				$("#legend4 .legendtitle").click(function() {
-				$.fancybox.open('#traininginfo');s
-				$(".fancybox-inner").css("overflow", "hidden");
-				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-			  				$(window).resize(function() {
-setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-});
-				
-	        });
-			
+
 		$('#aboutFancy').click(function () {
 	
 	
@@ -247,9 +237,6 @@ $(document).ready(function() {
 	});
 });
 
-
-
-			 
 
 
 }); //end no conflict
@@ -572,7 +559,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   </div>
     <div id="legend4">
     <div class="icon training legendNo"></div>
-    <div class="legendtitle">Wanderlust Teacher Training <span>i</span></div><br>
+    <a href="http://wanderlustyoga.com" target="_blank" ><div class="legendtitle">Wanderlust Teacher Training <span>i</span></div></a><br>
   </div>
 </div>
 <!-- END LEGEND -->  
@@ -1254,7 +1241,7 @@ $(document).ready(function () {
 }); //end no conflict
 
 
-   <?php } else {}?>
+   <?php } else {?>
 
 
 $(document).ready(function () {
@@ -1305,7 +1292,7 @@ $(document).ready(function () {
 
 });
 
-		
+<?php } ?>
 /*GOOGLE ANALYTICS*/
 
 
@@ -1359,6 +1346,12 @@ $.fancybox.close();
 
 });
 });
+
+  jQuery(function ($) {
+    $(window).resize(function() {
+      $('.front .fancybox-inner').height(500);
+    });
+  });
 </script>
 <script type="text/javascript">
 /* <![CDATA[ */
