@@ -2976,3 +2976,9 @@ margin-bottom: 15px;
 .addthis_toolbox{
   margin-bottom: 15px;
 }
+
+
+div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+.not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
+  background-position: 0 -79px !important;
+}
