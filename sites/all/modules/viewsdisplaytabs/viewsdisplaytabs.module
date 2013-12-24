@@ -73,6 +73,7 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
   $subdomain = strtolower(trim($url[0]));
         
+	
   if ($settings['view_enabled'][$view->name] == 1 && $show) {
     $selected_displays = $settings['view_displays'][$view->name];
 
@@ -94,7 +95,7 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
 	    $display_data->display_title = 'Movement'; 
 	   }
       
-        if($subdomain == 'chile') {
+    /*    if($subdomain == 'chile') {
           switch($display_data->display_title) {
             case 'All':
                $display_data->display_title = 'lo único';
@@ -135,8 +136,9 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
             break;
           }
 
-          //drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
-        }
+
+
+        }*/
           
         if($subdomain == 'tremblant') {
           switch($display_data->display_title) {

@@ -30,6 +30,7 @@ jQuery.noConflict();
 				$.fancybox.open('#newsletter');
 	});
 	
+	
   });
 })(jQuery);
 
@@ -45,8 +46,63 @@ jQuery.noConflict();
 
   	
     <?php
-      $base = wl_get_base_domain();
-      
+        $base = wl_get_base_domain();
+      	$site = sites_get_current_site();
+	  if ($site->purl_prefix == 'chile') {       ?>
+	      
+	  <script>
+	    Drupal.behaviors.mytranslate= function (context) {
+	    $('ul.viewsdisplaytabs-tab-group li a.viewsdisplaytabs-tab').each(function() { 
+	      oldtext = $(this);     
+	      switch(oldtext.text())
+		{
+	      case 'All':
+		 newtext = 'lo único';
+		break;
+	      
+		case 'Yoga':
+		 newtext = 'Yoga'; 
+		break;
+	      
+		case 'Music':
+		newtext = 'Música';
+		break;
+	      
+		case 'Speakeasy':
+		 newtext = 'Speakeasy';               
+		break;
+	      
+		case 'Meditation':
+		newtext = 'Meditación';
+		break;
+	      
+		case 'Healing':
+		 newtext = 'Curación';
+		break;
+	      
+		case 'Art':
+		 newtext = 'Arte';
+		break;            
+	      
+		case 'Theater':
+		 newtext = 'Teatro';
+		break;
+	      
+		case 'Outdoors':
+		newtext = 'Fuera de casa';
+		break;
+		      
+		default:
+		   newtext = oldtext.text();
+		}
+			      
+		$(this).text(newtext);
+	     });  
+	    }
+         </script>      
+   <?php	      
+	      //drupal_set_message('<pre>TEMPLATE-' . print_r($site , 1) . '</pre>');
+	    }
       ?>
       
 <!-- SHARE THIS JAVASCRIPT -->
@@ -85,7 +141,7 @@ jQuery.noConflict();
 
       <div id="event-info">      
             <?php
-	$site = sites_get_current_site();	
+
 	if($site->purl_prefix == 'tremblant') {
 	  $block = module_invoke('locale', 'block', 'view', 0);
 	  print '<div class="swlang">' . $block['content'] . '</div>';
