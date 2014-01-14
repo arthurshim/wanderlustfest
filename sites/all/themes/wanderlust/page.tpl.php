@@ -13,6 +13,8 @@
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
   <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
+      <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
+
 
   <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
@@ -72,6 +74,28 @@ jQuery.noConflict();
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
+
+
+  <!-- WL Global Top Bar -->
+  <div id="wl-global-bar">
+    <div id="global-logo">
+      <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
+    </div>
+    <ul id="global-nav">
+      <li class="festivals"><a href="http://wanderlust.com/festivals" target="_blank">Festivals</a></li>
+      <li class="teacher-training"><a href="http://wanderlust.com/teacher-training" target="_blank">Teacher Training</a></li>
+      <li class="studios"><a href="http://wanderlust.com/studios" target="_blank">Studios</a></li>
+      <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
+      <li class="store"><a href="http://wanderlust.com/shop" target="_blank">Store</a></li>
+    </ul>
+    <ul id="wl-global-social">
+      <li id="find-your-true-north"><span>Find Your True North</span></li>
+      <li class="facebook"><a href="http://facebook.com/wanderlust" target="_blank">Facebook</a></li>
+      <li class="twitter"><a href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a></li>
+      <li class="instagram"><a href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a></li>
+      <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank">YouTube</a></li>
+    </ul>
+  </div>
 
   <div id="container" class="clearfix">
 

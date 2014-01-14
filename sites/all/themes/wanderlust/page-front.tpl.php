@@ -267,6 +267,8 @@ function doSubmit(oForm) {
 	  <?php print $styles; ?>
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+      <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
+      
       <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js?Gu"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
@@ -344,168 +346,26 @@ function doSubmit(oForm) {
   </script>
   
   
-  <style type="text/css">
-    #wl-global-bar{
-      background: #2b1d0b;
-      width: 100%;
-      height: 38px;
-      text-transform: uppercase;
-    }
-    
-    #wl-global-bar a{
-      color: #b7b4b2;
-    }
-    
-    #wl-global-bar li{
-      display: inline;
-      list-style-type: none;
-    }
-    
-    #global-nav{
-      float: left;
-    }
-    
-    #global-logo{
-      float: left;
-      position: relative;
-      top: 11px;
-      left: 30px;
-    }
-    
-    #wl-global-social{
-      float: right;
-      position: relative;
-      top: 11px;
-      right: 10px;
-    }
-    
-    #global-nav{
-      position: relative;
-      top: 14px;
-      left: 50px;
-    }
-    
-    #global-nav li{
-      margin-right: 30px;
-      font-size: 14px;
-    }
-    
-    #global-logo a{
-      display: block;
-      text-indent: -999em;
-      background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/wl-global-topbar-sprite.png');
-      width: 158px; 
-      height: 17px; 
-    }
-    
-    #find-your-true-north span{
-      width: 101px; 
-      height: 14px; 
-      text-indent: -999em;
-      background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/wl-global-topbar-sprite.png');
-      background-position: 0px -21px; 
-      display: inline-block;   
-      margin-right: 40px;   
-      position: relative;
-      top: 2px;
-    }
-    
-    #wl-global-social li{
-      margin-right: 18px;
-    }
-    
-    #wl-global-social a{
-      background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/wl-global-topbar-sprite.png');
-      display: inline-block;
-      text-indent: -999em;
-
-    }
-    #wl-global-social .facebook a{ 
-      background-position: 0px -40px; 
-      width: 8px; 
-      height: 15px;  
-    } 
-    
-    #wl-global-social .instagram a{ 
-      background-position: 0px -60px; 
-      width: 15px; 
-      height: 15px;  
-      } 
-
-    #wl-global-social .twitter a{ 
-    background-position: 0px -79px; 
-    width: 16px; 
-    height: 16px;  
-    } 
-    
-    #wl-global-social .youtube a { 
-    background-position: 0px -98px; 
-    width: 19px; 
-    height: 16px;  
-    }    
-    
-    #wl-global-social .youtube {
-      margin-right: 0 !important;
-    } 
-    
-    #global-nav a{
-      display: inline-block;
-      text-indent: -999em;
-      background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/wl-global-topbar-sprite.png');
-
-    }
-    
-    #global-nav .festivals a{ 
-      background-position: 0px -119px; 
-      width: 70px; 
-      height: 11px;  
-      } 
-    
-    #global-nav .teacher-training a{ 
-      background-position: 0px -134px; 
-      width: 128px; 
-      height: 11px;  
-      } 
-    
-    #global-nav .studios a{ 
-      background-position: 0px -150px; 
-      width: 60px; 
-      height: 11px;  
-
-      } 
-    
-    #global-nav .media a{ 
-    background-position: 0px -165px; 
-    width: 42px; 
-      height: 11px;  
-    } 
-    
-    #global-nav .store a{ 
-    background-position: 0px -181px; 
-    width: 44px; 
-      height: 11px;  
-    } 
-    
-  </style>
   
   
+  <!-- WL Global Top Bar -->
   <div id="wl-global-bar">
     <div id="global-logo">
-      <a href="http://wanderlust.com">Wanderlust</a>
+      <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
     </div>
     <ul id="global-nav">
-      <li class="festivals"><a href="http://wanderlust.com" target="_blank">Festivals</a></li>
-      <li class="teacher-training"><a href="http://wanderlust.com" target="_blank">Teacher Training</a></li>
-      <li class="studios"><a href="http://wanderlust.com" target="_blank">Studios</a></li>
-      <li class="media"><a href="http://wanderlust.com" target="_blank">Media</a></li>
-      <li class="store"><a href="http://wanderlust.com" target="_blank">Store</a></li>
+      <li class="festivals"><a href="http://wanderlust.com/festivals" target="_blank">Festivals</a></li>
+      <li class="teacher-training"><a href="http://wanderlust.com/teacher-training" target="_blank">Teacher Training</a></li>
+      <li class="studios"><a href="http://wanderlust.com/studios" target="_blank">Studios</a></li>
+      <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
+      <li class="store"><a href="http://wanderlust.com/shop" target="_blank">Store</a></li>
     </ul>
     <ul id="wl-global-social">
-      <li id="find-your-true-north"><span>find your true north</span></li>
-      <li class="facebook"><a href="http://wanderlust.com" target="_blank">Facebook</a></li>
-      <li class="twitter"><a href="http://wanderlust.com" target="_blank">Twitter</a></li>
-      <li class="instagram"><a href="http://wanderlust.com" target="_blank">Instagram</a></li>
-      <li class="youtube"><a href="http://wanderlust.com" target="_blank">YouTube</a></li>
+      <li id="find-your-true-north"><span>Find Your True North</span></li>
+      <li class="facebook"><a href="http://facebook.com/wanderlust" target="_blank">Facebook</a></li>
+      <li class="twitter"><a href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a></li>
+      <li class="instagram"><a href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a></li>
+      <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank">YouTube</a></li>
     </ul>
   </div>
   

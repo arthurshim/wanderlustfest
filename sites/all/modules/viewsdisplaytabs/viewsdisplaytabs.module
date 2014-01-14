@@ -89,7 +89,21 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
         
       if($subdomain == 'oahu' && $display_data->display_title == 'Healing') {
          $display_data->display_title = 'Surf & Paddle';
-      }
+      }  else {
+			switch($display_data->display_title) {
+            case 'Healing':
+               $display_data->display_title = t('Workshops');
+              break;
+            
+              case 'Outdoors':
+               $display_data->display_title = t('Expeditions');
+              break;
+            default:
+            break;
+		
+		}
+		}
+	  
 	  
 	   if($subdomain == 'oahu' && $display_data->display_title == 'Theater' ) {
 	    $display_data->display_title = 'Movement'; 
@@ -182,7 +196,8 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
           }
 
         //  drupal_set_message('<pre>' . print_r($display_data->display_title, 1) . '</pre>');
-        }
+        } 
+		
             
         if ($sep && strpos($display_data->display_title, $sep)) {
             
