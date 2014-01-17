@@ -1,0 +1,12 @@
+name = "Feeds Image Grabber"
+description = "Grabs image for each feed-item from their respective web pages and stores it in an image field."
+core = 6.x
+package = Feeds Addon
+dependencies[] = feeds
+dependencies[] = imagefield
+; Information added by drupal.org packaging script on 2013-09-30
+version = "6.x-1.0+6-dev"
+core = "6.x"
+project = "feeds_imagegrabber"
+datestamp = "1380578349"
+
