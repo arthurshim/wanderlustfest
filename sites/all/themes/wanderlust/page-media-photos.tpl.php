@@ -79,10 +79,10 @@
     </ul>
     <ul id="wl-global-social">
       <li id="find-your-true-north"><span>Find Your True North</span></li>
-      <li class="facebook"><a href="http://facebook.com/wanderlust" target="_blank">Facebook</a></li>
-      <li class="twitter"><a href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a></li>
-      <li class="instagram"><a href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a></li>
-      <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank">YouTube</a></li>
+      <li class="facebook"><a href="http://facebook.com/wanderlust" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'Facebook', 'Follow']);">Facebook</a></li>
+      <li class="twitter"><a href="http://twitter.com/wanderlustfest" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'Twitter', 'Follow']);">Twitter</a></li>
+      <li class="instagram"><a href="http://instagram.com/wanderlustfest" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'Instagram', 'Follow']);">Instagram</a></li>
+      <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'YouTube', 'Follow']);">YouTube</a></li>
     </ul>
   </div>
 
