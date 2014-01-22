@@ -103,7 +103,7 @@ jQuery.noConflict();
     </div>
 
    <div class="tomap">
-      <a href="<?php print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
+      <a href="http://wanderlust.com/festivals" target="_blank"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
    </div>
 
   </div>

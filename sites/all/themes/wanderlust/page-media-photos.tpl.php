@@ -111,7 +111,7 @@
       </div>
 
       <div class="tomap">
-        <a href="<?php   $base = wl_get_base_domain(); print "http://{$base}"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="<?php print t('To map'); ?>" /></a>
+        <a href="http://wanderlust.com/festivals" target="_blank" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="<?php print t('To map'); ?>" /></a>
       </div>
       
     </header>
