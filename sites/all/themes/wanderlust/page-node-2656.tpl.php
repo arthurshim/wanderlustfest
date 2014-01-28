@@ -275,6 +275,13 @@ window.onload = function(){
    if(oldonload){oldonload()}};
 }());
 </script>
+
+<!-- Freshdesk code -->
+<script type="text/javascript" src="http://assets.freshdesk.com/widget/freshwidget.js"></script>
+<script type="text/javascript">
+FreshWidget.init("", {"queryString": "&widgetType=popup&submitThanks=Thanks+for+your+feedback.++We'll+get+back+to+you+as+soon+as+possible.", "widgetType": "popup", "buttonType": "text", "buttonText": "Ask Us", "buttonColor": "white", "buttonBg": "#006063", "alignment": "4", "offset": "235px", "submitThanks": "Thanks for your feedback.  We'll get back to you as soon as possible.", "formHeight": "500px", "url": "http://support.wanderlustfestival.com"} );
+</script>
+
   
 </body>
 </html>
