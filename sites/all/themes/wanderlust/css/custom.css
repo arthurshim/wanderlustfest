@@ -373,6 +373,7 @@ tbody {border: 0px!important;}
     padding: 8px 14px 8px 8px;
     position: relative;
     width: 194px;
+   overflow: hidden;
 }
 
 .view-wpblogs .views-field-field-wblog-image2-fid
@@ -401,6 +402,13 @@ tbody {border: 0px!important;}
     padding: 8px 14px 8px 8px;
     position: relative;
     width: 194px;
+}
+
+.newslink a {
+   color: #C48F3D!important;
+    font-family: 'baskerville_fsitalic',georgia !important;
+    font-size: 15px!important;
+    text-transform: lowercase!important;
 }
 
 .view-home-news .views-field-field-news-img-fid a,
@@ -3058,3 +3066,4 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
   background-position: 0 -79px !important;
 }
+
