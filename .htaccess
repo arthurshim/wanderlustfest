@@ -177,6 +177,17 @@ DirectoryIndex index.php
   RewriteCond %{REQUEST_URI} =/
   RewriteRule ^(.*)$ index.php?q=ablogs [L,QSA]
 
+  ### REDIRECTS FOR CHANGED SITE URLS ###
+  RewriteCond %{HTTP_HOST} ^phi.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://philadelphia.wanderlustfestival.com/$1 [R=301,QSA,L]
+
+  RewriteCond %{HTTP_HOST} ^chi.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://chicago.wanderlustfestival.com/$1 [R=301,QSA,L]
+
+  RewriteCond %{HTTP_HOST} ^colorado.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://aspensnowmass.wanderlustfestival.com/$1 [R=301,QSA,L]
+
+
   RewriteCond %{HTTP_HOST} =journal.wanderfest.com
   RewriteCond %{REQUEST_URI} =/
   RewriteRule ^(.*)$ index.php?q=all [L,QSA]
