@@ -6,12 +6,12 @@ body{
 
 .front,
 .not-front{
-  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg") no-repeat center top fixed;
+  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/bg_2014.jpg") no-repeat center top fixed; 
+/*  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg") no-repeat center top fixed; */
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;  
-	background-position: 0 38px;
 }
 
 #main{
@@ -391,7 +391,7 @@ tbody {border: 0px!important;}
     width: 194px;
 }
 
-.view-wpblogs  .views-field-title {
+.view-wpblogs  .views-field-body {
       background-color: #FFFFFF;
     border-bottom-left-radius:  5px;
     border-bottom-right-radius: 5px;
@@ -944,8 +944,8 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 /* HOMEPAGE LAYOUT
 ----------------------------------*/
 
-.front #main{
-  padding: 0px 30px;
+.front .panels-flexible-4 {
+  padding: 0 30px;
   }
 
 .front h2.pane-title{
