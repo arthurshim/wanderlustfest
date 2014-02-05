@@ -59,6 +59,17 @@ jQuery.noConflict();
 
 <!-- ADD THIS JAVASCRIPT -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5139106c1fc5da6c"></script>
+
+  <!-- Mail Chimp Goals Tracker -->	
+	<script type="text/javascript">
+  var $mcGoal = {'settings':{'uuid':'3252bf638e8eb23d7ebc4af05','dc':'us3'}};
+  (function() {
+  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+  sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+  })(); 
+  </script>
+	
   
 </head>
 

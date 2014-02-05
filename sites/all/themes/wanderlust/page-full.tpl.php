@@ -66,6 +66,17 @@ $(function() {
     <?php
       $base = wl_get_base_domain();
       ?>
+
+  <!-- Mail Chimp Goals Tracker -->	
+	<script type="text/javascript">
+  var $mcGoal = {'settings':{'uuid':'3252bf638e8eb23d7ebc4af05','dc':'us3'}};
+  (function() {
+  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+  sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+  })(); 
+  </script>
+	
   
 </head>
 

@@ -53,6 +53,16 @@ jQuery.noConflict();
 <script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "5e0b73dd-6559-4b5d-bdf8-8623897da18a", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 
+  <!-- Mail Chimp Goals Tracker -->	
+	<script type="text/javascript">
+  var $mcGoal = {'settings':{'uuid':'3252bf638e8eb23d7ebc4af05','dc':'us3'}};
+  (function() {
+  var sp = document.createElement('script'); sp.type = 'text/javascript'; sp.async = true; sp.defer = true;
+  sp.src = ('https:' == document.location.protocol ? 'https://s3.amazonaws.com/downloads.mailchimp.com' : 'http://downloads.mailchimp.com') + '/js/goal.min.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sp, s);
+  })(); 
+  </script>
+	
   
 </head>
 
