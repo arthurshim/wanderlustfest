@@ -24,16 +24,16 @@
       print 'Wanderlust California 2013';
     }
     elseif ($subdomain == 'stratton'){
-      print 'Wanderlust Stratton 2013';
+      print 'Wanderlust Stratton 2014';
     }
     elseif ($subdomain == 'whistler'){
-      print 'Wanderlust Whistler 2013';
+      print 'Wanderlust Whistler 2014';
     }
     elseif ($subdomain == 'colorado'){
-      print 'Wanderlust Colorado 2013';
+      print 'Wanderlust Colorado 2014';
     }
     elseif ($subdomain == 'chile'){
-      print 'Wanderlust Chile 2013';
+      print 'Wanderlust Chile 2014';
     }
     elseif ($subdomain == 'oahu'){
       print 'Wanderlust Oahu 2014';
@@ -134,12 +134,23 @@
 				$.fancybox.open('#newsletter');
 	});
 	
+	
+	
+	$( document ).ready(function() {
+	$.fancybox.open('#festinfo');
+				$(".fancybox-inner").css("overflow", "hidden");
+			//	setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+					$(window).resize(function() {
+//setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+});	
+	});
+	
 		$("#legend1 .legendtitle").click(function() {
 				$.fancybox.open('#festinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
-				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+	//			setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 					$(window).resize(function() {
-setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
+//setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 							
 	        });
@@ -147,55 +158,22 @@ setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 				$.fancybox.open('#yogainfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-				$(window).resize(function() {
+			$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 					
 	        });
+		
 		$("#legend3 .legendtitle").click(function() {
 				$.fancybox.open('#studioinfo');
 				$(".fancybox-inner").css("overflow", "hidden");
 				setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
-			  				$(window).resize(function() {
+		  				$(window).resize(function() {
 setTimeout(function(){$(".fancybox-inner").css("height", "auto")},300);
 });
 				
 	        });
-			
-		
 
-		if (document.cookie.indexOf("visited") >= 0) {
-  
-}
-else {
-
-	$.fancybox({
-			'padding'		: 10,
-			'autoScale'		: false,
-			'transitionIn'	: 'none',
-			'transitionOut'	: 'none',
-			'width'			: 670,
-			'height'		: 403,
-			'href'			: 'http://www.youtube.com/embed/22yflfKRRPQ?fs=1&autoplay=1',
-			'type'			: 'iframe',
-			'swf'			: {
-			'wmode'				: 'transparent',
-			'allowfullscreen'	: 'true'
-			}
-		});
-
-
-  // set a new cookie
-  //expiry = new Date();
- // expiry.setTime(date.getTime()+(9000*60*1000)); // never
-
-  // Date()'s toGMTSting() method will format the date correctly for a cookie
-    document.cookie = "visited=yes";
-
-}
-		
-		
-		
 		$('#aboutFancy').click(function () {
 	
 	
@@ -231,6 +209,9 @@ else {
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
 }
 
+
+
+
 $(document).ready(function() {
 	$('#map-1').bind('drag', function( event ) {
             
@@ -242,8 +223,22 @@ $(document).ready(function() {
 			 $('#chile_show').fadeIn();
                  
              }
+			 
+			 var syd_inView=IntoView('div.mark.syd')
+             
+             if(syd_inView){
+                 $('#syd_show').fadeOut();
+             }else{
+			 $('#syd_show').fadeIn();
+                 
+             }
+			 
+			 
 	});
 });
+
+
+
 }); //end no conflict
 </script>
 <!--end-->
@@ -272,10 +267,11 @@ function doSubmit(oForm) {
 	  <?php print $styles; ?>
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.css" />
+      <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
+      
       <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/libraries/swfobject/swfobject.js?Gu"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
-      <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery.mousewheel.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-thumbs.js"></script>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/source/helpers/jquery.fancybox-media.js"></script>
@@ -349,6 +345,31 @@ function doSubmit(oForm) {
     }(document, 'script', 'facebook-jssdk'));
   </script>
   
+  
+  
+  
+  <!-- WL Global Top Bar -->
+  <div id="wl-global-bar">
+    <div id="global-logo">
+      <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
+    </div>
+    <ul id="global-nav">
+      <li class="festivals"><a href="http://wanderlust.com/festivals" target="_blank">Festivals</a></li>
+      <li class="teacher-training"><a href="http://wanderlust.com/teacher-training" target="_blank">Teacher Training</a></li>
+      <li class="studios"><a href="http://wanderlust.com/studios" target="_blank">Studios</a></li>
+      <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
+      <li class="store"><a href="http://wanderlust.com/shop" target="_blank">Store</a></li>
+    </ul>
+    <ul id="wl-global-social">
+      <li id="find-your-true-north"><span>Find Your True North</span></li>
+      <li class="facebook"><a href="http://facebook.com/wanderlust" target="_blank">Facebook</a></li>
+      <li class="twitter"><a href="http://twitter.com/wanderlustfest" target="_blank">Twitter</a></li>
+      <li class="instagram"><a href="http://instagram.com/wanderlustfest" target="_blank">Instagram</a></li>
+      <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank">YouTube</a></li>
+    </ul>
+  </div>
+  
+  
   <div id="container" class="clearfix">
     <?php  if (!$f) { ?>
     <div id="skip-link">
@@ -394,13 +415,42 @@ function doSubmit(oForm) {
     <?php if ($primary_links || $secondary_links || !empty($navigation)): ?>
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php  print $navigation ?>
-      <div class="social-media-links">
-        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank" onClick="_gaq.push(['_trackEvent', 'Social Media', 'Facebook', 'follow',, false]);">Facebook</a>
-        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank" onClick="_gaq.push(['_trackEvent', 'Social Media', 'Twitter', 'follow',, false]);">Twitter</a>
-        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank" onClick="_gaq.push(['_trackEvent', 'Social Media', 'Instagram', 'follow',, false]);">Instagram</a>
-        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank" onClick="_gaq.push(['_trackEvent', 'Social Media', 'YouTube', 'follow',, false]);">YouTube</a>
+
+    <?php if ($subdomain == 'syd' || $subdomain == 'mel'){
+      print 
+      '<div class="social-media-links">
+        <a class="facebook" href="https://www.facebook.com/WanderlustFestivalAustralia?ref=hl" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
+        <a class="twitter" href="https://twitter.com/WanderlustOZ" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Twitter\', \'follow\',, false]);">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfestoz" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Instagram\', \'follow\',, false]);">Instagram</a>
+        <a class="youtube" href="http://www.youtube.com/channel/UCiMnt7chTHg8DpJZPwgr9Hg" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'YouTube\', \'follow\',, false]);">YouTube</a>
         <a class="email" id="email" >Email</a>        
-      </div>
+      </div>';
+       }
+   
+      elseif ($subdomain == 'akl' ){
+      print
+      '<div class="social-media-links">
+        <a class="facebook" href="https://www.facebook.com/WanderlustFestivalNZ?ref=hl" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
+        <a class="twitter" href="https://twitter.com/Wanderlustnz" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Twitter\', \'follow\',, false]);">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfestnz" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Instagram\', \'follow\',, false]);">Instagram</a>
+        <a class="youtube" href="http://www.youtube.com/channel/UCiMnt7chTHg8DpJZPwgr9Hg" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'YouTube\', \'follow\',, false]);">YouTube</a>
+        <a class="email" id="email" >Email</a>        
+      </div>';
+      }
+   
+      else{
+      print
+      '<div class="social-media-links">
+        <a class="facebook" href="http://facebook.com/wanderlust" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
+        <a class="twitter" href="http://twitter.com/wanderlustfest" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Twitter\', \'follow\',, false]);">Twitter</a>
+        <a class="instagram" href="http://instagram.com/wanderlustfest" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Instagram\', \'follow\',, false]);">Instagram</a>
+        <a class="youtube" href="http://youtube.com/wanderlustfestival" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'YouTube\', \'follow\',, false]);">YouTube</a>
+        <a class="email" id="email" >Email</a>        
+      </div>';
+      }
+        
+    ?>
+      
     </nav> 
     <?php endif; ?>
     <!-- HEADER EMAIL POPUP-->
@@ -484,6 +534,7 @@ arguments[x].focus)):"function"==typeof arguments[x]&&(void 0===jQuery.winFocus.
 jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.methods.focus(b)}})})(jQuery);
     (cycle = function () {
         setTimeout(function(){$('#find-left').fadeOut(1000)},4000); 
+		$('#find-left').fadeOut(1000); //fix for splash/lightbox
 	    setTimeout(function(){$('#yoga-left').fadeIn(1000)},5000);
         setTimeout(function(){$('#north-right').fadeOut(1000)},6000);  
         setTimeout(function(){$('#music-right').fadeIn(1000)},7000);
@@ -533,6 +584,10 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     <div class="icon studio legendNo"></div>
     <div class="legendtitle">Wanderlust Yoga Studios <span>i</span></div><br>
   </div>
+    <div id="legend4">
+    <div class="icon training legendNo"></div>
+    <a href="http://wanderlustyoga.com" target="_blank" ><div class="legendtitle">Wanderlust Teacher Training <span>i</span></div></a><br>
+  </div>
 </div>
 <!-- END LEGEND -->  
 
@@ -547,9 +602,12 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     <img  class="level" src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/map-v2.jpg" width="4000" height="1500" usemap="#map" alt="" />
     
   
-  <?php  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
+  <?php
+  $nowtime = time();
+  foreach ($sites as $site): // print  checkboxes for sites  with own data ?> 
       
     <?php
+
     if(!$site->title) {
         
     }
@@ -557,7 +615,6 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
        //     print '<pre>' . print_r($site->purl_prefix, 1) . '</pre>';
     foreach($site->extra_fields->taxonomy as $n) {
 
-      
   	  if($n->tid == 93) {
   	     $class = 'festival'; 
   	  }
@@ -570,9 +627,12 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   	  elseif($n->tid == 180) {
   	    $class = 'studio'; 
   	  }
+	  elseif($n->tid == 601) {
+  	    $class = 'training'; 
+  	  }
     }
 	
-    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio') {
+    if($site->extra_fields->status == 1 && isset($site->purl_prefix) && $site->extra_fields->field_event_hide[0]['value'] == 'enabled' && $class != 'studio' && $class != 'training' ) {
      // drupal_set_message('<pre>' . print_r($site, 1) . '</pre>');?>
       
       
@@ -586,6 +646,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	<div class="xSplash"></div>
 
     <?php
+
     if ($site->extra_fields->field_event_date[0]['value']) {
         $item = '<div class="site-item">';
         $item .= '<div class="site-marker"></div>';
@@ -600,8 +661,16 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	  }
 	  
 	  // CODE FOR DATE WHEN START & ENDING MONTHS ARE DIFFERENT
-	  else {
-	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	  else {    	    
+	    $a = date('n', strtotime($site->extra_fields->field_event_date[0]['value']));
+	    $b = date('n', strtotime($site->extra_fields->field_event_date[0]['value2']));
+	    if ($a == $b) {
+	      	  $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+
+	    }
+	    else {
+	     	      $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+	    }
 	  }
 
 
@@ -612,8 +681,20 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 	   
 	   /*if there is a date and is yoga display register now else buy tickets*/
 	   if ($class !== 'yoga') {
-		$item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
-        }
+	      	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
+		if ($nowtime < $evetime) {
+				   /*If Chile site, point Tickets link to specific site */
+				   if ($site->purl_prefix == 'chile'){
+				      $item .= '<div class="site-tickets"><a href="https://welcu.com/wanderlust/wanderlust-festival-2014"> Buy Tickets</a></div>';  		       
+				   }
+				   else{
+				   $item .= '<div class="site-tickets"><a href="http://' . $site->purl_prefix . '.' . $base .'/tickets'. '"> Buy Tickets</a></div>';
+				   }
+				}
+			      elseif ($nowtime > $evetime) {
+				   $item .= '<div class="site-ticketsget"><a href="http://wanderlustfestival.com/early-bird-alert"> Get 2014 alerts</a></div>';
+		    }
+		  }	
 
      
 	   else if ($class == 'yoga') {
@@ -656,10 +737,20 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
-        $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	
+	$evetime = strtotime($site->extra_fields->field_event_date[0]['value']);
+	if ($nowtime < $evetime) {
+	      $fests .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	}
+	elseif ($nowtime > $evetime) {
+	    $festspast .= '<div class="event-list"><div class="bl ">' . $item . '<div id="site-checkbox"><input type="checkbox" value="0" name="' . $site->purl_prefix . '"' . $c . 'onClick="SetCookie(\'mysite\', ' . $site->purl_prefix . ', 30);"><div id="saveDefualt">Save as my default</div></div></div></div>';
+	}
         
         // YITC POPOVER DISPLAY
-    } elseif ($class == 'yoga') {
+    }
+
+    
+    elseif ($class == 'yoga') {
         if (isset($_COOKIE["mysite"]) && $_COOKIE["mysite"] == $site->purl_prefix) {
             $c = 'checked="checked"';
         }
@@ -707,12 +798,25 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
           $item .= '<div class="site-title">' . $site->extra_fields->title . '</div>';
           $item .= '<div class="siteevent"><div class="item-date">';
 	  
+	  
+	  
+	  
+	  
+	  
+	  
           if (substr($site->extra_fields->field_event_date[0]['value'], 0, 10) == substr($site->extra_fields->field_event_date[0]['value2'], 0, 10)) {
               $item .= date('F j, Y', strtotime($site->extra_fields->field_event_date[0]['value'])) . '</div>';
           } else {
-              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) . '</div>';
+
+	    
+              $item .= date('F j -', strtotime($site->extra_fields->field_event_date[0]['value'])) . ' ' . date('j, Y', strtotime($site->extra_fields->field_event_date[0]['value2'])) .'</div>';
           }
-          $item .= '<div class="siteaddress">' /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+          $item .= '<div class="siteaddress">'   /*. $site->extra_fields->field_event_venue[0]['value'] . */ . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+     
+     
+     
+     
+     
       } else {
           $item = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
           $item .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
@@ -725,7 +829,19 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
     </div>
 	</div>	
 	
-	  <?php } ?>
+       <?php } elseif ($class == 'training' && $site->extra_fields->field_event_hide[0]['value'] == 'enabled') {
+	  $item2 = '<div class="site-item"><div class="site-marker"></div><div class="event-right">';
+          $item2 .= '<div class="site-title"><a target="_blank" href="' . $site->extra_fields->field_event_url[0]['url'] . '">' . $site->extra_fields->title . '</a></div>';
+          $item2 .= '<div class="siteaddress">' . $site->extra_fields->field_event_venue[0]['value'] . ' <br />' . $site->extra_fields->field_event_city[0]['value'] . ', ' . $site->extra_fields->field_event_state[0]['value'] . '</div></div></div>';
+	  
+	  $training .= '<div class="bl">' . $item2 . '</div>';
+
+        // YITC POPOVER DISPLAY
+       }
+
+	  
+	  
+	  ?>
 	  
 	  <?php endforeach;  ?>
 
@@ -818,6 +934,7 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 
   <div id="chile_show" class="chile_disp" >This Way to Chile</div>
+    <div id="syd_show" class="chile_disp" >Sydney This Way</div>
   	 <map name="map"></map>
   </div>
 
@@ -832,7 +949,12 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
   <div class="descript">
     Wanderlust Festivals are the crown jewels of the Wanderlust experience: unforgettable 4-day summits in locations of stunning natural beauty. Take everything you treasure about your yoga practice, then throw in epic musical performances, thought-provoking lectures, delicious farm-to-table dinners, wine tastings, hikes, films and much more.
   </div>
+ <span class="upcoming-events">Upcoming Events</span>
+  
  <?php print $fests; ?>
+ <br>
+ <span class="past-events">Past Events</span>
+   <?php print $festspast; ?> 
 </div>
 
 <div id="yogainfo">
@@ -852,6 +974,16 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
   <?php print $studios; ?>
 </div>
+
+<div id="traininginfo">
+<span>Wanderlust Teacher Training</span>
+  <div class="descript">
+    Wanderlust's Teacher Training ...... 
+  </div>
+
+  <?php print $training; ?>
+</div>
+
 </div>    
 <?php  
       } else {  
@@ -970,192 +1102,11 @@ jQuery.winFocus.methods.blur(b):jQuery.winFocus.methods.focus&&jQuery.winFocus.m
 
 
 <script>
-
-<?php  if ($f) {?>
-
-// DETECT IF MOBILE
-var isMobile = {
-    Android: function () {
-        return navigator.userAgent.match(/Android/i);
-    },
-    BlackBerry: function () {
-        return navigator.userAgent.match(/BlackBerry/i);
-    },
-    iOS: function () {
-        return navigator.userAgent.match(/iPhone|iPod/i);
-    },
-    iPAD: function () {
-        return navigator.userAgent.match(/iPad/i);
-    },
-    Opera: function () {
-        return navigator.userAgent.match(/Opera Mini/i);
-    },
-    Windows: function () {
-        return navigator.userAgent.match(/IEMobile/i);
-    },
-    any: function () {
-        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.iPAD() || isMobile.Opera() || isMobile.Windows());
-    }
-};
-
-if (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows()) {
-    $("head").prepend('<meta name="viewport" content="width=device-width, initial-scale=.4, maximum-scale=1">');
-}
-
-
-
-// FOR MOBILE
-
-if (isMobile.any()) {
-
-
-$('#removeMobileLink a').remove();
-
-    $("head").append('<link rel="stylesheet" type="text/css" href="sites/all/themes/wanderlust/css/mobile-stylesheet.css" />');
-    window.scrollTo(325, 0);
-    
-    /*MARK HOVERS*/
-    $(".icon:not(.legendNo)").bind('touchend', function (e) {
-        $(".innersite").fadeOut();
-        $(this).next().toggle(500);
-    });
-    
-    /*MENU*/
-    $("#help .icon").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #help .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #help .dialog').hide();
-    });
-    
-    $("#about").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #about .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #about .dialog').hide();
-    });
-    
-    $("#mission").click(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #mission .dialog').fadeIn();;
-    },
-    
-    function () {
-        $('#toolbar #mission .dialog').hide();
-    });
-    
-    $("#connect").toggle(
-    
-    function () {
-        $('#toolbar .dialog').hide();
-        $('#toolbar #connect .dialog').fadeIn();
-    },
-    
-    function () {
-        $('#toolbar #connect .dialog').hide();
-    });
-	
-	
-	
-		$.fancybox({
-			'padding'		: 10,
-			'autoScale'		: false,
-			'transitionIn'	: 'none',
-			'transitionOut'	: 'none',
-			'width'			: 670,
-			'height'		: 403,
-			'href'			: 'http://www.youtube.com/watch?v=22yflfKRRPQ?fs=1&autoplay=1',
-			'type'			: 'swf',
-			'swf'			: {
-			'wmode'				: 'transparent',
-			'allowfullscreen'	: 'true'
-			}
-		});
-
-    
-    
-		$('#killBill').click(function () {
-    	$('#toolbar #help .dialog, #toolbar #about .dialog, #toolbar #mission .dialog, #toolbar #connect .dialog').hide();
-
-    });
-		
-		
-		
-		$('#connect a.icon').click(function () {
-
-		$('#killBill2').click(function () {
-    	$(' #toolbar #connect .dialog').hide();
-
-    });
-		
-    });
-	
-	
-    $("#toolbar").click(function (e) {
-        e.stopPropagation();
-    });
-    
-    /*BIND TOUCH EVENT TO MARK INNERSITE HOVERS*/
-    
-    $(".icon").bind('touchend', function (e) {
-        $(".icon").stop(true, true);
-        $(this).find('div.innersite').toggle(500);
-    });
-    
-    $(".icon:not(.legendNo)").hover(function () {
-    
-        $(this).find('div.innersite').fadeIn();
-    
-    }, function () {
-        $(this).find('div.innersite').hide();
-    });
-    
-    if (document.all && document.documentMode && 8 || 9 === document.documentMode) {}
-    
-    
-    /*LEGEND HOVERS*/
-    
-    /*for flag*/
-    $("#legend1 .icon").hover(function () {
-        $(".icon").addClass('highlight1');
-    }, function () {
-        $('#.icon').removeClass('highlight1');
-    });
-    /*for green star*/
-    
-    $("#legend2 .icon").hover(function () {
-        $(".icon.yoga").addClass('highlight1');
-    }, function () {
-        $('#.icon.yoga').removeClass('highlight1');
-    });
-    
-    /*for star only*/
-    
-    $("#legend3 .icon").hover(function () {
-        $(".icon.studio").addClass('highlight1');
-    }, function () {
-        $('#.icon.studio').removeClass('highlight1');
-    });
-    
-    }
-
-else {
- 
+   <?php  if ($f) { ?>
   jQuery(document).ready(function ($) {
  
  
 // FOR DESKTOP 
-
 $(document).ready(function () {
 	//only make markers clickable on ipad
 	/*
@@ -1292,6 +1243,12 @@ $(document).ready(function () {
     }, function () {
         $('.studio .icon, .studio.icon').removeClass('highlight1');
     });
+    
+    $("#legend4 .icon").hover(function () {
+        $(".training .icon, .training.icon").addClass('highlight1');
+    }, function () {
+        $('.training .icon, .training.icon').removeClass('highlight1');
+    });
 
     // FOR CHROME FIREFIX
     $(".mark.festival").mouseover(function () {
@@ -1311,14 +1268,8 @@ $(document).ready(function () {
 }); //end no conflict
 
 
+   <?php } else {?>
 
-
-} //end else
-
-
-/*FOR BOTH MOBILE AND DESKTOP*/
-
-<?php } else {?> 
 
 $(document).ready(function () {
   
@@ -1368,11 +1319,7 @@ $(document).ready(function () {
 
 });
 
-
-<?php }
-?>
-			
-			
+<?php } ?>
 /*GOOGLE ANALYTICS*/
 
 
@@ -1426,6 +1373,12 @@ $.fancybox.close();
 
 });
 });
+
+  jQuery(function ($) {
+    $(window).resize(function() {
+      $('.front .fancybox-inner').height(500);
+    });
+  });
 </script>
 <script type="text/javascript">
 /* <![CDATA[ */
