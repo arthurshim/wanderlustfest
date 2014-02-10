@@ -177,6 +177,12 @@ DirectoryIndex index.php
   RewriteCond %{REQUEST_URI} =/
   RewriteRule ^(.*)$ index.php?q=ablogs [L,QSA]
 
+  
+  
+  ##  Redirect only chosen subdomains Wanderlust.com##
+  RewriteCond %{HTTP_HOST} !^(.*)\.wanderfest\.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/$1 [R=301,QSA,L]
+ 
   ### REDIRECTS FOR CHANGED SITE URLS ###
   RewriteCond %{HTTP_HOST} ^phi.wanderlustfestival.com$ [NC]
   RewriteRule ^(.*)$ http://philadelphia.wanderlustfestival.com/$1 [R=301,QSA,L]
@@ -186,6 +192,9 @@ DirectoryIndex index.php
 
   RewriteCond %{HTTP_HOST} ^colorado.wanderlustfestival.com$ [NC]
   RewriteRule ^(.*)$ http://aspensnowmass.wanderlustfestival.com/$1 [R=301,QSA,L]
+
+  RewriteCond %{HTTP_HOST} ^journal.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/journal/$1 [R=301,QSA,L]
 
 
   RewriteCond %{HTTP_HOST} =journal.wanderfest.com
@@ -210,3 +219,9 @@ DirectoryIndex index.php
 
 
 
+
+
+
+  <IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+  </IfModule>
