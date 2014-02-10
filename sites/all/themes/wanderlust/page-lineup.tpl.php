@@ -145,11 +145,11 @@ jQuery.noConflict();
       <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
     </div>
     <ul id="global-nav">
-      <li class="festivals"><a href="http://wanderlust.com/festivals" target="_blank">Festivals</a></li>
-      <li class="teacher-training"><a href="http://wanderlust.com/teacher-training" target="_blank">Teacher Training</a></li>
-      <li class="studios"><a href="http://wanderlust.com/studios" target="_blank">Studios</a></li>
+      <li class="festivals"><a href="http://wanderlust.com/yoga-festivals" target="_blank">Festivals</a></li>
+      <li class="teacher-training"><a href="http://wanderlust.com/yoga-teacher-training" target="_blank">Teacher Training</a></li>
+      <li class="studios"><a href="http://wanderlust.com/yoga-studios" target="_blank">Studios</a></li>
       <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
-      <li class="store"><a href="http://wanderlust.com/shop" target="_blank">Store</a></li>
+      <li class="store"><a href="hhttp://wanderlustfestival.shop.musictoday.com/" target="_blank">Store</a></li>
     </ul>
     <ul id="wl-global-social">
       <li id="find-your-true-north"><span>Find Your True North</span></li>
@@ -159,6 +159,7 @@ jQuery.noConflict();
       <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'YouTube', 'Follow']);">YouTube</a></li>
     </ul>
   </div>
+
   
 
   <div id="container" class="clearfix">

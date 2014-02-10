@@ -100,9 +100,9 @@ $(function() {
       <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
     </div>
     <ul id="global-nav">
-      <li class="festivals"><a href="http://wanderlust.com/festivals" target="_blank">Festivals</a></li>
-      <li class="teacher-training"><a href="http://wanderlust.com/teacher-training" target="_blank">Teacher Training</a></li>
-      <li class="studios"><a href="http://wanderlust.com/studios" target="_blank">Studios</a></li>
+      <li class="festivals"><a href="http://wanderlust.com/yoga-festivals" target="_blank">Festivals</a></li>
+      <li class="teacher-training"><a href="http://wanderlust.com/yoga-teacher-training" target="_blank">Teacher Training</a></li>
+      <li class="studios"><a href="http://wanderlust.com/yoga-studios" target="_blank">Studios</a></li>
       <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
       <li class="store"><a href="http://wanderlust.com/shop" target="_blank">Store</a></li>
     </ul>
