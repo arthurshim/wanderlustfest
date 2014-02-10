@@ -965,6 +965,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .node-type-partners .panel-col-first{
   width: 614px;
   margin-right: 36px;
+  float: left;
   }
 
 
@@ -2607,7 +2608,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
     background: #e0611c;
 }
 
-.joincontent {
+#mc_embed_signup {
     position: absolute;
     top: 192px;
     left: 439px;
@@ -3065,5 +3066,57 @@ margin-bottom: 15px;
 div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
 .not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
   background-position: 0 -79px !important;
+}
+
+
+/* EMAIL SIGN UP FANCYBOX
+----------------------------------*/
+
+#mc-embedded-subscribe-form {
+    width: 400px;
+    font-family: 'calibri'
+;
+}
+
+#mc-embedded-subscribe-form h2 {
+    font-family: 'lhf_egyptianregular', helvetica, arial ;
+    text-transform: uppercase ;
+    font-size: 34px;
+    color: #402b2b;
+}
+
+#mc-embedded-subscribe-form .indicates-required {
+    display: none;
+}
+
+#mc-embedded-subscribe-form label{
+    font-weight: bold;
+    font-size: 13px;
+}
+
+#mc-embedded-subscribe {
+    margin: 10px 0;
+}
+
+#mc-embedded-subscribe-form select {
+    padding: 20px 0;
+}
+
+#mc-embedded-subscribe-form #mc-embedded-subscribe{
+        font-family: 'lhf_egyptianregular', helvetica, arial ;
+font-size: 20px;
+text-transform: uppercase;
+height: auto !important;
+padding: 5px 20px 0px 20px;
+background: #006d60;
+}
+    
+#mc-embedded-subscribe-form #mc-embedded-subscribe:hover{
+  opacity: 0.9;
+}
+
+.fancybox-overlay .asterisk{
+  font-size: 22px;
+  color: #ccc;
 }
 
