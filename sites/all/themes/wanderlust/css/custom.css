@@ -3081,8 +3081,9 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 #mc-embedded-subscribe-form h2 {
     font-family: 'lhf_egyptianregular', helvetica, arial ;
     text-transform: uppercase ;
-    font-size: 34px;
+    font-size: 26px;
     color: #402b2b;
+    margin: 0 0 14px 0;
 }
 
 #mc-embedded-subscribe-form .indicates-required {
@@ -3109,6 +3110,7 @@ text-transform: uppercase;
 height: auto !important;
 padding: 5px 20px 0px 20px;
 background: #006d60;
+margin: 0;
 }
     
 #mc-embedded-subscribe-form #mc-embedded-subscribe:hover{
@@ -3120,3 +3122,26 @@ background: #006d60;
   color: #ccc;
 }
 
+
+.fancybox-overlay div#mce-responses{
+  width: 95% !important;
+  font-size: 14px;
+
+  margin: 0 0 15px 0 !important;
+  clear:both;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;    
+  padding: 0 !important;
+}
+
+.fancybox-overlay div.response{
+  margin: 0 0 20px 0 !important;
+  background: #FFFD67 !important;
+  padding: 10px !important;  
+  width: 95% !important;
+}
+
+.tremblant .es{
+  display: none;
+}
