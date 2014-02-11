@@ -236,254 +236,169 @@ function wanderlust_preprocess_page(&$vars, $hook) {
   global $language;
   
   if($language->language == 'fr') {
-      $vars['connect'] = <<<EOF
+ $vars['connect'] = <<<EOF
   
-  <div id="thankyou">Merci pour votre inscription! Vous devriez recevoir un email de confirmation sous peu.</div>
-  <div class="joincontent">
-        <form method='post' id="newsletter"  name='oi_form' action='/testmail.php'>
+  <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
+     <div id="mc_embed_signup">
 
-    <table border="0" cellpadding="0" cellspacing="0">
-  
-      <tr>
-        <td colspan="2"><p class="title">Cyberlettre Wanderlust</p></td>
-      </tr>
-      <tr>
-        <td width="180" valign="middle" style="padding:2px; ">Courriel*<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Prénom<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Nom<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">État / Province<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='State/Prov' size='1' id="state">
-          <option value=''></option>
-          <option value="">------ USA ------</option>
-                  <option value='AL' >AL</option>
-                  <option value='AK' >AK</option>
-                  <option value='AZ' >AZ</option>
-                  <option value='AR' >AR</option>
-                  <option value='CA' >CA</option>
-                  <option value='CO' >CO</option>
-                  <option value='CT' >CT</option>
-                  <option value='DE' >DE</option>
-                  <option value='DC' >DC</option>
-                  <option value='FL' >FL</option>
-                  <option value='GA' >GA</option>
-                  <option value='HI' >HI</option>
-                  <option value='ID' >ID</option>
-                  <option value='IL' >IL</option>
-                  <option value='IN' >IN</option>
-                  <option value='IA' >IA</option>
-                  <option value='KS' >KS</option>
-                  <option value='KY' >KY</option>
-                  <option value='LA' >LA</option>
-                  <option value='ME' >ME</option>
-                  <option value='MD' >MD</option>
-                  <option value='MA' >MA</option>
-                  <option value='MI' >MI</option>
-                  <option value='MN' >MN</option>
-                  <option value='MS' >MS</option>
-                  <option value='MO' >MO</option>
-                  <option value='MT' >MT</option>
-                  <option value='NE' >NE</option>
-                  <option value='NV' >NV</option>
-                  <option value='NH' >NH</option>
-                  <option value='NJ' >NJ</option>
-                  <option value='NM' >NM</option>
-                  <option value='NY' >NY</option>
-                  <option value='NC' >NC</option>
-                  <option value='ND' >ND</option>
-                  <option value='OH' >OH</option>
-                  <option value='OK' >OK</option>
-                  <option value='OR' >OR</option>
-                  <option value='PA' >PA</option>
-                  <option value='RI' >RI</option>
-                  <option value='SC' >SC</option>
-                  <option value='SD' >SD</option>
-                  <option value='TN' >TN</option>
-                  <option value='TX' >TX</option>
-                  <option value='UT' >UT</option>
-                  <option value='VT' >VT</option>
-                  <option value='VA' >VA</option>
-                  <option value='WA' >WA</option>
-                  <option value='WV' >WV</option>
-                  <option value='WI' >WI</option>
-                  <option value='WY' >WY</option>
-          <option value="">----- CANADA -----</option>
-                  <option value='AB' >AB</option>
-                  <option value='BC' >BC</option>
-                  <option value='LB' >LB</option>
-                  <option value='MB' >MB</option>
-                  <option value='NB' >NB</option>
-                  <option value='NF' >NF</option>
-                  <option value='NS' >NS</option>
-                  <option value='NT' >NT</option>
-                  <option value='ON' >ON</option>
-                  <option value='PE' >PE</option>
-                  <option value='QC' >QC</option>
-                  <option value='SK' >SK</option>
-                  <option value='YT' >YT</option>
-          <option value="">---------------</option>
-          <option value='Other' >OTHER</option>
-          </select></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='ZipCode' id="postal_code" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Pays<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='Country' size='1' id="country">
-            <option value=''></option>
-            <option value='United States' >United States</option>
-            <option value='Canada' >Canada</option>
-            <option value='Chile' >Canada</option>            
-            <option value='Other' >OTHER</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Quel événement vous intéresse le plus?</td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='EventName' size='1' id="EventName">
-            <option value=''></option>
-            <option value='ALL' >Tous les événements</option>
-            <option value='VT' >Wanderlust Vermont</option>
-            <option value='CA' >Wanderlust California</option>
-            <option value='CO' >Wanderlust Colorado</option>
-            <option value='BC' >Wanderlust Whistler</option>
-            <option value='CH' >Wanderlust Chile</option>
-            <option value='HI' >Wanderlust O'ahu</option>
-            <option value='NYC' >Yoga in the City NYC</option>
-            <option value='LA' >Yoga in the City LA</option>
-            <option value='SF' >Yoga in the City SF</option>
-          </select>
-        </td>
-      </tr>      
-      <tr>
-        <td valign="middle" style="padding:2px; ">
-          Comment avez-vous entendu parler de nous? </td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='HearAbout' size='1' id="country">
-            <option value=''></option>
-            <option value='friend' >Un ami m'a dit</option>
-            <option value='teacher' >Un professeur m'a dit</option>
-            <option value='studio' >À mon studio</option>
-            <option value='magazine' >In a magazine</option>
-            <option value='website' >Dans un magazine</option>
-            <option value='blog' >Dans un blog ou un autre site</option>
-            <option value='poster' >Vu une affiche ou un dépliant</option>
-            <option value='bannerad' >Vu une bannière publicitaire</option>
-            <option value='other' >Autre</option>
-          </select>        
-        </td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
-          <input type='hidden' name='goto' value='' />
-          <input type='hidden' name='iehack' value='&#9760;' />
-        </td>
-        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Abonnez-moi' /></td>
-      </tr>
-   
-</table>
-   </form>
+<form action="http://wanderlust.us3.list-manage.com/subscribe/post?u=3252bf638e8eb23d7ebc4af05&amp;id=e19ac9899d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<h2>Cyberlettre Wanderlust</h2>
+<div class="mc-field-group">
+<label for="mce-EMAIL">Courriel<span class="asterisk">*</span>
+</label>
+<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+<label for="mce-FNAME">Prénom</label>
+<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-LNAME">Nom </label>
+<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-MMERGE8">Zip/Postal Code </label>
+<input type="text" value="" name="MMERGE8" class="" id="mce-MMERGE8">
+</div>
+<div class="mc-field-group">
+<label for="mce-COUNTRY">Province </label>
+<select name="COUNTRY" class="" id="mce-COUNTRY">
+<option value=""></option>
+<option value="United States">United States</option>
+<option value="Canada">Canada</option>
+<option value="Australia">Australia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Chile">Chile</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-EVENT">Quel événement vous intéresse le plus?</label>
+<select name="EVENT" class="" id="mce-EVENT">
+<option value=""></option>
+<option value="All Events">All Events</option>
+<option value="Stratton">Stratton</option>
+<option value="Aspen-Snowmass">Aspen-Snowmass</option>
+<option value="Squaw Valley">Squaw Valley</option>
+<option value="Whistler">Whistler</option>
+<option value="Tremblant">Tremblant</option>
+<option value="Austin">Austin</option>
+<option value="O'ahu">O'ahu</option>
+<option value="City Events">City Events</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-SOURCE"> Comment avez-vous entendu parler de nous?  </label>
+<select name="SOURCE" class="" id="mce-SOURCE">
+<option value=""></option>
+<option value="A friend told me">A friend told me</option>
+<option value="A teacher told me">A teacher told me</option>
+<option value="At my studio">At my studio</option>
+<option value="In a magazine">In a magazine</option>
+<option value="Through your website">Through your website</option>
+<option value="In a blog or other website">In a blog or other website</option>
+<option value="Saw a poster or flyer">Saw a poster or flyer</option>
+<option value="Saw a banner ad">Saw a banner ad</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div id="mce-responses" class="clear">
+<div class="response" id="mce-error-response" style="display:none"></div>
+<div class="response" id="mce-success-response" style="display:none"></div>
+</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_3252bf638e8eb23d7ebc4af05_e19ac9899d" value=""></div>
+<div class="clear"><input type="submit" value="Abonnez-moi" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+
  </div>
 EOF;
   }
 
     elseif ($subdomain == 'mel' || $subdomain == 'akl' || $subdomain == 'syd' ){
-    $vars['connect'] = <<<EOF
-      <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
+   $vars['connect'] = <<<EOF
+  
+  <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
+     <div id="mc_embed_signup">
 
-      <div class="joincontent">
+<form action="http://wanderlust.us3.list-manage.com/subscribe/post?u=3252bf638e8eb23d7ebc4af05&amp;id=e19ac9899d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<h2>Sign up for the Wanderlust Newsletter</h2>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+<label for="mce-FNAME">First Name </label>
+<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-LNAME">Last Name </label>
+<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-MMERGE8">Zip/Postal Code </label>
+<input type="text" value="" name="MMERGE8" class="" id="mce-MMERGE8">
+</div>
+<div class="mc-field-group">
+<label for="mce-COUNTRY">Country </label>
+<select name="COUNTRY" class="" id="mce-COUNTRY">
+<option value=""></option>
+<option value="United States">United States</option>
+<option value="Canada">Canada</option>
+<option value="Australia">Australia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Chile">Chile</option>
+<option value="Other">Other</option>
 
-        <form method='post' id="newsletter"  name='oi_form' action='/testmail2.php'>
-          <table border="0" cellpadding="0" cellspacing="0">
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-EVENT">Which Wanderlust Festival most interests you? </label>
+<select name="EVENT" class="" id="mce-EVENT">
+<option value=""></option>
+<option value="All Events">All Events</option>
+<option value="Stratton">Stratton</option>
+<option value="Aspen-Snowmass">Aspen-Snowmass</option>
+<option value="Squaw Valley">Squaw Valley</option>
+<option value="Whistler">Whistler</option>
+<option value="Tremblant">Tremblant</option>
+<option value="Austin">Austin</option>
+<option value="O'ahu">O'ahu</option>
+<option value="City Events">City Events</option>
+<option value="Other">Other</option>
 
-          <tr>
-            <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
-          </tr>
-          <tr>
-            <td width="180" valign="middle" style="padding:2px; ">
-              Email
-            </td>
-            <td valign="middle" style="padding:2px; ">
-              <input type='text' name='email'/><br />
-            </td>
-          </tr>
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-SOURCE">How did you hear about us? </label>
+<select name="SOURCE" class="" id="mce-SOURCE">
+<option value=""></option>
+<option value="A friend told me">A friend told me</option>
+<option value="A teacher told me">A teacher told me</option>
+<option value="At my studio">At my studio</option>
+<option value="In a magazine">In a magazine</option>
+<option value="Through your website">Through your website</option>
+<option value="In a blog or other website">In a blog or other website</option>
+<option value="Saw a poster or flyer">Saw a poster or flyer</option>
+<option value="Saw a banner ad">Saw a banner ad</option>
+<option value="Other">Other</option>
 
-          <tr>
-            <td valign="middle" style="padding:2px; ">
-              First Name
-            </td>
-            <td valign="middle" style="padding:2px; ">
-              <input type='text' name='FirstName' />
-            </td>
-          </tr>
+</select>
+</div>
+<div id="mce-responses" class="clear">
+<div class="response" id="mce-error-response" style="display:none"></div>
+<div class="response" id="mce-success-response" style="display:none"></div>
+</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_3252bf638e8eb23d7ebc4af05_e19ac9899d" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
 
-          <tr>
-            <td valign="middle" style="padding:2px; ">
-              Last Name 
-            </td>
-
-            <td valign="middle" style="padding:2px; ">          
-              <input type='text' name='LastName' /><br />
-            </td>
-          </tr>
-
-          <tr>          
-            <td valign="middle" style="padding:2px; ">
-              How did you hear about us?
-            </td>
-
-            <td valign="middle" style="padding:2px; ">
-              <select name='Howdidyouhearaboutus' size='1' >
-                <option value=''></option>
-                <option value='friend' >A friend told me</option>
-                <option value='teacher' >A teacher told me</option>
-                <option value='studio' >At my studio</option>
-                <option value='magazine' >In a magazine</option>
-                <option value='website' >Through your website</option>
-                <option value='blog' >In a blog or other website</option>
-                <option value='poster' >Saw a poster or flyer</option>
-                <option value='bannerad' >Saw a banner ad</option>
-                <option value='other' >Other</option>
-              </select>           
-            </td>
-          </tr>
-
-          <tr>
-            <td valign="middle" style="padding:2px; ">
-              Which event most interests you?
-            </td>
-            <td valign="middle" style="padding:2px; ">
-              <select name='Whicheventmostinterestsyou'  size='1'>
-                <option value=''></option>
-                <option value='auckland' >Wanderlust Auckland</option>
-                <option value='melbourne' >Wanderlust Melbourne</option>
-                <option value='sydney' >Wanderlust Sydney</option>
-                <option value='other' >Other Wanderlust Events</option>                
-              </select>                         
-            </td>
-          </tr>
-
-          <input type='hidden' name='goto' value='' />
-          <input type='hidden' name='iehack' value='&#9760;' />
-          <td valign="middle" style="padding:2px; ">
-          <input type='submit' onClick="" id="submit" value='Subscribe' /></td>
-          
-          </table>
-        </form>
-      </div>      
+ </div>
 EOF;
   }
 
@@ -496,163 +411,82 @@ EOF;
     $vars['connect'] = <<<EOF
   
   <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
-  <div class="joincontent">
-        <form method='post' id="newsletter"  name='oi_form' action='/testmail.php'>
+     <div id="mc_embed_signup">
 
-    <table border="0" cellpadding="0" cellspacing="0">
-  
-      <tr>
-        <td colspan="2"><p class="title">Wanderlust Mailing List Signup</p></td>
-      </tr>
-      <tr>
-        <td width="180" valign="middle" style="padding:2px; ">Email*<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='email' id="email" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">First Name<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='FirstName' id="firstname" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Last Name<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='LastName' id="lastname" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">State/Province<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='State/Prov' size='1' id="state">
-          <option value=''></option>
-          <option value="">------ USA ------</option>
-                  <option value='AL' >AL</option>
-                  <option value='AK' >AK</option>
-                  <option value='AZ' >AZ</option>
-                  <option value='AR' >AR</option>
-                  <option value='CA' >CA</option>
-                  <option value='CO' >CO</option>
-                  <option value='CT' >CT</option>
-                  <option value='DE' >DE</option>
-                  <option value='DC' >DC</option>
-                  <option value='FL' >FL</option>
-                  <option value='GA' >GA</option>
-                  <option value='HI' >HI</option>
-                  <option value='ID' >ID</option>
-                  <option value='IL' >IL</option>
-                  <option value='IN' >IN</option>
-                  <option value='IA' >IA</option>
-                  <option value='KS' >KS</option>
-                  <option value='KY' >KY</option>
-                  <option value='LA' >LA</option>
-                  <option value='ME' >ME</option>
-                  <option value='MD' >MD</option>
-                  <option value='MA' >MA</option>
-                  <option value='MI' >MI</option>
-                  <option value='MN' >MN</option>
-                  <option value='MS' >MS</option>
-                  <option value='MO' >MO</option>
-                  <option value='MT' >MT</option>
-                  <option value='NE' >NE</option>
-                  <option value='NV' >NV</option>
-                  <option value='NH' >NH</option>
-                  <option value='NJ' >NJ</option>
-                  <option value='NM' >NM</option>
-                  <option value='NY' >NY</option>
-                  <option value='NC' >NC</option>
-                  <option value='ND' >ND</option>
-                  <option value='OH' >OH</option>
-                  <option value='OK' >OK</option>
-                  <option value='OR' >OR</option>
-                  <option value='PA' >PA</option>
-                  <option value='RI' >RI</option>
-                  <option value='SC' >SC</option>
-                  <option value='SD' >SD</option>
-                  <option value='TN' >TN</option>
-                  <option value='TX' >TX</option>
-                  <option value='UT' >UT</option>
-                  <option value='VT' >VT</option>
-                  <option value='VA' >VA</option>
-                  <option value='WA' >WA</option>
-                  <option value='WV' >WV</option>
-                  <option value='WI' >WI</option>
-                  <option value='WY' >WY</option>
-          <option value="">----- CANADA -----</option>
-                  <option value='AB' >AB</option>
-                  <option value='BC' >BC</option>
-                  <option value='LB' >LB</option>
-                  <option value='MB' >MB</option>
-                  <option value='NB' >NB</option>
-                  <option value='NF' >NF</option>
-                  <option value='NS' >NS</option>
-                  <option value='NT' >NT</option>
-                  <option value='ON' >ON</option>
-                  <option value='PE' >PE</option>
-                  <option value='QC' >QC</option>
-                  <option value='SK' >SK</option>
-                  <option value='YT' >YT</option>
-          <option value="">---------------</option>
-          <option value='Other' >OTHER</option>
-          </select></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">ZIP/Postal Code<span style="color:#841D0A;">*</span></td>
-        <td valign="middle" style="padding:2px; "><input type='text' name='ZipCode' id="postal_code" /></td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Country<span style="color:#841D0A;"></span></td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='Country' size='1' id="country">
-            <option value=''></option>
-            <option value='United States' >United States</option>
-            <option value='Canada' >Canada</option>
-            <option value='Chile' >Canada</option>            
-            <option value='Other' >OTHER</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; ">Which event most interests you?</td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='EventName' size='1' id="EventName">
-            <option value=''></option>
-            <option value='ALL' >All Events</option>
-            <option value='VT' >Wanderlust Vermont</option>
-            <option value='CA' >Wanderlust California</option>
-            <option value='CO' >Wanderlust Colorado</option>
-            <option value='BC' >Wanderlust Whistler</option>
-            <option value='CH' >Wanderlust Chile</option>
-            <option value='HI' >Wanderlust O'ahu</option>
-            <option value='NYC' >Yoga in the City NYC</option>
-            <option value='LA' >Yoga in the City LA</option>
-            <option value='SF' >Yoga in the City SF</option>
-          </select>
-        </td>
-      </tr>      
-      <tr>
-        <td valign="middle" style="padding:2px; ">
-          How did you hear about us? </td>
-        <td valign="middle" style="padding:2px; ">
-          <select name='HearAbout' size='1' id="country">
-            <option value=''></option>
-            <option value='friend' >A friend told me</option>
-            <option value='teacher' >A teacher told me</option>
-            <option value='studio' >At my studio</option>
-            <option value='magazine' >In a magazine</option>
-            <option value='website' >Through your website</option>
-            <option value='blog' >In a blog or other website</option>
-            <option value='poster' >Saw a poster or flyer</option>
-            <option value='bannerad' >Saw a banner ad</option>
-            <option value='other' >Other</option>
-          </select>        
-        </td>
-      </tr>
-      <tr>
-        <td valign="middle" style="padding:2px; font: normal normal 10px Arial, Helvetica, sans-serif; color:#545454;">
-          <input type='hidden' name='goto' value='' />
-          <input type='hidden' name='iehack' value='&#9760;' />
-        </td>
-        <td valign="middle" style="padding:2px; "><input type='submit' onClick="" id="submit" value='Subscribe' /></td>
-      </tr>
-   
-</table>
-   </form>
+<form action="http://wanderlust.us3.list-manage.com/subscribe/post?u=3252bf638e8eb23d7ebc4af05&amp;id=e19ac9899d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<h2>Sign up for the Wanderlust Newsletter</h2>
+<div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+<div class="mc-field-group">
+<label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+</label>
+<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+</div>
+<div class="mc-field-group">
+<label for="mce-FNAME">First Name </label>
+<input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-LNAME">Last Name </label>
+<input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+</div>
+<div class="mc-field-group">
+<label for="mce-MMERGE8">Zip/Postal Code </label>
+<input type="text" value="" name="MMERGE8" class="" id="mce-MMERGE8">
+</div>
+<div class="mc-field-group">
+<label for="mce-COUNTRY">Country </label>
+<select name="COUNTRY" class="" id="mce-COUNTRY">
+<option value=""></option>
+<option value="United States">United States</option>
+<option value="Canada">Canada</option>
+<option value="Australia">Australia</option>
+<option value="New Zealand">New Zealand</option>
+<option value="Chile">Chile</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-EVENT">Which Wanderlust Festival most interests you? </label>
+<select name="EVENT" class="" id="mce-EVENT">
+<option value=""></option>
+<option value="All Events">All Events</option>
+<option value="Stratton">Stratton</option>
+<option value="Aspen-Snowmass">Aspen-Snowmass</option>
+<option value="Squaw Valley">Squaw Valley</option>
+<option value="Whistler">Whistler</option>
+<option value="Tremblant">Tremblant</option>
+<option value="Austin">Austin</option>
+<option value="O'ahu">O'ahu</option>
+<option value="City Events">City Events</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div class="mc-field-group">
+<label for="mce-SOURCE">How did you hear about us? </label>
+<select name="SOURCE" class="" id="mce-SOURCE">
+<option value=""></option>
+<option value="A friend told me">A friend told me</option>
+<option value="A teacher told me">A teacher told me</option>
+<option value="At my studio">At my studio</option>
+<option value="In a magazine">In a magazine</option>
+<option value="Through your website">Through your website</option>
+<option value="In a blog or other website">In a blog or other website</option>
+<option value="Saw a poster or flyer">Saw a poster or flyer</option>
+<option value="Saw a banner ad">Saw a banner ad</option>
+<option value="Other">Other</option>
+
+</select>
+</div>
+<div id="mce-responses" class="clear">
+<div class="response" id="mce-error-response" style="display:none"></div>
+<div class="response" id="mce-success-response" style="display:none"></div>
+</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_3252bf638e8eb23d7ebc4af05_e19ac9899d" value=""></div>
+<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+</form>
+
  </div>
 EOF;
     

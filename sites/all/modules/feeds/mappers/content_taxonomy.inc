@@ -43,7 +43,7 @@ function content_taxonomy_feeds_node_processor_targets_alter(&$targets, $content
  *
  * @see taxonomy_terms_parse_string().
  *
- */
+ *//*
 function content_taxonomy_feeds_set_target(&$node, $field_name, $terms) {
   static $fields = array();
 
@@ -92,7 +92,7 @@ function content_taxonomy_feeds_set_target(&$node, $field_name, $terms) {
       break;
     }
   }
-}
+}*/
 
 /**
  * Try to map a string to an existing term by name and vocabulary id.

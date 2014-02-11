@@ -1,5 +1,5 @@
 <?php
-
+/*
 function wordpressblog_get_items() {
   static $is_loaded = false;
   static $a = null;
@@ -18,22 +18,42 @@ function wordpressblog_get_items() {
 
   return $items;
 }
-
+*/
 function wordpressblog_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
   switch ($op) {
     case 'presave':
       if ($node->type == 'wblog') {
        //  watchdog('wordpressblog', '<pre>' . print_r($node->teaser , 1) . '</pre>', array(), WATCHDOG_WARNING);
-      	$terms = wordpressblog_get_node_term($node);
-      	dsm($terms);
-      	foreach($terms as $term) {
-        	$node->taxonomy[] = $term;
-      	}
+      	
       }
       break;
   }
 }
 
+/**
+ * Implements hook_feeds_plugins().
+ */
+function wordpressblog_feeds_plugins() {
+	$info = array();
+
+	$info['WordpressblogFeedsParser'] = array(
+		'name' => 'Wordpressblog parser',
+		'description' => 'Parse nodes from wordpressblog',
+		'handler' => array(
+			'parent' => 'FeedsSimplePieParser',
+			'class' => 'WordpressblogFeedsParser',
+			'file' => 'WordpressblogFeedsParser.inc',
+			'path' => drupal_get_path('module', 'wordpressblog') . '/feeds/',
+		),
+	);
+
+	return $info;
+}
+
+function wordpressblog_enable() {
+	cache_clear_all('plugins:feeds:plugins', 'cache');
+}
+/*
 function wordpressblog_get_node_term($node) {
 	$link = $node->feeds_node_item->url;
 	$res = wordpressblog_get_items();
@@ -55,15 +75,28 @@ function wordpressblog_get_node_term($node) {
 	$result = array();
 	foreach ($terms as $term) {
 		$tmp = taxonomy_get_term_by_name($term);
-		dsm($tmp);
 		$result[] = $tmp[0]->tid;
 	}
 
 	return $result;
 }
-
+*/
 function wordpressblog_feeds_node_processor_targets_alter(&$targets, $content_type) {
-	dsm($targets);
-	dsm($content_type);
-	dsm($a);
+	$targets['sites'] = array(
+		'name' => 'Wordpress blog sites', 
+		'description' => 'Sites for wordpress blog',
+		'callback' => 'wordpressblog_set_target',
+	);
+}
+
+function wordpressblog_set_target(&$node, $target, $value) {
+	//watchdog('wordpress', 'callback');
+	if(strlen($value) > 0) {
+		$names = explode(',', $value);
+		$node->taxonomy = array();
+		foreach ($names as $term_name) {
+			$term = array_shift(taxonomy_get_term_by_name($term_name));
+			$node->taxonomy[] = $term->tid;
+		}
+	}
 }

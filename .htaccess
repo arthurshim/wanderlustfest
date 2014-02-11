@@ -179,9 +179,26 @@ DirectoryIndex index.php
 
   
   
-  ##  Redirect only chosen subdomains Wanderlust.com##
-  RewriteCond %{HTTP_HOST} !^(.*)\.wanderfest\.com$ [NC]
-  RewriteRule ^(.*)$ http://wanderlust.com/$1 [R=301,QSA,L]
+
+  
+  
+  ## Redirect only chosen subdomains Wanderlust.com##
+  #RewriteCond %{HTTP_HOST} !^(.*)\.(wanderfest|wanderlustfestival)\.com$ [NC]
+  #RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
+  
+  
+
+  
+  
+  ## REDIRECT FOR JOURNAL ##
+  RewriteCond %{HTTP_HOST} ^journal.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/journal/$1 [R=301,QSA,L]
+  
+  RewriteCond %{HTTP_HOST} ^journal.wanderfest.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/journal/$1 [R=301,QSA,L]
+	
+
+  
  
   ### REDIRECTS FOR CHANGED SITE URLS ###
   RewriteCond %{HTTP_HOST} ^phi.wanderlustfestival.com$ [NC]
@@ -212,16 +229,9 @@ DirectoryIndex index.php
 
 
 
+
 #php_value memory_limit 500M
 
 #Header unset ETag
 #FileETag None
 
-
-
-
-
-
-  <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-  </IfModule>

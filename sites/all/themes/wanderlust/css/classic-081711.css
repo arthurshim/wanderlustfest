@@ -1,0 +1,44 @@
+/* MailChimp Form Embed Code - Classic - 08/17/2011 */
+.fancybox-overlay form {display:block; position:relative; text-align:left; padding:10px 0 10px 3%}
+.fancybox-overlay h2 {font-weight:bold; padding:0; margin:15px 0; font-size:1.4em;}
+.fancybox-overlay input {border:1px solid #999; -webkit-appearance:none;}
+.fancybox-overlay input[type=checkbox]{-webkit-appearance:checkbox;}
+.fancybox-overlay input[type=radio]{-webkit-appearance:radio;}
+.fancybox-overlay input:focus {border-color:#333;}
+.fancybox-overlay .button {clear:both; background-color: #aaa; border: 0 none; border-radius:4px; color: #FFFFFF; cursor: pointer; display: inline-block; font-size:15px; font-weight: bold; height: 32px; line-height: 32px; margin: 0 5px 10px 0; padding: 0 22px; text-align: center; text-decoration: none; vertical-align: top; white-space: nowrap; width: auto;}
+.fancybox-overlay .button:hover {background-color:#777;}
+.fancybox-overlay .small-meta {font-size: 11px;}
+.fancybox-overlay .nowrap {white-space:nowrap;}
+
+.fancybox-overlay .mc-field-group {clear:left; position:relative; width:96%; padding-bottom:3%; min-height:50px;}
+.fancybox-overlay .size1of2 {clear:none; float:left; display:inline-block; width:46%; margin-right:4%;}
+* html .fancybox-overlay .size1of2 {margin-right:2%; /* Fix for IE6 double margins. */}
+.fancybox-overlay .mc-field-group label {display:block; margin-bottom:3px;}
+.fancybox-overlay .mc-field-group input {display:block; width:100%; padding:8px 0; text-indent:2%;}
+.fancybox-overlay .mc-field-group select {display:inline-block; width:99%; padding:5px 0; margin-bottom:2px;}
+
+.fancybox-overlay .datefield, .fancybox-overlay .phonefield-us{padding:5px 0;}
+.fancybox-overlay .datefield input, .fancybox-overlay .phonefield-us input{display:inline; width:60px; margin:0 2px; letter-spacing:1px; text-align:center; padding:5px 0 2px 0;}
+.fancybox-overlay .phonefield-us .phonearea input, .fancybox-overlay .phonefield-us .phonedetail1 input{width:40px;}
+.fancybox-overlay .datefield .monthfield input, .fancybox-overlay .datefield .dayfield input{width:30px;}
+.fancybox-overlay .datefield label, .fancybox-overlay .phonefield-us label{display:none;}
+
+.fancybox-overlay .indicates-required {text-align:right; font-size:11px; margin-right:4%;}
+.fancybox-overlay .asterisk {color:#c60; font-size:200%;}
+.fancybox-overlay .mc-field-group .asterisk {position:absolute; top:25px; right:10px;}        
+.fancybox-overlay .clear {clear:both;}
+
+.fancybox-overlay .mc-field-group.input-group ul {margin:0; padding:5px 0; list-style:none;}
+.fancybox-overlay .mc-field-group.input-group ul li {display:block; padding:3px 0; margin:0;}
+.fancybox-overlay .mc-field-group.input-group label {display:inline;}
+.fancybox-overlay .mc-field-group.input-group input {display:inline; width:auto; border:none;}
+
+.fancybox-overlay div#mce-responses {float:left; top:-1.4em; padding:0em .5em 0em .5em; overflow:hidden; width:90%;margin: 0 5%; clear: both;}
+.fancybox-overlay div.response {margin:1em 0; padding:1em .5em .5em 0; font-weight:bold; float:left; top:-1.5em; z-index:1; width:80%;}
+.fancybox-overlay #mce-error-response {display:none;}
+.fancybox-overlay #mce-success-response {color:#529214; display:none;}
+.fancybox-overlay label.error {display:block; float:none; width:auto; margin-left:1.05em; text-align:left; padding:.5em 0;}
+
+#mc-embedded-subscribe {clear:both; width:auto; display:block; margin:1em 0 1em 5%;}
+.fancybox-overlay #num-subscribers {font-size:1.1em;}
+.fancybox-overlay #num-subscribers span {padding:.5em; border:1px solid #ccc; margin-right:.5em; font-weight:bold;}
