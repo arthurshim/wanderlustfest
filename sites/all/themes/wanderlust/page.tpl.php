@@ -225,9 +225,12 @@ jQuery.noConflict();
 (function($) {
   $(function() {
  
-  	$("#emailClick").click(function() {
+  	$("#emailClick, .emailIcon").click(function() {
 				$.fancybox.open('#mc-embedded-subscribe-form');
 	});
+	
+	
+	
 	
   });
 })(jQuery);
@@ -273,7 +276,7 @@ jQuery.noConflict();
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
- <!-- WL Global Top Bar -->
+  <!-- WL Global Top Bar -->
   <div id="wl-global-bar">
     <div id="global-logo">
       <a href="http://wanderlust.com" target="_blank">Wanderlust</a>
@@ -293,12 +296,6 @@ jQuery.noConflict();
       <li class="youtube"><a href="http://www.youtube.com/user/WanderlustFestival" target="_blank" onClick="_gaq.push(['_trackEvent', 'Global Top Bar', 'YouTube', 'Follow']);">YouTube</a></li>
     </ul>
   </div>
-
-
-
-
-
-
   <div id="container" class="clearfix">
 
     <div id="skip-link">
