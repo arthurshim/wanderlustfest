@@ -7,3 +7,6 @@ files[] = 'feeds/WordpressblogFeedsParser.inc'
 
 package = Wanderlust
 
+dependencies[] = feeds
+dependencies[] = imagefield
+
