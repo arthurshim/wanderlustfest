@@ -1,24 +1,5 @@
 <?php
-/*
-function wordpressblog_get_items() {
-  static $is_loaded = false;
-  static $a = null;
-  static $items = array();
-  if($is_loaded == false) {
-   $a = drupal_http_request('http://wanderlustfest.staging.wpengine.com/feed/');
 
-   $dom = new DOMDocument();
-
-	 $dom->loadXML($a->data);
-	 $dxp = new DOMXpath($dom);
-	 $items['items'] = $dxp->query('/rss/channel/item/link/text()');
-	 $items['sites'] = $dxp->query("/rss/channel/item/sites");
-   $is_loaded = true;
-  }
-
-  return $items;
-}
-*/
 function wordpressblog_nodeapi(&$node, $op, $a3 = NULL, $a4 = NULL) {
   switch ($op) {
     case 'presave':
@@ -53,44 +34,45 @@ function wordpressblog_feeds_plugins() {
 function wordpressblog_enable() {
 	cache_clear_all('plugins:feeds:plugins', 'cache');
 }
-/*
-function wordpressblog_get_node_term($node) {
-	$link = $node->feeds_node_item->url;
-	$res = wordpressblog_get_items();
-	$items = $res['items'];
-	$length = $items->length;
-	$item = null;
-	$index = 0;
 
-	foreach ($items as $item) {
-		$index ++;
-		if($item->wholeText == $link) {
-			break;
-		}		
-	}
-
-	$sites = $res['sites'];
-	$item = $sites->item($index)->firstChild;
-	$terms = explode(',', $item->wholeText);
-	$result = array();
-	foreach ($terms as $term) {
-		$tmp = taxonomy_get_term_by_name($term);
-		$result[] = $tmp[0]->tid;
-	}
-
-	return $result;
-}
-*/
 function wordpressblog_feeds_node_processor_targets_alter(&$targets, $content_type) {
 	$targets['sites'] = array(
 		'name' => 'Wordpress blog sites', 
 		'description' => 'Sites for wordpress blog',
 		'callback' => 'wordpressblog_set_target',
 	);
+
+	$targets['image'] = array(
+		'name' => 'Image field',
+		'description' => 'Image field',
+		'callback' => 'wordpressblog_set_image_target',
+	);
+
+}
+
+function wordpressblog_set_image_target(&$node, $target, $value) {
+	if(user_access('administer site configuration')) {
+		$image_path = wordpressblog_save_image($value);
+		$node->field_wblog_image2 = array(field_file_save_file($image_path));
+	}
+}
+
+function wordpressblog_save_image($url) {
+	// Request for image.
+	$req = drupal_http_request($url);
+	// Check if ok.
+	if($req->code == 200) {
+		// Get type of image.
+		$filetype = str_replace('image/', '', $req->headers['Content-Type']);
+		// Create unique name of image.
+		$filename =   md5($url) . '.' . $filetype;
+		return file_save_data($req->data, $filename);
+	}
+
+	return FALSE;
 }
 
 function wordpressblog_set_target(&$node, $target, $value) {
-	//watchdog('wordpress', 'callback');
 	if(strlen($value) > 0) {
 		$names = explode(',', $value);
 		$node->taxonomy = array();

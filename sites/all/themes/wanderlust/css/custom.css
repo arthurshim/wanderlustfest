@@ -382,12 +382,10 @@ tbody {border: 0px!important;}
    background-color: #FFFFFF;
     border-top-left-radius:  5px;
     border-top-right-radius: 5px;
-   /* display: block;
-    float: left;*/
-    height: 114px;
+    display: block;
+    float: left;
     list-style-type: none;
-    padding: 8px 14px 8px 8px;
-    position: relative;
+    padding: 8px 14px 0px 8px;
     width: 194px;
 }
 
@@ -395,13 +393,12 @@ tbody {border: 0px!important;}
       background-color: #FFFFFF;
     border-bottom-left-radius:  5px;
     border-bottom-right-radius: 5px;
-   /* display: block;
-    float: left;*/
-    height: 126px;
+    display: block;
+    float: left;
     list-style-type: none;
     padding: 8px 14px 8px 8px;
-    position: relative;
     width: 194px;
+    height: 110px;
 }
 
 .newslink a {
@@ -3146,7 +3143,7 @@ margin: 0;
   display: none;
 }
 
-.views-field-field-wblog-image2-fid{
+.view-blog-popular .views-field-field-wblog-image2-fid{
 width: 50px;
 float: left;
 margin-right: 13px

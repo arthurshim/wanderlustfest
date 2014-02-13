@@ -5,17 +5,7 @@
 <!--[if IE 8]>    <html xmlns:og="http://opengraphprotocol.org/schema/" class="ie8 ie" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <![endif]-->
 <!--[if gt IE 8]>  <html xmlns:og="http://opengraphprotocol.org/schema/" class="" lang="<?php print $language->language; ?>" dir="<?php print $language->dir; ?>"> <!--<![endif]-->
 <head>
-  <?php print $head;
-   $url = explode('.', str_replace('http://', '', $_SERVER['HTTP_HOST']));
-   $subdomain  =  strtolower(trim($url[0]));
-   
-   if ($subdomain == 'wanderlustfestival') {
-      header( 'Location: http://www.wanderlust.com/yoga-festivals' ) ;
-
-   } 
- ?>
-  
-  
+  <?php print $head; ?>
   
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width" />

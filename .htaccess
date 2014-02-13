@@ -180,13 +180,6 @@ DirectoryIndex index.php
   
   
 
-  
-  
-  ## Redirect only chosen subdomains Wanderlust.com##
-  #RewriteCond %{HTTP_HOST} !^(.*)\.(wanderfest|wanderlustfestival)\.com$ [NC]
-  #RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
-  
-  
 
   
   

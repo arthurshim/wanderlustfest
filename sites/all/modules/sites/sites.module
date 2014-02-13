@@ -24,6 +24,7 @@ function sites_boot() {
  * Implementation of hook_init().
  */
 function sites_init() {
+
   // @@TODO: create an interface for maintenance tasks
   if ($_GET['maintenance'] == 'maintenance') {
     sites_do_maintenance();
@@ -36,8 +37,17 @@ function sites_init() {
   }
   
   // Set current site name
-  global $conf;
+  global $conf, $user;
   $site = sites_get_current_site();
+  
+  if($user->uid == 0)  {
+  //print $user->uid ;
+  if(!$site) {
+    drupal_goto('http://wanderlust.com/yoga-festivals');
+   // drupal_set_message('<pre>' . print_r($site , 1) . '</pre>');
+  }
+  
+  } else {}
   if ($site->name) {
     $conf['site_name'] = $site->name;
   }
