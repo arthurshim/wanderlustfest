@@ -2952,10 +2952,11 @@ td.tkts-head {
 .add-to-cart  {
 	font-size: 15px;
 	width: 125px;
-	padding:5px; 
 	font-weight: bold; 
 	text-align: center;
 	letter-spacing: 1px;
+  height: 30px;
+  padding:12px;	
 }
 .add-to-cart-multiday {
 	font-size: 14px;
@@ -3025,8 +3026,42 @@ span.price-warning {
 	font-size: 12px;
 	font-style: italic;
 }
-
-
+table.tkts-header {
+margin-bottom: 0px;
+}
+td.highlight {
+background-color:#f3e8ce;
+color:#474747;
+}
+.add-to-cart a {
+line-height: 2.4;
+padding: 8px 28px;}
+.info {
+padding: 12px;
+}
+.float-right {
+float:right;
+margin: 0 15px 10px 20px;
+width: 200px;
+}
+.tickets-img {
+margin: 0px;
+padding-left: 3px;
+padding-right: 0px !important;
+}
+.tickets-img-right {
+border-right: 1px solid gray;
+}
+img.main-img {width:600px;margin:10px 0;}
+img.float-right-250 {float:right; margin:5px 13px 10px 25px; width:250px;}
+img.float-right-200 {float:right; margin:5px 13px 10px 25px; width:200px;}
+img.float-left-250 {float:left; margin:0 15px 10px 0px; width:250px;}
+img.float-right-150 {float:right; margin:0 0 10px 15px; width:150px;}
+img.float-left-200 {float:left; margin:0 15px 10px 0px; width:200px;}
+.add-to-cart-left-long {
+width: auto;
+text-align: left;
+}
 
 add-to-cart-left-long {
 width: auto;
@@ -3050,7 +3085,11 @@ width: 600px;
 padding: 10px; 
 margin-bottom: 15px;
 }
-
+td.yogaprice {
+text-align:center;
+font-size:15px;
+line-height:17px;
+}
 
 
 /* ADD THIS STYLES
