@@ -59,15 +59,15 @@ function wordpressblog_set_image_target(&$node, $target, $value) {
       if ($file = $enclosure->getFile()) {        
         $field = content_fields('field_wblog_image2',"wblog");
         $target_dir       = filefield_widget_file_path($field, user_load($node->uid));
-        $file_validators  = filefield_widget_upload_validators($field);
+    /*    $file_validators  = filefield_widget_upload_validators($field);
         $image_validators = imagefield_widget_upload_validators($field);
         $validators       = array_merge($file_validators, $image_validators);
         
         if (array_key_exists('filefield_validate_is_image', $validators)) {
           unset($validators['filefield_validate_is_image']);
-        }
+        }*/
         
-        $info   = field_file_save_file($file, $validators, $target_dir, user_load($node->uid));
+        $info   = field_file_save_file($file, $validators = array(), $target_dir, user_load($node->uid));
         $node->field_wblog_image2 = array(
                 array(
                     'fid' => $info['fid'],
