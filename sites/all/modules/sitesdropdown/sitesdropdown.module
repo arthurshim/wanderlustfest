@@ -334,7 +334,7 @@ function sitesdropdown_site_id() {
     /*reformat date for oahu which spans two different months so needs to be reformatted*/
     if($current_site->sid == 23) {
       
-         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
+         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
     }		
 		/*display date in normal format month day - day*/
      else {

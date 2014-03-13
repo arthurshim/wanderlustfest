@@ -51,14 +51,15 @@ function wordpressblog_feeds_node_processor_targets_alter(&$targets, $content_ty
 }
 
 function wordpressblog_set_image_target(&$node, $target, $value) {
-    if(user_access('administer site configuration')) {          
+ //   if(user_access('administer site configuration')) {          
 	/*	$image_path = wordpressblog_save_image($value);
 		$node->field_wblog_image2 = array(field_file_save_file($image_path));*/
                
       $enclosure = new FeedsEnclosure($value, 'application/octet-stream');
       if ($file = $enclosure->getFile()) {        
         $field = content_fields('field_wblog_image2',"wblog");
-        $target_dir       = filefield_widget_file_path($field, user_load($node->uid));
+        $u = user_load($node->uid);
+        $target_dir       = filefield_widget_file_path($field, $u);
     /*    $file_validators  = filefield_widget_upload_validators($field);
         $image_validators = imagefield_widget_upload_validators($field);
         $validators       = array_merge($file_validators, $image_validators);
@@ -67,7 +68,7 @@ function wordpressblog_set_image_target(&$node, $target, $value) {
           unset($validators['filefield_validate_is_image']);
         }*/
         
-        $info   = field_file_save_file($file, $validators = array(), $target_dir, user_load($node->uid));
+        $info   = field_file_save_file($file, $validators = array(), $target_dir, $u);
         $node->field_wblog_image2 = array(
                 array(
                     'fid' => $info['fid'],
@@ -79,8 +80,28 @@ function wordpressblog_set_image_target(&$node, $target, $value) {
           ),
          );//insert file details to node
         
-      }     
-    }
+      }
+      elseif(!$file) {
+	$file = $enclosure->getFile();
+	      if ($file = $enclosure->getFile()) {        
+		$field = content_fields('field_wblog_image2',"wblog");
+		$u = user_load($node->uid);
+		$target_dir       = filefield_widget_file_path($field, $u);
+		$info   = field_file_save_file($file, $validators = array(), $target_dir, $u);
+		$node->field_wblog_image2 = array(
+			array(
+			    'fid' => $info['fid'],
+			    'title' => $info['filename'],
+			    'filename' => $info['filename'],
+			    'filepath' => $info['filepath'],
+			    'filesize' => $info['filesize'],
+			    'filemime' => $info['filemime'],
+		  ),
+		 );//insert file details to node
+		
+	      }
+      }
+   // }
 }
 
 function wordpressblog_save_image($url) {

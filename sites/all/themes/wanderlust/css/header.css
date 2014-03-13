@@ -129,7 +129,8 @@
  	border: none;
  	line-height: 1;
   float: left;
- 	}
+ 	cursor: pointer;
+}
 
 #navigation ul ul{
   background: #3b6b60;
