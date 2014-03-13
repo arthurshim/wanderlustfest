@@ -84,14 +84,10 @@ body{
   padding-top: 38px;
 }
 
-
-
-
 .node-type-artists .panel-col-last,
 .node-type-partners .panel-col-last{
   width: 300px;
   }
-
 
 .panel-2col-stacked .panel-col-first .inside{
   margin: 0 !important;
