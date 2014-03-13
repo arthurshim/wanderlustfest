@@ -3189,3 +3189,9 @@ float: left;
 margin-right: 13px
 }
     
+    
+#sponsor-logos img{
+  text-align: center;
+  display: inline-block;
+  margin: 0 25px;
+}
