@@ -579,11 +579,16 @@ h2.sub-title {
 
 /* Views Filters (Videos/Photos/News) */
 .view-videos .view-filters,
-.view-Photos .view-filters,
-.view-news .view-filters {
+.view-Photos .view-filters{
   float: right;
   height: 40px;
   width: 454px !important;
+}
+
+.view-news .view-filters{
+  float: right;
+  height: 40px;
+  width: auto;  
 }
 
 
