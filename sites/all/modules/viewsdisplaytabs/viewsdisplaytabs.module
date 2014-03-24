@@ -233,6 +233,17 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
          unset($displays[0][6]);
       }
       
+     $domains = array('chicago', 'sf', 'la', 'philadelphia'); 
+     
+     if(in_array($subdomain, $domains)) {
+      unset($displays[0][0]);
+      unset($displays[0][3]);
+      unset($displays[0][4]);
+      unset($displays[0][5]);
+      unset($displays[0][6]);
+      unset($displays[0][7]);
+     }
+     
      //    drupal_set_message('<pre>' . print_r($displays, 1) . '</pre>'); 
     if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
       $header .= theme('viewsdisplaytabs_tab_groups', $displays, 'viewsdisplaytabs-tab-group');
