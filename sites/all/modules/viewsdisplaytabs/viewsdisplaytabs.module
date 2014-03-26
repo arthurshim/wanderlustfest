@@ -235,10 +235,18 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
       
      $domains = array('chicago', 'sf', 'la', 'philadelphia'); 
      
-     if(in_array($subdomain, $domains)) {
+     if(in_array($subdomain, $domains) && arg(0) == 'lineup') {
       unset($displays[0][0]);
       unset($displays[0][3]);
       unset($displays[0][4]);
+      unset($displays[0][5]);
+      unset($displays[0][6]);
+      unset($displays[0][7]);
+     }
+     
+    if($subdomain == 'nyc' && arg(0) == 'lineup') {
+      unset($displays[0][0]);
+      unset($displays[0][3]);
       unset($displays[0][5]);
       unset($displays[0][6]);
       unset($displays[0][7]);

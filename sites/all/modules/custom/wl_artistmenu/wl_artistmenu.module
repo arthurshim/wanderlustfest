@@ -188,6 +188,7 @@ function wl_artistmenu_get_data() {
          unset($displays[0][6]);
       }
       
+
     // Build header, exclude displays that are attachments (or we'll end up
     // with two sets of tabs)
     if ($view->display_handler->definition['handler'] != 'views_plugin_display_attachment') {
