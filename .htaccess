@@ -190,8 +190,6 @@ DirectoryIndex index.php
   RewriteCond %{HTTP_HOST} ^journal.wanderfest.com$ [NC]
   RewriteRule ^(.*)$ http://wanderlust.com/journal/$1 [R=301,QSA,L]
 	
-  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
-  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
 
   
  
@@ -218,6 +216,14 @@ DirectoryIndex index.php
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_URI} !=/favicon.ico
   RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+
+
+
+  RewriteCond %{REMOTE_ADDR} !=220.70.199.214
+  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
+
+
 </IfModule>
 
 # $Id: .htaccess,v 1.90.2.5 2010/02/02 07:25:22 dries Exp $
