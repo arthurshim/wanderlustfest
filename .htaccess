@@ -213,8 +213,7 @@ DirectoryIndex index.php
 
 
   RewriteCond %{REMOTE_ADDR} !^220\.70\.199\.214
-  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
-  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
+  RewriteRule nyc.wanderlustfestival.com http://wanderlust.com/yoga-festivals [R=301,QSA,L]
 
 
   
