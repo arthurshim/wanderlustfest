@@ -190,6 +190,8 @@ DirectoryIndex index.php
   RewriteCond %{HTTP_HOST} ^journal.wanderfest.com$ [NC]
   RewriteRule ^(.*)$ http://wanderlust.com/journal/$1 [R=301,QSA,L]
 	
+  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
 
   
  
