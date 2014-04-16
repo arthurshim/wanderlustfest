@@ -210,6 +210,13 @@ DirectoryIndex index.php
   RewriteCond %{HTTP_HOST} =journal.wanderfest.com
   RewriteCond %{REQUEST_URI} =/
   RewriteRule ^(.*)$ index.php?q=all [L,QSA]
+
+
+  RewriteCond %{REMOTE_ADDR} !=220.70.199.214
+  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
+  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
+
+
   
 # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
   RewriteCond %{REQUEST_FILENAME} !-f
@@ -219,9 +226,6 @@ DirectoryIndex index.php
 
 
 
-  RewriteCond %{REMOTE_ADDR} !=220.70.199.214
-  RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
-  RewriteRule ^(.*)$ http://wanderlust.com/yoga-festivals$1 [R=301,QSA,L]
 
 
 </IfModule>
