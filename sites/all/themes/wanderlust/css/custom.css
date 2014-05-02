@@ -3202,3 +3202,65 @@ margin-right: 13px
   display: inline-block;
   margin: 0 46px;
 }
+
+
+
+
+.festival-experience img{
+  float: left;
+  margin: 0 15px 10px 0;
+  width: 260px;
+  height: 180px;
+  
+}
+
+.festival-overview h1,
+.festival-overview h2{
+  font-family: 'lhf_egyptianregular',arial;
+  font-size: 38px;
+  text-align: center;
+  margin: 15px 0;
+  border-bottom: 3px solid #111;
+  padding-bottom: 5px !important;
+  color: #111;
+}
+
+.festival-overview h3{
+  font-family: 'lhf_egyptianregular',arial;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin: 10px 0 0 0;
+  line-height: 1 !important;
+}
+
+.festival-overview td{
+  vertical-align: top;
+  padding: 10px 24px 10px 0;
+}
+
+.festival-overview img{
+  border: 5px solid #fff;
+  box-shadow: 0 0 5px #ccc;
+}
+
+.festival-experience p{
+  margin-top: 0 !important;
+}
+
+.festival-overview p{
+  margin-top: 0 !important;
+}
+
+.festival-experience a{
+  display: block;
+}
+
+.call-to-action{
+  text-align: center;
+  font-size: 23px;
+  font-style: italic;
+}
+
+.about-festivals h1.title{
+  display: none;
+}
