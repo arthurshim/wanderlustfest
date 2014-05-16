@@ -85,7 +85,7 @@
       <li class="teacher-training"><a href="http://wanderlust.com/yoga-teacher-training" target="_blank">Teacher Training</a></li>
       <li class="studios"><a href="http://wanderlust.com/yoga-studios" target="_blank">Studios</a></li>
       <li class="media"><a href="http://wanderlust.com/journal" target="_blank">Journal</a></li>
-      <li class="store"><a href="hhttp://wanderlustfestival.shop.musictoday.com/" target="_blank">Store</a></li>
+      <li class="store"><a href="http://wanderlust.com/shop/" target="_blank">Store</a></li>
     </ul>
     <ul id="wl-global-social">
       <li id="find-your-true-north"><span>Find Your True North</span></li>
