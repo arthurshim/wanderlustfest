@@ -43,8 +43,7 @@ function sites_init() {
   if($user->uid == 0)  {
   //print $user->uid ;
   if(!$site) {
-    drupal_goto('http://wanderlust.com/yoga-festivals');
-   // drupal_set_message('<pre>' . print_r($site , 1) . '</pre>');
+   drupal_goto('http://wanderlust.com/yoga-festivals', $query = NULL, $fragment = NULL, $http_response_code = 301);
   }
   
   } else {}
