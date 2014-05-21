@@ -20,6 +20,7 @@
 
   <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700|Amatic+SC:700|Loved+by+the+King|Roboto:400,700|Roboto+Condensed:400italic,400" rel="stylesheet" type="text/css">
 
 
   <?php print $scripts; ?>
