@@ -6,12 +6,8 @@ body{
 
 .front,
 .not-front{
-  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/bg_2014.jpg") no-repeat center top fixed; 
-/*  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/site-bg.jpg") no-repeat center top fixed; */
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-	background-size: cover;  
+  background: url("http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/grey_bg.jpg");
+
 }
 
 #main{
@@ -343,7 +339,7 @@ tbody {border: 0px!important;}
 
 .panel-pane tbody td {
   padding-right: 16px;
-  padding-bottom: 8px;
+  padding-bottom: 28px;
   padding-top: 8px;
   }
 
@@ -358,13 +354,17 @@ tbody {border: 0px!important;}
 }
 
 
+.views-field-field-news-img-fid .newslink a{
+  margin-bottom: 9px !important;
+}
+
 .view-home-news .views-field-field-news-img-fid {
   
    background-color: #FFFFFF;
     border-radius: 5px;
    /* display: block;
     float: left;*/
-    height: 240px;
+    height: 280px;
     list-style-type: none;
     padding: 8px 14px 8px 8px;
     position: relative;
@@ -399,23 +399,25 @@ tbody {border: 0px!important;}
 }
 
 .newslink a {
-   color: #C48F3D!important;
-    font-family: 'baskerville_fsitalic',georgia !important;
-    font-size: 15px!important;
-    text-transform: lowercase!important;
+color: #a9a9a9 !important;
+font-size: 12px !important;
+text-transform: uppercase;
+font-family: 'Roboto Condensed', sans-serif !important;
+margin-bottom: 4px !important;
+display: block;
+letter-spacing: 0 !important;
 }
 
 .view-home-news .views-field-field-news-img-fid a,
 .view-wpblogs  .views-field-title a
 {
-   color: #3B6B60!important;
-    font-family: 'lhf_egyptianregular',arial;
-    font-size: 24px;
+   color: #3B6B60;
+    font-family: 'Montserrat',arial;
+    font-size: 14px;
     font-weight: normal;
-    line-height: 0.8;
+    line-height: 0.6;
     margin-bottom: 1px;
     margin-top: 5px;
-    text-transform: uppercase;
 }
 
 
@@ -944,7 +946,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 ----------------------------------*/
 
 .front .panels-flexible-4 {
-  padding: 0 30px;
+  padding: 20px 30px;
   }
 
 .front h2.pane-title{
@@ -1936,20 +1938,18 @@ width:40px;
 ------------------------ */
 
 .footer{
-  color: #b69e6d;
+  color: #789f93;
   width: 994px;
-  margin: 0 auto 50px auto;
+  margin: 60px auto 20px auto;
   padding: 10px;
   font-size: 12px;
-  text-shadow: 1px 1px 0 #fff;
   font-family: helvetica, arial;
   clear: both;
   height: 20px;
   }
 
 .footer a{
-  text-shadow: 1px 1px 0 #fff;
-  color: #b69e6d;
+  color: #789f93;
   }
 
 .velour{
@@ -3203,6 +3203,26 @@ margin-right: 13px
   margin: 0 46px;
 }
 
+.nyc #sponsor-logos img{
+  text-align: center;
+  display: inline-block;
+  margin: 0 14px;
+}
+
+.nyc .health{
+  position: relative;
+  top: -12px;
+}
+
+.nyc .babble{
+  position: relative;
+  top: -5px;
+}
+
+.nyc .evolution{
+  position: relative;
+  top: -5px;
+}
 
 
 

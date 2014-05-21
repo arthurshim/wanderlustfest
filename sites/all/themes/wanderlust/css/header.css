@@ -41,9 +41,9 @@
   position: absolute;
   left: 0;
   width: 246px;
-  font-family: 'baskerville_fsitalic', georgia;
+  font-family: 'Montserrat', georgia;
   color: #513319;
-  font-size: 16px;
+  font-size: 14px;
   text-align: left;
   height: 45px;    
   line-height: 1.2;
@@ -52,6 +52,7 @@
 }
 
 .site-marker{
+  display: none;
   background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/event-type-icons.png') left 4px no-repeat;
   height: 45px;  
   width: 28px;
@@ -133,11 +134,16 @@
 }
 
 #navigation ul ul{
-  background: #3b6b60;
  	top: 28px;
-	padding: 0px 10px;
+	padding: 3px 10px;
 	width: 195px;
 	left: 0;
+color: #ffffff;
+background-color: #b6a476;
+-moz-box-shadow: inset 0 0 37px #9d8a56;
+-webkit-box-shadow: inset 0 0 37px #9d8a56;
+box-shadow: inset 0 0 37px #9d8a56;	
+	
 	}
 
 #navigation ul.nice-menu,
@@ -187,22 +193,22 @@
 #navigation ul.nice-menu ul li a{
   width: 196px !important;
 	background: none !important;
- 	color: #e7e9d5;
+ 	color: #fff;
 	overflow: visible;
-	font-weight: normal !important;
-	font-size: 18px;
+	font-weight: bold !important;
+	font-size: 14px;
 	clear: left;
 	float: left;
 	border-right: none !important;
-	border-bottom: 1px solid #255248;
-	padding: 8px 0 5px 0 !important;
+  border-bottom: 1px solid #d1bf91;
+	padding: 10px 0 7px 0 !important;
 	margin: 0 !important;
 	position: relative;
 	z-index: 999;
   }
 
 #navigation ul.nice-menu ul li a:hover{
-  color: #c2ab7b;  
+  color: #2d6655;  
 }
 
 

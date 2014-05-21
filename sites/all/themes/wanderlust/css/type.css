@@ -87,7 +87,7 @@
 ----------------------------------*/	
 
 body{
-  font-family: calibri, helvetica, arial;
+  font-family: 'oxygen', helvetica, arial;
   font-size: 12px;
   line-height: 1.5;
   margin: 0;
@@ -189,10 +189,10 @@ article h2 a,
 }
 
 h2.pane-title{
-  font-family: 'lhf_egyptianregular', arial !important;
-  font-size: 26px;
+  font-family: 'Montserrat', arial !important;
+  font-size: 18px;
   text-transform: uppercase;  
-  color: #6ba265;
+  color: #3b6b60;
   margin-bottom: 4px;
 }
 
@@ -205,19 +205,18 @@ blockquote{
 #navigation ul.nice-menu li .nolink{
   display: block;
  	float: left;    
- 	font-size: 22px;
+ 	font-size: 16px;
  	text-transform: uppercase;
 	color: #3b6b60;
-	padding: 6px 18px 2px;
+	padding: 8px 18px 8px;
 	margin: 0;
-	font-family: 'lhf_egyptianregular', helvetica, arial;
-	letter-spacing: 1px;
-	font-weight: normal !important;
+	font-family: 'Roboto';
 	line-height: 1;
+	font-weight: bold;
   }
   
 .nyc #navigation ul.nice-menu li a,
 .chi #navigation ul.nice-menu li a,
 .sf #navigation ul.nice-menu li a{
-  padding: 6px 28px 2px;
+padding: 8px 26px 8px;
 }
