@@ -13,8 +13,7 @@
   <?php print $styles; ?>
   <?php print $scripts; ?>
   <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700|Amatic+SC:700|Loved+by+the+King|Roboto:400,700|Roboto+Condensed:400italic,400" rel="stylesheet" type="text/css">
-  
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">  
   <!-- IE Fix for HTML5 Tags -->
   <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

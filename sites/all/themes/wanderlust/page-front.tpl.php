@@ -13,7 +13,7 @@
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
   <link href="/sites/all/themes/wanderlust/css/classic-081711.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700|Amatic+SC:700|Loved+by+the+King|Roboto:400,700|Roboto+Condensed:400italic,400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">
   <style type="text/css">
   #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
   </style>
