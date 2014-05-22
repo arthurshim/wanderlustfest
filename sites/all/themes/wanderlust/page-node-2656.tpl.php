@@ -183,10 +183,10 @@ jQuery.noConflict();
 
     <?php print $closure ?>
 
-  <!-- Sponsor logos section -->
+      <!-- Sponsor logos section -->
       <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
                  
-      <?php  if($subdomain == 'la' || $subdomain == 'sf' || $subdomain == 'chicago' || $subdomain == 'nyc'){   ?>
+      <?php  if($subdomain == 'la' || $subdomain == 'sf' || $subdomain == 'chicago'){   ?>
         <div id="sponsor-logos">
           <a href="http://luvoinc.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/luvo.png" alt="Luvo"></a>
           <a href="http://www.re-sourcespringwater.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/resource.png" alt="Resource"></a>
@@ -202,6 +202,19 @@ jQuery.noConflict();
           <a href="http://www.health.com/health/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/health.png" alt="Health"></a>            
           <a href="http://www.kashi.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/kashi.png" alt="Kashi"></a>
           <a href="http://spiritualgangster.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/spiritual.png" alt="Spiritual"></a>
+        </div>
+      <?php } ?>
+
+      <?php  if($subdomain == 'nyc'){   ?>
+        <div id="sponsor-logos">
+          <a href="http://luvoinc.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/luvo_nyc.png" alt="Luvo"></a>
+          <a href="http://www.re-sourcespringwater.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/resource_nyc.png" alt="Resource"></a>
+          <a href="http://www.kashi.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/kashi_nyc.png" alt="Kashi"></a>
+          <a href="http://spiritualgangster.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/spiritual_nyc.png" alt="Spiritual"></a>
+          <a class="babble" href="http://waterbobble.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/babble_nyc.png" alt="Babble"></a>
+          <a href="http://starbucks.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/starbucks_nyc.png" alt="Starbucks"></a>
+          <a class="health" href="http://www.health.com/health/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/health_nyc.png" alt="Health"></a>            
+          <a class="evolution" href="http://evolutionfresh.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/evolution_nyc.png" alt="Evolution Fresh"></a>
         </div>
       <?php } ?>
 
