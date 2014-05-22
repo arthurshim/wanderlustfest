@@ -110,34 +110,28 @@ body em{
 h1.title,
 .node-type-blog .pane-node-title .pane-content{
   color: #402b2b;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 0.8em;
   margin: 8px 0 8px;
-  text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial;
-  letter-spacing: 1px;
+  font-family: 'Montserrat', arial;
   font-weight: normal !important;
   }
 
 
 .heading1{
-  color: #416647;
-  font-size: 28px !important;
+  font-size: 18px !important;
   font-weight: normal;
   margin-bottom: 5px;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial;
-  letter-spacing: 1px;
+  font-family: 'Montserrat', arial;
   }
   
 .heading2{
-  color: #6ba265;
-  font-size: 24px !important;
+  font-size: 16px !important;
   font-weight: normal;
   line-height: 1.6;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial;
-  letter-spacing: 1px;
+  font-family: 'Montserrat', arial;
 }
   
 .page-body p {
@@ -188,12 +182,29 @@ article h2 a,
   margin: 30px 0;
 }
 
+.front h2.pane-title{
+    font-family: 'Roboto Condensed', arial !important;
+    font-weight: bold;
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') top repeat-x;
+    padding: 6px 0;
+}
+
+
+.front h2.pane-title:after{
+    background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/section-border-bg.png') bottom repeat-x;
+    height: 2px;
+    display: block;
+    content: "";
+    padding-top: 4px;
+}
+
 h2.pane-title{
   font-family: 'Montserrat', arial !important;
   font-size: 18px;
   text-transform: uppercase;  
   color: #3b6b60;
   margin-bottom: 4px;
+  font-weight: bold;
 }
 
 blockquote{

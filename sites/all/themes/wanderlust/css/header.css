@@ -15,19 +15,35 @@
 .siteBanner{
   position: absolute;
   left: 280px;
+  top: 24px;
 }
 
 
 /* EVENT INFO
 ----------------------------------*/	
 
-#event-info{
-  top: 27px;
-  position: absolute;
-  }
+
 
 .item-date{
-  }
+  margin-top: -40px;
+  font-size: 20px;
+  font-family: 'Roboto';
+  font-weight: bold;
+    }
+  
+.event-item-address-city {
+  margin-top: 25px;
+  font-weight: bold;
+    font-size: 13px;
+  letter-spacing: 0 !important;    
+  
+}
+
+.event-item-address{
+  font-size: 13px;
+  font-weight: bold;  
+  letter-spacing: 0 !important;
+}
   
 #block-sitesdropdown-1 .siteico {
   left: 1px;
@@ -40,15 +56,18 @@
 .event-item{
   position: absolute;
   left: 0;
-  width: 246px;
-  font-family: 'Montserrat', georgia;
+  width: 209px;
+  height: 77px;
+  font-family: 'Roboto Condensed', sans-serif;
   color: #513319;
   font-size: 14px;
-  text-align: left;
-  height: 45px;    
   line-height: 1.2;
   font-weight: normal;
-  top: 13px;
+  top: 28px;
+  background: url('../images/event-info-bg.png') no-repeat;
+  text-align: center;
+  text-transform: uppercase;
+  padding-top: 11px;
 }
 
 .site-marker{
@@ -103,9 +122,25 @@
 .tomap {
   position: absolute;
   top: 26px;
-  right: 11px;
+  right: 0px;
   }
 
+.tomap a{
+  display: block;
+  text-indent: -999em;
+  background: url('../images/buy-tickets.png');
+  width: 180px;
+  height: 76px;
+ -webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -o-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out;
+}
+
+.tomap a:hover{
+  background-position: 0 -78px;
+ 
+  }
 
 
 /* NAVIGATION

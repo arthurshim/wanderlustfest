@@ -337,8 +337,12 @@ tbody {border: 0px!important;}
   z-index: 1;
 }
 
+.front .panels-flexible-region{
+  width: 100%;
+}
+
 .panel-pane tbody td {
-  padding-right: 16px;
+  padding-right: 42px;
   padding-bottom: 28px;
   padding-top: 8px;
   }
@@ -440,8 +444,8 @@ letter-spacing: 0 !important;
 
 hr{
   margin: 20px 0;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
-  height: 2px;
+  background: #bababa;
+  height: `px;
   }
 
 .imgupl_floating_none_left{
@@ -826,14 +830,15 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group li a{
   display: block;
   text-transform: uppercase;
-  font-size: 26px;
+  font-size: 21px;
+  font-weight: bold;
   color: #7e9e83 !important;
   padding: 10px 18px 10px 18px;
   margin: 0;
   height: 20px;
   background: #deddce;
   border: none;
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Roboto Condensed', arial !important;
   font-weight: normal !important;
   border-radius: 0;
 }
@@ -946,7 +951,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 ----------------------------------*/
 
 .front .panels-flexible-4 {
-  padding: 20px 30px;
+  padding: 20px 0px;
   }
 
 .front h2.pane-title{
@@ -1004,8 +1009,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .panel-col-last .pane-title,
 #sidebar-right h2 {
   color: #402b2b;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-size: 16px;
   margin: 0 0 10px;
   text-transform: uppercase;
   font-family: 'lhf_egyptianregular', arial;
@@ -1163,7 +1167,7 @@ RIGHT SIDEBAR
 .photo-node-right .views-field-title a {
   color: #303030;
   display: block;
-  font-size: 18px !important;
+  font-size: 14px !important;
 }
 
 /* Simple News */

@@ -78,7 +78,7 @@ display: inline;
 }
 
 .journal #navigation li a{
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Montserrat', arial !important;
   font-size: 22px !important;
   font-weight: normal !important;
   padding: 1px 23px 0px !important;
@@ -342,7 +342,7 @@ body.sidebar-right.journal #main{
   font-size: 28px;
   font-weight: normal;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Montserrat', arial !important;
   letter-spacing: 1px;
   line-height: .9 !important;
 }
@@ -473,11 +473,11 @@ body.sidebar-right.journal #main{
 
 .panels-flexible-region-last .quicktabs_wrapper ul a.qt_tab,
 #sidebar-right .quicktabs_wrapper ul a.qt_tab{
-  font-size: 28px;
+  font-size: 16px;
   font-weight: normal;
   text-transform: uppercase;
   color: #d2b186;
-  font-family: 'lhf_egyptianregular', arial;
+  font-family: 'Montserrat', arial;
   line-height: 1;
 
 }
@@ -524,8 +524,8 @@ body.sidebar-right.journal #main{
   font-size: 20px;
   font-weight: normal;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial;
-  line-height: 0.9;
+  font-family: 'Montserrat', arial;
+  line-height: 1.2;
 }
 
 .view-blog-popular .views-field-totalcount,
@@ -594,7 +594,7 @@ body.sidebar-right.journal #main{
   text-transform: uppercase;
   font-size: 20px;
   color: #3b6b60;
-  font-family: 'lhf_egyptianregular', arial;
+  font-family: 'Montserrat', arial;
 }
 
 #blogs-related .views-field-name{
@@ -715,7 +715,7 @@ body.sidebar-right.journal #main{
 }
 
 .categtitle{
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Montserrat', arial !important;
   text-transform: uppercase;
   font-size: 20px;
   line-height: 1;
@@ -831,7 +831,7 @@ body.sidebar-right.journal #main{
   font-size: 28px;
   font-weight: normal;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Montserrat', arial !important;
   letter-spacing: 1px;
   line-height: .9 !important;  
 }
@@ -840,7 +840,7 @@ body.sidebar-right.journal #main{
    font-size: 28px;
   font-weight: normal;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial !important;
+  font-family: 'Montserrat', arial !important;
   letter-spacing: 1px;
   line-height: .9 !important;   
 }
