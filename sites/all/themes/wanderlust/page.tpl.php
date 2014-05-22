@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" type="text/css" href="/sites/all/themes/wanderlust/js/fancybox/source/jquery.fancybox.css" media="screen" />
       <link type="text/css" rel="stylesheet" media="all" href="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-misc/global-top-bar.css" />
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">
 
   <?php print $scripts; ?>
       <script type="text/javascript" src="/sites/all/themes/wanderlust/js/fancybox/lib/jquery-1.8.2.min.js"></script>
@@ -334,7 +334,16 @@ jQuery.noConflict();
       </div>
 
       <div class="tomap">
-        <a href="<?php print "http://wanderlust.com/yoga-festivals"; ?>" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="<?php print t('To map'); ?>" /></a>
+        <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
+        <?php if ($subdomain == 'nyc' || $subdomain == 'sf'){
+            print
+              '<a class="register-now" href="/register"  title="Register Now">Register Now</a>';
+              }
+              else{
+              print
+              '<a class="buy-tickets" href="/tickets"  title="Buy Tickets Now">Buy Tickets Now</a>';
+              }
+              ?>
       </div>
       
     </header>

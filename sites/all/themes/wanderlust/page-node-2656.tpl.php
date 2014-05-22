@@ -115,9 +115,18 @@ jQuery.noConflict();
    <?php print $topnav; ?>
     </div>
 
-   <div class="tomap">
-      <a href="http://wanderlust.com/yoga-festivals" target="_blank"><img src="<?php print  base_path() . path_to_theme() . '/images/newmap_icon.png'//print $logo; ?>" alt="<?php print t('To map'); ?>" /></a>
-   </div>
+      <div class="tomap">
+        <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
+        <?php if ($subdomain == 'nyc' || $subdomain == 'sf'){
+            print
+              '<a class="register-now" href="/register"  title="Register Now">Register Now</a>';
+              }
+              else{
+              print
+              '<a class="buy-tickets" href="/tickets"  title="Buy Tickets Now">Buy Tickets Now</a>';
+              }
+              ?>
+      </div>
 
   </div>
       

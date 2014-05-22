@@ -132,7 +132,16 @@
       </div>
 
       <div class="tomap">
-        <a href="http://wanderlust.com/yoga-festivals" target="_blank" title="<?php print t('To map'); ?>"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/see-all-events-v2.png" alt="<?php print t('To map'); ?>" /></a>
+        <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
+        <?php if ($subdomain == 'nyc' || $subdomain == 'sf'){
+            print
+              '<a class="register-now" href="/register"  title="Register Now">Register Now</a>';
+              }
+              else{
+              print
+              '<a class="buy-tickets" href="/tickets"  title="Buy Tickets Now">Buy Tickets Now</a>';
+              }
+              ?>
       </div>
       
     </header>

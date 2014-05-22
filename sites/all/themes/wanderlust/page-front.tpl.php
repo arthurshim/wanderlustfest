@@ -13,7 +13,7 @@
   <?php header("Connection: keep-alive");?>
   <?php print $styles; ?>
   <link href="/sites/all/themes/wanderlust/css/classic-081711.css" rel="stylesheet" type="text/css">
-  <link href="http://fonts.googleapis.com/css?family=Montserrat:700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700|Oxygen:400,700|Roboto:400,700|Roboto+Condensed:400" rel="stylesheet" type="text/css">
   <style type="text/css">
   #mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; }
   </style>
@@ -145,11 +145,11 @@ jQuery.noConflict();
         <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
         <?php if ($subdomain == 'nyc' || $subdomain == 'sf'){
             print
-              '<a href="/register"  title="Register Now">Register Now</a>';
+              '<a class="register-now" href="/register"  title="Register Now">Register Now</a>';
               }
               else{
               print
-              '<a href="/tickets"  title="Buy Tickets Now">Buy Tickets Now</a>';
+              '<a class="buy-tickets" href="/tickets"  title="Buy Tickets Now">Buy Tickets Now</a>';
               }
               ?>
       </div>
