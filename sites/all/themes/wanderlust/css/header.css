@@ -125,17 +125,22 @@
   right: 0px;
   }
 
-.tomap a{
+.tomap a.buy-tickets{
   display: block;
   text-indent: -999em;
   background: url('../images/buy-tickets.png');
-  width: 180px;
+  width: 219px;
   height: 76px;
- -webkit-transition: opacity 1s ease-in-out;
-  -moz-transition: opacity 1s ease-in-out;
-  -o-transition: opacity 1s ease-in-out;
-  transition: opacity 1s ease-in-out;
 }
+
+.tomap a.register-now{
+  display: block;
+  text-indent: -999em;
+  background: url('../images/register-now.png');
+  width: 219px;
+  height: 76px;
+}
+
 
 .tomap a:hover{
   background-position: 0 -78px;
@@ -243,7 +248,7 @@ box-shadow: inset 0 0 37px #9d8a56;
   }
 
 #navigation ul.nice-menu ul li a:hover{
-  color: #2d6655;  
+  color: #fbead4;  
 }
 
 

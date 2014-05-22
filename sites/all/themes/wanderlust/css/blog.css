@@ -463,7 +463,8 @@ body.sidebar-right.journal #main{
 .panels-flexible-region-last .quicktabs_wrapper ul,
 #sidebar-right .quicktabs_wrapper ul{
   margin: 0 0 9px 0;
-  padding: 0;
+  padding: 0 0 10px 0;
+  border-bottom: 2px solid #585858;
 }
 
 .panels-flexible-region-last .quicktabs_wrapper li,
@@ -499,13 +500,16 @@ body.sidebar-right.journal #main{
   padding-right: 15px;
 }
 
+#quicktabs_tabpage_1_0 .views-row-1{
+  border-top: none !important;
+}
 
 .panels-flexible-region-last .quicktabs_wrapper .view-blog-popular .views-row,
 #sidebar-right .quicktabs_wrapper .view-blog-popular .views-row{
   clear:both;
   margin-bottom:5px;
   padding: 10px 0 0 0; 
-  background: url('../images/border-bg.png') repeat-x;
+  border-top: 1px dashed #d9d6d9;
   float: left;
   width: 280px;
 }
@@ -522,8 +526,7 @@ body.sidebar-right.journal #main{
 
 .view-blog-popular .views-field-title a{
   font-size: 20px;
-  font-weight: normal;
-  text-transform: uppercase;
+  font-weight: bold;
   font-family: 'Montserrat', arial;
   line-height: 1.2;
 }

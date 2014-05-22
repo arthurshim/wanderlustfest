@@ -994,14 +994,13 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .not-front .photo-node-right .pane-block,
 .panel-col-last .panel-pane,
 #sidebar-right .block{
-  background: #f3e8ce;
-  border-radius: 5px;
+  background: #fff;
   float: left;
-  margin-bottom: 15px;
-  border: 1px solid #dfc893;
+  margin-bottom: 20px;
   padding: 15px;
   clear: both;
   width: 274px;
+  box-shadow: 0 0 6px #ccc;
   }
 
 .right-column h2,
@@ -1012,8 +1011,9 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
   font-size: 16px;
   margin: 0 0 10px;
   text-transform: uppercase;
-  font-family: 'lhf_egyptianregular', arial;
   font-weight: normal !important;
+  border-bottom: 2px solid #585858;
+  padding-bottom: 10px;
 }
 
 
@@ -1028,12 +1028,11 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 
 .pane-block-42 .email,
 #sidebar-right .email{
-  padding: 15px 0;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
+  padding: 10px 0 15px;
 }
 
 .social-networks .clearfix{
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
+  border-top: 1px dashed #d9d6d9;
   clear: both;
   float: left;
   width: 274px;
@@ -1042,7 +1041,6 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 
 .social-networks .links{
   float: left;
-  background: url('http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2013-images/border-bg.png') repeat-x;
   padding: 12px 20px 0 60px;
   width: 194px;
   height: 23px;
