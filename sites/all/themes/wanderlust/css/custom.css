@@ -2454,7 +2454,7 @@ display: none;}
 .page-lineup .view-artist-landing2 td,
 .page-partners .view-partners td{
   width: 222px;
-  padding-right: 30px !important;
+  padding-right: 33px !important;
   height: 160px;
   position: relative;
   }
@@ -2643,7 +2643,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 ---------------------------------*/
 
 .fancybox-skin{
-  background: #f3e8ce !important;
+  background: #fff !important;
 }
 
 
@@ -3196,9 +3196,9 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 }
 
 #mc-embedded-subscribe-form h2 {
-    font-family: 'lhf_egyptianregular', helvetica, arial ;
+    font-family: 'Montserrat', helvetica, arial ;
     text-transform: uppercase ;
-    font-size: 26px;
+    font-size: 16px;
     color: #402b2b;
     margin: 0 0 14px 0;
 }
@@ -3221,11 +3221,11 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 }
 
 #mc-embedded-subscribe-form #mc-embedded-subscribe{
-        font-family: 'lhf_egyptianregular', helvetica, arial ;
-font-size: 20px;
+        font-family: 'Montserrat', helvetica, arial ;
+font-size: 14px;
 text-transform: uppercase;
 height: auto !important;
-padding: 5px 20px 0px 20px;
+padding: 1px 20px 0px 20px;
 background: #006d60;
 margin: 0;
 }

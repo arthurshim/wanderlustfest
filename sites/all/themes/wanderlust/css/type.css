@@ -111,7 +111,7 @@ body em{
   padding: 8px 4px;
 }
 
-.not-logged-in h1.title,
+.page-node h1.title,
 .not-logged-in .node-type-blog .pane-node-title .pane-content{
   color: #402b2b;
   font-size: 24px;
