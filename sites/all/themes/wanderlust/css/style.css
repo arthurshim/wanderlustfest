@@ -114,14 +114,15 @@ p {
 }
 
 a { 
-    color: #c48f3d;
+    color: #000;
     text-decoration: none;
-    font-weight: bold;
 }
 
+.node-type-page .panels-flexible-region-inside-first a{
+  text-decoration: underline;
+}
 
-
-a:hover  { color: #39f; }
+a:hover  { color: #2d6655; }
 
 a:focus { outline: thin dotted; }
 

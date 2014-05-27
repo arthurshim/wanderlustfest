@@ -320,7 +320,7 @@ function sitesdropdown_site_id() {
 	  
 	   $item = '<div class="event-item"><div class="site-marker"></div>';
 	   $item .= '<div class="event-item-address">'.$site['field_event_venue'][0]['value'].'</div>';
-	   $item .= '<div class="event-item-address">'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].', '.$site['field_event_country'][0]['value'].'</div>';
+	   $item .= '<div class="event-item-address-city">'.$site['field_event_city'][0]['value'].', '.$site['field_event_state'][0]['value'].', '.$site['field_event_country'][0]['value'].'</div>';
 
 	   $item .= '<div class="item-date">';
 
@@ -334,7 +334,7 @@ function sitesdropdown_site_id() {
     /*reformat date for oahu which spans two different months so needs to be reformatted*/
     if($current_site->sid == 23) {
       
-         $item .= date('F j -', strtotime($site['field_event_date'][0]['value'])).' '.date('F j Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
+         $item .= date('M j -', strtotime($site['field_event_date'][0]['value'])).' '.date('M j Y', strtotime($site['field_event_date'][0]['value2'])).'</div></div>';
     }		
 		/*display date in normal format month day - day*/
      else {
@@ -343,7 +343,7 @@ function sitesdropdown_site_id() {
 		  $a = date('n', strtotime($site['field_event_date'][0]['value']));
 		  $b = date('n', strtotime($site['field_event_date'][0]['value2']));
 		  if ($a == $b) {
-			 $date = format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j -' , $timezone = NULL, "es") . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'j, Y' , $timezone = NULL, "es");	 
+			 $date = format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j-' , $timezone = NULL, "es") . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'j, Y' , $timezone = NULL, "es");	 
 		  }
 		  else {
 			$date .=  format_date(strtotime($site['field_event_date'][0]['value']), 'custom', 'F j-' , $timezone = NULL, "es") . ' ' . format_date(strtotime($site['field_event_date'][0]['value2']), 'custom', 'F j, Y', $timezone = NULL, "es") ;
@@ -357,10 +357,10 @@ function sitesdropdown_site_id() {
 		  $a = date('n', strtotime($site['field_event_date'][0]['value']));
 		  $b = date('n', strtotime($site['field_event_date'][0]['value2']));
 		  if ($a == $b) {
-			 $date .= date('F j -', strtotime($site['field_event_date'][0]['value'])) . ' ' . date('j, Y', strtotime($site['field_event_date'][0]['value2']));
+			 $date .= date('F j-', strtotime($site['field_event_date'][0]['value'])) . date('j, Y', strtotime($site['field_event_date'][0]['value2']));
 		   }
 		   else {
-			$date .= date('F j -', strtotime($site['field_event_date'][0]['value'])) . ' ' . date('F j, Y', strtotime($site['field_event_date'][0]['value2']));
+			$date .= date('M j-', strtotime($site['field_event_date'][0]['value'])) . date('M j, Y', strtotime($site['field_event_date'][0]['value2']));
 		   }
 		
 	      }    
