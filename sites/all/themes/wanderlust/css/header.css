@@ -18,6 +18,12 @@
   top: 24px;
 }
 
+.brooklyn .siteBanner,
+.atlanta .siteBanner{
+  left: 247px;
+  top: 37px;
+}
+
 
 /* EVENT INFO
 ----------------------------------*/	
