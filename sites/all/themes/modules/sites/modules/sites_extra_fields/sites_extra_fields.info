@@ -1,6 +1,0 @@
-; $Id$
-name = "Sites Extra Fields"
-description = "Add extra data fields to your sites by associating a node with each site."
-package = "Sites"
-dependencies[] = sites
-core = "6.x"

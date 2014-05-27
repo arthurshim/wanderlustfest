@@ -1,5 +1,0 @@
-name = WL: Artist Menu
-description = Show displays of the artist_landing view in a menu.
-core = 6.x
-
-package = Wanderlust

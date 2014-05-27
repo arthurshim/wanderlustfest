@@ -1,5 +1,0 @@
-;$Id$
-name = WL: Custom Menu
-description = Displays menu relevant to site and selected item.
-package = Wanderlust
-core = 6.x

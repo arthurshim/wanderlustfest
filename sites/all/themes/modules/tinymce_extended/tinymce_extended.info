@@ -1,4 +1,0 @@
-name = TinyMCE Extended
-description = Extends TinyMCE to allow other elements e.g. iframes
-core = 6.x
-dependencies[] = wysiwyg

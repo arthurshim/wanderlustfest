@@ -1,4 +1,0 @@
-name = WL: Wufoo YogaAid
-description = Menus and code for integrating Wufoo and yogaAid forms
-core = 6.x
-package = Wanderlust
