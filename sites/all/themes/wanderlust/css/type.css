@@ -107,8 +107,12 @@ body em{
 ----------------------------------*/	
 
 
-h1.title,
-.node-type-blog .pane-node-title .pane-content{
+.logged-in.page-admin td{
+  padding: 8px 4px;
+}
+
+.not-logged-in h1.title,
+.not-logged-in .node-type-blog .pane-node-title .pane-content{
   color: #402b2b;
   font-size: 24px;
   line-height: 0.8em;

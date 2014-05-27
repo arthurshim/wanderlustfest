@@ -185,10 +185,7 @@
 	width: 195px;
 	left: 0;
 color: #ffffff;
-background-color: #b6a476;
--moz-box-shadow: inset 0 0 37px #9d8a56;
--webkit-box-shadow: inset 0 0 37px #9d8a56;
-box-shadow: inset 0 0 37px #9d8a56;	
+background-color: #3b6b60;
 	
 	}
 
@@ -239,14 +236,14 @@ box-shadow: inset 0 0 37px #9d8a56;
 #navigation ul.nice-menu ul li a{
   width: 196px !important;
 	background: none !important;
- 	color: #fff;
+ 	color: #e7e9d5;
 	overflow: visible;
 	font-weight: bold !important;
 	font-size: 14px;
 	clear: left;
 	float: left;
 	border-right: none !important;
-  border-bottom: 1px solid #d1bf91;
+  border-bottom: 1px solid #255248;
 	padding: 10px 0 7px 0 !important;
 	margin: 0 !important;
 	position: relative;
@@ -254,7 +251,7 @@ box-shadow: inset 0 0 37px #9d8a56;
   }
 
 #navigation ul.nice-menu ul li a:hover{
-  color: #fbead4;  
+  color: #fff;  
 }
 
 
