@@ -1638,7 +1638,7 @@ padding: 1px 0;
 
 .view-id-Homepage_slider.view-display-id-attachment_1 a{
 display: inline-block;
-background: #06603e;
+background: #243F32;
 color: #fbead4;
 padding: 4px 13px;
 border-radius: 4px;
@@ -2018,18 +2018,18 @@ width:40px;
 ------------------------ */
 
 .footer{
-  color: #789f93;
+  color: #a9abaa;
   width: 994px;
   margin: 60px auto 20px auto;
   padding: 10px;
   font-size: 12px;
-  font-family: helvetica, arial;
+  font-family: oxygen, arial;
   clear: both;
   height: 20px;
   }
 
 .footer a{
-  color: #789f93;
+  color: #a9abaa;
   }
 
 .velour{
@@ -2061,7 +2061,7 @@ width:40px;
 
 .copy{
   float: left;
-  margin-right: 250px;
+  margin-right: 300px;
   }
 
 .footer-links{
@@ -2829,7 +2829,7 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
 --------------------------------*/
 
 .swlang{
-  top: -27px;
+  top: 0px;
   left: 785px;
   z-index: 999;
   margin: 0;
