@@ -982,6 +982,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 
 .not-front.page-node .body-content #main {
   padding: 15px 0px;
+  position: relative;
   }
 
 
@@ -1018,8 +1019,10 @@ background: #fff;
 .right-column,
 .photo-node-right{
   float: left;
-  width: 300px;
-  margin-top: -58px;
+width: 300px;
+right: 15px;
+top: 15px;
+position: absolute;
   }
 
 
