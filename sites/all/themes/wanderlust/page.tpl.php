@@ -428,7 +428,7 @@ jQuery.noConflict();
         <?php endif; ?>
       </div> <!-- /#main -->
       
-    </div>
+
       
        <?php print $closure ?>
        
