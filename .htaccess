@@ -200,6 +200,9 @@ DirectoryIndex index.php
   RewriteCond %{HTTP_HOST} ^nyc.wanderlustfestival.com$ [NC]
   RewriteRule ^(.*)$ http://brooklyn.wanderlustfestival.com/$1 [R=301,QSA,L]
 
+  RewriteCond %{HTTP_HOST} ^brooklyn.wanderlustfestival.com/tickets$ [NC]
+  RewriteRule ^(.*)$ http://www.wanderlust108brooklyn.eventbrite.com/$1 [R=301,QSA,L]
+
 
   RewriteCond %{HTTP_HOST} ^chi.wanderlustfestival.com$ [NC]
   RewriteRule ^(.*)$ http://chicago.wanderlustfestival.com/$1 [R=301,QSA,L]
