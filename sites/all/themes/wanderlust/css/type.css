@@ -238,8 +238,18 @@ blockquote{
 	font-weight: bold;
   }
   
-.nyc #navigation ul.nice-menu li a,
-.chi #navigation ul.nice-menu li a,
-.sf #navigation ul.nice-menu li a{
+
+.sf #navigation ul.nice-menu li a,
+.sf #navigation ul.nice-menu li .nolink,
+.la #navigation ul.nice-menu li a,
+.la #navigation ul.nice-menu li .nolink{
+
 padding: 8px 26px 8px;
+}
+
+.brooklyn #navigation ul.nice-menu li a,
+.brooklyn #navigation ul.nice-menu li .nolink,
+.atlanta #navigation ul.nice-menu li a,
+.atlanta #navigation ul.nice-menu li .nolink{
+padding: 8px 30px 8px;
 }
