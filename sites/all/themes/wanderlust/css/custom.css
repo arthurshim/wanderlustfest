@@ -3332,6 +3332,12 @@ margin-right: 13px
   
 }
 
+
+.festival-overview{
+  margin-left: 16px;
+  width: 960px;
+}
+
 .festival-overview h1,
 .festival-overview h2{
   font-family: 'Montserrat',arial;
