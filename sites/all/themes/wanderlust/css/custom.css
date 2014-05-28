@@ -994,10 +994,11 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
   padding: 0 0 14px 0px;
   }
 
-.node-type-artists .panel-col-first{
+.node-type-artists .panel-col-first,
+.node-type-news .panels-flexible-region-first{
   background: #fff;
   padding: 18px 18px 14px 18px;
-  box-shadow: 0 0px 5px #ccc;
+  box-shadow: 0 5px 5px #ccc;
   padding: 18px 18px 14px 18px;
 
 }
