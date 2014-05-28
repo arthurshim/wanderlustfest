@@ -87,10 +87,11 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
         // If the separator is at position 0 or does not exist it all, do not group
         $sep = $settings['view_group_separator'][$view->name];
         
+       // drupal_set_message('<pre>' . print_r($subdomain, 1) . '</pre>');
       if($subdomain == 'oahu' && $display_data->display_title == 'Healing') {
          $display_data->display_title = 'Surf & Paddle';
       }  else {
-			switch($display_data->display_title) {
+	  switch($display_data->display_title) {
             case 'Healing':
                $display_data->display_title = t('Workshops');
               break;
@@ -109,6 +110,10 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
 	    $display_data->display_title = 'Movement'; 
 	   }
       
+      	   if(($subdomain == 'brooklyn'  || $subdomain == 'atlanta' ) && $display_data->display_title == 'Speakeasy' ) {
+	    $display_data->display_title = 'Speakers'; 
+	   }
+           
     /*    if($subdomain == 'chile') {
           switch($display_data->display_title) {
             case 'All':
@@ -236,7 +241,7 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
      $domains = array('chicago', 'sf', 'la', 'philadelphia'); 
      
      if(in_array($subdomain, $domains) && arg(0) == 'lineup') {
-      unset($displays[0][0]);
+      unset($displays[0][0]);  
       unset($displays[0][3]);
       unset($displays[0][4]);
       unset($displays[0][5]);
@@ -244,9 +249,16 @@ function viewsdisplaytabs_preprocess_views_view(&$vars) {
       unset($displays[0][7]);
      }
      
-    if($subdomain == 'nyc' && arg(0) == 'lineup') {
-      unset($displays[0][0]);
-      unset($displays[0][3]);
+       if($subdomain == 'brooklyn'  && arg(0)  == 'lineup') {
+      //unset($displays[0][0]);
+     // unset($displays[0][3]);
+      unset($displays[0][5]);
+      unset($displays[0][6]);
+      unset($displays[0][7]);
+     }
+	    if($subdomain == 'atlanta'  && arg(0)  == 'lineup') {
+      //unset($displays[0][0]);
+     // unset($displays[0][3]);
       unset($displays[0][5]);
       unset($displays[0][6]);
       unset($displays[0][7]);
