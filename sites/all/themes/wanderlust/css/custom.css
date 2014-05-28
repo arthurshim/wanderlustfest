@@ -313,7 +313,7 @@ tbody {border: 0px!important;}
 
 
 
-.page-media h1#page-title {padding-left: 90px; color: #0e4815; width: 956px; padding: 18px;}
+.page-media h1#page-title {padding-left: 90px; color: #0e4815; width: 956px; padding: 18px; background: #fff; margin: 0; font-family: 'Montserrat';}
 
 
 .page-media .panels-flexible-row-last .view-content {float: left; display: block;}
@@ -345,7 +345,7 @@ tbody {border: 0px!important;}
 
 .panel-pane tbody td {
   padding-right: 42px;
-  padding-bottom: 28px;
+  padding-bottom: 15px;
   padding-top: 8px;
   }
 
@@ -426,7 +426,7 @@ letter-spacing: 0 !important;
    color: #3B6B60;
     font-family: 'Montserrat',arial;
     font-size: 15px;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 1.3;
     margin-bottom: 6px;
     margin-top: 5px;
@@ -1835,7 +1835,7 @@ html.js span.views-throbbing {
 
  .sf .viewsdisplaytabs-tab-group li + li + li + li + li,
 .la .viewsdisplaytabs-tab-group li + li + li + li + li,
-.nyc .viewsdisplaytabs-tab-group li + li + li + li + li{
+.brooklyn .viewsdisplaytabs-tab-group li + li + li + li + li{
  display: none !important;
 }
 
@@ -2580,10 +2580,11 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
     box-shadow: inset 0px 0px 8px #847048, 0px 1px 0px #847048;
     color: #f0f0f0;
     text-shadow: 0px 0px 3px rgba(0,0,0, .5);
-    padding: 3px 9px !important;
+    padding: 3px 11px !important;
     border-radius: 3px;
     margin-right: 5px !important;
     font-weight: normal;
+    font-size: .875em;
 }
   
   
@@ -2807,6 +2808,19 @@ div.view-id-artist_landing div.views-exposed-widgets span.views-throbbing {
   font-size: 14px;
 }
 
+.page-node.page-wide #main{
+  background: #fff;
+  box-shadow: 0 5px 5px #ccc;
+}
+
+.page-node.page-wide h1.title{
+  box-shadow: none;
+}
+
+.page-festivals-experience #main{
+
+
+}
 
 /* LANGUAGE SWITCHER
 --------------------------------*/
@@ -2971,13 +2985,13 @@ table.tkts {
 	border-radius: 5px;
 	vert-align: middle !important;
 }
+
 td.tkts-head {
 	background-color: #3a6a60; 
 	color:white; 
-	padding: 10px 10px 5px 10px !important; 
-	font-size:25px;
-	font-family: 'lhf_egyptianregular',arial;
-	letter-spacing: 2px;
+	padding: 8px 10px 5px 10px !important; 
+	font-size:18px;
+	font-family: 'Montserrat',arial;
 	text-transform: uppercase;
 }
 .tkts tr {
@@ -3003,12 +3017,10 @@ td.tkts-head {
 	background-color: #c2c2c2;		
 }
 .yoga-plus-header td:first-child {
-	padding: 10px 10px 0px 10px;
+	padding: 10px 10px 7px 10px;
 	width: 60px;
-	font-family: 'lhf_egyptianregular',arial;
-	letter-spacing: 1px;
-	font-size: 22px;
-	line-height: 25px;
+	font-family: 'Montserrat',arial;
+	font-size: 18px;
 	text-transform: uppercase;
 }
 .yoga-plus-header td:nth-child(2) {
@@ -3114,6 +3126,7 @@ background-color:#f3e8ce;
 color:#474747;
 }
 .add-to-cart a {
+text-decoration: none !important;
 line-height: 2.4;
 padding: 8px 28px;}
 .info {
@@ -3282,23 +3295,23 @@ margin-right: 13px
   margin: 0 46px;
 }
 
-.nyc #sponsor-logos img{
+.brooklyn #sponsor-logos img{
   text-align: center;
   display: inline-block;
   margin: 0 14px;
 }
 
-.nyc .health{
+.brooklyn .health{
   position: relative;
   top: -12px;
 }
 
-.nyc .babble{
+.brooklyn .babble{
   position: relative;
   top: -5px;
 }
 
-.nyc .evolution{
+.brooklyn .evolution{
   position: relative;
   top: -5px;
 }
@@ -3366,4 +3379,9 @@ margin-right: 13px
 
 .festival-overview h1{
   margin-top: 0 !important;
+}
+
+
+#sponsor-logos{
+  margin: 15px 0 0 0;
 }

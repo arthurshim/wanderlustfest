@@ -148,7 +148,7 @@ $(function() {
 
       <div class="tomap">
         <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
-        <?php if ($subdomain == 'nyc' || $subdomain == 'sf'){
+        <?php if ($subdomain == 'la' || $subdomain == 'sf'){
             print
               '<a class="register-now" href="/register"  title="Register Now">Register Now</a>';
               }
@@ -386,7 +386,7 @@ $(function() {
         </div>
       <?php } ?>
 
-      <?php  if($subdomain == 'nyc'){   ?>
+      <?php  if($subdomain == 'brooklyn'){   ?>
         <div id="sponsor-logos">
           <a href="http://luvoinc.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/luvo_nyc.png" alt="Luvo"></a>
           <a href="http://www.re-sourcespringwater.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/resource_nyc.png" alt="Resource"></a>
