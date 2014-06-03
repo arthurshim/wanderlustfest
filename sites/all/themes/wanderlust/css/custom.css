@@ -3322,6 +3322,20 @@ margin-right: 13px
   top: -5px;
 }
 
+.atlanta .babble img{
+  position: relative;
+  top: -19px;
+}
+
+.atlanta .zico img{
+  position: relative;
+  top: -15px;
+}
+
+.atlanta #sponsor-logos{
+  margin: 15px auto;
+  width: 548px;
+}
 
 
 .festival-experience img{

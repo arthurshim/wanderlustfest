@@ -225,6 +225,15 @@
         </div>
       <?php } ?>
 
+      <?php  if($subdomain == 'atlanta'){   ?>
+        <div id="sponsor-logos">
+          <a href="http://zico.com/" class="zico" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/zico.png" alt="Zico"></a>
+          <a href="http://www.waterbobble.com/" class="babble" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/babble.png" alt="Babble"></a>            
+          <a href="http://www.re-sourcespringwater.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/resource.png" alt="Resource"></a>
+        </div>
+      <?php } ?>
+
+
       <?php  if($subdomain == 'philadelphia'){   ?>
         <div id="sponsor-logos">
           <a href="http://www.re-sourcespringwater.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/resource.png" alt="Resource"></a>
