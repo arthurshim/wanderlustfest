@@ -989,7 +989,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .panels-flexible-region-first,
 .node-type-artists .panel-col-first,
 .node-type-partners .panel-col-first{
-  width: 624px;
+  width: 610px;
   margin-right: 19px;
   float: left;
   padding: 0 0 14px 0px;
@@ -1007,7 +1007,7 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
 .node-type-page .panels-flexible-region-first{ 
 background: #fff;
   box-shadow: 0 5px 5px #ccc;
-  padding: 0 18px 14px 18px;
+  padding: 0 25px 14px 25px;
 }
 
 .page-media .panels-flexible-region{
