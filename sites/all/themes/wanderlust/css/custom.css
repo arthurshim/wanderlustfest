@@ -821,6 +821,18 @@ div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-
   background-position: 0 -41px !important;
   }
 
+
+
+.taupo div.view-id-artist_landing2 div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+.taupo .not-front.node-type-artists div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+.taupo div.view-id-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group,
+.taupo .not-front.node-type-partners div.viewsdisplaytabs-group-wrapper ul.viewsdisplaytabs-tab-group{
+    background:  #deddce url("../images/lineup-2015.jpg") center left no-repeat;
+  background-position: 0 0px !important;
+
+}
+
+
 .oahu .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .akl .view-artist-landing2 .viewsdisplaytabs-tab-group,
 .mel .view-artist-landing2 .viewsdisplaytabs-tab-group,
