@@ -161,7 +161,7 @@ jQuery.noConflict();
     <nav id="navigation" role="navigation" class="clearfix ">
 	  <?php list($subdomain, $domain) = explode('.', $_SERVER['SERVER_NAME'], 2); ?>
       <?php print $navigation ?>
-      <?php if ($subdomain == 'syd' || $subdomain == 'mel' ||$subdomain == 'cockastooisland'){
+      <?php if ($subdomain == 'syd' || $subdomain == 'mel' ||$subdomain == 'cockatooisland'){
       print 
       '<div class="social-media-links">
         <a class="facebook" href="https://www.facebook.com/WanderlustFestivalAustralia?ref=hl" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
