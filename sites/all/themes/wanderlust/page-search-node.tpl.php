@@ -138,7 +138,7 @@ jQuery.noConflict();
     <!-- BEGIN NAVIGATION -->  
     <nav id="navigation" role="navigation" class="clearfix ">
       <?php print $navigation ?>
-          <?php if ($subdomain == 'syd' || $subdomain == 'mel'){
+          <?php if ($subdomain == 'syd' || $subdomain == 'mel' || $subdomain == 'cockatooisland'){
       print 
       '<div class="social-media-links">
         <a class="facebook" href="https://www.facebook.com/WanderlustFestivalAustralia?ref=hl" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
@@ -149,7 +149,7 @@ jQuery.noConflict();
       </div>';
        }
    
-      elseif ($subdomain == 'akl' ){
+      elseif ($subdomain == 'akl' || $subdomain == 'taupo' ){
       print
       '<div class="social-media-links">
         <a class="facebook" href="https://www.facebook.com/WanderlustFestivalNZ?ref=hl" target="_blank" onClick="_gaq.push([\'_trackEvent\', \'Social Media\', \'Facebook\', \'follow\',, false]);">Facebook</a>
