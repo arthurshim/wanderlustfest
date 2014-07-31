@@ -166,7 +166,7 @@ function sitesdropdown_create_menu($reset = FALSE) {
 
     if($site['extra_fields']['field_event_date'][0]['value'] && $site['status'] == 1 && $site['extra_fields']['field_event_hide'][0]['value'] == 'enabled'):
 
-      $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('f. j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
+      $item = '<div class="event-item"><div class="event-item-image"><img src="/'.$site['extra_fields']['field_event_image'][0]['filepath'].'" /></div><div class="event-right"><div class="item-date">'.date('F j -', strtotime($site['extra_fields']['field_event_date'][0]['value'])).' '.date('j, Y', strtotime($site['extra_fields']['field_event_date'][0]['value2'])).'</div>';  
       $item .= '<div class="event-item-title"><a href="'.$site['extra_fields']['field_event_url'][0]['value'].'">'.$site['title'].'</a></div>';
       $item .= '<div class="event-item-address">'.$site['extra_fields']['field_event_city'][0]['value'].' ,'.$site['extra_fields']['field_event_state'][0]['value'].'</div></div></div>';
       $data[] = $item;
@@ -326,7 +326,7 @@ function sitesdropdown_site_id() {
 
     //If event starts / ends on same day, don't repeat day
     if (substr($site['field_event_date'][0]['value'], 0 , 10) == substr($site['field_event_date'][0]['value2'], 0 , 10)) {
-     $item .= date('f. j, Y', strtotime($site['field_event_date'][0]['value'])).'</div></div>';
+     $item .= date('F j, Y', strtotime($site['field_event_date'][0]['value'])).'</div></div>';
      }   
     
     else {
