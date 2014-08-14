@@ -3317,9 +3317,24 @@ margin-right: 13px
   text-align: center;
   display: inline-block;
   margin: 0 14px;
+  width: 79px;
+}
+
+.brooklyn .starbucks img{
+  position: relative;
+  width: 49px !important;
+}
+
+.brooklyn .spiritualgangster img{
+  width: 116px !important;
 }
 
 .brooklyn .health{
+  position: relative;
+  top: -12px;
+}
+
+.brooklyn .oscar{
   position: relative;
   top: -12px;
 }
