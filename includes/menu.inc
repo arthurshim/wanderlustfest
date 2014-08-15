@@ -48,8 +48,9 @@
  * Access to the callback functions is also protected by the menu system.
  * The "access callback" with an optional "access arguments" of each menu
  * item is called before the page callback proceeds. If this returns TRUE,
- * then access is granted; if FALSE, then access is denied. Menu items may
- * omit this attribute to use the value provided by an ancestor item.
+ * then access is granted; if FALSE, then access is denied. Default local task
+ * menu items (see next paragraph) may omit this attribute to use the value
+ * provided by the parent item.
  *
  * In the default Drupal interface, you will notice many links rendered as
  * tabs. These are known in the menu system as "local tasks", and they are
@@ -866,24 +867,14 @@ function menu_tree_all_data($menu_name = 'navigation', $item = NULL) {
  *   submenu below the link if there is one, and it is a subtree that has the
  *   same structure described for the top-level array.
  */
-function menu_tree_page_data($menu_name = 'navigation', $only_active_trail = FALSE) {
-   static $tree = array();
- 
-   // Load the menu item corresponding to the current page.
-   if ($item = menu_get_item()) {
-     // Generate a cache ID (cid) specific for this page.
-     $cid = 'links:'. $menu_name .':page-cid:'. $item['href'] .':'. (int)$item['access'];
-    // If we are asked for the active trail only, and $menu_name has not been
-    // built and cached for this page yet, then this likely means that it
-    // won't be built anymore, as this function is invoked from
-    // template_process_page(). So in order to not build a giant menu tree that
-    // needs to be checked for access on all levels, we simply check whether we
-    // have the menu already in cache, or otherwise, build a minimum tree
-    // containing the breadcrumb/active trail only.
-    // @see menu_set_active_trail()
-    if (!isset($tree[$cid]) && $only_active_trail) {
-      $cid .= ':trail';
-   }
+function menu_tree_page_data($menu_name = 'navigation') {
+  static $tree = array();
+
+  // Load the menu item corresponding to the current page.
+  if ($item = menu_get_item()) {
+    // Generate a cache ID (cid) specific for this page.
+    $cid = 'links:'. $menu_name .':page-cid:'. $item['href'] .':'. (int)$item['access'];
+
     if (!isset($tree[$cid])) {
       // If the static variable doesn't have the data, check {cache_menu}.
       $cache = cache_get($cid, 'cache_menu');
@@ -921,7 +912,7 @@ function menu_tree_page_data($menu_name = 'navigation', $only_active_trail = FAL
           $placeholders = implode(', ', array_fill(0, count($args), '%d'));
           $expanded = variable_get('menu_expanded', array());
           // Check whether the current menu has any links set to be expanded.
-          if (!$only_active_trail && in_array($menu_name, $expanded)) {
+          if (in_array($menu_name, $expanded)) {
             // Collect all the links set to be expanded, and then add all of
             // their children to the list as well.
             do {
@@ -948,7 +939,7 @@ function menu_tree_page_data($menu_name = 'navigation', $only_active_trail = FAL
         $data['tree'] = menu_tree_data(db_query("
           SELECT m.load_functions, m.to_arg_functions, m.access_callback, m.access_arguments, m.page_callback, m.page_arguments, m.title, m.title_callback, m.title_arguments, m.type, m.description, ml.*
           FROM {menu_links} ml LEFT JOIN {menu_router} m ON m.path = ml.router_path
-         WHERE ml.menu_name = '%s' AND " . ($only_active_trail ? 'ml.mlid' : 'ml.plid') . " IN (". $placeholders .")
+          WHERE ml.menu_name = '%s' AND ml.plid IN (". $placeholders .")
           ORDER BY p1 ASC, p2 ASC, p3 ASC, p4 ASC, p5 ASC, p6 ASC, p7 ASC, p8 ASC, p9 ASC", $args), $parents);
         $data['node_links'] = array();
         menu_tree_collect_node_links($data['tree'], $data['node_links']);
@@ -1568,10 +1559,7 @@ function menu_set_active_trail($new_trail = NULL) {
       }
     }
 
-    // Pass TRUE for $only_active_trail to make menu_tree_page_data() build a
-    // stripped down menu tree containing the active trail only, in case the
-    // given menu has not been built in this request yet.
-    $tree = menu_tree_page_data(menu_get_active_menu_name(), TRUE);
+    $tree = menu_tree_page_data(menu_get_active_menu_name());
     list($key, $curr) = each($tree);
 
     while ($curr) {
@@ -1620,7 +1608,7 @@ function menu_get_active_breadcrumb() {
   }
 
   $item = menu_get_item();
-  if (!empty($item['access'])) {
+  if ($item && $item['access']) {
     $active_trail = menu_get_active_trail();
 
     foreach ($active_trail as $parent) {
@@ -1713,9 +1701,6 @@ function menu_rebuild() {
     return FALSE;
   }
 
-  // Encapsulate the rebuild in a transaction.
-  db_query('BEGIN');
-
   $menu = menu_router_build(TRUE);
   _menu_navigation_links_rebuild($menu);
   // Clear the menu, page and block caches.
@@ -1729,9 +1714,6 @@ function menu_rebuild() {
     variable_del('menu_rebuild_needed');
   }
   lock_release('menu_rebuild');
-  
-  db_query('COMMIT');
-  
   return TRUE;
 }
 
@@ -2294,14 +2276,7 @@ function _menu_router_build($callbacks) {
   // First pass: separate callbacks from paths, making paths ready for
   // matching. Calculate fitness, and fill some default values.
   $menu = array();
-  $unique_paths = array();
   foreach ($callbacks as $path => $item) {
-    // If this is a duplicate path (case insensitive) then ignore this
-    // callback item.
-    if (in_array(strtolower($path), $unique_paths)) {
-      continue;
-    }
-    $unique_paths[] = strtolower($path);
     $load_functions = array();
     $to_arg_functions = array();
     $fit = 0;
