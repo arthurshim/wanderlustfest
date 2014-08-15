@@ -1,5 +1,4 @@
 <?php
-// $Id: panels-pane.tpl.php,v 1.1.2.1 2009/10/13 21:38:52 merlinofchaos Exp $
 /**
  * @file panels-pane.tpl.php
  * Main panel pane template
@@ -18,11 +17,6 @@
  *   data including the contexts and all of the other panes being displayed.
  */
 ?>
-   <?php //drupal_set_message('</pre>' . print_r( strip_tags($display), 1) . '</pre>'); ?>
-     <?php //  if ($pane->subtype == 'artist_tweets' && (strlen(strip_tags($content)) <= 95)){ ?>
-      <?php    
-   //   }
-     // else //{ ?>
 <div class="<?php print $classes; ?>" <?php print $id; ?>>
   <?php if ($admin_links): ?>
     <div class="admin-links panel-hide">
@@ -40,12 +34,10 @@
     </div>
   <?php endif; ?>
 
-
   <div class="pane-content">
     <?php print $content; ?>
   </div>
 
- 
   <?php if ($links): ?>
     <div class="links">
       <?php print $links; ?>
@@ -58,4 +50,3 @@
     </div>
   <?php endif; ?>
 </div>
-  <?php // } ?>

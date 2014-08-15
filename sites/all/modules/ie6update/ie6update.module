@@ -1,5 +1,4 @@
 <?php
-// $Id: ie6update.module,v 1.1.2.1.2.4 2010/04/28 20:28:14 jrglasgow Exp $
 
 /**
  * @file
@@ -24,6 +23,16 @@ function ie6update_menu() {
 }
 
 /**
+ * Implementation of hook_help().
+ */
+function ie6update_help($path, $arg) {
+  switch ($path) {
+    case 'admin/help#ie6update':
+      return filter_filter('process', 1, NULL, file_get_contents(dirname(__FILE__) . "/README.txt"));
+  }
+}
+
+/**
  * Return the module admin settings form to be rendered
  */
 function ie6update_admin_settings() {
@@ -40,6 +49,13 @@ function ie6update_admin_settings() {
     '#type' => 'textfield',
     '#default_value' => variable_get('ie6update_update_bar_message', 'Internet Explorer is missing updates required to view this site. Click here to update... '),
   );
+  $form['ie6update_ie_versions'] = array(
+    '#title' => t('IE Versions'),
+    '#description' => t('The versions of IE for which the update message should be shown.'),
+    '#type' => 'checkboxes',
+    '#options' => drupal_map_assoc(array('IE 6', 'IE 7', 'IE 8', 'IE 9')),
+    '#default_value' => variable_get('ie6update_ie_versions', array('IE 6' => 'IE 6')),
+  );
   return system_settings_form($form);
 }
 
@@ -47,20 +63,33 @@ function ie6update_admin_settings() {
  * Implementation of hook_footer().
  */
 function ie6update_footer($main = 0) {
-  global $base_url, $base_path;
+  global $base_url;
   $message = variable_get('ie6update_update_bar_message', 'Internet Explorer is missing updates required to view this site. Click here to update... ');
   $url = variable_get('ie6update_destination_url', 'http://www.microsoft.com/windows/internet-explorer/default.aspx');
+  $ie_versions = variable_get('ie6update_ie_versions', array('IE 6' => 'IE 6'));
   $icon_path = $base_url . '/' . drupal_get_path('module', 'ie6update') .'/images/';
-  return '
-    <!--[if IE 6]>
-      <script type="text/javascript">
-        var IE6UPDATE_OPTIONS = {
-          icons_path: "'. $icon_path .'",
-          message: "'. t(filter_xss_admin($message)) .'",
-          url: "'. $url .'"
-        }
-      </script>
-      <script type="text/javascript" src="'. url(drupal_get_path('module', 'ie6update') .'/ie6update.js', array('absolute' => TRUE)) .'"></script>
-    <![endif]-->
-  ';
+
+  // Generate IE condition string.
+  $ie_conditions = array();
+  foreach ($ie_versions as $version) {
+    if ($version) {
+      $ie_conditions[] = '(' . $version . ')';
+    }
+  }
+  $ie_condition = implode('|', $ie_conditions);
+
+  if ($message && $url && !empty($ie_conditions)) {
+    return '
+      <!--[if ' . $ie_condition . ']>
+        <script type="text/javascript">
+          var IE6UPDATE_OPTIONS = {
+            icons_path: "' . $icon_path . '",
+            message: "' . filter_xss_admin($message) . '",
+            url: "' . $url . '"
+          }
+        </script>
+        <script type="text/javascript" src="' . $base_url . '/' . drupal_get_path('module', 'ie6update') . '/ie6update.js' . '"></script>
+      <![endif]-->
+    ';
+  }
 }

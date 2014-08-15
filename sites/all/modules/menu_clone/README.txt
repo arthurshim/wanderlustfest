@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.2.2.2 2010/03/24 09:55:06 malc0mn Exp $
 
 README file for the Menu Clone Drupal module.
 

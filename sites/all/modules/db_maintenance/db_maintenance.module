@@ -1,5 +1,4 @@
 <?php
-// $Id: db_maintenance.module,v 1.11.2.3 2009/12/23 19:42:22 cyu Exp $
 
 /**
  * @file
@@ -155,7 +154,9 @@ function db_maintenance_optimize_tables() {
         }
         // Return to the previously set database.
         db_set_active($previous);
-        watchdog('db_maintenance', 'Optimized @table table in @db database.', array('@db' => $db_name, '@table' => $table_name), WATCHDOG_DEBUG);
+        if (variable_get('db_maintenance_log', 0)) {
+          watchdog('db_maintenance', 'Optimized @table table in @db database.', array('@db' => $db_name, '@table' => $table_name), WATCHDOG_DEBUG);
+        }
       }
       if (variable_get('db_maintenance_log', 0)) {
         $tables = implode(', ', $config_tables);
@@ -232,19 +233,19 @@ function db_maintenance_admin_settings() {
  * Determine which database software is in use
  */
 function _db_maintenance_determine_software() {
-  global $db_url;
-  static $db_type;
+  global $db_type;
+  static $db_engine;
 
-  if (!empty($db_type)) {
-    return $db_type;
+  if (!empty($db_engine)) {
+    return $db_engine;
   }
-  elseif (strpos($db_url, 'mysql://') === 0 || strpos($db_url, 'mysqli://') === 0) {
-    $db_type = 'mysql';
-    return $db_type;
+  elseif ($db_type == 'mysql' || $db_type == 'mysqli') {
+    $db_engine = 'mysql';
+    return $db_engine;
   }
-  elseif (strpos($db_url, 'pgsql://') === 0) {
-    $db_type = 'pgsql';
-    return $db_type;
+  elseif ($db_type == 'pgsql') {
+    $db_engine = 'pgsql';
+    return $db_engine;
   }
   else {
     return FALSE;

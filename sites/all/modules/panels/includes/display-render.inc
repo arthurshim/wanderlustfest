@@ -1,5 +1,4 @@
 <?php
-// $Id: display-render.inc,v 1.5.2.29 2010/07/26 21:24:22 merlinofchaos Exp $
 
 /**
  * @file
@@ -60,9 +59,7 @@ function panels_render_pane($content, $pane, &$display) {
     }
   }
 
- // if (!empty($content->content)) {
-     // Empty cck fields still output <!-- /content-field -->, so check that too.
-  if (!empty($content->content) && trim($content->content) != '<!-- /content-field -->') {
+  if (!empty($content->content)) {
     if (!empty($pane->style['style'])) {
       $style = panels_get_style($pane->style['style']);
 

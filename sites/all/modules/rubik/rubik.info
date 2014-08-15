@@ -1,0 +1,17 @@
+name = "Rubik"
+description = "Clean admin theme."
+base theme = "tao"
+core = "6.x"
+engine = "phptemplate"
+
+scripts[] = "js/rubik.js"
+stylesheets[screen][] = "core.css"
+stylesheets[screen][] = "icons.css"
+stylesheets[screen][] = "style.css"
+
+; Information added by drupal.org packaging script on 2013-09-02
+version = "6.x-3.0-beta5"
+core = "6.x"
+project = "rubik"
+datestamp = "1378116144"
+

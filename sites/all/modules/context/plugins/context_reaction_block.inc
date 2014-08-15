@@ -1,5 +1,4 @@
 <?php
-// $Id: context_reaction_block.inc,v 1.1.2.35 2010/08/06 16:13:32 jmiccolis Exp $
 
 /**
  * Expose blocks as context reactions.
@@ -502,50 +501,9 @@ class context_reaction_block extends context_reaction {
     if (function_exists('json_decode')) {
       return json_decode($json, $assoc);
     }
-    return context_reaction_block::_json_decode($json);
-  }
-
-  /**
-   * From http://www.php.net/manual/en/function.json-decode.php#91216
-   * with modifications for consistency with output of json_decode().
-   *
-   * Original author: walidator.info 2009.
-   */
-  static function _json_decode($json) {
-    $comment = false;
-    $out = '$x = ';
-    for ($i=0; $i < strlen($json); $i++) {
-      if (!$comment) {
-        switch ($json[$i]) {
-          case '{':
-            $out .= ' (object) array(';
-            break;
-          case '}':
-            $out .= ')';
-            break;
-          case '[':
-            $out .= ' array(';
-            break;
-          case ']':
-            $out .= ')';
-            break;
-          case ':';
-            $out .= '=>';
-            break;
-          default:
-            $out .= $json[$i];
-            break;
-        }
-      }
-      else {
-        $out .= $json[$i];
-      }
-      if ($json[$i] == '"') {
-        $comment = !$comment;
-      }
+    else {
+      watchdog('context', 'Please upgrade your PHP version to one that supports json_decode.');
     }
-    eval($out . ';');
-    return $x;
   }
 
   /**
@@ -555,8 +513,14 @@ class context_reaction_block extends context_reaction {
   function render_ajax($param) {
     // Besure the page isn't a 404 or 403.
     $headers = drupal_set_header();
-    foreach (explode("\n", $headers) as $header) {
-      if ($header == "HTTP/1.1 404 Not Found" || $header == "HTTP/1.1 403 Forbidden") {
+
+    // Support for Pressflow drupal_set_header.
+    if (!is_array($headers)) {
+      $headers = explode("\n", $headers);
+    }
+
+    foreach ($headers as $header) {
+      if (strpos($header, "404 Not Found") !== FALSE || strpos($header, "403 Forbidden") !== FALSE) {
         return;
       }
     }
@@ -567,6 +531,11 @@ class context_reaction_block extends context_reaction {
     if (strpos($param, ',') !== FALSE) {
       list($bid, $context) = explode(',', $param);
       list($module, $delta) = explode('-', $bid, 2);
+      // Check token to make sure user has access to block.
+      if (!(user_access('context ajax block access') || $this->context_block_ajax_rendering_allowed($bid))) {
+        echo drupal_to_js(array('status' => 0));
+        exit;
+      }
 
       // Ensure $bid is valid.
       $info = $this->get_blocks();
@@ -606,5 +575,19 @@ class context_reaction_block extends context_reaction {
     }
     echo drupal_to_js(array('status' => 0));
     exit;
+  }
+
+  /**
+   * Allow modules to selectively allow ajax rendering of a specific block
+   */
+  private function context_block_ajax_rendering_allowed($bid) {
+    $allowed = FALSE;
+    foreach (module_invoke_all('context_allow_ajax_block_access', $bid) as $module_allow) {
+      $allowed = $allow || $module_allow;
+      if ($allowed) {
+        break;
+      }
+    }
+    return $allowed;
   }
 }

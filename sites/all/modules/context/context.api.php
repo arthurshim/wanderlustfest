@@ -1,5 +1,4 @@
 <?php
-// $Id: context.api.php,v 1.1.2.4 2010/07/29 16:24:04 yhahn Exp $
 
 /**
  * @file
@@ -104,4 +103,15 @@ function hook_context_load_alter(&$context) {
       'weight' => '2',
     );
   }
+}
+
+/**
+ * Allows for finer grained access mechanisms to using the json
+ * rendering capabilities of the block reaction when a user isn't
+ * granted the administer contexts or context ajax block access
+ * permission
+ * @param $block_id
+ *   ID of block in module-delta format
+ */
+function hook_context_allow_ajax_block_access($block_id) {
 }

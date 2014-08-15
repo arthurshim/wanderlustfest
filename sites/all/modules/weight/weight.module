@@ -29,6 +29,9 @@ function weight_help($path, $args) {
   }
 }
 
+/**
+ * Implements hook_perm().
+ */
 function weight_perm() {
   return array('assign node weight');
 }
@@ -66,11 +69,13 @@ function weight_menu() {
  * access the node list early on.
  */
 function weight_theme_registry_alter(&$theme_registry) {
-  $path = drupal_get_path('module', 'weight');
-  $theme_registry['node_admin_nodes']['function'] = 'theme_weight_node_admin_nodes';
-  $theme_registry['node_admin_nodes']['file'] = $path .'/weight.module';
-  $theme_registry['node_admin_nodes']['theme path'] = $path;
-  $theme_registry['node_admin_nodes']['theme paths'][0] = $path;
+  if (variable_get('weight_content_admin', FALSE)) {
+    $path = drupal_get_path('module', 'weight');
+    $theme_registry['node_admin_nodes']['function'] = 'theme_weight_node_admin_nodes';
+    $theme_registry['node_admin_nodes']['file'] = $path .'/weight.module';
+    $theme_registry['node_admin_nodes']['theme path'] = $path;
+    $theme_registry['node_admin_nodes']['theme paths'][0] = $path;
+  }
 }
 
 function weight_nodeapi(&$node, $op) {
@@ -80,7 +85,7 @@ function weight_nodeapi(&$node, $op) {
       case 'presave':
         // Non-weighted nodes have a weight of zero.
         if (is_null($node->node_weight)) {
-          $node->node_weight = 0;
+          $node->node_weight = variable_get('weight_default', 0);
         }
 
         // If the admin wants to use the menu weight, see if there is one.
@@ -151,54 +156,6 @@ function theme_weight_node_admin_nodes($form) {
 }
 
 /**
- * Generate JS code for selecting individual node weights on admin page
- */
-function weight_node_selector($nid) {
-  static $js_included;
-
-  if (!$js_included) {
-    $path = drupal_get_path('module', 'weight');
-    drupal_add_js($path .'/httpRequest.js', 'module', 'header', TRUE);
-    //drupal_add_js('module', 'weight') .'/httpRequest.js';
-    $js_included = TRUE;
-  }
-
-  $selector_template = "<select style=\"margin: 0;\"
-    onchange='httpRequest(\"GET\", \"" . base_path() .
-    "?q=admin/node/weight/_weight_change/\" + [NID] + \"/\" +
-    this.options[this.selectedIndex].value,true)' >";
-
-  // Get more stuff about the node.
-  $node = db_fetch_object(db_query("SELECT nid, `status`, sticky, promote, translate, moderate FROM {node} WHERE nid = %d", $nid));
-
-  // Convert to our weight range.
-  _weight_decode($node);
-  $weight = $node->node_weight;
-
-  // Ugly bit of javascript we use for each dropdown to submit weight changes
-  // in the background. Relies on even uglier httpRequest.js file that comes
-  // with this module. Ironically, Ajax makes me feel dirty.
-
-  $weight_range = variable_get('weight_range', 20);
-  for ($i = - $weight_range; $i <= $weight_range; ++$i) {
-    $selector_template .= "<option value='$i'". ($i == $node->node_weight ? " selected='selected'" : '') .">$i</option>";
-  }
-  $selector_template .= '</select>';
-  $weight_selector = str_replace('[NID]', $nid, $selector_template);
-
-  $status = $node->status ? t('published') : NULL;
-  $status .= $node->sticky ? '<br />'. t('sticky') : NULL;
-  $status .= $node->promote ? '<br />'. t('promoted') : NULL;
-  $status .= $node->translate ? '<br />'. t('translate') : NULL;
-  $status .= $node->moderate ? '<br />'. t('moderated') : NULL;
-
-  return array(
-    'selector' => '<div class="weight-selector">'. $weight_selector .'</div>',
-    'status' => $status,
-    );
-}
-
-/**
  * Implementation of hook_form_alter().
  *
  * This is where we tweak the admin/content/node to include our weight
@@ -261,20 +218,24 @@ function weight_form_alter(&$form, $form_state, $form_id) {
  * Implementation of hook_form_FORM_ID_alter().
  */
 function weight_form_node_admin_content_alter(&$form, $form_state) {
+  if (!variable_get('weight_content_admin', FALSE)) {
+    return;
+  }
+
   $weight_node_types = variable_get('weight_node_types', array_flip(node_get_types('names')));
 
   $weight_node_type_names = array();
   foreach ($weight_node_types as $type) {
     $weight_node_type_names[] = node_get_types('name', $type);
   }
-  
+
   $weight_range = variable_get('weight_range', 20);
   $weights = array();
   for ($i = - $weight_range; $i <= $weight_range; ++$i) {
     $weights[$i] = $i;
   }
   $form['admin']['weight']['#tree'] = TRUE;
-  foreach($form['admin']['title'] as $nid => $value) {
+  foreach ($form['admin']['title'] as $nid => $value) {
     $one_of_ours = in_array($form['admin']['name'][$nid]['#value'], $weight_node_type_names);
     if ($one_of_ours) {
       // Get more stuff about the node.
@@ -303,6 +264,145 @@ function weight_form_node_admin_content_alter(&$form, $form_state) {
       $form['admin']['weight'][$nid]['#value'] = '';
     }
   }
+}
+
+/**
+ * Implementation of hook_forms().
+ */
+function weight_forms($form_id, $args) {
+  if (strpos($form_id, 'weight_view_weight_form') !== FALSE) {
+    $forms[$form_id] = array('callback' => 'weight_view_weight_form');
+    return $forms;
+  };
+}
+
+/**
+ * Display a view as a weight changing table.
+ */
+function weight_view_weight_form($form_state, $view, $renders) {
+  $options = $view->style_plugin->options;
+  $results = $view->result;
+  $fields = $view->field;
+  $id = 'weight_view_weight_form_'. $view->name .'_'. $view->current_display;
+  drupal_add_tabledrag($id, 'order', 'sibling', 'weight_dragger');
+
+  parse_str(tablesort_get_querystring(), $query);
+  if (isset($view->exposed_raw_input)) {
+    $query += $view->exposed_raw_input;
+  }
+  $query = empty($query) ? '' : '&' . http_build_query($query, '', '&');
+
+  $header = array();
+  $rows = array();
+
+  foreach ($fields as $key => $field) {
+    if (empty($field->options['exclude'])) {
+      $header[$key] = check_plain($field->options['label']);
+    }
+  }
+
+  $form['#tree'] = TRUE;
+
+  $form['header'] = array(
+    '#type' => 'value',
+    '#value' => $header,
+  );
+
+  foreach ($renders as $num => $result) {
+    foreach ($result as $field => $value) {
+      if ($field == 'weight') {
+        $form['rows'][$num][$field] = array(
+          '#type' => 'weight',
+          '#delta' => variable_get('weight_range', 20),
+          '#default_value' => $value,
+        );
+      }
+      else {
+        $form['rows'][$num][$field] = array(
+          '#type' => 'markup',
+          '#value' => filter_xss($value),
+        );
+      }
+    }
+    $form['rows'][$num]['nid_hidden'] = array(
+      '#type' => 'value',
+      '#value' => $view->result[$num]->nid,
+    );
+  }
+
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Save'),
+  );
+
+  $class = 'views-table-weight';
+  if (!empty($options['sticky'])) {
+    drupal_add_js('misc/tableheader.js');
+    $class .= " sticky-enabled";
+  }
+  $form['class'] = array(
+    '#type' => 'value',
+    '#value' => $class,
+  );
+
+  $form['id'] = array(
+    '#type' => 'value',
+    '#value' => $id,
+  );
+
+  $form['fields'] = array(
+    '#type' => 'value',
+    '#value' => $fields,
+  );
+
+  $form['#theme'] = 'weight_view_weight';
+  $form['#submit'][] = 'weight_view_weight_form_submit';
+
+  return $form;
+}
+
+/**
+ * Save the changed weights.
+ */
+function weight_view_weight_form_submit($form, &$form_state) {
+  foreach ($form_state['values']['rows'] as $count => $value) {
+    $weight = $value['weight'];
+    $nid = $value['nid_hidden'];
+    $node = node_load($nid);
+    if ($node->sticky) {
+      $node->sticky = (-1 * $weight) + 100;
+    }
+    // Unweighted non-sticky nodes will have a value of -100.
+    else {
+      $node->sticky = (-1 * $weight) - 100;
+    }
+    db_query("UPDATE {node} SET sticky = %d WHERE nid = %d", $node->sticky, $nid);
+  }
+  drupal_set_message(t('Your weight changes have been saved.'));
+}
+
+/**
+ * Prepare the weight form for its template file.
+ */
+function template_preprocess_weight_view_weight(&$vars) {
+  $vars['header'] = $vars['form']['header']['#value'];
+  $vars['class'] = $vars['form']['class']['#value'];
+  $vars['id'] = $vars['form']['id']['#value'];
+  $vars['fields'] = $vars['form']['fields']['#value'];
+  foreach ($vars['form']['rows'] as $count => $item) {
+    if (is_numeric($count)) {
+      foreach ($item as $field => $value) {
+        if (drupal_substr($field, 0, 1) != '#') {
+          if (drupal_substr($field, 0, 6) == 'weight') {
+            $value['#attributes']['class'] = 'weight_dragger';
+          }
+          $vars['rows'][$count][$field] = drupal_render($value);
+        }
+      }
+    }
+  }
+  unset($vars['form']['rows']);
+  $vars['submit'] = drupal_render($vars['form']);
 }
 
 /**
@@ -376,7 +476,7 @@ function _weight_decode(&$node) {
  * Implementation of hook_views_api().
  */
 function weight_views_api() {
-  return array('api' => 2, 'path' => drupal_get_path('module', 'weight'));
+  return array('api' => 2, 'path' => drupal_get_path('module', 'weight') . '/views');
 }
 
 /**
@@ -384,9 +484,15 @@ function weight_views_api() {
  */
 function weight_theme() {
   return array(
-    'weight_view_weight_form' => array(
+    'weight_view_weight' => array(
+      'arguments' => array(
+        'form' => NULL
+      ),
+      'template' => 'weight-view-weight',
+      'path' => drupal_get_path('module', 'weight') . '/theme',
+    ),
+    'weight_ui_style_plugin' => array(
       'arguments' => array('form' => NULL),
-      'template' => 'weight-view-weight-form',
     ),
     'weight_node_admin_nodes' => array(
       'arguments' => array('form' => NULL),
@@ -395,25 +501,29 @@ function weight_theme() {
 }
 
 /**
- * Prepare the weight form for its template file.
+ * Theme the form for the table style plugin
  */
-function template_preprocess_weight_view_weight_form(&$vars) {
-  $vars['header'] = $vars['form']['#variables']['header'];
-  $vars['class'] = $vars['form']['#variables']['class'];
-  $vars['id'] = $vars['form']['#variables']['id'];
-  $vars['fields'] = $vars['form']['#variables']['fields'];
-  foreach ($vars['form']['rows'] as $count => $item) {
-    if (is_numeric($count)) {
-      foreach ($item as $field => $value) {
-        if (drupal_substr($field, 0, 1) != '#') {
-          if (drupal_substr($field, 0, 6) == 'weight') {
-            $value['#attributes']['class'] = 'weight_dragger';
-          }
-          $vars['rows'][$count][$field] = drupal_render($value);
-        }
-      }
-    }
+function theme_weight_ui_style_plugin($form) {
+  $output = drupal_render($form['description_markup']);
+
+  $header = array(
+    t('Field'),
+    t('Column'),
+    t('Separator'),
+  );
+  $rows = array();
+  foreach (element_children($form['columns']) as $id) {
+    $row = array();
+    $row[] = drupal_render($form['info'][$id]['name']);
+    $row[] = drupal_render($form['columns'][$id]);
+    $row[] = drupal_render($form['info'][$id]['separator']);
+    $rows[] = $row;
   }
-  unset($vars['form']['rows']);
-  $vars['submit'] = drupal_render($vars['form']);
+
+  // Add the special 'None' row.
+  $rows[] = array(t('None'), '', '', '', array('align' => 'center', 'data' => drupal_render($form['default'][-1])));
+
+  $output .= theme('table', $header, $rows);
+  $output .= drupal_render($form);
+  return $output;
 }

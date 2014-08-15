@@ -1,5 +1,4 @@
 <?php
-// $Id: menu_clone.module,v 1.1.2.5 2010/09/22 17:51:21 malc0mn Exp $
 
 /**
  * Implementation of hook_help().
@@ -87,10 +86,16 @@ function menu_clone_load($menu_name) {
 
   // Get basic menu data.
   $menu = db_fetch_array(db_query("SELECT * FROM {menu_custom} WHERE menu_name = '%s'", $menu_name));
+
+  // No menu? Bail out triggering a 404.
+  if (empty($menu)) {
+    return FALSE;
+  }
+
   // Create a unique name
   // Remove 'menu-' prefix if there is any.
   if (strpos($menu['menu_name'], 'menu-') === 0) {
-    $menu['menu_name'] = substr($menu['menu_name'],5);
+    $menu['menu_name'] = substr($menu['menu_name'], 5);
   }
   $new_name = substr('clone-' . $menu['menu_name'], 0, MENU_MAX_MENU_NAME_LENGTH_UI);
   $sql = "SELECT menu_name FROM {menu_custom} WHERE menu_name = '%s'";

@@ -28,6 +28,15 @@ function weight_settings_form() {
     '#attributes' => array('class' => 'container-inline'),
     );
 
+  $form['weight_content_admin'] = array(
+    '#type' => 'radios',
+    '#title' => t('Content Admin Page'),
+    '#options' => array(t('No'), t('Yes')),
+    '#default_value' => variable_get('weight_content_admin', TRUE),
+    '#description' => '<p>'. t('Show the weight on the content admin page? NOTE: You will need to clear the Theme Registry after changing this option.') .'</p>',
+    '#attributes' => array('class' => 'container-inline'),
+  );
+
   $form['node'] = array(
     '#type' => 'fieldset',
     '#title' => t('Node weight selector settings'),
@@ -90,6 +99,7 @@ function weight_settings_form_submit($form, &$form_state) {
   variable_set('weight_default', $form_state['values']['weight_default']);
   variable_set('weight_use_menu', $form_state['values']['weight_use_menu']);
   variable_set('weight_label', $form_state['values']['weight_label']);
+  variable_set('weight_content_admin', $form_state['values']['weight_content_admin']);
 
   // Check for changes in the list.
   $before = array_filter(variable_get('weight_node_types', array()));

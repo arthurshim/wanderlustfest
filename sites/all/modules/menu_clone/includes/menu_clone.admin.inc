@@ -269,27 +269,27 @@ function theme_menu_clone_clone_form($form) {
       array('data' => t('Expanded'), 'class' => 'checkbox'),
       t('Weight'),
     );
-  
+
     $rows = array();
     foreach (element_children($form['edit_menu']['tree']) as $mlid) {
       if (isset($form['edit_menu']['tree'][$mlid]['hidden'])) {
         $element = &$form['edit_menu']['tree'][$mlid];
-  
+
         // Add special classes to be used for tabledrag.js.
         $element['plid']['#attributes']['class'] = 'menu-clone-plid';
         $element['mlid']['#attributes']['class'] = 'menu-clone-mlid';
         $element['weight']['#attributes']['class'] = 'menu-clone-weight';
-  
+
         // Change the parent field to a hidden. This allows any value but hides
         // the field.
         $element['plid']['#type'] = 'hidden';
-  
+
         $row = array();
         $row[] = theme('indentation', $element['#item']['depth'] - 1) . drupal_render($element['title']);
         $row[] = array('data' => drupal_render($element['hidden']), 'class' => 'checkbox');
         $row[] = array('data' => drupal_render($element['expanded']), 'class' => 'checkbox');
         $row[] = drupal_render($element['weight']) . drupal_render($element['plid']) . drupal_render($element['mlid']);
-  
+
         $row = array_merge(array('data' => $row), $element['#attributes']);
         $row['class'] = !empty($row['class']) ? $row['class'] .' draggable' : 'draggable';
         $rows[] = $row;

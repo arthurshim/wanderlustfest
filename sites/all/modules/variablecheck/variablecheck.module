@@ -51,7 +51,7 @@ function variablecheck_check_variables() {
 
     // If the unserialize call returned FALSE and the stored value is NOT a
     // boolean false, list it in the report.
-    if ($value === FALSE && $entry->value != 'b:0;') {
+    if ($value === FALSE && $entry->value != serialize(FALSE)) {
       $row = array($entry->name, $entry->value);
       $rows[] = $row;
     }

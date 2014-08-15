@@ -24,6 +24,7 @@ class jcarousel_style_plugin extends views_plugin_style {
     $options['easing'] = array('default' => NULL);
     $options['vertical'] = array('default' => FALSE);
     $options['navigation'] = array('default' => '');
+    $options['ajax'] = array('default' => 0);
     return $options;
   }
 
@@ -38,7 +39,7 @@ class jcarousel_style_plugin extends views_plugin_style {
     $skins[''] = t('None');
 
     // Number of options to provide in count-based options.
-    $range = drupal_map_assoc(range(1, 25));
+    $range = drupal_map_assoc(range(1, 10));
     $auto_range = array('' => t('Auto')) + $range;
 
     $form['description'] = array(
@@ -99,6 +100,12 @@ class jcarousel_style_plugin extends views_plugin_style {
       ),
       '#default_value' => $this->options['navigation'],
       '#description' => t('Enable a clickable navigation list to jump straight to a given page.'),
+    );
+    $form['ajax'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('AJAX load pages'),
+      '#default_value' => $this->options['ajax'],
+      '#description' => t('The number of items set in the pager settings will be preloaded. All additional pages will be loaded by AJAX as needed.'),
     );
 
     $form['advanced'] = array(

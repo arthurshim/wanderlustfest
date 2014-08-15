@@ -1,5 +1,4 @@
 <?php
-// $Id: context_ui.module,v 1.13.2.48.2.1.2.19 2010/08/23 16:40:56 yhahn Exp $
 
 /**
  * Implementation of hook_ctools_plugin_directory().
@@ -273,4 +272,11 @@ function context_ui_settings(&$form_state) {
  */
 function context_ui_settings_submit($form, &$form_state) {
   variable_set('menu_rebuild_needed', TRUE);
+}
+
+/**
+ * Implements hook_perm
+ */
+function context_perm() {
+  return array('context ajax block access');
 }
