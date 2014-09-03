@@ -3316,8 +3316,14 @@ margin-right: 13px
 .brooklyn #sponsor-logos img{
   text-align: center;
   display: inline-block;
-  margin: 0 14px;
-  width: 79px;
+  margin: 0 12px;
+  width: 69px;
+}
+
+.brooklyn .manduka img{
+  margin-right: 0 !important;
+  position: relative;
+  top: -6px;
 }
 
 .brooklyn .starbucks img{

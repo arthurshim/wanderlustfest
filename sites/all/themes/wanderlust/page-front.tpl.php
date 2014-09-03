@@ -284,6 +284,8 @@ jQuery.noConflict();
           <a class="health" href="http://www.health.com/health/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/health_nyc.png" alt="Health"></a>            
           <a class="oscar" href="https://www.hioscar.com/" target="_blank"><img src="/sites/all/themes/wanderlust/images/oscar.png" alt="Health"></a>            
           <a class="evolution" href="http://evolutionfresh.com/" target="_blank"><img src="http://9394bc4f934eb8c957d8-2f084e1f525b6270d41d6d2c79f4c609.r93.cf1.rackcdn.com/2014-images/evolution_nyc.png" alt="Evolution Fresh"></a>
+          <a class="manduka" href="http://manduka.com/" target="_blank"><img src="/sites/all/themes/wanderlust/images/manduka.png" alt="Manduka"></a>
+
         </div>
       <?php } ?>
        
