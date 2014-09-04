@@ -318,14 +318,13 @@ function wanderlust_preprocess_page(&$vars, $hook) {
 EOF;
   }
 
-    elseif ($subdomain == 'mel' || $subdomain == 'akl' || $subdomain == 'syd' ){
+    elseif ($subdomain == 'mel' || $subdomain == 'akl' || $subdomain == 'syd' || $subdomain == 'cockatooisland' ){
    $vars['connect'] = <<<EOF
   
   <div id="thankyou">Thank you for signing up! You should receive an email confirmation shortly.</div>
-     <div id="mc_embed_signup">
-
-<form action="http://wanderlust.us3.list-manage.com/subscribe/post?u=3252bf638e8eb23d7ebc4af05&amp;id=e19ac9899d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-<h2>Sign up for the Wanderlust Newsletter</h2>
+   <div id="mc_embed_signup">
+<form action="//wanderlustfestival.us3.list-manage.com/subscribe/post?u=f3b1e75b06dbe35398e3f534d&amp;id=b1e3b433ff" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+<h2>Subscribe to our mailing list</h2>
 <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
 <div class="mc-field-group">
 <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
@@ -340,43 +339,26 @@ EOF;
 <label for="mce-LNAME">Last Name </label>
 <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
 </div>
-<div class="mc-field-group">
-<label for="mce-MMERGE8">Zip/Postal Code </label>
-<input type="text" value="" name="MMERGE8" class="" id="mce-MMERGE8">
+<div class="mc-field-group size1of2">
+<label for="mce-MMERGE10">Postal Code </label>
+<input type="number" name="MMERGE10" class="" value="" id="mce-MMERGE10">
 </div>
 <div class="mc-field-group">
-<label for="mce-COUNTRY">Country </label>
-<select name="COUNTRY" class="" id="mce-COUNTRY">
+<label for="mce-MMERGE14">Country </label>
+<select name="MMERGE14" class="" id="mce-MMERGE14">
 <option value=""></option>
-<option value="United States">United States</option>
-<option value="Canada">Canada</option>
 <option value="Australia">Australia</option>
 <option value="New Zealand">New Zealand</option>
+<option value="United States">United States</option>
+<option value="Canada">Canada</option>
 <option value="Chile">Chile</option>
 <option value="Other">Other</option>
 
 </select>
 </div>
 <div class="mc-field-group">
-<label for="mce-EVENT">Which Wanderlust Festival most interests you? </label>
-<select name="EVENT" class="" id="mce-EVENT">
-<option value=""></option>
-<option value="All Events">All Events</option>
-<option value="Stratton">Stratton</option>
-<option value="Aspen-Snowmass">Aspen-Snowmass</option>
-<option value="Squaw Valley">Squaw Valley</option>
-<option value="Whistler">Whistler</option>
-<option value="Tremblant">Tremblant</option>
-<option value="Austin">Austin</option>
-<option value="O'ahu">O'ahu</option>
-<option value="City Events">City Events</option>
-<option value="Other">Other</option>
-
-</select>
-</div>
-<div class="mc-field-group">
-<label for="mce-SOURCE">How did you hear about us? </label>
-<select name="SOURCE" class="" id="mce-SOURCE">
+<label for="mce-MMERGE15">How did you hear about us? </label>
+<select name="MMERGE15" class="" id="mce-MMERGE15">
 <option value=""></option>
 <option value="A friend told me">A friend told me</option>
 <option value="A teacher told me">A teacher told me</option>
@@ -394,11 +376,10 @@ EOF;
 <div class="response" id="mce-error-response" style="display:none"></div>
 <div class="response" id="mce-success-response" style="display:none"></div>
 </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;"><input type="text" name="b_3252bf638e8eb23d7ebc4af05_e19ac9899d" value=""></div>
-<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+    <div style="position: absolute; left: -5000px;"><input type="text" name="b_f3b1e75b06dbe35398e3f534d_b1e3b433ff" tabindex="-1" value=""></div>
+    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
 </form>
-
- </div>
+</div>
 EOF;
   }
 
